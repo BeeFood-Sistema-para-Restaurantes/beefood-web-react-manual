@@ -23,6 +23,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Manual | Pasta | Status |
 |--------|-------|--------|
 | Caixa (abrir, receber pagamento, consultar) | [`manuais/caixa/`](manuais/caixa/caixa.md) | ✅ Concluído |
+| Reforma Tributária (IBS/CBS) | [`manuais/reforma-tributaria-ibscbs/`](manuais/reforma-tributaria-ibscbs/reforma-tributaria.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
