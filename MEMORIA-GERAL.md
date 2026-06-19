@@ -140,4 +140,6 @@ Obs.: ainda **não existe `spec.md`** no projeto (a regra do projeto pede criar 
   `chore(anotacao): setas em verde e mais sutis`,
   `feat(manual): inicia manual de delivery`.
 - Não versionar segredos novos: usar `.gitignore` (ex.: `credenciais.local.md`, `.env`).
-  > Decisão atual do dono: as senhas das contas de teste FICAM versionadas (repo privado).
+  > **Decisão do dono:** as contas usadas são de uma **empresa de TESTES** (credenciais
+  > descartáveis). Portanto as senhas PODEM ficar versionadas e o repositório PODE ser
+  > **público** sem problema. Não tratar essas credenciais como segredo crítico.
