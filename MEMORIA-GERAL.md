@@ -132,10 +132,10 @@ Obs.: ainda **não existe `spec.md`** no projeto (a regra do projeto pede criar 
 
 - Repositório remoto: `git@github.com:BeeFood-Sistema-para-Restaurantes/beefood-web-react-manual.git` (branch `main`).
 - **REGRA DE OURO:** após **cada ação relevante** (criar/editar manual, gerar imagens,
-  ajustar `annotate.py`, atualizar memórias, etc.), **fazer um commit automaticamente** —
-  sem precisar pedir autorização. Mensagens claras e descritivas em português.
-- O **push** para o GitHub NÃO é automático a cada commit — fazer push quando o usuário pedir
-  ou ao final de um bloco de trabalho.
+  ajustar `annotate.py`, atualizar memórias, etc.), fazer **`commit` + `push` automaticamente**
+  (sempre os dois!) — sem precisar pedir autorização. Mensagens claras e descritivas em português.
+- **Sempre subir tudo:** todo commit deve ser seguido de `git push origin main`. Não deixar
+  commits acumulados só localmente.
 - Padrão de mensagem: verbo no presente + escopo. Ex.:
   `docs(caixa): adiciona etapa de consulta do valor em caixa`,
   `chore(anotacao): setas em verde e mais sutis`,
