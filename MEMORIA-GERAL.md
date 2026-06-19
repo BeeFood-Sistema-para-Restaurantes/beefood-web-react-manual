@@ -24,12 +24,13 @@ C:\beefood-web-react-manual\
 ├─ MEMORIA-GERAL.md            <- esta memória (boas práticas, contas, ferramentas)
 └─ manuais\
    └─ <nome-do-manual>\        <- UMA PASTA POR MANUAL (ex.: caixa, delivery, pdv...)
-      ├─ MEMORIA.md            <- memória detalhada do manual (fluxo, uso, decisões, estado)
-      ├─ <nome>.md             <- o manual final (para o usuário)
-      ├─ fluxo-codigo.md       <- mapeamento técnico (a partir do código)
-      ├─ annotate.py           <- script de anotação (setas/números) deste manual
-      ├─ imagens-puras\        <- screenshots ORIGINAIS (backup, sem edição)
-      └─ imagens-tratadas\     <- screenshots com setas/números (usadas no .md)
+      ├─ MEMORIA.md                 <- memória detalhada do manual (fluxo, uso, decisões, estado)
+      ├─ <nome>.md                  <- o manual final (para o usuário)
+      ├─ fluxo-codigo.md            <- mapeamento técnico (a partir do código)
+      ├─ texto-documentation.ia.md  <- PROMPT pronto p/ criar o manual no app (ver seção 12)
+      ├─ annotate.py                <- script de anotação (setas/números) deste manual
+      ├─ imagens-puras\             <- screenshots ORIGINAIS (backup, sem edição)
+      └─ imagens-tratadas\          <- screenshots com setas/números (usadas no .md)
 ```
 
 **Regra de ouro:** ao iniciar um manual novo, criar uma pasta nova em `manuais\<nome>\`
@@ -114,7 +115,7 @@ Obs.: ainda **não existe `spec.md`** no projeto (a regra do projeto pede criar 
 | Manual | Pasta | Status |
 |--------|-------|--------|
 | Caixa (abrir, receber, consultar) | `manuais\caixa\` | ✅ Concluído |
-| _(próximo)_ | — | a definir |
+| Reforma Tributária (IBS/CBS) | `manuais\reforma-tributaria-ibscbs\` | ✅ Concluído |
 
 ---
 
@@ -143,3 +144,46 @@ Obs.: ainda **não existe `spec.md`** no projeto (a regra do projeto pede criar 
   > **Decisão do dono:** as contas usadas são de uma **empresa de TESTES** (credenciais
   > descartáveis). Portanto as senhas PODEM ficar versionadas e o repositório PODE ser
   > **público** sem problema. Não tratar essas credenciais como segredo crítico.
+
+---
+
+## 12. `texto-documentation.ia.md` — PROMPT pronto por manual (OBRIGATÓRIO)
+
+Para o dono **publicar** um manual, ele cola um **texto de criação** no construtor de documentação do
+app (que gera a página dentro do BeeFood). Por isso, **todo manual concluído DEVE ter** um arquivo
+`texto-documentation.ia.md` na sua pasta, contendo esse texto **pronto para copiar e colar**.
+
+**O que o arquivo deve conter:**
+1. Um bloco **PROMPT (copiar e colar)** com:
+   - **Onde criar o menu** (ex.: "Em **Fiscal**, crie um novo item por último chamado **\<Nome\>**").
+   - Referência ao **projeto/pasta** do manual e ao **`<nome>.md`** (conteúdo na íntegra).
+   - Referência às **`imagens-tratadas\`** (com setas) e **`imagens-puras\`** (contexto).
+   - A instrução: **"faça a apresentação das imagens igual ao menu 'Abrir Caixa'"** (padrão de referência).
+2. **Estrutura da página** (seções, na ordem do `<nome>.md`).
+3. **Tabela de imagens** na ordem, com tipo (contexto / com setas) e legenda.
+4. **Observações de conteúdo** (idioma, destaques obrigatórios, o que NÃO publicar — ex.: `fluxo-codigo.md`).
+
+**Modelo mínimo:**
+
+```md
+# texto-documentation.ia.md — <Nome do Manual>
+
+## PROMPT (copiar e colar)
+Em <Seção>, crie um novo item de menu por último chamado "<Nome>".
+Monte a página com base no projeto anexo beefood-web-react-manual\manuais\<pasta>:
+- Texto/passo a passo em `<nome>.md` (use na íntegra).
+- Imagens em `imagens-tratadas\` (com setas) e `imagens-puras\` (contexto).
+- Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa".
+
+### Estrutura da página
+1. ... (seções na ordem do .md)
+
+### Imagens (na ordem, com legendas)
+| Ordem | Arquivo | Tipo | Legenda |
+| ... |
+
+### Observações
+- pt-BR, didático; destacar obrigatórios; NÃO publicar `fluxo-codigo.md`.
+```
+
+> Referência viva: `manuais\reforma-tributaria-ibscbs\texto-documentation.ia.md`.
