@@ -43,19 +43,19 @@ Cada produto passa a ter **6 campos** novos:
 No menu lateral, acesse **Fiscal → Edição Fiscal**. Essa tela mostra todos os produtos em forma de
 planilha.
 
-![Tela Edição Fiscal](imagens-puras/01-edicao-fiscal-grade.png)
+![Tela Edição Fiscal](imagens-tratadas/01-edicao-fiscal-grade.png)
 
 ### Exibindo as colunas de IBS/CBS (opcional)
 
 Se as colunas de IBS/CBS não estiverem visíveis, abra o **seletor de grupos de colunas** e ative o
 grupo **"IBS/CBS (Reforma)"**.
 
-![Ativar grupo de colunas IBS/CBS](imagens-puras/02-grupos-colunas-ibscbs.png)
+![Ativar grupo de colunas IBS/CBS](imagens-tratadas/02-grupos-colunas-ibscbs.png)
 
 Com o grupo ativo, as colunas **CST IBS/CBS, cClassTrib, % Red. Alíquota, Alíq. IBS UF (%),
 Alíq. IBS Mun. (%) e Alíq. CBS (%)** aparecem na planilha.
 
-![Colunas IBS/CBS na planilha](imagens-puras/03-colunas-ibscbs-grade.png)
+![Colunas IBS/CBS na planilha](imagens-tratadas/03-colunas-ibscbs-grade.png)
 
 ---
 
@@ -115,7 +115,7 @@ A tela de **revisão** mostra exatamente o que será gravado e em quais produtos
 
 Ao final, o sistema confirma quantos produtos foram atualizados.
 
-![Concluído](imagens-puras/10-concluido.png)
+![Concluído](imagens-tratadas/10-concluido.png)
 
 Pronto: o produto já está configurado para a Reforma Tributária. ✅
 

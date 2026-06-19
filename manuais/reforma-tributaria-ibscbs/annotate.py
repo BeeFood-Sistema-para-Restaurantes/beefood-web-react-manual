@@ -44,6 +44,15 @@ def badge(d, cx, cy, r, num, fnt):
     d.text((cx - tw / 2 - bb[0], cy - th / 2 - bb[1]), t, fill=WHITE, font=fnt)
 
 
+def passthrough(name):
+    """Copia uma imagem de CONTEXTO (sem setas) para imagens-tratadas/,
+    para que TODAS as imagens usadas no manual fiquem em imagens-tratadas/."""
+    img = Image.open(os.path.join(SRC, name)).convert("RGB")
+    out = os.path.join(OUT, name)
+    img.save(out)
+    print("OK (contexto)", out)
+
+
 def annotate(name, markers, ring=None):
     img = Image.open(os.path.join(SRC, name)).convert("RGBA")
     W, H = img.size
@@ -70,6 +79,15 @@ def annotate(name, markers, ring=None):
 
 
 # ---------- Configuracoes por imagem ----------
+
+# Imagens de CONTEXTO (sem setas) -> copiadas para imagens-tratadas/
+for _ctx in (
+    "01-edicao-fiscal-grade.png",
+    "02-grupos-colunas-ibscbs.png",
+    "03-colunas-ibscbs-grade.png",
+    "10-concluido.png",
+):
+    passthrough(_ctx)
 
 # 04) Grade: produto marcado + botao EDITAR IMPOSTOS (coords reais via bbox)
 annotate("04-produto-selecionado-editar-impostos.png", [

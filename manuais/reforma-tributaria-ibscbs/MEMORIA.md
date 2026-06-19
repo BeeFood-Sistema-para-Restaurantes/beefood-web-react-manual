@@ -28,8 +28,8 @@ manuais\reforma-tributaria-ibscbs\
 ├─ fluxo-codigo.md            (mapeamento do código: campos, rotas, API, cálculo no emissor)
 ├─ texto-documentation.ia.md  (prompt pronto p/ criar o manual no app)
 ├─ annotate.py                (gera imagens-tratadas a partir de imagens-puras)
-├─ imagens-puras\             (01,02,03,04,05,07,08,09,10 originais — backup)
-└─ imagens-tratadas\          (04,07,08,09 com setas verdes — usadas no manual)
+├─ imagens-puras\             (originais — BACKUP, nunca referenciado)
+└─ imagens-tratadas\          (TODAS as imagens do manual: 04/07/08/09 com setas + 01/02/03/10 de contexto)
 ```
 
 ---
@@ -63,6 +63,7 @@ Ambiente: conta **BeeFood3 - Manual** (`contato@beefood.com.br`), tema claro, pr
 
 > Coordenadas no `annotate.py` (frações 0..1). Reanotar: `python annotate.py`.
 > Coords da grade (04) medidas via bounding box real; coords do modal (07/08/09) estimadas e conferidas visualmente.
+> As imagens de contexto (01/02/03/10) são copiadas para `imagens-tratadas/` pelo `annotate.py` (passthrough), para que o manual e o `texto-documentation.ia.md` referenciem **só** `imagens-tratadas/`.
 
 ---
 

@@ -2,7 +2,8 @@
 
 > **O que é este arquivo:** o **texto pronto** (prompt) para colar no construtor de documentação
 > do app e gerar o manual na interface do BeeFood. Copie o bloco abaixo da linha `---` e cole.
-> Fonte do conteúdo: `reforma-tributaria.md` (texto) + `imagens-tratadas/` (imagens com setas verdes).
+> Fonte do conteúdo: `reforma-tributaria.md` (texto) + **`imagens-tratadas/`** (todas as imagens do manual).
+> Obs.: `imagens-puras/` é só backup — **não referenciar**.
 
 ---
 
@@ -12,7 +13,7 @@ Em **Fiscal**, crie um **novo item de menu por último** chamado **"Reforma Trib
 
 Monte a página com base no projeto anexo `beefood-web-react-manual\manuais\reforma-tributaria-ibscbs`:
 - O texto/passo a passo está em **`reforma-tributaria.md`** (use-o como conteúdo, na íntegra).
-- As imagens estão em **`imagens-tratadas\`** (já com setas verdes e números) e em **`imagens-puras\`** (telas de contexto, sem setas).
+- **Todas as imagens** estão em **`imagens-tratadas\`** (as principais já vêm com setas verdes e números; as de contexto, sem setas). **Use somente esta pasta.**
 - **Faça a apresentação das imagens igual ao menu "Abrir Caixa"** (mesmo tamanho, posição, legendas e estilo).
 
 ### Estrutura da página (seguir o `reforma-tributaria.md`)
@@ -26,16 +27,16 @@ Monte a página com base no projeto anexo `beefood-web-react-manual\manuais\refo
 
 ### Imagens (na ordem, com as legendas)
 
-| Ordem | Arquivo | Tipo | Legenda |
-|------:|---------|------|---------|
-| 1 | `imagens-puras/01-edicao-fiscal-grade.png` | contexto | Tela **Edição Fiscal** (planilha de produtos) |
-| 2 | `imagens-puras/02-grupos-colunas-ibscbs.png` | contexto | Ativando o grupo de colunas **"IBS/CBS (Reforma)"** |
-| 3 | `imagens-puras/03-colunas-ibscbs-grade.png` | contexto | Colunas de IBS/CBS visíveis na planilha |
-| 4 | `imagens-tratadas/04-produto-selecionado-editar-impostos.png` | **com setas** | ① marcar produto · ② botão **EDITAR IMPOSTOS** |
-| 5 | `imagens-tratadas/07-cst-catalogo-carregado.png` | **com setas** | ① busca de CST · ② opção **000 – Tributação integral** |
-| 6 | `imagens-tratadas/08-modal-preenchido.png` | **com setas** | ① CST IBS/CBS · ② cClassTrib · ③ Alíq. IBS UF · ④ Alíq. CBS · ⑤ **PRÓXIMO** |
-| 7 | `imagens-tratadas/09-revisar-alteracoes.png` | **com setas** | ① alterações a aplicar · ② **CONFIRMAR (F2)** |
-| 8 | `imagens-puras/10-concluido.png` | contexto | Tela **"Concluído! 1 produto atualizado"** |
+| Ordem | Arquivo (todos em `imagens-tratadas/`) | Tipo | Legenda |
+|------:|------------------------------------------|------|---------|
+| 1 | `01-edicao-fiscal-grade.png` | contexto | Tela **Edição Fiscal** (planilha de produtos) |
+| 2 | `02-grupos-colunas-ibscbs.png` | contexto | Ativando o grupo de colunas **"IBS/CBS (Reforma)"** |
+| 3 | `03-colunas-ibscbs-grade.png` | contexto | Colunas de IBS/CBS visíveis na planilha |
+| 4 | `04-produto-selecionado-editar-impostos.png` | **com setas** | ① marcar produto · ② botão **EDITAR IMPOSTOS** |
+| 5 | `07-cst-catalogo-carregado.png` | **com setas** | ① busca de CST · ② opção **000 – Tributação integral** |
+| 6 | `08-modal-preenchido.png` | **com setas** | ① CST IBS/CBS · ② cClassTrib · ③ Alíq. IBS UF · ④ Alíq. CBS · ⑤ **PRÓXIMO** |
+| 7 | `09-revisar-alteracoes.png` | **com setas** | ① alterações a aplicar · ② **CONFIRMAR (F2)** |
+| 8 | `10-concluido.png` | contexto | Tela **"Concluído! 1 produto atualizado"** |
 
 ### Observações para o conteúdo
 

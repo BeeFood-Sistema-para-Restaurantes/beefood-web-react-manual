@@ -29,8 +29,8 @@ C:\beefood-web-react-manual\
       ├─ fluxo-codigo.md            <- mapeamento técnico (a partir do código)
       ├─ texto-documentation.ia.md  <- PROMPT pronto p/ criar o manual no app (ver seção 12)
       ├─ annotate.py                <- script de anotação (setas/números) deste manual
-      ├─ imagens-puras\             <- screenshots ORIGINAIS (backup, sem edição)
-      └─ imagens-tratadas\          <- screenshots com setas/números (usadas no .md)
+      ├─ imagens-puras\             <- screenshots ORIGINAIS (BACKUP, nunca referenciado)
+      └─ imagens-tratadas\          <- TODAS as imagens do manual (com setas + contexto). Única pasta referenciada
 ```
 
 **Regra de ouro:** ao iniciar um manual novo, criar uma pasta nova em `manuais\<nome>\`
@@ -40,8 +40,8 @@ com TODAS as subpastas/arquivos acima.
 
 ## 3. Boas práticas de imagens
 
-1. **Sempre salvar a imagem PURA primeiro** em `imagens-puras\` (backup, nunca editar).
-2. Depois gerar a versão **tratada** (setas + números) em `imagens-tratadas\` via `annotate.py`.
+1. **Sempre salvar a imagem PURA primeiro** em `imagens-puras\` (backup, **nunca referenciado** no `.md` nem no `texto-documentation.ia.md`).
+2. Depois gerar a versão **tratada** em `imagens-tratadas\` via `annotate.py`. **`imagens-tratadas\` deve conter TODAS as imagens usadas no manual:** as principais com setas + as de **contexto** (sem setas, via `passthrough()` do `annotate.py`). Assim só essa pasta é referenciada.
 3. Nomeação sequencial por etapa: `NN-descricao.png` (ex.: `03-modal-abrir-caixa.png`).
 4. **Poucas fotos, sem excesso** — apenas as essenciais de cada etapa.
 5. Cada foto essencial leva **setas vermelhas + número** (①②③...). O texto do manual
@@ -157,7 +157,7 @@ app (que gera a página dentro do BeeFood). Por isso, **todo manual concluído D
 1. Um bloco **PROMPT (copiar e colar)** com:
    - **Onde criar o menu** (ex.: "Em **Fiscal**, crie um novo item por último chamado **\<Nome\>**").
    - Referência ao **projeto/pasta** do manual e ao **`<nome>.md`** (conteúdo na íntegra).
-   - Referência às **`imagens-tratadas\`** (com setas) e **`imagens-puras\`** (contexto).
+   - Referência **apenas** a **`imagens-tratadas\`** (contém TODAS as imagens; `imagens-puras\` NÃO é referenciada).
    - A instrução: **"faça a apresentação das imagens igual ao menu 'Abrir Caixa'"** (padrão de referência).
 2. **Estrutura da página** (seções, na ordem do `<nome>.md`).
 3. **Tabela de imagens** na ordem, com tipo (contexto / com setas) e legenda.
@@ -172,7 +172,7 @@ app (que gera a página dentro do BeeFood). Por isso, **todo manual concluído D
 Em <Seção>, crie um novo item de menu por último chamado "<Nome>".
 Monte a página com base no projeto anexo beefood-web-react-manual\manuais\<pasta>:
 - Texto/passo a passo em `<nome>.md` (use na íntegra).
-- Imagens em `imagens-tratadas\` (com setas) e `imagens-puras\` (contexto).
+- TODAS as imagens estão em `imagens-tratadas\` (use só esta pasta).
 - Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa".
 
 ### Estrutura da página
