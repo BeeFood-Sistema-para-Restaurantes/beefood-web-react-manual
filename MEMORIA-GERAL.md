@@ -116,6 +116,7 @@ Obs.: ainda **não existe `spec.md`** no projeto (a regra do projeto pede criar 
 |--------|-------|--------|
 | Caixa (abrir, receber, consultar) | `manuais\caixa\` | ✅ Concluído |
 | Reforma Tributária (IBS/CBS) | `manuais\reforma-tributaria-ibscbs\` | ✅ Concluído |
+| Ativação Aiqfome V2 | `manuais\ativacao-aiqfome\` | ✅ Concluído |
 
 ---
 
