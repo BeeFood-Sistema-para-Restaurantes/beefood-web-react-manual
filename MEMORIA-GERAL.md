@@ -44,8 +44,10 @@ com TODAS as subpastas/arquivos acima.
 2. Depois gerar a versão **tratada** em `imagens-tratadas\` via `annotate.py`. **`imagens-tratadas\` deve conter TODAS as imagens usadas no manual:** as principais com setas + as de **contexto** (sem setas, via `passthrough()` do `annotate.py`). Assim só essa pasta é referenciada.
 3. Nomeação sequencial por etapa: `NN-descricao.png` (ex.: `03-modal-abrir-caixa.png`).
 4. **Poucas fotos, sem excesso** — apenas as essenciais de cada etapa.
-5. Cada foto essencial leva **setas vermelhas + número** (①②③...). O texto do manual
-   referencia cada número e destaca campos **obrigatórios (\*)**.
+5. Cada foto essencial leva **setas verdes + número**. O texto do manual referencia cada número e
+   destaca campos **obrigatórios (\*)**.
+   - **Numeração:** usar SEMPRE números normais **`1.`, `2.`, `3.`** (com ponto). **NÃO** usar
+     números circulados (①②③) nem em parênteses — no texto, nas tabelas e nas legendas.
 6. As imagens em produção saem em **1508×1274** (DPR alto). `annotate.py` usa coordenadas
    em **frações 0..1**, então independe da resolução.
 
@@ -62,7 +64,7 @@ com TODAS as subpastas/arquivos acima.
 
 - Idioma: **português do Brasil**, tom didático para usuário final.
 - Estrutura: Título → objetivo → pré-requisitos → etapas numeradas → dicas.
-- Cada etapa: passos numerados + imagem tratada + **tabela** relacionando Nº da seta → campo → o que fazer.
+- Cada etapa: passos numerados + imagem tratada + **tabela** relacionando **nº da seta** (`1.`, `2.`, `3.` — números normais, nunca ①②③) → campo → o que fazer.
 - Sinalizar claramente o que é **obrigatório**.
 - Caminhos de imagem no `.md` são **relativos** à pasta do manual: `imagens-tratadas/arquivo.png`.
 
