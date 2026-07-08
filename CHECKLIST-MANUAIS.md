@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-06-19 (adicionados #2, #3, #4)
+Última atualização: 2026-07-08 (adicionado #7 Integração Machine)
 
 ## Legenda de status
 
@@ -26,6 +26,7 @@
 | 4 | **Transferência entre caixas** | Transferir valores entre caixas (botão TRANSFERIR — requer permissão) | `manuais/caixa-transferir/` | ☑️ Aprovado | — |
 | 5 | **Reforma Tributária (IBS/CBS)** | Os 6 campos novos, como editá-los na Edição Fiscal e como aparecem na nota (exemplo fake) | `manuais/reforma-tributaria-ibscbs/` | ✅ Concluído | — |
 | 6 | **Ativação Aiqfome V2** | Conectar a loja do Aiqfome ao BeeFood (Store ID → cadastro em Aplicativos → autorização ID Magalu) | `manuais/ativacao-aiqfome/` | ✅ Concluído | — |
+| 7 | **Integração Machine** | Despachar entregas pela central Machine: credenciais, config em Aplicativos → Entrega, despacho (manual/auto), acompanhamento e cancelamento | `manuais/integracao-machine/` | ✅ Concluído | — |
 
 ---
 
@@ -52,3 +53,4 @@
 - 2026-06-19 — **Bloqueio resolvido:** API de produção estava desatualizada; após **logout + login** (limpa o cache de dados do localStorage) os catálogos de CST e cClassTrib passaram a carregar. Fluxo de edição validado de ponta a ponta no produto "10 mini churros" (CST 000, cClassTrib 000001, IBS UF 0,10, CBS 0,90 → **1 produto atualizado**). Novas imagens 07–10 salvas em `imagens-puras/`.
 - 2026-06-19 — **#5 Concluído.** Geradas imagens anotadas (setas verdes 04, 07, 08, 09) e escrito `reforma-tributaria.md` (passo a passo + exemplo fictício de como aparece na nota). Aguardando publicação do dono.
 - 2026-06-26 — **#6 Concluído.** Importado de `beefood-server-aiqfome/docs`, organizado no padrão (manual + MEMORIA + texto-documentation.ia + imagens-puras/tratadas). Texto melhorado conforme as imagens (rótulos exatos: SALVAR (F2), painel Geraldo, Status automático, etc.). Imagens já vieram prontas (sem `annotate.py`).
+- 2026-07-08 — **#7 Concluído.** Importado de `beefood3-server-entregas/docs/machine`, organizado no padrão (manual + MEMORIA + texto-documentation.ia + fluxo-codigo + imagens-puras/tratadas). Base: `README.md` (manual) + APIs (`api-credencial.md`, `api-pedido-cancelamento.md`, SQL do webhook) consolidadas no `fluxo-codigo.md`. 7 imagens já prontas (destaques verdes), apenas copiadas. Aguardando publicação do dono.

@@ -25,6 +25,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Caixa (abrir, receber pagamento, consultar) | [`manuais/caixa/`](manuais/caixa/caixa.md) | ✅ Concluído |
 | Reforma Tributária (IBS/CBS) | [`manuais/reforma-tributaria-ibscbs/`](manuais/reforma-tributaria-ibscbs/reforma-tributaria.md) | ✅ Concluído |
 | Ativação Aiqfome V2 | [`manuais/ativacao-aiqfome/`](manuais/ativacao-aiqfome/ativacao-aiqfome.md) | ✅ Concluído |
+| Integração Machine (entregas) | [`manuais/integracao-machine/`](manuais/integracao-machine/integracao-machine.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
