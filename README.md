@@ -26,6 +26,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Reforma Tributária (IBS/CBS) | [`manuais/reforma-tributaria-ibscbs/`](manuais/reforma-tributaria-ibscbs/reforma-tributaria.md) | ✅ Concluído |
 | Ativação Aiqfome V2 | [`manuais/ativacao-aiqfome/`](manuais/ativacao-aiqfome/ativacao-aiqfome.md) | ✅ Concluído |
 | Integração Machine (entregas) | [`manuais/integracao-machine/`](manuais/integracao-machine/integracao-machine.md) | ✅ Concluído |
+| Integração 99 Entrega | [`manuais/integracao-99-entrega/`](manuais/integracao-99-entrega/integracao-99-entrega.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
