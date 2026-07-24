@@ -122,6 +122,7 @@ Obs.: ainda **não existe `spec.md`** no projeto (a regra do projeto pede criar 
 | Integração Machine | `manuais\integracao-machine\` | ✅ Concluído |
 | Integração 99 Entrega | `manuais\integracao-99-entrega\` | ✅ Concluído |
 | Integração Repediu | `manuais\integracao-repediu\` | ✅ Concluído |
+| Integração FoodCRM | `manuais\integracao-foodcrm\` | ✅ Concluído |
 
 ---
 

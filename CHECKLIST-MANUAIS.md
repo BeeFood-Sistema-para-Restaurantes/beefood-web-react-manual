@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-07-24 (adicionado #9 Integração Repediu)
+Última atualização: 2026-07-24 (adicionado #10 Integração FoodCRM)
 
 ## Legenda de status
 
@@ -29,6 +29,7 @@
 | 7 | **Integração Machine** | Despachar entregas pela central Machine: credenciais, config em Aplicativos → Entrega, despacho (manual/auto), acompanhamento e cancelamento | `manuais/integracao-machine/` | ✅ Concluído | — |
 | 8 | **Integração 99 Entrega** | Cadastrar cartão + credenciais (Modo de desenvolvedor) na 99, conectar em Aplicativos → Entregas, despachar com cotação, acompanhar e cancelar | `manuais/integracao-99-entrega/` | ✅ Concluído | — |
 | 9 | **Integração Repediu** | Gerar Client ID/Secret (Repediu → Integrações) e Write Key (Repediu → Web/App Analytics), preencher em Aplicativos → Marketing e CRM → Repediu → Configurar e salvar (Tracker de Vendas + Cardápio Digital) | `manuais/integracao-repediu/` | ✅ Concluído | — |
+| 10 | **Integração FoodCRM** | Gerar a API Key/Token (FoodCRM → Integrações → Acessar a documentação) e cadastrar por cardápio em Aplicativos → Marketing e CRM → FoodCRM (envio automático das vendas diariamente de madrugada) | `manuais/integracao-foodcrm/` | ✅ Concluído | — |
 
 ---
 
@@ -58,3 +59,4 @@
 - 2026-07-08 — **#7 Concluído.** Importado de `beefood3-server-entregas/docs/machine`, organizado no padrão (manual + MEMORIA + texto-documentation.ia + fluxo-codigo + imagens-puras/tratadas). Base: `README.md` (manual) + APIs (`api-credencial.md`, `api-pedido-cancelamento.md`, SQL do webhook) consolidadas no `fluxo-codigo.md`. 7 imagens já prontas (destaques verdes), apenas copiadas. Aguardando publicação do dono.
 - 2026-07-22 — **#8 Concluído.** Importado de `beefood3-server-entregas/docs/nn-entregas`. Manual **já vinha escrito** (`onboarding-99-entrega.md`) — copiado como está para `integracao-99-entrega.md` **sem reescrever** (único ajuste: caminhos `imagens/` → `imagens-tratadas/`). APIs (`api-cotacao.md` + `schema.sql`) consolidadas no `fluxo-codigo.md`. 15 imagens já prontas (setas/caixas verdes), apenas copiadas. Aguardando publicação do dono.
 - 2026-07-24 — **#9 Concluído.** Produzido do zero. Fluxo validado ao vivo: **Repediu** (`app.repediu.com.br`, login `integracao@beefood.com.br` — exigiu captcha + 2FA destravados pelo dono) para gerar Client ID/Secret (Integrações → Fontes de dados → BeeFood) e Write Key (Web/App Analytics → Configuração → BeeFood → Gerar chave); **BeeFood** (sandbox) em Aplicativos → Marketing e CRM → Repediu → Configurar, preenchendo os dois trackers e **salvando de verdade** (ambos ativos). **Descoberta:** os painéis do Repediu são modais laterais (~30% dir.) — para o screenshot capturar é preciso `browser_navigate` completo (não só cliques SPA) e navegador em foco. 10 imagens (setas verdes via `annotate.py`, exceto 08 contexto). Chaves mantidas visíveis (conta de teste). Aguardando publicação do dono.
+- 2026-07-24 — **#10 Concluído.** Produzido do zero (após `git pull` do `beefood-web-react`, que trouxe o código novo do FoodCRM). Fluxo validado ao vivo: **FoodCRM** (`app.foodcrm.com.br`, login `beefood@foodcrm.com.br`, conta "BeeFood Teste") → **Integrações** → **Acessar a documentação** → copiar **API Key/Token** (`fcrm_...`); **BeeFood** (sandbox) em Aplicativos → Marketing e CRM → FoodCRM → cardápio → **+ Adicionar** → colar API key → Ativo → **SALVAR** (salvo de verdade, status Ativo). **Descobertas:** "Acessar a documentação" abre um **drawer lateral** (não página externa); o BeeFood pede **só** a `api_key` (Código da loja não é usado); existe um card "BeeFood" reverso (webhook) que **não** foi documentado. Integração = **envio automático das vendas, diário de madrugada**. 6 imagens (setas verdes via `annotate.py`), FoodCRM capturado em **tema claro**. Aguardando publicação do dono.
