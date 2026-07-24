@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-07-22 (adicionado #8 Integração 99 Entrega)
+Última atualização: 2026-07-24 (adicionado #9 Integração Repediu)
 
 ## Legenda de status
 
@@ -28,6 +28,7 @@
 | 6 | **Ativação Aiqfome V2** | Conectar a loja do Aiqfome ao BeeFood (Store ID → cadastro em Aplicativos → autorização ID Magalu) | `manuais/ativacao-aiqfome/` | ✅ Concluído | — |
 | 7 | **Integração Machine** | Despachar entregas pela central Machine: credenciais, config em Aplicativos → Entrega, despacho (manual/auto), acompanhamento e cancelamento | `manuais/integracao-machine/` | ✅ Concluído | — |
 | 8 | **Integração 99 Entrega** | Cadastrar cartão + credenciais (Modo de desenvolvedor) na 99, conectar em Aplicativos → Entregas, despachar com cotação, acompanhar e cancelar | `manuais/integracao-99-entrega/` | ✅ Concluído | — |
+| 9 | **Integração Repediu** | Gerar Client ID/Secret (Repediu → Integrações) e Write Key (Repediu → Web/App Analytics), preencher em Aplicativos → Marketing e CRM → Repediu → Configurar e salvar (Tracker de Vendas + Cardápio Digital) | `manuais/integracao-repediu/` | ✅ Concluído | — |
 
 ---
 
@@ -56,3 +57,4 @@
 - 2026-06-26 — **#6 Concluído.** Importado de `beefood-server-aiqfome/docs`, organizado no padrão (manual + MEMORIA + texto-documentation.ia + imagens-puras/tratadas). Texto melhorado conforme as imagens (rótulos exatos: SALVAR (F2), painel Geraldo, Status automático, etc.). Imagens já vieram prontas (sem `annotate.py`).
 - 2026-07-08 — **#7 Concluído.** Importado de `beefood3-server-entregas/docs/machine`, organizado no padrão (manual + MEMORIA + texto-documentation.ia + fluxo-codigo + imagens-puras/tratadas). Base: `README.md` (manual) + APIs (`api-credencial.md`, `api-pedido-cancelamento.md`, SQL do webhook) consolidadas no `fluxo-codigo.md`. 7 imagens já prontas (destaques verdes), apenas copiadas. Aguardando publicação do dono.
 - 2026-07-22 — **#8 Concluído.** Importado de `beefood3-server-entregas/docs/nn-entregas`. Manual **já vinha escrito** (`onboarding-99-entrega.md`) — copiado como está para `integracao-99-entrega.md` **sem reescrever** (único ajuste: caminhos `imagens/` → `imagens-tratadas/`). APIs (`api-cotacao.md` + `schema.sql`) consolidadas no `fluxo-codigo.md`. 15 imagens já prontas (setas/caixas verdes), apenas copiadas. Aguardando publicação do dono.
+- 2026-07-24 — **#9 Concluído.** Produzido do zero. Fluxo validado ao vivo: **Repediu** (`app.repediu.com.br`, login `integracao@beefood.com.br` — exigiu captcha + 2FA destravados pelo dono) para gerar Client ID/Secret (Integrações → Fontes de dados → BeeFood) e Write Key (Web/App Analytics → Configuração → BeeFood → Gerar chave); **BeeFood** (sandbox) em Aplicativos → Marketing e CRM → Repediu → Configurar, preenchendo os dois trackers e **salvando de verdade** (ambos ativos). **Descoberta:** os painéis do Repediu são modais laterais (~30% dir.) — para o screenshot capturar é preciso `browser_navigate` completo (não só cliques SPA) e navegador em foco. 10 imagens (setas verdes via `annotate.py`, exceto 08 contexto). Chaves mantidas visíveis (conta de teste). Aguardando publicação do dono.
