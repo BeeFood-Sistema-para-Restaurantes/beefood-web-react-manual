@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-04 (reimport #11 Integração Uber Direct — fonte atualizada)
+Última atualização: 2026-08-04 (2º reimport #11 Integração Uber Direct — +passos de despacho/cancelamento, 27 imagens)
 
 ## Legenda de status
 
@@ -30,7 +30,7 @@
 | 8 | **Integração 99 Entrega** | Cadastrar cartão + credenciais (Modo de desenvolvedor) na 99, conectar em Aplicativos → Entregas, despachar com cotação, acompanhar e cancelar | `manuais/integracao-99-entrega/` | ✅ Concluído | — |
 | 9 | **Integração Repediu** | Gerar Client ID/Secret (Repediu → Integrações) e Write Key (Repediu → Web/App Analytics), preencher em Aplicativos → Marketing e CRM → Repediu → Configurar e salvar (Tracker de Vendas + Cardápio Digital) | `manuais/integracao-repediu/` | ✅ Concluído | — |
 | 10 | **Integração FoodCRM** | Gerar a API Key/Token (FoodCRM → Integrações → Acessar a documentação) e cadastrar por cardápio em Aplicativos → Marketing e CRM → FoodCRM (envio automático das vendas diariamente de madrugada) | `manuais/integracao-foodcrm/` | ✅ Concluído | — |
-| 11 | **Integração Uber Direct** | Criar conta Uber + Uber Direct, cadastrar cartão e webhook, copiar a Chave de autenticação do webhook + credenciais (ID do usuário/ID de cliente/Client Secret) em Desenvolvedor → Chaves de API e colar em Aplicativos → Entregas → Uber Direct | `manuais/integracao-uber-direct/` | ✅ Concluído | — |
+| 11 | **Integração Uber Direct** | Criar conta Uber + Uber Direct, cadastrar cartão e webhook, copiar a Chave de autenticação do webhook + credenciais (ID do usuário/ID de cliente/Client Secret), colar em Aplicativos → Entregas → Uber Direct e usar no dia a dia (despachar pedido, acompanhar e cancelar) | `manuais/integracao-uber-direct/` | ✅ Concluído | — |
 
 ---
 

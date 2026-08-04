@@ -163,15 +163,71 @@ Revise e clique em **Salvar**.
 
 ![Selecionar Uber Direct](imagens-tratadas/uber-direct-21.png)
 
+Parabéns! A partir de agora a integração BeeFood e Uber Direct está ativa e você já pode começar a enviar os seus pedidos.
+
+---
+
+### 11. Despache o primeiro pedido
+
+Abra a tela de delivery e localize o pedido desejado.
+
+![Buscar o pedido na lista](imagens-tratadas/uber-direct-22.png)
+
+Clique em **Adicionar Entregador**.
+
+![Adicionar entregador](imagens-tratadas/uber-direct-23.png)
+
+Selecione a opção **Uber Direct**.
+
+![Selecionar Uber Direct](imagens-tratadas/uber-direct-24.png)
+
+O sistema realizará automaticamente uma cotação com a distância, tempo estimado de entrega e valor do frete.
+Para prosseguir, basta clicar no botão **Confirmar**, conforme destacado na imagem abaixo.
+
+![Visualizar cotação e confirmar](imagens-tratadas/uber-direct-25.png)
+
+O pedido é enviado à Uber com endereço e cliente já preenchidos, e fica vinculado ao **Uber Direct**.
+
+![Pedido vinculado ao Uber Direct](imagens-tratadas/uber-direct-26.png)
+
+---
+
+### 12. Acompanhe e, se precisar, cancele
+
+Depois do despacho, o pedido fica vinculado ao Uber Direct. O status no BeeFood acompanha a operação via webhook.
+
+Para cancelar, use a opção de cancelamento no campo **Entregador** (conforme a tela abaixo) — o cancelamento é enviado à Uber e a associação com a integração é desfeita.
+
+![Cancelar entrega no Uber Direct](imagens-tratadas/uber-direct-27.png)
+
+**Nota:** o cancelamento só é possível enquanto a corrida ainda puder ser cancelada na Uber (por exemplo, antes da entrega estar concluída). Se a Uber recusar, o BeeFood mantém o vínculo até um cancelamento bem-sucedido.
+
+---
+
 ## Pronto! O que você pode fazer agora
 
 Com tudo configurado, seu restaurante pode:
 
-- **Chamar entregadores** da Uber pelos pedidos do BeeFood.
-- **Acompanhar** onde está o entregador e o status da entrega.
-- **Cancelar** uma entrega em andamento, quando necessário.
+- **Despachar** entregadores da Uber pelos pedidos do BeeFood.
+- **Acompanhar** o status da entrega (incluindo atualizações via webhook).
+- **Cancelar** uma entrega, quando necessário.
 
 O pagamento das corridas é feito pela Uber direto no cartão que você cadastrou. O BeeFood não cobra as entregas em seu lugar.
+
+## Como funciona no dia a dia
+
+1. O pedido entra no BeeFood (site, iFood, balcão ou outro canal).
+2. Você avança o pedido no fluxo normal da cozinha.
+3. Na hora da entrega, o BeeFood solicita a **cotação** à Uber e, em seguida, cria a corrida.
+4. A Uber aloca um entregador.
+5. As mudanças de status voltam sozinhas para o BeeFood e atualizam o pedido, WhatsApp e marketplaces quando aplicável.
+
+## Status — o que você vê no BeeFood
+
+| Situação na Uber (resumo) | O que você vê no BeeFood |
+|---------------------------|--------------------------|
+| Entregador a caminho / em entrega | Pedido em **Entrega** |
+| Entrega concluída | Pedido **Entregue** |
 
 **Resumo do que você fez**
 
@@ -181,6 +237,7 @@ O pagamento das corridas é feito pela Uber direto no cartão que você cadastro
 4. Uber Direct — configurou as **notificações** em Desenvolvedor → Webhooks
 5. Uber Direct — copiou os **dados da conta** em Desenvolvedor → Chaves de API
 6. BeeFood — abriu **Aplicativos → Entregas → Uber Direct** e colou os dados
+7. BeeFood — despachou um pedido (cotação → Confirmar) e, se precisar, cancelou no campo Entregador
 
 ## Dicas importantes
 

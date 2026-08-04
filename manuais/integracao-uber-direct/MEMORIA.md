@@ -23,12 +23,18 @@ tudo em **Aplicativos → Entregas → Uber Direct**.
     `schema-add-marketplace-ids.sql`) — consolidadas no `fluxo-codigo.md`.
   - Refiz imagens (limpei puras+tratadas e recopiei), reescrevi o manual, o `texto-documentation.ia.md`
     (21 imagens) e o `fluxo-codigo.md`.
+- **04/08/2026 (2º reimport — "uber direct foi atualizado, faça o merge novamente"):** fonte atualizada de novo:
+  - **12 passos** — novos **passo 11: despachar o primeiro pedido** (cotação → Confirmar) e
+    **passo 12: acompanhar/cancelar** no campo Entregador.
+  - Novas seções: **"Como funciona no dia a dia"** e **"Status — o que você vê no BeeFood"** (tabela).
+  - Conjunto de imagens virou **`01`..`27`** (novas `22`..`27` do fluxo de despacho/cancelamento).
+  - Refiz imagens (limpei puras+tratadas e recopiei 27), reescrevi o manual e o `texto-documentation.ia.md` (27 imagens).
 
 ## Estrutura
 - `integracao-uber-direct.md` — manual (conteúdo do preview, verbatim; só caminhos de imagem ajustados).
 - `fluxo-codigo.md` — técnico/uso interno (rotas, tabelas, OAuth, webhook HMAC + signing key, modelo de negócio).
-- `texto-documentation.ia.md` — prompt (lista os 21 arquivos de imagem + o manual).
-- `imagens-puras/` (backup) e `imagens-tratadas/` (fonte do manual) — 21 imagens cada.
+- `texto-documentation.ia.md` — prompt (lista os 27 arquivos de imagem + o manual).
+- `imagens-puras/` (backup) e `imagens-tratadas/` (fonte do manual) — 27 imagens cada.
 
 ## Pontos-chave
 - **Cada loja = conta Uber + Uber Direct + cartão próprios** (não compartilhar entre filiais).

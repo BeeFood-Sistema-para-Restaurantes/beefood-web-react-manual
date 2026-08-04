@@ -16,7 +16,7 @@ chamado **"Configurar Uber Direct no BeeFood"**.
 1. **Conteúdo do manual (use na íntegra, sem reescrever):**
    `beefood-web-react-manual/manuais/integracao-uber-direct/integracao-uber-direct.md`
 
-2. **Imagens (use estas 21, na ordem de aparição no manual):**
+2. **Imagens (use estas 27, na ordem de aparição no manual):**
    - `beefood-web-react-manual/manuais/integracao-uber-direct/imagens-tratadas/uber-direct-01.png`
    - `beefood-web-react-manual/manuais/integracao-uber-direct/imagens-tratadas/uber-direct-02.png`
    - `beefood-web-react-manual/manuais/integracao-uber-direct/imagens-tratadas/uber-direct-03.png`
@@ -38,13 +38,19 @@ chamado **"Configurar Uber Direct no BeeFood"**.
    - `beefood-web-react-manual/manuais/integracao-uber-direct/imagens-tratadas/uber-direct-19.png`
    - `beefood-web-react-manual/manuais/integracao-uber-direct/imagens-tratadas/uber-direct-20.png`
    - `beefood-web-react-manual/manuais/integracao-uber-direct/imagens-tratadas/uber-direct-21.png`
+   - `beefood-web-react-manual/manuais/integracao-uber-direct/imagens-tratadas/uber-direct-22.png`
+   - `beefood-web-react-manual/manuais/integracao-uber-direct/imagens-tratadas/uber-direct-23.png`
+   - `beefood-web-react-manual/manuais/integracao-uber-direct/imagens-tratadas/uber-direct-24.png`
+   - `beefood-web-react-manual/manuais/integracao-uber-direct/imagens-tratadas/uber-direct-25.png`
+   - `beefood-web-react-manual/manuais/integracao-uber-direct/imagens-tratadas/uber-direct-26.png`
+   - `beefood-web-react-manual/manuais/integracao-uber-direct/imagens-tratadas/uber-direct-27.png`
 
 **NÃO leia** outros arquivos do projeto (ex.: `fluxo-codigo.md`, `MEMORIA*.md`, `imagens-puras/`).
 
 **Como montar a página:**
 - Use o conteúdo do `integracao-uber-direct.md` **exatamente como está** (seções, textos e tabelas) — o
   texto já está pronto, **não reescrever nem interpretar**.
-- Insira as 21 imagens na ordem acima, com as legendas indicadas na tabela no fim deste arquivo.
+- Insira as 27 imagens na ordem acima, com as legendas indicadas na tabela no fim deste arquivo.
 - **Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa"** (mesmo tamanho, posição, legenda e estilo).
 - Idioma **português do Brasil**, tom didático (usuário final / restaurante).
 - Mantenha em destaque: **cada loja tem a própria conta e o próprio cartão** na Uber; o cadastro é no site
@@ -81,3 +87,9 @@ chamado **"Configurar Uber Direct no BeeFood"**.
 | 19 | `uber-direct-19.png` | BeeFood → menu **Aplicativos** |
 | 20 | `uber-direct-20.png` | Seção **Entregas → Uber Direct** |
 | 21 | `uber-direct-21.png` | Preencher os campos e **Salvar** no BeeFood |
+| 22 | `uber-direct-22.png` | Delivery → localizar o pedido |
+| 23 | `uber-direct-23.png` | Pedido → **Adicionar Entregador** |
+| 24 | `uber-direct-24.png` | Selecionar **Uber Direct** |
+| 25 | `uber-direct-25.png` | Cotação (distância/tempo/frete) → **Confirmar** |
+| 26 | `uber-direct-26.png` | Pedido vinculado ao **Uber Direct** |
+| 27 | `uber-direct-27.png` | Cancelar entrega no campo **Entregador** |

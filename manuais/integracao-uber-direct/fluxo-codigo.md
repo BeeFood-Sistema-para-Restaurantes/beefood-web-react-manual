@@ -71,10 +71,13 @@ Docs detalhadas no fonte: `api-credencial.md`, `api-conta.md`, `api-entrega.md`,
   `onboarding-uber-direct-preview.md` (plain markdown). Para o repo usei o **preview (plain markdown)**,
   por casar com o padrão dos demais manuais; ajustei só os caminhos `imagens/` → `imagens-tratadas/`.
   Nenhum texto reinterpretado.
-- **Mudança nesta versão:** passou a ter **10 passos** (novo passo 8 = copiar a Chave de autenticação do
-  webhook) e o conjunto de imagens virou **`01`..`21`** (não há mais `00`).
+- **Mudança nesta versão:** passou a ter **12 passos** — além de configurar as credenciais (passos 1–10),
+  o manual agora cobre o **uso no dia a dia**: passo 11 = despachar o pedido (cotação → Confirmar) e
+  passo 12 = acompanhar/cancelar no campo Entregador. Conjunto de imagens virou **`01`..`27`**
+  (novas `22`..`27` do fluxo de despacho/cancelamento). Também foram acrescentadas as seções
+  "Como funciona no dia a dia" e "Status — o que você vê no BeeFood".
 
 ## 8. Imagens
 
-21 imagens (`uber-direct-01`..`21`). Já vinham prontas (com destaques) — apenas copiadas para
-`imagens-puras/` (backup) e `imagens-tratadas/` (fonte única do manual). Ordem = 01→21.
+27 imagens (`uber-direct-01`..`27`). Já vinham prontas (com destaques) — apenas copiadas para
+`imagens-puras/` (backup) e `imagens-tratadas/` (fonte única do manual). Ordem = 01→27.
