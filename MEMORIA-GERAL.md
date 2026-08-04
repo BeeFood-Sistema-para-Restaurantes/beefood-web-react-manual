@@ -123,6 +123,7 @@ Obs.: ainda **não existe `spec.md`** no projeto (a regra do projeto pede criar 
 | Integração 99 Entrega | `manuais\integracao-99-entrega\` | ✅ Concluído |
 | Integração Repediu | `manuais\integracao-repediu\` | ✅ Concluído |
 | Integração FoodCRM | `manuais\integracao-foodcrm\` | ✅ Concluído |
+| Integração Uber Direct | `manuais\integracao-uber-direct\` | ✅ Concluído |
 
 ---
 

@@ -29,6 +29,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Integração 99 Entrega | [`manuais/integracao-99-entrega/`](manuais/integracao-99-entrega/integracao-99-entrega.md) | ✅ Concluído |
 | Integração Repediu (CRM) | [`manuais/integracao-repediu/`](manuais/integracao-repediu/integracao-repediu.md) | ✅ Concluído |
 | Integração FoodCRM (CRM) | [`manuais/integracao-foodcrm/`](manuais/integracao-foodcrm/integracao-foodcrm.md) | ✅ Concluído |
+| Integração Uber Direct (entregas) | [`manuais/integracao-uber-direct/`](manuais/integracao-uber-direct/integracao-uber-direct.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
