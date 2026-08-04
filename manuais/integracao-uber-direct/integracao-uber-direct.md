@@ -112,51 +112,56 @@ No menu lateral do painel Uber Direct, clique em **Desenvolvedor**.
 
 ![Clicar em Desenvolvedor no painel Uber Direct](imagens-tratadas/uber-direct-13.png)
 
-Abra a aba **Webhooks**.
+Abra a aba **Webhooks** e clique em **+ Criar webhook**.
 
 ![Abrir a aba Webhooks](imagens-tratadas/uber-direct-14.png)
 
-Clique em **+ Criar webhook**.
-
-![Clicar em Criar webhook](imagens-tratadas/uber-direct-15.png)
-
-Na janela **Crie um endpoint**, preencha o campo **URL do Webhook** com exatamente o link abaixo e marque o evento **event.delivery_status**, conforme a imagem.
+Na janela **Crie um endpoint**, preencha o campo **URL do Webhook** com exatamente o link abaixo e marque o evento **event.delivery_status**, conforme a imagem. Revise e clique em **Salvar**
 
 `https://entregas.beefoodapi.be/api/uberDirect/webhook`
 
-![Preencher a URL do webhook e selecionar o evento](imagens-tratadas/uber-direct-16.png)
+![Preencher a URL do webhook e selecionar o evento](imagens-tratadas/uber-direct-15.png)
 
-Revise e clique em **Salvar**.
+### 8. Copie a **Chave de autenticação** do webhook
 
-![Clicar em Salvar webhook](imagens-tratadas/uber-direct-17.png)
+Clique na opção de 3 pontinhos conforme exibido na imagem e, em seguida, clique em **Editar**
 
-### 8. Copie os dados da sua conta
+![Clique na opção de 3 pontinhos](imagens-tratadas/uber-direct-16.png)
+
+Agora, clique na opção **Copiar**, conforme indicado na imagem. 
+
+Guarde esse valor. Ele será usado para fazer o cadastro na plataforma da BeeFood
+
+![Clique na opção Copiar](imagens-tratadas/uber-direct-17.png)
+
+### 9. Copie os dados da sua conta
 
 Ainda em **Desenvolvedor**, abra a aba **Chaves de API**.
 
-![Abrir a aba Chaves de API](imagens-tratadas/uber-direct-18.png)
-
 Ao lado de cada informação, clique no botão **Copiar** para guardar estes três valores — você vai colá-los no BeeFood na próxima etapa:
 
-- **ID do usuário** → corresponde ao **Customer ID** no BeeFood.
-- **ID de cliente do desenvolvedor** → corresponde ao **Client ID** no BeeFood.
-- **Client Secret** → corresponde ao **Client Secret** no BeeFood (clique em *Mostrar* antes de copiar, se necessário).
+- **ID do usuário**.
+- **ID de cliente do desenvolvedor**.
+- **Client Secret** (clique em *Mostrar* antes de copiar, se necessário).
 
-![Copiar dados de acesso da conta Uber Direct](imagens-tratadas/uber-direct-20.png)
+![Abrir a aba Chaves de API](imagens-tratadas/uber-direct-18.png)
 
-### 9. Cole os dados no BeeFood
+### 10. Cole os dados no BeeFood
 
 Agora volte ao BeeFood. No menu lateral, clique em **Aplicativos**.
 
-![Acessar Aplicativos no menu lateral do BeeFood](imagens-tratadas/uber-direct-00.png)
+![Acessar Aplicativos no menu lateral do BeeFood](imagens-tratadas/uber-direct-19.png)
 
-Na seção **Entregas**, selecione **Uber Direct** e preencha os três campos com os valores que você copiou:
+Na seção **Entregas**, selecione **Uber Direct**
 
-- **Customer ID** — cole o **ID do usuário**.
-- **Client ID** — cole o **ID de cliente do desenvolvedor**.
-- **Client Secret** — cole o **Client Secret**.
+![Selecionar Uber Direct](imagens-tratadas/uber-direct-20.png)
 
-Clique em **Salvar**.
+Na tela exibida, preencha os campos com os valores que você copiou:
+É essencial que os valores sejam preenchidos nos campos corretos
+
+Revise e clique em **Salvar**.
+
+![Selecionar Uber Direct](imagens-tratadas/uber-direct-21.png)
 
 ## Pronto! O que você pode fazer agora
 
@@ -179,8 +184,6 @@ O pagamento das corridas é feito pela Uber direto no cartão que você cadastro
 
 ## Dicas importantes
 
-> - Use **conta e cartão separados** para cada filial — não compartilhe entre lojas diferentes.
 > - Mantenha o cartão sempre válido para não travar novas entregas.
 > - Se trocar de cartão, atualize em **Gerenciamento → Pagamento** no site da Uber antes de pedir novas entregas.
 > - Se o login não funcionar, verifique se o e-mail ou telefone já não está em uso em outra conta Uber.
-> - Cadastre o **endereço real** de onde o entregador busca o pedido — endereço errado atrapalha a entrega.
