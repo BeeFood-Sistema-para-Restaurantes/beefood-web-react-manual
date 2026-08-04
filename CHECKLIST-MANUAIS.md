@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-04 (2º reimport #11 Integração Uber Direct — +passos de despacho/cancelamento, 27 imagens)
+Última atualização: 2026-08-04 (#11 Integração Uber Direct recriado do zero — 12 passos, 27 imagens; card agora ATIVO no BeeFood)
 
 ## Legenda de status
 

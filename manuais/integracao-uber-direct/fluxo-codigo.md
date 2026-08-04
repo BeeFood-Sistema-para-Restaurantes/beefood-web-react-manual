@@ -1,83 +1,97 @@
-# fluxo-codigo.md — Integração Uber Direct (uso interno, NÃO publicar)
+# fluxo-codigo.md — Integração Uber Direct (uso interno / técnico)
 
-> Atualizado em 04/08/2026 com as docs de API do `beefood3-server-entregas` (`docs/uber-direct`).
-> Modelo A: **cada filial tem a própria conta na Uber + cartão**. O BeeFood só solicita, acompanha e cancela.
+> Documento técnico de apoio. **Não** é o manual do usuário. Mapeia onde a integração vive no
+> código, as rotas do servidor e o modelo de dados. Base: `beefood-web-react` (git pull 04/08/2026)
+> e `beefood3-server-entregas/docs/uber-direct`.
 
-## 1. Onde fica no app (BeeFood front)
+## 1. Onde fica no BeeFood (front — `beefood-web-react`)
 
-- Menu **Aplicativos** (`src/pages/Aplicativos.tsx`) → seção **Entrega** → card **Uber Direct**
-  (`src/data/appCategories.ts`, id `uber-direct`, ícone `src/assets/apps/uberdirect.png`).
-- **Estado no `git pull` de 04/08/2026:** card ainda marcado `disabled: true, badge: 'Em breve!'` em
-  `appCategories.ts` (liberação depende de release/flag). O backend do fluxo já existe.
-- Flag de credencial ativa: `entregaUberDirectAtiva` em `src/hooks/useCredenciaisEntrega.ts`
-  (`GET /api/entregas/credencialAtiva/{empresaID}/{filialID}/{usuarioID}/1`).
+- **Card do app:** `src/data/appCategories.ts` → seção **Entregas**
+  `{ id: 'uber-direct', name: 'Uber Direct', description: 'Solicite entregadores', isNew: true }`.
+  O card está **ativo** (não é mais `disabled: 'Em breve!'`).
+- **Abertura do modal:** `src/pages/Aplicativos.tsx` → ao clicar no card `uber-direct`,
+  `setUberDirectModalOpen(true)` renderiza `<UberDirectModal />`. Também na versão mobile
+  (`src/components/mobile/aplicativos/MobileAplicativosPage.tsx`).
+- **Modal de credencial:** `src/components/aplicativos/UberDirectModal.tsx`.
+  Campos exibidos (todos obrigatórios):
+  - **ID do usuário** → `customer_id`
+  - **ID de cliente do desenvolvedor** → `client_id`
+  - **Client Secret** → `client_secret` (campo com olho de mostrar/ocultar)
+  - **Chave de autenticação** → `webhook_signing_key` (campo com olho de mostrar/ocultar)
+  - **Integração ativa** (switch) → `ativo` (1/0)
+  - Salvar com botão **SALVAR** ou tecla **F2**; fechar com **ESC**.
+  - Botão **AJUDA** abre `https://ajuda3.beefood.com.br/integracao-uber-direct` (destino deste manual).
+- **Hook de credencial:** `src/hooks/useUberDirectCredencial.ts` (`fetchConfig`/`saveConfig`).
+- **Service de entrega:** `src/services/entrega/uberdirect.ts` (`buscarCotacao`, `solicitarPedido`,
+  `cancelar`). Fluxo de despacho usa cotação → solicitação, nunca `solicitar` direto.
+- **Flag de credencial ativa:** `entregaUberDirectAtiva` em `src/hooks/useCredenciaisEntrega.ts`,
+  `src/utils/entregaCache.ts` e `src/services/entrega/types.ts`.
+- **Ícone:** `src/assets/apps/uberdirect.png`.
 
-## 2. O que o usuário cola no BeeFood
+## 2. Rotas do servidor (`beefood3-server-entregas`, prefixo `/api/uberDirect`)
 
-Do painel Uber Direct em **Desenvolvedor → Chaves de API** (passo 9) + **Chave de autenticação do
-webhook** (passo 8 — novidade desta versão):
+| Método | Rota | Uso |
+|--------|------|-----|
+| GET | `/api/entregas/credencialAtiva/{empresaID}/{filialID}/{usuarioID}/{cripto?}` | Retorna `entregaUberDirectAtiva` |
+| GET | `/api/uberDirect/credencial/{empresaID}/{filialID}/{usuarioID}` | Consulta a credencial (usado pelo `fetchConfig`) |
+| POST | `/api/uberDirect/credencial` | Insere/atualiza a credencial (usado pelo `saveConfig`) |
+| POST | `/api/uberDirect/testarConexao/{empresaID}/{filialID}/{usuarioID}` | Testa OAuth com a Uber |
+| POST | `/api/uberDirect/resetCache` | Invalida cache (Basic Auth, server-to-server) |
+| POST | `/api/uberDirect/cotacao/{empresaID}/{filialID}/{usuarioID}/{preVendaID}` | Cotação da entrega |
+| POST | `/api/uberDirect/pedido` | Cria a entrega (a partir da cotação) |
+| POST | `/api/uberDirect/pedidoCancelar/{empresaID}/{filialID}/{usuarioID}/{preVendaID}` | Cancela a entrega |
+| POST | `/api/uberDirect/webhook` | Recebe `event.delivery_status` (assinatura HMAC) |
 
-| Campo (banco) | Origem no Uber Direct |
-|---------------|-----------------------|
-| `customer_id` | **ID do usuário** |
-| `client_id` | **ID de cliente do desenvolvedor** |
-| `client_secret` | **Client Secret** (usar "Mostrar" antes de copiar) |
-| `webhook_signing_key` | **Chave de autenticação do webhook** (3 pontinhos → Editar → Copiar) — **obrigatória** p/ validar o HMAC |
+Auth do front/apps: **Bearer JWT** (exige `empresaID` e `usuarioID` batendo com o token).
 
-## 3. Webhook
+## 3. Comunicação com a Uber
 
-- Endpoint cadastrado no painel Uber: **`https://entregas.beefoodapi.be/api/uberDirect/webhook`**, evento **event.delivery_status**.
-- Rota no servidor: `POST /api/uberDirect/webhook` — sem JWT/Basic; autenticidade por **HMAC SHA-256**
-  usando a `webhook_signing_key`. Move o pedido no kanban (`ENTREGA`/`ENTREGUE`).
-- Toda ocorrência é auditada em `entregas.uber_direct_webhook` (gravada antes de validar).
+- OAuth: `POST https://auth.uber.com/oauth/v2/token`, grant `client_credentials`, scope `eats.deliveries`.
+- API base: `https://api.uber.com/v1/`.
+  - Cotação: `POST customers/{customer_id}/delivery_quotes`
+  - Criar entrega: `POST customers/{customer_id}/deliveries`
+  - Cancelar: `POST customers/{customer_id}/deliveries/{delivery_id}/cancel`
+- `access_token` é cacheado em `uber_direct_credencial` com `expires_at`; renovado sob demanda
+  (margem de 5 min). Não há rota específica de token.
 
-## 4. Rotas do servidor (`beefood3-server-entregas`, prefixo `/api/uberDirect`)
+## 4. Webhook e autenticação
 
-| Método | Rota | Auth | Uso |
-|--------|------|------|-----|
-| GET | `/api/entregas/credencialAtiva/{empresaID}/{filialID}/{usuarioID}/{cripto?}` | Bearer JWT | flag ativa |
-| GET | `/api/uberDirect/credencial/{empresaID}/{filialID}/{usuarioID}` | Bearer JWT | ler credencial |
-| POST | `/api/uberDirect/credencial` | Bearer JWT | inserir/atualizar credencial |
-| POST | `/api/uberDirect/testarConexao/{empresaID}/{filialID}/{usuarioID}` | Bearer JWT | testar OAuth |
-| POST | `/api/uberDirect/resetCache` | Basic Auth (`beetech:...`) | invalidar cache |
-| POST | `/api/uberDirect/cotacao/{empresaID}/{filialID}/{usuarioID}/{preVendaID}` | Bearer JWT | cotação |
-| POST | `/api/uberDirect/pedido` | Bearer JWT | criar entrega |
-| POST | `/api/uberDirect/pedidoCancelar/{empresaID}/{filialID}/{usuarioID}/{preVendaID}` | Bearer JWT | cancelar |
-| POST | `/api/uberDirect/webhook` | HMAC | status → kanban |
+- Endpoint: `https://entregas.beefoodapi.be/api/uberDirect/webhook`, evento **event.delivery_status**.
+- Autenticidade validada por **HMAC SHA-256** usando a **`webhook_signing_key`** — por isso o passo 8
+  do manual pede copiar a "Chave de autenticação" do webhook e colá-la no BeeFood.
+- Cada evento é gravado em `uber_direct_webhook` **antes** de qualquer validação (auditoria).
+- Move o pedido no kanban: `ENTREGA` (a caminho) e `ENTREGUE` (concluído).
 
-Docs detalhadas no fonte: `api-credencial.md`, `api-conta.md`, `api-entrega.md`, `api-webhook.md`, `README.md`, `schema-add-marketplace-ids.sql`.
+## 5. Modelo de dados (server)
 
-## 5. Comunicação com a Uber
+- **`uber_direct_credencial`** (1 por filial): `empresaID`, `filialID`, `customer_id`,
+  `client_id`, `client_secret`, `access_token`/`expires_at` (cache), `webhook_signing_key`
+  (obrigatória p/ HMAC), `sandbox`, `ativo`.
+- **`uber_direct_pedido`** (1 por entrega): ids do pedido BeeFood + ids de marketplaces,
+  `delivery_id`, `quote_id`, `tracking_url`, `status_uber`, `fee` (em reais), `currency`,
+  `cancelado`, `recebido`, `finalizado`.
+- **`uber_direct_webhook`**: auditoria (`delivery_id`, `customer_id`, `kind`, `jsonPayload`).
 
-- Auth: `POST https://auth.uber.com/oauth/v2/token`, grant `client_credentials`, scope `eats.deliveries`.
-- API base: `https://api.uber.com/v1/`. Endpoints: `delivery_quotes`, `deliveries`, `deliveries/{id}/cancel`.
-- `access_token` + `expires_at` ficam em `uber_direct_credencial`; renovação sob demanda (margem de 5 min).
-- `fee` da Uber vem em **centavos** → gravado em reais (÷100). `sandbox=1` usa entregador-robô (test_specifications).
+## 6. Credencial considerada ativa
 
-## 6. Modelo de dados (servidor)
+Precisa de: linha com `ativo = 1` no cache, `customer_id` preenchido e `client_id` + `client_secret`
+preenchidos. Faltando algo: `{ resultado: false, mensagem: "Credencial Uber Direct inativa ou incompleta..." }`.
 
-- `entregas.uber_direct_credencial` — 1 linha por filial: `empresaID/filialID`, `customer_id`,
-  `client_id/client_secret`, `access_token/expires_at`, **`webhook_signing_key`**, `sandbox`, `ativo`.
-- `entregas.uber_direct_pedido` — 1 linha por entrega: ids BeeFood + ids de marketplaces
-  (`nnID`, `keetaId`, `aiqfomeId`, etc.), `delivery_id`, `quote_id`, `tracking_url`, `status_uber`,
-  `fee`, `cancelado`, `recebido`, `finalizado`.
-- `entregas.uber_direct_webhook` — auditoria de eventos.
-- Logs em `beetech.procInsert_log2` (módulo `Delivery`).
+## 7. Modelo de negócio
 
-## 7. Origem do conteúdo (manual)
+Modelo A: **cada filial tem a própria conta Uber + Uber Direct + cartão**. A Uber cobra as corridas
+direto no cartão da loja; o BeeFood apenas solicita, acompanha e cancela. Não há cobrança
+centralizada por parceiro.
 
-- Importado de `C:\projetos\beefood3-server-entregas\docs\uber-direct` (atualizado 04/08/2026).
-- Dois textos prontos: `onboarding-uber-direct.md` (MDX Steps/Callout) e
-  `onboarding-uber-direct-preview.md` (plain markdown). Para o repo usei o **preview (plain markdown)**,
-  por casar com o padrão dos demais manuais; ajustei só os caminhos `imagens/` → `imagens-tratadas/`.
-  Nenhum texto reinterpretado.
-- **Mudança nesta versão:** passou a ter **12 passos** — além de configurar as credenciais (passos 1–10),
-  o manual agora cobre o **uso no dia a dia**: passo 11 = despachar o pedido (cotação → Confirmar) e
-  passo 12 = acompanhar/cancelar no campo Entregador. Conjunto de imagens virou **`01`..`27`**
-  (novas `22`..`27` do fluxo de despacho/cancelamento). Também foram acrescentadas as seções
-  "Como funciona no dia a dia" e "Status — o que você vê no BeeFood".
+## 8. Origem do manual
 
-## 8. Imagens
+- Importado de `C:\projetos\beefood3-server-entregas\docs\uber-direct`.
+- Texto: `onboarding-uber-direct-preview.md` (plain markdown), usado **verbatim** como
+  `integracao-uber-direct.md` (só caminhos `imagens/` → `imagens-tratadas/`).
+- Docs de API da fonte (`README.md`, `api-conta/credencial/entrega/webhook.md`,
+  `schema-add-marketplace-ids.sql`) consolidadas aqui.
+
+## 9. Imagens
 
 27 imagens (`uber-direct-01`..`27`). Já vinham prontas (com destaques) — apenas copiadas para
 `imagens-puras/` (backup) e `imagens-tratadas/` (fonte única do manual). Ordem = 01→27.
