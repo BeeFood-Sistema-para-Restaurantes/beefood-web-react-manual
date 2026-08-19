@@ -121,6 +121,11 @@ Caixa usado: **caixa1**, aberto em **17/07/2026 11:59**.
 - **Imagem 08 (calculadora):** a lista de valores rola e o primeiro lançamento (R$ 50,00)
   ficou fora da área visível. O texto do manual explica isso. Não foi possível recapturar
   porque, com o caixa fechado, a calculadora fica desabilitada (`readOnly`).
+- **CPF desfocado na imagem 04:** a tela de pagamento mostra o campo **Documento** do cliente
+  (dado pessoal, ainda que de um cliente de teste). A região é desfocada pelo `annotate.py`,
+  via parâmetro `blur=` da função `annotate`, antes de desenhar as setas — o rótulo
+  "Documento" continua visível, só o número fica ilegível. Se outras telas trouxerem dado
+  pessoal, use o mesmo parâmetro.
 
 ---
 

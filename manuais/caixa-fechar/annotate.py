@@ -9,7 +9,7 @@ Nos modais, os badges ficam na margem escurecida do overlay e as setas apontam
 para dentro - assim nenhum numero cobre valor ou rotulo da tela.
 """
 import os, math
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 # Pastas relativas a este manual: imagens puras (backup) -> imagens tratadas (com setas)
 SRC = "imagens-puras"
@@ -57,8 +57,20 @@ def badge(d, cx, cy, r, num, fnt):
     d.text((cx - tw / 2 - bb[0], cy - th / 2 - bb[1]), t, fill=WHITE, font=fnt)
 
 
-def annotate(name, markers, ring=None):
+def desfocar(img, regioes):
+    """Borra regioes (fracoes) antes de anotar - usado para dado pessoal em tela."""
+    W, H = img.size
+    for (fx, fy, fw, fh) in regioes:
+        caixa = (int(fx * W), int(fy * H), int((fx + fw) * W), int((fy + fh) * H))
+        recorte = img.crop(caixa).filter(ImageFilter.GaussianBlur(radius=max(3, int(W * 0.005))))
+        img.paste(recorte, caixa)
+    return img
+
+
+def annotate(name, markers, ring=None, blur=None):
     img = Image.open(os.path.join(SRC, name)).convert("RGBA")
+    if blur:
+        img = desfocar(img, blur)
     W, H = img.size
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(overlay)
@@ -104,10 +116,11 @@ annotate("03-vendas-pendentes.png", [
 ])
 
 # Etapa 2 - pagamento da venda registrado
+# O CPF do cliente de teste aparece no campo Documento -> desfocado antes de anotar.
 annotate("04-pagamento-venda.png", [
     (1, 0.835, 0.395, 0.930, 0.330),   # Pagamentos realizados / Pago
     (2, 0.625, 0.791, 0.930, 0.830),   # Pagamento completo
-])
+], blur=[(0.745, 0.102, 0.108, 0.036)])
 
 # Etapa 2 - a venda volta para a lista como PAGA
 annotate("05-venda-paga.png", [
