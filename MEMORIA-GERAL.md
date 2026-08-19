@@ -128,6 +128,14 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
 - Em contas que NÃO sejam sandbox: **não** finalizar vendas/pagamentos reais sem autorização.
 - Nunca fazer ações destrutivas/irreversíveis sem confirmar com o usuário.
 
+### Técnica do ensaio (para passos irreversíveis)
+
+Muitas telas só gravam no clique final (fechar caixa, conferir, confirmar). Nesses casos,
+**execute o fluxo inteiro uma vez sem o clique final**, capture tudo, revise as imagens e só
+então repita para valer. Foi assim nos manuais de fechar caixa e de segunda conferência, e
+evitou queimar cenários que não têm volta. Ao automatizar, mantenha o passo irreversível num
+script separado dos idempotentes.
+
 ---
 
 ## 8. Stack do projeto (código) — referência
@@ -175,6 +183,7 @@ existe" **ou** "não liberado". Para liberar, são necessárias as duas coisas d
 |--------|-------|--------|
 | Caixa (abrir, receber, consultar) | `manuais\caixa\` | ✅ Concluído |
 | Fechar caixa (vendas pendentes, 1ª conferência, quebra) | `manuais\caixa-fechar\` | ✅ Concluído |
+| Segunda conferência (dupla checagem, resolve a quebra) | `manuais\caixa-conferencia-2\` | ✅ Concluído |
 | Reforma Tributária (IBS/CBS) | `manuais\reforma-tributaria-ibscbs\` | ✅ Concluído |
 | Ativação Aiqfome V2 | `manuais\ativacao-aiqfome\` | ✅ Concluído |
 | Integração Machine | `manuais\integracao-machine\` | ✅ Concluído |

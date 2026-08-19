@@ -7,13 +7,18 @@ Status: ✅ **Concluído** — Última atualização: 2026-08-19
 
 ---
 
-## ⚠️ NÃO FAÇA A 2ª CONFERÊNCIA NESTE CAIXA
+## ℹ️ A 2ª conferência deste caixa JÁ FOI FEITA
 
-O **caixa1 fechado em 19/08/2026 10:18** (quebra de **R$ 2,55**) foi deixado de propósito
-**sem a segunda conferência**, porque ele é o cenário do **próximo manual** (dupla checagem).
+O **caixa1** foi fechado com quebra de **R$ 2,55** para servir de cenário ao manual da dupla
+checagem — e esse manual **já foi produzido**: ver `../caixa-conferencia-2/`.
 
-Se alguém clicar em **Adicionar 2ª Conferência** nesse caixa, o cenário é perdido: o caixa
-ganha o cadeado, a conferência trava e não há como refazer sem reabrir e fechar de novo.
+Estado atual do caixa1: **fechado e conferido** (cadeado), Conf. Saldo Final R$ 1.911,98 e
+Quebra de Caixa R$ 0,00. Não é possível fazer outra conferência nele.
+
+> Se um manual futuro precisar de um caixa fechado **sem** conferência, será necessário abrir e
+> fechar outro caixa. O horário de fechamento exibido também mudou de 10:18 para **10:54**,
+> porque a confirmação da 2ª conferência regrava esse campo — por isso as imagens deste manual
+> mostram 10:18 e as do #12 mostram 10:54.
 
 ---
 
