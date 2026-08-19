@@ -76,7 +76,13 @@ com TODAS as subpastas/arquivos acima.
 | Conta | Login | Senha | Observação |
 |-------|-------|-------|------------|
 | beefood1 | `beefood1` | `beefood123` | Conta de teste inicial (tem caixas históricos). |
-| **BeeFood3 - Manual** | `contato@beefood.com.br` | `1q2w3e4r` | **Sandbox dedicado aos manuais.** Usar esta. |
+| **BeeFood3 - Manual** | `contato@beefood.com.br` | `1q2w3e4r` | **Sandbox dedicado aos manuais.** Usar esta. Usuário **Principal**, Gerente, grupo **Administrador2**. |
+| caixa.manual | `caixa.manual` | `manual123` | Usuário **restrito** criado em 19/08/2026 para o manual de restrições de caixa. Grupo **Acesso Funcionário**, **sem** função Gerente. Serve para ver o produto com permissões reduzidas. |
+
+> **Atenção ao testar permissão no login principal:** o usuário Principal **não** ignora as
+> restrições do grupo (comprovado). Logo, desligar uma permissão do grupo **Administrador2**
+> afeta você. Nunca desligue **Usuários** nesse grupo — você perde a própria tela de
+> permissões e não há como religar de dentro do sistema.
 
 > Login em `/login` (campos "Login de acesso" e "Senha", botão **ENTRAR**). Demora ~2-4s.
 > **Trocar de conta:** menu de usuário (ícone pessoa, canto sup. direito) → **Sair**.
@@ -175,6 +181,37 @@ importar manuais de integração) responde **404** — e 404 aqui é ambíguo: s
 existe" **ou** "não liberado". Para liberar, são necessárias as duas coisas descritas acima
 (GitHub App + `repositoryDependencies`).
 
+### Referências no Bitbucket (backend)
+
+`repositoryDependencies` **não serve** para Bitbucket: ele só amplia o token do GitHub. Para
+clonar um repositório do Bitbucket no Cloud Agent:
+
+1. No Bitbucket, em **Repository settings → Security → Access tokens**, criar um
+   **Repository Access Token** com escopo **Repositories: Read** (só leitura, e limitado
+   àquele repositório).
+2. No **Cursor Dashboard → Cloud Agents → Secrets**, guardar o valor como `BITBUCKET_TOKEN`.
+3. Adicionar a entrada em `REFERENCIAS_BITBUCKET`, no `.cursor/install.sh`, no formato
+   `workspace/repositorio#branch` (o `#branch` é opcional). O clone tenta os dois usuários
+   possíveis (`x-token-auth` para Access Token, `x-bitbucket-api-token-auth` para Atlassian
+   API token) e depois **regrava o remote sem o token**.
+
+Sem o secret, o bloco é ignorado e o setup segue normalmente.
+
+| Máquina | Caminho do backend |
+|---------|--------------------|
+| Cloud Agent | `~/refs/beetech-server-node-2.0` (branch `beefood-web-react`, clone raso, só leitura) |
+
+> **Secret só entra em VM nova.** O `BITBUCKET_TOKEN` é injetado no boot do ambiente. Criar o
+> secret no meio de uma sessão não o disponibiliza para a sessão em andamento — o clone só
+> acontece no install da **próxima** sessão.
+
+> **Cuidado com repositório público.** Este repositório de manuais é público. Secret de
+> ambiente em repositório público é risco real: quem puder abrir um Cloud Agent nele recebe a
+> variável injetada — e o Cursor pode até bloquear a injeção por padrão nesse caso. Antes de
+> cadastrar um token do backend, **torne este repositório privado**. A decisão de deixá-lo
+> público (seção 11) valia para credenciais descartáveis de teste, não para acesso ao
+> código-fonte do servidor.
+
 ---
 
 ## 9. Índice de manuais
@@ -184,6 +221,7 @@ existe" **ou** "não liberado". Para liberar, são necessárias as duas coisas d
 | Caixa (abrir, receber, consultar) | `manuais\caixa\` | ✅ Concluído |
 | Fechar caixa (vendas pendentes, 1ª conferência, quebra) | `manuais\caixa-fechar\` | ✅ Concluído |
 | Segunda conferência (dupla checagem, resolve a quebra) | `manuais\caixa-conferencia-2\` | ✅ Concluído |
+| Restrições de caixa (grupo de acesso) | `manuais\caixa-restricoes\` | 🔨 Em execução (estudo pronto) |
 | Reforma Tributária (IBS/CBS) | `manuais\reforma-tributaria-ibscbs\` | ✅ Concluído |
 | Ativação Aiqfome V2 | `manuais\ativacao-aiqfome\` | ✅ Concluído |
 | Integração Machine | `manuais\integracao-machine\` | ✅ Concluído |
