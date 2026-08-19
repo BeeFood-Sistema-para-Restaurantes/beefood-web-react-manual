@@ -124,6 +124,15 @@ Cursor** (configurações da org) **e** listado em `repositoryDependencies` no
 gerado para o ambiente. Faltando qualquer uma das duas, o clone falha com
 `Repository not found`.
 
+**O escopo extra vale só durante o install.** Já em sessão, o token do agente volta a enxergar
+apenas o repositório de manuais: `gh` e `git fetch` dão 404 no `beefood-web-react`. Na prática:
+
+- o código fica **congelado** no commit baixado durante o install;
+- para pegar código novo, é preciso **uma sessão nova** (o install roda de novo);
+- não adianta tentar clonar no meio do trabalho — a janela já fechou.
+
+Nada disso atrapalha escrever manual: o código está em disco, e é só leitura mesmo.
+
 ---
 
 ## 9. Índice de manuais
