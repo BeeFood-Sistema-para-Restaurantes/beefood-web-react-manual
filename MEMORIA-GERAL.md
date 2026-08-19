@@ -184,11 +184,20 @@ clonar um repositório do Bitbucket no Cloud Agent:
    **Repository Access Token** com escopo **Repositories: Read** (só leitura, e limitado
    àquele repositório).
 2. No **Cursor Dashboard → Cloud Agents → Secrets**, guardar o valor como `BITBUCKET_TOKEN`.
-3. Adicionar o slug `workspace/repositorio` em `REFERENCIAS_BITBUCKET`, no
-   `.cursor/install.sh`. O clone usa `https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/...`
-   e depois **regrava o remote sem o token**.
+3. Adicionar a entrada em `REFERENCIAS_BITBUCKET`, no `.cursor/install.sh`, no formato
+   `workspace/repositorio#branch` (o `#branch` é opcional). O clone tenta os dois usuários
+   possíveis (`x-token-auth` para Access Token, `x-bitbucket-api-token-auth` para Atlassian
+   API token) e depois **regrava o remote sem o token**.
 
 Sem o secret, o bloco é ignorado e o setup segue normalmente.
+
+| Máquina | Caminho do backend |
+|---------|--------------------|
+| Cloud Agent | `~/refs/beetech-server-node-2.0` (branch `beefood-web-react`, clone raso, só leitura) |
+
+> **Secret só entra em VM nova.** O `BITBUCKET_TOKEN` é injetado no boot do ambiente. Criar o
+> secret no meio de uma sessão não o disponibiliza para a sessão em andamento — o clone só
+> acontece no install da **próxima** sessão.
 
 > **Cuidado com repositório público.** Este repositório de manuais é público. Secret de
 > ambiente em repositório público é risco real: quem puder abrir um Cloud Agent nele recebe a

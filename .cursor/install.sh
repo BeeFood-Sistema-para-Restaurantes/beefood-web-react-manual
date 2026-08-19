@@ -22,15 +22,25 @@ REFERENCIAS=(
 )
 
 # Referencias hospedadas no Bitbucket (backend). "repositoryDependencies" nao
-# funciona aqui: ele so amplia o token do GitHub. Por isso o clone usa um
-# Repository Access Token do proprio Bitbucket, com escopo Repositories: Read,
-# exposto ao ambiente como o secret BITBUCKET_TOKEN (Cursor Dashboard ->
-# Cloud Agents -> Secrets).
+# funciona aqui: ele so amplia o token do GitHub. Por isso o clone usa um token
+# do proprio Bitbucket, exposto ao ambiente como o secret BITBUCKET_TOKEN
+# (Cursor Dashboard -> Cloud Agents -> Secrets).
+#
+# Formato de cada entrada: "workspace/repositorio#branch" (o "#branch" e
+# opcional; sem ele o clone traz a branch default).
 #
 # Sem o secret configurado o bloco e ignorado: o setup continua e os manuais
 # seguem sendo escritos so com o front.
 REFERENCIAS_BITBUCKET=(
-  # "workspace/repositorio"
+  "beetechbr/beetech-server-node-2.0#beefood-web-react"
+)
+
+# O usuario da URL depende do tipo de token: "x-token-auth" para Access Token de
+# repositorio/projeto/workspace, "x-bitbucket-api-token-auth" para os novos
+# Atlassian API tokens. Tentamos os dois, na ordem.
+USUARIOS_BITBUCKET=(
+  "x-token-auth"
+  "x-bitbucket-api-token-auth"
 )
 
 clonar_ou_atualizar() {
@@ -50,23 +60,59 @@ clonar_ou_atualizar() {
   fi
 }
 
-clonar_bitbucket() {
-  local slug="$1"
-  local destino="${REFS_DIR}/$(basename "${slug}")"
-  local url_limpa="https://bitbucket.org/${slug}.git"
-  local url_auth="https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/${slug}.git"
+# Roda o git escondendo o token de qualquer mensagem impressa.
+git_sem_vazar() {
+  local saida status=0
+  saida=$("$@" 2>&1) || status=$?
+  printf '%s\n' "${saida}" | sed "s|${BITBUCKET_TOKEN}|***|g"
+  return "${status}"
+}
 
-  if [ -d "${destino}/.git" ]; then
-    echo "--> atualizando (bitbucket) ${slug}"
-    git -C "${destino}" fetch --depth 1 "${url_auth}" HEAD
-    git -C "${destino}" reset --hard FETCH_HEAD
-  else
-    echo "--> clonando (bitbucket) ${slug}"
-    git clone --depth 1 "${url_auth}" "${destino}"
-  fi
-  # O token nunca fica gravado no remote: ele expira e ainda vaza em qualquer
-  # "git remote -v" dentro da sessao.
-  git -C "${destino}" remote set-url origin "${url_limpa}"
+bitbucket_slug() { printf '%s' "${1%%#*}"; }
+
+bitbucket_branch() {
+  local entrada="$1"
+  [ "${entrada}" = "${entrada%%#*}" ] || printf '%s' "${entrada#*#}"
+}
+
+bitbucket_destino() { printf '%s' "${REFS_DIR}/$(basename "$(bitbucket_slug "$1")")"; }
+
+clonar_bitbucket() {
+  local entrada="$1"
+  local slug branch destino url_limpa
+  slug="$(bitbucket_slug "${entrada}")"
+  branch="$(bitbucket_branch "${entrada}")"
+  destino="$(bitbucket_destino "${entrada}")"
+  url_limpa="https://bitbucket.org/${slug}.git"
+
+  # O tipo do token define o usuario da URL, entao tentamos as duas formas.
+  local usuario url_auth
+  for usuario in "${USUARIOS_BITBUCKET[@]}"; do
+    url_auth="https://${usuario}:${BITBUCKET_TOKEN}@bitbucket.org/${slug}.git"
+
+    if [ -d "${destino}/.git" ]; then
+      echo "--> atualizando (bitbucket) ${slug}${branch:+ [${branch}]} como ${usuario}"
+      if git_sem_vazar git -C "${destino}" fetch --depth 1 "${url_auth}" "${branch:-HEAD}" \
+        && git -C "${destino}" reset --hard FETCH_HEAD >/dev/null; then
+        git -C "${destino}" remote set-url origin "${url_limpa}"
+        return 0
+      fi
+    else
+      echo "--> clonando (bitbucket) ${slug}${branch:+ [${branch}]} como ${usuario}"
+      if git_sem_vazar git clone --depth 1 ${branch:+--branch "${branch}"} \
+        "${url_auth}" "${destino}"; then
+        # O token nunca fica gravado no remote: ele expira e ainda vaza em
+        # qualquer "git remote -v" dentro da sessao.
+        git -C "${destino}" remote set-url origin "${url_limpa}"
+        return 0
+      fi
+      # Um clone parcial atrapalha a proxima tentativa.
+      rm -rf "${destino}"
+    fi
+  done
+
+  echo "    nenhuma forma de autenticacao funcionou para ${slug}"
+  return 1
 }
 
 mkdir -p "${REFS_DIR}"
@@ -109,7 +155,8 @@ python3 -c 'import playwright; from importlib.metadata import version; print("Pl
 sem_acesso=0
 for slug in "${REFERENCIAS[@]}" "${REFERENCIAS_BITBUCKET[@]:-}"; do
   [ -n "${slug}" ] || continue
-  destino="${REFS_DIR}/$(basename "${slug}")"
+  # Entradas do Bitbucket podem trazer "#branch", que nao faz parte do caminho.
+  destino="${REFS_DIR}/$(basename "${slug%%#*}")"
   if [ ! -d "${destino}/.git" ]; then
     echo "FALHA ${slug} (sem acesso)"
     sem_acesso=$((sem_acesso + 1))
