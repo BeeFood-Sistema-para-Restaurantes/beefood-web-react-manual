@@ -3,8 +3,9 @@
 > Memória detalhada deste manual. **O estudo está concluído**; falta produzir.
 > Ver também: `../../MEMORIA-GERAL.md`, `../caixa-fechar/` e `../caixa-conferencia-2/`.
 
-Status: 🔨 **Em execução** — estudo concluído em 2026-08-19 (incluindo a leitura do backend,
-que fechou a última pendência); produção aguardando aprovação do plano.
+Status: ✅ **Concluído** em 2026-08-19. Estudo fechado com a leitura do backend, plano aprovado
+pelo dono e manual produzido (20 imagens, `caixa-restricoes.md`, `fluxo-codigo.md` e
+`texto-documentation.ia.md`).
 
 ---
 
@@ -224,8 +225,8 @@ letras, senão o leitor liga o parâmetro e acha que restringiu o caixa.
 | Grupo dele | **Acesso Funcionário** (`grupoAcessoID` 71880) |
 | Função Gerente | **não** marcada (de propósito — é o que esconde Cancelamentos) |
 | Usuário admin | `contato@beefood.com.br` / `1q2w3e4r` — **Principal**, Gerente, grupo **Administrador2** (`grupoAcessoID` 71879) |
-| Estado dos switches | **tudo religado** ao final do estudo |
-| Sujeira conhecida | um acréscimo de **R$ 0,01** com observação "teste de permissao - manual" no caixa aberto |
+| Estado dos switches | **tudo religado**, conferido item a item nos dois grupos ao final |
+| Sujeira conhecida | um acréscimo de **R$ 0,01** com observação "teste de permissao - manual" no caixa aberto; um **caixa fechado** (caixaID 967801, terminal "caixa 2") aberto e fechado pelo `caixa.manual` em 19/08 para a restrição 7 — saldo zero, sem operações, sem quebra |
 | IDs úteis | `empresaID` 38311, `filialID` 39202, usuário admin **88711**, usuário restrito **122583** |
 | Caixas cadastrados | **caixa1** (satID 6193, ativo) e **caixa 2** (satID 39516, inativo) — os dois com Usuário Fixo `contato@beefood.com.br` |
 | Parâmetro Caixa por Usuário | **ligado** (estado original, restaurado ao final) |
@@ -297,9 +298,9 @@ O cache de permissões do usuário logado fica no `localStorage`, chave `config_
 
 ---
 
-## 7. Plano de produção (proposto em 19/08/2026 — aguardando aprovação)
+## 7. Produção (aprovada e executada em 19/08/2026)
 
-Estudo fechado. O plano abaixo foi apresentado ao dono; **nada é produzido antes do "pode ir"**.
+O plano abaixo foi apresentado ao dono, aprovado ("pode ir") e executado.
 
 ### 7.1. Estrutura do `caixa-restricoes.md`
 
@@ -330,29 +331,66 @@ Decisões de conteúdo:
 - Avisos de segurança que entram em caixa de destaque: nunca desligar **Usuários** no próprio
   grupo; a tela de Parâmetros salva sozinha; o Principal não tem bypass.
 
-### 7.2. Imagens (12, com folga para 14)
+### 7.2. Imagens — 20 (o plano previa 12 a 14)
 
-| # | Imagem | Tipo |
-|---|--------|------|
-| 01 | Configuração → Usuários → aba Grupos de Acesso | contexto |
-| 02 | Modal *Editar Grupo* com os itens de caixa expandidos | setas |
-| 03 | Caixa completo (referência para todos os "depois") | contexto |
-| 04 | Switch "Abrir e Fechar Caixa" desligado | setas |
-| 05 | Menu lateral sem o item Caixa | setas |
-| 06 | Switch "Visualizar Valores de Referência" desligado | setas |
-| 07 | Listagem sem as colunas de valor + Resumo vazio | setas |
-| 08 | Conferência cega (fechamento sem Entrada/Saída/Saldo/Diferença) | setas |
-| 09 | Listagem só com o caixa aberto (sem "Visualizar Caixas Fechados") | setas |
-| 10 | Modal do caixa sem TRANSFERIR/Cancelamentos/Excluídos | setas |
-| 11 | Configuração → Caixa com o campo **Usuário Fixo** | setas |
-| 12 | Caixa do usuário restrito mostrando só o dele | setas |
+Passaram de 14 porque **quase todo efeito só fica evidente contra uma referência**. Três
+imagens existem só para comparar (`03`, `05`, `08`, `13`), e a restrição 2 sozinha precisou de
+três telas para mostrar o efeito completo.
 
-### 7.3. Ordem de execução
+| # | Imagem | Serve a |
+|---|--------|---------|
+| 01 | aba Grupos de Acesso | onde se configura |
+| 02 | modal do grupo com os 4 switches de caixa | configurar 1, 2, 3 e 4 |
+| 03 | caixa completo | referência |
+| 04 | menu do funcionário sem o item Caixa | efeito 1 |
+| 05 | modal do caixa completo | referência |
+| 06 | listagem sem as colunas de valor | efeito 2 |
+| 07 | painel Resumo vazio | efeito 2 |
+| 08 | conferência completa | referência |
+| 09 | conferência cega | efeito 2 |
+| 10 | listagem só com o caixa aberto | efeito 3 |
+| 11 | modal sem TRANSFERIR/Cancelamentos/Excluídos | efeito 4 |
+| 12 | switch Cadastro de Caixas | configurar 5 |
+| 13 | menu Configuração **com** o item Caixa | referência |
+| 14 | menu Configuração **sem** o item Caixa | efeito 5 |
+| 15 | cadastro do usuário (Função Gerente) | configurar 6 |
+| 16 | caixa sem a aba Cancelamentos | efeito 6 |
+| 17 | Configuração → Caixa (coluna Usuário Fixo) | configurar 7 |
+| 18 | modal Editar Caixa com o Usuário Fixo | configurar 7 |
+| 19 | caixa do funcionário só com o dele | efeito 7 |
+| 20 | parâmetro Caixa por Usuário | o aviso |
 
-1. Capturar tudo com o ambiente **intacto** (imagens 01, 02, 03, 11).
-2. Para cada restrição: desligar → capturar → **religar** → conferir que voltou.
-3. O bloco 7 exige abrir um caixa com o `caixa.manual` antes de vincular o Usuário Fixo, senão
-   a tela dele fica vazia em vez de mostrar "só o dele" (foi o que aconteceu no teste).
-4. Anotar com `annotate.py` copiado de `../caixa-conferencia-2/`.
-5. Escrever `caixa-restricoes.md`, `fluxo-codigo.md` e `texto-documentation.ia.md`.
-6. Fechar o item **#13** no `CHECKLIST-MANUAIS.md` e atualizar o índice da `MEMORIA-GERAL.md`.
+### 7.3. Como a captura foi feita (e o que deu trabalho)
+
+1. Tudo capturado com o ambiente **intacto** primeiro; depois, uma permissão por vez:
+   desligar → capturar → **religar** → conferir.
+2. **A restrição 5 não podia ser demonstrada no grupo do funcionário.** O grupo *Acesso
+   Funcionário* não tem nenhuma permissão de Configuração, então o menu inteiro aparece vazio e
+   o efeito não fica isolado. A solução foi desligar *Cadastro de Caixas* no **Administrador2**,
+   capturar o menu do próprio admin com e sem o item, e religar. É seguro — a permissão de
+   *Usuários* não foi tocada.
+3. **A restrição 7 precisou de um caixa aberto pelo funcionário.** Vincular o Usuário Fixo sem
+   isso deixa a tela dele vazia ("Nenhum caixa encontrado"), o que ilustra mal. Foi preciso
+   ativar o terminal "caixa 2", vinculá-lo ao `caixa.manual`, abrir um caixa com ele, capturar,
+   fechar o caixa e desfazer o cadastro.
+4. **O cacheSat atrapalha a captura.** Como o filtro do Usuário Fixo depende de um cache por
+   instância, parte das chamadas ainda vem sem filtro. O jeito que funcionou foi repetir a
+   captura até cair numa instância já atualizada (script que lê o `dados.length` da resposta
+   antes de fotografar).
+5. Anotação com `annotate.py` copiado de `../integracao-foodcrm/` (tem `passthrough` e `ring`)
+   com o fallback de fonte de `../caixa-conferencia-2/`.
+
+### 7.4. Verificação final do ambiente
+
+Conferido item a item ao término:
+
+| Item | Estado |
+|------|--------|
+| 5 permissões × 2 grupos | todas no valor original (script `conferir_ambiente.py`) |
+| Parâmetro Caixa por Usuário | ligado |
+| caixa1 / caixa 2 | Usuário Fixo `contato@beefood.com.br`; caixa 2 de volta a **Inativo** |
+| Listagem do admin | 10 caixas, `itemID136`/`itemID212`/`gerente` todos `true` |
+| Listagem do restrito | 11 caixas (os 10 + o caixa fechado do teste) |
+
+Uma instância do servidor ainda respondia com o filtro antigo no fim da sessão — é o TTL de 30
+minutos do `cacheSat` e se resolve sozinho; o cadastro no banco já está correto.

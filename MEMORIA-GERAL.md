@@ -135,6 +135,15 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
 - Para achar o controle de um item quando o texto não é rótulo acessível, localizar o texto e
   **subir os elementos-pai** até encontrar `[role="switch"]` — filtrar `div` por texto costuma
   cair no elemento errado.
+- **Ao mudar permissão, relogue.** O front guarda o `config_cache` no `localStorage`; recarregar
+  a página não basta. E o servidor guarda o grupo por ~1 min. Ou seja: espere ~70s e faça login
+  de novo antes de concluir que a mudança não pegou.
+- **Cuidado ao regravar o `storage_state`.** Se você salvar a sessão enquanto uma permissão está
+  desligada, o `config_cache` congela nesse estado e a conta parece continuar restrita mesmo
+  depois de religar. O sintoma é a tela redirecionar para a home sem erro. A saída é relogar.
+- O banner promocional do topo fecha por `button[aria-label="Dispensar"]`.
+- Alguns elementos ficam em **listas com rolagem própria** (o modal de permissões, por exemplo).
+  Aumentar o viewport não resolve; use `scroll_into_view_if_needed()` no item desejado.
 
 ---
 
@@ -237,7 +246,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Caixa (abrir, receber, consultar) | `manuais\caixa\` | ✅ Concluído |
 | Fechar caixa (vendas pendentes, 1ª conferência, quebra) | `manuais\caixa-fechar\` | ✅ Concluído |
 | Segunda conferência (dupla checagem, resolve a quebra) | `manuais\caixa-conferencia-2\` | ✅ Concluído |
-| Restrições de caixa (grupo de acesso) | `manuais\caixa-restricoes\` | 🔨 Em execução (estudo **fechado**; plano aguardando aprovação) |
+| Restrições de caixa (grupo de acesso) | `manuais\caixa-restricoes\` | ✅ Concluído |
 | Reforma Tributária (IBS/CBS) | `manuais\reforma-tributaria-ibscbs\` | ✅ Concluído |
 | Ativação Aiqfome V2 | `manuais\ativacao-aiqfome\` | ✅ Concluído |
 | Integração Machine | `manuais\integracao-machine\` | ✅ Concluído |

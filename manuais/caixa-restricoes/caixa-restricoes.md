@@ -152,8 +152,9 @@ valores** que o sistema calcularia sozinho.
 
 ### Como configurar
 
-Na mesma tela da restrição anterior, desligue o switch **3** da imagem do modal do grupo:
-**Visualizar Valores de Referência**.
+Em **Configuração → Usuários → Grupos de Acesso**, abra o grupo, busque por **caixa**, expanda
+**Abrir e Fechar Caixa** pela setinha e desligue o sub-item **Visualizar Valores de Referência**
+— o switch **3** da imagem do modal do grupo, na restrição 1.
 
 ### Como fica o caixa — 1. a listagem perde as colunas de dinheiro
 
@@ -210,7 +211,9 @@ Limita a listagem ao presente: o usuário só enxerga o caixa que está aberto a
 
 ### Como configurar
 
-Desligue o switch **4** da imagem do modal do grupo: **Visualizar Caixas Fechados**.
+No mesmo lugar da restrição anterior (grupo → busca **caixa** → expandir **Abrir e Fechar
+Caixa**), desligue o sub-item **Visualizar Caixas Fechados** — o switch **4** da imagem do modal
+do grupo.
 
 ### Como fica o caixa
 
@@ -232,7 +235,8 @@ Esta restrição faz mais do que o nome sugere.
 
 ### Como configurar
 
-Desligue o switch **5** da imagem do modal do grupo: **Transferência de Operações**.
+No mesmo lugar (grupo → busca **caixa** → expandir **Abrir e Fechar Caixa**), desligue o
+sub-item **Transferência de Operações** — o switch **5** da imagem do modal do grupo.
 
 ### Como fica o caixa
 
