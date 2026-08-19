@@ -4,8 +4,8 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-19 (#13 Restrições de caixa e #14 Segmentação de clientes
-concluídos; os manuais de caixa publicados pelo dono)
+Última atualização: 2026-08-19 (#13 e #14 concluídos; manuais de caixa publicados;
+backlog reorganizado com o levantamento de Food Marketing, Fidelidade e demais áreas)
 
 ## Legenda de status
 
@@ -41,6 +41,55 @@ concluídos; os manuais de caixa publicados pelo dono)
 ## 💡 Backlog de ideias (aguardando aprovação)
 
 > Ideias propostas. Quando o dono aprovar, sobem para a tabela acima com um número.
+
+### Food Marketing (prioridade 1, pedida pelo dono em 19/08/2026)
+
+| Ideia | Escopo resumido | Sandbox | Status |
+|-------|-----------------|---------|--------|
+| **Campanhas de WhatsApp** | Criar campanha em massa: mensagem com variações (anti-bloqueio), anexo, montar a lista de destinatários (avulso, RFV, filtro avançado, segmentação, Excel), revisar e publicar | BeeBot conectado; há campanhas em rascunho | 💡 Ideia |
+| **Campanhas Inteligentes (automações)** | As 6 automações que disparam sozinhas (recuperador de vendas, cashback parado, aniversário, boas-vindas, carrinho abandonado, recebeu cardápio e não pediu), agenda, ritmo e o **Anti Banimento** | Aba existe; usa os públicos fixos já documentados no #14 | 💡 Ideia |
+| **BeeFood Pixel Analytics** | Ler o funil do cardápio digital (Visitas → Pedidos), filtros por contexto/cardápio/origem, KPIs e o painel Ao vivo | Funcionando, com dados desde jun/2026 | 💡 Ideia |
+| **Campanhas SMS** | Criar campanha de SMS, contagem de créditos por segmento, comprar créditos por PIX e a blacklist / opt-out | **100 créditos** disponíveis; 1 campanha em rascunho | 💡 Ideia |
+| ~~API Oficial WhatsApp~~ | — | — | ⏸️ **Aguardar** — item do menu está como *Em breve!*, sem tela |
+
+### Fidelidade / CRM (prioridade 2, pedida pelo dono em 19/08/2026)
+
+| Ideia | Escopo resumido | Sandbox | Status |
+|-------|-----------------|---------|--------|
+| **Cashback — configurar** | Ativar o programa, validade do saldo, saldo mínimo de resgate, percentual (fixo ou por dia da semana), em quais canais gera, exceções de produto | Programa **ativado**, com histórico real | 💡 Ideia |
+| **Cashback — operar** | Histórico, saldo por cliente, ajuste manual de saldo (creditar/debitar com motivo), fila de processamento e como o cliente usa no PDV/Mesas | 6 usos de cashback registrados | 💡 Ideia |
+| **Cupons de desconto** | Criar cupom (desconto %, valor fixo, frete grátis ou produto grátis), validade, dias da semana, canais, valor mínimo, limites de uso, link do cupom e histórico | **6 cupons** (1 ativo), 12 usos | 💡 Ideia |
+| **Painel Fidelidade** | Ler o resultado dos programas: desconto concedido, faturamento influenciado, ROI, cupom × cashback, aquisição × recorrência | 18 vendas com fidelidade, R$ 66,95 concedidos | 💡 Ideia |
+| **Avaliações** | Está no menu Fidelidade (CRM), mas é reputação, não fidelização: nota geral, avaliações por período e por canal | 2 avaliações, nota 5,0 | 💡 Ideia |
+
+### Outras áreas (levantamento de 19/08/2026)
+
+> Inventário completo do sistema. A nota é "quanto o usuário final precisa de um manual disso".
+
+| Ideia | Escopo resumido | Tamanho | Nota | Status |
+|-------|-----------------|---------|------|--------|
+| **Delivery** | Operar pedidos: colunas de situação, aceitar, despachar, entregador, pagamentos, cancelamento — e o **Aceite Automático** | 3 a 4 manuais | 5 | 💡 Ideia |
+| **PDV** | Venda no balcão: carrinho, cliente, balança, desconto com senha de gerente, pagamento, reabrir e agrupar vendas | 3 a 4 manuais | 5 | 💡 Ideia |
+| **Cardápio** | Produtos, grupos de opções e complementos — o modal do produto tem 6 abas; mais Exibir/Ocultar, Rodízio e importar do iFood | 4 a 5 manuais | 5 | 💡 Ideia |
+| **Cardápio Digital** | Configurar a loja online na ordem certa: horário, área de entrega, formas de recebimento, pagamento online, pausa programada e avisos (11 abas) | 3 a 4 manuais | 5 | 💡 Ideia |
+| **Fiscal** | Configuração fiscal, emissão e consulta de NFC-e e NF-e, inutilização, carta de correção e notas recebidas (a Reforma Tributária já é o #5) | 4 a 5 manuais | 5 | 💡 Ideia |
+| **Mesas / Comandas** | Mapa do salão, abrir e fechar conta, agrupar mesas, reabrir | 2 manuais | 4 | 💡 Ideia |
+| **Impressão** | Impressoras, impressão da cozinha, layout e os dois históricos | 2 a 3 manuais | 4 | 💡 Ideia |
+| **WhatsApp / BeeBot** | Conectar o número, notificações automáticas de status, respostas automáticas, IA e resumo diário | 3 manuais | 4 | 💡 Ideia |
+| **Usuários e permissões** | Criar usuário, montar grupo de acesso e o que cada permissão faz (complementa o #13, que só cobre caixa) | 1 a 2 manuais | 4 | 💡 Ideia |
+| **Estoque** | Saldo e movimentações, importar NF-e de compra, receitas e ordens de produção | 3 manuais | 4 | 💡 Ideia |
+| **Histórico de Vendas** | Consultar venda passada, filtros, detalhe, pagamentos e exportação | 1 manual | 4 | 💡 Ideia |
+| **Totem / autoatendimento** | Contratar, configurar (5 abas) e a pesagem automática do self-service | 2 a 3 manuais | 4 | 💡 Ideia |
+| **Clientes** | Cadastro, importação por Excel, duplicados e o que é a classificação RFV | 1 a 2 manuais | 3 | 💡 Ideia |
+| **Financeiro** | Lançamentos a pagar e receber, recebimentos, pagamentos, DRE e cadastros auxiliares | 3 a 4 manuais | 3 | 💡 Ideia |
+| **Fiado** | Visão geral, controle de dívidas e vendas sem pagamento | 1 manual | 3 | 💡 Ideia |
+| **Cadastros** | Mesas e comandas (com QR Code), formas de recebimento e funcionários | 2 manuais | 3 | 💡 Ideia |
+| **Cardápio no Tablet** | Cadastrar tablets, layout e eventos remotos | 2 manuais | 3 | 💡 Ideia |
+| **Multilojas** | Link único listando várias lojas da rede | 1 manual | 3 | 💡 Ideia |
+| **Pix Online** | Contratar, configurar e acompanhar o extrato | 1 manual | 3 | 💡 Ideia |
+| **Início (Home)** | Ler o painel inicial, filtros e a senha que revela os valores | 1 manual | 2 | 💡 Ideia |
+
+### Caixa (backlog antigo)
 
 | Ideia | Escopo resumido | Status |
 |-------|-----------------|--------|
