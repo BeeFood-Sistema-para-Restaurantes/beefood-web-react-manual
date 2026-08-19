@@ -51,6 +51,11 @@ com TODAS as subpastas/arquivos acima.
      números circulados (①②③) nem em parênteses — no texto, nas tabelas e nas legendas.
 6. As imagens em produção saem em **1508×1274** (DPR alto). `annotate.py` usa coordenadas
    em **frações 0..1**, então independe da resolução.
+7. **Dados pessoais de clientes precisam sair ilegíveis.** Telas que listam clientes (nome,
+   telefone, e-mail) não podem ir para o repositório como estão — ele é **público**. A decisão
+   da seção 11 vale para as *credenciais* de teste, não para dados de terceiros. O `annotate.py`
+   de `manuais\segmentacao-clientes\` tem o parâmetro `borrao` (regiões em frações, aplicadas
+   com `GaussianBlur` antes das setas); copie de lá quando precisar.
 
 ### Como anotar (Pillow)
 - Requisitos: Python 3.10+ e Pillow (já instalados nesta máquina).
@@ -247,6 +252,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Fechar caixa (vendas pendentes, 1ª conferência, quebra) | `manuais\caixa-fechar\` | ✅ Concluído |
 | Segunda conferência (dupla checagem, resolve a quebra) | `manuais\caixa-conferencia-2\` | ✅ Concluído |
 | Restrições de caixa (grupo de acesso) | `manuais\caixa-restricoes\` | ✅ Concluído |
+| Segmentação de clientes (Food Marketing) | `manuais\segmentacao-clientes\` | ✅ Concluído |
 | Reforma Tributária (IBS/CBS) | `manuais\reforma-tributaria-ibscbs\` | ✅ Concluído |
 | Ativação Aiqfome V2 | `manuais\ativacao-aiqfome\` | ✅ Concluído |
 | Integração Machine | `manuais\integracao-machine\` | ✅ Concluído |
