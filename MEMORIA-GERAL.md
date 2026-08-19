@@ -3,8 +3,8 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-19 (captura com Playwright no Cloud Agent; correção do acesso ao
-código em sessão; versão de produção; #2 no índice)
+Última atualização: 2026-08-19 (backend clonado no Cloud Agent; tela de login mudou; telas com
+auto-save; captura com Playwright; versão de produção)
 
 ---
 
@@ -84,8 +84,10 @@ com TODAS as subpastas/arquivos acima.
 > afeta você. Nunca desligue **Usuários** nesse grupo — você perde a própria tela de
 > permissões e não há como religar de dentro do sistema.
 
-> Login em `/login` (campos "Login de acesso" e "Senha", botão **ENTRAR**). Demora ~2-4s.
-> **Trocar de conta:** menu de usuário (ícone pessoa, canto sup. direito) → **Sair**.
+> Login em `/login`. A tela mudou em 2026-08: agora são **um campo só** para identificação
+> (`input#emailOrWhatsapp`, rótulo "Digite seu e-mail ou WhatsApp") e `input#password`, botão
+> **ENTRAR**. Logins que não são e-mail (ex.: `caixa.manual`) entram por esse mesmo campo.
+> Demora ~2-4s. **Trocar de conta:** menu de usuário (ícone pessoa, canto sup. direito) → **Sair**.
 
 ---
 
@@ -124,6 +126,24 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
 - Dividir a captura em **scripts curtos por etapa**, deixando as ações irreversíveis (pagar,
   fechar caixa) em scripts separados dos idempotentes — assim é possível repetir a parte que
   falhou sem repetir o que não tem volta.
+- **Ler a resposta da API vale mais que ler a tela.** Registrando `page.on("response", ...)` dá
+  para imprimir exatamente o que o servidor devolveu (flags de permissão, número de linhas) —
+  isso mostra a causa, não só o efeito, e evita conclusão errada por cache de tela.
+- **Cuidado com telas que salvam sozinhas.** Configuração → Parâmetros faz auto-save 500 ms
+  depois do clique, sem botão Salvar: clicar num switch "só para ver" já altera o ambiente.
+  Antes de clicar em qualquer switch, conferir o estado (`data-state`) e anotar para restaurar.
+- Para achar o controle de um item quando o texto não é rótulo acessível, localizar o texto e
+  **subir os elementos-pai** até encontrar `[role="switch"]` — filtrar `div` por texto costuma
+  cair no elemento errado.
+- **Ao mudar permissão, relogue.** O front guarda o `config_cache` no `localStorage`; recarregar
+  a página não basta. E o servidor guarda o grupo por ~1 min. Ou seja: espere ~70s e faça login
+  de novo antes de concluir que a mudança não pegou.
+- **Cuidado ao regravar o `storage_state`.** Se você salvar a sessão enquanto uma permissão está
+  desligada, o `config_cache` congela nesse estado e a conta parece continuar restrita mesmo
+  depois de religar. O sintoma é a tela redirecionar para a home sem erro. A saída é relogar.
+- O banner promocional do topo fecha por `button[aria-label="Dispensar"]`.
+- Alguns elementos ficam em **listas com rolagem própria** (o modal de permissões, por exemplo).
+  Aumentar o viewport não resolve; use `scroll_into_view_if_needed()` no item desejado.
 
 ---
 
@@ -205,6 +225,11 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 > secret no meio de uma sessão não o disponibiliza para a sessão em andamento — o clone só
 > acontece no install da **próxima** sessão.
 
+> **Funcionou.** Desde 2026-08-19 o backend está clonado e disponível em
+> `~/refs/beetech-server-node-2.0` (branch `beefood-web-react`). Ele tem um `spec.md` próprio
+> na raiz. Foi o que permitiu fechar o estudo do manual #13: só o código do servidor explicou
+> por que o parâmetro "Caixa por Usuário" não fazia o que a tela promete.
+
 > **Cuidado com repositório público.** Este repositório de manuais é público. Secret de
 > ambiente em repositório público é risco real: quem puder abrir um Cloud Agent nele recebe a
 > variável injetada — e o Cursor pode até bloquear a injeção por padrão nesse caso. Antes de
@@ -221,7 +246,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Caixa (abrir, receber, consultar) | `manuais\caixa\` | ✅ Concluído |
 | Fechar caixa (vendas pendentes, 1ª conferência, quebra) | `manuais\caixa-fechar\` | ✅ Concluído |
 | Segunda conferência (dupla checagem, resolve a quebra) | `manuais\caixa-conferencia-2\` | ✅ Concluído |
-| Restrições de caixa (grupo de acesso) | `manuais\caixa-restricoes\` | 🔨 Em execução (estudo pronto) |
+| Restrições de caixa (grupo de acesso) | `manuais\caixa-restricoes\` | ✅ Concluído |
 | Reforma Tributária (IBS/CBS) | `manuais\reforma-tributaria-ibscbs\` | ✅ Concluído |
 | Ativação Aiqfome V2 | `manuais\ativacao-aiqfome\` | ✅ Concluído |
 | Integração Machine | `manuais\integracao-machine\` | ✅ Concluído |
