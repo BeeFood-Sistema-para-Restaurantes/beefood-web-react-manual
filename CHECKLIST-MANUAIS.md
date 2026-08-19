@@ -4,7 +4,8 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-19 (#2 Fechar caixa e #12 Segunda conferência concluídos — os dois no mesmo caixa, em sequência)
+Última atualização: 2026-08-19 (#13 Restrições de caixa concluído; os manuais de caixa
+publicados pelo dono; #14 Segmentação de clientes aprovado e em estudo)
 
 ## Legenda de status
 
@@ -21,7 +22,7 @@
 | Nº | Manual | Escopo resumido | Pasta | Status | Publicado |
 |----|--------|-----------------|-------|--------|-----------|
 | 1 | **Abrir caixa** | Abrir o caixa, receber um pagamento em dinheiro (PDV) e consultar o valor no caixa | `manuais/caixa/` | ✅ Concluído | 🌐 Sim |
-| 2 | **Fechar caixa** | Resolver vendas sem pagamento total, conferir os valores (1ª conferência, com a calculadora), entender a quebra de caixa, fechar e imprimir o resumo | `manuais/caixa-fechar/` | ✅ Concluído | — |
+| 2 | **Fechar caixa** | Resolver vendas sem pagamento total, conferir os valores (1ª conferência, com a calculadora), entender a quebra de caixa, fechar e imprimir o resumo | `manuais/caixa-fechar/` | ✅ Concluído | 🌐 Sim |
 | 3 | **Reabrir caixa** | Reabrir um caixa que já foi fechado (Reabrir Caixa) | `manuais/caixa-reabrir/` | ☑️ Aprovado | — |
 | 4 | **Transferência entre caixas** | Transferir valores entre caixas (botão TRANSFERIR — requer permissão) | `manuais/caixa-transferir/` | ☑️ Aprovado | — |
 | 5 | **Reforma Tributária (IBS/CBS)** | Os 6 campos novos, como editá-los na Edição Fiscal e como aparecem na nota (exemplo fake) | `manuais/reforma-tributaria-ibscbs/` | ✅ Concluído | — |
@@ -31,8 +32,9 @@
 | 9 | **Integração Repediu** | Gerar Client ID/Secret (Repediu → Integrações) e Write Key (Repediu → Web/App Analytics), preencher em Aplicativos → Marketing e CRM → Repediu → Configurar e salvar (Tracker de Vendas + Cardápio Digital) | `manuais/integracao-repediu/` | ✅ Concluído | — |
 | 10 | **Integração FoodCRM** | Gerar a API Key/Token (FoodCRM → Integrações → Acessar a documentação) e cadastrar por cardápio em Aplicativos → Marketing e CRM → FoodCRM (envio automático das vendas diariamente de madrugada) | `manuais/integracao-foodcrm/` | ✅ Concluído | — |
 | 11 | **Integração Uber Direct** | Criar conta Uber + Uber Direct, cadastrar cartão e webhook, copiar a Chave de autenticação do webhook + credenciais (ID do usuário/ID de cliente/Client Secret), colar em Aplicativos → Entregas → Uber Direct e usar no dia a dia (despachar pedido, acompanhar e cancelar) | `manuais/integracao-uber-direct/` | ✅ Concluído | — |
-| 12 | **Segunda conferência (dupla checagem)** | Por que recontar, abrir a conferência de um caixa fechado (Ver Conferência), Adicionar 2ª Conferência, recontar com a calculadora, observações, marcar como conferido (cadeado) e resolver a quebra de caixa | `manuais/caixa-conferencia-2/` | ✅ Concluído | — |
-| 13 | **Restrições de caixa (grupo de acesso)** | Todas as restrições de caixa que podem ser aplicadas a um usuário — Abrir e Fechar Caixa, Visualizar Valores de Referência, Visualizar Caixas Fechados, Transferência de Operações, Cadastro de Caixas, Função Gerente e o parâmetro Caixa por Usuário — cada uma com **como configurar** e **como o caixa fica** | `manuais/caixa-restricoes/` | ✅ Concluído | — |
+| 12 | **Segunda conferência (dupla checagem)** | Por que recontar, abrir a conferência de um caixa fechado (Ver Conferência), Adicionar 2ª Conferência, recontar com a calculadora, observações, marcar como conferido (cadeado) e resolver a quebra de caixa | `manuais/caixa-conferencia-2/` | ✅ Concluído | 🌐 Sim |
+| 13 | **Restrições de caixa (grupo de acesso)** | Todas as restrições de caixa que podem ser aplicadas a um usuário — Abrir e Fechar Caixa, Visualizar Valores de Referência, Visualizar Caixas Fechados, Transferência de Operações, Cadastro de Caixas, Função Gerente e o parâmetro Caixa por Usuário — cada uma com **como configurar** e **como o caixa fica** | `manuais/caixa-restricoes/` | ✅ Concluído | 🌐 Sim |
+| 14 | **Segmentação de clientes** | Criar públicos em Food Marketing → Segmentação de Cliente: o que é, os 37 filtros disponíveis, como combinar com E/OU, testar o tamanho do público e usar em campanhas — com vários exemplos prontos de restaurante | `manuais/segmentacao-clientes/` | ☑️ Aprovado | — |
 
 ---
 
