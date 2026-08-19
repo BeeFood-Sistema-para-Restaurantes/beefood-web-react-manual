@@ -2,7 +2,8 @@
 
 > Memória detalhada deste manual. Ver também: `../../MEMORIA-GERAL.md`.
 
-Status: 🔨 **Em execução** — estudo concluído e plano aprovado em 2026-08-19.
+Status: ✅ **Concluído** em 2026-08-19 — estudo, plano aprovado e manual produzido
+(9 imagens, `segmentacao-clientes.md`, `fluxo-codigo.md` e `texto-documentation.ia.md`).
 
 ---
 
@@ -234,3 +235,56 @@ RFV (frequência ≥ 4 e valor ≥ 4), só marketplace.
 `POST /api/cliente2/segmentacao/processar` com `{empresaID, usuarioID, regra, somenteContagem}`.
 O `usuarioID` **é obrigatório no corpo** (o middleware recusa sem ele, com a mensagem
 "Parâmetros empresaID e usuarioID são obrigatórios"), embora o controller só use o `empresaID`.
+
+---
+
+## 9. O que foi produzido
+
+### Os oito públicos de exemplo (criados e **mantidos** no sandbox, a pedido do dono)
+
+| Nome salvo | Regra | Resultado |
+|------------|-------|-----------|
+| Compraram uma vez só | Total de pedidos = 1 | 8 (53,3%) |
+| Primeira compra pequena | pedidos = 1 **E** ticket médio < R$ 20,00 | 4 (26,7%) |
+| Clientes perdidos (RFV) | classificação é um de ❌ Perdidos | 6 (40%) |
+| Cashback esquecido | possui saldo de cashback = sim | 6 (40%) |
+| Ticket médio acima de R$ 50 | ticket médio > R$ 50,00 | 4 (26,7%) |
+| Nunca usaram cupom | já usou cupom = não | 13 (86,7%) |
+| Só pedem à noite | períodos é um de Noite **E** não é nenhum de Manhã, Tarde | 3 (20%) |
+| Fiéis ou bons de conta | RFV é um de 💎 Fiéis, 🏆 Campeões **OU** total gasto > R$ 300,00 | 3 (20%) |
+
+Todos criados **pela própria interface**, não pela API — assim as capturas mostram o caminho
+real e os números do manual são verificáveis.
+
+### As 9 imagens
+
+`01-lista`, `02-modelos-prontos`, `03-seletor-campo`, `04-primeira-regra`, `05-resultado-teste`,
+`06-duas-regras-e`, `07-duas-regras-ou`, `08-detalhes`, `09-clientes-do-publico`.
+
+**A imagem 09 tem os dados pessoais borrados** pelo próprio `annotate.py` (parâmetro `borrao`):
+a lista de clientes mostra nome, telefone e e-mail de pessoas, e este repositório é público.
+Qualquer captura futura dessa tela precisa do mesmo cuidado.
+
+### Armadilhas que custaram tempo (para a próxima vez)
+
+1. **Campos em R$ têm máscara e preenchem da direita.** `fill("50")` vira **R$ 0,50** — e o
+   público sai errado sem erro nenhum. Dois exemplos precisaram ser refeitos por isso. Use
+   `type("50,00")` e **confira o `input_value()` depois de digitar**.
+2. **Os rótulos de operador vêm do front, não da API** (ver seção 4). Script que procura "está
+   em" não acha nada.
+3. **Ao repetir o mesmo campo em duas condições**, o rótulo do campo já está na tela: o clique
+   no seletor precisa ser escopado no modal *Escolher campo de filtro*, e o valor precisa ser
+   escopado no popover aberto (`[data-radix-popper-content-wrapper]`).
+4. **Não indexe os inputs por posição da condição:** condições de multiselect não têm `input`.
+   O último `input` do editor é sempre o da condição em montagem.
+5. **A tela de campanhas de WhatsApp mudou** e não tem mais a opção "Campanha Segmentação
+   Cliente" no botão *Nova Campanha* — o wizard novo tem 3 etapas e a etapa de destinatários
+   oferece *Filtro Avançado* e *Excel*. Por isso o manual trata o uso em campanha em texto, sem
+   imagem.
+
+### Pendências e observações
+
+- **Não** existe imagem do público sendo usado numa campanha (ver item 5 acima). Se a tela voltar
+  a oferecer o caminho por segmentação, vale acrescentar.
+- Os 4 públicos fixos aparecem **duplicados** no sandbox; a imagem `01-lista` mostra isso. É do
+  ambiente, não do produto.
