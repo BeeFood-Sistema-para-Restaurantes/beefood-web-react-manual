@@ -42,13 +42,19 @@ for slug in "${REFERENCIAS[@]}"; do
 done
 
 # Pillow: usado pelos annotate.py para desenhar as setas verdes numeradas.
-echo "--> instalando Pillow"
-python3 -m pip install --quiet --upgrade pillow \
-  || python3 -m pip install --quiet --upgrade --break-system-packages pillow
+# Playwright: captura as telas do sistema em producao.
+echo "--> instalando Pillow e Playwright"
+pip_instalar() {
+  python3 -m pip install --quiet --upgrade "$@" \
+    || python3 -m pip install --quiet --upgrade --break-system-packages "$@"
+}
+pip_instalar pillow playwright
+python3 -m playwright install chromium
 
 echo
 echo "===== resumo do setup ====="
 python3 -c 'import PIL; print("Pillow", PIL.__version__)'
+python3 -c 'import playwright; from importlib.metadata import version; print("Playwright", version("playwright"))'
 for slug in "${REFERENCIAS[@]}"; do
   destino="${REFS_DIR}/$(basename "${slug}")"
   if [ -d "${destino}/.git" ]; then
