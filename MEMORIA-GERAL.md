@@ -175,6 +175,28 @@ importar manuais de integração) responde **404** — e 404 aqui é ambíguo: s
 existe" **ou** "não liberado". Para liberar, são necessárias as duas coisas descritas acima
 (GitHub App + `repositoryDependencies`).
 
+### Referências no Bitbucket (backend)
+
+`repositoryDependencies` **não serve** para Bitbucket: ele só amplia o token do GitHub. Para
+clonar um repositório do Bitbucket no Cloud Agent:
+
+1. No Bitbucket, em **Repository settings → Security → Access tokens**, criar um
+   **Repository Access Token** com escopo **Repositories: Read** (só leitura, e limitado
+   àquele repositório).
+2. No **Cursor Dashboard → Cloud Agents → Secrets**, guardar o valor como `BITBUCKET_TOKEN`.
+3. Adicionar o slug `workspace/repositorio` em `REFERENCIAS_BITBUCKET`, no
+   `.cursor/install.sh`. O clone usa `https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/...`
+   e depois **regrava o remote sem o token**.
+
+Sem o secret, o bloco é ignorado e o setup segue normalmente.
+
+> **Cuidado com repositório público.** Este repositório de manuais é público. Secret de
+> ambiente em repositório público é risco real: quem puder abrir um Cloud Agent nele recebe a
+> variável injetada — e o Cursor pode até bloquear a injeção por padrão nesse caso. Antes de
+> cadastrar um token do backend, **torne este repositório privado**. A decisão de deixá-lo
+> público (seção 11) valia para credenciais descartáveis de teste, não para acesso ao
+> código-fonte do servidor.
+
 ---
 
 ## 9. Índice de manuais
