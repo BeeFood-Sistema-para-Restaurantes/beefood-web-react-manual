@@ -64,8 +64,8 @@ esta tela antes de deixar você conferir os valores:
 ### Como quitar uma venda por aqui
 
 1. Clique no **botão verde** da linha.
-2. Na janela **Conferir e Dividir**, escolha a forma de pagamento (no exemplo, **Débito**) e
-   confirme o valor:
+2. Na janela **Conferir e Dividir**, escolha a forma de pagamento (no exemplo, **Débito**). O
+   valor já vem preenchido com o que falta; confirme em **CONFIRMAR (ENTER/F1)**:
 
 ![Pagamento da venda registrado](imagens-tratadas/04-pagamento-venda.png)
 
@@ -74,7 +74,7 @@ esta tela antes de deixar você conferir os valores:
 | 1 | **Pagamentos realizados** | O pagamento aparece registrado com a forma escolhida e a marca **Pago** (no exemplo, **Débito R$ 17,80**). |
 | 2 | **Pagamento completo** | Confirma que a venda foi quitada por inteiro. |
 
-3. Feche a janela de pagamento. A venda volta para a lista já resolvida:
+3. Feche a janela em **FECHAR (ESC)**. A venda volta para a lista já resolvida:
 
 ![Venda marcada como PAGA na lista](imagens-tratadas/05-venda-paga.png)
 
