@@ -4,8 +4,8 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-19 (#13 e #14 concluídos; manuais de caixa publicados;
-backlog reorganizado com o levantamento de Food Marketing, Fidelidade e demais áreas)
+Última atualização: 2026-08-19 (todos os manuais concluídos marcados como publicados;
+Food Marketing e Fidelidade promovidos para a fila como #15 a #23)
 
 ## Legenda de status
 
@@ -25,16 +25,25 @@ backlog reorganizado com o levantamento de Food Marketing, Fidelidade e demais �
 | 2 | **Fechar caixa** | Resolver vendas sem pagamento total, conferir os valores (1ª conferência, com a calculadora), entender a quebra de caixa, fechar e imprimir o resumo | `manuais/caixa-fechar/` | ✅ Concluído | 🌐 Sim |
 | 3 | **Reabrir caixa** | Reabrir um caixa que já foi fechado (Reabrir Caixa) | `manuais/caixa-reabrir/` | ☑️ Aprovado | — |
 | 4 | **Transferência entre caixas** | Transferir valores entre caixas (botão TRANSFERIR — requer permissão) | `manuais/caixa-transferir/` | ☑️ Aprovado | — |
-| 5 | **Reforma Tributária (IBS/CBS)** | Os 6 campos novos, como editá-los na Edição Fiscal e como aparecem na nota (exemplo fake) | `manuais/reforma-tributaria-ibscbs/` | ✅ Concluído | — |
-| 6 | **Ativação Aiqfome V2** | Conectar a loja do Aiqfome ao BeeFood (Store ID → cadastro em Aplicativos → autorização ID Magalu) | `manuais/ativacao-aiqfome/` | ✅ Concluído | — |
-| 7 | **Integração Machine** | Despachar entregas pela central Machine: credenciais, config em Aplicativos → Entrega, despacho (manual/auto), acompanhamento e cancelamento | `manuais/integracao-machine/` | ✅ Concluído | — |
-| 8 | **Integração 99 Entrega** | Solicitar **boleto** (único pagamento) + **ambiente de produção** e credenciais (Modo de desenvolvedor) na 99, cadastrar webhook, conectar em Aplicativos → Entregas, despachar com cotação, acompanhar e cancelar | `manuais/integracao-99-entrega/` | ✅ Concluído | — |
-| 9 | **Integração Repediu** | Gerar Client ID/Secret (Repediu → Integrações) e Write Key (Repediu → Web/App Analytics), preencher em Aplicativos → Marketing e CRM → Repediu → Configurar e salvar (Tracker de Vendas + Cardápio Digital) | `manuais/integracao-repediu/` | ✅ Concluído | — |
-| 10 | **Integração FoodCRM** | Gerar a API Key/Token (FoodCRM → Integrações → Acessar a documentação) e cadastrar por cardápio em Aplicativos → Marketing e CRM → FoodCRM (envio automático das vendas diariamente de madrugada) | `manuais/integracao-foodcrm/` | ✅ Concluído | — |
-| 11 | **Integração Uber Direct** | Criar conta Uber + Uber Direct, cadastrar cartão e webhook, copiar a Chave de autenticação do webhook + credenciais (ID do usuário/ID de cliente/Client Secret), colar em Aplicativos → Entregas → Uber Direct e usar no dia a dia (despachar pedido, acompanhar e cancelar) | `manuais/integracao-uber-direct/` | ✅ Concluído | — |
+| 5 | **Reforma Tributária (IBS/CBS)** | Os 6 campos novos, como editá-los na Edição Fiscal e como aparecem na nota (exemplo fake) | `manuais/reforma-tributaria-ibscbs/` | ✅ Concluído | 🌐 Sim |
+| 6 | **Ativação Aiqfome V2** | Conectar a loja do Aiqfome ao BeeFood (Store ID → cadastro em Aplicativos → autorização ID Magalu) | `manuais/ativacao-aiqfome/` | ✅ Concluído | 🌐 Sim |
+| 7 | **Integração Machine** | Despachar entregas pela central Machine: credenciais, config em Aplicativos → Entrega, despacho (manual/auto), acompanhamento e cancelamento | `manuais/integracao-machine/` | ✅ Concluído | 🌐 Sim |
+| 8 | **Integração 99 Entrega** | Solicitar **boleto** (único pagamento) + **ambiente de produção** e credenciais (Modo de desenvolvedor) na 99, cadastrar webhook, conectar em Aplicativos → Entregas, despachar com cotação, acompanhar e cancelar | `manuais/integracao-99-entrega/` | ✅ Concluído | 🌐 Sim |
+| 9 | **Integração Repediu** | Gerar Client ID/Secret (Repediu → Integrações) e Write Key (Repediu → Web/App Analytics), preencher em Aplicativos → Marketing e CRM → Repediu → Configurar e salvar (Tracker de Vendas + Cardápio Digital) | `manuais/integracao-repediu/` | ✅ Concluído | 🌐 Sim |
+| 10 | **Integração FoodCRM** | Gerar a API Key/Token (FoodCRM → Integrações → Acessar a documentação) e cadastrar por cardápio em Aplicativos → Marketing e CRM → FoodCRM (envio automático das vendas diariamente de madrugada) | `manuais/integracao-foodcrm/` | ✅ Concluído | 🌐 Sim |
+| 11 | **Integração Uber Direct** | Criar conta Uber + Uber Direct, cadastrar cartão e webhook, copiar a Chave de autenticação do webhook + credenciais (ID do usuário/ID de cliente/Client Secret), colar em Aplicativos → Entregas → Uber Direct e usar no dia a dia (despachar pedido, acompanhar e cancelar) | `manuais/integracao-uber-direct/` | ✅ Concluído | 🌐 Sim |
 | 12 | **Segunda conferência (dupla checagem)** | Por que recontar, abrir a conferência de um caixa fechado (Ver Conferência), Adicionar 2ª Conferência, recontar com a calculadora, observações, marcar como conferido (cadeado) e resolver a quebra de caixa | `manuais/caixa-conferencia-2/` | ✅ Concluído | 🌐 Sim |
 | 13 | **Restrições de caixa (grupo de acesso)** | Todas as restrições de caixa que podem ser aplicadas a um usuário — Abrir e Fechar Caixa, Visualizar Valores de Referência, Visualizar Caixas Fechados, Transferência de Operações, Cadastro de Caixas, Função Gerente e o parâmetro Caixa por Usuário — cada uma com **como configurar** e **como o caixa fica** | `manuais/caixa-restricoes/` | ✅ Concluído | 🌐 Sim |
-| 14 | **Segmentação de clientes** | Criar públicos em Food Marketing → Segmentação de Cliente: o que é, os 37 filtros disponíveis, como combinar com E/OU, testar o tamanho do público e usar em campanhas — com vários exemplos prontos de restaurante | `manuais/segmentacao-clientes/` | ✅ Concluído | — |
+| 14 | **Segmentação de clientes** | Criar públicos em Food Marketing → Segmentação de Cliente: o que é, os 37 filtros disponíveis, como combinar com E/OU, testar o tamanho do público e usar em campanhas — com vários exemplos prontos de restaurante | `manuais/segmentacao-clientes/` | ✅ Concluído | 🌐 Sim |
+| 15 | **Campanhas de WhatsApp** | Criar campanha em massa: escrever a mensagem com variações (reduz risco de bloqueio), anexar mídia, montar a lista de destinatários pelos cinco caminhos (avulso, RFV, filtro avançado, segmentação, Excel), revisar e publicar — mais abortar campanha e ler o resultado | `manuais/campanhas-whatsapp/` | ☑️ Aprovado | — |
+| 16 | **Campanhas Inteligentes** | As seis automações que disparam sozinhas (recuperador de vendas, cashback parado, aniversário, boas-vindas, carrinho abandonado, recebeu o cardápio e não pediu), o público de cada uma, agenda, ritmo de envio e a proteção **Anti Banimento** | `manuais/campanhas-inteligentes/` | ☑️ Aprovado | — |
+| 17 | **BeeFood Pixel Analytics** | Ler o funil do cardápio digital (Visitas → Visualizações → Carrinho → Pedidos), filtrar por contexto, cardápio e origem, entender os KPIs e o painel Ao vivo | `manuais/pixel-analytics/` | ☑️ Aprovado | — |
+| 18 | **Campanhas SMS** | Criar campanha de SMS, entender a contagem de créditos por segmento (e como economizar sem acento/emoji), comprar créditos por PIX e usar a blacklist / opt-out | `manuais/campanhas-sms/` | ☑️ Aprovado | — |
+| 19 | **Cashback — configurar o programa** | Ativar o cashback, validade do saldo, saldo mínimo para resgate, percentual fixo ou por dia da semana, em quais canais o cliente ganha e as exceções de produto | `manuais/cashback-configurar/` | ☑️ Aprovado | — |
+| 20 | **Cashback — operar no dia a dia** | Histórico, saldo por cliente, ajuste manual de saldo (creditar e debitar com motivo), fila de processamento e como o operador aplica o cashback no PDV e nas Mesas | `manuais/cashback-operar/` | ☑️ Aprovado | — |
+| 21 | **Cupons de desconto** | Criar cupom nos quatro tipos (percentual, valor fixo, frete grátis e produto grátis), validade, dias da semana, canais, valor mínimo, limites de uso, link do cupom e histórico | `manuais/cupom-desconto/` | ☑️ Aprovado | — |
+| 22 | **Painel Fidelidade** | Ler o resultado dos programas: desconto concedido, faturamento influenciado, ROI, cupom × cashback, participação no faturamento e aquisição × recorrência | `manuais/fidelidade-painel/` | ☑️ Aprovado | — |
+| 23 | **Avaliações** | Está no menu Fidelidade (CRM), mas é reputação: nota geral, avaliações por período, por canal e como responder | `manuais/avaliacoes/` | ☑️ Aprovado | — |
 
 ---
 
@@ -42,25 +51,12 @@ backlog reorganizado com o levantamento de Food Marketing, Fidelidade e demais �
 
 > Ideias propostas. Quando o dono aprovar, sobem para a tabela acima com um número.
 
-### Food Marketing (prioridade 1, pedida pelo dono em 19/08/2026)
-
-| Ideia | Escopo resumido | Sandbox | Status |
-|-------|-----------------|---------|--------|
-| **Campanhas de WhatsApp** | Criar campanha em massa: mensagem com variações (anti-bloqueio), anexo, montar a lista de destinatários (avulso, RFV, filtro avançado, segmentação, Excel), revisar e publicar | BeeBot conectado; há campanhas em rascunho | 💡 Ideia |
-| **Campanhas Inteligentes (automações)** | As 6 automações que disparam sozinhas (recuperador de vendas, cashback parado, aniversário, boas-vindas, carrinho abandonado, recebeu cardápio e não pediu), agenda, ritmo e o **Anti Banimento** | Aba existe; usa os públicos fixos já documentados no #14 | 💡 Ideia |
-| **BeeFood Pixel Analytics** | Ler o funil do cardápio digital (Visitas → Pedidos), filtros por contexto/cardápio/origem, KPIs e o painel Ao vivo | Funcionando, com dados desde jun/2026 | 💡 Ideia |
-| **Campanhas SMS** | Criar campanha de SMS, contagem de créditos por segmento, comprar créditos por PIX e a blacklist / opt-out | **100 créditos** disponíveis; 1 campanha em rascunho | 💡 Ideia |
-| ~~API Oficial WhatsApp~~ | — | — | ⏸️ **Aguardar** — item do menu está como *Em breve!*, sem tela |
-
-### Fidelidade / CRM (prioridade 2, pedida pelo dono em 19/08/2026)
-
-| Ideia | Escopo resumido | Sandbox | Status |
-|-------|-----------------|---------|--------|
-| **Cashback — configurar** | Ativar o programa, validade do saldo, saldo mínimo de resgate, percentual (fixo ou por dia da semana), em quais canais gera, exceções de produto | Programa **ativado**, com histórico real | 💡 Ideia |
-| **Cashback — operar** | Histórico, saldo por cliente, ajuste manual de saldo (creditar/debitar com motivo), fila de processamento e como o cliente usa no PDV/Mesas | 6 usos de cashback registrados | 💡 Ideia |
-| **Cupons de desconto** | Criar cupom (desconto %, valor fixo, frete grátis ou produto grátis), validade, dias da semana, canais, valor mínimo, limites de uso, link do cupom e histórico | **6 cupons** (1 ativo), 12 usos | 💡 Ideia |
-| **Painel Fidelidade** | Ler o resultado dos programas: desconto concedido, faturamento influenciado, ROI, cupom × cashback, aquisição × recorrência | 18 vendas com fidelidade, R$ 66,95 concedidos | 💡 Ideia |
-| **Avaliações** | Está no menu Fidelidade (CRM), mas é reputação, não fidelização: nota geral, avaliações por período e por canal | 2 avaliações, nota 5,0 | 💡 Ideia |
+> **Food Marketing e Fidelidade (CRM) saíram do backlog** em 19/08/2026: viraram os itens
+> **#15 a #23** na tabela acima. O que o sandbox já oferece para documentá-los está registrado
+> na seção *Estado do sandbox*, mais abaixo.
+>
+> **API Oficial WhatsApp** fica de fora por enquanto: o item do menu está como *Em breve!* e não
+> tem tela implementada.
 
 ### Outras áreas (levantamento de 19/08/2026)
 
@@ -89,6 +85,29 @@ backlog reorganizado com o levantamento de Food Marketing, Fidelidade e demais �
 | **Pix Online** | Contratar, configurar e acompanhar o extrato | 1 manual | 3 | 💡 Ideia |
 | **Início (Home)** | Ler o painel inicial, filtros e a senha que revela os valores | 1 manual | 2 | 💡 Ideia |
 
+### Estado do sandbox (o que já dá para documentar)
+
+Conferido em 19/08/2026 na conta **BeeFood3 - Manual**. Importa porque decide se um manual pode
+ser produzido com dados reais ou se precisa de cenário montado antes.
+
+| Área | O que já existe |
+|------|-----------------|
+| Cashback | Programa **ativado**, com histórico real e **6 usos** registrados |
+| Cupons | **6 cupons** cadastrados (1 ativo) e **12 usos** |
+| Painel Fidelidade | **18 vendas** com fidelidade, **R$ 66,95** de desconto concedido |
+| Avaliações | 2 avaliações, nota geral **5,0** |
+| Campanhas SMS | **100 créditos** de saldo e 1 campanha em rascunho |
+| Campanhas WhatsApp | BeeBot conectado; campanhas antigas em rascunho |
+| Pixel Analytics | Funcionando, com dados a partir de **junho/2026** |
+| Clientes | 18 clientes classificados por RFV |
+| Estoque | 45 produtos (nenhum com controle de estoque ligado) |
+| Fiado | R$ 14,00 em dívidas, 3 clientes |
+
+**Decisão pendente com o dono:** nos manuais **#15** e **#16**, publicar uma campanha ou ativar
+uma automação **dispara mensagem de verdade** para os clientes da conta. Todo o caminho pode ser
+capturado em rascunho; falta definir se um disparo real fica autorizado para a captura final.
+No **#18**, enviar SMS consome os 100 créditos.
+
 ### Caixa (backlog antigo)
 
 | Ideia | Escopo resumido | Status |
@@ -104,6 +123,7 @@ backlog reorganizado com o levantamento de Food Marketing, Fidelidade e demais �
 
 ## Histórico
 
+- 2026-08-19 — **Todos os 12 manuais concluídos marcados como publicados** (aviso do dono). Continuam apenas aprovados, sem produção, o #3 (Reabrir caixa) e o #4 (Transferência entre caixas). **Food Marketing e Fidelidade saíram do backlog e viraram os itens #15 a #23**, na ordem de prioridade pedida pelo dono (Food Marketing primeiro). O levantamento das demais 20 áreas do sistema fica no backlog, com tamanho estimado e nota de necessidade. Registrado também o **estado do sandbox** por área — o que decide se um manual pode ser produzido com dados reais. **Pendente:** definir se um disparo real de campanha (#15/#16) e um envio de SMS (#18) ficam autorizados para as capturas finais.
 - 2026-06-19 — Criado o checklist. Manual #1 (**Abrir caixa**) marcado como Concluído e Publicado.
 - 2026-06-19 — Aprovados e adicionados: #2 Fechar caixa + conferência, #3 Reabrir caixa, #4 Transferência entre caixas. Demais ideias movidas para o backlog.
 - 2026-06-19 — Iniciado #5 Reforma Tributária (IBS/CBS) — prioridade pedida pelo dono. **Bloqueio:** catálogo de CST/cClassTrib vazio no sandbox (selects sem opções); decisão de como seguir pendente. Imagens parciais já em `imagens-puras/`.
