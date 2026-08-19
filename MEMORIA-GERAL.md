@@ -76,7 +76,13 @@ com TODAS as subpastas/arquivos acima.
 | Conta | Login | Senha | Observação |
 |-------|-------|-------|------------|
 | beefood1 | `beefood1` | `beefood123` | Conta de teste inicial (tem caixas históricos). |
-| **BeeFood3 - Manual** | `contato@beefood.com.br` | `1q2w3e4r` | **Sandbox dedicado aos manuais.** Usar esta. |
+| **BeeFood3 - Manual** | `contato@beefood.com.br` | `1q2w3e4r` | **Sandbox dedicado aos manuais.** Usar esta. Usuário **Principal**, Gerente, grupo **Administrador2**. |
+| caixa.manual | `caixa.manual` | `manual123` | Usuário **restrito** criado em 19/08/2026 para o manual de restrições de caixa. Grupo **Acesso Funcionário**, **sem** função Gerente. Serve para ver o produto com permissões reduzidas. |
+
+> **Atenção ao testar permissão no login principal:** o usuário Principal **não** ignora as
+> restrições do grupo (comprovado). Logo, desligar uma permissão do grupo **Administrador2**
+> afeta você. Nunca desligue **Usuários** nesse grupo — você perde a própria tela de
+> permissões e não há como religar de dentro do sistema.
 
 > Login em `/login` (campos "Login de acesso" e "Senha", botão **ENTRAR**). Demora ~2-4s.
 > **Trocar de conta:** menu de usuário (ícone pessoa, canto sup. direito) → **Sair**.
@@ -215,6 +221,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Caixa (abrir, receber, consultar) | `manuais\caixa\` | ✅ Concluído |
 | Fechar caixa (vendas pendentes, 1ª conferência, quebra) | `manuais\caixa-fechar\` | ✅ Concluído |
 | Segunda conferência (dupla checagem, resolve a quebra) | `manuais\caixa-conferencia-2\` | ✅ Concluído |
+| Restrições de caixa (grupo de acesso) | `manuais\caixa-restricoes\` | 🔨 Em execução (estudo pronto) |
 | Reforma Tributária (IBS/CBS) | `manuais\reforma-tributaria-ibscbs\` | ✅ Concluído |
 | Ativação Aiqfome V2 | `manuais\ativacao-aiqfome\` | ✅ Concluído |
 | Integração Machine | `manuais\integracao-machine\` | ✅ Concluído |
