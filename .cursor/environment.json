@@ -1,0 +1,7 @@
+{
+  "name": "BeeFood Manuais",
+  "install": "bash .cursor/install.sh",
+  "repositoryDependencies": [
+    "github.com/BeeFood-Sistema-para-Restaurantes/beefood-web-react"
+  ]
+}

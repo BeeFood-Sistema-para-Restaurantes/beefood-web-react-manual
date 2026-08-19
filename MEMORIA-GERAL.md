@@ -110,6 +110,20 @@ React 18 + TypeScript + Vite + Tailwind + shadcn/ui; react-router-dom v6; Supaba
 Estrutura: `src/pages`, `src/components`, `src/hooks`, `src/contexts`, `src/integrations`.
 Obs.: ainda **não existe `spec.md`** no projeto (a regra do projeto pede criar — pendente).
 
+### Onde fica o código (por máquina)
+
+| Máquina | Caminho do `beefood-web-react` |
+|---------|--------------------------------|
+| Windows (dono) | `C:\projetos\beefood-web-react` |
+| Cloud Agent | `~/refs/beefood-web-react` (clone raso, **somente leitura**) |
+
+No Cloud Agent o clone é feito pelo `.cursor/install.sh`. Para o clone funcionar são
+necessárias **duas** liberações: o repositório precisa estar selecionado no **GitHub App do
+Cursor** (configurações da org) **e** listado em `repositoryDependencies` no
+`.cursor/environment.json` — esse campo não clona nada, ele só inclui o repositório no token
+gerado para o ambiente. Faltando qualquer uma das duas, o clone falha com
+`Repository not found`.
+
 ---
 
 ## 9. Índice de manuais
