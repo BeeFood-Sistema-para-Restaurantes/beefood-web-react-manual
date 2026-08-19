@@ -3,7 +3,8 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-06-18 (adicionado versionamento Git + regra de commit por ação)
+Última atualização: 2026-08-19 (captura com Playwright no Cloud Agent; correção do acesso ao
+código em sessão; versão de produção; #2 no índice)
 
 ---
 
@@ -84,6 +85,8 @@ com TODAS as subpastas/arquivos acima.
 
 ## 6. Ferramentas e procedimentos (navegador)
 
+### No Windows (máquina do dono) — MCP do navegador
+
 - MCP `cursor-ide-browser`: `browser_navigate`, `browser_snapshot`, `browser_take_screenshot`,
   `browser_click`, `browser_fill`, `browser_press_key`, `browser_lock`.
 - Fluxo de lock: `navigate` → `lock` → interações → `unlock`.
@@ -91,6 +94,30 @@ com TODAS as subpastas/arquivos acima.
   Copiar os escolhidos para `imagens-puras\` do manual.
 - **Tema:** SEMPRE **claro/branco** nas capturas. Ativar pelo botão **"Alterar tema"** (canto sup. direito).
 - Refs do snapshot mudam a cada render — pegar snapshot novo antes de clicar se der "Element not found".
+
+### No Cloud Agent (Linux) — capturar com Playwright
+
+O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o **Playwright**
+(instalado pelo `.cursor/install.sh`), dirigido por script Python. O que funcionou no #2:
+
+- Rodar com `export PATH="$HOME/.local/bin:$PATH"`.
+- Logar uma vez e reaproveitar a sessão: `storage_state` salvo em arquivo e passado ao
+  `new_context` — evita relogar em cada script (o login leva ~10s).
+- `viewport={"width":1440,"height":900}` com `device_scale_factor=1.5` → imagens 2160×1350,
+  nítidas o bastante para ler os valores das tabelas.
+- Salvar o `screenshot` **direto** em `imagens-puras/` do manual.
+- Fechar o **banner promocional** do topo antes de capturar (botão × do banner), senão ele
+  aparece em todas as imagens.
+- **Esperar bastante:** os modais de caixa levam de 8 a 13 segundos para carregar os dados.
+- **Sempre escopar o clique dentro do modal certo:**
+  `page.locator('div[role="dialog"]').filter(has_text="...").last`. As tabelas de fundo têm os
+  mesmos textos e as mesmas classes (`bg-green-500`, badges "Débito"), e o clique vai para o
+  elemento errado ou fica preso em "subtree intercepts pointer events".
+- Quando a tela oferecer **atalho de teclado**, prefira-o ao clique (ex.: `Control+3` para
+  escolher Débito no pagamento, `Enter` para confirmar). É mais robusto que caçar seletor.
+- Dividir a captura em **scripts curtos por etapa**, deixando as ações irreversíveis (pagar,
+  fechar caixa) em scripts separados dos idempotentes — assim é possível repetir a parte que
+  falhou sem repetir o que não tem volta.
 
 ---
 
@@ -106,7 +133,8 @@ com TODAS as subpastas/arquivos acima.
 ## 8. Stack do projeto (código) — referência
 
 React 18 + TypeScript + Vite + Tailwind + shadcn/ui; react-router-dom v6; Supabase + API DataSnap
-(`/datasnap/rest/...`); @tanstack/react-query; react-hook-form + zod. Versão em produção: `v3.180626.x`.
+(`/datasnap/rest/...`); @tanstack/react-query; react-hook-form + zod. Versão em produção: `v3.190826.x`
+(conferida em 19/08/2026 no rodapé do menu lateral).
 Estrutura: `src/pages`, `src/components`, `src/hooks`, `src/contexts`, `src/integrations`.
 Obs.: ainda **não existe `spec.md`** no projeto (a regra do projeto pede criar — pendente).
 
@@ -124,14 +152,20 @@ Cursor** (configurações da org) **e** listado em `repositoryDependencies` no
 gerado para o ambiente. Faltando qualquer uma das duas, o clone falha com
 `Repository not found`.
 
-**O escopo extra vale só durante o install.** Já em sessão, o token do agente volta a enxergar
-apenas o repositório de manuais: `gh` e `git fetch` dão 404 no `beefood-web-react`. Na prática:
+**O acesso vale durante a sessão inteira** (verificado em 2026-08-19). Dentro da sessão o
+`git fetch origin main` em `~/refs/beefood-web-react` funciona normalmente, e `gh` também
+enxerga o repositório. Ou seja: **dá para atualizar o código no meio do trabalho**, sem
+precisar de uma sessão nova.
 
-- o código fica **congelado** no commit baixado durante o install;
-- para pegar código novo, é preciso **uma sessão nova** (o install roda de novo);
-- não adianta tentar clonar no meio do trabalho — a janela já fechou.
+> Correção: até 2026-08-04 esta seção afirmava que o escopo valia só durante o install e que
+> o código ficava congelado. Não é mais o caso.
 
-Nada disso atrapalha escrever manual: o código está em disco, e é só leitura mesmo.
+Para conferir o que o token alcança: `gh api /installation/repositories -q '.total_count,
+(.repositories[].full_name)'`. Hoje retorna **2**: `beefood-web-react` e
+`beefood-web-react-manual`. Qualquer outro repositório (ex.: os de servidor, usados para
+importar manuais de integração) responde **404** — e 404 aqui é ambíguo: significa "não
+existe" **ou** "não liberado". Para liberar, são necessárias as duas coisas descritas acima
+(GitHub App + `repositoryDependencies`).
 
 ---
 
@@ -140,6 +174,7 @@ Nada disso atrapalha escrever manual: o código está em disco, e é só leitura
 | Manual | Pasta | Status |
 |--------|-------|--------|
 | Caixa (abrir, receber, consultar) | `manuais\caixa\` | ✅ Concluído |
+| Fechar caixa (vendas pendentes, 1ª conferência, quebra) | `manuais\caixa-fechar\` | ✅ Concluído |
 | Reforma Tributária (IBS/CBS) | `manuais\reforma-tributaria-ibscbs\` | ✅ Concluído |
 | Ativação Aiqfome V2 | `manuais\ativacao-aiqfome\` | ✅ Concluído |
 | Integração Machine | `manuais\integracao-machine\` | ✅ Concluído |
