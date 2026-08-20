@@ -1,9 +1,27 @@
-# fluxo-codigo.md — Cardápio Digital Tablet / Modo Kiosk (mapeamento técnico)
+# fluxo-codigo.md — Cardápio Digital Tablet (mapeamento técnico do painel)
 
-> Mapa do código que sustenta o manual `cardapio-digital-tablet-modo-kiosk.md`.
+> **Não publicar** — material interno.
+>
+> **Atenção ao escopo.** O manual `cardapio-digital-tablet-modo-kiosk.md` é **só do aplicativo
+> Android**: a trava é configurada no próprio tablet, pela tela de Administração do app. Este
+> arquivo mapeia o **painel web**, que é o lado complementar — é lá que o gestor acompanha os
+> tablets e envia eventos remotos, entre eles um `TRAVAR`/`DESTRAVAR` que **não é** o modo
+> kiosk do app (bloqueia apenas o botão *voltar* dentro do aplicativo).
+>
+> Serve para: (a) não confundir as duas travas no suporte; (b) documentar o painel quando o
+> manual da aba Tablets/Layout/Eventos for produzido. O código do app Android fica em
+> `beetech-appgarcom-android`, fora do alcance deste ambiente.
+>
 > Base: `beefood-web-react` (commit `dbfa088`, 19/08/2026) e `beetech-server-node-2.0`
 > (branch `beefood-web-react`, commit `b7f37f5`, 19/08/2026).
-> **Não publicar** — material interno.
+
+## 0. As três travas, para não confundir
+
+| Trava | Onde se configura | O que bloqueia |
+|-------|-------------------|----------------|
+| **Modo Kiosk (trava avançada)** — assunto do manual | No tablet, em Administração → *Configurar Trava Avançada* / *Travar* | Saída do app por botão Início, notificações, recentes e Configurações. Exige as permissões de Acessibilidade e Launcher padrão. Não bloqueia volume e power. |
+| **Trava básica** | No tablet, no mesmo assistente, em *Pular e usar trava básica agora* | Só o *screen pinning* do Android. Sai segurando Voltar + Recentes. |
+| **Evento `TRAVAR` do painel** | No painel web, em Cardápio Digital Tablet → Tablets → Enviar evento | Apenas os botões de *voltar* dentro do aplicativo. |
 
 ---
 

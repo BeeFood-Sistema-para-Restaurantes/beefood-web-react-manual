@@ -199,6 +199,13 @@ backend. Os três apps publicados são:
 | `com.beetechentregador` | BeeFood Entregador |
 | `com.cardapiodigitalmesacomanda` | Cardápio Digital Mesa/Comanda (o do tablet) |
 
+> **Confirmado em 20/08/2026 (manual #24):** o código está no Bitbucket, em
+> `beetechbr/beetech-appgarcom-android` — na máquina do dono, `c:\projetos\beetech-appgarcom-android`.
+> É lá que ficam os `docs/manual-modo-kiosk.md` e `docs/images/kiosk/`. O `BITBUCKET_TOKEN`
+> atual **não alcança** esse repositório (Access Token é escopado a um repositório só); o
+> `.cursor/install.sh` já tem a entrada e aceita vários tokens via `TOKENS_BITBUCKET`, mas
+> falta cadastrar o secret `BITBUCKET_TOKEN_APPGARCOM` — e secret só entra em **VM nova**.
+
 > Sobre `yarn android`: é comando de React Native e **não resolve sozinho** — ele compila e
 > instala num device conectado, ou seja, ainda depende de emulador funcionando ou de aparelho
 > físico via `adb`.
@@ -218,6 +225,15 @@ branches do backend no Bitbucket e no sistema de arquivos inteiro (`find /`).
 
 O anexo fica no contexto da conversa. Se o conteúdo não vier **inline no texto da mensagem**,
 o agente não tem como abri-lo — e imagem nunca vem inline.
+
+> **Correção parcial, no mesmo dia:** existe um caso em que o anexo **chega**. Quando o
+> arquivo é enviado como documento, ele é gravado em
+> `~/.cursor/projects/workspace/uploads/<nome>_<hash>.<ext>` — foi assim que o
+> `manual-modo-kiosk.md` do #24 finalmente chegou. **Antes de concluir que um anexo não
+> existe, olhe essa pasta.** No mesmo pedido, as 21 imagens continuaram só como imagem no
+> chat (visíveis para o modelo, sem arquivo em disco), então o comportamento parece depender
+> de como o arquivo é anexado. Arquivos gravados lá vêm com **CRLF**; converter com
+> `tr -d '\r'` antes de comparar com algo do repositório.
 
 **Como mandar material para o Cloud Agent, em ordem de preferência:**
 
