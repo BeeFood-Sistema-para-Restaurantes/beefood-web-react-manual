@@ -3,7 +3,8 @@
 > Memória detalhada deste manual (fluxo, uso, decisões e estado), para retomar a qualquer momento.
 > Ver também a memória geral: `../../MEMORIA-GERAL.md`.
 
-Status: 🔨 **Texto pronto — faltam as 21 imagens** — Última atualização: 2026-08-20
+Status: ✅ **Concluído — texto e as 21 imagens no repositório** (aguardando publicação do dono)
+— Última atualização: 2026-08-20
 
 ---
 
@@ -49,24 +50,40 @@ diff <(sed 's|images/kiosk/|imagens-tratadas/|g' manual-modo-kiosk.md | tr -d '\
 > **Se o texto de origem for atualizado, refazer a cópia** com esse mesmo comando, em vez de
 > editar o arquivo aqui.
 
-## 3. O que ainda falta: as 21 imagens
+## 3. Como as 21 imagens chegaram (e o que não funcionou)
 
-O `.md` chegou como arquivo (foi para `~/.cursor/projects/workspace/uploads/`), mas as
-**imagens só chegaram como imagem no chat, não como arquivo em disco** — a pasta de uploads
-recebeu apenas o `.md`, e nenhum `.png` novo apareceu no sistema de arquivos.
+**Resolvido em 20/08/2026 por um link do Google Drive.** O dono subiu um `.zip` com as 21
+capturas, compartilhou em "qualquer pessoa com o link" e passou o link; o
+`copiar-imagens.py <link>` baixou os 20 MB, extraiu e distribuiu nas duas pastas — 21/21,
+sem faltar nenhuma e sem nenhum PNG sobrando.
 
-**Testado três vezes (20/08/2026): imagem colada no chat nunca vira arquivo.** O agente
-**enxerga** as capturas, mas não há caminho para gravá-las. A pasta
-`~/.cursor/projects/workspace/uploads/` é o **único** lugar onde anexo aparece como arquivo, e
-ela recebeu somente o `.md`.
+Isso só é possível porque o VM tem **egresso de internet liberado**: o
+`cursor-cloud-environment-info` devolve `egress: { restricted: false }`, e `drive.google.com`
+responde ao `curl`.
 
-**O que funciona, então:**
+**O que não funcionou, e vale não repetir:**
+
+- **Imagem colada no chat.** Testado cinco vezes. O agente **enxerga** as capturas, mas elas
+  chegam já decodificadas, sem caminho em disco e sem URL — não existe "baixar a imagem do
+  chat", porque não há de onde baixar. Só o `.md` chegou como arquivo (foi para
+  `~/.cursor/projects/workspace/uploads/`, o **único** lugar onde anexo aparece como arquivo).
+- **`.zip` anexado no chat.** A teoria era boa — zip não é imagem, então deveria cair em
+  `uploads/` como qualquer documento. Na prática **não chegou**: `uploads/` continuou só com o
+  `.md`. Segue sendo caminho não confirmado.
+- **Buscar numa versão publicada do manual.** `ajuda3.beefood.com.br/modo-kiosk` e
+  `.../cardapio-digital-tablet-modo-kiosk` respondem **404** — ele ainda não foi publicado.
+
+**Outros caminhos que servem, se o link não estiver à mão:**
 
 | Caminho | Como |
 |---------|------|
-| **Zip pelo chat** (mais simples) | Compactar a pasta `docs/images/kiosk/` e anexar o **`.zip`** como documento. Zip não é imagem, então cai em `uploads/`. Aí basta `python copiar-imagens.py` — ele acha o zip sozinho. |
+| **Liberar o repositório do app** (resolve de vez, para sempre) | Secret `BITBUCKET_TOKEN_APPGARCOM` (o `install.sh` já tem a entrada e já aceita vários tokens). Aí o agente pega as capturas na origem, sem link nenhum. Pedido já registrado no ambiente; só vale em **VM nova**. |
 | **Rodar na máquina do dono** | `python copiar-imagens.py`, que já encontra `c:\projetos\beetech-appgarcom-android\docs\images\kiosk`, depois commit e push. |
-| **Liberar o repositório do app** | Secret `BITBUCKET_TOKEN_APPGARCOM` (o `install.sh` já tem a entrada). Só vale em **VM nova**. |
+
+> **Atenção ao link do Drive:** tem de ser link de **arquivo** (o `.zip`), não de pasta —
+> pasta do Drive não dá para baixar sem credencial, e o script recusa esse link com essa
+> explicação. E o compartilhamento precisa estar em "qualquer pessoa com o link"; senão o
+> Drive devolve a página de login, e o script avisa que o que baixou não é zip.
 
 ### O jeito rápido: `copiar-imagens.py`
 
@@ -76,6 +93,7 @@ Dentro desta pasta:
 python copiar-imagens.py                 # procura a origem sozinho
 python copiar-imagens.py <pasta>         # usa essa pasta
 python copiar-imagens.py <arquivo.zip>   # usa esse zip
+python copiar-imagens.py <url-do-zip>    # baixa o zip dessa url
 ```
 
 O script copia as capturas para `imagens-puras/` **e** `imagens-tratadas/`, e imprime um
@@ -95,13 +113,26 @@ A busca é **recursiva** tanto em pasta quanto em zip: não importa se os PNG es
 dentro de `images/kiosk/`.
 
 > Testado em 20/08/2026 num diretório temporário fora do repositório, com 21 PNG de 1×1
-> gerados na hora. Sete cenários, todos com o resultado esperado: pasta plana (com um arquivo
-> sobrando, apontado no relatório), zip plano, zip com subpastas, pasta com subpastas,
-> auto-detecção do zip na pasta `uploads/`, origem inválida (código 1) e limpeza da pasta
-> temporária do zip. Nas versões anteriores também foram testados origem incompleta e ausência
-> de origem, ambos com código 1.
+> gerados na hora, metade na raiz e metade em subpasta, mais um PNG sobrando. O zip foi
+> servido por um `http.server` em `localhost` para exercitar o download de verdade.
+>
+> Passaram: URL, zip local, pasta com subpastas, auto-detecção do zip em `uploads/` — 21/21 em
+> todos, com o arquivo sobrando apontado no relatório. Deram código 1, cada um com a mensagem
+> certa: origem incompleta, origem inválida, link de pasta do Drive, URL 404, URL que devolve
+> HTML em vez de zip, host recusando conexão e link do Drive sem id.
+>
+> Os seis formatos de link do Drive que aparecem na prática (`/file/d/<id>/view` com
+> `usp=sharing` e com `usp=drive_link`, `open?id=`, `uc?export=download&id=`, o endpoint
+> `drive.usercontent.google.com` e uma URL comum de outro host) foram conferidos um a um na
+> conversão para download direto.
+>
+> **Bug encontrado e corrigido no teste:** cada URL que falhava deixava uma pasta em `/tmp`,
+> porque o erro sai por `SystemExit` antes do `finally` que limpa. Depois da correção, cinco
+> falhas seguidas não deixaram resíduo.
 
-Os nomes têm de ser exatamente estes, em `imagens-tratadas/` (e cópia em `imagens-puras/`):
+As 21 estão em `imagens-tratadas/` (e cópia em `imagens-puras/`), todas **2560×1600**, somando
+20,6 MB por pasta. Os nomes têm de ser exatamente estes — cada um foi conferido contra a
+legenda escrita no manual:
 
 | # | Arquivo | Tela |
 |---|---------|------|
@@ -130,18 +161,21 @@ Os nomes têm de ser exatamente estes, em `imagens-tratadas/` (e cópia em `imag
 > A ordem de exibição não é a ordem numérica: a `19` aparece **antes** da `18`, porque o teste
 > da Parte 5 vem antes do destravamento da Parte 6. É assim no texto de origem — manter.
 
+> **Dois pares são o mesmo arquivo, de propósito.** `19-home-travada` é byte a byte igual a
+> `03-home-logo`, e `20-destravado` igual a `05-painel-administracao`. Faz sentido: o teste da
+> trava mostra justamente que a tela **não muda**, e destravar devolve o painel ao estado
+> anterior. Não é erro de cópia — se um dia o `validar-imagens.py` passar a apontar duplicata,
+> estes dois pares são exceção conhecida.
+
 **Não haverá `annotate.py`.** As capturas do dono já são as definitivas, sem setas nem
 números — o texto não referencia número de seta em nenhum ponto. Por isso todas entram em
 `imagens-tratadas/` como imagens de contexto, igual ao que foi feito nos manuais importados
 (#7, #8, #11). O `copiar-imagens.py` ocupa o lugar do `annotate.py` nesta pasta: aqui não há
 o que anotar, só o que trazer de outro repositório.
 
-> **Por que o agente não resolve isso sozinho.** As imagens já foram enviadas no chat e o
-> agente **consegue vê-las**, mas elas entram como imagem no contexto, não como arquivo — não
-> existe caminho para gravá-las em disco a partir daí. Só o `.md` chegou como arquivo (foi
-> para `~/.cursor/projects/workspace/uploads/`). Enquanto os PNG não estiverem em disco ou no
-> repositório do app acessível, o manual fica com as referências apontando para arquivos que
-> não existem.
+**As imagens não foram recomprimidas.** Um `optimize` lossless economizaria só **5%** — não
+justifica mexer em arquivo que o dono vai publicar. E as duas pastas ficam idênticas porque
+não há anotação, o mesmo que já acontece em `integracao-uber-direct` e `ativacao-aiqfome`.
 
 ## 4. Histórico (o caminho até aqui)
 
@@ -150,10 +184,14 @@ o que anotar, só o que trazer de outro repositório.
 | 1ª rodada | Pedido chegou citando o `manual-modo-kiosk.md` e a pasta `images` como anexos. **Nada chegou ao VM.** Escrevi um rascunho com o escopo errado (o painel web) e mapeei o código do painel. |
 | 2ª rodada | O dono mandou as 21 imagens no chat e esclareceu: **o manual é só no tablet**. Informou o caminho de origem, `c:\projetos\beetech-appgarcom-android\docs\manual-modo-kiosk.md`. Testei o acesso ao repositório do app no Bitbucket: **sem acesso** (o `BITBUCKET_TOKEN` alcança só o `beetech-server-node-2.0`). |
 | 3ª rodada | O `.md` foi anexado de um jeito que **caiu em disco**. Manual copiado, escopo corrigido, `texto-documentation.ia.md` escrito. Sobraram só as imagens. |
+| 4ª rodada | O dono tentou o `.zip` e ele **não chegou** — `uploads/` continuou só com o `.md`, e as imagens vieram outra vez como imagem no chat. Varredura nova no VM (`find /` por PNG/JPG/ZIP criados no dia) não achou nada, e a versão publicada do manual não existe para servir de origem (404 no `ajuda3`). Pedido do secret `BITBUCKET_TOKEN_APPGARCOM` registrado formalmente para o ambiente. |
+| 5ª rodada | O dono perguntou se **Google Drive** funcionaria. Funciona: o ambiente reporta `egress: { restricted: false }` e o Drive responde ao `curl`. O `copiar-imagens.py` passou a aceitar **URL** como origem, com conversão do link de compartilhamento do Drive para download direto. Testado de ponta a ponta com um zip servido por HTTP. |
+| 6ª rodada | O dono mandou o link do `.zip` no Drive. **Resolvido:** 20 MB baixados, 21/21 copiadas, `validar-imagens.py` limpo. Manual completo. |
 
 **Lição principal, já registrada no `MEMORIA-GERAL.md`:** anexo do chat não chega ao VM por
 padrão. Quando cai em `~/.cursor/projects/workspace/uploads/`, chegou; se não estiver lá, não
-chegou. Vale conferir essa pasta antes de concluir que o material não existe.
+chegou. Vale conferir essa pasta antes de concluir que o material não existe. E para imagem,
+que nunca chega como arquivo, **o caminho é URL**: o VM baixa de qualquer host.
 
 ## 5. Decisões tomadas
 
@@ -164,7 +202,10 @@ chegou. Vale conferir essa pasta antes de concluir que o material não existe.
   explicitamente não ser o assunto. O trabalho não foi perdido: virou o `fluxo-codigo.md`.
 - **Mantive o `fluxo-codigo.md`** com uma tabela que separa as três travas. Foi a confusão que
   me fez errar o escopo na primeira rodada, e é a mesma confusão que o suporte tende a ter.
-- **`texto-documentation.ia.md` já escrito**, mas a publicação depende das imagens.
+- **`texto-documentation.ia.md` pronto para colar.** As 21 imagens já estão no lugar, então o
+  bloqueio de publicação saiu.
+- **Não recomprimi as capturas.** Ganho lossless de 5% não justifica alterar arquivo que vai
+  ser publicado pelo dono.
 
 ## 6. Detalhes técnicos que o texto de origem traz
 

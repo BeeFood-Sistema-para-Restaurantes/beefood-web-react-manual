@@ -4,8 +4,8 @@
 > do app e gerar o manual na interface do BeeFood. Copie o bloco abaixo da linha `---` e cole.
 > O projeto do manual **já está anexo no contexto** — o prompt aponta os **arquivos exatos** a ler.
 >
-> ⚠️ **Só publicar depois de subir as 21 imagens** para `imagens-tratadas/`. A lista completa,
-> com os nomes exatos, está na `MEMORIA.md`.
+> ✅ As 21 imagens já estão em `imagens-tratadas/`, conferidas pelo `validar-imagens.py`. A
+> lista, com os nomes exatos e a tela de cada uma, está na `MEMORIA.md`.
 >
 > ⚠️ **Confirmar a seção do menu** antes de colar: o manual é de aplicativo Android, e o prompt
 > abaixo assume a seção **Aplicativos**.
