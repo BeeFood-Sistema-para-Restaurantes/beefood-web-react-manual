@@ -206,6 +206,14 @@ Duas particularidades destas capturas:
   cima da palavra (`CONCEDER`, `AGORA NÃO`, `CONCORDAR E CONTINUAR`) e cobria uma letra. Vale
   para qualquer botão com texto centralizado.
 
+**Onde o número entra no texto.** `(N)` inline sempre no parágrafo imediatamente **antes** da
+imagem, e a tabela "Nº → o que fazer" imediatamente **depois** dela. Quando a ação está numa
+imagem anterior, o texto diz **"a seta N da imagem acima"** — acontece três vezes, nos dois
+`CONCEDER` do assistente e no `CONFIGURAR TRAVA AVANÇADA`. A regra saiu de um problema real: na
+primeira escrita, "toque em CONCEDER (2)" ficava colado numa imagem cuja seta 2 era *AGORA NÃO*.
+Conferido por script no fim: as 29 setas estão citadas, e nenhum número citado deixa de existir na
+imagem.
+
 Para medir as coordenadas, o que funcionou bem foi gerar uma cópia temporária de cada captura com
 uma grade de frações sobreposta (linha a cada 0,05, rótulo a cada 0,10) e ler os valores direto
 da grade — bem mais rápido e preciso que estimar no olho, e vale copiar em qualquer manual novo.

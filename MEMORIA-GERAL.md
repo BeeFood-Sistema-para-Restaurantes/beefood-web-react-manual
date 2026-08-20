@@ -115,6 +115,19 @@ elemento sem tapar nada. Vale também para campo de texto: apontar ao lado do r�
 - Sinalizar claramente o que é **obrigatório**.
 - Caminhos de imagem no `.md` são **relativos** à pasta do manual: `imagens-tratadas/arquivo.png`.
 
+**Onde o número entra no texto, para não gerar ambiguidade.** Duas posições, e só essas:
+
+- **`(N)` inline** no parágrafo **imediatamente antes** da imagem em que a seta N está desenhada
+  ("Toque no logo do estabelecimento (1)", e a imagem vem em seguida).
+- **Tabela "Nº → o que fazer"** imediatamente **depois** da imagem a que se refere.
+
+Quando a ação está numa imagem **anterior**, escrever **"a seta N da imagem acima"** em vez de
+`(N)`. Sem essa regra o leitor não sabe para qual das duas imagens vizinhas o número aponta — e o
+risco é real: no #24, um "toque em CONCEDER (2)" ficava colado numa imagem cuja seta 2 era
+*AGORA NÃO*. Vale conferir no fim que **toda seta desenhada é citada** e que **todo número citado
+existe** na imagem: um script curto que compara o `.md` com os marcadores do `annotate.py` acha
+isso em segundos, e foi assim que a ambiguidade apareceu.
+
 ---
 
 ## 5. Contas de acesso (produção https://beefood.app)

@@ -55,7 +55,7 @@ Esta é a tela de Administração. Dos botões dela, dois interessam para a trav
 | 1 | **TRAVAR** | No dia a dia, para travar o tablet. |
 | 2 | **CONFIGURAR TRAVA AVANÇADA** | Na primeira vez, para conceder as permissões com calma sem travar nada ainda. |
 
-Na primeira configuração, toque em **CONFIGURAR TRAVA AVANÇADA** (2).
+Na primeira configuração, toque em **CONFIGURAR TRAVA AVANÇADA** — a seta **2** da imagem acima.
 
 ---
 
@@ -76,7 +76,7 @@ O texto amarelo dentro de cada quadro é a instrução do que fazer depois, já 
 
 ### Permissão 1 de 2 — Acessibilidade
 
-Toque em **CONCEDER** (2), no quadro Acessibilidade. O aplicativo mostra um aviso explicando para que serve essa permissão, o que ela faz e que nenhum dado pessoal é coletado.
+Toque em **CONCEDER** no quadro Acessibilidade — a seta **2** da imagem acima. O aplicativo mostra um aviso explicando para que serve essa permissão, o que ela faz e que nenhum dado pessoal é coletado.
 
 ![Aviso explicando o uso do serviço de acessibilidade](imagens-tratadas/07-aviso-acessibilidade.png)
 
@@ -85,7 +85,7 @@ Toque em **CONCEDER** (2), no quadro Acessibilidade. O aplicativo mostra um avis
 | 1 | **CONCORDAR E CONTINUAR** | Leva você às configurações do Android. Nada é pedido ao Android antes desse toque. |
 | 2 | **AGORA NÃO** | Fecha só o aviso; o assistente continua aberto para você voltar depois. |
 
-Toque em **CONCORDAR E CONTINUAR** (1). O Android abre a tela de Acessibilidade — nela, toque em **Cardápio Mesa/Comanda — Modo Kiosk** (1), na seção "Apps baixados".
+Toque em **CONCORDAR E CONTINUAR**. O Android abre a tela de Acessibilidade — nela, toque em **Cardápio Mesa/Comanda — Modo Kiosk** (1), na seção "Apps baixados".
 
 ![Configurações de Acessibilidade do Android com o serviço do aplicativo na lista](imagens-tratadas/08-android-acessibilidade.png)
 
@@ -115,11 +115,11 @@ Se o contador não mudou, toque no ícone de recarregar — o círculo com a set
 
 ### Permissão 2 de 2 — Tela inicial padrão
 
-Toque em **CONCEDER** (3), no quadro Launcher padrão. O Android pergunta qual aplicativo deve ser a tela inicial do tablet, e vem marcada a tela de início do próprio Android (no tablet das imagens, "Tela de início do Pixel").
+Toque em **CONCEDER** no quadro Launcher padrão — a seta **3** da imagem acima. O Android pergunta qual aplicativo deve ser a tela inicial do tablet: vem marcada a tela de início do próprio Android (no tablet das imagens, "Tela de início do Pixel"). Toque no seletor do **Cardápio Mesa/Comanda** (1).
 
 ![Pergunta do Android sobre qual aplicativo usar como tela inicial](imagens-tratadas/13-android-launcher.png)
 
-Toque no seletor do **Cardápio Mesa/Comanda** (1).
+O seletor passa para o cardápio.
 
 ![Opção Cardápio Mesa/Comanda selecionada na lista](imagens-tratadas/14-android-launcher-selecionado.png)
 
