@@ -4,8 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-20 (entra o #24, Cardápio Digital Tablet — Modo Kiosk, em
-execução e bloqueado por falta do material anexado)
+Última atualização: 2026-08-20 (#24 Modo Kiosk com o texto pronto; faltam só as 21 imagens)
 
 ## Legenda de status
 
@@ -44,7 +43,7 @@ execução e bloqueado por falta do material anexado)
 | 21 | **Cupons de desconto** | Criar cupom nos quatro tipos (percentual, valor fixo, frete grátis e produto grátis), validade, dias da semana, canais, valor mínimo, limites de uso, link do cupom e histórico | `manuais/cupom-desconto/` | ☑️ Aprovado | — |
 | 22 | **Painel Fidelidade** | Ler o resultado dos programas: desconto concedido, faturamento influenciado, ROI, cupom × cashback, participação no faturamento e aquisição × recorrência | `manuais/fidelidade-painel/` | ☑️ Aprovado | — |
 | 23 | **Avaliações** | Está no menu Fidelidade (CRM), mas é reputação: nota geral, avaliações por período, por canal e como responder | `manuais/avaliacoes/` | ☑️ Aprovado | — |
-| 24 | **Cardápio Digital Tablet — Modo Kiosk** | Deixar o tablet preso no cardápio: preparar o layout, conferir o aparelho na listagem, fixar a mesa, enviar o evento **Travar**, acompanhar em Eventos e destravar para manutenção — mais o travamento do próprio Android | `manuais/cardapio-digital-tablet-modo-kiosk/` | 🔨 Em execução (**bloqueado**) | — |
+| 24 | **Modo Kiosk (Cardápio Digital Tablet)** | **Só no tablet:** travar o aparelho no cardápio pela tela de Administração do app Android — abrir a Administração pelo logo, conceder as permissões de Acessibilidade e Launcher padrão pelo assistente, **ATIVAR MODO KIOSK**, testar, destravar, mais a alternativa de trava básica e o FAQ | `manuais/cardapio-digital-tablet-modo-kiosk/` | 🔨 Texto pronto (**faltam as 21 imagens**) | — |
 
 ---
 
@@ -124,6 +123,7 @@ No **#18**, enviar SMS consome os 100 créditos.
 
 ## Histórico
 
+- 2026-08-20 — **#24 com o texto pronto; faltam as 21 imagens.** O `manual-modo-kiosk.md` do dono (origem: `c:\projetos\beetech-appgarcom-android\docs\`) chegou como arquivo e foi **copiado sem reescrever**, no mesmo padrão dos manuais #8 e #11 — as únicas mudanças foram os caminhos `images/kiosk/` → `imagens-tratadas/` e o fim de linha CRLF → LF. **Escopo corrigido:** o manual é **só do aplicativo Android no tablet** (Administração → Configurar Trava Avançada → as duas permissões → ATIVAR MODO KIOSK), e não do painel web como eu havia entendido na primeira rodada. `texto-documentation.ia.md` já escrito, com as 21 imagens na ordem. Falta apenas subir os PNG: eles vieram como imagem no chat, não como arquivo em disco. **Descobertas:** existem **três travas diferentes** e é fácil confundi-las (modo kiosk do app, trava básica por screen pinning e o evento `TRAVAR` do painel, que só bloqueia o botão *voltar*) — a tabela que as separa está no `fluxo-codigo.md`; e o repositório do app, `beetech-appgarcom-android`, **não é alcançável** por este ambiente.
 - 2026-08-20 — **#24 iniciado e bloqueado.** Pedido: manual do **modo kiosk** do Cardápio Digital Tablet, a partir de um `manual-modo-kiosk.md` e de uma pasta `images` anexados ao chat. **Os anexos não chegaram ao VM do Cloud Agent** — procurados no repositório (inclusive todo o histórico e todas as branches), nos dois repositórios de referência, nas 81 branches do backend no Bitbucket e no sistema de arquivos inteiro. Entregue mesmo assim: o `fluxo-codigo.md` completo (rota, permissão, as três abas, regras de status/bateria, limite contratado que desloga tablet sozinho, os seis eventos, o POST `/api/tablet2/criarEvento` e o `procInsertEvento`) e um **rascunho** do manual com as etapas 1 a 6 (tudo feito pelo painel). Ficou pendente a etapa 7 (travar o próprio Android) e as 5 imagens — não escrevi o procedimento do Android por conta própria para não divergir do oficial. **Descoberta importante:** *Kiosk* aparece em dois lugares distintos do produto, e o do `TotemConfigModal.tsx` é o **Totem Windows**, não o tablet.
 - 2026-08-19 — **Todos os 12 manuais concluídos marcados como publicados** (aviso do dono). Continuam apenas aprovados, sem produção, o #3 (Reabrir caixa) e o #4 (Transferência entre caixas). **Food Marketing e Fidelidade saíram do backlog e viraram os itens #15 a #23**, na ordem de prioridade pedida pelo dono (Food Marketing primeiro). O levantamento das demais 20 áreas do sistema fica no backlog, com tamanho estimado e nota de necessidade. Registrado também o **estado do sandbox** por área — o que decide se um manual pode ser produzido com dados reais. **Pendente:** definir se um disparo real de campanha (#15/#16) e um envio de SMS (#18) ficam autorizados para as capturas finais.
 - 2026-06-19 — Criado o checklist. Manual #1 (**Abrir caixa**) marcado como Concluído e Publicado.

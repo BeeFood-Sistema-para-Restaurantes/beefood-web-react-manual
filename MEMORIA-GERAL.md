@@ -161,6 +161,15 @@ branches do backend no Bitbucket e no sistema de arquivos inteiro (`find /`).
 O anexo fica no contexto da conversa. Se o conteúdo não vier **inline no texto da mensagem**,
 o agente não tem como abri-lo — e imagem nunca vem inline.
 
+> **Correção parcial, no mesmo dia:** existe um caso em que o anexo **chega**. Quando o
+> arquivo é enviado como documento, ele é gravado em
+> `~/.cursor/projects/workspace/uploads/<nome>_<hash>.<ext>` — foi assim que o
+> `manual-modo-kiosk.md` do #24 finalmente chegou. **Antes de concluir que um anexo não
+> existe, olhe essa pasta.** No mesmo pedido, as 21 imagens continuaram só como imagem no
+> chat (visíveis para o modelo, sem arquivo em disco), então o comportamento parece depender
+> de como o arquivo é anexado. Arquivos gravados lá vêm com **CRLF**; converter com
+> `tr -d '\r'` antes de comparar com algo do repositório.
+
 **Como mandar material para o Cloud Agent, em ordem de preferência:**
 
 1. **Commitar no repositório** (numa branch) e citar o caminho no pedido. Funciona para texto
