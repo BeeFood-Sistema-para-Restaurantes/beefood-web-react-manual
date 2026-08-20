@@ -4,8 +4,8 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-19 (todos os manuais concluídos marcados como publicados;
-Food Marketing e Fidelidade promovidos para a fila como #15 a #23)
+Última atualização: 2026-08-20 (entra o #24, Cardápio Digital Tablet — Modo Kiosk, em
+execução e bloqueado por falta do material anexado)
 
 ## Legenda de status
 
@@ -44,6 +44,7 @@ Food Marketing e Fidelidade promovidos para a fila como #15 a #23)
 | 21 | **Cupons de desconto** | Criar cupom nos quatro tipos (percentual, valor fixo, frete grátis e produto grátis), validade, dias da semana, canais, valor mínimo, limites de uso, link do cupom e histórico | `manuais/cupom-desconto/` | ☑️ Aprovado | — |
 | 22 | **Painel Fidelidade** | Ler o resultado dos programas: desconto concedido, faturamento influenciado, ROI, cupom × cashback, participação no faturamento e aquisição × recorrência | `manuais/fidelidade-painel/` | ☑️ Aprovado | — |
 | 23 | **Avaliações** | Está no menu Fidelidade (CRM), mas é reputação: nota geral, avaliações por período, por canal e como responder | `manuais/avaliacoes/` | ☑️ Aprovado | — |
+| 24 | **Cardápio Digital Tablet — Modo Kiosk** | Deixar o tablet preso no cardápio: preparar o layout, conferir o aparelho na listagem, fixar a mesa, enviar o evento **Travar**, acompanhar em Eventos e destravar para manutenção — mais o travamento do próprio Android | `manuais/cardapio-digital-tablet-modo-kiosk/` | 🔨 Em execução (**bloqueado**) | — |
 
 ---
 
@@ -80,7 +81,7 @@ Food Marketing e Fidelidade promovidos para a fila como #15 a #23)
 | **Financeiro** | Lançamentos a pagar e receber, recebimentos, pagamentos, DRE e cadastros auxiliares | 3 a 4 manuais | 3 | 💡 Ideia |
 | **Fiado** | Visão geral, controle de dívidas e vendas sem pagamento | 1 manual | 3 | 💡 Ideia |
 | **Cadastros** | Mesas e comandas (com QR Code), formas de recebimento e funcionários | 2 manuais | 3 | 💡 Ideia |
-| **Cardápio no Tablet** | Cadastrar tablets, layout e eventos remotos | 2 manuais | 3 | 💡 Ideia |
+| **Cardápio no Tablet** | Cadastrar tablets, layout e eventos remotos | 2 manuais | 3 | 💡 Ideia — o modo kiosk saiu daqui e virou o **#24** |
 | **Multilojas** | Link único listando várias lojas da rede | 1 manual | 3 | 💡 Ideia |
 | **Pix Online** | Contratar, configurar e acompanhar o extrato | 1 manual | 3 | 💡 Ideia |
 | **Início (Home)** | Ler o painel inicial, filtros e a senha que revela os valores | 1 manual | 2 | 💡 Ideia |
@@ -123,6 +124,7 @@ No **#18**, enviar SMS consome os 100 créditos.
 
 ## Histórico
 
+- 2026-08-20 — **#24 iniciado e bloqueado.** Pedido: manual do **modo kiosk** do Cardápio Digital Tablet, a partir de um `manual-modo-kiosk.md` e de uma pasta `images` anexados ao chat. **Os anexos não chegaram ao VM do Cloud Agent** — procurados no repositório (inclusive todo o histórico e todas as branches), nos dois repositórios de referência, nas 81 branches do backend no Bitbucket e no sistema de arquivos inteiro. Entregue mesmo assim: o `fluxo-codigo.md` completo (rota, permissão, as três abas, regras de status/bateria, limite contratado que desloga tablet sozinho, os seis eventos, o POST `/api/tablet2/criarEvento` e o `procInsertEvento`) e um **rascunho** do manual com as etapas 1 a 6 (tudo feito pelo painel). Ficou pendente a etapa 7 (travar o próprio Android) e as 5 imagens — não escrevi o procedimento do Android por conta própria para não divergir do oficial. **Descoberta importante:** *Kiosk* aparece em dois lugares distintos do produto, e o do `TotemConfigModal.tsx` é o **Totem Windows**, não o tablet.
 - 2026-08-19 — **Todos os 12 manuais concluídos marcados como publicados** (aviso do dono). Continuam apenas aprovados, sem produção, o #3 (Reabrir caixa) e o #4 (Transferência entre caixas). **Food Marketing e Fidelidade saíram do backlog e viraram os itens #15 a #23**, na ordem de prioridade pedida pelo dono (Food Marketing primeiro). O levantamento das demais 20 áreas do sistema fica no backlog, com tamanho estimado e nota de necessidade. Registrado também o **estado do sandbox** por área — o que decide se um manual pode ser produzido com dados reais. **Pendente:** definir se um disparo real de campanha (#15/#16) e um envio de SMS (#18) ficam autorizados para as capturas finais.
 - 2026-06-19 — Criado o checklist. Manual #1 (**Abrir caixa**) marcado como Concluído e Publicado.
 - 2026-06-19 — Aprovados e adicionados: #2 Fechar caixa + conferência, #3 Reabrir caixa, #4 Transferência entre caixas. Demais ideias movidas para o backlog.

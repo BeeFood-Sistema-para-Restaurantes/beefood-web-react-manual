@@ -3,8 +3,9 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-19 (backend clonado no Cloud Agent; tela de login mudou; telas com
-auto-save; captura com Playwright; versão de produção)
+Última atualização: 2026-08-20 (anexo do chat não chega ao Cloud Agent; escopo real do
+`BITBUCKET_TOKEN`; backend clonado no Cloud Agent; tela de login mudou; telas com auto-save;
+captura com Playwright; versão de produção)
 
 ---
 
@@ -149,6 +150,33 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
 - O banner promocional do topo fecha por `button[aria-label="Dispensar"]`.
 - Alguns elementos ficam em **listas com rolagem própria** (o modal de permissões, por exemplo).
   Aumentar o viewport não resolve; use `scroll_into_view_if_needed()` no item desejado.
+
+### Arquivo anexado no chat NÃO chega ao Cloud Agent (comprovado em 2026-08-20)
+
+Ao pedir o manual do **modo kiosk** (#24), o dono anexou um `manual-modo-kiosk.md` e uma
+pasta `images`. **Nenhum dos dois existia no VM.** Foi procurado no repositório, em todo o
+histórico do Git, em todas as branches remotas, nos dois repositórios de referência, nas 81
+branches do backend no Bitbucket e no sistema de arquivos inteiro (`find /`).
+
+O anexo fica no contexto da conversa. Se o conteúdo não vier **inline no texto da mensagem**,
+o agente não tem como abri-lo — e imagem nunca vem inline.
+
+**Como mandar material para o Cloud Agent, em ordem de preferência:**
+
+1. **Commitar no repositório** (numa branch) e citar o caminho no pedido. Funciona para texto
+   e imagem, e ainda deixa o material versionado.
+2. **Colar o texto no corpo da mensagem.** Resolve o `.md`, não resolve as imagens.
+3. **Liberar o repositório de origem:** GitHub via `repositoryDependencies` + GitHub App;
+   Bitbucket via Repository Access Token em secret + entrada em `REFERENCIAS_BITBUCKET`
+   (lembrando que **secret só entra em VM nova**).
+
+> O `BITBUCKET_TOKEN` de hoje é **escopo de repositório**: alcança apenas
+> `beetechbr/beetech-server-node-2.0`. Listar o workspace `beetechbr` pela API retorna
+> `size: 1`. Qualquer outro repositório do Bitbucket (app Android, totem, servidores) está
+> fora do alcance.
+>
+> Detalhe útil: a API do Bitbucket **exige `Authorization: Bearer <token>`** com esse tipo de
+> token. `curl -u x-token-auth:<token>` devolve **401** na API, embora funcione no `git`.
 
 ---
 
