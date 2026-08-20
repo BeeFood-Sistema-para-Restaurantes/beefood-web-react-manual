@@ -59,6 +59,34 @@ recebeu apenas o `.md`, e nenhum `.png` novo apareceu no sistema de arquivos.
 disco), ou commitá-los numa branch. Origem:
 `c:\projetos\beetech-appgarcom-android\docs\images\kiosk\`.
 
+### O jeito rápido: `copiar-imagens.py`
+
+Na máquina do dono (onde a pasta de origem existe), dentro desta pasta:
+
+```bash
+python copiar-imagens.py
+```
+
+O script copia as capturas para `imagens-puras/` **e** `imagens-tratadas/`, e imprime um
+relatório item a item. Ele **lê a lista de arquivos do próprio manual**, na ordem em que as
+imagens aparecem — não tem lista escrita dentro dele, então nunca fica dessincronizado do
+texto. Se alguma faltar, mostra quais e sai com código 1; se houver PNG na origem que o
+manual não usa, avisa em vez de copiar em silêncio.
+
+Origens tentadas automaticamente, nesta ordem:
+
+1. `c:\projetos\beetech-appgarcom-android\docs\images\kiosk` (máquina do dono)
+2. `~/refs/beetech-appgarcom-android/docs/images/kiosk` (Cloud Agent, se o repositório do app
+   passar a ser clonado)
+
+Qualquer outra pasta funciona como argumento:
+`python copiar-imagens.py /caminho/com/os/21/png`.
+
+> Testado em 20/08/2026 com uma origem de mentira (21 PNG de 1×1 gerados na hora, mais um
+> arquivo sobrando), num diretório temporário fora do repositório: copiou os 21 nas duas
+> pastas, apontou o arquivo não usado, e os três casos de erro (origem incompleta, pasta
+> inexistente e nenhuma origem encontrada) saíram com código 1 e mensagem clara.
+
 Os nomes têm de ser exatamente estes, em `imagens-tratadas/` (e cópia em `imagens-puras/`):
 
 | # | Arquivo | Tela |
@@ -91,7 +119,15 @@ Os nomes têm de ser exatamente estes, em `imagens-tratadas/` (e cópia em `imag
 **Não haverá `annotate.py`.** As capturas do dono já são as definitivas, sem setas nem
 números — o texto não referencia número de seta em nenhum ponto. Por isso todas entram em
 `imagens-tratadas/` como imagens de contexto, igual ao que foi feito nos manuais importados
-(#7, #8, #11).
+(#7, #8, #11). O `copiar-imagens.py` ocupa o lugar do `annotate.py` nesta pasta: aqui não há
+o que anotar, só o que trazer de outro repositório.
+
+> **Por que o agente não resolve isso sozinho.** As imagens já foram enviadas no chat e o
+> agente **consegue vê-las**, mas elas entram como imagem no contexto, não como arquivo — não
+> existe caminho para gravá-las em disco a partir daí. Só o `.md` chegou como arquivo (foi
+> para `~/.cursor/projects/workspace/uploads/`). Enquanto os PNG não estiverem em disco ou no
+> repositório do app acessível, o manual fica com as referências apontando para arquivos que
+> não existem.
 
 ## 4. Histórico (o caminho até aqui)
 
