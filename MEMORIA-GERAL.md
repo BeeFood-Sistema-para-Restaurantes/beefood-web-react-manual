@@ -145,6 +145,55 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
 - Alguns elementos ficam em **listas com rolagem própria** (o modal de permissões, por exemplo).
   Aumentar o viewport não resolve; use `scroll_into_view_if_needed()` no item desejado.
 
+### Aplicativos Android — o emulador NÃO funciona no Cloud Agent (testado em 2026-08-19)
+
+Investigação completa, para não se repetir o teste:
+
+**O que o ambiente tem de sobra:**
+
+| Recurso | Situação |
+|---------|----------|
+| Android SDK | Instala em **~40 s** (`commandlinetools-linux`, platform-tools, plataforma 34, emulador, imagens) |
+| Java / Node / Yarn | OpenJDK 21, Node 22, Yarn 1.22 — já instalados |
+| KVM | **Funciona de verdade.** Teste por `ioctl`: `KVM_CREATE_VM` com sucesso, 4 vCPUs, virtualização aninhada `Y` |
+| Display | `DISPLAY=:1` com X ativo, Xvfb disponível |
+| Máquina | 4 CPUs, 15 GB de RAM, 233 GB livres |
+| `sudo` | Sem senha (dá para `chmod 666 /dev/kvm`) |
+
+**O que não funciona:** o emulador sobe o QEMU, mas **o guest nunca inicia**. Testadas quatro
+configurações (imagem `google_apis` com skin de tablet e swiftshader; imagem `default` com
+`-gpu off`; a mesma sem Bluetooth; e com `-show-kernel`). Em todas, o log para exatamente na
+mesma linha —
+
+```
+INFO | Activated packet streamer for bluetooth emulation
+```
+
+— e a CPU do QEMU cai para **0,2%**. Com `-show-kernel`, **nenhuma linha do kernel do Android
+aparece**: não é lentidão, é travamento antes do boot. O `adb` enxerga `emulator-5554 offline`
+indefinidamente. Provável bloqueio de syscall no sandbox do container; o KVM em si está sadio.
+
+**Segundo obstáculo, independente do primeiro:** o **código dos apps não está acessível**. O
+token do GitHub alcança 2 repositórios (`beefood-web-react` e `beefood-web-react-manual`), e a
+organização no GitHub não tem nenhum projeto Android. O código deve estar no Bitbucket, como o
+backend. Os três apps publicados são:
+
+| Pacote | App |
+|--------|-----|
+| `com.beetechappgarcom` | App Garçom |
+| `com.beetechentregador` | BeeFood Entregador |
+| `com.cardapiodigitalmesacomanda` | Cardápio Digital Mesa/Comanda (o do tablet) |
+
+> Sobre `yarn android`: é comando de React Native e **não resolve sozinho** — ele compila e
+> instala num device conectado, ou seja, ainda depende de emulador funcionando ou de aparelho
+> físico via `adb`.
+
+**Como produzir manual de app Android, então:** as capturas precisam vir de **aparelho real**
+(print do próprio Android, ou `scrcpy` espelhando na máquina do dono), ou de um **emulador na
+máquina dele** (Android Studio no Windows, onde a virtualização é nativa). O Cloud Agent
+continua servindo para escrever o manual, tratar as imagens e documentar a parte **web** do
+app (por exemplo, Cardápio Digital Tablet tem as abas Tablets, Layout e Eventos no painel).
+
 ---
 
 ## 7. Regras de segurança em produção
