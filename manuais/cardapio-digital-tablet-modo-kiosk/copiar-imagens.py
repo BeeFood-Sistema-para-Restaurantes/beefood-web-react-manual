@@ -3,8 +3,11 @@
 
 As imagens deste manual nao sao produzidas aqui: elas vem do repositorio do app
 Android, em docs/images/kiosk/. Este script copia essas capturas para
-imagens-puras/ (backup) e imagens-tratadas/ (as que o manual referencia), e
-avisa se alguma faltar.
+imagens-puras/ e avisa se alguma faltar.
+
+So para imagens-puras/. Quem escreve em imagens-tratadas/ e o annotate.py, que
+le as puras e desenha as setas numeradas -- copiar aqui por cima apagaria as
+marcacoes. Depois de rodar este script, rode "python annotate.py".
 
 A lista de arquivos NAO esta escrita aqui: ela e lida do proprio manual, na
 ordem em que aparece. Assim o script nunca fica dessincronizado do texto.
@@ -47,7 +50,6 @@ from pathlib import Path
 AQUI = Path(__file__).resolve().parent
 MANUAL = AQUI / "cardapio-digital-tablet-modo-kiosk.md"
 PURAS = AQUI / "imagens-puras"
-TRATADAS = AQUI / "imagens-tratadas"
 
 UPLOADS = Path.home() / ".cursor" / "projects" / "workspace" / "uploads"
 
@@ -211,19 +213,17 @@ def main() -> int:
         disponiveis = indexar(origem)
 
         print(f"origem : {origem}")
-        print(f"destino: {TRATADAS.name}/ e {PURAS.name}/")
+        print(f"destino: {PURAS.name}/")
         print(f"manual referencia {len(esperadas)} imagens")
         print(f"origem tem {len(disponiveis)} png\n")
 
         PURAS.mkdir(exist_ok=True)
-        TRATADAS.mkdir(exist_ok=True)
 
         copiadas, faltando = [], []
         for ordem, nome in enumerate(esperadas, start=1):
             arquivo = disponiveis.get(nome)
             if arquivo is not None:
                 shutil.copy2(arquivo, PURAS / nome)
-                shutil.copy2(arquivo, TRATADAS / nome)
                 copiadas.append(nome)
                 print(f"  {ordem:2d}. OK      {nome}")
             else:
@@ -244,7 +244,8 @@ def main() -> int:
             print(f"\nFALTAM {len(faltando)} arquivo(s). O manual nao esta completo.")
             return 1
 
-        print("\nTudo copiado. Confira e suba:")
+        print("\nTudo copiado. Agora desenhe as setas, confira e suba:")
+        print("  python annotate.py")
         print("  python ../../validar-imagens.py cardapio-digital-tablet-modo-kiosk")
         print("  git add manuais/cardapio-digital-tablet-modo-kiosk/imagens-*")
         print('  git commit -m "docs(modo-kiosk): adiciona as capturas do manual"')
