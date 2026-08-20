@@ -71,7 +71,7 @@ flowchart LR
 
 | Nº | Manual | Pasta | Imagens ~ | Ordem |
 |----|--------|-------|-----------|-------|
-| **#27** | Cardápio — **fundamentos** | `manuais/cardapio-fundamentos/` | ~18 | **1º** |
+| **#27** | Cardápio — **fundamentos** | `manuais/cardapio-fundamentos/` | **25 (feito)** | **1º ✅** |
 | **#28** | Cardápio — **hambúrguer** | `manuais/cardapio-hamburguer/` | ~12 | 3º |
 | **#29** | Cardápio — **pizza** | `manuais/cardapio-pizza/` | ~17 | **2º** |
 | **#30** | Cardápio — **açaí** | `manuais/cardapio-acai/` | ~12 | 4º |
@@ -113,7 +113,7 @@ Registrar no `MEMORIA.md` de cada manual: data da limpeza confirmada pelo dono.
 
 | Manual | Aviso enviado? | Base limpa? | Data |
 |--------|----------------|-------------|------|
-| #27 Fundamentos | ☐ | ☐ | |
+| #27 Fundamentos | ☑ | ☑ | 2026-08-20 (setor, produto, complemento e grupo zerados) |
 | #29 Pizza | ☐ | ☐ | |
 | #28 Hambúrguer | ☐ | ☐ | |
 | #30 Açaí | ☐ | ☐ | |
@@ -133,12 +133,16 @@ Checklist interno por manual (marcar no `MEMORIA.md`):
 
 **Fonte das imagens:** stock genérico / placeholders coerentes com o segmento (sanduíche, pizza, açaí, sushi). Sem marcas de terceiros.
 
+> **Aprendido no #27:** a **opção não tem foto própria** — ela herda a imagem do complemento
+> ou produto vinculado. Basta uma foto por complemento e uma por produto; ela reaparece na aba
+> Opções, no modal do PDV e no cardápio digital. Fotos em 900×900 JPG (70–170 KB) bastam.
+
 ### 3.3 Convenções no sandbox
 
 | Regra | Valor |
 |-------|-------|
-| Prefixo nos nomes | `[Manual]` |
-| Setor sugerido | **Treinamento** ou **Manuais** |
+| Prefixo nos nomes | **Não usar.** Abandonado no #27: com a base limpa e dedicada, o `[Manual]` só apareceria em todas as capturas. Usar nomes realistas. |
+| Setor | O do segmento (no #27 foi **Lanches**) |
 | Estoque | **Desligado** em todos os exemplos |
 | PDV | Caixa aberto para capturas finais |
 | Dados pessoais | Borrão se aparecer cliente (padrão MEMORIA-GERAL) |
@@ -389,8 +393,21 @@ Repetir para #27, #29, #28, #30, #31:
 
 ## 9. Próximo passo
 
-**Aguardando:** dono limpar base e autorizar início do **#27 Cardápio — fundamentos**.
+**#27 concluído** em 20/08/2026 — 25 imagens, cenário validado no PDV (R$ 20,00) e reajuste
+real em lote. Aguardando publicação pelo dono.
 
-Mensagem do agente ao iniciar:
+**Próximo da fila: #29 Cardápio — pizza.** Antes de começar, o agente precisa avisar:
 
-> *Vou iniciar o manual **#27 — Cardápio — fundamentos**. Por favor, **limpe a base de dados** da empresa **BeeFood3 - Manual**. Quando terminar, avise para eu montar o cenário, inserir as fotos nos produtos/opções e começar as capturas.*
+> *Vou iniciar o manual **#29 — Cardápio — pizza**. Por favor, **limpe a base de dados** da empresa **BeeFood3 - Manual** (setor, produto, complemento e grupo de opções). Quando terminar, avise para eu montar o cenário, inserir as fotos e começar as capturas.*
+
+### Aprendizados do #27 que valem para os próximos
+
+| Item | Detalhe |
+|------|---------|
+| Edição em lote | Está na **sub-aba** `Grupo de Opções → Opções`, não no modal do grupo (lá é linha por linha) |
+| Fotos | Só complemento e produto precisam; a opção herda |
+| Formação de Preço | A imagem `25-formacao-preco.png` do #27 já ilustra os quatro modos |
+| Nomes | Realistas, sem prefixo |
+| Setas | Mirar a **borda direita** dos botões dos modais (~0,716); não cruzar linhas de tabela |
+| Conferência | Rodar o comparador `annotate.py` × `.md` antes de fechar |
+| Seletores Playwright | Tabela na seção 4 de `manuais/cardapio-fundamentos/MEMORIA.md` |
