@@ -28,7 +28,7 @@ trabalha.
 
 Vale entender a diferença logo de início, porque as duas primeiras abas parecem fazer o mesmo:
 
-| | Campanhas | Campanhas Inteligentes |
+| | Aba **Campanhas** | Aba **Campanhas Inteligentes** |
 |---|---|---|
 | Quem decide o momento | Você, ao publicar | O sistema, quando o gatilho acontece |
 | Quando envia | Na hora | Sempre que um cliente entra na regra |
@@ -104,8 +104,9 @@ tipo de conversa que ela faz. Todas **param sozinhas** quando o cliente faz o pe
 O cliente montou a sacola no seu cardápio digital e não finalizou. Cerca de 15 minutos depois,
 a campanha manda uma mensagem lembrando.
 
-É a campanha mais rápida das seis, e a que costuma dar mais retorno, porque fala com alguém que
-estava com fome agora. De fábrica ela vai até as 23h e aceita até 7 envios por dia.
+É a campanha mais rápida das seis, porque fala com alguém que estava com fome agora. De fábrica
+ela vai até as 23h e aceita até 7 envios por dia — a maior folga de horário e de ritmo entre as
+seis.
 
 ### Recebeu o cardápio e não pediu
 
@@ -299,8 +300,8 @@ as opções entre chaves, separadas por barra:
 ![Ajuda da variação automática](imagens-tratadas/16-spintax.png)
 
 Escrevendo `{Oi|Olá|E aí}, {{primeiro_nome}}!`, cada cliente recebe uma versão diferente: "Oi,
-Maria!", "Olá, Maria!" ou "E aí, Maria!". É o que impede o WhatsApp de ver centenas de
-mensagens idênticas saindo do seu número.
+Maria!", "Olá, Maria!" ou "E aí, Maria!". Assim o WhatsApp não vê centenas de mensagens
+idênticas saindo do seu número, que é o padrão que ele associa a spam.
 
 Duas regras para não errar:
 
