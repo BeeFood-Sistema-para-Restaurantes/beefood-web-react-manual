@@ -9,6 +9,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 .
 ├─ MEMORIA-GERAL.md            # Boas práticas, padrões, contas e ferramentas (ler primeiro)
 ├─ CHECKLIST-MANUAIS.md        # O que já foi feito, o que está na fila e o histórico
+├─ PLANO-CARDAPIO.md           # Plano aprovado dos manuais #27–#31 (cardápio por segmento)
 ├─ validar-imagens.py          # Confere se as imagens referenciadas pelos manuais existem
 └─ manuais/
    └─ <nome-do-manual>/        # Uma pasta por manual
