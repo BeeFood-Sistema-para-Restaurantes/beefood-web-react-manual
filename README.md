@@ -8,6 +8,8 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 ```
 .
 ├─ MEMORIA-GERAL.md            # Boas práticas, padrões, contas e ferramentas (ler primeiro)
+├─ CHECKLIST-MANUAIS.md        # O que já foi feito, o que está na fila e o histórico
+├─ validar-imagens.py          # Confere se as imagens referenciadas pelos manuais existem
 └─ manuais/
    └─ <nome-do-manual>/        # Uma pasta por manual
       ├─ MEMORIA.md            # Memória detalhada do manual (fluxo, uso, decisões, estado)
@@ -41,6 +43,16 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 - Setas e números em **verde** (tom dos botões do sistema), finos e sutis.
 - Coordenadas em frações (0..1) — independem da resolução da imagem.
 - Regerar imagens tratadas: dentro da pasta do manual, rodar `python annotate.py`.
+
+## Antes de publicar um manual
+
+```bash
+python validar-imagens.py            # todos os manuais
+python validar-imagens.py caixa      # só um
+```
+
+Falha (código 1) se algum manual referenciar imagem que não existe. Avisa também sobre imagem
+órfã e sobre divergência entre o manual e o `texto-documentation.ia.md`.
 
 ## Requisitos para gerar/anotar imagens
 

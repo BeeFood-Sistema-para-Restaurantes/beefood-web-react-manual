@@ -59,6 +59,23 @@ com TODAS as subpastas/arquivos acima.
    de `manuais\segmentacao-clientes\` tem o parâmetro `borrao` (regiões em frações, aplicadas
    com `GaussianBlur` antes das setas); copie de lá quando precisar.
 
+### Antes de dar um manual por concluído: `validar-imagens.py`
+
+Na raiz do repositório, rodar `python validar-imagens.py` (ou
+`python validar-imagens.py <pasta-do-manual>` para um só). Ele confere, em todos os manuais:
+
+- se **toda imagem referenciada existe** em `imagens-tratadas/` — sai com **código 1** quando
+  falta alguma, porque manual com imagem faltando não pode ser publicado;
+- se o `texto-documentation.ia.md` lista alguma imagem que o manual **não usa**;
+- se há **órfão** em `imagens-tratadas/` (arquivo na pasta que ninguém referencia).
+
+Órfão e divergência do prompt são **avisos**, não erram a saída.
+
+> Existe porque manual com imagem faltando **quebra em silêncio**: o markdown continua válido,
+> o texto continua legível, e só quem abre a página publicada descobre. Foi o que aconteceu no
+> #24, cujas capturas vivem em outro repositório. Auditoria de 20/08/2026: dos 14 manuais, 13
+> estavam íntegros (164 imagens) e só o #24 acusou as 21 faltando; nenhum órfão.
+
 ### Como anotar (Pillow)
 - Requisitos: Python 3.10+ e Pillow (já instalados nesta máquina).
 - `annotate.py` lê de `imagens-puras\` e escreve em `imagens-tratadas\`.
