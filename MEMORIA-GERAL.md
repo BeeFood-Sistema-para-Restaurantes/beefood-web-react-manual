@@ -243,14 +243,24 @@ branches do backend no Bitbucket e no sistema de arquivos inteiro (`find /`).
 O anexo fica no contexto da conversa. Se o conteúdo não vier **inline no texto da mensagem**,
 o agente não tem como abri-lo — e imagem nunca vem inline.
 
-> **Correção parcial, no mesmo dia:** existe um caso em que o anexo **chega**. Quando o
-> arquivo é enviado como documento, ele é gravado em
+> **Correção, no mesmo dia:** existe um caso em que o anexo **chega**. Quando o arquivo é
+> enviado como **documento**, ele é gravado em
 > `~/.cursor/projects/workspace/uploads/<nome>_<hash>.<ext>` — foi assim que o
 > `manual-modo-kiosk.md` do #24 finalmente chegou. **Antes de concluir que um anexo não
-> existe, olhe essa pasta.** No mesmo pedido, as 21 imagens continuaram só como imagem no
-> chat (visíveis para o modelo, sem arquivo em disco), então o comportamento parece depender
-> de como o arquivo é anexado. Arquivos gravados lá vêm com **CRLF**; converter com
+> existe, olhe essa pasta.** Arquivos gravados lá vêm com **CRLF**; converter com
 > `tr -d '\r'` antes de comparar com algo do repositório.
+
+**Imagem é a exceção, e isso importa muito para este projeto.** Testado três vezes em
+20/08/2026: imagem enviada no chat aparece para o modelo (ele descreve o conteúdo sem
+dificuldade) mas **nunca** vira arquivo em `uploads/` — não há como gravá-la em disco nem
+commitá-la. Foi o que travou as 21 capturas do #24.
+
+> **A saída é o `.zip`.** Compactar a pasta de imagens e anexar o **`.zip`** como documento:
+> zip não é imagem, então cai em `uploads/` como qualquer outro arquivo. Depois é só extrair.
+> O `manuais/cardapio-digital-tablet-modo-kiosk/copiar-imagens.py` já faz isso sozinho —
+> procura o zip mais recente na pasta `uploads/`, extrai e distribui as imagens nas pastas
+> `imagens-puras/` e `imagens-tratadas/`. Vale copiar a ideia em qualquer manual cujas
+> capturas venham de fora.
 
 **Como mandar material para o Cloud Agent, em ordem de preferência:**
 

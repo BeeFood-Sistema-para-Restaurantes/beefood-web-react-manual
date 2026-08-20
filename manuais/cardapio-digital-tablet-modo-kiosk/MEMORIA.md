@@ -55,16 +55,27 @@ O `.md` chegou como arquivo (foi para `~/.cursor/projects/workspace/uploads/`), 
 **imagens só chegaram como imagem no chat, não como arquivo em disco** — a pasta de uploads
 recebeu apenas o `.md`, e nenhum `.png` novo apareceu no sistema de arquivos.
 
-**Para fechar o manual:** anexar os 21 PNG do jeito que o `.md` foi anexado (aí eles caem em
-disco), ou commitá-los numa branch. Origem:
-`c:\projetos\beetech-appgarcom-android\docs\images\kiosk\`.
+**Testado três vezes (20/08/2026): imagem colada no chat nunca vira arquivo.** O agente
+**enxerga** as capturas, mas não há caminho para gravá-las. A pasta
+`~/.cursor/projects/workspace/uploads/` é o **único** lugar onde anexo aparece como arquivo, e
+ela recebeu somente o `.md`.
+
+**O que funciona, então:**
+
+| Caminho | Como |
+|---------|------|
+| **Zip pelo chat** (mais simples) | Compactar a pasta `docs/images/kiosk/` e anexar o **`.zip`** como documento. Zip não é imagem, então cai em `uploads/`. Aí basta `python copiar-imagens.py` — ele acha o zip sozinho. |
+| **Rodar na máquina do dono** | `python copiar-imagens.py`, que já encontra `c:\projetos\beetech-appgarcom-android\docs\images\kiosk`, depois commit e push. |
+| **Liberar o repositório do app** | Secret `BITBUCKET_TOKEN_APPGARCOM` (o `install.sh` já tem a entrada). Só vale em **VM nova**. |
 
 ### O jeito rápido: `copiar-imagens.py`
 
-Na máquina do dono (onde a pasta de origem existe), dentro desta pasta:
+Dentro desta pasta:
 
 ```bash
-python copiar-imagens.py
+python copiar-imagens.py                 # procura a origem sozinho
+python copiar-imagens.py <pasta>         # usa essa pasta
+python copiar-imagens.py <arquivo.zip>   # usa esse zip
 ```
 
 O script copia as capturas para `imagens-puras/` **e** `imagens-tratadas/`, e imprime um
@@ -73,19 +84,22 @@ imagens aparecem — não tem lista escrita dentro dele, então nunca fica dessi
 texto. Se alguma faltar, mostra quais e sai com código 1; se houver PNG na origem que o
 manual não usa, avisa em vez de copiar em silêncio.
 
-Origens tentadas automaticamente, nesta ordem:
+Origens procuradas automaticamente, nesta ordem:
 
 1. `c:\projetos\beetech-appgarcom-android\docs\images\kiosk` (máquina do dono)
 2. `~/refs/beetech-appgarcom-android/docs/images/kiosk` (Cloud Agent, se o repositório do app
    passar a ser clonado)
+3. o **zip mais recente** em `~/.cursor/projects/workspace/uploads/` (Cloud Agent)
 
-Qualquer outra pasta funciona como argumento:
-`python copiar-imagens.py /caminho/com/os/21/png`.
+A busca é **recursiva** tanto em pasta quanto em zip: não importa se os PNG estão na raiz ou
+dentro de `images/kiosk/`.
 
-> Testado em 20/08/2026 com uma origem de mentira (21 PNG de 1×1 gerados na hora, mais um
-> arquivo sobrando), num diretório temporário fora do repositório: copiou os 21 nas duas
-> pastas, apontou o arquivo não usado, e os três casos de erro (origem incompleta, pasta
-> inexistente e nenhuma origem encontrada) saíram com código 1 e mensagem clara.
+> Testado em 20/08/2026 num diretório temporário fora do repositório, com 21 PNG de 1×1
+> gerados na hora. Sete cenários, todos com o resultado esperado: pasta plana (com um arquivo
+> sobrando, apontado no relatório), zip plano, zip com subpastas, pasta com subpastas,
+> auto-detecção do zip na pasta `uploads/`, origem inválida (código 1) e limpeza da pasta
+> temporária do zip. Nas versões anteriores também foram testados origem incompleta e ausência
+> de origem, ambos com código 1.
 
 Os nomes têm de ser exatamente estes, em `imagens-tratadas/` (e cópia em `imagens-puras/`):
 
