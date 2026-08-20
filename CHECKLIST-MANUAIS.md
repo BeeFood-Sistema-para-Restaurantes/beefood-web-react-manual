@@ -4,7 +4,9 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-20 (#24 Modo Kiosk com o texto pronto; faltam só as 21 imagens)
+Última atualização: 2026-08-20 (#16 Campanhas Inteligentes concluído, sem disparo real de
+mensagem, e registrada a ideia do manual de receitas de campanhas; #24 Modo Kiosk com o
+texto do dono já no repositório, faltando apenas as 21 imagens)
 
 ## Legenda de status
 
@@ -35,7 +37,7 @@
 | 13 | **Restrições de caixa (grupo de acesso)** | Todas as restrições de caixa que podem ser aplicadas a um usuário — Abrir e Fechar Caixa, Visualizar Valores de Referência, Visualizar Caixas Fechados, Transferência de Operações, Cadastro de Caixas, Função Gerente e o parâmetro Caixa por Usuário — cada uma com **como configurar** e **como o caixa fica** | `manuais/caixa-restricoes/` | ✅ Concluído | 🌐 Sim |
 | 14 | **Segmentação de clientes** | Criar públicos em Food Marketing → Segmentação de Cliente: o que é, os 37 filtros disponíveis, como combinar com E/OU, testar o tamanho do público e usar em campanhas — com vários exemplos prontos de restaurante | `manuais/segmentacao-clientes/` | ✅ Concluído | 🌐 Sim |
 | 15 | **Campanhas de WhatsApp** | Criar campanha em massa: escrever a mensagem com variações (reduz risco de bloqueio), anexar mídia, montar a lista de destinatários pelos cinco caminhos (avulso, RFV, filtro avançado, segmentação, Excel), revisar e publicar — mais abortar campanha e ler o resultado | `manuais/campanhas-whatsapp/` | ☑️ Aprovado | — |
-| 16 | **Campanhas Inteligentes** | As seis automações que disparam sozinhas (recuperador de vendas, cashback parado, aniversário, boas-vindas, carrinho abandonado, recebeu o cardápio e não pediu), o público de cada uma, agenda, ritmo de envio e a proteção **Anti Banimento** | `manuais/campanhas-inteligentes/` | ☑️ Aprovado | — |
+| 16 | **Campanhas Inteligentes** | As seis campanhas que já vêm criadas na conta (quatro delas **ligadas**), o gatilho e a configuração de fábrica de cada uma, os campos dos passos 1, 2 e 3, o catálogo de 20 variáveis (e as nove que só funcionam com histórico do cliente), a variação automática das mensagens e a proteção **Anti Banimento** | `manuais/campanhas-inteligentes/` | ✅ Concluído | — |
 | 17 | **BeeFood Pixel Analytics** | Ler o funil do cardápio digital (Visitas → Visualizações → Carrinho → Pedidos), filtrar por contexto, cardápio e origem, entender os KPIs e o painel Ao vivo | `manuais/pixel-analytics/` | ☑️ Aprovado | — |
 | 18 | **Campanhas SMS** | Criar campanha de SMS, entender a contagem de créditos por segmento (e como economizar sem acento/emoji), comprar créditos por PIX e usar a blacklist / opt-out | `manuais/campanhas-sms/` | ☑️ Aprovado | — |
 | 19 | **Cashback — configurar o programa** | Ativar o cashback, validade do saldo, saldo mínimo para resgate, percentual fixo ou por dia da semana, em quais canais o cliente ganha e as exceções de produto | `manuais/cashback-configurar/` | ☑️ Aprovado | — |
@@ -103,10 +105,23 @@ ser produzido com dados reais ou se precisa de cenário montado antes.
 | Estoque | 45 produtos (nenhum com controle de estoque ligado) |
 | Fiado | R$ 14,00 em dívidas, 3 clientes |
 
-**Decisão pendente com o dono:** nos manuais **#15** e **#16**, publicar uma campanha ou ativar
-uma automação **dispara mensagem de verdade** para os clientes da conta. Todo o caminho pode ser
-capturado em rascunho; falta definir se um disparo real fica autorizado para a captura final.
-No **#18**, enviar SMS consome os 100 créditos.
+**Decisão pendente com o dono:** no manual **#15**, publicar uma campanha **dispara mensagem de
+verdade** para os clientes da conta. Todo o caminho pode ser capturado em rascunho; falta
+definir se um disparo real fica autorizado para a captura final. No **#18**, enviar SMS consome
+os 100 créditos.
+
+> **Resolvido no #16:** não foi necessário disparar nada. O editor de campanha não tem
+> auto-save (só grava no **SALVAR (F2)** ou ao confirmar a ativação), e a conta já tinha os três
+> estados na tela — quatro campanhas ativas, uma pausada e uma em rascunho — além de dois envios
+> reais no histórico. Deu para fotografar tudo em leitura. Detalhes em
+> `manuais/campanhas-inteligentes/MEMORIA.md`.
+
+### Food Marketing e Fidelidade — próximos
+
+| Ideia | Escopo resumido | Status |
+|-------|-----------------|--------|
+| **Receitas de campanhas** | Juntar o #14 (Segmentação) com o #16 (Campanhas Inteligentes) num manual de receitas prontas: público + mensagem sugerida + parâmetros de agenda. Ex.: quem só pede no fim de semana recebendo oferta de terça, ticket alto recebendo lançamento, quem comprou uma categoria e nunca outra, quem usou cupom uma vez e não voltou | 💡 Ideia |
+| **Indicadores (aba da mesma página)** | A primeira aba de Campanhas WhatsApp: analytics de BeeBot, campanha e campanha inteligente — nenhum manual cobre | 💡 Ideia |
 
 ### Caixa (backlog antigo)
 
@@ -124,6 +139,7 @@ No **#18**, enviar SMS consome os 100 créditos.
 ## Histórico
 
 - 2026-08-20 — **#24 com o texto pronto; faltam as 21 imagens.** O `manual-modo-kiosk.md` do dono (origem: `c:\projetos\beetech-appgarcom-android\docs\`) chegou como arquivo e foi **copiado sem reescrever**, no mesmo padrão dos manuais #8 e #11 — as únicas mudanças foram os caminhos `images/kiosk/` → `imagens-tratadas/` e o fim de linha CRLF → LF. **Escopo corrigido:** o manual é **só do aplicativo Android no tablet** (Administração → Configurar Trava Avançada → as duas permissões → ATIVAR MODO KIOSK), e não do painel web como eu havia entendido na primeira rodada. `texto-documentation.ia.md` já escrito, com as 21 imagens na ordem. Falta apenas subir os PNG: eles vieram como imagem no chat, não como arquivo em disco. **Descobertas:** existem **três travas diferentes** e é fácil confundi-las (modo kiosk do app, trava básica por screen pinning e o evento `TRAVAR` do painel, que só bloqueia o botão *voltar*) — a tabela que as separa está no `fluxo-codigo.md`; e o repositório do app, `beetech-appgarcom-android`, **não é alcançável** por este ambiente.
+- 2026-08-20 — **#16 Concluído** (produzido do zero no Cloud Agent). **Escopo definido pelo dono:** explicar as campanhas que já vêm como padrão, os campos, as variáveis das mensagens e os parâmetros dos passos 1, 2 e 3 — criar campanha do zero fica para o manual de receitas. **Descobertas:** as seis campanhas já vêm criadas em qualquer conta e **quatro nascem ligadas** (carrinho abandonado, cardápio sem pedido, recuperador de vendas e cashback parado — seed em `automacao.js`), então o manual abre por esse alerta; cada modelo tem **configuração de fábrica própria** (horário, janela do anti-spam, intervalo e ritmo), extraída de `modelos.js` e virada na tabela central do manual; são **20 variáveis** em três grupos, sendo `{{meu_link}}` obrigatória (o sistema acrescenta `?a={id}` a ela, e é assim que o Pixel atribui a venda) e **nove** que dependem do histórico do cliente e aparecem com **cadeado** nos gatilhos de carrinho e BeeBot; a permissão é a **mesma** das Campanhas WhatsApp (item 167 / form 127), não existe controle separado. **Duas armadilhas registradas:** instância antiga não recebe melhoria do modelo (a Aniversário do sandbox está sem a variação automática que o código já traz — só o *Restaurar padrão* atualiza) e parâmetro ajustado não volta ao padrão (o carrinho está com 5 min de espera, não os 15 de fábrica). 20 imagens. **Nada foi alterado no ambiente:** o editor não tem auto-save, então todas as telas — inclusive o alerta vermelho de banimento e o diálogo de ativação — foram capturadas em leitura, saindo por CANCELAR. O telefone do cliente no histórico foi coberto antes do commit. Aguardando publicação do dono.
 - 2026-08-20 — **#24 iniciado e bloqueado.** Pedido: manual do **modo kiosk** do Cardápio Digital Tablet, a partir de um `manual-modo-kiosk.md` e de uma pasta `images` anexados ao chat. **Os anexos não chegaram ao VM do Cloud Agent** — procurados no repositório (inclusive todo o histórico e todas as branches), nos dois repositórios de referência, nas 81 branches do backend no Bitbucket e no sistema de arquivos inteiro. Entregue mesmo assim: o `fluxo-codigo.md` completo (rota, permissão, as três abas, regras de status/bateria, limite contratado que desloga tablet sozinho, os seis eventos, o POST `/api/tablet2/criarEvento` e o `procInsertEvento`) e um **rascunho** do manual com as etapas 1 a 6 (tudo feito pelo painel). Ficou pendente a etapa 7 (travar o próprio Android) e as 5 imagens — não escrevi o procedimento do Android por conta própria para não divergir do oficial. **Descoberta importante:** *Kiosk* aparece em dois lugares distintos do produto, e o do `TotemConfigModal.tsx` é o **Totem Windows**, não o tablet.
 - 2026-08-19 — **Todos os 12 manuais concluídos marcados como publicados** (aviso do dono). Continuam apenas aprovados, sem produção, o #3 (Reabrir caixa) e o #4 (Transferência entre caixas). **Food Marketing e Fidelidade saíram do backlog e viraram os itens #15 a #23**, na ordem de prioridade pedida pelo dono (Food Marketing primeiro). O levantamento das demais 20 áreas do sistema fica no backlog, com tamanho estimado e nota de necessidade. Registrado também o **estado do sandbox** por área — o que decide se um manual pode ser produzido com dados reais. **Pendente:** definir se um disparo real de campanha (#15/#16) e um envio de SMS (#18) ficam autorizados para as capturas finais.
 - 2026-06-19 — Criado o checklist. Manual #1 (**Abrir caixa**) marcado como Concluído e Publicado.
