@@ -8,7 +8,8 @@ coberto na imagem pura; widget flutuante escondido por CSS; diagnóstico do ambi
 anexo do chat não chega ao Cloud Agent; imagem colada no chat não tem como ser baixada, mas
 **zip numa URL pública o agente baixa** — o VM tem egresso liberado; escopo real do
 `BITBUCKET_TOKEN`; backend clonado no Cloud Agent; tela de login mudou; telas com auto-save;
-captura com Playwright)
+captura com Playwright; **medir coordenada de seta com grade de frações** e mirar a borda do
+botão, não o centro)
 
 ---
 
@@ -84,6 +85,25 @@ Na raiz do repositório, rodar `python validar-imagens.py` (ou
 - Config por imagem: lista de marcadores `(numero, alvo_x, alvo_y, badge_x, badge_y)` em frações.
 - Rodar dentro da pasta do manual: `python annotate.py`.
 - **Sempre conferir visualmente** as imagens tratadas e ajustar coordenadas se necessário.
+
+**Para medir as coordenadas, sobreponha uma grade de frações na captura** em vez de estimar no
+olho: uma cópia temporária com linha a cada 0,05 e rótulo a cada 0,10, e os valores são lidos
+direto da grade. É rápido de escrever (umas 20 linhas de Pillow, em `/tmp`, fora do repositório)
+e acerta quase tudo de primeira. Usado no #24 em 16 capturas: das 29 setas, 24 nasceram no lugar.
+
+**Mire a borda do elemento, não o centro, quando ele tem texto.** Seta apontada para o meio de um
+botão cai em cima do rótulo e cobre uma letra — aconteceu em quatro botões do #24 (`CONCEDER`,
+`AGORA NÃO`, `CONCORDAR E CONTINUAR`, `ACESSAR`). A borda inferior ou lateral marca o mesmo
+elemento sem tapar nada. Vale também para campo de texto: apontar ao lado do rótulo, não nele.
+
+> Só a conferência **em tamanho real** revela isso. Numa folha de contato reduzida as quatro setas
+> pareciam perfeitas. Faça as duas coisas: folha de contato para ver o conjunto, e depois abrir
+> uma a uma as que têm alvo pequeno ou botão com texto.
+
+**Se as capturas vêm de fora do repositório, o script que as importa não pode escrever em
+`imagens-tratadas\`** — ele apagaria as setas na próxima execução. Que ele alimente só
+`imagens-puras\`, e que imprima no fim o lembrete de rodar o `annotate.py`. Foi o ajuste feito no
+`copiar-imagens.py` do #24 quando o manual deixou de ser só contexto.
 
 ---
 
@@ -286,8 +306,8 @@ no Drive, baixado e distribuído em uma rodada. Duas regras:
    login, e o que chega é HTML em vez de arquivo.
 
 O `manuais/cardapio-digital-tablet-modo-kiosk/copiar-imagens.py` já aceita URL como origem:
-baixa, confere que é zip de verdade, extrai e distribui nas pastas `imagens-puras/` e
-`imagens-tratadas/`. Link de compartilhamento do Drive é convertido sozinho para o endpoint de
+baixa, confere que é zip de verdade, extrai e alimenta `imagens-puras/` — as tratadas ficam por
+conta do `annotate.py`. Link de compartilhamento do Drive é convertido sozinho para o endpoint de
 download direto (`drive.usercontent.google.com/download?id=…&confirm=t`), porque o link normal
 devolve a página de visualização, não o arquivo. **Vale copiar essa função em qualquer manual
 cujas capturas venham de fora.**

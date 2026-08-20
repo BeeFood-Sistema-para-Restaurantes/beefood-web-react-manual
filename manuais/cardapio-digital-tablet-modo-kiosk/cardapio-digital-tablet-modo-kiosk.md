@@ -2,7 +2,7 @@
 
 Este manual mostra, passo a passo, como deixar o tablet preso no aplicativo do cardápio digital, de forma que o cliente possa fazer pedidos mas não consiga sair do aplicativo, abrir outros aplicativos ou mexer nas configurações do aparelho.
 
-Todas as imagens deste manual são telas reais do aplicativo (versão 1.0.2.8) em um tablet Android 15.
+Todas as imagens deste manual são telas reais do aplicativo (versão 1.0.2.8) em um tablet Android 15. Os **números em verde** nas imagens são os mesmos números citados no texto ao lado de cada uma.
 
 ---
 
@@ -10,129 +10,149 @@ Todas as imagens deste manual são telas reais do aplicativo (versão 1.0.2.8) e
 
 Você vai precisar de:
 
-- O tablet com o aplicativo **Cardápio Mesa/Comanda** já instalado.
-- O **usuário e a senha** que você usa para entrar no aplicativo.
+- O tablet com o aplicativo **Cardápio Mesa/Comanda** já instalado e com o cardápio da loja carregado.
+- A **senha de administrador**, que é a mesma senha usada para entrar no aplicativo. Guarde-a bem: é ela que abre a tela de Administração e, mais tarde, destrava o tablet.
 - Cerca de 5 minutos com o tablet em mãos.
 
-Dois avisos importantes:
-
-- A senha que você digita na tela de login é a mesma senha que protege a tela de **Administração** do aplicativo. Guarde-a bem: é ela que permite destravar o tablet depois.
-- Os botões físicos de **volume** e de **ligar/desligar** continuam funcionando. O Android não permite bloqueá-los sem apagar completamente o tablet e configurá-lo como aparelho corporativo. Todos os outros caminhos de saída ficam bloqueados.
+Um aviso importante antes de tudo: os botões físicos de **volume** e de **ligar/desligar** continuam funcionando. O Android não permite bloqueá-los sem apagar completamente o tablet e configurá-lo como aparelho corporativo. Todos os outros caminhos de saída ficam bloqueados.
 
 ---
 
 ## Visão geral do processo
 
-1. Entrar no aplicativo com usuário e senha.
-2. Abrir a tela de Administração.
-3. Conceder duas permissões do Android (o aplicativo guia você em cada uma).
-4. Ativar a trava.
-5. Conferir se o tablet está realmente travado.
+1. Abrir a tela de Administração.
+2. Conceder duas permissões do Android (o aplicativo guia você em cada uma).
+3. Ativar a trava.
+4. Conferir se o tablet está realmente travado.
 
-Você só precisa fazer os passos 1 a 3 uma única vez em cada tablet. Depois disso, travar e destravar é questão de dois toques.
-
----
-
-## Parte 1 — Entrar no aplicativo
-
-Digite o usuário e a senha do estabelecimento e toque em **ENTRAR**.
-
-![Tela de login do aplicativo com usuário e senha preenchidos](imagens-tratadas/01-login.png)
-
-Se o seu acesso tiver mais de um cardápio (mais de uma loja ou filial), o aplicativo pergunta qual deles usar. Toque no cardápio deste tablet.
-
-![Tela de seleção de cardápio com duas opções listadas](imagens-tratadas/02-selecionar-cardapio.png)
-
-O aplicativo carrega o cardápio e abre a tela de **Administração** automaticamente logo após o login. Se ela já estiver aberta na sua tela, pule direto para a Parte 3.
+Os passos 1 e 2 você faz uma única vez em cada tablet. Depois disso, travar e destravar é questão de dois toques.
 
 ---
 
-## Parte 2 — Abrir a tela de Administração
+## Parte 1 — Abrir a tela de Administração
 
-Sempre que precisar voltar nessa tela, toque no **logo do estabelecimento**, no canto superior esquerdo da barra do topo.
+Toque no **logo do estabelecimento** (1), no canto superior esquerdo da barra do topo. Esse logo é a única porta de entrada da Administração — não existe menu para ela em nenhum outro lugar do cardápio.
 
 ![Tela inicial do cardápio, com o logo no canto superior esquerdo](imagens-tratadas/03-home-logo.png)
 
-O aplicativo pede a senha. Digite a **mesma senha que você usou no login** e toque em **ACESSAR**.
+O aplicativo pede a senha.
 
 ![Tela de Administração pedindo a senha de acesso](imagens-tratadas/04-senha-administracao.png)
 
-Esta é a tela de Administração. Os dois botões que interessam aqui são **TRAVAR** e **CONFIGURAR TRAVA AVANÇADA**.
+| Nº | Onde | O que fazer |
+|---|---|---|
+| 1 | Campo **Senha** | Digite a mesma senha que você usa para entrar no aplicativo. |
+| 2 | **ACESSAR** | Confirme. |
+
+Logo depois do login, o aplicativo abre essa tela por conta própria. Se ela já estiver na sua frente, comece daqui.
+
+Esta é a tela de Administração. Dos botões dela, dois interessam para a trava.
 
 ![Tela de Administração com as opções Atualizar, Travar e Configurar trava avançada](imagens-tratadas/05-painel-administracao.png)
 
-A diferença entre os dois é simples:
+| Nº | Botão | Quando usar |
+|---|---|---|
+| 1 | **TRAVAR** | No dia a dia, para travar o tablet. |
+| 2 | **CONFIGURAR TRAVA AVANÇADA** | Na primeira vez, para conceder as permissões com calma sem travar nada ainda. |
 
-| Botão | Quando usar |
-|---|---|
-| **CONFIGURAR TRAVA AVANÇADA** | Na primeira vez, para conceder as permissões com calma sem travar nada ainda. |
-| **TRAVAR** | No dia a dia, para travar o tablet. |
-
-Na primeira configuração, toque em **CONFIGURAR TRAVA AVANÇADA**.
+Na primeira configuração, toque em **CONFIGURAR TRAVA AVANÇADA** (2).
 
 ---
 
-## Parte 3 — Conceder as duas permissões
+## Parte 2 — Conceder as duas permissões
 
-O aplicativo abre um assistente que mostra as duas permissões necessárias e quantas já foram concedidas. No começo aparece "0 de 2 permissões concedidas".
+O aplicativo abre um assistente que reúne as duas permissões necessárias.
 
 ![Assistente de trava mostrando as duas permissões pendentes](imagens-tratadas/06-assistente-inicio.png)
 
-O texto amarelo em cada quadro é a instrução do que fazer dentro das configurações do Android. Vamos concedê-las uma por vez.
+| Nº | O que é | Por que olhar |
+|---|---|---|
+| 1 | Contador de permissões | Começa em "0 de 2" e é o seu termômetro: quando chegar a "2 de 2", a trava pode ser ativada. |
+| 2 | **CONCEDER** da Acessibilidade | Primeira permissão — faça esta antes da outra. |
+| 3 | **CONCEDER** do Launcher padrão | Segunda permissão. |
+| 4 | Observação no rodapé | É o limite dos botões de volume e ligar/desligar, repetido aqui na própria tela. |
+
+O texto amarelo dentro de cada quadro é a instrução do que fazer depois, já dentro das configurações do Android. Vamos conceder uma permissão por vez.
 
 ### Permissão 1 de 2 — Acessibilidade
 
-Toque em **CONCEDER** no primeiro quadro (Acessibilidade). O aplicativo mostra um aviso explicando para que serve essa permissão, o que ela faz e que nenhum dado pessoal é coletado.
+Toque em **CONCEDER** (2), no quadro Acessibilidade. O aplicativo mostra um aviso explicando para que serve essa permissão, o que ela faz e que nenhum dado pessoal é coletado.
 
 ![Aviso explicando o uso do serviço de acessibilidade](imagens-tratadas/07-aviso-acessibilidade.png)
 
-Leia e toque em **CONCORDAR E CONTINUAR**. Nada é solicitado ao Android antes desse toque. Se preferir deixar para depois, toque em **AGORA NÃO** e o assistente continua aberto.
+| Nº | Botão | O que acontece |
+|---|---|---|
+| 1 | **CONCORDAR E CONTINUAR** | Leva você às configurações do Android. Nada é pedido ao Android antes desse toque. |
+| 2 | **AGORA NÃO** | Fecha só o aviso; o assistente continua aberto para você voltar depois. |
 
-O Android abre a tela de Acessibilidade. Toque em **Cardápio Mesa/Comanda — Modo Kiosk**, na seção "Apps baixados".
+Toque em **CONCORDAR E CONTINUAR** (1). O Android abre a tela de Acessibilidade — nela, toque em **Cardápio Mesa/Comanda — Modo Kiosk** (1), na seção "Apps baixados".
 
 ![Configurações de Acessibilidade do Android com o serviço do aplicativo na lista](imagens-tratadas/08-android-acessibilidade.png)
 
-Ative a chave **Usar Cardápio Mesa/Comanda — Modo Kiosk**.
+Ative a chave **Usar Cardápio Mesa/Comanda — Modo Kiosk** (1). Ela começa desligada, em cinza.
 
 ![Tela do serviço Modo Kiosk com a chave desativada](imagens-tratadas/09-android-servico-kiosk.png)
 
-O Android pede uma confirmação. Toque em **Permitir**.
+O Android pede uma confirmação. Toque em **Permitir** (1).
 
 ![Confirmação do Android para permitir o serviço](imagens-tratadas/10-android-confirmar-servico.png)
 
-A chave fica azul, indicando que o serviço está ativo.
+A chave (1) fica azul: o serviço está ativo.
 
 ![Tela do serviço Modo Kiosk com a chave ativada](imagens-tratadas/11-android-servico-ativo.png)
 
-Volte ao aplicativo usando o botão **Voltar** do Android (pode ser necessário tocar duas vezes). O assistente já reconhece a permissão e mostra "1 de 2 permissões concedidas", com o primeiro quadro marcado em verde.
+Volte ao aplicativo usando o botão **Voltar** do Android (pode ser necessário tocar duas vezes). O assistente reconhece a permissão sozinho.
 
 ![Assistente mostrando a permissão de acessibilidade concedida](imagens-tratadas/12-assistente-1de2.png)
 
+| Nº | O que conferir |
+|---|---|
+| 1 | O contador virou "1 de 2 permissões concedidas". |
+| 2 | O quadro da Acessibilidade ficou verde, com o selo "concedida". |
+| 3 | Agora é a vez do **CONCEDER** do Launcher padrão. |
+
+Se o contador não mudou, toque no ícone de recarregar — o círculo com a seta, no canto superior direito do assistente.
+
 ### Permissão 2 de 2 — Tela inicial padrão
 
-Toque em **CONCEDER** no segundo quadro (Launcher padrão). O Android pergunta qual aplicativo deve ser a tela inicial do tablet.
+Toque em **CONCEDER** (3), no quadro Launcher padrão. O Android pergunta qual aplicativo deve ser a tela inicial do tablet, e vem marcada a tela de início do próprio Android (no tablet das imagens, "Tela de início do Pixel").
 
 ![Pergunta do Android sobre qual aplicativo usar como tela inicial](imagens-tratadas/13-android-launcher.png)
 
-Selecione **Cardápio Mesa/Comanda**.
+Toque no seletor do **Cardápio Mesa/Comanda** (1).
 
 ![Opção Cardápio Mesa/Comanda selecionada na lista](imagens-tratadas/14-android-launcher-selecionado.png)
 
-Toque em **Definir como padrão**. A partir daqui, apertar o botão Início do tablet passa a abrir o cardápio em vez da tela do Android.
+| Nº | O que fazer |
+|---|---|
+| 1 | Confira que o seletor do **Cardápio Mesa/Comanda** ficou marcado. |
+| 2 | Toque em **Definir como padrão**. |
+
+A partir daqui, apertar o botão Início do tablet passa a abrir o cardápio em vez da tela do Android.
 
 ---
 
-## Parte 4 — Ativar a trava
+## Parte 3 — Ativar a trava
 
-Abra a tela de Administração novamente (logo no canto superior esquerdo e senha) e toque em **TRAVAR**. O assistente aparece com "2 de 2 permissões concedidas" e o botão verde de ativação.
+Abra a tela de Administração novamente (logo no canto superior esquerdo e senha) e toque em **TRAVAR**. O assistente aparece pronto para ativar.
 
 ![Assistente com as duas permissões concedidas e o botão Ativar modo kiosk](imagens-tratadas/15-assistente-pronto.png)
 
-Toque em **ATIVAR MODO KIOSK**. O aplicativo confirma com a mensagem "Tablet bloqueado (Modo Kiosk)".
+| Nº | O que fazer |
+|---|---|
+| 1 | Confira que o contador está em "2 de 2 permissões concedidas", com os dois quadros verdes. |
+| 2 | Toque em **ATIVAR MODO KIOSK**. |
+
+O aplicativo confirma com a mensagem "Tablet bloqueado (Modo Kiosk)".
 
 ![Mensagem confirmando que o tablet está bloqueado](imagens-tratadas/16-kiosk-ativado.png)
 
-Toque em **OK**. O Android também mostra um aviso próprio, "O app está fixado", explicando que o aplicativo ficará sempre à vista. Toque em **Entendi**.
+| Nº | O que é |
+|---|---|
+| 1 | **OK** — fecha a confirmação do aplicativo. |
+| 2 | O aviso do próprio Android, "O app está fixado", que aparece atrás. Se ele trouxer um botão de confirmação (**Entendi**), toque nele também. |
+
+Em seguida o Android mostra por um instante o aviso "App fixado" (1) na parte de baixo da tela. Ele desaparece sozinho, sem precisar de nenhum toque.
 
 ![Aviso do Android informando que o aplicativo está fixado](imagens-tratadas/17-app-fixado.png)
 
@@ -140,9 +160,9 @@ Pronto: o tablet está travado no cardápio.
 
 ---
 
-## Parte 5 — Conferir se está travado
+## Parte 4 — Conferir se está travado
 
-Faça este teste rápido antes de entregar o tablet ao salão. Aperte o botão **Início** do tablet e tente arrastar a barra de notificações para baixo. O tablet deve continuar no cardápio, como na imagem.
+Faça este teste rápido antes de entregar o tablet ao salão. Aperte o botão **Início** e tente arrastar a barra de notificações para baixo. O tablet deve continuar no cardápio, igual a antes — é justamente por isso que a imagem abaixo não tem marcação nenhuma: a prova é a tela não ter mudado.
 
 ![Cardápio continua na tela mesmo após apertar o botão Início](imagens-tratadas/19-home-travada.png)
 
@@ -150,13 +170,13 @@ Se em algum momento outra tela aparecer, ela é fechada em menos de um segundo e
 
 ---
 
-## Parte 6 — Destravar o tablet
+## Parte 5 — Destravar o tablet
 
-Toque no logo no canto superior esquerdo, digite a senha e toque em **DESTRAVAR**. Enquanto o tablet está travado, esse é o único botão disponível no lugar de TRAVAR.
+Toque no logo no canto superior esquerdo, digite a senha e toque em **DESTRAVAR** (1). Enquanto o tablet está travado, esse é o único botão disponível no lugar de TRAVAR.
 
 ![Tela de Administração com o botão Destravar](imagens-tratadas/18-painel-destravar.png)
 
-O tablet é liberado na hora e a tela de Administração volta a mostrar **TRAVAR** e **CONFIGURAR TRAVA AVANÇADA**, prontos para travar de novo quando quiser.
+O tablet é liberado na hora e a tela de Administração volta ao estado de antes, com **TRAVAR** e **CONFIGURAR TRAVA AVANÇADA** prontos para travar de novo quando quiser — nada a apontar aqui, é a mesma tela da Parte 1.
 
 ![Tela de Administração de volta ao estado destravado](imagens-tratadas/20-destravado.png)
 
@@ -166,9 +186,14 @@ As permissões continuam concedidas, então nas próximas vezes basta tocar em *
 
 ## Alternativa: trava básica (sem permissões)
 
-Se você tocar em **TRAVAR** sem ter concedido as duas permissões, o assistente oferece a opção **PULAR E USAR TRAVA BÁSICA AGORA**, em laranja.
+Se você tocar em **TRAVAR** sem ter concedido as duas permissões, o assistente oferece a trava básica, em laranja.
 
 ![Assistente oferecendo a opção de trava básica](imagens-tratadas/21-trava-basica.png)
+
+| Nº | O que é |
+|---|---|
+| 1 | O aviso do limite: funciona sem permissão nenhuma, mas é menos segura. |
+| 2 | **PULAR E USAR TRAVA BÁSICA AGORA** — ativa a trava básica na hora. |
 
 A trava básica usa apenas o recurso de fixar aplicativo do próprio Android. Ela funciona sem nenhuma permissão, mas é menos segura: o cliente consegue sair segurando os botões **Voltar** e **Recentes** ao mesmo tempo. Use como solução temporária e configure a trava avançada quando puder.
 
