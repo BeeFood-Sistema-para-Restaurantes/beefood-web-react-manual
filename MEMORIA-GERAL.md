@@ -276,7 +276,9 @@ allowlist de domínios, e o agente alcança qualquer host. `drive.google.com`, `
 e `github.com` foram testados com `curl` e respondem.
 
 **Então o jeito de mandar imagem para o Cloud Agent é publicá-la numa URL e passar o link.**
-Google Drive serve, e qualquer host que devolva o arquivo também. Duas regras:
+Google Drive serve, e qualquer host que devolva o arquivo também. **Confirmado na prática no
+mesmo dia:** foi assim que as 21 capturas do #24 entraram no repositório — um `.zip` de 20 MB
+no Drive, baixado e distribuído em uma rodada. Duas regras:
 
 1. **Link de ARQUIVO (um `.zip`), não de pasta.** Pasta do Drive não dá para baixar sem
    credencial. Compacte, suba o `.zip`, compartilhe o `.zip`.
