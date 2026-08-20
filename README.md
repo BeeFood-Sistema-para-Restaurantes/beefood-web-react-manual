@@ -40,6 +40,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Campanhas Inteligentes (Food Marketing) | [`manuais/campanhas-inteligentes/`](manuais/campanhas-inteligentes/campanhas-inteligentes.md) | ✅ Concluído |
 | Cardápio — fundamentos (produto, grupo de opções, complementos, lote) | [`manuais/cardapio-fundamentos/`](manuais/cardapio-fundamentos/cardapio-fundamentos.md) | ✅ Concluído |
 | Cardápio — pizza (Valor da Maior e Proporcional) | [`manuais/cardapio-pizza/`](manuais/cardapio-pizza/cardapio-pizza.md) | ✅ Concluído |
+| Cardápio — hambúrguer (Brinde e grupo obrigatório) | [`manuais/cardapio-hamburguer/`](manuais/cardapio-hamburguer/cardapio-hamburguer.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 

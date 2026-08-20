@@ -77,7 +77,7 @@ flowchart LR
 | Nº | Manual | Pasta | Imagens ~ | Ordem |
 |----|--------|-------|-----------|-------|
 | **#27** | Cardápio — **fundamentos** | `manuais/cardapio-fundamentos/` | **25 (feito)** | **1º ✅** |
-| **#28** | Cardápio — **hambúrguer** | `manuais/cardapio-hamburguer/` | ~12 | **3º — próximo** |
+| **#28** | Cardápio — **hambúrguer** | `manuais/cardapio-hamburguer/` | **16 (feito)** | **3º ✅** |
 | **#29** | Cardápio — **pizza** | `manuais/cardapio-pizza/` | **15 (feito)** | **2º ✅** |
 | **#30** | Cardápio — **açaí** | `manuais/cardapio-acai/` | ~12 | 4º |
 | **#31** | Cardápio — **comida japonesa** | `manuais/cardapio-japonesa/` | ~14 | 5º |
@@ -120,7 +120,7 @@ Registrar no `MEMORIA.md` de cada manual: data da limpeza confirmada pelo dono.
 |--------|----------------|-------------|------|
 | #27 Fundamentos | ☑ | ☑ | 2026-08-20 (setor, produto, complemento e grupo zerados) |
 | #29 Pizza | ☑ | ☑ | 2026-08-20 |
-| #28 Hambúrguer | ☐ | ☐ | |
+| #28 Hambúrguer | ☑ | ☑ | 2026-08-20 |
 | #30 Açaí | ☐ | ☐ | |
 | #31 Japonesa | ☐ | ☐ | |
 
@@ -406,9 +406,11 @@ Repetir para #27, #29, #28, #30, #31:
 em lote. **#29 concluído** no mesmo dia — 15 imagens, os dois modelos de preço de pizza
 conferidos no PDV. Ambos aguardando publicação pelo dono.
 
-**Próximo da fila: #28 Cardápio — hambúrguer.** Antes de começar, o agente precisa avisar:
+**#28 concluído** também em 20/08/2026 — 16 imagens, Brinde e Obrigatório provados no PDV.
 
-> *Vou iniciar o manual **#28 — Cardápio — hambúrguer**. Por favor, **limpe a base de dados** da empresa **BeeFood3 - Manual** (setor, produto, complemento e grupo de opções). Quando terminar, avise para eu montar o cenário, inserir as fotos e começar as capturas.*
+**Próximo da fila: #30 Cardápio — açaí.** Antes de começar, o agente precisa avisar:
+
+> *Vou iniciar o manual **#30 — Cardápio — açaí**. Por favor, **limpe a base de dados** da empresa **BeeFood3 - Manual** (setor, produto, complemento e grupo de opções). Quando terminar, avise para eu montar o cenário, inserir as fotos e começar as capturas.*
 
 ### Aprendizados que valem para os próximos
 
@@ -425,4 +427,9 @@ conferidos no PDV. Ambos aguardando publicação pelo dono.
 | Preço base do produto | Sempre **soma** ao que vem dos grupos | #29 |
 | Buscar e Cadastrar | **Não usar a busca** antes de marcar: limpar o campo desmarca tudo | #29 |
 | Captura de modal do PDV | Zerar o `scrollTop` antes do screenshot, senão a captura perde o topo | #29 |
+| Brinde | Declara a intenção, mas o que garante preço zero é o **valor da opção** | #28 |
+| Obrigatório | Bloqueia **no clique** com toast; o botão não fica desabilitado | #28 |
+| Ordem dos grupos | Vinculados em lote entram todos como `1`, em ordem alfabética — reordenar na mão | #28 |
+| Fotos em grupo de remoção | Não precisa; o contraste na listagem é didático | #28 |
+| Checkbox do modal | Precisa de `click(force=True)` | #28 |
 | Seletores Playwright | Seção 4 das MEMORIA de `cardapio-fundamentos` e `cardapio-pizza` | #27 / #29 |
