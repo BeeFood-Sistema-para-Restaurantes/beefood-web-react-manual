@@ -333,23 +333,29 @@ no mesmo lugar (grupo → **Detalhes do Grupo** → **Formação de Preço**):
 |----|------|--------------|-------------|
 | 1 | **Normal** | **Soma** o preço de cada opção escolhida. | Adicionais, extras, coberturas. É o padrão e o usado neste manual. |
 | 2 | **Brinde** | Todas as opções ficam **sem preço**. | Escolhas que não mudam o valor: ponto da carne, retirar ingrediente, tipo de talher. |
-| 3 | **Valor da Maior** | Cobra **apenas a opção mais cara** selecionada. | Porções e combos em que o cliente escolhe entre alternativas de preço diferente. |
-| 4 | **Proporcional** | Divide o preço **proporcionalmente** entre as opções escolhidas. | Pizza meio a meio: dois sabores, preço médio. |
+| 3 | **Valor da Maior** | Cobra **apenas a opção mais cara** selecionada. | Porções e combos em que o cliente escolhe entre alternativas de preço diferente. Também é o caminho mais simples para pizza meio a meio. |
+| 4 | **Proporcional** | **Soma as opções** e, por dentro, divide o valor igualmente entre elas no rateio da venda. | Pizza em que cada opção representa uma **fração** (meia pizza), com o preço da fração cadastrado na opção. |
 
-Um exemplo com dois sabores de R$ 40,00 e R$ 45,00 deixa a diferença clara:
+Um exemplo com duas opções de R$ 40,00 e R$ 45,00 deixa a diferença clara:
 
 | Modo | Conta | Total |
 |------|-------|-------|
 | Normal | 40 + 45 | R$ 85,00 |
 | Brinde | — | R$ 0,00 (só o preço base do produto) |
-| Valor da Maior | o maior entre 40 e 45 | R$ 45,00 |
-| Proporcional | (40 + 45) ÷ 2 | R$ 42,50 |
+| Valor da Maior | o maior entre 40 e 45 | **R$ 45,00** |
+| Proporcional | 40 + 45 | **R$ 85,00** |
+
+> ⚠️ **Proporcional não faz média do preço que você cadastrou.** Ele **soma**, como o Normal. A
+> "proporção" acontece no rateio interno da venda (cada opção contabiliza o mesmo valor nos
+> relatórios), e não como desconto para o cliente. Para uma pizza meio a meio sair pela média,
+> o preço cadastrado em cada opção precisa ser o de **meia pizza** — aí duas metades de
+> R$ 20,00 e R$ 22,50 fecham em R$ 42,50, que é a média de R$ 40,00 e R$ 45,00.
 
 > No PDV, o modo **Valor da Maior** exibe um aviso ao operador explicando que só a opção mais
-> cara será cobrada — ele não precisa decorar a regra.
+> cara será cobrada — ele não precisa decorar a regra. O **Proporcional não tem aviso**.
 
 O manual de **pizza** monta os modos **Proporcional** e **Valor da Maior** lado a lado, com
-dois produtos, para você ver a diferença na prática.
+dois produtos, e mostra o preço que cada um cobra na tela de venda.
 
 ---
 

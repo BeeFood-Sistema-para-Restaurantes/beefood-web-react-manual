@@ -60,8 +60,13 @@ flowchart LR
 |------|---------|------------|
 | **Normal** | Soma de cada opção escolhida | Adicionais, coberturas, extras |
 | **Brinde** | Sem cobrança extra | Retirar ingrediente, ponto da carne |
-| **Valor da Maior** | Cobra só a opção mais cara | Pizza (modelo alternativo); porções |
-| **Proporcional** | Média das opções escolhidas | **Pizza meio a meio** (recomendado) |
+| **Valor da Maior** | Cobra só a opção mais cara | Porções; **pizza meio a meio (mais simples)** |
+| **Proporcional** | **Soma** as opções; a média é só o rateio interno | Pizza em que cada opção é uma **fração** e leva o preço da fração |
+
+> ⚠️ **Corrigido em 20/08/2026, no #29:** o Proporcional **não faz média** do preço cadastrado —
+> ele soma, como o Normal. Comprovado no PDV: preço inteiro em dois sabores (R$ 40 + R$ 45)
+> cobra **R$ 85,00**. Para o meio a meio sair pela média, cada opção precisa ter o preço de
+> **meia pizza**, com o grupo em mín 2 / máx 2 e cada opção com máximo 2.
 
 **Regra crítica:** grupo compartilhado entre produtos **afeta todos** — alertar no #27.
 
@@ -72,8 +77,8 @@ flowchart LR
 | Nº | Manual | Pasta | Imagens ~ | Ordem |
 |----|--------|-------|-----------|-------|
 | **#27** | Cardápio — **fundamentos** | `manuais/cardapio-fundamentos/` | **25 (feito)** | **1º ✅** |
-| **#28** | Cardápio — **hambúrguer** | `manuais/cardapio-hamburguer/` | ~12 | 3º |
-| **#29** | Cardápio — **pizza** | `manuais/cardapio-pizza/` | ~17 | **2º** |
+| **#28** | Cardápio — **hambúrguer** | `manuais/cardapio-hamburguer/` | ~12 | **3º — próximo** |
+| **#29** | Cardápio — **pizza** | `manuais/cardapio-pizza/` | **15 (feito)** | **2º ✅** |
 | **#30** | Cardápio — **açaí** | `manuais/cardapio-acai/` | ~12 | 4º |
 | **#31** | Cardápio — **comida japonesa** | `manuais/cardapio-japonesa/` | ~14 | 5º |
 
@@ -114,7 +119,7 @@ Registrar no `MEMORIA.md` de cada manual: data da limpeza confirmada pelo dono.
 | Manual | Aviso enviado? | Base limpa? | Data |
 |--------|----------------|-------------|------|
 | #27 Fundamentos | ☑ | ☑ | 2026-08-20 (setor, produto, complemento e grupo zerados) |
-| #29 Pizza | ☐ | ☐ | |
+| #29 Pizza | ☑ | ☑ | 2026-08-20 |
 | #28 Hambúrguer | ☐ | ☐ | |
 | #30 Açaí | ☐ | ☐ | |
 | #31 Japonesa | ☐ | ☐ | |
@@ -271,13 +276,16 @@ Mapear nomes exatos dos botões em `fluxo-codigo.md` antes de capturar.
 | `[Manual] Pizza Média — Proporcional` | 1–2 sabores | **Proporcional** |
 | `[Manual] Pizza Média — Valor da Maior` | 1–2 sabores | **Valor da Maior** |
 
-**Sabores (opções no grupo):**
+**Executado assim** (o cenário real ficou diferente do previsto, depois do teste de cálculo):
 
-| Sabor | Preço |
-|-------|-------|
-| Calabresa | R$ 40 |
-| Portuguesa | R$ 45 |
-| Quatro Queijos | R$ 48 |
+| Grupo | Formação | Mín / Máx do grupo | Máx da opção | Preço na opção |
+|-------|----------|--------------------|--------------|----------------|
+| Sabores (Valor da Maior) | Valor da Maior | 1 / 2 | 1 | **inteiro** (40 / 42 / 45 / 48) |
+| Sabores (Proporcional) | Proporcional | **2 / 2** | **2** | **metade** (20 / 21 / 22,50 / 24) |
+| Borda | Normal | 0 / 1 | 1 | 8 / 6 |
+
+Sabores: Calabresa, Marguerita, Portuguesa, Quatro Queijos. Os dois produtos ficaram com
+**Preço de Venda R$ 0,00** — o preço vem dos sabores.
 
 **Grupos auxiliares (ambos produtos):**
 
@@ -286,12 +294,13 @@ Mapear nomes exatos dos botões em `fluxo-codigo.md` antes de capturar.
 | Borda | Normal | Catupiry +R$ 8 |
 | Retirar | Brinde | Sem cebola |
 
-**Comparativo meio a meio (Calabresa + Portuguesa):**
+**Comparativo conferido no PDV (Calabresa R$ 40 + Portuguesa R$ 45):**
 
-| Modo | Total sabores |
-|------|---------------|
-| Proporcional | **R$ 42,50** |
-| Valor da Maior | **R$ 45,00** |
+| Modo | Cadastro | Total |
+|------|----------|-------|
+| Valor da Maior | preço inteiro | **R$ 45,00** |
+| Proporcional | preço de metade | **R$ 42,50** |
+| Proporcional | preço inteiro (**erro comum**) | **R$ 85,00** |
 
 **Partes:** conceito → grupo sabores → produto Proporcional + PDV → produto Valor da Maior + PDV → tabela → borda → **Dica extra**.
 
@@ -393,21 +402,27 @@ Repetir para #27, #29, #28, #30, #31:
 
 ## 9. Próximo passo
 
-**#27 concluído** em 20/08/2026 — 25 imagens, cenário validado no PDV (R$ 20,00) e reajuste
-real em lote. Aguardando publicação pelo dono.
+**#27 concluído** em 20/08/2026 — 25 imagens, cenário validado no PDV (R$ 20,00) e reajuste real
+em lote. **#29 concluído** no mesmo dia — 15 imagens, os dois modelos de preço de pizza
+conferidos no PDV. Ambos aguardando publicação pelo dono.
 
-**Próximo da fila: #29 Cardápio — pizza.** Antes de começar, o agente precisa avisar:
+**Próximo da fila: #28 Cardápio — hambúrguer.** Antes de começar, o agente precisa avisar:
 
-> *Vou iniciar o manual **#29 — Cardápio — pizza**. Por favor, **limpe a base de dados** da empresa **BeeFood3 - Manual** (setor, produto, complemento e grupo de opções). Quando terminar, avise para eu montar o cenário, inserir as fotos e começar as capturas.*
+> *Vou iniciar o manual **#28 — Cardápio — hambúrguer**. Por favor, **limpe a base de dados** da empresa **BeeFood3 - Manual** (setor, produto, complemento e grupo de opções). Quando terminar, avise para eu montar o cenário, inserir as fotos e começar as capturas.*
 
-### Aprendizados do #27 que valem para os próximos
+### Aprendizados que valem para os próximos
 
-| Item | Detalhe |
-|------|---------|
-| Edição em lote | Está na **sub-aba** `Grupo de Opções → Opções`, não no modal do grupo (lá é linha por linha) |
-| Fotos | Só complemento e produto precisam; a opção herda |
-| Formação de Preço | A imagem `25-formacao-preco.png` do #27 já ilustra os quatro modos |
-| Nomes | Realistas, sem prefixo |
-| Setas | Mirar a **borda direita** dos botões dos modais (~0,716); não cruzar linhas de tabela |
-| Conferência | Rodar o comparador `annotate.py` × `.md` antes de fechar |
-| Seletores Playwright | Tabela na seção 4 de `manuais/cardapio-fundamentos/MEMORIA.md` |
+| Item | Detalhe | Veio do |
+|------|---------|---------|
+| Edição em lote | Está na **sub-aba** `Grupo de Opções → Opções`, não no modal do grupo (lá é linha por linha) | #27 |
+| Fotos | Só complemento e produto precisam; a opção herda | #27 |
+| Formação de Preço | A imagem `25-formacao-preco.png` do #27 ilustra os quatro modos | #27 |
+| Nomes | Realistas, sem prefixo e **sem travessão** (vira "?" na tela) | #27 / #29 |
+| Setas | Mirar a **borda** dos botões (~0,716 nos assistentes, ~0,688 no PDV); não cruzar linhas de tabela | #27 |
+| Imagens em par | Quando há dois caminhos, capturar os dois com as setas nas mesmas coordenadas | #29 |
+| Conferência | Rodar o comparador `annotate.py` × `.md` antes de fechar | #27 |
+| Contador de quantidade no PDV | Depende do **máximo da opção**; o botão "+" é travado, aumenta clicando na linha | #29 |
+| Preço base do produto | Sempre **soma** ao que vem dos grupos | #29 |
+| Buscar e Cadastrar | **Não usar a busca** antes de marcar: limpar o campo desmarca tudo | #29 |
+| Captura de modal do PDV | Zerar o `scrollTop` antes do screenshot, senão a captura perde o topo | #29 |
+| Seletores Playwright | Seção 4 das MEMORIA de `cardapio-fundamentos` e `cardapio-pizza` | #27 / #29 |

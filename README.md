@@ -39,6 +39,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Segmentação de clientes (Food Marketing) | [`manuais/segmentacao-clientes/`](manuais/segmentacao-clientes/segmentacao-clientes.md) | ✅ Concluído |
 | Campanhas Inteligentes (Food Marketing) | [`manuais/campanhas-inteligentes/`](manuais/campanhas-inteligentes/campanhas-inteligentes.md) | ✅ Concluído |
 | Cardápio — fundamentos (produto, grupo de opções, complementos, lote) | [`manuais/cardapio-fundamentos/`](manuais/cardapio-fundamentos/cardapio-fundamentos.md) | ✅ Concluído |
+| Cardápio — pizza (Valor da Maior e Proporcional) | [`manuais/cardapio-pizza/`](manuais/cardapio-pizza/cardapio-pizza.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
