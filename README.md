@@ -23,6 +23,9 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Manual | Pasta | Status |
 |--------|-------|--------|
 | Caixa (abrir, receber pagamento, consultar) | [`manuais/caixa/`](manuais/caixa/caixa.md) | ✅ Concluído |
+| Fechar caixa (vendas pendentes, conferência, quebra) | [`manuais/caixa-fechar/`](manuais/caixa-fechar/caixa-fechar.md) | ✅ Concluído |
+| Segunda conferência (dupla checagem) | [`manuais/caixa-conferencia-2/`](manuais/caixa-conferencia-2/caixa-conferencia-2.md) | ✅ Concluído |
+| Restrições de caixa (grupo de acesso) | [`manuais/caixa-restricoes/`](manuais/caixa-restricoes/caixa-restricoes.md) | ✅ Concluído |
 | Reforma Tributária (IBS/CBS) | [`manuais/reforma-tributaria-ibscbs/`](manuais/reforma-tributaria-ibscbs/reforma-tributaria.md) | ✅ Concluído |
 | Ativação Aiqfome V2 | [`manuais/ativacao-aiqfome/`](manuais/ativacao-aiqfome/ativacao-aiqfome.md) | ✅ Concluído |
 | Integração Machine (entregas) | [`manuais/integracao-machine/`](manuais/integracao-machine/integracao-machine.md) | ✅ Concluído |
@@ -30,6 +33,8 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Integração Repediu (CRM) | [`manuais/integracao-repediu/`](manuais/integracao-repediu/integracao-repediu.md) | ✅ Concluído |
 | Integração FoodCRM (CRM) | [`manuais/integracao-foodcrm/`](manuais/integracao-foodcrm/integracao-foodcrm.md) | ✅ Concluído |
 | Integração Uber Direct (entregas) | [`manuais/integracao-uber-direct/`](manuais/integracao-uber-direct/integracao-uber-direct.md) | ✅ Concluído |
+| Segmentação de clientes (Food Marketing) | [`manuais/segmentacao-clientes/`](manuais/segmentacao-clientes/segmentacao-clientes.md) | ✅ Concluído |
+| Campanhas Inteligentes (Food Marketing) | [`manuais/campanhas-inteligentes/`](manuais/campanhas-inteligentes/campanhas-inteligentes.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 

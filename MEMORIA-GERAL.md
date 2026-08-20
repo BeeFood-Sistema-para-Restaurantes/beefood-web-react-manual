@@ -3,9 +3,10 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-20 (anexo do chat não chega ao Cloud Agent; escopo real do
-`BITBUCKET_TOKEN`; backend clonado no Cloud Agent; tela de login mudou; telas com auto-save;
-captura com Playwright; versão de produção)
+Última atualização: 2026-08-20 (ler no código o que grava antes de capturar; dado pessoal
+coberto na imagem pura; widget flutuante escondido por CSS; diagnóstico do ambiente pela API;
+anexo do chat não chega ao Cloud Agent; escopo real do `BITBUCKET_TOKEN`; backend clonado no
+Cloud Agent; tela de login mudou; telas com auto-save; captura com Playwright)
 
 ---
 
@@ -148,6 +149,14 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
   desligada, o `config_cache` congela nesse estado e a conta parece continuar restrita mesmo
   depois de religar. O sintoma é a tela redirecionar para a home sem erro. A saída é relogar.
 - O banner promocional do topo fecha por `button[aria-label="Dispensar"]`.
+- **Esconda o widget flutuante de suporte antes de capturar.** É um `div.fixed.bottom-6` de
+  56×56 no canto inferior esquerdo e cobre conteúdo de cards baixos. `page.add_style_tag` com
+  `div.fixed.bottom-6 { display:none !important }` resolve, sem alterar nada no produto.
+- **Diagnostique o estado pela API antes de planejar o manual.** Um script curto que só abre a
+  tela e imprime a resposta da listagem já diz quantos registros existem, em que estado estão e
+  se há dados suficientes para as capturas — evita planejar imagens que o ambiente não tem.
+  Foi assim que se descobriu, antes de escrever qualquer coisa, que as campanhas inteligentes
+  já tinham os três estados e dois envios reais para fotografar.
 - Alguns elementos ficam em **listas com rolagem própria** (o modal de permissões, por exemplo).
   Aumentar o viewport não resolve; use `scroll_into_view_if_needed()` no item desejado.
 
@@ -194,6 +203,21 @@ Muitas telas só gravam no clique final (fechar caixa, conferir, confirmar). Nes
 então repita para valer. Foi assim nos manuais de fechar caixa e de segunda conferência, e
 evitou queimar cenários que não têm volta. Ao automatizar, mantenha o passo irreversível num
 script separado dos idempotentes.
+
+**Antes de capturar, leia no código o que grava.** Vale conferir três coisas: se a tela tem
+auto-save (Parâmetros e a configuração do Cashback têm; o editor de campanha inteligente não
+tem), em que linha o `handleSave` realmente chama a API, e o que um switch faz de fato. No
+editor de campanha inteligente, por exemplo, o switch do card apenas abre um diálogo de
+confirmação e o salvamento com a proteção anti-spam desligada retorna antes da API — o que
+permitiu fotografar até o alerta vermelho de banimento sem alterar nada. Cinco minutos de
+leitura de código evitam capturas em ambiente sujo ou cenários queimados.
+
+### Dado pessoal em captura
+
+O repositório é **público**. Quando a tela mostra nome, telefone ou e-mail de cliente, cubra na
+imagem **pura**, não só na tratada — a pura também é versionada. No manual de segmentação isso
+foi feito com borrão via `annotate.py`; no de campanhas inteligentes, com uma tarja e um
+telefone fictício aplicados na pura antes do primeiro commit.
 
 ---
 
@@ -288,6 +312,8 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Integração Repediu | `manuais\integracao-repediu\` | ✅ Concluído |
 | Integração FoodCRM | `manuais\integracao-foodcrm\` | ✅ Concluído |
 | Integração Uber Direct | `manuais\integracao-uber-direct\` | ✅ Concluído |
+| Segmentação de clientes | `manuais\segmentacao-clientes\` | ✅ Concluído |
+| Campanhas Inteligentes | `manuais\campanhas-inteligentes\` | ✅ Concluído |
 
 ---
 
