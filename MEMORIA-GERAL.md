@@ -5,8 +5,10 @@
 
 Última atualização: 2026-08-20 (ler no código o que grava antes de capturar; dado pessoal
 coberto na imagem pura; widget flutuante escondido por CSS; diagnóstico do ambiente pela API;
-anexo do chat não chega ao Cloud Agent; escopo real do `BITBUCKET_TOKEN`; backend clonado no
-Cloud Agent; tela de login mudou; telas com auto-save; captura com Playwright)
+anexo do chat não chega ao Cloud Agent; imagem colada no chat não tem como ser baixada, mas
+**zip numa URL pública o agente baixa** — o VM tem egresso liberado; escopo real do
+`BITBUCKET_TOKEN`; backend clonado no Cloud Agent; tela de login mudou; telas com auto-save;
+captura com Playwright)
 
 ---
 
@@ -250,17 +252,57 @@ o agente não tem como abri-lo — e imagem nunca vem inline.
 > existe, olhe essa pasta.** Arquivos gravados lá vêm com **CRLF**; converter com
 > `tr -d '\r'` antes de comparar com algo do repositório.
 
-**Imagem é a exceção, e isso importa muito para este projeto.** Testado três vezes em
+**Imagem é a exceção, e isso importa muito para este projeto.** Testado cinco vezes em
 20/08/2026: imagem enviada no chat aparece para o modelo (ele descreve o conteúdo sem
 dificuldade) mas **nunca** vira arquivo em `uploads/` — não há como gravá-la em disco nem
 commitá-la. Foi o que travou as 21 capturas do #24.
 
-> **A saída é o `.zip`.** Compactar a pasta de imagens e anexar o **`.zip`** como documento:
-> zip não é imagem, então cai em `uploads/` como qualquer outro arquivo. Depois é só extrair.
-> O `manuais/cardapio-digital-tablet-modo-kiosk/copiar-imagens.py` já faz isso sozinho —
-> procura o zip mais recente na pasta `uploads/`, extrai e distribui as imagens nas pastas
-> `imagens-puras/` e `imagens-tratadas/`. Vale copiar a ideia em qualquer manual cujas
-> capturas venham de fora.
+O agente recebe a imagem já decodificada, como imagem, sem caminho em disco e sem URL.
+Não existe, portanto, "baixar a imagem do chat": não há de onde baixar. É a pergunta que o
+dono fez em 20/08 e a resposta é essa. Também não serve reproduzir a tela desenhando algo
+parecido: o manual precisa da captura real do aplicativo.
+
+> **O `.zip` era a aposta, e ela falhou na prática.** A ideia era boa — zip não é imagem,
+> então deveria cair em `uploads/` como qualquer documento. Só que na tentativa de 20/08 o
+> `.zip` **não chegou** (`uploads/` seguiu com apenas o `.md`), e as imagens vieram outra vez
+> como imagem no chat. Trate o zip como caminho **não confirmado**: vale tentar, mas não
+> planeje o manual em cima dele.
+
+### O caminho que resolve: zip numa URL pública (o agente baixa)
+
+**O VM tem saída de internet liberada.** Confirmado em 20/08/2026 pelo
+`cursor-cloud-environment-info`, que devolve `egress: { restricted: false }`. Ou seja: não há
+allowlist de domínios, e o agente alcança qualquer host. `drive.google.com`, `docs.google.com`
+e `github.com` foram testados com `curl` e respondem.
+
+**Então o jeito de mandar imagem para o Cloud Agent é publicá-la numa URL e passar o link.**
+Google Drive serve, e qualquer host que devolva o arquivo também. Duas regras:
+
+1. **Link de ARQUIVO (um `.zip`), não de pasta.** Pasta do Drive não dá para baixar sem
+   credencial. Compacte, suba o `.zip`, compartilhe o `.zip`.
+2. **Compartilhamento em "qualquer pessoa com o link".** Sem isso o Drive devolve a página de
+   login, e o que chega é HTML em vez de arquivo.
+
+O `manuais/cardapio-digital-tablet-modo-kiosk/copiar-imagens.py` já aceita URL como origem:
+baixa, confere que é zip de verdade, extrai e distribui nas pastas `imagens-puras/` e
+`imagens-tratadas/`. Link de compartilhamento do Drive é convertido sozinho para o endpoint de
+download direto (`drive.usercontent.google.com/download?id=…&confirm=t`), porque o link normal
+devolve a página de visualização, não o arquivo. **Vale copiar essa função em qualquer manual
+cujas capturas venham de fora.**
+
+**O que resolve de verdade, para capturas que moram em outro repositório:** dar ao ambiente
+acesso a esse repositório, para o agente pegar os arquivos na origem em vez de depender de
+anexo. É o caso do #24: as capturas estão em `beetechbr/beetech-appgarcom-android`, em
+`docs/images/kiosk/`. O `.cursor/install.sh` já lista o repositório e já aceita vários tokens
+(`TOKENS_BITBUCKET`); falta apenas cadastrar o secret `BITBUCKET_TOKEN_APPGARCOM`, porque um
+Repository Access Token é escopado a **um** repositório e o `BITBUCKET_TOKEN` atual só alcança
+o `beetech-server-node-2.0` (a API responde **404** para o repo do app). Lembrando que
+**secret novo só entra em VM nova**.
+
+**Enquanto isso, o caminho mais curto é o dono commitar os arquivos.** Foi assim que 13 das
+14 pastas de imagens deste repositório nasceram — só a do `campanhas-inteligentes` foi
+capturada por agente, e porque aquele manual é do painel web, que o agente alcança com o
+Playwright. Manual de aplicativo Android não tem esse atalho.
 
 **Como mandar material para o Cloud Agent, em ordem de preferência:**
 

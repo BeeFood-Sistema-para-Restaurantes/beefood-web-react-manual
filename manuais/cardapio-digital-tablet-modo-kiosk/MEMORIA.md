@@ -55,18 +55,30 @@ O `.md` chegou como arquivo (foi para `~/.cursor/projects/workspace/uploads/`), 
 **imagens só chegaram como imagem no chat, não como arquivo em disco** — a pasta de uploads
 recebeu apenas o `.md`, e nenhum `.png` novo apareceu no sistema de arquivos.
 
-**Testado três vezes (20/08/2026): imagem colada no chat nunca vira arquivo.** O agente
+**Testado cinco vezes (20/08/2026): imagem colada no chat nunca vira arquivo.** O agente
 **enxerga** as capturas, mas não há caminho para gravá-las. A pasta
 `~/.cursor/projects/workspace/uploads/` é o **único** lugar onde anexo aparece como arquivo, e
 ela recebeu somente o `.md`.
+
+Não existe "baixar a imagem do chat": ela chega já decodificada, sem caminho em disco e sem
+URL. Também foi descartada a ideia de buscar as capturas numa versão publicada do manual —
+`https://ajuda3.beefood.com.br/modo-kiosk` e
+`https://ajuda3.beefood.com.br/cardapio-digital-tablet-modo-kiosk` respondem **404**, porque
+este manual ainda não foi publicado.
 
 **O que funciona, então:**
 
 | Caminho | Como |
 |---------|------|
-| **Zip pelo chat** (mais simples) | Compactar a pasta `docs/images/kiosk/` e anexar o **`.zip`** como documento. Zip não é imagem, então cai em `uploads/`. Aí basta `python copiar-imagens.py` — ele acha o zip sozinho. |
+| **Zip numa URL pública** (o que o agente resolve sozinho) | Compactar `docs/images/kiosk/`, subir o `.zip` no Google Drive (ou qualquer host), compartilhar em "qualquer pessoa com o link" e passar o link. O agente roda `python copiar-imagens.py <link>` — o VM tem egresso liberado (`egress: { restricted: false }`). |
+| **Liberar o repositório do app** (resolve de vez, para sempre) | Secret `BITBUCKET_TOKEN_APPGARCOM` (o `install.sh` já tem a entrada e já aceita vários tokens). Aí o agente pega as capturas na origem, sem link nenhum. Só vale em **VM nova**. |
 | **Rodar na máquina do dono** | `python copiar-imagens.py`, que já encontra `c:\projetos\beetech-appgarcom-android\docs\images\kiosk`, depois commit e push. |
-| **Liberar o repositório do app** | Secret `BITBUCKET_TOKEN_APPGARCOM` (o `install.sh` já tem a entrada). Só vale em **VM nova**. |
+| **Zip pelo chat** (não confirmado) | A teoria é boa — zip não é imagem, então deveria cair em `uploads/`. Mas na tentativa de 20/08 o `.zip` **não chegou**. Vale tentar, sem contar com ele. |
+
+> **Atenção ao link do Drive:** tem de ser link de **arquivo** (o `.zip`), não de pasta —
+> pasta do Drive não dá para baixar sem credencial, e o script recusa esse link com essa
+> explicação. E o compartilhamento precisa estar em "qualquer pessoa com o link"; senão o
+> Drive devolve a página de login, e o script avisa que o que baixou não é zip.
 
 ### O jeito rápido: `copiar-imagens.py`
 
@@ -76,6 +88,7 @@ Dentro desta pasta:
 python copiar-imagens.py                 # procura a origem sozinho
 python copiar-imagens.py <pasta>         # usa essa pasta
 python copiar-imagens.py <arquivo.zip>   # usa esse zip
+python copiar-imagens.py <url-do-zip>    # baixa o zip dessa url
 ```
 
 O script copia as capturas para `imagens-puras/` **e** `imagens-tratadas/`, e imprime um
@@ -95,11 +108,22 @@ A busca é **recursiva** tanto em pasta quanto em zip: não importa se os PNG es
 dentro de `images/kiosk/`.
 
 > Testado em 20/08/2026 num diretório temporário fora do repositório, com 21 PNG de 1×1
-> gerados na hora. Sete cenários, todos com o resultado esperado: pasta plana (com um arquivo
-> sobrando, apontado no relatório), zip plano, zip com subpastas, pasta com subpastas,
-> auto-detecção do zip na pasta `uploads/`, origem inválida (código 1) e limpeza da pasta
-> temporária do zip. Nas versões anteriores também foram testados origem incompleta e ausência
-> de origem, ambos com código 1.
+> gerados na hora, metade na raiz e metade em subpasta, mais um PNG sobrando. O zip foi
+> servido por um `http.server` em `localhost` para exercitar o download de verdade.
+>
+> Passaram: URL, zip local, pasta com subpastas, auto-detecção do zip em `uploads/` — 21/21 em
+> todos, com o arquivo sobrando apontado no relatório. Deram código 1, cada um com a mensagem
+> certa: origem incompleta, origem inválida, link de pasta do Drive, URL 404, URL que devolve
+> HTML em vez de zip, host recusando conexão e link do Drive sem id.
+>
+> Os seis formatos de link do Drive que aparecem na prática (`/file/d/<id>/view` com
+> `usp=sharing` e com `usp=drive_link`, `open?id=`, `uc?export=download&id=`, o endpoint
+> `drive.usercontent.google.com` e uma URL comum de outro host) foram conferidos um a um na
+> conversão para download direto.
+>
+> **Bug encontrado e corrigido no teste:** cada URL que falhava deixava uma pasta em `/tmp`,
+> porque o erro sai por `SystemExit` antes do `finally` que limpa. Depois da correção, cinco
+> falhas seguidas não deixaram resíduo.
 
 Os nomes têm de ser exatamente estes, em `imagens-tratadas/` (e cópia em `imagens-puras/`):
 
@@ -136,12 +160,13 @@ números — o texto não referencia número de seta em nenhum ponto. Por isso t
 (#7, #8, #11). O `copiar-imagens.py` ocupa o lugar do `annotate.py` nesta pasta: aqui não há
 o que anotar, só o que trazer de outro repositório.
 
-> **Por que o agente não resolve isso sozinho.** As imagens já foram enviadas no chat e o
-> agente **consegue vê-las**, mas elas entram como imagem no contexto, não como arquivo — não
-> existe caminho para gravá-las em disco a partir daí. Só o `.md` chegou como arquivo (foi
-> para `~/.cursor/projects/workspace/uploads/`). Enquanto os PNG não estiverem em disco ou no
-> repositório do app acessível, o manual fica com as referências apontando para arquivos que
-> não existem.
+> **Por que o agente não resolve isso com as imagens do chat.** Ele **consegue vê-las**, mas
+> elas entram como imagem no contexto, não como arquivo: sem caminho em disco e sem URL, não
+> há de onde copiar. Só o `.md` chegou como arquivo (foi para
+> `~/.cursor/projects/workspace/uploads/`). **Com um link, aí sim ele resolve** — o VM tem
+> egresso liberado, e o `copiar-imagens.py` baixa, extrai e distribui. Enquanto os PNG não
+> estiverem em disco, num link ou no repositório do app acessível, o manual fica com as
+> referências apontando para arquivos que não existem.
 
 ## 4. Histórico (o caminho até aqui)
 
@@ -150,10 +175,13 @@ o que anotar, só o que trazer de outro repositório.
 | 1ª rodada | Pedido chegou citando o `manual-modo-kiosk.md` e a pasta `images` como anexos. **Nada chegou ao VM.** Escrevi um rascunho com o escopo errado (o painel web) e mapeei o código do painel. |
 | 2ª rodada | O dono mandou as 21 imagens no chat e esclareceu: **o manual é só no tablet**. Informou o caminho de origem, `c:\projetos\beetech-appgarcom-android\docs\manual-modo-kiosk.md`. Testei o acesso ao repositório do app no Bitbucket: **sem acesso** (o `BITBUCKET_TOKEN` alcança só o `beetech-server-node-2.0`). |
 | 3ª rodada | O `.md` foi anexado de um jeito que **caiu em disco**. Manual copiado, escopo corrigido, `texto-documentation.ia.md` escrito. Sobraram só as imagens. |
+| 4ª rodada | O dono tentou o `.zip` e ele **não chegou** — `uploads/` continuou só com o `.md`, e as imagens vieram outra vez como imagem no chat. Varredura nova no VM (`find /` por PNG/JPG/ZIP criados no dia) não achou nada, e a versão publicada do manual não existe para servir de origem (404 no `ajuda3`). Pedido do secret `BITBUCKET_TOKEN_APPGARCOM` registrado formalmente para o ambiente. |
+| 5ª rodada | O dono perguntou se **Google Drive** funcionaria. Funciona: o ambiente reporta `egress: { restricted: false }` e o Drive responde ao `curl`. O `copiar-imagens.py` passou a aceitar **URL** como origem, com conversão do link de compartilhamento do Drive para download direto. Testado de ponta a ponta com um zip servido por HTTP. |
 
 **Lição principal, já registrada no `MEMORIA-GERAL.md`:** anexo do chat não chega ao VM por
 padrão. Quando cai em `~/.cursor/projects/workspace/uploads/`, chegou; se não estiver lá, não
-chegou. Vale conferir essa pasta antes de concluir que o material não existe.
+chegou. Vale conferir essa pasta antes de concluir que o material não existe. E para imagem,
+que nunca chega como arquivo, **o caminho é URL**: o VM baixa de qualquer host.
 
 ## 5. Decisões tomadas
 
