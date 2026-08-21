@@ -75,27 +75,38 @@ este frete — só quem digitar **18035-490**.
 
 ## Parte 3 — O que o cliente vê no cardápio
 
-O cliente informa o **próprio** endereço. A mudança leva **1 a 2 minutos**. Se o CEP for o
-mesmo do cadastro, a taxa aparece. O teste deste bloco é **R. Arthur Gomes, 13 — Centro,
-18035-490**:
+O cliente informa o **próprio** endereço. A mudança leva **1 a 2 minutos**. Só o CEP
+cadastrado fecha a taxa. O teste deste bloco é **18035-490**, número **13**.
 
-![Cardápio — CEP igual ao fixo, taxa R$ 7,00](imagens-tratadas/05-menu-cep-perto.png)
+Na sacola, em **Receber no seu endereço**, o cliente toca em *Clique aqui e informe o
+endereço* (ou em **Trocar**). Abre a busca:
+
+![Cardápio — busca do CEP](imagens-tratadas/05-menu-cep-busca.png)
+
+| Nº | Item | O que o cliente faz |
+|----|------|---------------------|
+| 1 | **Campo do CEP** | Digita o CEP. No teste, **18035-490** — o mesmo do cadastro. |
+| 2 | **BUSCAR CEP** | Confere se o CEP é o fixo. |
+
+O sistema devolve a rua. O cliente confere, preenche o **número** e toca em **CONFIRMAR**:
+
+![Cardápio — endereço encontrado, número 13](imagens-tratadas/06-menu-cep-form.png)
+
+| Nº | Item | O que aparece |
+|----|------|---------------|
+| 1 | **Rua** | *Rua Doutor Arthur Gomes* — veio da busca do CEP. |
+| 2 | **Nº** | O cliente digita **13**. |
+| 3 | **Bairro** e **cidade** | *Centro*, *Sorocaba*. |
+| 4 | **CONFIRMAR** | Grava o endereço na sacola. |
+
+A sacola mostra o endereço escolhido e o valor fixo:
+
+![Cardápio — endereço confirmado, taxa R$ 7,00](imagens-tratadas/07-menu-cep-perto.png)
 
 | Nº | Item | O que o cliente vê |
 |----|------|--------------------|
-| 1 | **Receber no seu endereço** | O endereço confirmado. |
+| 1 | **Receber no seu endereço** | O endereço confirmado e o link **Trocar**. |
 | 2 | **Taxa de entrega** | O valor fixo — no exemplo, **R$ 7,00**. |
-
-Qualquer **outro CEP** (no exemplo, Avenida Paulista, 01310-100) não fecha a taxa. A linha
-fica em *Calculando…* e o pedido de entrega não segue. Retirada e consumo no local
-continuam disponíveis.
-
-![Cardápio — CEP diferente, fora da área](imagens-tratadas/06-menu-cep-fora.png)
-
-| Nº | Item | O que significa |
-|----|------|-----------------|
-| 1 | **Taxa de entrega — Calculando…** | O CEP do cliente não é o CEP Fixo (18035-490). |
-| 2 | **Retirar** e **Consumir no local** | Continuam disponíveis. |
 
 ---
 
@@ -106,7 +117,7 @@ continuam disponíveis.
 2. Confira o endereço da loja (manual do endereço)
 3. Tipo de Entrega → CEP Único → Avançar
 4. CEP Fixo + Valor Frete → Salvar (F2)
-5. Espere 1 a 2 minutos e teste no cardápio com o CEP cadastrado e com outro
+5. Espere 1 a 2 minutos e teste no cardápio: BUSCAR CEP 18035-490, número 13
 ```
 
 ---
