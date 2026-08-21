@@ -44,6 +44,21 @@ Regras que valem para qualquer manual com cenário montado no sandbox: limpar a 
 cada manual** (o dono faz e avisa) e inserir **foto em todos os produtos e opções** dos exemplos,
 sem documentar isso no texto.
 
+## Captura (Playwright) — vale para todo manual
+
+**Depois de cada clique, esperar o spinner sumir e só então contar 5 segundos
+antes do print.** Não é regra do Delivery: é de qualquer tela.
+
+1. Clique.
+2. Se aparecer `Carregando...`, `Atualizando...`, `Calculando…` ou spinner,
+   esperar sumir (20–30 s de folga).
+3. **Mais 5 segundos** depois do spinner sumir.
+4. Só então `screenshot`.
+
+Print cedo demais sai com painel vazio. O #43 já saiu assim (e de novo com
+`Atualizando...` no Pronto). Detalhe em
+`/cursor/stores/self/artifacts/captura-playwright.md`.
+
 ## Validação
 
 ```bash
