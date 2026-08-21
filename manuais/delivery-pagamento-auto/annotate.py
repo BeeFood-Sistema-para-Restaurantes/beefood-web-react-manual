@@ -44,12 +44,6 @@ def badge(d, cx, cy, r, num, fnt):
     d.text((cx - tw / 2 - bb[0], cy - th / 2 - bb[1]), t, fill=WHITE, font=fnt)
 
 
-def passthrough(name):
-    img = Image.open(os.path.join(SRC, name)).convert("RGB")
-    img.save(os.path.join(OUT, name))
-    print("OK (contexto)", name)
-
-
 def annotate(name, markers, ring=None):
     img = Image.open(os.path.join(SRC, name)).convert("RGBA")
     W, H = img.size
@@ -74,22 +68,59 @@ def annotate(name, markers, ring=None):
     print("OK", name)
 
 
-
+# switch Pagamento Automático Delivery, canto inferior direito do card
 annotate("02-pagamento-auto-ligado.png", [
-    (1, 0.812, 0.280, 0.900, 0.220),
+    (1, 0.880, 0.900, 0.700, 0.820),
 ])
-annotate("07-delivery-dinheiro.png", [
-    (1, 0.480, 0.300, 0.280, 0.200),
-    (2, 0.500, 0.480, 0.280, 0.560),
-    (3, 0.620, 0.700, 0.780, 0.760),
-    (4, 0.860, 0.820, 0.920, 0.740),
-])
-annotate("04-pedido-preparo.png", [
-    (1, 0.380, 0.360, 0.280, 0.260),
-    (2, 0.520, 0.160, 0.680, 0.100),
-    (3, 0.780, 0.400, 0.900, 0.300),
-])
-passthrough("01-card-delivery.png")
-passthrough("05-depois-entregue.png")
 
-print('done')
+# menu Delivery, + Novo Pedido, filtro Sem pagamento
+annotate("03-kanban.png", [
+    (1, 0.080, 0.200, 0.160, 0.280),
+    (2, 0.220, 0.095, 0.380, 0.055),
+    (3, 0.380, 0.145, 0.500, 0.220),
+])
+
+# Coxinha selecionada, campo Intenção, Valor Total
+annotate("05-coxinha-no-pedido.png", [
+    (1, 0.630, 0.360, 0.500, 0.280),
+    (2, 0.840, 0.280, 0.720, 0.200),
+    (3, 0.900, 0.800, 0.740, 0.720),
+])
+
+# modal: forma Dinheiro, Troco, SALVAR
+annotate("06-intencao-dinheiro.png", [
+    (1, 0.500, 0.380, 0.320, 0.280),
+    (2, 0.500, 0.560, 0.320, 0.640),
+    (3, 0.600, 0.700, 0.760, 0.760),
+])
+
+# card #5 (850) no Preparo, filtro Sem pagamento
+annotate("07-pedido-no-preparo.png", [
+    (1, 0.480, 0.400, 0.320, 0.300),
+    (2, 0.380, 0.145, 0.540, 0.080),
+])
+
+# card selecionado, badge PREPARO, PAGAMENTO, PEDIDO PRONTO
+annotate("08-detalhe-preparo.png", [
+    (1, 0.480, 0.360, 0.300, 0.240),
+    (2, 0.820, 0.135, 0.940, 0.070),
+    (3, 0.760, 0.950, 0.680, 0.870),
+    (4, 0.900, 0.950, 0.960, 0.870),
+])
+
+# linha do tempo em Pronto, PAGAMENTO, PEDIDO ENTREGUE
+annotate("09-pedido-pronto.png", [
+    (1, 0.820, 0.240, 0.680, 0.160),
+    (2, 0.760, 0.950, 0.680, 0.870),
+    (3, 0.900, 0.950, 0.960, 0.870),
+])
+
+# badge ENTREGUE, Dinheiro Pago, aviso, Sem pagamento
+annotate("10-depois-entregue.png", [
+    (1, 0.820, 0.135, 0.940, 0.060),
+    (2, 0.820, 0.760, 0.680, 0.680),
+    (3, 0.820, 0.820, 0.680, 0.900),
+    (4, 0.380, 0.145, 0.500, 0.220),
+])
+
+print("done")

@@ -14,79 +14,137 @@ Se o parâmetro está ligado **e** o pedido tem **intenção de pagamento** (Din
 etc.) **e** ainda não foi pago, ao ir para **ENTREGUE** o BeeFood **registra o pagamento
 sozinho**.
 
-Sem intenção de pagamento, o pedido chega em Entregue **ainda sem pagar** — o botão
-**PAGAMENTO** continua lá.
+Sem intenção, o pedido chega em Entregue **ainda sem pagar**.
 
 ---
 
 ## Onde fica
 
-**Configuração → Parâmetros**, card **Delivery**.
+**Configuração → Parâmetros**, card **Delivery**. A alteração **grava sozinha**.
 
 ![Pagamento automático ligado](imagens-tratadas/02-pagamento-auto-ligado.png)
 
 | Nº | Item | O que fazer |
 |----|------|-------------|
-| 1 | **Pagamento Automático Delivery** | Ligue. A tela grava sozinha. |
-
-O texto do próprio switch: *“Ao entregar o pedido, registrar pagamento automaticamente
-quando houver intenção de pagamento.”*
+| 1 | **Pagamento Automático Delivery** | Ligue. O texto do switch: *“Ao entregar o pedido, registrar pagamento automaticamente quando houver intenção de pagamento.”* |
 
 ---
 
-## Passo 1 — criar o pedido com intenção
+## O quadro do Delivery
 
-Em **Delivery → + Novo Pedido (F1)**, lance o produto e abra **Intenção de pagamento**.
-Escolha a forma — neste exemplo, **Dinheiro**.
+Em **Delivery** o pedido anda nas colunas Aguardando → Preparo → Pronto/Em Entrega →
+Entregue. O atalho **+ Novo Pedido (F1)** abre o pedido manual.
 
-![Intenção de pagamento em Dinheiro](imagens-tratadas/07-delivery-dinheiro.png)
+![Kanban do Delivery](imagens-tratadas/03-kanban.png)
 
 | Nº | Item | O que fazer |
 |----|------|-------------|
-| 1 | **Forma de Pagamento** | **Dinheiro** (ou a forma combinada com o cliente). |
-| 2 | **Troco para** | Opcional, se for dinheiro. |
-| 3 | **SALVAR (F2)** | Grava a intenção no pedido. |
-| 4 | O total | Confira o valor (aqui: Coxinha R$ 8,00). |
-
-A intenção **não cobra** o cliente agora. Ela só diz *como* ele vai pagar na entrega.
-
-**Salvar (F2)** o pedido. Ele entra no kanban em **Preparo**.
+| 1 | **Delivery** | No menu lateral. |
+| 2 | **+ Novo Pedido (F1)** | Abre o pedido de retirada/entrega. |
+| 3 | **Sem pagamento** | Conta quantos ainda não foram pagos. |
 
 ---
 
-## Passo 2 — acompanhar no kanban
+## Passo 1 — lançar o item
 
-O quadro tem as colunas Aguardando → Preparo → Pronto/Em Entrega → Entregue.
+No **Novo Pedido**, lance o produto (aqui: **Coxinha** R$ 8,00). O total já aparece.
+Ainda **não** cobre o cliente — só monta o pedido.
 
-![Pedido no Preparo](imagens-tratadas/04-pedido-preparo.png)
+![Coxinha no novo pedido](imagens-tratadas/05-coxinha-no-pedido.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1 | A **Coxinha** | Qualquer item serve. |
+| 2 | **Intenção de pagamento...** | É o campo da forma combinada com o cliente. |
+| 3 | **Valor Total** | R$ 8,00 neste exemplo. |
+
+---
+
+## Passo 2 — gravar a intenção (Dinheiro)
+
+Toque em **Intenção de pagamento**. Escolha a forma — neste exemplo, **Dinheiro** — e
+**SALVAR (F2)**.
+
+![Modal Intenção de Pagamento em Dinheiro](imagens-tratadas/06-intencao-dinheiro.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1 | **Forma de Pagamento** | **Dinheiro** (ou a forma combinada). |
+| 2 | **Troco para** | Opcional, se for dinheiro. |
+| 3 | **SALVAR (F2)** | Grava a intenção. Ainda **não** cobra. |
+
+A intenção só diz *como* o cliente vai pagar na entrega. Sem ela, o automático
+**não roda**.
+
+Depois, **Salvar (F2)** o pedido. Ele entra no kanban em **Preparo**.
+
+![Pedido novo no Preparo](imagens-tratadas/07-pedido-no-preparo.png)
 
 | Nº | Item | O que conferir |
 |----|------|----------------|
-| 1 | **Preparo** | O pedido novo (aqui: #4, R$ 8,00). |
-| 2 | **Sem pagamento** | Continua sem pagar — ainda não entregou. |
-| 3 | **Entregue** | Pedidos antigos sem intenção ficam pagos só na mão. |
+| 1 | **Preparo** | O pedido de agora (aqui: #5, R$ 8,00). |
+| 2 | **Sem pagamento** | Continua valendo — ainda não entregou. |
 
 ---
 
-## Passo 3 — marcar Entregue
+## Passo 3 — conferir o detalhe (ainda sem pagar)
 
-Abra o pedido e avance até **Entregue**. Com o parâmetro ligado e a intenção gravada, o
-sistema registra o pagamento no mesmo instante.
+Clique no card. O painel da direita mostra o pedido **inteiro** (espere
+`Carregando...` e `Atualizando...` sumirem). Neste exemplo: **Venda Nº 850**,
+situação **PREPARO**, Coxinha R$ 8,00 e o botão verde **PAGAMENTO** ainda à
+vista. A intenção **Dinheiro** ficou gravada no passo 2 — o automático usa
+essa forma no Entregue.
 
-O que some: o selo **Sem pagamento** daquele pedido e o botão **PAGAMENTO**. O valor
-passa a constar como pago na forma escolhida (Dinheiro, no exemplo).
+![Detalhe da venda 850 em Preparo](imagens-tratadas/08-detalhe-preparo.png)
 
-Se você **não** preencheu a intenção, Entregue **não cobra sozinho**. Foi o caso do
-pedido #1 da captura: foi para Entregue e o filtro **Sem pagamento** continuou valendo
-para ele.
+| Nº | Item | O que conferir |
+|----|------|----------------|
+| 1 | O card no **Preparo** | O pedido selecionado (#5). |
+| 2 | **PREPARO** | Ainda não entregou. |
+| 3 | **PAGAMENTO** | Ainda precisa — o automático só age no Entregue. |
+| 4 | **PEDIDO PRONTO** | Avança para Pronto/Em Entrega. |
 
 ---
 
-## Contraprova rápida
+## Passo 4 — Pronto e depois Entregue
 
-1. Desligue o parâmetro.
-2. Repita um pedido com intenção Dinheiro e marque Entregue.
-3. O pagamento **não** entra sozinho — você usa o botão **PAGAMENTO**.
+**PEDIDO PRONTO** muda a situação. O botão vira **PEDIDO ENTREGUE**. O
+**PAGAMENTO** continua — o automático ainda não rodou.
+
+![Pedido pronto, ainda sem pagar](imagens-tratadas/09-pedido-pronto.png)
+
+| Nº | Item | O que conferir |
+|----|------|----------------|
+| 1 | A linha do tempo | Aguardando → Preparo → **Pronto**. |
+| 2 | **PAGAMENTO** | Ainda está lá. |
+| 3 | **PEDIDO ENTREGUE** | É este clique que dispara o automático. |
+
+Toque em **PEDIDO ENTREGUE**. O badge vira **ENTREGUE** e o pagamento **Dinheiro**
+aparece como **Pago** no mesmo instante.
+
+![Venda 850 entregue e paga em Dinheiro](imagens-tratadas/10-depois-entregue.png)
+
+| Nº | Item | O que conferir |
+|----|------|----------------|
+| 1 | Badge **ENTREGUE** | A situação final. |
+| 2 | **Formas de Pagamento — Dinheiro — Pago** | R$ 8,00 registrado sozinho. |
+| 3 | O aviso *Remova o pagamento para alterar* | Não dá mais para trocar a intenção. |
+| 4 | **Sem pagamento** | Caiu de 2 para **1** — este pedido saiu da conta. |
+
+Não foi preciso tocar em **PAGAMENTO**. O parâmetro + a intenção + o Entregue
+fizeram o lançamento.
+
+---
+
+## Contraprova
+
+O pedido **#1 (843)** desta mesma tela foi para Entregue **sem** intenção de
+pagamento. Nele o automático **não** rodou: o filtro Sem pagamento continuou
+valendo e o pagamento só entra pelo botão. A prova com intenção é a
+**venda 850**.
+
+Para repetir de propósito: desligue o parâmetro, grave outra intenção, marque
+Entregue — o **PAGAMENTO** segue pendente.
 
 ---
 
@@ -94,21 +152,25 @@ para ele.
 
 1. Ligue **Pagamento Automático Delivery**.
 2. No pedido, grave a **intenção** (Dinheiro, cartão…).
-3. Avance até **Entregue**.
-4. Confira: o pedido não pede mais PAGAMENTO.
+3. **PEDIDO PRONTO** e depois **PEDIDO ENTREGUE**.
+4. Confira **Formas de Pagamento → Pago** e o filtro Sem pagamento diminuindo.
 
 ---
 
 ## Perguntas frequentes
 
-**Marquei Entregue e não pagou.** Faltou a intenção (`tipoPag` / forma). Abra o pedido e
-veja se a forma está preenchida **antes** de entregar.
+**Marquei Entregue e não pagou.** Faltou a intenção. Abra o detalhe **antes** de
+entregar e veja se a forma está preenchida.
 
-**Posso usar no cardápio digital?** Sim, se o cliente escolheu “pagar na entrega”. A
-intenção já vem no pedido. Este manual prova pelo painel.
+**O painel da direita ficou em Carregando… ou Atualizando…** Espere os dois
+sumirem. O clique no card (e o Pronto/Entregue) busca a venda de novo; o badge
+e os botões só aparecem depois.
 
-**PIX na hora conta?** Se o pedido **já chegou pago**, o automático não lança de novo.
-Ele só age quando `valorPago` ainda é zero.
+**Posso usar no cardápio digital?** Sim, se o cliente escolheu “pagar na entrega”.
+A intenção já vem no pedido. Este manual prova pelo painel.
+
+**PIX na hora conta?** Se o pedido **já chegou pago**, o automático não lança de
+novo. Ele só age quando ainda não há valor pago.
 
 ---
 
