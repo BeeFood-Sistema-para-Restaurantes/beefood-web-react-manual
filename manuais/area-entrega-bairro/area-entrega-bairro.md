@@ -1,7 +1,7 @@
 # Manual da Configuração por Bairro
 
 Este manual ensina a cobrar o frete **pelo bairro (ou pelo CEP) do cliente**: um grupo
-“Vila Carvalho — R$ 7,00”, outro com vários bairros no mesmo valor, ou uma faixa de CEPs.
+“Centro — R$ 6,50”, outro com vários bairros no mesmo valor, ou uma faixa de CEPs.
 
 > A loja precisa ter endereço marcado. Se ainda não marcou, veja o manual
 > **Configurar endereço do restaurante**.
@@ -15,9 +15,9 @@ Este manual ensina a cobrar o frete **pelo bairro (ou pelo CEP) do cliente**: um
 
 Use **Bairro e CEP** quando a regra for uma **lista de nomes**, não distância nem desenho:
 
-- Vila Carvalho — R$ 7,00;
+- Centro — R$ 6,50;
 - um conjunto de bairros vizinhos no mesmo valor;
-- um CEP isolado, ou uma faixa (18060-000 a 18069-999).
+- um CEP isolado, ou uma faixa (18035-000 a 18039-999).
 
 O cardápio compara o **bairro** (ou o **CEP**) que o cliente digitou com os grupos ativos.
 Quem não estiver em nenhum grupo vê *Endereço fora da área de atendimento*.
@@ -60,7 +60,8 @@ Cada linha é um **grupo**: um valor de frete e um ou mais bairros (ou CEPs) den
 | 4 | **A linha do grupo** | Tipo (Bairro / # CEP / Faixa), quantidade de itens, frete, frete grátis, tempo extra, valor do entregador. |
 | 5 | **Seta, lápis, switch e lixeira** | Abrir os itens, editar, desligar ou excluir o grupo. |
 
-O exemplo didático é um grupo **Bairro** com **Vila Carvalho** e frete **R$ 8,00**.
+O exemplo didático é um grupo **Bairro** com **Centro** (Sorocaba), frete **R$ 6,50**, frete
+grátis a partir de **R$ 45,00**, **+8 min** e entregador **R$ 3,50**.
 
 ---
 
@@ -73,7 +74,7 @@ Clique em **+ Adicionar**. Abre o modal **Nova Área de Atendimento**:
 | Nº | Campo | O que fazer |
 |----|-------|-------------|
 | 1 | **Valor do frete** | O que o cliente paga neste grupo. |
-| 2 | **Frete grátis acima de**, **Valor pago ao entregador**, **Tempo entrega** | Opcionais — iguais aos do KM. |
+| 2 | **Frete grátis acima de**, **Valor pago ao entregador**, **Tempo entrega** | Opcionais — iguais aos do KM. **0** no frete grátis = não usa a regra. |
 | 3 | **Ativo** | Ligado, o grupo vale. |
 | 4 | **Tipo Área de Atendimento** | **Bairro**, **CEP** ou **Faixa CEP**. O resto do modal muda com o rádio. |
 | 5 | **Nome do bairro** e **Cidade** | Digite o bairro e confira a cidade (já vem a da loja). |
@@ -81,13 +82,17 @@ Clique em **+ Adicionar**. Abre o modal **Nova Área de Atendimento**:
 | 7 | **SALVAR (F2)** | Grava o grupo. |
 
 O nome do bairro precisa ser o mesmo que o cliente vai ter no endereço — o do correio, não
-um apelido. “Vila Carvalho” e “Vl. Carvalho” são coisas diferentes para o sistema.
+um apelido. “Centro” e “Centro Histórico” são coisas diferentes para o sistema.
 
 Digite o bairro, clique no **+** (a linha entra na tabela) e depois em **SALVAR (F2)**. Sem o
 **+**, o grupo grava vazio.
 
 Dá para colocar **vários bairros no mesmo grupo** (mesmo frete) clicando **+** de novo.
 Para um frete diferente, crie outro grupo.
+
+No exemplo, o grupo pronto fica assim:
+
+![Modal preenchido — Centro, R$ 6,50](imagens-tratadas/04-modal-bairro-preenchido.png)
 
 ---
 
@@ -97,7 +102,7 @@ Os outros dois rádios do modal:
 
 | Tipo | O que pedir | Serve para |
 |------|-------------|------------|
-| **CEP** | Um CEP de 8 dígitos | Um predio, um condomínio ou uma rua com CEP próprio |
+| **CEP** | Um CEP de 8 dígitos | Um prédio, um condomínio ou uma rua com CEP próprio |
 | **Faixa CEP** | CEP início e CEP fim | Um pedaço da cidade sem listar bairro por bairro |
 
 O valor do frete é o mesmo campo do topo. Não misture bairro e CEP no mesmo grupo — o tipo
@@ -107,20 +112,22 @@ trava depois que o primeiro item entra.
 
 ## Parte 5 — O que o cliente vê no cardápio
 
-O cliente informa o **próprio** endereço. A mudança leva **1 a 2 minutos**. Se o bairro do
-endereço estiver num grupo ativo, a taxa daquele grupo aparece:
+O cliente informa o **próprio** endereço. A mudança leva **1 a 2 minutos**. O teste deste
+bloco é **R. Arthur Gomes, 13 — Centro, 18035-490**. O bairro **Centro** está no grupo, então
+a taxa aparece:
 
 ![Cardápio — bairro cadastrado, taxa do grupo](imagens-tratadas/06-menu-bairro-perto.png)
 
 | Nº | Item | O que o cliente vê |
 |----|------|--------------------|
 | 1 | **Receber no seu endereço** | O endereço confirmado. |
-| 2 | **Taxa de entrega** | O valor do grupo — no exemplo, **R$ 8,00** para Vila Carvalho. |
+| 2 | **Taxa de entrega** | O valor do grupo — no exemplo, **R$ 6,50** para o Centro. |
 
-Um bairro (ou CEP) que **não está em nenhum grupo** mostra *Endereço fora da área de
-atendimento*. Retirada e consumo no local continuam disponíveis.
+Um bairro que **não está em nenhum grupo** nem aparece na busca do cardápio. No teste,
+**Bela Vista** (São Paulo) devolve *Nenhum resultado encontrado* — só o **Centro** cadastrado
+fica na lista. Retirada e consumo no local continuam disponíveis.
 
-![Cardápio — bairro de fora](imagens-tratadas/07-menu-bairro-fora.png)
+![Cardápio — bairro de fora da lista](imagens-tratadas/07-menu-bairro-fora.png)
 
 ---
 
