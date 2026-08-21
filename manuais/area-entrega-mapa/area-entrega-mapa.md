@@ -180,29 +180,37 @@ e o tamanho da forma (arraste a borda do círculo ou os vértices do polígono).
 ## Parte 8 — O que o cliente vê no cardápio
 
 No cardápio digital o cliente informa o **próprio** endereço (CEP e número). Não é o endereço
-da loja.
+da loja. A mudança leva **1 a 2 minutos**.
 
-A mudança leva **1 a 2 minutos** para chegar ao cardápio. Depois disso, um endereço **dentro**
-do círculo de 2 km — no teste, **R. Arthur Gomes, 13 — Centro, 18035-490** — aparece assim:
+Na sacola, em **Receber no seu endereço**, o cliente toca em *Clique aqui e informe o
+endereço* (ou em **Trocar**). Abre a busca:
 
-![Cardápio — endereço dentro da área, taxa R$ 5,99](imagens-tratadas/07-menu-dentro-area.png)
+![Cardápio — busca do CEP](imagens-tratadas/07-menu-busca.png)
+
+| Nº | Item | O que o cliente faz |
+|----|------|---------------------|
+| 1 | **Campo do CEP** | Digita o CEP. No teste, **18035-490**. |
+| 2 | **BUSCAR CEP** | Confere se o ponto cai numa região ativa. |
+
+O sistema devolve a rua. O cliente confere, preenche o **número** e toca em **CONFIRMAR**:
+
+![Cardápio — endereço encontrado, número 13](imagens-tratadas/08-menu-form.png)
+
+| Nº | Item | O que aparece |
+|----|------|---------------|
+| 1 | **Rua** | *Rua Doutor Arthur Gomes* — veio da busca do CEP. |
+| 2 | **Nº** | O cliente digita **13**. |
+| 3 | **Bairro** e **cidade** | *Centro*, *Sorocaba*. |
+| 4 | **CONFIRMAR** | Grava o endereço na sacola. |
+
+O ponto cai no círculo de 2 km. A sacola mostra a taxa dessa região:
+
+![Cardápio — endereço confirmado, taxa R$ 5,99](imagens-tratadas/09-menu-dentro-area.png)
 
 | Nº | Item | O que o cliente vê |
 |----|------|--------------------|
 | 1 | **Receber no seu endereço** | O endereço confirmado e o link **Trocar**. |
-| 2 | **Tempo de espera** | O prazo da loja, mais o tempo adicional da região (se você preencheu). |
-| 3 | **Taxa de entrega** | **R$ 5,99** — o valor da área que cobriu o ponto. Se o pedido passar do frete grátis (R$ 40,00), a taxa some. |
-
-Um endereço **fora** de todas as áreas ativas (no exemplo, Avenida Paulista) — ou **dentro**
-de uma região de não entrega — não fecha a taxa. A linha fica em *Calculando…* e o pedido
-de entrega não segue. Retirada e consumo no local continuam disponíveis.
-
-![Cardápio — endereço fora da área](imagens-tratadas/09-menu-fora-area.png)
-
-| Nº | Item | O que significa |
-|----|------|-----------------|
-| 1 | **Taxa de entrega — Calculando…** | O ponto não caiu em nenhuma região ativa, ou caiu numa de **Não entrega**. |
-| 2 | **Retirar** e **Consumir no local** | Continuam disponíveis — o bloqueio é só da entrega. |
+| 2 | **Taxa de entrega** | **R$ 5,99** — o valor da área que cobriu o ponto. Se o pedido passar do frete grátis (R$ 40,00), a taxa some. |
 
 ---
 
@@ -215,7 +223,7 @@ de entrega não segue. Retirada e consumo no local continuam disponíveis.
 4. + Nova Região → Círculo ou Polígono → desenhe
 5. Nome + taxa + frete grátis + tempo + entregador → Criar
    (ou ligue Não entrega nessa região, se for bloqueio)
-6. Espere 1 a 2 minutos e teste no cardápio com um CEP de dentro e um de fora
+6. Espere 1 a 2 minutos e teste no cardápio: BUSCAR CEP 18035-490, número 13
 ```
 
 ---
