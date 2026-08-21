@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-21 (**#32 Horário de atendimento** e **#33 Fechar a loja fora do horário** concluídos; bloco de cardápio completo — #27 a #31, ver `PLANO-CARDAPIO.md`; #25 e #26 Fiado concluídos; #24 Modo Kiosk concluído)
+Última atualização: 2026-08-21 (**#34–#38 Área de entrega** concluídos; #32 e #33 horário/pausa concluídos; bloco de cardápio #27–#31, ver `PLANO-CARDAPIO.md`)
 
 ## Legenda de status
 
@@ -54,10 +54,17 @@
 
 | 32 | **Horário de atendimento** | A grade semanal do Cardápio Digital: as duas sub-abas (Delivery e Presencial), o Assistente com os quatro modelos prontos, dois turnos no mesmo dia, tempo de entrega por dia, a virada de meia-noite e o que o sistema recusa | `manuais/horario-atendimento/` | ✅ Concluído (20 imagens) | — |
 | 33 | **Fechar a loja fora do horário** | Os três mecanismos comparados — pausa temporária (atalho do topo), pausa programada (data e hora, por canal) e os switches de canal —, mais agendamento com a loja fechada e a mensagem de WhatsApp | `manuais/loja-fechar-pausa/` | ✅ Concluído (10 imagens) | — |
+| 34 | **Endereço do restaurante** | Pré-requisito da Área de Entrega: marcar o pin da loja, o número obrigatório e escolher um dos quatro tipos | `manuais/endereco-restaurante/` | ✅ Concluído | — |
+| 35 | **Área de entrega — mapa** | Raio/Área: círculos e polígonos, taxa por região, “Não entrega nessa região” e o que o cliente vê no cardápio | `manuais/area-entrega-mapa/` | ✅ Concluído | — |
+| 36 | **Área de entrega — KM** | Faixas de distância (até X km), frete, frete grátis, tempo extra e o cálculo no cardápio | `manuais/area-entrega-km/` | ✅ Concluído | — |
+| 37 | **Área de entrega — bairro** | Grupos de bairro (e CEP / faixa CEP no mesmo modal) e o match pelo nome no cardápio | `manuais/area-entrega-bairro/` | ✅ Concluído | — |
+| 38 | **Área de entrega — CEP Fixo** | CEP Único: um CEP, um valor, Salvar (F2); só quem digita aquele CEP vê o frete | `manuais/area-entrega-cep-fixo/` | ✅ Concluído | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
 > **#32 e #33 são par:** o #32 trata da grade semanal e o #33 de fechar fora dela. Publicar juntos, ou o #32 primeiro.
+>
+> **#34–#38 são bloco:** o #34 (endereço da loja) é pré-requisito; #35–#38 são os quatro tipos. Publicar o #34 primeiro.
 
 ---
 
@@ -81,7 +88,7 @@
 | **Delivery** | Operar pedidos: colunas de situação, aceitar, despachar, entregador, pagamentos, cancelamento — e o **Aceite Automático** | 3 a 4 manuais | 5 | 💡 Ideia |
 | **PDV** | Venda no balcão: carrinho, cliente, balança, desconto com senha de gerente, pagamento, reabrir e agrupar vendas | 3 a 4 manuais | 5 | 💡 Ideia |
 | **Cardápio** | Produtos, grupos de opções e complementos — o modal do produto tem 6 abas; mais Exibir/Ocultar, Rodízio e importar do iFood | 4 a 5 manuais | 5 | ☑️ **Virou #27–#31** — ver `PLANO-CARDAPIO.md` |
-| **Cardápio Digital** | Configurar a loja online na ordem certa: horário, área de entrega, formas de recebimento, pagamento online, pausa programada e avisos (11 abas) | 3 a 4 manuais | 5 | 💡 Ideia |
+| **Cardápio Digital** | Configurar a loja online na ordem certa: horário, área de entrega, formas de recebimento, pagamento online, pausa programada e avisos (11 abas) | 3 a 4 manuais | 5 | ☑️ Horário (#32/#33) e Área de Entrega (#34–#38) prontos; restam formas de recebimento, pagamento online e avisos |
 | **Fiscal** | Configuração fiscal, emissão e consulta de NFC-e e NF-e, inutilização, carta de correção e notas recebidas (a Reforma Tributária já é o #5) | 4 a 5 manuais | 5 | 💡 Ideia |
 | **Mesas / Comandas** | Mapa do salão, abrir e fechar conta, agrupar mesas, reabrir | 2 manuais | 4 | 💡 Ideia |
 | **Impressão** | Impressoras, impressão da cozinha, layout e os dois históricos | 2 a 3 manuais | 4 | 💡 Ideia |

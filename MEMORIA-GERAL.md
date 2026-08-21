@@ -3,7 +3,7 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-20 (ler no código o que grava antes de capturar; dado pessoal
+Última atualização: 2026-08-21 (bloco Área de Entrega #34–#38; ler no código o que grava antes de capturar; dado pessoal
 coberto na imagem pura; widget flutuante escondido por CSS; diagnóstico do ambiente pela API;
 anexo do chat não chega ao Cloud Agent; imagem colada no chat não tem como ser baixada, mas
 **zip numa URL pública o agente baixa** — o VM tem egresso liberado; escopo real do

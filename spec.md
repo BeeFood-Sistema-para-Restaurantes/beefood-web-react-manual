@@ -31,6 +31,7 @@ manuais/<nome>/
 | Plano | Manuais | Documento |
 |-------|---------|-----------|
 | Cardápio por segmento | #27–#31 (concluídos) | [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) |
+| Área de entrega | #34–#38 (concluídos) | `manuais/endereco-restaurante/` + `manuais/area-entrega-*` |
 
 Regras que valem para qualquer manual com cenário montado no sandbox: limpar a base **antes de
 cada manual** (o dono faz e avisa) e inserir **foto em todos os produtos e opções** dos exemplos,
