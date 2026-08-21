@@ -9,7 +9,8 @@ Publique **"Configuração por bairro"** na seção **Cardápio Digital**, usand
 - O botão **+** inclui o bairro na tabela; sem ele o grupo sai vazio.
 - O mesmo modal tem rádios **CEP** e **Faixa CEP**.
 - Exemplo: grupo **Centro** / R$ 6,50 / frete grátis R$ 45,00.
-- Teste no cardápio: **R. Arthur Gomes, 13 — Centro**.
+- Teste no cardápio: o cliente **busca o bairro Centro**, completa a rua
+  **Arthur Gomes, 13** e vê **R$ 6,50**.
 - **1 a 2 minutos** para o cardápio; o cliente deve **Trocar** o endereço.
 
 ### Imagens, na ordem
@@ -20,5 +21,6 @@ Publique **"Configuração por bairro"** na seção **Cardápio Digital**, usand
 | 2 | `05-lista-bairro-pronta.png` | setas |
 | 3 | `03-modal-bairro.png` | setas |
 | 4 | `04-modal-bairro-preenchido.png` | setas |
-| 5 | `06-menu-bairro-perto.png` | setas |
-| 6 | `07-menu-bairro-fora.png` | setas |
+| 5 | `06-menu-bairro-busca.png` | setas |
+| 6 | `07-menu-bairro-form.png` | setas |
+| 7 | `08-menu-bairro-perto.png` | setas |

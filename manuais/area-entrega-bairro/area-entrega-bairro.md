@@ -112,22 +112,41 @@ trava depois que o primeiro item entra.
 
 ## Parte 5 — O que o cliente vê no cardápio
 
-O cliente informa o **próprio** endereço. A mudança leva **1 a 2 minutos**. O teste deste
-bloco é **R. Arthur Gomes, 13 — Centro, 18035-490**. O bairro **Centro** está no grupo, então
-a taxa aparece:
+O cliente informa o **próprio** endereço. A mudança leva **1 a 2 minutos**. Neste tipo a
+busca do cardápio é pelo **bairro**, não pelo CEP. O teste deste bloco é o bairro
+**Centro** — e, depois, a rua **Arthur Gomes, 13**.
 
-![Cardápio — bairro cadastrado, taxa do grupo](imagens-tratadas/06-menu-bairro-perto.png)
+Na sacola, em **Receber no seu endereço**, o cliente toca em *Clique aqui e informe o
+endereço* (ou em **Trocar** → **Novo endereço**). No campo *Digite seu Bairro*, ele
+digita o nome:
+
+![Cardápio — busca do bairro Centro](imagens-tratadas/06-menu-bairro-busca.png)
+
+| Nº | Item | O que o cliente faz |
+|----|------|---------------------|
+| 1 | **Digite seu Bairro** | Digita o nome. No teste, **Centro**. |
+| 2 | **Sugestão** | A linha *Centro — Bairro*. Só entram na lista os bairros que você cadastrou. |
+
+Ao escolher a sugestão, o cardápio abre o **NOVO ENDEREÇO** com o bairro e a cidade
+preenchidos. O cliente completa a rua e o número:
+
+![Cardápio — formulário depois da busca](imagens-tratadas/07-menu-bairro-form.png)
+
+| Nº | Item | O que aparece |
+|----|------|---------------|
+| 1 | **Endereço** | *Rua Doutor Arthur Gomes*. |
+| 2 | **Número** e **CEP** | **13** e **18035-490**. |
+| 3 | **Bairro** | *Centro* — veio da busca. |
+| 4 | **Salvar endereço** | Grava na sacola. |
+
+A sacola mostra o endereço escolhido e a taxa do grupo:
+
+![Cardápio — endereço confirmado, taxa R$ 6,50](imagens-tratadas/08-menu-bairro-perto.png)
 
 | Nº | Item | O que o cliente vê |
 |----|------|--------------------|
-| 1 | **Receber no seu endereço** | O endereço confirmado. |
+| 1 | **Receber no seu endereço** | O endereço confirmado e o link **Trocar**. |
 | 2 | **Taxa de entrega** | O valor do grupo — no exemplo, **R$ 6,50** para o Centro. |
-
-Um bairro que **não está em nenhum grupo** nem aparece na busca do cardápio. No teste,
-**Bela Vista** (São Paulo) devolve *Nenhum resultado encontrado* — só o **Centro** cadastrado
-fica na lista. Retirada e consumo no local continuam disponíveis.
-
-![Cardápio — bairro de fora da lista](imagens-tratadas/07-menu-bairro-fora.png)
 
 ---
 
@@ -139,7 +158,7 @@ fica na lista. Retirada e consumo no local continuam disponíveis.
 3. Tipo de Entrega → Bairro e CEP → Avançar
 4. + Adicionar → valor do frete → tipo Bairro
 5. Digite o bairro e a cidade → + → SALVAR (F2)
-6. Espere 1 a 2 minutos e teste no cardápio com um bairro da lista e um de fora
+6. Espere 1 a 2 minutos e teste no cardápio: busque o bairro Centro e complete a rua
 ```
 
 ---

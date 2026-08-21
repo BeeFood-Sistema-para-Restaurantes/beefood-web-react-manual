@@ -9,6 +9,7 @@ O dono limpou todos os grupos. Exemplo do zero: um grupo **Bairro** com **Centro
 
 O botão **+** do modal é obrigatório — sem ele o SALVAR grava grupo vazio.
 
-Teste no cardápio: **R. Arthur Gomes, 13 — Centro**. Fora: Av. Paulista / Bela Vista.
+Teste no cardápio: o cliente **busca o bairro Centro**, completa a rua
+**Arthur Gomes, 13** e vê **R$ 6,50**. Sem tela de *Calculando…* / bairro de fora.
 
 Ctrl+K (busca rápida do painel) intercepta cliques; Escape fecha.
