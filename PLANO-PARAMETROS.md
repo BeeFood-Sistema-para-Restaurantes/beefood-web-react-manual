@@ -1,6 +1,6 @@
 # Plano — manuais de Parâmetros (Configuração)
 
-> **Status:** ☑️ Aprovado pelo dono (Opção **B** — 8 manuais).  
+> **Status:** ✅ Concluído (Opção **B** — 8 manuais).  
 > **Última atualização:** 21/08/2026  
 > **Conta sandbox:** BeeFood3 - Manual — `contato@beefood.com.br` (`https://beefood.app`)  
 > **Rota:** `/parametros` — menu **Configuração → Parâmetros**  
