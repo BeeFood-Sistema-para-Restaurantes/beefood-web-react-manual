@@ -2,7 +2,7 @@
 
 > Memória deste manual: decisões, descobertas e estado do ambiente.
 
-Última atualização: 2026-08-21
+Última atualização: 2026-08-21 (refação do zero)
 
 ---
 
@@ -22,16 +22,20 @@ Não ensina a configurar nenhum tipo.
 - O número é obrigatório no modal. A busca do Places às vezes não devolve número.
 - Só um tipo fica ativo. Os cadastros dos outros tipos permanecem no banco.
 - O cardápio digital cacheia a config da filial: 1 a 2 minutos para o cliente ver a troca.
-- Clone do Bitbucket `beetech-beeshop-nuxt` falhou com a secret `BITBUCKET_CARDAPIO_DIGITAL`
-  (x-token-auth e x-bitbucket-api-token-auth). Estudo do menu foi no site ao vivo.
+- Campo da API: `endereco` (não `rua`).
 
 ---
 
 ## 3. Sandbox
 
-Empresa **BeeFood3 - Manual**, `filialID=39202`. Endereço de exemplo:
-Rua Professor Osório Maia, 281, Vila Carvalho, Sorocaba – SP, CEP 18060-120.
-Coordenadas `-23.4918182, -47.4642059`. Fuso Brasília (UTC-3).
+Empresa **BeeFood3 - Manual**, `filialID=39202`.
+
+Endereço da loja (já atualizado pelo dono; o manual **redigita o mesmo**):
+**R. Caramuru, 108 — Vila Leão, Sorocaba – SP, 18040-370**.
+Coordenadas `-23.5061438, -47.4657927`. Fuso Brasília (UTC-3).
+
+Endereço de entrega de teste (sempre este, nos quatro tipos):
+**R. Arthur Gomes, 13 — Centro, Sorocaba – SP, 18035-490**.
 
 Tema das capturas: claro (`theme` / `beefood-theme` = `light`).
 
@@ -39,5 +43,6 @@ Tema das capturas: claro (`theme` / `beefood-theme` = `light`).
 
 ## 4. Imagens
 
-Painel 2160×1350. Não usamos `03-endereco-confirmado` (quase igual à 02) nem
-`05-busca-sugestoes` (dropdown não apareceu de forma estável).
+Painel 2160×1350. `03-endereco-confirmado` ficou nas puras (quase igual à 02) e não entra
+no manual. `05-busca-sugestoes` entra — é a digitação de *Rua Caramuru, 108, Vila Leão,
+Sorocaba*.

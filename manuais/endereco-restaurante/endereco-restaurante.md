@@ -39,6 +39,8 @@ configuração. O endereço aparece no cartão **Localização**, no topo.
 | 2 | **Tipo de Entrega** | Qual regra está valendo agora. **Alterar** volta aos quatro cards (passo 2). |
 | 3 | **Área de Entrega** | A aba no menu. É sempre por aqui. |
 
+No exemplo, a loja está em **R. Caramuru, 108 — Vila Leão, Sorocaba – SP, 18040-370**.
+
 ---
 
 ## Parte 1 — Confirmar a localização
@@ -60,6 +62,18 @@ O texto embaixo do mapa avisa: *"Clique no mapa ou arraste o marcador para ajust
 localização"*. Vale seguir — um pin na quadra errada faz o KM e o raio calcularem a partir do
 lugar errado.
 
+Digite o endereço completo no campo de busca, no formato rua + número + bairro + cidade.
+No exemplo:
+
+**Rua Caramuru, 108, Vila Leão, Sorocaba**
+
+![Busca do endereço da loja](imagens-tratadas/05-busca-sugestoes.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1 | **Buscar endereço** | Digite e espere as sugestões. Escolha a linha certa. |
+| 2 | **Pin no mapa** | Tem que cair na porta da loja, não na quadra ao lado. |
+
 ---
 
 ## Parte 2 — O número é obrigatório
@@ -72,7 +86,7 @@ Ao escolher um endereço na busca (ou ao avançar sem número), o sistema abre o
 | Nº | Campo | O que fazer |
 |----|-------|-------------|
 | 1 | **Endereço detectado** | Rua, bairro, cidade, estado e CEP. Confira se é a loja certa. |
-| 2 | **Número** | Obrigatório. Sem ele o botão de avançar não segue. |
+| 2 | **Número** | Obrigatório. Sem ele o botão de avançar não segue. No exemplo, **108**. |
 | 3 | **Complemento** | Opcional — apto, bloco, sala. |
 | 4 | **Confirmar e Avançar** | Fecha o modal e grava. |
 
@@ -109,6 +123,9 @@ ativo — mapa, KM, bairro ou CEP Fixo.
 A mudança leva **1 a 2 minutos** para chegar ao cardápio. Se o cliente ainda vir o frete
 antigo, espere e peça para **Trocar** o endereço e confirmar de novo.
 
+Para testar no cardápio, use um endereço de cliente — não o da loja. Neste bloco de manuais
+o teste é sempre **R. Arthur Gomes, 13 — Centro, Sorocaba – SP, 18035-490**.
+
 ---
 
 ## Resumo do caminho
@@ -116,8 +133,8 @@ antigo, espere e peça para **Trocar** o endereço e confirmar de novo.
 ```
 1. Cardápio Digital → Área de Entrega
 2. Alterar em Localização (ou comece no passo 1, se for a primeira vez)
-3. Busque o endereço, acerte o pin, confira o número
-4. Salvar e Avançar
+3. Digite rua, número, bairro e cidade → escolha a sugestão → acerte o pin
+4. Confira o número no modal → Confirmar e Avançar
 5. Escolha um dos quatro tipos e avance para configurá-lo
 ```
 
@@ -150,7 +167,7 @@ preencha o número no modal.
 
 | Manual | O que traz |
 |--------|------------|
-| **Configuração por mapa** | Desenhar círculos e polígonos, taxa por região |
+| **Configuração por mapa** | Desenhar círculos e polígonos, taxa por região, não entrega |
 | **Configuração por KM** | Faixas de distância e valor de cada uma |
 | **Configuração por bairro** | Grupos de bairro, CEP e faixa de CEP |
 | **Configuração por CEP Fixo** | Um CEP e um valor, para cidade pequena |

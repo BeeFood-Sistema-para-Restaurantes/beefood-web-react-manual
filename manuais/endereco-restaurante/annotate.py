@@ -100,6 +100,12 @@ annotate("04-modal-confirmar.png", [
     (4, 0.620, 0.740, 0.780, 0.700),   # Confirmar e Avancar
 ])
 
+# 05) Busca digitando o endereço da loja
+annotate("05-busca-sugestoes.png", [
+    (1, 0.400, 0.305, 0.220, 0.360),   # Busca
+    (2, 0.500, 0.520, 0.220, 0.520),   # Pin / mapa
+])
+
 # 06) Passo 2 — os quatro tipos
 annotate("06-step2-depois-endereco.png", [
     (1, 0.500, 0.210, 0.280, 0.155),   # endereco
