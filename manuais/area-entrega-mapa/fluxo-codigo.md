@@ -9,9 +9,10 @@
 | Hook | `useAreaEntregaMapa.ts` |
 | GET/POST/DELETE | `/api/empresaDelivery2/cardapioDigital/areaAtendimento/mapa` |
 
-Campos da região: nome, cor, ativo, `naoEntrega` (switch **Não entrega nessa região**),
-taxa, frete grátis, tempo adicional, valor do entregador, geometria círculo (centro + raio)
-ou polígono (vértices).
+Campos da região: nome, cor, ativo, `naoEntrega` (switch **Não entrega nessa região** —
+esconde taxa/frete/tempo/entregador e pinta `#000000`), taxa, frete grátis, tempo adicional,
+valor do entregador, geometria círculo (`POINT` + `raioKM`) ou polígono (`POLYGON`).
 
 O cardápio (`cacheBeeShop`) usa o ponto geocodificado do CEP+número do cliente e testa
-inclusão nas áreas ativas. Fora de todas: *Endereço fora da área de atendimento*.
+inclusão nas áreas ativas. Região com `naoEntrega` bloqueia mesmo se outra cobrir o ponto.
+Fora de todas: *Endereço fora da área de atendimento*.

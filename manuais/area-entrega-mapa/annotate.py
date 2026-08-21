@@ -3,7 +3,7 @@
 Painel 2160x1350; cardapio digital 1170x2532 (viewport 390x844, DPR 3).
 """
 import os, math
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFont
 
 SRC = "imagens-puras"
 OUT = "imagens-tratadas"
@@ -45,6 +45,9 @@ def badge(d, cx, cy, r, num, fnt):
 
 
 def annotate(name, markers, raio=0.0125, out_name=None):
+    if not os.path.exists(os.path.join(SRC, name)):
+        print("SKIP", name)
+        return
     img = Image.open(os.path.join(SRC, name)).convert("RGBA")
     W, H = img.size
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -67,6 +70,39 @@ annotate("02-step2-tipos.png", [
     (3, 0.500, 0.800, 0.500, 0.700),
 ])
 
+annotate("03-nova-regiao-tipo.png", [
+    (1, 0.380, 0.520, 0.280, 0.400),
+    (2, 0.520, 0.520, 0.620, 0.400),
+    (3, 0.900, 0.300, 0.740, 0.280),
+    (4, 0.900, 0.370, 0.740, 0.400),
+    (5, 0.860, 0.530, 0.740, 0.600),
+    (6, 0.820, 0.640, 0.740, 0.720),
+])
+
+annotate("04b-form-circulo-campos.png", [
+    (1, 0.420, 0.520, 0.260, 0.380),
+    (2, 0.900, 0.300, 0.740, 0.260),
+    (3, 0.820, 0.620, 0.720, 0.560),
+    (4, 0.920, 0.620, 0.900, 0.560),
+    (5, 0.820, 0.700, 0.720, 0.760),
+    (6, 0.920, 0.700, 0.900, 0.760),
+    (7, 0.900, 0.900, 0.780, 0.840),
+])
+
+annotate("04c-nao-entrega.png", [
+    (1, 0.900, 0.370, 0.740, 0.320),
+    (2, 0.420, 0.520, 0.260, 0.400),
+    (3, 0.860, 0.560, 0.740, 0.620),
+    (4, 0.900, 0.900, 0.780, 0.840),
+])
+
+annotate("04d-desenhando-poligono.png", [
+    (1, 0.500, 0.280, 0.500, 0.200),
+    (2, 0.500, 0.780, 0.500, 0.700),
+    (3, 0.500, 0.840, 0.280, 0.840),
+    (4, 0.900, 0.640, 0.740, 0.560),
+])
+
 annotate("01-step3-regioes.png", [
     (1, 0.400, 0.205, 0.280, 0.300),
     (2, 0.480, 0.550, 0.300, 0.550),
@@ -74,33 +110,21 @@ annotate("01-step3-regioes.png", [
     (4, 0.900, 0.900, 0.780, 0.800),
 ])
 
-annotate("03-nova-regiao-tipo.png", [
-    (1, 0.900, 0.300, 0.740, 0.280),
-    (2, 0.900, 0.370, 0.740, 0.400),
-    (3, 0.900, 0.450, 0.740, 0.500),
-    (4, 0.860, 0.530, 0.740, 0.600),
-    (5, 0.820, 0.640, 0.740, 0.720),
-])
-
-annotate("04-desenhando-circulo.png", [
-    (1, 0.480, 0.500, 0.280, 0.380),
-    (2, 0.820, 0.640, 0.740, 0.560),
-    (3, 0.900, 0.900, 0.780, 0.800),
-])
-
 annotate("05-editar-regiao.png", [
-    (1, 0.480, 0.520, 0.280, 0.400),
-    (2, 0.820, 0.640, 0.740, 0.560),
+    (1, 0.420, 0.520, 0.260, 0.380),
+    (2, 0.900, 0.640, 0.740, 0.560),
     (3, 0.900, 0.900, 0.780, 0.800),
 ])
 
-annotate("07-menu-dentro-area.png", [
-    (1, 0.50, 0.16, 0.16, 0.10),
-    (2, 0.38, 0.30, 0.16, 0.28),
-    (3, 0.38, 0.36, 0.16, 0.42),
-], raio=0.028)
+if os.path.exists(os.path.join(SRC, "07-menu-dentro-area.png")):
+    annotate("07-menu-dentro-area.png", [
+        (1, 0.50, 0.16, 0.16, 0.10),
+        (2, 0.38, 0.30, 0.16, 0.28),
+        (3, 0.38, 0.36, 0.16, 0.42),
+    ], raio=0.028)
 
-annotate("09-menu-fora-area.png", [
-    (1, 0.50, 0.56, 0.50, 0.46),
-    (2, 0.50, 0.42, 0.16, 0.42),
-], raio=0.028)
+if os.path.exists(os.path.join(SRC, "09-menu-fora-area.png")):
+    annotate("09-menu-fora-area.png", [
+        (1, 0.42, 0.36, 0.16, 0.42),
+        (2, 0.50, 0.46, 0.16, 0.52),
+    ], raio=0.028)
