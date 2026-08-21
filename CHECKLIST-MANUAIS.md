@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-21 (**estudo** de Parâmetros em `PLANO-PARAMETROS.md` — recorte aguardando aprovação)
+Última atualização: 2026-08-21 (**#39–#46** Parâmetros aprovados — Opção B, 8 manuais; ver `PLANO-PARAMETROS.md`)
 
 ## Legenda de status
 
@@ -59,6 +59,14 @@
 | 36 | **Área de entrega — KM** | Faixas 3 / 6 / 10 km; no cardápio: busca CEP + formulário + taxa | `manuais/area-entrega-km/` | ✅ Concluído (busca 21/08) | — |
 | 37 | **Área de entrega — bairro** | Grupo **Centro**; no cardápio: busca do bairro + formulário + taxa | `manuais/area-entrega-bairro/` | ✅ Concluído (busca 21/08) | — |
 | 38 | **Área de entrega — CEP Fixo** | CEP **18035-490** e R$ 7,00; no cardápio: busca CEP + formulário + taxa | `manuais/area-entrega-cep-fixo/` | ✅ Concluído (busca 21/08) | — |
+| 39 | **Senha gerente** | 6 switches + teto de desconto + Testar; usuário **novo** `atendente.parametros` (não gerente); prova no PDV | `manuais/senha-gerente/` | ☑️ Aprovado | — |
+| 40 | **App Garçom (parâmetros)** | Os 4 menus do app; **só a tela de configuração** | `manuais/app-garcom-parametros/` | ☑️ Aprovado | — |
+| 41 | **Taxa e obrigatoriedades de mesa** | Taxa %, cliente/mesa/comanda obrigatórios; prova nas Mesas web | `manuais/mesas-taxa-obrigatorias/` | ☑️ Aprovado | — |
+| 42 | **Parâmetros gerais** | Motivo de cancelamento + código do operador + Testar | `manuais/parametros-geral/` | ☑️ Aprovado | — |
+| 43 | **Delivery — pagamento automático** | Ao entregar, registrar pagamento se houver intenção | `manuais/delivery-pagamento-auto/` | ☑️ Aprovado | — |
+| 44 | **PDV — número e cupom** | Número do pedido + imprimir venda sempre; preview do navegador | `manuais/pdv-numero-cupom/` | ☑️ Aprovado | — |
+| 45 | **PDV — fichas de consumo** | Individual × Lista; conteúdo da ficha; preview do navegador (sem BeeImpressão) | `manuais/pdv-fichas/` | ☑️ Aprovado | — |
+| 46 | **PDV — balança** | EAN-13 começando com 2; dígitos; Peso × Valor; contas e prova digitando o código no PDV | `manuais/pdv-balanca/` | ☑️ Aprovado | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -66,7 +74,7 @@
 >
 > **#34–#38 são bloco:** o #34 (endereço da loja) é pré-requisito; #35–#38 são os quatro tipos. Publicar o #34 primeiro.
 >
-> **Parâmetros (Configuração → Parâmetros):** estudo em [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md). Ainda sem número. Recorte recomendado: **5 manuais novos**; o card Caixa já é o **#13**. App Garçom = só a tela de configuração.
+> **#39–#46 são bloco de Parâmetros:** plano em [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md). Caixa / `caixaPorUsuario` continua no **#13**. App Garçom = só config. Balança e fichas são manuais completos. Produção: #39 → #42 → #44 → #45 → #41 → #40 → #43 → #46.
 
 ---
 
@@ -107,7 +115,7 @@
 | **Multilojas** | Link único listando várias lojas da rede | 1 manual | 3 | 💡 Ideia |
 | **Pix Online** | Contratar, configurar e acompanhar o extrato | 1 manual | 3 | 💡 Ideia |
 | **Início (Home)** | Ler o painel inicial, filtros e a senha que revela os valores | 1 manual | 2 | 💡 Ideia |
-| **Parâmetros** | Os 6 cards de Configuração → Parâmetros (`/parametros`). Recorte recomendado: 5 manuais novos; Caixa já é o #13; App Garçom só na tela de config | 5 manuais | 5 | 💡 Ideia — ver `PLANO-PARAMETROS.md` |
+| **Parâmetros** | Os 6 cards de Configuração → Parâmetros | 8 manuais | 5 | ☑️ **Virou #39–#46** — ver `PLANO-PARAMETROS.md` |
 
 ### Estado do sandbox (o que já dá para documentar)
 
@@ -145,19 +153,22 @@ os 100 créditos.
 | **Receitas de campanhas** | Juntar o #14 (Segmentação) com o #16 (Campanhas Inteligentes) num manual de receitas prontas: público + mensagem sugerida + parâmetros de agenda. Ex.: quem só pede no fim de semana recebendo oferta de terça, ticket alto recebendo lançamento, quem comprou uma categoria e nunca outra, quem usou cupom uma vez e não voltou | 💡 Ideia |
 | **Indicadores (aba da mesma página)** | A primeira aba de Campanhas WhatsApp: analytics de BeeBot, campanha e campanha inteligente — nenhum manual cobre | 💡 Ideia |
 
-### Parâmetros (estudo 21/08/2026)
+### Parâmetros (aprovado 21/08/2026 — Opção B)
 
-> Tela única (`/parametros`), **vários manuais**. Plano mestre: [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md).
-> Numeração só depois da aprovação (próximo livre: **#39**).
+> Tela única (`/parametros`), **8 manuais**. Plano mestre: [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md).
+> Subiram para a tabela principal como **#39–#46**.
 
-| Ideia | Escopo resumido | Status |
-|-------|-----------------|--------|
-| **Senha gerente** | 6 switches + desconto máximo + Testar; um efeito real no PDV/estoque | 💡 Ideia |
-| **Mesas, taxa e App Garçom** | Taxa % e obrigatoriedades **com prova nas Mesas web**; os 4 menus do app = **só config** | 💡 Ideia |
-| **Geral** | Motivo de cancelamento + código do operador + Testar | 💡 Ideia |
-| **Delivery** | Pagamento automático ao entregar | 💡 Ideia |
-| **PDV (parâmetros)** | Número do pedido, imprimir venda, fichas, balança **só o bloco de config** | 💡 Ideia |
-| ~~Caixa por usuário~~ | Card *Um caixa por usuário* | ❌ **Já é o #13** — a descrição da tela mente; não reescrever |
+| Manual | Escopo | Status |
+|--------|--------|--------|
+| #39 Senha gerente | Usuário **novo** `atendente.parametros` (não usar `contato@` nem `caixa.manual`) | ☑️ Aprovado |
+| #40 App Garçom | Só a tela de configuração | ☑️ Aprovado |
+| #41 Taxa e obrigatoriedades | Prova nas Mesas web | ☑️ Aprovado |
+| #42 Geral | Motivo + operador | ☑️ Aprovado |
+| #43 Delivery | Pagamento automático ao entregar | ☑️ Aprovado |
+| #44 PDV número e cupom | Preview do navegador | ☑️ Aprovado |
+| #45 PDV fichas | Individual × Lista + preview | ☑️ Aprovado |
+| #46 PDV balança | Interpreta EAN-13; Peso × Valor; sem hardware | ☑️ Aprovado |
+| ~~Caixa por usuário~~ | Card *Um caixa por usuário* | ❌ **Já é o #13** |
 
 Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas** (mapa do salão). Aqui o assunto é **a tela de configuração**.
 
@@ -176,7 +187,8 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 
 ## Histórico
 
-- 2026-08-21 — **Estudo de Parâmetros** (`PLANO-PARAMETROS.md`). A tela Configuração → Parâmetros tem **6 cards** e grava sozinha no desktop. Recorte recomendado: **5 manuais novos** (senha gerente; mesas/taxa/app-garçom; geral; delivery; PDV com fichas + balança). **Caixa não entra** — já é o #13. **App Garçom:** só a tela de configuração (não temos o app). Achados: `operadorPDVObrigar` existe na API/mobile e **não tem switch no desktop**; `caixaPorUsuario` não restringe caixa (já documentado no #13); se o usuário logado é gerente, o Testar da senha **não abre o modal**. Alternativa granulada (8 manuais) no plano. Aguardando o dono marcar A, B ou C.
+- 2026-08-21 — **Parâmetros aprovados (Opção B — #39 a #46).** Oito manuais. Decisões do dono: senha gerente cria usuário **novo** `atendente.parametros` (proibido reusar `contato@beefood.com.br` e `caixa.manual`); balança vira manual completo interpretando o EAN-13 (Peso × Valor, dígitos, contas, prova digitando o código no PDV — sem hardware); fichas imprimem de verdade e a prova é o **preview do navegador** (não há BeeImpressão neste ambiente; o front cai em `imprimirViaIframe` → `window.print()`). App Garçom continua só na tela de configuração. Caixa segue no #13. Plano completo em `PLANO-PARAMETROS.md`. Produção ainda não iniciada.
+- 2026-08-21 — **Estudo de Parâmetros** (`PLANO-PARAMETROS.md`). A tela Configuração → Parâmetros tem **6 cards** e grava sozinha no desktop. Recorte inicial (opção A) ficou superado no mesmo dia pela opção B aprovada.
 - 2026-08-21 — **#32 e #33 Concluídos** (`manuais/horario-atendimento/` e `manuais/loja-fechar-pausa/`), a partir da pergunta do dono *"como configurar horário do cardápio digital/loja?"*. O estudo mostrou que o assunto está em **sete lugares** do sistema e que são **duas perguntas operacionais diferentes** — *"que horas eu abro?"* (configuração) e *"preciso fechar agora"* (operação) —, então o dono aprovou dividir em dois manuais. **30 imagens** (20 + 10). **Descoberta principal: o Resetar horários é global, não por sub-aba.** O endpoint `.../atendimento/horarioReset` não tem parâmetro de canal, e comprovamos na prática: reset rodado na sub-aba **Delivery** deixou a grade **Presencial** inteira fechada. É uma armadilha séria (o presencial não avisa nada), e o manual alerta em destaque, indicando o **Assistente** como alternativa — ele substitui só a grade da sub-aba atual. **Outras descobertas:** as duas grades vêm no **mesmo endpoint**, separadas pelas flags `delivery` e `presencial`, com dois registros por dia (era a dúvida que ficou do plano, resolvida lendo a API antes de escrever); a **virada de meia-noite** é resolvida pelo sistema, que divide 18:00→02:00 em 23:59 + 00:00 no dia seguinte, com o aviso *"Turno dividido: …"* — e o efeito colateral de dar um turno de madrugada a um dia que estava fechado; **não existe copiar um dia para outro** (o clonar duplica turno no mesmo dia); **não existe botão de salvar** (auto-save de ~300 ms); e o **tempo de entrega/retirada mora na tela de horário**, por dia, inexistente na sub-aba Presencial. No #33, o achado foi que **pausa temporária e pausa programada são a mesma API** em telas diferentes (a do topo fecha os dois canais e usa motivo fixo), que o **badge do topo é a única confirmação visual** (com polling de 60 s, o que explica o aviso de "até 1 minuto"), e que **switch de canal desligado não gera alerta nenhum** no painel. **Aprendizado de captura que vale para qualquer manual com campo de hora ou data:** o Chromium renderiza `input type="time"` em **AM/PM** quando o navegador está em inglês, e o que corrige é a variável de ambiente **`LANG=pt_BR.UTF-8`** no processo — nem o `locale` do contexto do Playwright nem o argumento `--lang` mudam o formato (testadas as quatro combinações; a largura do campo cai de 189 px para 137 px, o que serve de teste rápido). Não foi preciso limpar base: horário é configuração. O ambiente ficou com a grade **limpa e realista** nos dois canais (Seg a Sáb, 11:00–15:00 e 18:00–23:00, domingo fechado com o turno de madrugada do sábado) e a pausa de teste **desativada**. `validar-imagens.py` limpo nos 21 manuais e o comparador `annotate.py` × `.md` sem divergência nos dois. Aguardando publicação do dono.
 - 2026-08-20 — **#31 Concluído — e com ele o bloco de cardápio inteiro (#27 a #31)** (`manuais/cardapio-japonesa/`), com a base limpa pelo dono antes de começar. Assunto novo: **combinado de preço fechado com contagem exata de peças**, que junta três configurações que nenhum manual anterior havia combinado — **Brinde** (as escolhas não mexem no preço), **Mínimo = Máximo** no grupo (contagem exata) e **Máximo da opção maior que 1** (para repetir a mesma peça). A decisão de modelagem que faz o cadastro ser utilizável: **cada opção é um bloco de 5 peças**, não uma peça — com mínimo/máximo 20 o atendente daria vinte cliques por combinado; com blocos, dá quatro, e a conta fecha igual. Registrado também que **a quantidade de peças não existe como campo**: ela vive no **nome do complemento** (`Hot Roll (5 peças)`), que é o que aparece no PDV e no carrinho com o multiplicador (`2x Hot Roll (5 peças)`). Contas conferidas: o combinado fecha em **R$ 89,00** com 2× Hot Roll + Uramaki + Niguiri, sobe para **R$ 91,00** com o shoyu, e o Temaki vai de R$ 24,00 para **R$ 28,00** com cream cheese. **14 imagens, 31 setas** — a imagem 10 é a mais carregada do bloco, com quatro setas, porque precisa mostrar as quatro evidências ao mesmo tempo (contador cheio, peça repetida em 2, peça de fora em 0 e total inalterado). **Descoberta:** com o grupo cheio (4/4) o clique é **ignorado em silêncio**, sem mensagem nenhuma — e aqui isso confunde mais que no #30, porque as opções mostram **contador** (máximo da opção = 4) e o operador vê um controle que parece disponível e não responde; para trocar é preciso diminuir no "−". Somado ao "+" travado no código (achado do #29), o contador do PDV fica com os dois botões pouco úteis — vale reportar ao time como conjunto. A função `marcar_por_texto`, nascida da correção do #30, funcionou nas três marcações sem perder nenhuma opção. **Fechamento do bloco:** os cinco manuais cobrem as quatro formações de preço e os principais padrões de montagem (adicionais, sabores com meio a meio, escolha que informa vs escolha que cobra, inclusos + pagos com tamanhos, e preço fechado com montagem), e todos terminam com a mesma **Dica extra** apontando para a Parte 8 do #27. Sobraram para manuais futuros: Rodízio, importar do iFood, Exibir/Ocultar em massa, Estoque e Ficha Técnica do produto, e Cardápio Digital. `validar-imagens.py` limpo nos 19 manuais e o comparador `annotate.py` × `.md` sem divergência nos cinco manuais de cardápio. Aguardando publicação do dono.
 - 2026-08-20 — **#30 Concluído** (`manuais/cardapio-acai/`), com a base limpa pelo dono antes de começar. **Descoberta central: não existe "os 3 primeiros grátis" no BeeFood** — o grupo limita **quantidade**, nunca valor (procurado no modal do grupo, no hook de detalhes e no cálculo do PDV). A regra comercial da açaiteria se traduz com **dois grupos**: um **Brinde** com o limite dos inclusos e um **Normal** com os pagos. O que cria a sensação de "até 3 inclusos" é o **Máximo do grupo Brinde**, que trava a quarta seleção — confirmado no PDV, onde o checkbox do quarto item voltou `unchecked (bloqueado)`. E um detalhe que vale explicar ao usuário: o limite **não emite mensagem**, o controle simplesmente para de responder (diferente do grupo Obrigatório do #28, que avisa por toast). Cenário: setor **Açaí** com os três tamanhos (300 ml R$ 18,00, 500 ml R$ 22,00, 700 ml R$ 26,00), os três compartilhando os mesmos três grupos. Conta conferida: R$ 22,00 → com 3 inclusos segue **R$ 22,00** → com Creme de avelã e Morango vai a **R$ 31,00** → com a calda fecha em **R$ 33,00**. **15 imagens, 30 setas.** Sobre tamanhos, o manual recomenda **um produto por tamanho** (em vez de um grupo "Tamanho"), porque preserva a referência de preço no cardápio e o relatório de vendas por tamanho. **Dois aprendizados de produção:** (1) o grupo Cobertura ficou com **uma só opção** na primeira rodada porque a automação marcava checkboxes por **índice pré-calculado** e a lista do modal *Buscar e Cadastrar* se reorganiza ao marcar — a correção é marcar **por texto, reconsultando a lista**, e a regra geral é **abrir o produto no PDV antes de capturar**, que foi como o erro apareceu; (2) a **faixa amarela de grupo compartilhado empurra o conteúdo do modal ~0,07 para baixo**, o suficiente para os campos Mínimo/Máximo saírem da captura — a imagem 06 ganhou coordenadas próprias. Registrado também que, em tabela de três linhas, a seta deve apontar para a **última** linha vindo de baixo: mirando a primeira ela atravessa as outras e cobre texto. `validar-imagens.py` limpo nos 18 manuais e o comparador `annotate.py` × `.md` sem divergência nos quatro manuais de cardápio. Aguardando publicação do dono.

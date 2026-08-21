@@ -32,7 +32,7 @@ manuais/<nome>/
 |-------|---------|-----------|
 | Cardápio por segmento | #27–#31 (concluídos) | [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) |
 | Área de entrega | #34–#38 (refação 21/08/2026) | `manuais/endereco-restaurante/` + `manuais/area-entrega-*` |
-| Parâmetros (Configuração) | estudo — recorte 5 manuais, sem número | [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md) |
+| Parâmetros (Configuração) | #39–#46 aprovados (Opção B — 8 manuais) | [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md) |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
 18040-370**. Endereço de entrega de teste nos quatro tipos: **R. Arthur Gomes, 13 — Centro,
