@@ -32,6 +32,7 @@ manuais/<nome>/
 |-------|---------|-----------|
 | Cardápio por segmento | #27–#31 (concluídos) | [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) |
 | Área de entrega | #34–#38 (refação 21/08/2026) | `manuais/endereco-restaurante/` + `manuais/area-entrega-*` |
+| Parâmetros (Configuração) | #39–#46 concluídos (Opção B — 8 manuais) | [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md) |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
 18040-370**. Endereço de entrega de teste nos quatro tipos: **R. Arthur Gomes, 13 — Centro,
@@ -42,6 +43,21 @@ bairro), o formulário depois da busca e o endereço confirmado com a taxa — s
 Regras que valem para qualquer manual com cenário montado no sandbox: limpar a base **antes de
 cada manual** (o dono faz e avisa) e inserir **foto em todos os produtos e opções** dos exemplos,
 sem documentar isso no texto.
+
+## Captura (Playwright) — vale para todo manual
+
+**Depois de cada clique, esperar o spinner sumir e só então contar 5 segundos
+antes do print.** Não é regra do Delivery: é de qualquer tela.
+
+1. Clique.
+2. Se aparecer `Carregando...`, `Atualizando...`, `Calculando…` ou spinner,
+   esperar sumir (20–30 s de folga).
+3. **Mais 5 segundos** depois do spinner sumir.
+4. Só então `screenshot`.
+
+Print cedo demais sai com painel vazio. O #43 já saiu assim (e de novo com
+`Atualizando...` no Pronto). A regra permanente está na `MEMORIA-GERAL.md`
+(seção 6) — é o arquivo lido no início de cada sessão.
 
 ## Validação
 
