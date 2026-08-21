@@ -45,6 +45,8 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Cardápio — hambúrguer (Brinde e grupo obrigatório) | [`manuais/cardapio-hamburguer/`](manuais/cardapio-hamburguer/cardapio-hamburguer.md) | ✅ Concluído |
 | Cardápio — açaí (inclusos com limite e tamanhos) | [`manuais/cardapio-acai/`](manuais/cardapio-acai/cardapio-acai.md) | ✅ Concluído |
 | Cardápio — comida japonesa (contagem exata e preço fechado) | [`manuais/cardapio-japonesa/`](manuais/cardapio-japonesa/cardapio-japonesa.md) | ✅ Concluído |
+| Horário de atendimento (grade semanal do cardápio digital) | [`manuais/horario-atendimento/`](manuais/horario-atendimento/horario-atendimento.md) | ✅ Concluído |
+| Fechar a loja fora do horário (pausas e switches de canal) | [`manuais/loja-fechar-pausa/`](manuais/loja-fechar-pausa/loja-fechar-pausa.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
