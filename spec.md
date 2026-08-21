@@ -26,6 +26,16 @@ manuais/<nome>/
 
 **BeeFood3 - Manual** — `contato@beefood.com.br`
 
+## Planos executados
+
+| Plano | Manuais | Documento |
+|-------|---------|-----------|
+| Cardápio por segmento | #27–#31 (concluídos) | [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) |
+
+Regras que valem para qualquer manual com cenário montado no sandbox: limpar a base **antes de
+cada manual** (o dono faz e avisa) e inserir **foto em todos os produtos e opções** dos exemplos,
+sem documentar isso no texto.
+
 ## Validação
 
 ```bash

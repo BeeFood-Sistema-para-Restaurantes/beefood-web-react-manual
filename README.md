@@ -9,6 +9,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 .
 ├─ MEMORIA-GERAL.md            # Boas práticas, padrões, contas e ferramentas (ler primeiro)
 ├─ CHECKLIST-MANUAIS.md        # O que já foi feito, o que está na fila e o histórico
+├─ PLANO-CARDAPIO.md           # Plano aprovado dos manuais #27–#31 (cardápio por segmento)
 ├─ validar-imagens.py          # Confere se as imagens referenciadas pelos manuais existem
 └─ manuais/
    └─ <nome-do-manual>/        # Uma pasta por manual
@@ -39,6 +40,11 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Campanhas Inteligentes (Food Marketing) | [`manuais/campanhas-inteligentes/`](manuais/campanhas-inteligentes/campanhas-inteligentes.md) | ✅ Concluído |
 | Fiado — operar no dia a dia | [`manuais/fiado/`](manuais/fiado/fiado.md) | ✅ Concluído |
 | Fiado — cobrança agrupada | [`manuais/fiado-cobranca-agrupada/`](manuais/fiado-cobranca-agrupada/fiado-cobranca-agrupada.md) | ✅ Concluído |
+| Cardápio — fundamentos (produto, grupo de opções, complementos, lote) | [`manuais/cardapio-fundamentos/`](manuais/cardapio-fundamentos/cardapio-fundamentos.md) | ✅ Concluído |
+| Cardápio — pizza (Valor da Maior e Proporcional) | [`manuais/cardapio-pizza/`](manuais/cardapio-pizza/cardapio-pizza.md) | ✅ Concluído |
+| Cardápio — hambúrguer (Brinde e grupo obrigatório) | [`manuais/cardapio-hamburguer/`](manuais/cardapio-hamburguer/cardapio-hamburguer.md) | ✅ Concluído |
+| Cardápio — açaí (inclusos com limite e tamanhos) | [`manuais/cardapio-acai/`](manuais/cardapio-acai/cardapio-acai.md) | ✅ Concluído |
+| Cardápio — comida japonesa (contagem exata e preço fechado) | [`manuais/cardapio-japonesa/`](manuais/cardapio-japonesa/cardapio-japonesa.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
