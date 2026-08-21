@@ -12,5 +12,6 @@ Sandbox: três faixas didáticas criadas do zero (listas limpas pelo dono).
 | 6 km | R$ 8,99 | R$ 60,00 | 10 min | R$ 5,00 |
 | 10 km | R$ 14,99 | R$ 0,00 (não usa) | 20 min | R$ 8,00 |
 
-Teste no cardápio: **R. Arthur Gomes, 13** (~1 km da loja) cai na faixa de 3 km.
+Teste no cardápio: o cliente busca o CEP **18035-490**, confirma o número **13** e vê
+**R$ 5,99** (faixa de 3 km). Sem tela de *Calculando…* / fora da área.
 `02-lista-km.png` é duplicata de `05-lista-km-pronta.png` — o manual usa só a 05.

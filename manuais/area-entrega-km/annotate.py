@@ -88,15 +88,19 @@ annotate("05-lista-km-pronta.png", [
     (4, 0.880, 0.460, 0.900, 0.360),
 ])
 
-if os.path.exists(os.path.join(SRC, "06-menu-km-perto.png")):
-    annotate("06-menu-km-perto.png", [
-        (1, 0.50, 0.16, 0.16, 0.10),
-        (2, 0.42, 0.34, 0.16, 0.42),
-        (3, 0.38, 0.28, 0.16, 0.22),
-    ], raio=0.028)
+annotate("06-menu-km-busca.png", [
+    (1, 0.50, 0.22, 0.16, 0.14),
+    (2, 0.50, 0.34, 0.16, 0.44),
+], raio=0.028)
 
-if os.path.exists(os.path.join(SRC, "07-menu-km-fora.png")):
-    annotate("07-menu-km-fora.png", [
-        (1, 0.42, 0.36, 0.16, 0.42),
-        (2, 0.50, 0.46, 0.16, 0.52),
-    ], raio=0.028)
+annotate("07-menu-km-form.png", [
+    (1, 0.36, 0.155, 0.14, 0.10),
+    (2, 0.80, 0.155, 0.90, 0.10),
+    (3, 0.36, 0.245, 0.14, 0.30),
+    (4, 0.72, 0.56, 0.88, 0.50),
+], raio=0.028)
+
+annotate("08-menu-km-perto.png", [
+    (1, 0.50, 0.18, 0.16, 0.10),
+    (2, 0.42, 0.30, 0.16, 0.38),
+], raio=0.028)

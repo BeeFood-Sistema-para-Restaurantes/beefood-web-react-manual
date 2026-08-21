@@ -104,28 +104,39 @@ Repita para 6 km e 10 km. A lista do passo 3 mostra as três juntas.
 
 ## Parte 4 — O que o cliente vê no cardápio
 
-No cardápio o cliente informa o **próprio** endereço. A mudança leva **1 a 2 minutos** para
-chegar. O teste deste bloco é **R. Arthur Gomes, 13 — Centro, 18035-490**, a cerca de 1 km
-da loja — cai na faixa de 3 km:
+No cardápio o cliente informa o **próprio** endereço — não o da loja. A mudança leva
+**1 a 2 minutos**. O teste deste bloco é o CEP **18035-490**, número **13**
+(**R. Arthur Gomes, Centro**), a cerca de 1 km da loja.
 
-![Cardápio — endereço perto, taxa da primeira faixa](imagens-tratadas/06-menu-km-perto.png)
+Na sacola, em **Receber no seu endereço**, o cliente toca em *Clique aqui e informe o
+endereço* (ou em **Trocar**). Abre a busca:
+
+![Cardápio — busca do CEP](imagens-tratadas/06-menu-km-busca.png)
+
+| Nº | Item | O que o cliente faz |
+|----|------|---------------------|
+| 1 | **Campo do CEP** | Digita o CEP. No teste, **18035-490**. |
+| 2 | **BUSCAR CEP** | Confere se a loja entrega nessa região. |
+
+O sistema devolve a rua. O cliente confere, preenche o **número** e toca em **CONFIRMAR**:
+
+![Cardápio — endereço encontrado, número 13](imagens-tratadas/07-menu-km-form.png)
+
+| Nº | Item | O que aparece |
+|----|------|---------------|
+| 1 | **Rua** | *Rua Doutor Arthur Gomes* — veio da busca do CEP. |
+| 2 | **Nº** | O cliente digita **13**. |
+| 3 | **Bairro** e **cidade** | *Centro*, *Sorocaba*. |
+| 4 | **CONFIRMAR** | Grava o endereço na sacola. |
+
+A sacola mostra o endereço escolhido e a taxa da faixa (aqui, a de 3 km):
+
+![Cardápio — endereço confirmado, taxa R$ 5,99](imagens-tratadas/08-menu-km-perto.png)
 
 | Nº | Item | O que o cliente vê |
 |----|------|--------------------|
 | 1 | **Receber no seu endereço** | O endereço confirmado e o link **Trocar**. |
-| 2 | **Taxa de entrega** | O valor da faixa que coube a distância — no exemplo, **R$ 5,99**. |
-| 3 | **Tempo de espera** | O prazo da loja mais os minutos adicionais da faixa. |
-
-Um endereço **além da maior faixa** (Avenida Paulista, em São Paulo) não fecha a taxa.
-Enquanto o sistema confirma que está fora, a linha fica em *Calculando…* e o pedido de
-entrega não segue. Retirada e consumo no local continuam disponíveis.
-
-![Cardápio — endereço além da maior faixa](imagens-tratadas/07-menu-km-fora.png)
-
-| Nº | Item | O que significa |
-|----|------|-----------------|
-| 1 | **Taxa de entrega — Calculando…** | A distância passou do maior teto (10 km). O frete não fecha. |
-| 2 | **Retirar** e **Consumir no local** | Continuam disponíveis. |
+| 2 | **Taxa de entrega** | O valor da faixa — no exemplo, **R$ 5,99**. |
 
 ---
 
@@ -137,7 +148,7 @@ entrega não segue. Retirada e consumo no local continuam disponíveis.
 3. Tipo de Entrega → Quilometragem KM → Avançar
 4. + Adicionar → teto em km, frete, frete grátis, tempo, entregador → SALVAR (F2)
 5. Repita para cada faixa
-6. Espere 1 a 2 minutos e teste no cardápio com um endereço perto e um longe
+6. Espere 1 a 2 minutos e teste no cardápio: BUSCAR CEP 18035-490, número 13
 ```
 
 ---
