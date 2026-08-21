@@ -80,7 +80,7 @@ flowchart LR
 | **#28** | Cardápio — **hambúrguer** | `manuais/cardapio-hamburguer/` | **16 (feito)** | **3º ✅** |
 | **#29** | Cardápio — **pizza** | `manuais/cardapio-pizza/` | **15 (feito)** | **2º ✅** |
 | **#30** | Cardápio — **açaí** | `manuais/cardapio-acai/` | **15 (feito)** | **4º ✅** |
-| **#31** | Cardápio — **comida japonesa** | `manuais/cardapio-japonesa/` | ~14 | 5º |
+| **#31** | Cardápio — **comida japonesa** | `manuais/cardapio-japonesa/` | **14 (feito)** | **5º ✅** |
 
 **Ordem de produção:** #27 → #29 → #28 → #30 → #31  
 (Pizza logo após fundamentos — valida as formações mais complexas.)
@@ -122,7 +122,7 @@ Registrar no `MEMORIA.md` de cada manual: data da limpeza confirmada pelo dono.
 | #29 Pizza | ☑ | ☑ | 2026-08-20 |
 | #28 Hambúrguer | ☑ | ☑ | 2026-08-20 |
 | #30 Açaí | ☑ | ☑ | 2026-08-20 |
-| #31 Japonesa | ☐ | ☐ | |
+| #31 Japonesa | ☑ | ☑ | 2026-08-20 |
 
 ### 3.2 Fotos em produtos e opções (produção interna)
 
@@ -406,12 +406,28 @@ Repetir para #27, #29, #28, #30, #31:
 em lote. **#29 concluído** no mesmo dia — 15 imagens, os dois modelos de preço de pizza
 conferidos no PDV. Ambos aguardando publicação pelo dono.
 
-**#28 concluído** também em 20/08/2026 — 16 imagens, Brinde e Obrigatório provados no PDV.
-**#30 concluído** no mesmo dia — 15 imagens, o padrão "inclusos + extras" com dois grupos.
+## 9. Bloco concluído
 
-**Último da fila: #31 Cardápio — comida japonesa.** Antes de começar, o agente precisa avisar:
+**Os cinco manuais foram produzidos em 20/08/2026**, cada um com a base limpa pelo dono antes de
+começar. Total: **85 imagens**.
 
-> *Vou iniciar o manual **#31 — Cardápio — comida japonesa**. Por favor, **limpe a base de dados** da empresa **BeeFood3 - Manual** (setor, produto, complemento e grupo de opções). Quando terminar, avise para eu montar o cenário, inserir as fotos e começar as capturas.*
+| Manual | Imagens | Formações demonstradas | Padrão que ensina |
+|--------|---------|------------------------|-------------------|
+| #27 fundamentos | 25 | Normal (+ tabela das quatro) | o fluxo completo e a edição em lote |
+| #29 pizza | 15 | Valor da Maior, Proporcional | preço de sabor e meio a meio |
+| #28 hambúrguer | 16 | Brinde, Normal | escolha que informa vs escolha que cobra |
+| #30 açaí | 15 | Brinde com limite, Normal | inclusos + pagos, e tamanhos |
+| #31 japonesa | 14 | Brinde com contagem exata, Normal | preço fechado com montagem |
+
+Todos terminam com a mesma **Dica extra** apontando para a Parte 8 do #27, como pedido.
+
+**Aguardando publicação pelo dono.** A ordem de publicação importa: **#27 primeiro**, porque os
+outros quatro apontam para ele.
+
+### Sobraram para manuais futuros
+
+Rodízio · importar do iFood · Exibir/Ocultar em massa · Estoque e Ficha Técnica do produto ·
+Cardápio Digital.
 
 ### Aprendizados que valem para os próximos
 
@@ -439,4 +455,8 @@ conferidos no PDV. Ambos aguardando publicação pelo dono.
 | Verificar antes de capturar | Abrir o produto no PDV: é onde uma opção faltante aparece | #30 |
 | Faixa amarela de grupo compartilhado | Empurra o conteúdo do modal ~0,07 — pode tirar Mínimo/Máximo da captura | #30 |
 | Setas em tabela | Apontar para a **última** linha, vindo de baixo | #30 |
+| Contagem exata | **Mínimo = Máximo** no grupo; e o **Máximo da opção** é o que permite repetir o mesmo item | #31 |
+| Grupo cheio | O clique é **ignorado em silêncio**; para trocar, diminuir no "−" | #31 |
+| Quantidade de peças | Não existe como campo — vai no **nome** do complemento | #31 |
+| Modelagem | Opção como **bloco** (5 peças) em vez de unidade: 4 cliques no lugar de 20 | #31 |
 | Seletores Playwright | Seção 4 das MEMORIA de `cardapio-fundamentos` e `cardapio-pizza` | #27 / #29 |

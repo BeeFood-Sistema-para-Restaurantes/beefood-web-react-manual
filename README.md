@@ -42,6 +42,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Cardápio — pizza (Valor da Maior e Proporcional) | [`manuais/cardapio-pizza/`](manuais/cardapio-pizza/cardapio-pizza.md) | ✅ Concluído |
 | Cardápio — hambúrguer (Brinde e grupo obrigatório) | [`manuais/cardapio-hamburguer/`](manuais/cardapio-hamburguer/cardapio-hamburguer.md) | ✅ Concluído |
 | Cardápio — açaí (inclusos com limite e tamanhos) | [`manuais/cardapio-acai/`](manuais/cardapio-acai/cardapio-acai.md) | ✅ Concluído |
+| Cardápio — comida japonesa (contagem exata e preço fechado) | [`manuais/cardapio-japonesa/`](manuais/cardapio-japonesa/cardapio-japonesa.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
