@@ -4,16 +4,13 @@ Status: ✅ Refação 21/08/2026 (segunda). A primeira rodada tirou print com o
 painel em **Carregando...**. A segunda esperou 5 s, mas ainda fotografou
 **Atualizando...** no meio do Pronto.
 
-## Regra de captura (dono)
+## Regra de captura
 
-**Depois de cada clique, esperar o spinner sumir e só então contar 5 segundos.**
+A espera de 5 s **não é deste manual** — está na `MEMORIA-GERAL.md` (seção 6) e no
+`spec.md`. Aqui o que quebrou de concreto:
 
-Textos que bloqueiam o print:
-
-- `Carregando...`
-- `Atualizando...` (aparece ao mudar Preparo → Pronto → Entregue)
-
-Gravado também em `/cursor/stores/self/artifacts/captura-playwright.md`.
+- `Carregando...` no painel direito do pedido
+- `Atualizando...` ao ir de Preparo → Pronto → Entregue
 
 ## Prova completa (terceira rodada — venda 850)
 

@@ -3,7 +3,9 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-21 (bloco Área de Entrega #34–#38; ler no código o que grava antes de capturar; dado pessoal
+Última atualização: 2026-08-21 (**espera de 5 s após cada clique vale para SEMPRE,
+qualquer manual** — spinner some primeiro, só então contar os 5 s; bloco Área de
+Entrega #34–#38; ler no código o que grava antes de capturar; dado pessoal
 coberto na imagem pura; widget flutuante escondido por CSS; diagnóstico do ambiente pela API;
 anexo do chat não chega ao Cloud Agent; imagem colada no chat não tem como ser baixada, mas
 **zip numa URL pública o agente baixa** — o VM tem egresso liberado; escopo real do
@@ -54,6 +56,9 @@ com TODAS as subpastas/arquivos acima.
    destaca campos **obrigatórios (\*)**.
    - **Numeração:** usar SEMPRE números normais **`1.`, `2.`, `3.`** (com ponto). **NÃO** usar
      números circulados (①②③) nem em parênteses — no texto, nas tabelas e nas legendas.
+   - **Não printar a tela ainda carregando.** Depois de cada clique: esperar sumir
+     `Carregando...` / `Atualizando...` / `Calculando…` e **só então esperar 5 segundos**.
+     Vale para **todo** manual. Detalhe na seção 6.
 6. As imagens em produção saem em **1508×1274** (DPR alto). `annotate.py` usa coordenadas
    em **frações 0..1**, então independe da resolução.
 7. **Dados pessoais de clientes precisam sair ilegíveis.** Telas que listam clientes (nome,
@@ -160,6 +165,8 @@ isso em segundos, e foi assim que a ambiguidade apareceu.
 - Screenshots brutos caem em `C:\Users\T-GAMER\AppData\Local\Temp\cursor\screenshots\`.
   Copiar os escolhidos para `imagens-puras\` do manual.
 - **Tema:** SEMPRE **claro/branco** nas capturas. Ativar pelo botão **"Alterar tema"** (canto sup. direito).
+- **Depois de cada clique, esperar o spinner sumir e mais 5 segundos antes do
+  print.** Mesma regra da seção Playwright — vale no Windows também.
 - Refs do snapshot mudam a cada render — pegar snapshot novo antes de clicar se der "Element not found".
 
 ### No Cloud Agent (Linux) — capturar com Playwright
@@ -175,7 +182,31 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
 - Salvar o `screenshot` **direto** em `imagens-puras/` do manual.
 - Fechar o **banner promocional** do topo antes de capturar (botão × do banner), senão ele
   aparece em todas as imagens.
-- **Esperar bastante:** os modais de caixa levam de 8 a 13 segundos para carregar os dados.
+- **Espera obrigatória após cada clique (dono, 21/08/2026 — permanente):**
+  1. Clique (ou `goto`, ou troca de aba).
+  2. Se aparecer `Carregando...`, `Atualizando...`, `Calculando…` ou spinner,
+     esperar sumir (timeout 20–30 s).
+  3. **Mais 5 segundos** depois do spinner sumir — não durante.
+  4. Só então `screenshot`.
+  Não basta `wait_for_timeout(400)` / `800` / `1500`. A regra **não é do #43**: é de
+  Delivery, PDV, Mesas, Parâmetros, cardápio, área de entrega e qualquer tela nova.
+  O #43 saiu com o painel em `Carregando...` e depois com `Atualizando...` no Pronto
+  justamente porque o print veio cedo. Helper sugerido:
+
+  ```python
+  WAIT = 5000
+  def after_click(page):
+      for _ in range(30):
+          busy = (
+              page.locator("text=Carregando...").count()
+              or page.locator("text=Atualizando...").count()
+              or page.locator("text=Calculando").count()
+          )
+          if not busy:
+              break
+          page.wait_for_timeout(1000)
+      page.wait_for_timeout(WAIT)
+  ```
 - **Sempre escopar o clique dentro do modal certo:**
   `page.locator('div[role="dialog"]').filter(has_text="...").last`. As tabelas de fundo têm os
   mesmos textos e as mesmas classes (`bg-green-500`, badges "Débito"), e o clique vai para o

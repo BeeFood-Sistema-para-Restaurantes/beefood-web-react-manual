@@ -56,8 +56,8 @@ antes do print.** Não é regra do Delivery: é de qualquer tela.
 4. Só então `screenshot`.
 
 Print cedo demais sai com painel vazio. O #43 já saiu assim (e de novo com
-`Atualizando...` no Pronto). Detalhe em
-`/cursor/stores/self/artifacts/captura-playwright.md`.
+`Atualizando...` no Pronto). A regra permanente está na `MEMORIA-GERAL.md`
+(seção 6) — é o arquivo lido no início de cada sessão.
 
 ## Validação
 
