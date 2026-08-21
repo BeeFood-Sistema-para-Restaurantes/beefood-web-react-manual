@@ -116,15 +116,19 @@ annotate("05-editar-regiao.png", [
     (3, 0.900, 0.900, 0.780, 0.800),
 ])
 
-if os.path.exists(os.path.join(SRC, "07-menu-dentro-area.png")):
-    annotate("07-menu-dentro-area.png", [
-        (1, 0.50, 0.16, 0.16, 0.10),
-        (2, 0.38, 0.30, 0.16, 0.28),
-        (3, 0.38, 0.36, 0.16, 0.42),
-    ], raio=0.028)
+annotate("07-menu-busca.png", [
+    (1, 0.50, 0.22, 0.16, 0.14),
+    (2, 0.50, 0.34, 0.16, 0.44),
+], raio=0.028)
 
-if os.path.exists(os.path.join(SRC, "09-menu-fora-area.png")):
-    annotate("09-menu-fora-area.png", [
-        (1, 0.42, 0.36, 0.16, 0.42),
-        (2, 0.50, 0.46, 0.16, 0.52),
-    ], raio=0.028)
+annotate("08-menu-form.png", [
+    (1, 0.36, 0.155, 0.14, 0.10),
+    (2, 0.80, 0.155, 0.90, 0.10),
+    (3, 0.36, 0.245, 0.14, 0.30),
+    (4, 0.72, 0.56, 0.88, 0.50),
+], raio=0.028)
+
+annotate("09-menu-dentro-area.png", [
+    (1, 0.50, 0.18, 0.16, 0.10),
+    (2, 0.42, 0.30, 0.16, 0.38),
+], raio=0.028)

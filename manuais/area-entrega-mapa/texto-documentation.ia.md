@@ -12,8 +12,8 @@ Publique **"Configuração por mapa (área)"** na seção **Cardápio Digital**,
 - **Não entrega nessa região** bloqueia o ponto mesmo se outra área cobrir; esconde os
   quatro valores e pinta de preto.
 - Só um tipo ativo; as áreas ficam salvas se trocar para KM.
-- Cardápio: dentro = taxa da região (exemplo R$ 5,99 no círculo de 2 km, teste em
-  **R. Arthur Gomes, 13**); fora = *Endereço fora da área*.
+- Cardápio: o cliente **busca o CEP 18035-490**, confirma o número **13** e vê a taxa
+  da região (exemplo **R$ 5,99** no círculo de 2 km).
 - Atualização em **1 a 2 minutos**; o cliente deve **Trocar** o endereço.
 
 ### Imagens, na ordem
@@ -27,5 +27,6 @@ Publique **"Configuração por mapa (área)"** na seção **Cardápio Digital**,
 | 5 | `04d-desenhando-poligono.png` | setas |
 | 6 | `01-step3-regioes.png` | setas |
 | 7 | `05-editar-regiao.png` | setas |
-| 8 | `07-menu-dentro-area.png` | setas |
-| 9 | `09-menu-fora-area.png` | setas |
+| 8 | `07-menu-busca.png` | setas |
+| 9 | `08-menu-form.png` | setas |
+| 10 | `09-menu-dentro-area.png` | setas |

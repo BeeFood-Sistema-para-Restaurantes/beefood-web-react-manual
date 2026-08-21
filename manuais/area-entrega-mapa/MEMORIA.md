@@ -15,10 +15,10 @@ Sandbox, três regiões criadas do zero:
 O círculo de 2 km cobre **R. Arthur Gomes, 13** (Centro). Campolim e a zona industrial
 ficam fora desse ponto, para o teste do cardápio cair só no círculo.
 
-Prova no cardápio: CEP 18035-490 nº 13 → taxa do círculo; Av. Paulista 1000 → fora.
+Prova no cardápio: o cliente busca o CEP **18035-490**, confirma o número **13** e vê
+a taxa do círculo (**R$ 5,99**). Sem tela de *Calculando…* / fora da área.
 
 Capturas do menu em viewport 390×844, DPR 3. Não documentar o telefone de teste.
 Propagação: 1 a 2 minutos.
 
-Imagens de contexto do fluxo de CEP (06, 06b, 06c, 08) nas puras não entram no manual.
 `04-desenhando-circulo.png` ficou nas puras; o manual usa `04b` (campos preenchidos).
