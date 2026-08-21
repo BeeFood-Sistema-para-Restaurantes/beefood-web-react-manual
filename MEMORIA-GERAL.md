@@ -211,6 +211,20 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
   já tinham os três estados e dois envios reais para fotografar.
 - Alguns elementos ficam em **listas com rolagem própria** (o modal de permissões, por exemplo).
   Aumentar o viewport não resolve; use `scroll_into_view_if_needed()` no item desejado.
+- **Campo de hora e de data sai em AM/PM se você não mexer no `LANG` do Chromium.** Telas com
+  `input type="time"` (Horário Atendimento) ou `type="date"` (Pausa Programada) renderizam
+  "02:30 AM" quando o navegador está em inglês — e o usuário brasileiro vê "02:30". O que corrige
+  é a **variável de ambiente do processo**: `launch(env={**os.environ, "LANG": "pt_BR.UTF-8",
+  "LANGUAGE": "pt_BR"})`. Testado em 21/08/2026: nem `new_context(locale="pt-BR")` nem o
+  argumento `--lang=pt-BR` mudam o formato do campo, só o `env`. Um teste rápido sem OCR: medir a
+  largura do campo, que cai de **189 px** (12h) para **137 px** (24h). Vale passar também
+  `timezone_id="America/Sao_Paulo"`.
+- **Modal nem sempre é `div[role="dialog"]`.** No assistente de horário e no modal de pausa, o
+  seletor não casa (o wizard não usa `role=dialog`; o de pausa usa, mas em outro elemento).
+  Quando falhar, localize pelo texto do próprio conteúdo ou pelo índice do campo, e confirme com
+  um dump de `innerText`.
+- **Se o traceback do Playwright citar um seletor que você já trocou**, desconfie de cache do
+  script: criar um arquivo novo com outro nome resolveu (visto em 21/08/2026, manual #33).
 
 ### Aplicativos Android — o emulador NÃO funciona no Cloud Agent (testado em 2026-08-19)
 
