@@ -21,6 +21,9 @@ cadastrado. Se for **diferente**, o endereço fica fora da área.
 
 Não é “frete único para qualquer CEP”. É “este CEP, este valor”.
 
+Neste tipo **não existem** frete grátis, tempo adicional nem valor do entregador — só os
+dois campos do passo 3.
+
 ---
 
 ## Parte 1 — Escolher CEP Único
@@ -32,7 +35,7 @@ No passo 2, marque **CEP Único** e avance.
 
 | Nº | Item | O que fazer |
 |----|------|-------------|
-| 1 | **Endereço da loja** | Confira. O CEP da loja costuma ser o mesmo que você vai colar no campo. |
+| 1 | **Endereço da loja** | Confira. O CEP da loja e o CEP Fixo **não precisam** ser iguais. |
 | 2 | **CEP Único** | O card com o visto verde. Texto: *"Cidade com apenas um CEP"*. |
 | 3 | **Avançar** | Abre os dois campos do passo 3. |
 
@@ -47,7 +50,7 @@ O passo 3 não tem lista. São **dois campos** e o botão **Salvar (F2)**.
 ![Formulário de CEP Único](imagens-tratadas/02-form-cep.png)
 
 | Nº | Campo | O que fazer |
-|----|-------|-------------|
+|----|------|-------------|
 | 1 | **Localização** e **Tipo** | Os cartões do assistente. **Alterar** no tipo volta aos quatro cards. |
 | 2 | **CEP Fixo** | Os 8 dígitos, com máscara `00000-000`. |
 | 3 | **CEP Fixo Valor Frete** | O valor único. No exemplo, **R$ 7,00**. |
@@ -56,13 +59,15 @@ O passo 3 não tem lista. São **dois campos** e o botão **Salvar (F2)**.
 Diferente do horário de atendimento, **esta tela não grava sozinha**. Sem o Salvar, a
 mudança não vale.
 
-No exemplo, o CEP da loja (**18060-120**) e o frete **R$ 7,00**:
+No exemplo, o CEP de teste do cliente (**18035-490**, o da R. Arthur Gomes, 13) e o frete
+**R$ 7,00**. A loja fica em outro CEP (**18040-370**); quem pedir no CEP da loja **não** vê
+este frete — só quem digitar **18035-490**.
 
-![CEP 18060-120 e frete R$ 7,00](imagens-tratadas/03-form-cep-preenchido.png)
+![CEP 18035-490 e frete R$ 7,00](imagens-tratadas/03-form-cep-preenchido.png)
 
 | Nº | Campo | Valor do exemplo |
 |----|-------|------------------|
-| 1 | **CEP Fixo** | 18060-120 |
+| 1 | **CEP Fixo** | 18035-490 |
 | 2 | **CEP Fixo Valor Frete** | R$ 7,00 |
 | 3 | **Salvar (F2)** | Confirma. |
 
@@ -71,7 +76,8 @@ No exemplo, o CEP da loja (**18060-120**) e o frete **R$ 7,00**:
 ## Parte 3 — O que o cliente vê no cardápio
 
 O cliente informa o **próprio** endereço. A mudança leva **1 a 2 minutos**. Se o CEP for o
-mesmo do cadastro, a taxa aparece:
+mesmo do cadastro, a taxa aparece. O teste deste bloco é **R. Arthur Gomes, 13 — Centro,
+18035-490**:
 
 ![Cardápio — CEP igual ao fixo, taxa R$ 7,00](imagens-tratadas/05-menu-cep-perto.png)
 
@@ -80,13 +86,15 @@ mesmo do cadastro, a taxa aparece:
 | 1 | **Receber no seu endereço** | O endereço confirmado. |
 | 2 | **Taxa de entrega** | O valor fixo — no exemplo, **R$ 7,00**. |
 
-Qualquer **outro CEP** (no exemplo, Avenida Paulista) fica de fora:
+Qualquer **outro CEP** (no exemplo, Avenida Paulista, 01310-100) não fecha a taxa. A linha
+fica em *Calculando…* e o pedido de entrega não segue. Retirada e consumo no local
+continuam disponíveis.
 
 ![Cardápio — CEP diferente, fora da área](imagens-tratadas/06-menu-cep-fora.png)
 
 | Nº | Item | O que significa |
 |----|------|-----------------|
-| 1 | **Endereço fora da área de atendimento** | O CEP do cliente não é o CEP Fixo. |
+| 1 | **Taxa de entrega — Calculando…** | O CEP do cliente não é o CEP Fixo (18035-490). |
 | 2 | **Retirar** e **Consumir no local** | Continuam disponíveis. |
 
 ---
@@ -113,8 +121,9 @@ Confira se o tipo ativo é **CEP Único** (não Bairro e CEP). Espere 1 a 2 minu
 Este tipo não serve. Use **Bairro e CEP** (um grupo por CEP ou por faixa) ou **KM**.
 
 **O CEP da loja e o CEP Fixo precisam ser iguais?**
-Não é obrigatório, mas na prática são o mesmo: a cidade inteira compartilha aquele CEP. Se
-você cadastrar outro, só quem digitar *esse* outro CEP vê o frete.
+Não é obrigatório. Só quem digitar *o CEP cadastrado* vê o frete. Se a cidade inteira
+compartilha um CEP, na prática ele coincide com o da loja. No exemplo do manual, o CEP Fixo
+é o do endereço de teste do cliente (**18035-490**), não o da loja (**18040-370**).
 
 **Tem frete grátis ou tempo extra neste tipo?**
 Não. Só CEP e valor. Para regras extras, use KM, mapa ou bairro.
@@ -128,4 +137,4 @@ Não. Só CEP e valor. Para regras extras, use KM, mapa ou bairro.
 | **Configurar endereço do restaurante** | O pin da loja — pré-requisito |
 | **Configuração por bairro** | Vários bairros ou CEPs, cada um com um valor |
 | **Configuração por KM** | Faixas de distância |
-| **Configuração por mapa** | Círculos e polígonos |
+| **Configuração por mapa** | Círculos, polígonos e não entrega |

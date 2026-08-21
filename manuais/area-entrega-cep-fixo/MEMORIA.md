@@ -1,12 +1,14 @@
 # MEMÓRIA — Manual #38 Configuração por CEP Fixo
 
-Última atualização: 2026-08-21
+Última atualização: 2026-08-21 (refação do zero)
 
 Pré-requisito: #34. Flag: `tipoEntregaCepFixo`.
 
-Sandbox: CEP `18060-120`, valor **R$ 7,00** (gravado via API depois que o `fill` na máscara
-de moeda gerou R$ 20.007,00). Máscara de moeda/CEP no painel e no menu: **digitar tecla a
-tecla**; `fill()` não dispara o React/Vue.
+Sandbox limpo (`cepFixo=00000000`). Exemplo: CEP **18035-490** (Arthur Gomes, 13) e
+frete **R$ 7,00**. O CEP da loja é **18040-370** — se cadastrar o da loja, o endereço de
+teste fica de fora.
+
+Máscara de moeda/CEP: **digitar tecla a tecla**; `fill()` não dispara o React/Vue.
 
 A tela **não grava sozinha** — único tipo da área de entrega com botão Salvar explícito no
 passo 3 (além dos modais de KM/bairro).
