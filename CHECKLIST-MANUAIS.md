@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-21 (**#34–#38 Área de entrega** concluídos; #32 e #33 horário/pausa concluídos; bloco de cardápio #27–#31, ver `PLANO-CARDAPIO.md`)
+Última atualização: 2026-08-21 (**#34–#38 Área de entrega** refeitos do zero: loja em Caramuru 108, teste em Arthur Gomes 13; #32 e #33 horário/pausa concluídos; bloco de cardápio #27–#31, ver `PLANO-CARDAPIO.md`)
 
 ## Legenda de status
 
@@ -54,11 +54,11 @@
 
 | 32 | **Horário de atendimento** | A grade semanal do Cardápio Digital: as duas sub-abas (Delivery e Presencial), o Assistente com os quatro modelos prontos, dois turnos no mesmo dia, tempo de entrega por dia, a virada de meia-noite e o que o sistema recusa | `manuais/horario-atendimento/` | ✅ Concluído (20 imagens) | — |
 | 33 | **Fechar a loja fora do horário** | Os três mecanismos comparados — pausa temporária (atalho do topo), pausa programada (data e hora, por canal) e os switches de canal —, mais agendamento com a loja fechada e a mensagem de WhatsApp | `manuais/loja-fechar-pausa/` | ✅ Concluído (10 imagens) | — |
-| 34 | **Endereço do restaurante** | Pré-requisito da Área de Entrega: marcar o pin da loja, o número obrigatório e escolher um dos quatro tipos | `manuais/endereco-restaurante/` | ✅ Concluído | — |
-| 35 | **Área de entrega — mapa** | Raio/Área: círculos e polígonos, taxa por região, “Não entrega nessa região” e o que o cliente vê no cardápio | `manuais/area-entrega-mapa/` | ✅ Concluído | — |
-| 36 | **Área de entrega — KM** | Faixas de distância (até X km), frete, frete grátis, tempo extra e o cálculo no cardápio | `manuais/area-entrega-km/` | ✅ Concluído | — |
-| 37 | **Área de entrega — bairro** | Grupos de bairro (e CEP / faixa CEP no mesmo modal) e o match pelo nome no cardápio | `manuais/area-entrega-bairro/` | ✅ Concluído | — |
-| 38 | **Área de entrega — CEP Fixo** | CEP Único: um CEP, um valor, Salvar (F2); só quem digita aquele CEP vê o frete | `manuais/area-entrega-cep-fixo/` | ✅ Concluído | — |
+| 34 | **Endereço do restaurante** | Pré-requisito: pin da loja em **R. Caramuru, 108 — Vila Leão**; número obrigatório; os quatro tipos | `manuais/endereco-restaurante/` | ✅ Concluído (refação 21/08) | — |
+| 35 | **Área de entrega — mapa** | Círculo, polígono, não entrega, taxa / frete grátis / tempo / entregador; teste em Arthur Gomes, 13 | `manuais/area-entrega-mapa/` | ✅ Concluído (refação 21/08) | — |
+| 36 | **Área de entrega — KM** | Faixas 3 / 6 / 10 km com frete grátis e tempo extra; teste em Arthur Gomes, 13 | `manuais/area-entrega-km/` | ✅ Concluído (refação 21/08) | — |
+| 37 | **Área de entrega — bairro** | Grupo **Centro** (e CEP / faixa CEP no mesmo modal); teste em Arthur Gomes, 13 | `manuais/area-entrega-bairro/` | ✅ Concluído (refação 21/08) | — |
+| 38 | **Área de entrega — CEP Fixo** | CEP **18035-490** e R$ 7,00; Salvar (F2); teste em Arthur Gomes, 13 | `manuais/area-entrega-cep-fixo/` | ✅ Concluído (refação 21/08) | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
