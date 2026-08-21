@@ -35,7 +35,9 @@ manuais/<nome>/
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
 18040-370**. Endereço de entrega de teste nos quatro tipos: **R. Arthur Gomes, 13 — Centro,
-Sorocaba – SP, 18035-490**.
+Sorocaba – SP, 18035-490**. No cardápio, os manuais #35–#38 mostram a **busca** (CEP ou
+bairro), o formulário depois da busca e o endereço confirmado com a taxa — sem tela de
+*Calculando…*.
 
 Regras que valem para qualquer manual com cenário montado no sandbox: limpar a base **antes de
 cada manual** (o dono faz e avisa) e inserir **foto em todos os produtos e opções** dos exemplos,
