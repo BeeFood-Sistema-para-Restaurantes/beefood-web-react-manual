@@ -97,6 +97,6 @@ if os.path.exists(os.path.join(SRC, "06-menu-km-perto.png")):
 
 if os.path.exists(os.path.join(SRC, "07-menu-km-fora.png")):
     annotate("07-menu-km-fora.png", [
-        (1, 0.50, 0.56, 0.50, 0.46),
-        (2, 0.50, 0.42, 0.16, 0.42),
+        (1, 0.42, 0.36, 0.16, 0.42),
+        (2, 0.50, 0.46, 0.16, 0.52),
     ], raio=0.028)

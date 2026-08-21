@@ -17,9 +17,9 @@ faixas.
 Use **Quilometragem KM** quando a regra for “quanto mais longe, mais caro”, sem se preocupar
 com o nome do bairro:
 
-- até 3 km — R$ 8,00;
-- até 6 km — R$ 12,00;
-- até 10 km — R$ 18,00.
+- até 3 km — R$ 5,99 (frete grátis a partir de R$ 40,00);
+- até 6 km — R$ 8,99 (frete grátis a partir de R$ 60,00);
+- até 10 km — R$ 14,99.
 
 Quem estiver **além da maior faixa** vê *Endereço fora da área de atendimento*. Não existe
 faixa “o resto”.
@@ -58,11 +58,14 @@ mais e valor do entregador.
 |----|------|----------------|
 | 1 | **Localização** e **Tipo** | Os cartões do assistente. **Alterar** no tipo volta aos quatro cards. |
 | 2 | **+ Adicionar** | Nova faixa. |
-| 3 | **As três faixas** | No exemplo: 3 km / R$ 8,00 (frete grátis acima de R$ 40,00), 6 km / R$ 12,00 e 10 km / R$ 18,00. |
+| 3 | **As três faixas** | No exemplo: 3 km / R$ 5,99 (frete grátis acima de R$ 40,00), 6 km / R$ 8,99 (acima de R$ 60,00) e 10 km / R$ 14,99. |
 | 4 | **Lápis, switch e lixeira** | Editar, desligar sem apagar, ou excluir. |
 
 A distância do cliente cai na **menor faixa que ainda cabe**. Quem está a 2 km paga a de 3 km
-(R$ 8,00). Quem está a 5 km paga a de 6 km (R$ 12,00). Quem está a 11 km fica de fora.
+(R$ 5,99). Quem está a 5 km paga a de 6 km (R$ 8,99). Quem está a 11 km fica de fora.
+
+**Frete grátis 0** na faixa de 10 km quer dizer: esta faixa **não** zera o frete, seja qual
+for o valor do pedido. O cliente sempre paga os R$ 14,99.
 
 ---
 
@@ -84,13 +87,13 @@ Clique em **+ Adicionar**. O modal **Adicionar Taxa de Entrega por KM** abre vaz
 
 Preenchido, o mesmo modal fica assim — é a faixa de 3 km do exemplo:
 
-![Modal preenchido — até 3 km, R$ 8,00](imagens-tratadas/04-modal-km-preenchido.png)
+![Modal preenchido — até 3 km, R$ 5,99](imagens-tratadas/04-modal-km-preenchido.png)
 
 | Nº | Campo | Valor do exemplo |
 |----|-------|------------------|
 | 1 | **Até Quilometragem** | 3 |
-| 2 | **Valor frete** | R$ 8,00 |
-| 3 | **Valor pago ao Entregador** | R$ 4,00 |
+| 2 | **Valor frete** | R$ 5,99 |
+| 3 | **Valor pago ao Entregador** | R$ 3,00 |
 | 4 | **Frete grátis acima de** | R$ 40,00 |
 | 5 | **Tempo Entrega Adicional** | 5 min |
 | 6 | **SALVAR (F2)** | Grava a faixa. |
@@ -102,23 +105,26 @@ Repita para 6 km e 10 km. A lista do passo 3 mostra as três juntas.
 ## Parte 4 — O que o cliente vê no cardápio
 
 No cardápio o cliente informa o **próprio** endereço. A mudança leva **1 a 2 minutos** para
-chegar. Um endereço **perto da loja** (no exemplo, a mesma rua) cai na faixa de 3 km:
+chegar. O teste deste bloco é **R. Arthur Gomes, 13 — Centro, 18035-490**, a cerca de 1 km
+da loja — cai na faixa de 3 km:
 
 ![Cardápio — endereço perto, taxa da primeira faixa](imagens-tratadas/06-menu-km-perto.png)
 
 | Nº | Item | O que o cliente vê |
 |----|------|--------------------|
 | 1 | **Receber no seu endereço** | O endereço confirmado e o link **Trocar**. |
-| 2 | **Taxa de entrega** | O valor da faixa que coube a distância — no exemplo, **R$ 8,00**. |
+| 2 | **Taxa de entrega** | O valor da faixa que coube a distância — no exemplo, **R$ 5,99**. |
 | 3 | **Tempo de espera** | O prazo da loja mais os minutos adicionais da faixa. |
 
-Um endereço **além da maior faixa** mostra o mesmo aviso do mapa:
+Um endereço **além da maior faixa** (Avenida Paulista, em São Paulo) não fecha a taxa.
+Enquanto o sistema confirma que está fora, a linha fica em *Calculando…* e o pedido de
+entrega não segue. Retirada e consumo no local continuam disponíveis.
 
 ![Cardápio — endereço além da maior faixa](imagens-tratadas/07-menu-km-fora.png)
 
 | Nº | Item | O que significa |
 |----|------|-----------------|
-| 1 | **Endereço fora da área de atendimento** | A distância passou do maior teto. A taxa fica em *Calculando…*. |
+| 1 | **Taxa de entrega — Calculando…** | A distância passou do maior teto (10 km). O frete não fecha. |
 | 2 | **Retirar** e **Consumir no local** | Continuam disponíveis. |
 
 ---
@@ -129,7 +135,7 @@ Um endereço **além da maior faixa** mostra o mesmo aviso do mapa:
 1. Cardápio Digital → Área de Entrega
 2. Confira o endereço da loja (manual do endereço)
 3. Tipo de Entrega → Quilometragem KM → Avançar
-4. + Adicionar → teto em km, frete, opcionais → SALVAR (F2)
+4. + Adicionar → teto em km, frete, frete grátis, tempo, entregador → SALVAR (F2)
 5. Repita para cada faixa
 6. Espere 1 a 2 minutos e teste no cardápio com um endereço perto e um longe
 ```

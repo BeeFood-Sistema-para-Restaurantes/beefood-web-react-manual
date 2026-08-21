@@ -5,9 +5,11 @@ Publique **"Configuração por KM"** na seção **Cardápio Digital**, usando
 
 ### Pontos que NÃO podem se perder
 
-- A distância começa no pin da loja.
+- A distância começa no pin da loja (**R. Caramuru, 108**).
 - Cada faixa é um **teto** (“até X km”). Quem passa da maior fica de fora.
 - Frete grátis, tempo adicional e valor do entregador (este último só no relatório).
+  Frete grátis **0** = não usa a regra.
+- Teste no cardápio: **R. Arthur Gomes, 13** cai na faixa de 3 km (R$ 5,99).
 - **1 a 2 minutos** para o cardápio atualizar; o cliente deve **Trocar** o endereço.
 
 ### Imagens, na ordem
