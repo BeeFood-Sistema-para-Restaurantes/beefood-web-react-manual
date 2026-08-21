@@ -37,6 +37,8 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Integração Uber Direct (entregas) | [`manuais/integracao-uber-direct/`](manuais/integracao-uber-direct/integracao-uber-direct.md) | ✅ Concluído |
 | Segmentação de clientes (Food Marketing) | [`manuais/segmentacao-clientes/`](manuais/segmentacao-clientes/segmentacao-clientes.md) | ✅ Concluído |
 | Campanhas Inteligentes (Food Marketing) | [`manuais/campanhas-inteligentes/`](manuais/campanhas-inteligentes/campanhas-inteligentes.md) | ✅ Concluído |
+| Fiado — operar no dia a dia | [`manuais/fiado/`](manuais/fiado/fiado.md) | ✅ Concluído |
+| Fiado — cobrança agrupada | [`manuais/fiado-cobranca-agrupada/`](manuais/fiado-cobranca-agrupada/fiado-cobranca-agrupada.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
