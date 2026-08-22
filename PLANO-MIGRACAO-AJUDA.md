@@ -1,6 +1,6 @@
 # Plano — migração do manual antigo (ajuda.beefood.com.br)
 
-> **Status:** ☑️ Aprovado pelo dono (22/08/2026). Fila pronta; **não produzir** até o dono pedir o primeiro da fila.  
+> **Status:** ✅ Produzidos (#49–#56) em 22/08/2026.  
 > **Última atualização:** 22/08/2026  
 > **Conta sandbox:** BeeFood3 - Manual — `contato@beefood.com.br` (`https://beefood.app`)  
 > **Fonte antiga:** [https://ajuda.beefood.com.br](https://ajuda.beefood.com.br) (sitemap `sitemap.xml` → `lipi_kb-sitemap.xml`)
@@ -54,7 +54,7 @@ flowchart LR
 | **7º** | #55 | Gaveta | Risco: **não há tela web** no React; pode travar |
 | **8º** | #56 | Mercado Pago | “Se conseguir”; artigo antigo 404; modal novo existe |
 
-Não pular para frente sem o dono pedir. Se o #55 travar, o #56 pode seguir.
+Fila executada de ponta a ponta a pedido do dono (22/08/2026). #54 recebeu o Client PayGo liberado; Stone config + A001 ficaram no #53. #55 copiado como config de impressora. #56 com o artigo do Mercado Pago.
 
 ---
 
@@ -200,12 +200,12 @@ Antes de produzir: o dono confirma **onde** isso se configura hoje (Windows / pa
 
 | Item | Risco | O que precisa |
 |------|--------|----------------|
-| #50 vs #49 | Dois manuais no mesmo modal | Confirmar que quer dois artigos (antigo + novo), não um só com dois caminhos |
-| #52 | Sem campo de DNS no web | Ok seguir com suporte + prints de Registro.br |
-| #54 | Artigos PayGo internos | Texto/prints do Client PayGo, ou aceitar manual só web |
-| #55 | Sem tela no React | Dizer onde configurar hoje, ou pular |
-| #56 | Artigo antigo 404 | Prints do painel Mercado Pago, ou aceitar manual só do modal BeeFood |
-| TEF no Cloud Agent | Sem pinpad / Slim / Windows | #53/#54 = só a tela web; Slim/PayGo com prints do artigo antigo ou do dono |
+| #50 vs #49 | Dois manuais no mesmo modal | Dois artigos (antigo + novo), como o dono pediu |
+| #52 | Sem campo de DNS no web | Ok: suporte + prints de Registro.br |
+| #54 | Artigos PayGo internos | **Resolvido:** dono liberou o Client PayGo; migrado no #54 |
+| #55 | Sem tela no React | **Resolvido:** copiado como config de impressora (Control iD) |
+| #56 | Artigo antigo 404 | **Resolvido:** artigo voltou; tutorial MP + modal novo |
+| TEF no Cloud Agent | Sem pinpad / Slim / Windows | #53/#54 = lista web + prints do Slim/PayGo do artigo antigo |
 
 ---
 
@@ -213,5 +213,5 @@ Antes de produzir: o dono confirma **onde** isso se configura hoje (Windows / pa
 
 1. Ler `MEMORIA-GERAL.md`.
 2. Ler **este arquivo**.
-3. Produzir **só o próximo da fila** (hoje: **#49**), quando o dono pedir.
-4. Ao concluir um, marcar ✅ no `CHECKLIST-MANUAIS.md` e neste plano.
+3. A fila **#49–#56** já foi produzida.
+4. Próximo passo: o dono publica e avisa — só então marcar 🌐 no checklist.
