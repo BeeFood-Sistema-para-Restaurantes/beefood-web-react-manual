@@ -1,5 +1,5 @@
-# fluxo-codigo.md — #49 Pixel da Meta somente (uso interno, NÃO publicar)
+# fluxo-codigo.md — #50 Pixel da Meta somente (uso interno, NÃO publicar)
 
-- Mesmo modal do #48 (`ModalFacebookPixel`). Este manual preenche só `fbPixel`.
+- Mesmo modal do #49 (`ModalFacebookPixel`). Este manual preenche só `fbPixel`.
 - Não documentar o token (`fbPixelT`).
 

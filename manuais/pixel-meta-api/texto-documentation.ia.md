@@ -1,4 +1,4 @@
-# texto-documentation.ia.md — #48 Pixel da Meta + API de Conversões
+# texto-documentation.ia.md — #49 Pixel da Meta + API de Conversões
 
 > **O que é este arquivo:** o **texto pronto** (prompt) para colar no construtor de documentação
 > do app e gerar o manual na interface do BeeFood. Copie o bloco abaixo da linha `---` e cole.

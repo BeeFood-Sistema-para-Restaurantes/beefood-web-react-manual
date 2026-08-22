@@ -1,4 +1,4 @@
-# texto-documentation.ia.md — #49 Pixel da Meta somente
+# texto-documentation.ia.md — #50 Pixel da Meta somente
 
 > **O que é este arquivo:** o **texto pronto** (prompt) para colar no construtor de documentação
 > do app e gerar o manual na interface do BeeFood. Copie o bloco abaixo da linha `---` e cole.
@@ -34,7 +34,7 @@ Crie um novo manual no app: em **Aplicativos** (seção **Marketing e CRM**), ad
 - Insira as 11 imagens na ordem acima, com as legendas indicadas na tabela no fim deste arquivo.
 - **Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa"** (mesmo tamanho, posição, legenda e estilo).
 - Idioma **português do Brasil**, tom didático (usuário final / restaurante).
-- Mantenha em destaque: Só o Pixel ID Delivery; sem token. O caminho recomendado é a API de Conversões (#48).
+- Mantenha em destaque: Só o Pixel ID Delivery; sem token. O caminho recomendado é a API de Conversões (#49).
 - **Não** publique o rodapé "Referências internas" nem o `fluxo-codigo.md`.
 
 ---

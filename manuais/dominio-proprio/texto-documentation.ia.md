@@ -1,4 +1,4 @@
-# texto-documentation.ia.md — #51 Domínio próprio
+# texto-documentation.ia.md — #52 Domínio próprio
 
 > **O que é este arquivo:** o **texto pronto** (prompt) para colar no construtor de documentação
 > do app e gerar o manual na interface do BeeFood. Copie o bloco abaixo da linha `---` e cole.

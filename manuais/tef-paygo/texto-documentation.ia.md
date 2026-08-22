@@ -1,4 +1,4 @@
-# texto-documentation.ia.md — #53 TEF PayGo (Client PayGo)
+# texto-documentation.ia.md — #54 TEF PayGo (Client PayGo)
 
 > **O que é este arquivo:** o **texto pronto** (prompt) para colar no construtor de documentação
 > do app e gerar o manual na interface do BeeFood. Copie o bloco abaixo da linha `---` e cole.

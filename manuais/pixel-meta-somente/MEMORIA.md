@@ -1,4 +1,4 @@
-# MEMORIA.md — #49 Pixel da Meta somente
+# MEMORIA.md — #50 Pixel da Meta somente
 
 ## Escopo
 Manual de usuário final migrado do ajuda.beefood. Prints de terceiros (Meta, Google, Mercado Pago, Windows, DNS, Control iD) reaproveitados e **copiados para o repositório**. Telas em que o BeeFood **salva** o parâmetro usam print **novo** (tema claro, Playwright 1440×900 DPR 1.5).

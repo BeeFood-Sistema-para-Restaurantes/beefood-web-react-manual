@@ -1,4 +1,4 @@
-# fluxo-codigo.md — #48 Pixel da Meta + API de Conversões (uso interno, NÃO publicar)
+# fluxo-codigo.md — #49 Pixel da Meta + API de Conversões (uso interno, NÃO publicar)
 
 - Menu **Aplicativos** → Marketing e CRM → **Facebook Pixel** (`app.id === 'facebook-pixel'`).
 - Lista: `FacebookPixelContent` / `FacebookPixelModal`.
