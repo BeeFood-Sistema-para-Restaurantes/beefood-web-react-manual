@@ -3,8 +3,9 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-21 (**espera de 5 s após cada clique vale para SEMPRE,
-qualquer manual** — spinner some primeiro, só então contar os 5 s; bloco Área de
+Última atualização: 2026-08-22 (**fila de migração do ajuda.beefood #48–#55** em
+`PLANO-MIGRACAO-AJUDA.md`; espera de 5 s após cada clique vale para SEMPRE,
+qualquer manual — spinner some primeiro, só então contar os 5 s; bloco Área de
 Entrega #34–#38; ler no código o que grava antes de capturar; dado pessoal
 coberto na imagem pura; widget flutuante escondido por CSS; diagnóstico do ambiente pela API;
 anexo do chat não chega ao Cloud Agent; imagem colada no chat não tem como ser baixada, mas
@@ -528,15 +529,18 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Integração Uber Direct | `manuais\integracao-uber-direct\` | ✅ Concluído |
 | Segmentação de clientes | `manuais\segmentacao-clientes\` | ✅ Concluído |
 | Campanhas Inteligentes | `manuais\campanhas-inteligentes\` | ✅ Concluído |
+| Avisos do cardápio digital | `manuais\cardapio-digital-avisos\` | ✅ Concluído |
+| Fila ajuda.beefood (#48–#55) | ver `PLANO-MIGRACAO-AJUDA.md` | ☑️ Aprovado, sem produção |
 
 ---
 
 ## 10. Como retomar o trabalho (checklist de início de sessão)
 
 1. Ler este `MEMORIA-GERAL.md`.
-2. Ler a `MEMORIA.md` do manual em andamento (se houver).
-3. Logar em `contato@beefood.com.br` e ativar tema claro.
-4. Conferir estado da funcionalidade no sistema antes de capturar.
+2. Se a sessão for da fila do ajuda.beefood, ler `PLANO-MIGRACAO-AJUDA.md` e produzir **só o próximo da sequência**.
+3. Ler a `MEMORIA.md` do manual em andamento (se houver).
+4. Logar em `contato@beefood.com.br` e ativar tema claro.
+5. Conferir estado da funcionalidade no sistema antes de capturar.
 
 ---
 
