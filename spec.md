@@ -34,7 +34,7 @@ manuais/<nome>/
 | Avisos do cardápio digital | #47 (concluído) | `manuais/cardapio-digital-avisos/` |
 | Área de entrega | #34–#38 (refação 21/08/2026) | `manuais/endereco-restaurante/` + `manuais/area-entrega-*` |
 | Parâmetros (Configuração) | #39–#46 concluídos (Opção B — 8 manuais) | [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md) |
-| Migração do ajuda.beefood | #48–#55 (fila; não produzir até o dono pedir o 1º) | [`PLANO-MIGRACAO-AJUDA.md`](PLANO-MIGRACAO-AJUDA.md) |
+| Migração do ajuda.beefood | #48–#55 (concluídos 22/08/2026) | [`PLANO-MIGRACAO-AJUDA.md`](PLANO-MIGRACAO-AJUDA.md) |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
 18040-370**. Endereço de entrega de teste nos quatro tipos: **R. Arthur Gomes, 13 — Centro,

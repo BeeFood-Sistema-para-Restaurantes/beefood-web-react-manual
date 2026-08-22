@@ -1,6 +1,6 @@
 # Plano — migração do manual antigo (ajuda.beefood.com.br)
 
-> **Status:** ☑️ Aprovado pelo dono (22/08/2026). Fila pronta; **não produzir** até o dono pedir o primeiro da fila.  
+> **Status:** ✅ Produzidos (#48–#55) em 22/08/2026.  
 > **Última atualização:** 22/08/2026  
 > **Conta sandbox:** BeeFood3 - Manual — `contato@beefood.com.br` (`https://beefood.app`)  
 > **Fonte antiga:** [https://ajuda.beefood.com.br](https://ajuda.beefood.com.br) (sitemap `sitemap.xml` → `lipi_kb-sitemap.xml`)
@@ -54,7 +54,7 @@ flowchart LR
 | **7º** | #54 | Gaveta | Risco: **não há tela web** no React; pode travar |
 | **8º** | #55 | Mercado Pago | “Se conseguir”; artigo antigo 404; modal novo existe |
 
-Não pular para frente sem o dono pedir. Se o #54 travar, o #55 pode seguir.
+Fila executada de ponta a ponta a pedido do dono (22/08/2026). #53 recebeu os 3 artigos liberados (Stone config + A001 no #52; PayGo Client no #53). #54 copiado como config de impressora. #55 com o artigo do Mercado Pago.
 
 ---
 
@@ -202,9 +202,9 @@ Antes de produzir: o dono confirma **onde** isso se configura hoje (Windows / pa
 |------|--------|----------------|
 | #49 vs #48 | Dois manuais no mesmo modal | Confirmar que quer dois artigos (antigo + novo), não um só com dois caminhos |
 | #51 | Sem campo de DNS no web | Ok seguir com suporte + prints de Registro.br |
-| #53 | Artigos PayGo internos | Texto/prints do Client PayGo, ou aceitar manual só web |
-| #54 | Sem tela no React | Dizer onde configurar hoje, ou pular |
-| #55 | Artigo antigo 404 | Prints do painel Mercado Pago, ou aceitar manual só do modal BeeFood |
+| #53 | Artigos PayGo internos | **Resolvido:** dono liberou o Client PayGo; migrado no #53 |
+| #54 | Sem tela no React | **Resolvido:** copiado como config de impressora (Control iD) |
+| #55 | Artigo antigo 404 | **Resolvido:** artigo voltou; tutorial MP + modal novo |
 | TEF no Cloud Agent | Sem pinpad / Slim / Windows | #52/#53 = só a tela web; Slim/PayGo com prints do artigo antigo ou do dono |
 
 ---
@@ -213,5 +213,5 @@ Antes de produzir: o dono confirma **onde** isso se configura hoje (Windows / pa
 
 1. Ler `MEMORIA-GERAL.md`.
 2. Ler **este arquivo**.
-3. Produzir **só o próximo da fila** (hoje: **#48**), quando o dono pedir.
-4. Ao concluir um, marcar ✅ no `CHECKLIST-MANUAIS.md` e neste plano.
+3. A fila **#48–#55** já foi produzida.
+4. Próximo passo: o dono publica e avisa — só então marcar 🌐 no checklist.
