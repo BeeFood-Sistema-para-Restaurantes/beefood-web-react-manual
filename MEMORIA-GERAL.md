@@ -3,7 +3,8 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-22 (**#48 Capas e Destaques**; screenshot Playwright
+Última atualização: 2026-08-22 (**#48 Capas e Destaques**; fila de migração do
+ajuda.beefood **#49–#56** em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
 do cardápio público nem sempre fecha por `Dispensar`; **espera de 5 s após cada
@@ -532,15 +533,19 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Integração Uber Direct | `manuais\integracao-uber-direct\` | ✅ Concluído |
 | Segmentação de clientes | `manuais\segmentacao-clientes\` | ✅ Concluído |
 | Campanhas Inteligentes | `manuais\campanhas-inteligentes\` | ✅ Concluído |
+| Avisos do cardápio digital | `manuais\cardapio-digital-avisos\` | ✅ Concluído |
+| Capas e Destaques | `manuais\cardapio-digital-capas-destaques\` | ✅ Concluído |
+| Fila ajuda.beefood (#49–#56) | ver `PLANO-MIGRACAO-AJUDA.md` | ☑️ Aprovado, sem produção |
 
 ---
 
 ## 10. Como retomar o trabalho (checklist de início de sessão)
 
 1. Ler este `MEMORIA-GERAL.md`.
-2. Ler a `MEMORIA.md` do manual em andamento (se houver).
-3. Logar em `contato@beefood.com.br` e ativar tema claro.
-4. Conferir estado da funcionalidade no sistema antes de capturar.
+2. Se a sessão for da fila do ajuda.beefood, ler `PLANO-MIGRACAO-AJUDA.md` e produzir **só o próximo da sequência**.
+3. Ler a `MEMORIA.md` do manual em andamento (se houver).
+4. Logar em `contato@beefood.com.br` e ativar tema claro.
+5. Conferir estado da funcionalidade no sistema antes de capturar.
 
 ---
 

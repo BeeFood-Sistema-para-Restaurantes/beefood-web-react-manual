@@ -4,7 +4,8 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-22 (**#48** Capas e Destaques concluído)
+Última atualização: 2026-08-22 (**#48** Capas e Destaques concluído; fila de
+migração do ajuda.beefood **#49–#56** — ver `PLANO-MIGRACAO-AJUDA.md`)
 
 ## Legenda de status
 
@@ -69,6 +70,14 @@
 | 46 | **PDV — balança** | EAN-13 começando com 2; dígitos; Peso × Valor; contas e prova digitando o código no PDV | `manuais/pdv-balanca/` | ✅ Concluído | — |
 | 47 | **Avisos do cardápio digital** | Recado no cardápio (feriado, horário, salão fechado) — sem CTA, sem produto; cartaz 1:1; desktop e mobile | `manuais/cardapio-digital-avisos/` | ✅ Concluído | — |
 | 48 | **Capas e Destaques** | Banners no topo e na vitrine do cardápio, com **imagem e vídeo**; agenda; prova em desktop e mobile | `manuais/cardapio-digital-capas-destaques/` | ✅ Concluído | — |
+| 49 | **Pixel Meta + API de Conversões** | Tutorial da Meta + **só o modal novo** (Aplicativos → Facebook Pixel) com Pixel ID Delivery e Token | `manuais/pixel-meta-api/` | ☑️ Aprovado | — |
+| 50 | **Pixel Meta somente** | Caminho antigo (só Pixel ID) no **mesmo modal novo** | `manuais/pixel-meta-somente/` | ☑️ Aprovado | — |
+| 51 | **Mapas Google** | Tutorial do Cloud + **só o campo da chave** em Aplicativos → Mapas Google | `manuais/mapas-google/` | ☑️ Aprovado | — |
+| 52 | **Domínio próprio** | DNS (Registro.br / HostGator) + verificação Meta + modal *Domínio Personalizado* (suporte) | `manuais/dominio-proprio/` | ☑️ Aprovado | — |
+| 53 | **TEF Stone (AutoTEF)** | Slim no Windows + cadastro em **Configuração → TEF** (Código Terminal e Porta) | `manuais/tef-stone/` | ☑️ Aprovado | — |
+| 54 | **TEF PayGo** | Tela nova **Novo TEF PayGo**; Client PayGo no Windows só se o dono liberar o artigo interno | `manuais/tef-paygo/` | ☑️ Aprovado | — |
+| 55 | **Gaveta de dinheiro** | Setup da gaveta; **sem tela no web React** — confirmar com o dono ou pular | `manuais/gaveta-dinheiro/` | ☑️ Aprovado | — |
+| 56 | **Mercado Pago** | Modal novo (Public Key + Access Token); artigo antigo 404 — lado MP só se o dono mandar | `manuais/mercado-pago/` | ☑️ Aprovado | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -77,6 +86,8 @@
 > **#34–#38 são bloco:** o #34 (endereço da loja) é pré-requisito; #35–#38 são os quatro tipos. Publicar o #34 primeiro.
 >
 > **#39–#46 são bloco de Parâmetros:** plano em [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md). Caixa / `caixaPorUsuario` continua no **#13**. App Garçom = só config. Balança e fichas são manuais completos. Produção: #39 → #42 → #44 → #45 → #41 → #40 → #43 → #46.
+>
+> **#49–#56 são fila de migração do ajuda.beefood:** plano em [`PLANO-MIGRACAO-AJUDA.md`](PLANO-MIGRACAO-AJUDA.md). Ordem fixa #49 → #50 → #51 → #52 → #53 → #54 → #55 → #56. Em D1/D2/D5/E7: tela nova + **somente** o print do campo final. Não produzir até o dono pedir o da vez. O **#48** já é Capas e Destaques.
 
 ---
 
@@ -190,6 +201,7 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 ## Histórico
 
 - 2026-08-22 — **#48 Concluído** (`manuais/cardapio-digital-capas-destaques/`). Caminho **Cardápio Digital → Configurações → Capas e Destaques**: dois grupos (capa no topo e vitrine da loja), até 5 mídias cada, **imagem e vídeo**. 11 imagens (9 com setas + 2 contexto). Descobertas: **não tem auto-save** (só SALVAR F2); capa fixa (`fotoCapa`) é só imagem — vídeo mora no modal; HEVC/H.265 fica tela preta no Android; recorte 16:9 no Chrome para vídeo vertical (máx 60 s, sem áudio); agenda no relógio do cliente, faixa sem cruzar meia-noite; cache de até 1 minuto. Cenário no BeeFood3 deixado no ar: combo (imagem) + chapa (vídeo) no topo, batata (imagem) + milkshake (vídeo) na vitrine. Cardápio `https://menu.beefood.com.br/beefood3`.
+- 2026-08-22 — **Fila #49–#56 aprovada** (migração do [ajuda.beefood.com.br](https://ajuda.beefood.com.br); números deslocados porque o **#48** ficou com Capas e Destaques). Oito itens: Pixel API, Pixel somente, Mapas Google, Domínio, TEF Stone, TEF PayGo, Gaveta, Mercado Pago. Regra do dono nos itens D1/D2/D5/E7: mostrar a tela nova e migrar **somente** a imagem onde se cola a configuração final. Gaveta sem tela no React; Mercado Pago com artigo antigo 404. Plano em `PLANO-MIGRACAO-AJUDA.md`. Sem produção até o dono pedir o #49.
 - 2026-08-22 — **#47 Concluído** (`manuais/cardapio-digital-avisos/`). Aba **Cardápio Digital → Avisos**: recado operacional no cardápio (feriado, horário, salão fechado), **sem CTA e sem produto**. 11 imagens (9 com setas + 2 contexto). Descobertas: **não existe data de calendário** (só dia da semana); título obrigatório e fechar o modal de aviso novo **descarta**; sem descrição o toque não abre detalhe; auto-save por ação (sem botão Salvar na aba); até **10** avisos, cartaz ideal **1:1**; faixa de hora não cruza meia-noite e horário inválido vira dia inteiro no backend; cache de até 1 minuto. Cenário no BeeFood3 deixado no ar: três cartazes da hamburgueria. Cardápio de prova `https://menu.beefood.com.br/beefood3`. `validar-imagens.py` a conferir neste fechamento.
 - 2026-08-21 — **#39–#46 Concluídos** (bloco Parâmetros, Opção B). Oito pastas em `manuais/`. Provas no sandbox BeeFood3: usuário novo `atendente.parametros` (Gerente off) + modal **Liberação de Desconto** no PDV; App Garçom só na tela; taxa 10% no salão (Coxinha R$ 8,00 → **+ R$ 0,80** / R$ 8,80) e mesa obrigatória; motivo no desconto + teclado do operador; intenção **Dinheiro** no delivery; **Venda #848** + toast *Impressão via navegador*; fichas Individual × Lista no preview 80 mm; balança **Queijo Mussarela** código **199** KG — EAN `2001990003501` → **0,350 kg / R$ 13,97** e `2001990019957` → **0,500 kg / R$ 19,95**. `validar-imagens.py` limpo nos oito (órfãos só de contexto). Caixa/`caixaPorUsuario` permanece no #13.
 - 2026-08-21 — **Parâmetros aprovados (Opção B — #39 a #46).** Oito manuais. Decisões do dono: senha gerente cria usuário **novo** `atendente.parametros` (proibido reusar `contato@beefood.com.br` e `caixa.manual`); balança vira manual completo interpretando o EAN-13 (Peso × Valor, dígitos, contas, prova digitando o código no PDV — sem hardware); fichas imprimem de verdade e a prova é o **preview do navegador** (não há BeeImpressão neste ambiente; o front cai em `imprimirViaIframe` → `window.print()`). App Garçom continua só na tela de configuração. Caixa segue no #13. Plano completo em `PLANO-PARAMETROS.md`.

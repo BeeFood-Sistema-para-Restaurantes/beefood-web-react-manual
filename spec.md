@@ -35,6 +35,7 @@ manuais/<nome>/
 | Capas e Destaques | #48 (concluído) | `manuais/cardapio-digital-capas-destaques/` |
 | Área de entrega | #34–#38 (refação 21/08/2026) | `manuais/endereco-restaurante/` + `manuais/area-entrega-*` |
 | Parâmetros (Configuração) | #39–#46 concluídos (Opção B — 8 manuais) | [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md) |
+| Migração do ajuda.beefood | #49–#56 (fila; não produzir até o dono pedir o 1º) | [`PLANO-MIGRACAO-AJUDA.md`](PLANO-MIGRACAO-AJUDA.md) |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
 18040-370**. Endereço de entrega de teste nos quatro tipos: **R. Arthur Gomes, 13 — Centro,
