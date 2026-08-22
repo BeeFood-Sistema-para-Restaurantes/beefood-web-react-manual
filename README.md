@@ -47,6 +47,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Cardápio — comida japonesa (contagem exata e preço fechado) | [`manuais/cardapio-japonesa/`](manuais/cardapio-japonesa/cardapio-japonesa.md) | ✅ Concluído |
 | Horário de atendimento (grade semanal do cardápio digital) | [`manuais/horario-atendimento/`](manuais/horario-atendimento/horario-atendimento.md) | ✅ Concluído |
 | Fechar a loja fora do horário (pausas e switches de canal) | [`manuais/loja-fechar-pausa/`](manuais/loja-fechar-pausa/loja-fechar-pausa.md) | ✅ Concluído |
+| Avisos do cardápio digital (recado sem CTA) | [`manuais/cardapio-digital-avisos/`](manuais/cardapio-digital-avisos/cardapio-digital-avisos.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 

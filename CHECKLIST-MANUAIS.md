@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-21 (**#39–#46** Parâmetros concluídos — Opção B, 8 manuais; ver `PLANO-PARAMETROS.md`)
+Última atualização: 2026-08-22 (**#47** Avisos do cardápio digital concluído)
 
 ## Legenda de status
 
@@ -67,6 +67,7 @@
 | 44 | **PDV — número e cupom** | Número do pedido + imprimir venda sempre; preview do navegador | `manuais/pdv-numero-cupom/` | ✅ Concluído | — |
 | 45 | **PDV — fichas de consumo** | Individual × Lista; conteúdo da ficha; preview do navegador (sem BeeImpressão) | `manuais/pdv-fichas/` | ✅ Concluído | — |
 | 46 | **PDV — balança** | EAN-13 começando com 2; dígitos; Peso × Valor; contas e prova digitando o código no PDV | `manuais/pdv-balanca/` | ✅ Concluído | — |
+| 47 | **Avisos do cardápio digital** | Recado no cardápio (feriado, horário, salão fechado) — sem CTA, sem produto; cartaz 1:1; desktop e mobile | `manuais/cardapio-digital-avisos/` | ✅ Concluído | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -98,7 +99,7 @@
 | **Delivery** | Operar pedidos: colunas de situação, aceitar, despachar, entregador, pagamentos, cancelamento — e o **Aceite Automático** | 3 a 4 manuais | 5 | 💡 Ideia |
 | **PDV** | Venda no balcão: carrinho, cliente, balança, desconto com senha de gerente, pagamento, reabrir e agrupar vendas | 3 a 4 manuais | 5 | 💡 Ideia |
 | **Cardápio** | Produtos, grupos de opções e complementos — o modal do produto tem 6 abas; mais Exibir/Ocultar, Rodízio e importar do iFood | 4 a 5 manuais | 5 | ☑️ **Virou #27–#31** — ver `PLANO-CARDAPIO.md` |
-| **Cardápio Digital** | Configurar a loja online na ordem certa: horário, área de entrega, formas de recebimento, pagamento online, pausa programada e avisos (11 abas) | 3 a 4 manuais | 5 | ☑️ Horário (#32/#33) e Área de Entrega (#34–#38) prontos; restam formas de recebimento, pagamento online e avisos |
+| **Cardápio Digital** | Configurar a loja online na ordem certa: horário, área de entrega, formas de recebimento, pagamento online, pausa programada e avisos (11 abas) | 3 a 4 manuais | 5 | ☑️ Horário (#32/#33), Área de Entrega (#34–#38) e Avisos (#47) prontos; restam formas de recebimento e pagamento online |
 | **Fiscal** | Configuração fiscal, emissão e consulta de NFC-e e NF-e, inutilização, carta de correção e notas recebidas (a Reforma Tributária já é o #5) | 4 a 5 manuais | 5 | 💡 Ideia |
 | **Mesas / Comandas** | Mapa do salão, abrir e fechar conta, agrupar mesas, reabrir | 2 manuais | 4 | 💡 Ideia |
 | **Impressão** | Impressoras, impressão da cozinha, layout e os dois históricos | 2 a 3 manuais | 4 | 💡 Ideia |
@@ -187,6 +188,7 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 
 ## Histórico
 
+- 2026-08-22 — **#47 Concluído** (`manuais/cardapio-digital-avisos/`). Aba **Cardápio Digital → Avisos**: recado operacional no cardápio (feriado, horário, salão fechado), **sem CTA e sem produto**. 11 imagens (9 com setas + 2 contexto). Descobertas: **não existe data de calendário** (só dia da semana); título obrigatório e fechar o modal de aviso novo **descarta**; sem descrição o toque não abre detalhe; auto-save por ação (sem botão Salvar na aba); até **10** avisos, cartaz ideal **1:1**; faixa de hora não cruza meia-noite e horário inválido vira dia inteiro no backend; cache de até 1 minuto. Cenário no BeeFood3 deixado no ar: três cartazes da hamburgueria. Cardápio de prova `https://menu.beefood.com.br/beefood3`. `validar-imagens.py` a conferir neste fechamento.
 - 2026-08-21 — **#39–#46 Concluídos** (bloco Parâmetros, Opção B). Oito pastas em `manuais/`. Provas no sandbox BeeFood3: usuário novo `atendente.parametros` (Gerente off) + modal **Liberação de Desconto** no PDV; App Garçom só na tela; taxa 10% no salão (Coxinha R$ 8,00 → **+ R$ 0,80** / R$ 8,80) e mesa obrigatória; motivo no desconto + teclado do operador; intenção **Dinheiro** no delivery; **Venda #848** + toast *Impressão via navegador*; fichas Individual × Lista no preview 80 mm; balança **Queijo Mussarela** código **199** KG — EAN `2001990003501` → **0,350 kg / R$ 13,97** e `2001990019957` → **0,500 kg / R$ 19,95**. `validar-imagens.py` limpo nos oito (órfãos só de contexto). Caixa/`caixaPorUsuario` permanece no #13.
 - 2026-08-21 — **Parâmetros aprovados (Opção B — #39 a #46).** Oito manuais. Decisões do dono: senha gerente cria usuário **novo** `atendente.parametros` (proibido reusar `contato@beefood.com.br` e `caixa.manual`); balança vira manual completo interpretando o EAN-13 (Peso × Valor, dígitos, contas, prova digitando o código no PDV — sem hardware); fichas imprimem de verdade e a prova é o **preview do navegador** (não há BeeImpressão neste ambiente; o front cai em `imprimirViaIframe` → `window.print()`). App Garçom continua só na tela de configuração. Caixa segue no #13. Plano completo em `PLANO-PARAMETROS.md`.
 - 2026-08-21 — **Estudo de Parâmetros** (`PLANO-PARAMETROS.md`). A tela Configuração → Parâmetros tem **6 cards** e grava sozinha no desktop. Recorte inicial (opção A) ficou superado no mesmo dia pela opção B aprovada.
