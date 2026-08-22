@@ -32,6 +32,7 @@ manuais/<nome>/
 |-------|---------|-----------|
 | Cardápio por segmento | #27–#31 (concluídos) | [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) |
 | Avisos do cardápio digital | #47 (concluído) | `manuais/cardapio-digital-avisos/` |
+| Capas e Destaques | #48 (concluído) | `manuais/cardapio-digital-capas-destaques/` |
 | Área de entrega | #34–#38 (refação 21/08/2026) | `manuais/endereco-restaurante/` + `manuais/area-entrega-*` |
 | Parâmetros (Configuração) | #39–#46 concluídos (Opção B — 8 manuais) | [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md) |
 
