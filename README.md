@@ -10,7 +10,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 ├─ MEMORIA-GERAL.md            # Boas práticas, padrões, contas e ferramentas (ler primeiro)
 ├─ CHECKLIST-MANUAIS.md        # O que já foi feito, o que está na fila e o histórico
 ├─ PLANO-CARDAPIO.md           # Plano aprovado dos manuais #27–#31 (cardápio por segmento)
-├─ PLANO-MIGRACAO-AJUDA.md     # Fila #48–#55 (migração do ajuda.beefood.com.br)
+├─ PLANO-MIGRACAO-AJUDA.md     # Fila #49–#56 (migração do ajuda.beefood.com.br)
 ├─ validar-imagens.py          # Confere se as imagens referenciadas pelos manuais existem
 └─ manuais/
    └─ <nome-do-manual>/        # Uma pasta por manual
@@ -49,6 +49,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Horário de atendimento (grade semanal do cardápio digital) | [`manuais/horario-atendimento/`](manuais/horario-atendimento/horario-atendimento.md) | ✅ Concluído |
 | Fechar a loja fora do horário (pausas e switches de canal) | [`manuais/loja-fechar-pausa/`](manuais/loja-fechar-pausa/loja-fechar-pausa.md) | ✅ Concluído |
 | Avisos do cardápio digital (recado sem CTA) | [`manuais/cardapio-digital-avisos/`](manuais/cardapio-digital-avisos/cardapio-digital-avisos.md) | ✅ Concluído |
+| Capas e Destaques (banners com imagem e vídeo) | [`manuais/cardapio-digital-capas-destaques/`](manuais/cardapio-digital-capas-destaques/cardapio-digital-capas-destaques.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
