@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-22 (**#48** Capas e Destaques; **#49–#56** migrados do ajuda.beefood — ver `PLANO-MIGRACAO-AJUDA.md`)
+Última atualização: 2026-08-26 (**#57** BeeFood Entregador; **#49–#56** já migrados — ver `PLANO-MIGRACAO-AJUDA.md`)
 
 ## Legenda de status
 
@@ -77,6 +77,7 @@
 | 54 | **TEF PayGo** | Client PayGo no Windows + tela nova **Configuração → TEF → Novo TEF PayGo** | `manuais/tef-paygo/` | ✅ Concluído | — |
 | 55 | **Gaveta de dinheiro** | Sem tela no web; cópia da config na **impressora** (Control iD) | `manuais/gaveta-dinheiro/` | ✅ Concluído | — |
 | 56 | **Mercado Pago** | Tutorial do MP + modal novo (Public Key + Access Token + switch) | `manuais/mercado-pago/` | ✅ Concluído | — |
+| 57 | **BeeFood Entregador** | App do motoboy: cadastro (funcionário + usuário) + código de barras no cupom + uso no celular | `manuais/app-entregadores/` | ✅ Concluído | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -86,7 +87,7 @@
 >
 > **#39–#46 são bloco de Parâmetros:** plano em [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md). Caixa / `caixaPorUsuario` continua no **#13**. App Garçom = só config. Balança e fichas são manuais completos. Produção: #39 → #42 → #44 → #45 → #41 → #40 → #43 → #46.
 >
-> **#49–#56 são fila de migração do ajuda.beefood:** plano em [`PLANO-MIGRACAO-AJUDA.md`](PLANO-MIGRACAO-AJUDA.md). Concluídos em 22/08/2026. O **#48** é Capas e Destaques.
+> **#49–#56 são fila de migração do ajuda.beefood:** plano em [`PLANO-MIGRACAO-AJUDA.md`](PLANO-MIGRACAO-AJUDA.md). Concluídos em 22/08/2026. O **#48** é Capas e Destaques. O **#57** (app Entregador) saiu do mesmo ajuda.beefood, pedido à parte em 26/08/2026.
 
 ---
 
@@ -199,6 +200,7 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 
 ## Histórico
 
+- 2026-08-26 — **#57 Concluído** (`manuais/app-entregadores/`). Migração do [BeeFood Aplicativo para Entregadores](https://ajuda.beefood.com.br/baseconhecimento/beefood-aplicativo-para-entregadores/). Prints do app (código de barras, entregas, rota, finalizar, iFood) copiados do artigo. Telas novas do web: Aplicativos → BeeFood Entregador; Cadastro → Funcionários (função Entregador); Configuração → Usuários (funcionário + switch **Aplicativos**); Configuração → Impressão → Layout → Cupom Pedido → **Código de Barras App Entrega**.
 - 2026-08-22 — **#49–#56 Concluídos** (migração do ajuda.beefood; números deslocados porque o **#48** ficou com Capas e Destaques). Oito pastas: Pixel API, Pixel somente, Mapas Google, Domínio, TEF Stone (+ A001), TEF PayGo (Client PayGo liberado), Gaveta (cópia da Control iD, sem tela web), Mercado Pago (artigo + modal novo). Prints de terceiros copiados para o repo; telas de salvar no BeeFood recapturadas no tema claro. TEF Novo modal não abriu (quota 0/0 no sandbox) — ficou a lista Configuração → TEF.
 - 2026-08-22 — **#48 Concluído** (`manuais/cardapio-digital-capas-destaques/`). Caminho **Cardápio Digital → Configurações → Capas e Destaques**: dois grupos (capa no topo e vitrine da loja), até 5 mídias cada, **imagem e vídeo**. 11 imagens (9 com setas + 2 contexto). Descobertas: **não tem auto-save** (só SALVAR F2); capa fixa (`fotoCapa`) é só imagem — vídeo mora no modal; HEVC/H.265 fica tela preta no Android; recorte 16:9 no Chrome para vídeo vertical (máx 60 s, sem áudio); agenda no relógio do cliente, faixa sem cruzar meia-noite; cache de até 1 minuto. Cenário no BeeFood3 deixado no ar: combo (imagem) + chapa (vídeo) no topo, batata (imagem) + milkshake (vídeo) na vitrine. Cardápio `https://menu.beefood.com.br/beefood3`.
 - 2026-08-22 — **Fila #49–#56 aprovada** (migração do [ajuda.beefood.com.br](https://ajuda.beefood.com.br); números deslocados porque o **#48** ficou com Capas e Destaques). Oito itens: Pixel API, Pixel somente, Mapas Google, Domínio, TEF Stone, TEF PayGo, Gaveta, Mercado Pago. Regra do dono nos itens D1/D2/D5/E7: mostrar a tela nova e migrar **somente** a imagem onde se cola a configuração final. Gaveta sem tela no React; Mercado Pago com artigo antigo 404. Plano em `PLANO-MIGRACAO-AJUDA.md`.
