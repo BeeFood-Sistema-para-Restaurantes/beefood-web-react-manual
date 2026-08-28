@@ -53,6 +53,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | BeeFood Entregador (app do motoboy) | [`manuais/app-entregadores/`](manuais/app-entregadores/app-entregadores.md) | ✅ Concluído |
 | IA ChatGPT no WhatsApp | [`manuais/ia-chatgpt-whatsapp/`](manuais/ia-chatgpt-whatsapp/ia-chatgpt-whatsapp.md) | ✅ Concluído |
 | Campanhas SMS (Food Marketing) | [`manuais/campanhas-sms/`](manuais/campanhas-sms/campanhas-sms.md) | ✅ Concluído |
+| Cupom de Desconto (campos + cardápio) | [`manuais/cupom-desconto/`](manuais/cupom-desconto/cupom-desconto.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 

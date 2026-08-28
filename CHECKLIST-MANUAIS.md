@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-28 (**#18** Campanhas SMS; **#58** IA ChatGPT no WhatsApp; **#57** Entregador)
+Última atualização: 2026-08-28 (**#18** Campanhas SMS; **#21** Cupom de Desconto; **#58** IA ChatGPT)
 
 ## Legenda de status
 
@@ -40,7 +40,7 @@
 | 18 | **Campanhas SMS** | Criar campanha de SMS, entender a contagem de créditos por segmento (e como economizar sem acento/emoji), comprar créditos por PIX e usar a blacklist / opt-out | `manuais/campanhas-sms/` | ✅ Concluído (14 imagens) | — |
 | 19 | **Cashback — configurar o programa** | Ativar o cashback, validade do saldo, saldo mínimo para resgate, percentual fixo ou por dia da semana, em quais canais o cliente ganha e as exceções de produto | `manuais/cashback-configurar/` | ☑️ Aprovado | — |
 | 20 | **Cashback — operar no dia a dia** | Histórico, saldo por cliente, ajuste manual de saldo (creditar e debitar com motivo), fila de processamento e como o operador aplica o cashback no PDV e nas Mesas | `manuais/cashback-operar/` | ☑️ Aprovado | — |
-| 21 | **Cupons de desconto** | Criar cupom nos quatro tipos (percentual, valor fixo, frete grátis e produto grátis), validade, dias da semana, canais, valor mínimo, limites de uso, link do cupom e histórico | `manuais/cupom-desconto/` | ☑️ Aprovado | — |
+| 21 | **Cupom de Desconto** | Todos os campos (tipos, regras novas, modos libera/recebe) + o que o cliente vê no cardápio digital | `manuais/cupom-desconto/` | ✅ Concluído | — |
 | 22 | **Painel Fidelidade** | Ler o resultado dos programas: desconto concedido, faturamento influenciado, ROI, cupom × cashback, participação no faturamento e aquisição × recorrência | `manuais/fidelidade-painel/` | ☑️ Aprovado | — |
 | 23 | **Avaliações** | Está no menu Fidelidade (CRM), mas é reputação: nota geral, avaliações por período, por canal e como responder | `manuais/avaliacoes/` | ☑️ Aprovado | — |
 | 24 | **Modo Kiosk (Cardápio Digital Tablet)** | **Só no tablet:** travar o aparelho no cardápio pela tela de Administração do app Android — abrir a Administração pelo logo, conceder as permissões de Acessibilidade e Launcher padrão pelo assistente, **ATIVAR MODO KIOSK**, testar, destravar, mais a alternativa de trava básica e o FAQ | `manuais/cardapio-digital-tablet-modo-kiosk/` | ✅ Concluído (19 imagens marcadas) | — |
@@ -168,6 +168,7 @@ definir se um disparo real fica autorizado para a captura final.
 
 | Ideia | Escopo resumido | Status |
 |-------|-----------------|--------|
+| **Estratégias de cupom** | Depois do #21 (campos): manuais de receita — Pix só, primeira compra, só um setor, só retirada… | 💡 Ideia |
 | **Receitas de campanhas** | Juntar o #14 (Segmentação) com o #16 (Campanhas Inteligentes) num manual de receitas prontas: público + mensagem sugerida + parâmetros de agenda. Ex.: quem só pede no fim de semana recebendo oferta de terça, ticket alto recebendo lançamento, quem comprou uma categoria e nunca outra, quem usou cupom uma vez e não voltou | 💡 Ideia |
 | **Indicadores (aba da mesma página)** | A primeira aba de Campanhas WhatsApp: analytics de BeeBot, campanha e campanha inteligente — nenhum manual cobre | 💡 Ideia |
 
@@ -206,6 +207,7 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 ## Histórico
 
 - 2026-08-28 — **#18 Concluído** (`manuais/campanhas-sms/`). Produzido do zero no Cloud Agent. **Escopo:** criar campanha, créditos por segmento (GSM 160 × UCS-2 70 + switch sem acento), PIX e blacklist/opt-out. **Disparo autorizado** para o comercial 15 99132-0694. Campanha #65 enviada (3 dest / 3 créditos; o rascunho já tinha dois telefones de fixture). Saldo 95 → 92. 14 imagens. **Não geramos PIX.** Variáveis reais da API: `primeiro_nome`, `nome`, `saldo_cashback`, `meu_link`. Aguardando publicação do dono.
+- 2026-08-28 — **#21 Concluído** (`manuais/cupom-desconto/`). Campos do modal CRM (incluindo regras de 27/08) + faixa e lista no cardápio digital. Estratégias de cupom ficam como ideia. Sem print de Histórico (dado de cliente). Sem aplicar no PDV.
 - 2026-08-28 — **#58 Concluído** (`manuais/ia-chatgpt-whatsapp/`). Migração do [ChatGPT no WhatsApp](https://ajuda.beefood.com.br/baseconhecimento/como-configurar-a-inteligencia-artificial-do-chatgpt-no-whatsapp-do-seu-restaurante/). Prints da OpenAI e exemplos de WhatsApp copiados do artigo. Telas novas do web: Aplicativos → Inteligência Artificial (`/ia`) — boas-vindas, Chave Secreta e Opções de Configuração (ativar, modelo, nome, tipo, SALVAR). Sem print do BeeBot Windows. Chave OpenAI **não** foi gravada no sandbox.
 - 2026-08-26 — **#57 Concluído** (`manuais/app-entregadores/`). Migração do [BeeFood Aplicativo para Entregadores](https://ajuda.beefood.com.br/baseconhecimento/beefood-aplicativo-para-entregadores/). Prints do app (código de barras, entregas, rota, finalizar, iFood) copiados do artigo. Telas novas do web: Aplicativos → BeeFood Entregador; Cadastro → Funcionários (função Entregador); Configuração → Usuários (funcionário + switch **Aplicativos**); Configuração → Impressão → Layout → Cupom Pedido → **Código de Barras App Entrega**.
 - 2026-08-22 — **#49–#56 Concluídos** (migração do ajuda.beefood; números deslocados porque o **#48** ficou com Capas e Destaques). Oito pastas: Pixel API, Pixel somente, Mapas Google, Domínio, TEF Stone (+ A001), TEF PayGo (Client PayGo liberado), Gaveta (cópia da Control iD, sem tela web), Mercado Pago (artigo + modal novo). Prints de terceiros copiados para o repo; telas de salvar no BeeFood recapturadas no tema claro. TEF Novo modal não abriu (quota 0/0 no sandbox) — ficou a lista Configuração → TEF.
