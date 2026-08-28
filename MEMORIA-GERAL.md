@@ -545,6 +545,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Mercado Pago | `manuais/mercado-pago/` | ✅ Concluído |
 | BeeFood Entregador (app motoboy) | `manuais/app-entregadores/` | ✅ Concluído |
 | IA ChatGPT no WhatsApp | `manuais/ia-chatgpt-whatsapp/` | ✅ Concluído |
+| Campanhas SMS | `manuais/campanhas-sms/` | ✅ Concluído |
 
 ---
 

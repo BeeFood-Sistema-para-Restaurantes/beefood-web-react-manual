@@ -43,8 +43,9 @@ Food Marketing -> Campanhas SMS
         +-- DELETE /sms2/blacklist/{empresaID}/{usuarioID}/{id}
 ```
 
-Prefixo real: `/datasnap/rest/...`. Mocks em `sms.mocks.ts` existem só como fixture —
-`USE_MOCK = false` em todos os ambientes.
+No código do front o prefixo é `/datasnap/rest/...`. Em produção, em 28/08/2026, as
+chamadas saíram em `https://app3.beetechapi.be/api/sms2/...` (empresa 38311). Mocks em
+`sms.mocks.ts` existem só como fixture — `USE_MOCK = false` em todos os ambientes.
 
 Há versão **mobile** (`MobileSmsPage`) com as mesmas abas. Este manual documenta o **desktop**.
 

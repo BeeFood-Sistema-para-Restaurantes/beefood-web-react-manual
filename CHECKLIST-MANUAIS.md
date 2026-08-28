@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-28 (**#58** IA ChatGPT no WhatsApp; **#57** Entregador; **#49–#56** já migrados — ver `PLANO-MIGRACAO-AJUDA.md`)
+Última atualização: 2026-08-28 (**#18** Campanhas SMS; **#58** IA ChatGPT no WhatsApp; **#57** Entregador)
 
 ## Legenda de status
 
@@ -37,7 +37,7 @@
 | 15 | **Campanhas de WhatsApp** | Criar campanha em massa: escrever a mensagem com variações (reduz risco de bloqueio), anexar mídia, montar a lista de destinatários pelos cinco caminhos (avulso, RFV, filtro avançado, segmentação, Excel), revisar e publicar — mais abortar campanha e ler o resultado | `manuais/campanhas-whatsapp/` | ☑️ Aprovado | — |
 | 16 | **Campanhas Inteligentes** | As seis campanhas que já vêm criadas na conta (quatro delas **ligadas**), o gatilho e a configuração de fábrica de cada uma, os campos dos passos 1, 2 e 3, o catálogo de 20 variáveis (e as nove que só funcionam com histórico do cliente), a variação automática das mensagens e a proteção **Anti Banimento** | `manuais/campanhas-inteligentes/` | ✅ Concluído | — |
 | 17 | **BeeFood Pixel Analytics** | Ler o funil do cardápio digital (Visitas → Visualizações → Carrinho → Pedidos), filtrar por contexto, cardápio e origem, entender os KPIs e o painel Ao vivo | `manuais/pixel-analytics/` | ☑️ Aprovado | — |
-| 18 | **Campanhas SMS** | Criar campanha de SMS, entender a contagem de créditos por segmento (e como economizar sem acento/emoji), comprar créditos por PIX e usar a blacklist / opt-out | `manuais/campanhas-sms/` | ☑️ Aprovado | — |
+| 18 | **Campanhas SMS** | Criar campanha de SMS, entender a contagem de créditos por segmento (e como economizar sem acento/emoji), comprar créditos por PIX e usar a blacklist / opt-out | `manuais/campanhas-sms/` | ✅ Concluído (14 imagens) | — |
 | 19 | **Cashback — configurar o programa** | Ativar o cashback, validade do saldo, saldo mínimo para resgate, percentual fixo ou por dia da semana, em quais canais o cliente ganha e as exceções de produto | `manuais/cashback-configurar/` | ☑️ Aprovado | — |
 | 20 | **Cashback — operar no dia a dia** | Histórico, saldo por cliente, ajuste manual de saldo (creditar e debitar com motivo), fila de processamento e como o operador aplica o cashback no PDV e nas Mesas | `manuais/cashback-operar/` | ☑️ Aprovado | — |
 | 21 | **Cupons de desconto** | Criar cupom nos quatro tipos (percentual, valor fixo, frete grátis e produto grátis), validade, dias da semana, canais, valor mínimo, limites de uso, link do cupom e histórico | `manuais/cupom-desconto/` | ☑️ Aprovado | — |
@@ -142,7 +142,7 @@ ser produzido com dados reais ou se precisa de cenário montado antes.
 | Cupons | **6 cupons** cadastrados (1 ativo) e **12 usos** |
 | Painel Fidelidade | **18 vendas** com fidelidade, **R$ 66,95** de desconto concedido |
 | Avaliações | 2 avaliações, nota geral **5,0** |
-| Campanhas SMS | **100 créditos** de saldo e 1 campanha em rascunho |
+| Campanhas SMS | **92 créditos** (era 95; disparo de teste do #18 gastou 3) e campanha **#65** enviada |
 | Campanhas WhatsApp | BeeBot conectado; campanhas antigas em rascunho |
 | Pixel Analytics | Funcionando, com dados a partir de **junho/2026** |
 | Clientes | 18 clientes classificados por RFV |
@@ -151,8 +151,12 @@ ser produzido com dados reais ou se precisa de cenário montado antes.
 
 **Decisão pendente com o dono:** no manual **#15**, publicar uma campanha **dispara mensagem de
 verdade** para os clientes da conta. Todo o caminho pode ser capturado em rascunho; falta
-definir se um disparo real fica autorizado para a captura final. No **#18**, enviar SMS consome
-os 100 créditos.
+definir se um disparo real fica autorizado para a captura final.
+
+> **Resolvido no #18:** o dono autorizou disparo de teste para o comercial
+> **15 99132-0694**. A campanha #65 foi enviada (3 destinatários / 3 créditos — o rascunho
+> já tinha dois telefones de fixture além do comercial). Detalhes em
+> `manuais/campanhas-sms/MEMORIA.md`.
 
 > **Resolvido no #16:** não foi necessário disparar nada. O editor de campanha não tem
 > auto-save (só grava no **SALVAR (F2)** ou ao confirmar a ativação), e a conta já tinha os três
@@ -201,6 +205,7 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 
 ## Histórico
 
+- 2026-08-28 — **#18 Concluído** (`manuais/campanhas-sms/`). Produzido do zero no Cloud Agent. **Escopo:** criar campanha, créditos por segmento (GSM 160 × UCS-2 70 + switch sem acento), PIX e blacklist/opt-out. **Disparo autorizado** para o comercial 15 99132-0694. Campanha #65 enviada (3 dest / 3 créditos; o rascunho já tinha dois telefones de fixture). Saldo 95 → 92. 14 imagens. **Não geramos PIX.** Variáveis reais da API: `primeiro_nome`, `nome`, `saldo_cashback`, `meu_link`. Aguardando publicação do dono.
 - 2026-08-28 — **#58 Concluído** (`manuais/ia-chatgpt-whatsapp/`). Migração do [ChatGPT no WhatsApp](https://ajuda.beefood.com.br/baseconhecimento/como-configurar-a-inteligencia-artificial-do-chatgpt-no-whatsapp-do-seu-restaurante/). Prints da OpenAI e exemplos de WhatsApp copiados do artigo. Telas novas do web: Aplicativos → Inteligência Artificial (`/ia`) — boas-vindas, Chave Secreta e Opções de Configuração (ativar, modelo, nome, tipo, SALVAR). Sem print do BeeBot Windows. Chave OpenAI **não** foi gravada no sandbox.
 - 2026-08-26 — **#57 Concluído** (`manuais/app-entregadores/`). Migração do [BeeFood Aplicativo para Entregadores](https://ajuda.beefood.com.br/baseconhecimento/beefood-aplicativo-para-entregadores/). Prints do app (código de barras, entregas, rota, finalizar, iFood) copiados do artigo. Telas novas do web: Aplicativos → BeeFood Entregador; Cadastro → Funcionários (função Entregador); Configuração → Usuários (funcionário + switch **Aplicativos**); Configuração → Impressão → Layout → Cupom Pedido → **Código de Barras App Entrega**.
 - 2026-08-22 — **#49–#56 Concluídos** (migração do ajuda.beefood; números deslocados porque o **#48** ficou com Capas e Destaques). Oito pastas: Pixel API, Pixel somente, Mapas Google, Domínio, TEF Stone (+ A001), TEF PayGo (Client PayGo liberado), Gaveta (cópia da Control iD, sem tela web), Mercado Pago (artigo + modal novo). Prints de terceiros copiados para o repo; telas de salvar no BeeFood recapturadas no tema claro. TEF Novo modal não abriu (quota 0/0 no sandbox) — ficou a lista Configuração → TEF.
