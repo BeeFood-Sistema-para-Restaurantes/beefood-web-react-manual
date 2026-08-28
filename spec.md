@@ -40,6 +40,7 @@ manuais/<nome>/
 | IA ChatGPT no WhatsApp | #58 (concluído 28/08/2026) | `manuais/ia-chatgpt-whatsapp/` |
 | Campanhas SMS | #18 (concluído 28/08/2026) | `manuais/campanhas-sms/` |
 | Cupom de Desconto (campos + cardápio) | #21 (concluído 28/08/2026) | `manuais/cupom-desconto/` |
+| Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
 18040-370**. Endereço de entrega de teste nos quatro tipos: **R. Arthur Gomes, 13 — Centro,
