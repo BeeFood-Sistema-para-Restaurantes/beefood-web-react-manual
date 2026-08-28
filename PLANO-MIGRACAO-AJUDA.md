@@ -214,4 +214,5 @@ Antes de produzir: o dono confirma **onde** isso se configura hoje (Windows / pa
 1. Ler `MEMORIA-GERAL.md`.
 2. Ler **este arquivo**.
 3. A fila **#49–#56** já foi produzida.
-4. Próximo passo: o dono publica e avisa — só então marcar 🌐 no checklist.
+4. Pedidos depois desta fila: **#57** BeeFood Entregador e **#58** Pick n Go! — ambos já produzidos.
+5. Próximo passo: o dono publica e avisa — só então marcar 🌐 no checklist.

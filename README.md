@@ -51,6 +51,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Avisos do cardápio digital (recado sem CTA) | [`manuais/cardapio-digital-avisos/`](manuais/cardapio-digital-avisos/cardapio-digital-avisos.md) | ✅ Concluído |
 | Capas e Destaques (banners com imagem e vídeo) | [`manuais/cardapio-digital-capas-destaques/`](manuais/cardapio-digital-capas-destaques/cardapio-digital-capas-destaques.md) | ✅ Concluído |
 | BeeFood Entregador (app do motoboy) | [`manuais/app-entregadores/`](manuais/app-entregadores/app-entregadores.md) | ✅ Concluído |
+| Pick N Go! (cotação e entregador) | [`manuais/integracao-pick-n-go/`](manuais/integracao-pick-n-go/integracao-pick-n-go.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
