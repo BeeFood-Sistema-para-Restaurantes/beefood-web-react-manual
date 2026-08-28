@@ -52,6 +52,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Capas e Destaques (banners com imagem e vídeo) | [`manuais/cardapio-digital-capas-destaques/`](manuais/cardapio-digital-capas-destaques/cardapio-digital-capas-destaques.md) | ✅ Concluído |
 | BeeFood Entregador (app do motoboy) | [`manuais/app-entregadores/`](manuais/app-entregadores/app-entregadores.md) | ✅ Concluído |
 | IA ChatGPT no WhatsApp | [`manuais/ia-chatgpt-whatsapp/`](manuais/ia-chatgpt-whatsapp/ia-chatgpt-whatsapp.md) | ✅ Concluído |
+| Campanhas SMS (Food Marketing) | [`manuais/campanhas-sms/`](manuais/campanhas-sms/campanhas-sms.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
