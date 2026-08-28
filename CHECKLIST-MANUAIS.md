@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-28 (**#59** Entrega Fácil iFood; **#18** SMS; **#21** Cupom; **#58** IA ChatGPT)
+Última atualização: 2026-08-28 (**#18** SMS; **#21** Cupom; **#59–#63** entregas/marketplace)
 
 ## Legenda de status
 
@@ -80,6 +80,10 @@
 | 57 | **BeeFood Entregador** | App do motoboy: cadastro (funcionário + usuário) + código de barras no cupom + uso no celular | `manuais/app-entregadores/` | ✅ Concluído | — |
 | 58 | **IA ChatGPT no WhatsApp** | Tutorial OpenAI (chave + créditos) + tela nova `/ia` (Chave Secreta, ativar, modelo, tipo, SALVAR) | `manuais/ia-chatgpt-whatsapp/` | ✅ Concluído | — |
 | 59 | **Entrega Fácil iFood** | Cotar e solicitar entregador iFood no Delivery (Entrega Sob Demanda): credencial iFood + card Aplicativos + detalhes do pedido → Adicionar Entregador | `manuais/entrega-facil-ifood/` | ✅ Concluído | — |
+| 60 | **Let's Express** | Credenciais + sincronização em Aplicativos; solicitar entregador no Delivery | `manuais/integracao-lets-express/` | ✅ Concluído | — |
+| 61 | **Foody Delivery** | Token, webhook e origens no BeeFood; gestão e rastreio no painel Foody | `manuais/integracao-foody-delivery/` | ✅ Concluído | — |
+| 62 | **Pick n Go!** | App ID / App Key em Aplicativos; cotação e entregador no Delivery | `manuais/integracao-pick-n-go/` | ✅ Concluído | — |
+| 63 | **Uai Rango** | Token do painel Uai Rango + credenciais e formas de recebimento no BeeFood | `manuais/integracao-uai-rango/` | ✅ Concluído | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -89,7 +93,7 @@
 >
 > **#39–#46 são bloco de Parâmetros:** plano em [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md). Caixa / `caixaPorUsuario` continua no **#13**. App Garçom = só config. Balança e fichas são manuais completos. Produção: #39 → #42 → #44 → #45 → #41 → #40 → #43 → #46.
 >
-> **#49–#56 são fila de migração do ajuda.beefood:** plano em [`PLANO-MIGRACAO-AJUDA.md`](PLANO-MIGRACAO-AJUDA.md). Concluídos em 22/08/2026. O **#48** é Capas e Destaques. O **#57** (app Entregador), o **#58** (IA ChatGPT) e o **#59** (Entrega Fácil iFood) saíram do mesmo ajuda.beefood, pedidos à parte.
+> **#49–#56 são fila de migração do ajuda.beefood:** plano em [`PLANO-MIGRACAO-AJUDA.md`](PLANO-MIGRACAO-AJUDA.md). Concluídos em 22/08/2026. O **#48** é Capas e Destaques. O **#57** (app Entregador), o **#58** (IA ChatGPT), o **#59** (Entrega Fácil iFood) e o **#60–#63** (Let's Express, Foody, Pick n Go, Uai Rango) saíram do mesmo ajuda.beefood, pedidos à parte.
 
 ---
 
@@ -207,6 +211,7 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 
 ## Histórico
 
+- 2026-08-28 — **#60–#63 Concluídos** (merge das PRs abertas, numeração ajustada): Let's Express, Foody Delivery, Pick n Go, Uai Rango. Cada um nasceu como #58/#59 e foi renumerado para não colidir com o #58 (IA) e o #59 (Entrega Fácil iFood).
 - 2026-08-28 — **#59 Concluído** (`manuais/entrega-facil-ifood/`). Migração do [Entrega Fácil iFood](https://ajuda.beefood.com.br/baseconhecimento/entrega-facil-ifood-como-solicitar-entregador-para-pedidos-delivery/). Prints do portal iFood (Entrega Sob Demanda, BeeFood Ativo), Gestor e WhatsApp copiados do artigo. Telas novas do web: Aplicativos → iFood (Merchant ID **Ativo**); card Entrega Fácil iFood; Delivery → detalhes do pedido → **Adicionar Entregador** → lista com **iFood Entrega Fácil**. Cotação **não** fotografada (pedido do dono: não clicar no iFood da lista em teste). Checkbox *Incluir frete* do Windows **não existe** no web.
 - 2026-08-28 — **#18 Concluído** (`manuais/campanhas-sms/`). Produzido do zero no Cloud Agent. **Escopo:** criar campanha, créditos por segmento (GSM 160 × UCS-2 70 + switch sem acento), PIX e blacklist/opt-out. **Disparo autorizado** para o comercial 15 99132-0694. Campanha #65 enviada (3 dest / 3 créditos; o rascunho já tinha dois telefones de fixture). Saldo 95 → 92. 14 imagens. **Não geramos PIX.** Variáveis reais da API: `primeiro_nome`, `nome`, `saldo_cashback`, `meu_link`. Aguardando publicação do dono.
 - 2026-08-28 — **#21 Concluído** (`manuais/cupom-desconto/`). Campos do modal CRM (incluindo regras de 27/08) + faixa e lista no cardápio digital. Estratégias de cupom ficam como ideia. Sem print de Histórico (dado de cliente). Sem aplicar no PDV.

@@ -52,6 +52,10 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Capas e Destaques (banners com imagem e vídeo) | [`manuais/cardapio-digital-capas-destaques/`](manuais/cardapio-digital-capas-destaques/cardapio-digital-capas-destaques.md) | ✅ Concluído |
 | BeeFood Entregador (app do motoboy) | [`manuais/app-entregadores/`](manuais/app-entregadores/app-entregadores.md) | ✅ Concluído |
 | Entrega Fácil iFood | [`manuais/entrega-facil-ifood/`](manuais/entrega-facil-ifood/entrega-facil-ifood.md) | ✅ Concluído |
+| Let's Express | [`manuais/integracao-lets-express/`](manuais/integracao-lets-express/integracao-lets-express.md) | ✅ Concluído |
+| Foody Delivery | [`manuais/integracao-foody-delivery/`](manuais/integracao-foody-delivery/integracao-foody-delivery.md) | ✅ Concluído |
+| Pick n Go! | [`manuais/integracao-pick-n-go/`](manuais/integracao-pick-n-go/integracao-pick-n-go.md) | ✅ Concluído |
+| Uai Rango | [`manuais/integracao-uai-rango/`](manuais/integracao-uai-rango/integracao-uai-rango.md) | ✅ Concluído |
 | IA ChatGPT no WhatsApp | [`manuais/ia-chatgpt-whatsapp/`](manuais/ia-chatgpt-whatsapp/ia-chatgpt-whatsapp.md) | ✅ Concluído |
 | Campanhas SMS (Food Marketing) | [`manuais/campanhas-sms/`](manuais/campanhas-sms/campanhas-sms.md) | ✅ Concluído |
 | Cupom de Desconto (campos + cardápio) | [`manuais/cupom-desconto/`](manuais/cupom-desconto/cupom-desconto.md) | ✅ Concluído |

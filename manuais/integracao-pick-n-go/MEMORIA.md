@@ -1,4 +1,4 @@
-# MEMORIA.md — #58 Pick n Go! (cotação e entregador)
+# MEMORIA.md — #62 Pick n Go! (cotação e entregador)
 
 ## Escopo
 Migração do artigo [Pick N Go! – Como solicitar cotação e entregador para Delivery](https://ajuda.beefood.com.br/baseconhecimento/pick-n-go-como-solicitar-cotacao-e-entregador-para-delivery/).

@@ -3,7 +3,7 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-28 (**#59** Entrega Fácil iFood; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
+Última atualização: 2026-08-28 (**#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
@@ -548,6 +548,10 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Campanhas SMS | `manuais/campanhas-sms/` | ✅ Concluído |
 | Cupom de Desconto | `manuais/cupom-desconto/` | ✅ Concluído |
 | Entrega Fácil iFood | `manuais/entrega-facil-ifood/` | ✅ Concluído |
+| Let's Express | `manuais/integracao-lets-express/` | ✅ Concluído |
+| Foody Delivery | `manuais/integracao-foody-delivery/` | ✅ Concluído |
+| Pick n Go! | `manuais/integracao-pick-n-go/` | ✅ Concluído |
+| Uai Rango | `manuais/integracao-uai-rango/` | ✅ Concluído |
 
 ---
 

@@ -1,4 +1,4 @@
-# texto-documentation.ia.md — #58 Pick n Go!
+# texto-documentation.ia.md — #62 Pick n Go!
 
 > **O que é este arquivo:** o **texto pronto** (prompt) para colar no construtor de documentação
 > do app e gerar o manual na interface do BeeFood. Copie o bloco abaixo da linha `---` e cole.

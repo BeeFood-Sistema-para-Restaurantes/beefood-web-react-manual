@@ -1,4 +1,4 @@
-# fluxo-codigo.md — #58 Uai Rango (uso interno, NÃO publicar)
+# fluxo-codigo.md — #63 Uai Rango (uso interno, NÃO publicar)
 
 - Card **Aplicativos → Delivery → UaiRango** (`app.id === 'uairango'`).
 - Modal: `UaiRangoModal` + `MarketplaceModalBase` (abas `credenciais` / `formas-recebimento`).

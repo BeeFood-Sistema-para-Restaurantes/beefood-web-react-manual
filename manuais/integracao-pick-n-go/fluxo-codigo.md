@@ -1,4 +1,4 @@
-# fluxo-codigo.md — #58 Pick n Go! (uso interno, NÃO publicar)
+# fluxo-codigo.md — #62 Pick n Go! (uso interno, NÃO publicar)
 
 Fonte antiga: [Pick N Go! – Como solicitar cotação e entregador](https://ajuda.beefood.com.br/baseconhecimento/pick-n-go-como-solicitar-cotacao-e-entregador-para-delivery/) (Windows). Tela nova = painel web.
 

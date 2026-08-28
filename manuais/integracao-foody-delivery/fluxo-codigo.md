@@ -1,4 +1,4 @@
-# fluxo-codigo.md — #58 Foody Delivery (uso interno, NÃO publicar)
+# fluxo-codigo.md — #61 Foody Delivery (uso interno, NÃO publicar)
 
 - Card **Aplicativos → Entrega → Foody Delivery** (`app.id === 'foody-delivery'`).
   Modal desktop: `FoodyDeliveryModal`. Mobile: `MobileFoodyDeliveryPage` (não documentar).
