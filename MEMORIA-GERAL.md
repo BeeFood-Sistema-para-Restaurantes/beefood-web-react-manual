@@ -3,7 +3,7 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-28 (**#58** IA ChatGPT no WhatsApp; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
+Última atualização: 2026-08-28 (**#59** Let's Express; **#58** IA ChatGPT no WhatsApp; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
@@ -545,13 +545,14 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Mercado Pago | `manuais/mercado-pago/` | ✅ Concluído |
 | BeeFood Entregador (app motoboy) | `manuais/app-entregadores/` | ✅ Concluído |
 | IA ChatGPT no WhatsApp | `manuais/ia-chatgpt-whatsapp/` | ✅ Concluído |
+| Integração Let's Express | `manuais/integracao-lets-express/` | ✅ Concluído |
 
 ---
 
 ## 10. Como retomar o trabalho (checklist de início de sessão)
 
 1. Ler este `MEMORIA-GERAL.md`.
-2. Se a sessão for da fila do ajuda.beefood, ler `PLANO-MIGRACAO-AJUDA.md`. A fila **#49–#56** já foi produzida. O **#57** (app Entregador) e o **#58** (IA ChatGPT no WhatsApp) foram pedidos depois e também já estão prontos.
+2. Se a sessão for da fila do ajuda.beefood, ler `PLANO-MIGRACAO-AJUDA.md`. A fila **#49–#56** já foi produzida. O **#57** (app Entregador), o **#58** (IA ChatGPT no WhatsApp) e o **#59** (Let's Express) foram pedidos depois e também já estão prontos.
 3. Ler a `MEMORIA.md` do manual em andamento (se houver).
 4. Logar em `contato@beefood.com.br` e ativar tema claro.
 5. Conferir estado da funcionalidade no sistema antes de capturar.

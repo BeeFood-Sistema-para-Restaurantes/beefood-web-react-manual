@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-28 (**#58** IA ChatGPT no WhatsApp; **#57** Entregador; **#49–#56** já migrados — ver `PLANO-MIGRACAO-AJUDA.md`)
+Última atualização: 2026-08-28 (**#59** Let's Express; **#58** IA ChatGPT no WhatsApp; **#57** Entregador; **#49–#56** já migrados — ver `PLANO-MIGRACAO-AJUDA.md`)
 
 ## Legenda de status
 
@@ -79,6 +79,7 @@
 | 56 | **Mercado Pago** | Tutorial do MP + modal novo (Public Key + Access Token + switch) | `manuais/mercado-pago/` | ✅ Concluído | — |
 | 57 | **BeeFood Entregador** | App do motoboy: cadastro (funcionário + usuário) + código de barras no cupom + uso no celular | `manuais/app-entregadores/` | ✅ Concluído | — |
 | 58 | **IA ChatGPT no WhatsApp** | Tutorial OpenAI (chave + créditos) + tela nova `/ia` (Chave Secreta, ativar, modelo, tipo, SALVAR) | `manuais/ia-chatgpt-whatsapp/` | ✅ Concluído | — |
+| 59 | **Let's Express** | Credenciais (Api Key + Empresa ID) em Aplicativos → Entrega; sync manual/PREPARO/PRONTO + origens; despachar e cancelar no Delivery | `manuais/integracao-lets-express/` | ✅ Concluído | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -88,7 +89,7 @@
 >
 > **#39–#46 são bloco de Parâmetros:** plano em [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md). Caixa / `caixaPorUsuario` continua no **#13**. App Garçom = só config. Balança e fichas são manuais completos. Produção: #39 → #42 → #44 → #45 → #41 → #40 → #43 → #46.
 >
-> **#49–#56 são fila de migração do ajuda.beefood:** plano em [`PLANO-MIGRACAO-AJUDA.md`](PLANO-MIGRACAO-AJUDA.md). Concluídos em 22/08/2026. O **#48** é Capas e Destaques. O **#57** (app Entregador) e o **#58** (IA ChatGPT no WhatsApp) saíram do mesmo ajuda.beefood, pedidos à parte.
+> **#49–#56 são fila de migração do ajuda.beefood:** plano em [`PLANO-MIGRACAO-AJUDA.md`](PLANO-MIGRACAO-AJUDA.md). Concluídos em 22/08/2026. O **#48** é Capas e Destaques. O **#57** (app Entregador), o **#58** (IA ChatGPT no WhatsApp) e o **#59** (Let's Express) saíram do mesmo ajuda.beefood, pedidos à parte.
 
 ---
 
@@ -201,6 +202,7 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 
 ## Histórico
 
+- 2026-08-28 — **#59 Concluído** (`manuais/integracao-lets-express/`). Migração do [Let's Express](https://ajuda.beefood.com.br/baseconhecimento/lets-express-como-solicitar-cotacao-e-entregador-para-delivery/). Telas novas do web: Aplicativos → Entrega → Lets Express (Api Key, Empresa ID, sync manual/PREPARO/PRONTO, origens); Delivery → Adicionar Entregador → Lets Express. Sem print do Windows. Cotação não existe no web. Credencial dummy restaurada no sandbox.
 - 2026-08-28 — **#58 Concluído** (`manuais/ia-chatgpt-whatsapp/`). Migração do [ChatGPT no WhatsApp](https://ajuda.beefood.com.br/baseconhecimento/como-configurar-a-inteligencia-artificial-do-chatgpt-no-whatsapp-do-seu-restaurante/). Prints da OpenAI e exemplos de WhatsApp copiados do artigo. Telas novas do web: Aplicativos → Inteligência Artificial (`/ia`) — boas-vindas, Chave Secreta e Opções de Configuração (ativar, modelo, nome, tipo, SALVAR). Sem print do BeeBot Windows. Chave OpenAI **não** foi gravada no sandbox.
 - 2026-08-26 — **#57 Concluído** (`manuais/app-entregadores/`). Migração do [BeeFood Aplicativo para Entregadores](https://ajuda.beefood.com.br/baseconhecimento/beefood-aplicativo-para-entregadores/). Prints do app (código de barras, entregas, rota, finalizar, iFood) copiados do artigo. Telas novas do web: Aplicativos → BeeFood Entregador; Cadastro → Funcionários (função Entregador); Configuração → Usuários (funcionário + switch **Aplicativos**); Configuração → Impressão → Layout → Cupom Pedido → **Código de Barras App Entrega**.
 - 2026-08-22 — **#49–#56 Concluídos** (migração do ajuda.beefood; números deslocados porque o **#48** ficou com Capas e Destaques). Oito pastas: Pixel API, Pixel somente, Mapas Google, Domínio, TEF Stone (+ A001), TEF PayGo (Client PayGo liberado), Gaveta (cópia da Control iD, sem tela web), Mercado Pago (artigo + modal novo). Prints de terceiros copiados para o repo; telas de salvar no BeeFood recapturadas no tema claro. TEF Novo modal não abriu (quota 0/0 no sandbox) — ficou a lista Configuração → TEF.
