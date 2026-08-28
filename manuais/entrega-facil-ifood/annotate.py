@@ -1,6 +1,6 @@
 """Anota screenshots — setas verdes + badges. Coordenadas em fracoes 0..1."""
 import os, math
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 SRC = "imagens-puras"
 OUT = "imagens-tratadas"
@@ -51,9 +51,13 @@ def passthrough(name):
     print("OK (contexto)", name)
 
 
-def annotate(name, markers, ring=None):
+def annotate(name, markers, ring=None, borrao=None):
     img = Image.open(os.path.join(SRC, name)).convert("RGBA")
     W, H = img.size
+    for (fx, fy, fw, fh) in (borrao or []):
+        caixa = (int(fx * W), int(fy * H), int((fx + fw) * W), int((fy + fh) * H))
+        trecho = img.crop(caixa).filter(ImageFilter.GaussianBlur(radius=max(6, W // 140)))
+        img.paste(trecho, caixa)
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(overlay)
     r = int(W * 0.0125)
@@ -92,8 +96,8 @@ annotate("02-modal-entrega-facil.png", [
     (3, 0.500, 0.685, 0.280, 0.740),
 ])
 annotate("03-modal-ifood-credenciais.png", [
-    (1, 0.305, 0.315, 0.220, 0.250),
-    (2, 0.545, 0.728, 0.720, 0.790),
+    (1, 0.300, 0.308, 0.220, 0.250),
+    (2, 0.488, 0.388, 0.620, 0.325),
 ])
 annotate("03b-ifood-novo-cardapio.png", [
     (1, 0.500, 0.455, 0.280, 0.400),
@@ -101,10 +105,12 @@ annotate("03b-ifood-novo-cardapio.png", [
 ])
 annotate("04-delivery.png", [
     (1, 0.095, 0.205, 0.200, 0.155),
-    (2, 0.255, 0.105, 0.400, 0.080),
+    (2, 0.420, 0.280, 0.540, 0.175),
 ])
-annotate("04b-novo-pedido.png", [
-    (1, 0.860, 0.228, 0.730, 0.175),
-    (2, 0.860, 0.488, 0.730, 0.545),
+annotate("04b-detalhes-pedido.png", [
+    (1, 0.850, 0.735, 0.720, 0.680),
+])
+annotate("05-lista-entregadores.png", [
+    (1, 0.385, 0.475, 0.255, 0.415),
 ])
 print("done")

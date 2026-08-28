@@ -16,8 +16,8 @@ Você consegue:
 > artigo original.
 
 No BeeFood web **não existe** o botão vermelho *Solicitar Entrega Fácil iFood*
-do Windows. O caminho novo é: **Delivery → selecionar o entregador → iFood
-Entrega Fácil**.
+do Windows. O caminho novo é: **Delivery → detalhes do pedido → Adicionar
+Entregador → iFood Entrega Fácil**.
 
 ---
 
@@ -62,15 +62,16 @@ Se estiver pendente, fale com o **suporte BeeFood**.
 ### Passo 3. Abrir as credenciais
 
 No BeeFood, abra **Aplicativos**. No bloco de marketplaces, clique em **iFood**.
-Na aba **Credenciais**, clique em **Novo Cardápio** (1). Se a loja ainda não
-tiver integração, o próprio modal pede para falar com o **Suporte** (2).
+Na aba **Credenciais**, a loja precisa aparecer como **Ativo**. Se ainda não
+tiver integração, clique em **+ Novo Cardápio** (1). Quando a conexão estiver
+pronta, o Merchant ID fica com o selo **Ativo** (2).
 
 ![Aplicativos → iFood → Credenciais](imagens-tratadas/03-modal-ifood-credenciais.png)
 
 | Nº | O que fazer |
 |----|-------------|
 | 1 | **+ Novo Cardápio** — cadastra o Merchant ID da loja. |
-| 2 | Link **Suporte** — use se a conexão ainda não foi liberada. |
+| 2 | Selo **Ativo** — a loja já está conectada ao iFood. |
 
 ### Passo 4. Colar o Merchant ID
 
@@ -123,35 +124,39 @@ do iFood (1). Depois a solicitação aparece ao escolher o entregador em
 
 ## Parte 4 — Solicitar o entregador
 
-### Passo 7. Abrir o Delivery
+### Passo 7. Abrir o Delivery e o pedido
 
-No menu, clique em **Delivery** (1). Use um pedido que já esteja no quadro ou
-crie um com **+ Novo Pedido (F1)** (2). O pedido precisa ser **entrega** (não
-retirada) e ter endereço completo.
+No menu, clique em **Delivery** (1). Crie um pedido de **entrega** com endereço
+completo (**+ Novo Pedido (F1)**) ou use um que já esteja no quadro. Depois
+clique no card do pedido (2) para abrir os **detalhes**.
 
 ![Delivery](imagens-tratadas/04-delivery.png)
 
 | Nº | O que fazer |
 |----|-------------|
 | 1 | Menu **Delivery**. |
-| 2 | **+ Novo Pedido (F1)** — pedido manual. |
+| 2 | Card do pedido — abre os detalhes à direita. |
 
-### Passo 8. Trocar para Entrega e escolher o entregador
+### Passo 8. Adicionar o entregador
 
-No **Novo Pedido**, mude **Retirada** para **Entrega** (1). Depois clique em
-**Selecionar entregador** (2). Num pedido já lançado, o mesmo modal abre pelo
-ícone de moto no card ou em **Alterar Entregador** nos detalhes.
+Nos detalhes do pedido, clique em **Adicionar Entregador** (1). Se o pedido já
+tiver motoboy, o botão aparece como **Alterar Entregador**.
 
-![Novo Pedido — tipo Entrega e entregador](imagens-tratadas/04b-novo-pedido.png)
+![Detalhes do pedido — Adicionar Entregador](imagens-tratadas/04b-detalhes-pedido.png)
 
 | Nº | O que fazer |
 |----|-------------|
-| 1 | Tipo **Entrega** (não deixe em *Retirada*). |
-| 2 | **Selecionar entregador** — abre a lista com **Entrega Terceirizada**. |
+| 1 | **Adicionar Entregador** — abre a lista. |
 
-Em **Entrega Terceirizada**, clique em **iFood Entrega Fácil**. Se aparecer
-*Não configurado*, volte aos Passos 1 a 4. Se aparecer *Selecione apenas uma
-venda*, desmarque os outros pedidos.
+Na lista, em **Entrega Terceirizada**, clique em **iFood Entrega Fácil** (1).
+Se aparecer *Não configurado*, volte aos Passos 1 a 4. Se aparecer *Selecione
+apenas uma venda*, desmarque os outros pedidos.
+
+![Lista — iFood Entrega Fácil](imagens-tratadas/05-lista-entregadores.png)
+
+| Nº | O que fazer |
+|----|-------------|
+| 1 | **iFood Entrega Fácil** — abre a cotação. |
 
 ### Passo 9. Conferir a cotação
 

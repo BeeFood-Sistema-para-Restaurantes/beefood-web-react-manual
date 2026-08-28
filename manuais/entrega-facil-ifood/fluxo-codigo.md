@@ -7,8 +7,9 @@
   `GET /api/entregas/credencialAtiva/{empresa}/{filial}/{usuario}/1`.
 - Permissão RBAC: `ifoodEntregaFacil` (`usePermissions`).
 - ID interno do serviço: `ENTREGA_TERCEIRIZADA_IDS.IFOOD_ENTREGA_FACIL = -5`.
-- Entrada no Delivery: `ModalAlterarMotorista` → `onIfoodEntregaFacilClick`
-  (`Delivery.tsx`, `VendaDetalhes.tsx`). Só **1** pedido por vez.
+- Entrada no Delivery: detalhes do pedido → **Adicionar Entregador**
+  (`VendaDetalhes.tsx`) → `ModalAlterarMotorista` → `onIfoodEntregaFacilClick`.
+  Só **1** pedido por vez.
 - Modal operacional: `ModalIfoodEntregaFacil`.
   - Endereço incompleto (CEP/rua/bairro/número) → editar +
     `PUT /datasnap/rest/cliente2/atualizarEndereco` +

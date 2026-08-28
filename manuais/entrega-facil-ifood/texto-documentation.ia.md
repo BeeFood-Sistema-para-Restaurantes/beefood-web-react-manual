@@ -15,7 +15,7 @@ Crie um novo manual no app: em **Aplicativos** (seção **Entrega**), adicione u
 1. **Conteúdo do manual (use na íntegra):**
    `beefood-web-react-manual/manuais/entrega-facil-ifood/entrega-facil-ifood.md`
 
-2. **Imagens (use estas 10, nesta ordem):**
+2. **Imagens (use estas 11, nesta ordem):**
    - `beefood-web-react-manual/manuais/entrega-facil-ifood/imagens-tratadas/07-portal-ifood-entrega-sob-demanda.png`
    - `beefood-web-react-manual/manuais/entrega-facil-ifood/imagens-tratadas/08-portal-ifood-app-beefood.png`
    - `beefood-web-react-manual/manuais/entrega-facil-ifood/imagens-tratadas/03-modal-ifood-credenciais.png`
@@ -23,7 +23,8 @@ Crie um novo manual no app: em **Aplicativos** (seção **Entrega**), adicione u
    - `beefood-web-react-manual/manuais/entrega-facil-ifood/imagens-tratadas/01-aplicativos-entrega-facil.png`
    - `beefood-web-react-manual/manuais/entrega-facil-ifood/imagens-tratadas/02-modal-entrega-facil.png`
    - `beefood-web-react-manual/manuais/entrega-facil-ifood/imagens-tratadas/04-delivery.png`
-   - `beefood-web-react-manual/manuais/entrega-facil-ifood/imagens-tratadas/04b-novo-pedido.png`
+   - `beefood-web-react-manual/manuais/entrega-facil-ifood/imagens-tratadas/04b-detalhes-pedido.png`
+   - `beefood-web-react-manual/manuais/entrega-facil-ifood/imagens-tratadas/05-lista-entregadores.png`
    - `beefood-web-react-manual/manuais/entrega-facil-ifood/imagens-tratadas/09-gestor-ifood.png`
    - `beefood-web-react-manual/manuais/entrega-facil-ifood/imagens-tratadas/10-whatsapp-acompanhamento.png`
 
@@ -31,10 +32,10 @@ Crie um novo manual no app: em **Aplicativos** (seção **Entrega**), adicione u
 
 **Como montar a página:**
 - Use o conteúdo do `entrega-facil-ifood.md` exatamente como está (seções, textos e tabelas).
-- Insira as 10 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
+- Insira as 11 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
 - **Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa"** (mesmo tamanho, posição, legenda e estilo).
 - Idioma **português do Brasil**, tom didático (usuário final / restaurante).
-- Mantenha em destaque: Entrega Sob Demanda no iFood; Merchant ID em Aplicativos → iFood; o caminho novo é **Selecionar entregador → iFood Entrega Fácil**; pedido iFood = CONFIRMAR; pedido manual = CONTINUAR + pagamento; um pedido por vez.
+- Mantenha em destaque: Entrega Sob Demanda no iFood; Merchant ID **Ativo** em Aplicativos → iFood; o caminho novo é **detalhes do pedido → Adicionar Entregador → iFood Entrega Fácil**; pedido iFood = CONFIRMAR; pedido manual = CONTINUAR + pagamento; um pedido por vez.
 - **Não** publique o rodapé "Referências internas" nem o `fluxo-codigo.md`.
 
 ---
@@ -49,7 +50,8 @@ Crie um novo manual no app: em **Aplicativos** (seção **Entrega**), adicione u
 | 4 | `03b-ifood-novo-cardapio.png` | setas | Merchant ID + SALVAR |
 | 5 | `01-aplicativos-entrega-facil.png` | setas | Card Entrega Fácil iFood |
 | 6 | `02-modal-entrega-facil.png` | setas | Como habilitar + Delivery + Manual |
-| 7 | `04-delivery.png` | setas | Delivery + Novo Pedido |
-| 8 | `04b-novo-pedido.png` | setas | Tipo Entrega + Selecionar entregador |
-| 9 | `09-gestor-ifood.png` | contexto | Gestor — via Sob Demanda |
-| 10 | `10-whatsapp-acompanhamento.png` | contexto | WhatsApp — link de acompanhamento |
+| 7 | `04-delivery.png` | setas | Delivery — clique no pedido |
+| 8 | `04b-detalhes-pedido.png` | setas | Detalhes → Adicionar Entregador |
+| 9 | `05-lista-entregadores.png` | setas | Lista → iFood Entrega Fácil |
+| 10 | `09-gestor-ifood.png` | contexto | Gestor — via Sob Demanda |
+| 11 | `10-whatsapp-acompanhamento.png` | contexto | WhatsApp — link de acompanhamento |
