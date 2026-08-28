@@ -3,7 +3,7 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-28 (**#58** IA ChatGPT no WhatsApp; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
+Última atualização: 2026-08-28 (**#21** Cupom de Desconto; **#58** IA ChatGPT no WhatsApp; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
@@ -545,6 +545,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Mercado Pago | `manuais/mercado-pago/` | ✅ Concluído |
 | BeeFood Entregador (app motoboy) | `manuais/app-entregadores/` | ✅ Concluído |
 | IA ChatGPT no WhatsApp | `manuais/ia-chatgpt-whatsapp/` | ✅ Concluído |
+| Cupom de Desconto | `manuais/cupom-desconto/` | ✅ Concluído |
 
 ---
 
