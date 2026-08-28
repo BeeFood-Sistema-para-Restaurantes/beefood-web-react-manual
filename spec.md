@@ -37,6 +37,7 @@ manuais/<nome>/
 | Parâmetros (Configuração) | #39–#46 concluídos (Opção B — 8 manuais) | [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md) |
 | Migração do ajuda.beefood | #49–#56 (concluídos 22/08/2026) | [`PLANO-MIGRACAO-AJUDA.md`](PLANO-MIGRACAO-AJUDA.md) |
 | BeeFood Entregador (app motoboy) | #57 (concluído 26/08/2026) | `manuais/app-entregadores/` |
+| Foody Delivery | #58 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
 18040-370**. Endereço de entrega de teste nos quatro tipos: **R. Arthur Gomes, 13 — Centro,
