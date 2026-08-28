@@ -38,6 +38,7 @@ manuais/<nome>/
 | Migração do ajuda.beefood | #49–#56 (concluídos 22/08/2026) | [`PLANO-MIGRACAO-AJUDA.md`](PLANO-MIGRACAO-AJUDA.md) |
 | BeeFood Entregador (app motoboy) | #57 (concluído 26/08/2026) | `manuais/app-entregadores/` |
 | IA ChatGPT no WhatsApp | #58 (concluído 28/08/2026) | `manuais/ia-chatgpt-whatsapp/` |
+| Campanhas SMS | #18 (concluído 28/08/2026) | `manuais/campanhas-sms/` |
 | Cupom de Desconto (campos + cardápio) | #21 (concluído 28/08/2026) | `manuais/cupom-desconto/` |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
