@@ -547,6 +547,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | IA ChatGPT no WhatsApp | `manuais/ia-chatgpt-whatsapp/` | ✅ Concluído |
 | Campanhas SMS | `manuais/campanhas-sms/` | ✅ Concluído |
 | Cupom de Desconto | `manuais/cupom-desconto/` | ✅ Concluído |
+| Entrega Fácil iFood | `manuais/entrega-facil-ifood/` | ✅ Concluído |
 
 ---
 
