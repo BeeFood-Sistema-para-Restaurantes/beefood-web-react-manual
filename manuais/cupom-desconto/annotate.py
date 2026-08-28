@@ -92,8 +92,13 @@ annotate("04-modal-avancado.png", [
 annotate("05-cardapio-banner.png", [
     (1, 0.505, 0.030, 0.220, 0.090),
 ])
+# 1 = código digitado (promoção que o cliente recebeu e não está na lista)
+# 2 = lista dos cupons que você deixou visíveis
 annotate("06-cardapio-lista-cupons.png", [
-    (1, 0.500, 0.145, 0.220, 0.145),
-    (2, 0.500, 0.420, 0.180, 0.380),
+    (1, 0.300, 0.135, 0.110, 0.055),
+    (2, 0.420, 0.305, 0.100, 0.430),
+], ring=[
+    (0.055, 0.095, 0.890, 0.175),
+    (0.030, 0.285, 0.940, 0.700),
 ])
 print("done")

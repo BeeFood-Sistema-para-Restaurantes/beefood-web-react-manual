@@ -44,4 +44,4 @@ Crie um novo manual no app: em **Fidelidade (CRM)**, adicione um manual chamado
 | 3 | `03-modal-novo-regras.png` | setas | Canais, regras, SMS |
 | 4 | `04-modal-avancado.png` | setas | Formas de pagamento + três modos |
 | 5 | `05-cardapio-banner.png` | setas | Faixa de cupons no cardápio |
-| 6 | `06-cardapio-lista-cupons.png` | setas | Digitar código + lista visível |
+| 6 | `06-cardapio-lista-cupons.png` | setas | Campo do código secreto + lista dos visíveis |

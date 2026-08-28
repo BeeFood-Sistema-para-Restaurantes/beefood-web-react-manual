@@ -134,14 +134,16 @@ cardápio e vê a faixa verde no topo: **Você tem N cupons! Aproveite!**
 |----|---------|
 | 1. | Faixa verde — toque aqui (não é a aba **Promoções** do rodapé; essa aba é de **produto em promoção**, outro assunto) |
 
-O toque abre **ADICIONAR CUPOM**:
+O toque abre **ADICIONAR CUPOM**. O cliente tem **dois caminhos**:
 
 ![Lista de cupons no cardápio](imagens-tratadas/06-cardapio-lista-cupons.png)
 
 | Nº | O que o cliente faz |
 |----|---------------------|
-| 1. | Digita o código e toca em **Adicionar** |
-| 2. | Ou escolhe um cupom da lista **Cupons disponíveis** (os que você deixou visíveis) |
+| 1. | Digita o código que recebeu (WhatsApp, SMS, campanha) — mesmo que **não apareça na lista** — e toca em **Adicionar**. É a promoção “secreta”. No exemplo, `ANIVERSARIO` |
+| 2. | Ou escolhe um da lista **Cupons disponíveis** — só entram os que você deixou com **Exibir no BeeBot e Cardápio** ligado |
+
+Os dois caminhos estão na mesma tela: a lista é vitrine; o campo é o código que chegou na mão do cliente.
 
 **Ver todas as regras** no cartão abre o detalhe (validade, mínimo, canais).
 

@@ -19,7 +19,7 @@ Novidade 27/08/2026 (`changelog` seq 101). Recorte do dono: um manual de campos
 | `03-modal-novo-regras.png` | setas | Canais, regras, SMS |
 | `04-modal-avancado.png` | setas | Formas de pagamento + três modos |
 | `05-cardapio-banner.png` | setas | Faixa “Você tem N cupons” |
-| `06-cardapio-lista-cupons.png` | setas | Digitar código + lista visível |
+| `06-cardapio-lista-cupons.png` | setas | Campo com código digitado (`ANIVERSARIO`, fora da lista) + cupons visíveis |
 
 ## Decisões
 - Aba **Promoções** do cardápio é **produto em promoção**, não cupom. O manual
@@ -30,6 +30,9 @@ Novidade 27/08/2026 (`changelog` seq 101). Recorte do dono: um manual de campos
 - Não printamos Histórico (PII).
 - Aplicar cupom no checkout do cardápio falhou (overlay / visibilidade). A lista
   ADICIONAR CUPOM já mostra o fluxo do cliente.
+- Recaptura do 06 (pedido do dono): campo preenchido com `ANIVERSARIO` (código
+  **fora** da lista — os 8 ativos do sandbox são todos visíveis) + setas nas
+  duas zonas (digitar vs escolher). Sem gravar cupom novo.
 
 ## Status
 Concluído — aguardando publicação. Estratégias de cupom ficam como ideia.
