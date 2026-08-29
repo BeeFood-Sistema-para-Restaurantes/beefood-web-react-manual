@@ -59,6 +59,8 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | IA ChatGPT no WhatsApp | [`manuais/ia-chatgpt-whatsapp/`](manuais/ia-chatgpt-whatsapp/ia-chatgpt-whatsapp.md) | ✅ Concluído |
 | Campanhas SMS (Food Marketing) | [`manuais/campanhas-sms/`](manuais/campanhas-sms/campanhas-sms.md) | ✅ Concluído |
 | Cupom de Desconto (campos + cardápio) | [`manuais/cupom-desconto/`](manuais/cupom-desconto/cupom-desconto.md) | ✅ Concluído |
+| Cashback — configurar o programa | [`manuais/cashback-configurar/`](manuais/cashback-configurar/cashback-configurar.md) | ✅ Concluído |
+| Cashback — operar no dia a dia | [`manuais/cashback-operar/`](manuais/cashback-operar/cashback-operar.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 

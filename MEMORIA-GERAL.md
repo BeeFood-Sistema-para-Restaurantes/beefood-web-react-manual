@@ -3,7 +3,7 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-28 (**#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
+Última atualização: 2026-08-29 (**#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
@@ -147,6 +147,11 @@ isso em segundos, e foi assim que a ambiguidade apareceu.
 | beefood1 | `beefood1` | `beefood123` | Conta de teste inicial (tem caixas históricos). |
 | **BeeFood3 - Manual** | `contato@beefood.com.br` | `1q2w3e4r` | **Sandbox dedicado aos manuais.** Usar esta. Usuário **Principal**, Gerente, grupo **Administrador2**. |
 | caixa.manual | `caixa.manual` | `manual123` | Usuário **restrito** criado em 19/08/2026 para o manual de restrições de caixa. Grupo **Acesso Funcionário**, **sem** função Gerente. Serve para ver o produto com permissões reduzidas. |
+
+> **Telefone de teste no cardápio digital (BeeFood3):** use sempre **(11) 11111-1122**
+> (cliente **Bruno XXX**). Digite **11 dígitos** `11111111122` no `input[type=tel]` — 10 dígitos
+> viram `(11) 11111-122` e quebram o login. Não use telefone de cliente real nas capturas
+> (o repositório é público). Cache do cardápio público: até **1 minuto**.
 
 > **Atenção ao testar permissão no login principal:** o usuário Principal **não** ignora as
 > restrições do grupo (comprovado). Logo, desligar uma permissão do grupo **Administrador2**
