@@ -118,24 +118,17 @@ O cardápio público (`menu.beefood.com.br/…`) mostra a faixa amarela assim qu
 o programa está ativo. Pode levar **até 1 minuto** para refletir uma mudança
 de configuração.
 
-![Faixa de cashback no cardápio](imagens-tratadas/05-cardapio-banner.png)
+Para o saldo aparecer no pedido, o cliente se identifica pelo WhatsApp.
+Use um **telefone de teste** da loja (nunca o de um cliente real nas capturas
+e nos testes). No sandbox: **(11) 11111-1122**. No rodapé, toque em **Perfil**.
+
+![Cardápio digital — faixa e identificar](imagens-tratadas/05-cardapio-digital.png)
 
 | Nº | O que o cliente vê |
 |----|--------------------|
 | 1. | Faixa **Ganhe dinheiro de volta a cada compra** — o programa está ligado |
-
-Para o saldo aparecer no pedido, o cliente se identifica pelo WhatsApp.
-Use um **telefone de teste** da loja (nunca o de um cliente real nas capturas
-e nos testes). No sandbox: **(11) 11111-1122**.
-
-No rodapé, toque em **Perfil** e informe o número:
-
-![Identificar no cardápio](imagens-tratadas/06-cardapio-identificar.png)
-
-| Nº | Campo | O que fazer |
-|----|--------|-------------|
-| 1. | **Telefone WhatsApp** | Digite o número de teste |
-| 2. | **CONTINUAR** | Entra com esse telefone |
+| 2. | **Telefone WhatsApp** — o número de teste |
+| 3. | **CONTINUAR** — entra com esse telefone |
 
 Identificado, o saldo aparece no **fechamento da sacola** (não na home):
 **“R$ … de cashback disponível”** e o botão **Usar**. O sistema pode aplicar

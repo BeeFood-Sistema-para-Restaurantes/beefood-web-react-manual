@@ -68,6 +68,47 @@ def annotate(name, markers, ring=None, borrao=None):
     print("OK", name)
 
 
+PHONE_W = 380
+GAP = 18
+PAD = 22
+CAP_H = 44
+
+
+def montar_celulares(nome_out, paineis):
+    """Junta prints de celular lado a lado. paineis: [(arquivo, titulo)]."""
+    fnt = font(20)
+    phones = []
+    for nome, _ in paineis:
+        im = Image.open(os.path.join(SRC, nome)).convert("RGB")
+        h = int(im.height * PHONE_W / im.width)
+        phones.append(im.resize((PHONE_W, h), Image.Resampling.LANCZOS))
+    ph_h = phones[0].height
+    n = len(phones)
+    W = PAD * 2 + n * PHONE_W + (n - 1) * GAP
+    H = PAD + CAP_H + ph_h + PAD
+    canvas = Image.new("RGB", (W, H), (244, 244, 245))
+    d = ImageDraw.Draw(canvas)
+    for i, (im, (_, titulo)) in enumerate(zip(phones, paineis)):
+        x = PAD + i * (PHONE_W + GAP)
+        y = PAD + CAP_H
+        bb = d.textbbox((0, 0), titulo, font=fnt)
+        tw = bb[2] - bb[0]
+        d.text((x + (PHONE_W - tw) / 2, PAD + 10), titulo, fill=(40, 40, 40), font=fnt)
+        mask = Image.new("L", (PHONE_W, ph_h), 0)
+        ImageDraw.Draw(mask).rounded_rectangle([0, 0, PHONE_W - 1, ph_h - 1], radius=26, fill=255)
+        canvas.paste(im, (x, y), mask)
+        d.rounded_rectangle([x, y, x + PHONE_W - 1, y + ph_h - 1], radius=26, outline=(200, 200, 200), width=2)
+    canvas.save(os.path.join(SRC, nome_out))
+    print("MONTAR", nome_out, canvas.size)
+    return W, H, ph_h
+
+
+def no_painel(i, tx, ty, W, H, ph_h):
+    x = PAD + i * (PHONE_W + GAP) + tx * PHONE_W
+    y = PAD + CAP_H + ty * ph_h
+    return x / W, y / H
+
+
 # Top clientes: borra as linhas depois do Bruno XXX (telefones reais)
 annotate("01-historico.png", [
     (1, 0.325, 0.090, 0.420, 0.045),
@@ -112,15 +153,20 @@ annotate("07-pdv-modal-aplicar.png", [
     (3, 0.500, 0.585, 0.320, 0.640),
     (4, 0.570, 0.670, 0.720, 0.725),
 ])
-annotate("08-cardapio-checkout-saldo.png", [
-    (1, 0.420, 0.130, 0.160, 0.070),
-    (2, 0.860, 0.118, 0.620, 0.200),
-    (3, 0.420, 0.955, 0.180, 0.880),
+Wc, Hc, ph_h = montar_celulares("08-cardapio-checkout.png", [
+    ("08-cardapio-checkout-saldo.png", "Sacola — saldo"),
+    ("09-cardapio-checkout-usar.png", "Sacola — usando"),
 ])
-annotate("09-cardapio-checkout-usar.png", [
-    (1, 0.420, 0.125, 0.160, 0.065),
-    (2, 0.880, 0.125, 0.720, 0.200),
-    (3, 0.380, 0.385, 0.180, 0.320),
-    (4, 0.550, 0.435, 0.820, 0.380),
+p1 = lambda tx, ty: no_painel(0, tx, ty, Wc, Hc, ph_h)
+p2 = lambda tx, ty: no_painel(1, tx, ty, Wc, Hc, ph_h)
+s1, b1 = p1(0.42, 0.13), p1(0.16, 0.07)
+s2, b2 = p1(0.86, 0.12), p1(0.62, 0.22)
+s3, b3 = p2(0.42, 0.13), p2(0.16, 0.07)
+s4, b4 = p2(0.55, 0.44), p2(0.82, 0.38)
+annotate("08-cardapio-checkout.png", [
+    (1, s1[0], s1[1], b1[0], b1[1]),
+    (2, s2[0], s2[1], b2[0], b2[1]),
+    (3, s3[0], s3[1], b3[0], b3[1]),
+    (4, s4[0], s4[1], b4[0], b4[1]),
 ])
 print("done")

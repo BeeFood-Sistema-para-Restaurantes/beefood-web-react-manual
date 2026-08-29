@@ -18,8 +18,9 @@ BeeFood3. Artigo antigo do ajuda.beefood (2021) ficou superado pela tela CRM.
 | `02-limites-canais.png` | setas | Validade, formas, mínimo, canais |
 | `03-percentual-dias.png` | setas | % por dia, aviso, exceções |
 | `04-cardapio-digital-redirect.png` | setas | Aviso “mudou de lugar” |
-| `05-cardapio-banner.png` | setas | Faixa no cardápio público |
-| `06-cardapio-identificar.png` | setas | WhatsApp (11) 11111-1122 |
+| `05-cardapio-banner.png` | pura | Fonte da tira (home) |
+| `06-cardapio-identificar.png` | pura | Fonte da tira (identificar) |
+| `05-cardapio-digital.png` | setas | Dois celulares lado a lado |
 
 ## Decisões
 - Não alteramos a config (já estava ativo, 3% todos os dias, 35 dias, todos os canais).

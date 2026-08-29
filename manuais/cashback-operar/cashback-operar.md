@@ -146,27 +146,19 @@ gasto.
 
 Identificado com o telefone fake, o cliente monta o pedido e abre a **Sacola**.
 No **fechamento** (depois de escolher Entrega ou Retirada) o saldo aparece.
+O sistema já tenta usar o cashback sozinho; **CANCELAR** mostra o saldo de novo.
 
-O sistema já tenta usar o cashback sozinho. Se você **Cancelar**, fica assim:
-
-![Saldo na sacola](imagens-tratadas/08-cardapio-checkout-saldo.png)
+![Cardápio digital — saldo e uso na sacola](imagens-tratadas/08-cardapio-checkout.png)
 
 | Nº | O que o cliente vê |
 |----|--------------------|
 | 1. | **R$ 1.233,21 de cashback disponível** — o saldo do telefone de teste |
 | 2. | **Usar** — aplica como desconto (não pode passar do total) |
-| 3. | **Ganhe R$ … de cashback** — o que esta compra ainda vai creditar (de madrugada) |
-
-Toque em **Usar** (ou deixe o sistema aplicar sozinho):
-
-![Cashback aplicado no fechamento](imagens-tratadas/09-cardapio-checkout-usar.png)
-
-| Nº | O que acontece |
-|----|----------------|
-| 1. | **Utilizando R$ … de desconto** — o saldo entrou no pedido |
-| 2. | **CANCELAR** — tira o cashback e volta o total cheio |
-| 3. | **Desconto cashback** no resumo |
+| 3. | **Utilizando R$ … de desconto** — o saldo entrou no pedido |
 | 4. | **Total R$ 0,00** — neste teste o saldo cobriu o combo inteiro |
+
+Embaixo de cada tela: **Ganhe R$ … de cashback** (o que esta compra ainda vai
+creditar de madrugada). **CANCELAR** tira o desconto e volta o total cheio.
 
 Cupom **não combina** com cashback ativo. **Finalizar** neste manual **não foi
 tocado** — o saldo do teste continua inteiro.

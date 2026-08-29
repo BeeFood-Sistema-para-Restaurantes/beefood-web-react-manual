@@ -101,6 +101,10 @@ olho: uma cópia temporária com linha a cada 0,05 e rótulo a cada 0,10, e os v
 direto da grade. É rápido de escrever (umas 20 linhas de Pillow, em `/tmp`, fora do repositório)
 e acerta quase tudo de primeira. Usado no #24 em 16 capturas: das 29 setas, 24 nasceram no lugar.
 
+**Prints de celular do cardápio público:** em vez de várias imagens altas soltas,
+montar **uma tira** com os aparelhos lado a lado (`montar_celulares` no `annotate.py`
+do #19/#20). As puras individuais ficam de fonte; só a tira entra no manual.
+
 **Mire a borda do elemento, não o centro, quando ele tem texto.** Seta apontada para o meio de um
 botão cai em cima do rótulo e cobre uma letra — aconteceu em quatro botões do #24 (`CONCEDER`,
 `AGORA NÃO`, `CONCORDAR E CONTINUAR`, `ACESSAR`). A borda inferior ou lateral marca o mesmo

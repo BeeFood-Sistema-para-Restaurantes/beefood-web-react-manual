@@ -64,6 +64,47 @@ def annotate(name, markers, ring=None):
     print("OK", name)
 
 
+PHONE_W = 380
+GAP = 18
+PAD = 22
+CAP_H = 44
+
+
+def montar_celulares(nome_out, paineis):
+    """Junta prints de celular lado a lado. paineis: [(arquivo, titulo)]."""
+    fnt = font(20)
+    phones = []
+    for nome, _ in paineis:
+        im = Image.open(os.path.join(SRC, nome)).convert("RGB")
+        h = int(im.height * PHONE_W / im.width)
+        phones.append(im.resize((PHONE_W, h), Image.Resampling.LANCZOS))
+    ph_h = phones[0].height
+    n = len(phones)
+    W = PAD * 2 + n * PHONE_W + (n - 1) * GAP
+    H = PAD + CAP_H + ph_h + PAD
+    canvas = Image.new("RGB", (W, H), (244, 244, 245))
+    d = ImageDraw.Draw(canvas)
+    for i, (im, (_, titulo)) in enumerate(zip(phones, paineis)):
+        x = PAD + i * (PHONE_W + GAP)
+        y = PAD + CAP_H
+        bb = d.textbbox((0, 0), titulo, font=fnt)
+        tw = bb[2] - bb[0]
+        d.text((x + (PHONE_W - tw) / 2, PAD + 10), titulo, fill=(40, 40, 40), font=fnt)
+        mask = Image.new("L", (PHONE_W, ph_h), 0)
+        ImageDraw.Draw(mask).rounded_rectangle([0, 0, PHONE_W - 1, ph_h - 1], radius=26, fill=255)
+        canvas.paste(im, (x, y), mask)
+        d.rounded_rectangle([x, y, x + PHONE_W - 1, y + ph_h - 1], radius=26, outline=(200, 200, 200), width=2)
+    canvas.save(os.path.join(SRC, nome_out))
+    print("MONTAR", nome_out, canvas.size)
+    return W, H, ph_h
+
+
+def no_painel(i, n, tx, ty, W, H, ph_h):
+    x = PAD + i * (PHONE_W + GAP) + tx * PHONE_W
+    y = PAD + CAP_H + ty * ph_h
+    return x / W, y / H
+
+
 annotate("01-crm-cashback-config.png", [
     (1, 0.078, 0.305, 0.175, 0.240),
     (2, 0.225, 0.095, 0.360, 0.055),
@@ -86,11 +127,21 @@ annotate("04-cardapio-digital-redirect.png", [
     (1, 0.080, 0.580, 0.180, 0.500),
     (2, 0.550, 0.680, 0.550, 0.380),
 ])
-annotate("05-cardapio-banner.png", [
-    (1, 0.500, 0.390, 0.160, 0.300),
+W, H, ph_h = montar_celulares("05-cardapio-digital.png", [
+    ("05-cardapio-banner.png", "Home — faixa"),
+    ("06-cardapio-identificar.png", "Perfil — identificar"),
 ])
-annotate("06-cardapio-identificar.png", [
-    (1, 0.500, 0.255, 0.160, 0.155),
-    (2, 0.500, 0.345, 0.160, 0.430),
+f1 = lambda tx, ty: no_painel(0, 2, tx, ty, W, H, ph_h)
+f2 = lambda tx, ty: no_painel(1, 2, tx, ty, W, H, ph_h)
+a1 = f1(0.50, 0.39)
+b1 = f1(0.18, 0.28)
+a2 = f2(0.50, 0.255)
+b2 = f2(0.16, 0.16)
+a3 = f2(0.50, 0.345)
+b3 = f2(0.16, 0.44)
+annotate("05-cardapio-digital.png", [
+    (1, a1[0], a1[1], b1[0], b1[1]),
+    (2, a2[0], a2[1], b2[0], b2[1]),
+    (3, a3[0], a3[1], b3[0], b3[1]),
 ])
 print("done")

@@ -19,8 +19,9 @@ do #19.
 | `05-fila-processamento.png` | setas | 259 na fila; pendente / sucesso / erro |
 | `06-pdv-usar-cashback.png` | setas | Venda #886, cliente Bruno XXX |
 | `07-pdv-modal-aplicar.png` | setas | Aplicar R$ 14,00 (não confirmado) |
-| `08-cardapio-checkout-saldo.png` | setas | Sacola: R$ 1.233,21 disponível + Usar |
-| `09-cardapio-checkout-usar.png` | setas | Fechamento: utilizando R$ 39 (não finalizado) |
+| `08-cardapio-checkout-saldo.png` | pura | Fonte da tira (saldo) |
+| `09-cardapio-checkout-usar.png` | pura | Fonte da tira (usando) |
+| `08-cardapio-checkout.png` | setas | Dois celulares: saldo + uso |
 
 ## Decisões
 - Telefone fake **(11) 11111-1122** em busca, PDV e cardápio.

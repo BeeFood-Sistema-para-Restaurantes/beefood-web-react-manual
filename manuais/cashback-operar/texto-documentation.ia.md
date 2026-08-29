@@ -15,7 +15,7 @@ Crie um novo manual no app: em **Fidelidade (CRM)**, adicione um manual chamado
 1. **Conteúdo do manual (use na íntegra):**
    `beefood-web-react-manual/manuais/cashback-operar/cashback-operar.md`
 
-2. **Imagens (use estas 9, nesta ordem):**
+2. **Imagens (use estas 8, nesta ordem):**
    - `beefood-web-react-manual/manuais/cashback-operar/imagens-tratadas/01-historico.png`
    - `beefood-web-react-manual/manuais/cashback-operar/imagens-tratadas/02-saldo-clientes.png`
    - `beefood-web-react-manual/manuais/cashback-operar/imagens-tratadas/03-detalhe-cliente.png`
@@ -23,14 +23,13 @@ Crie um novo manual no app: em **Fidelidade (CRM)**, adicione um manual chamado
    - `beefood-web-react-manual/manuais/cashback-operar/imagens-tratadas/05-fila-processamento.png`
    - `beefood-web-react-manual/manuais/cashback-operar/imagens-tratadas/06-pdv-usar-cashback.png`
    - `beefood-web-react-manual/manuais/cashback-operar/imagens-tratadas/07-pdv-modal-aplicar.png`
-   - `beefood-web-react-manual/manuais/cashback-operar/imagens-tratadas/08-cardapio-checkout-saldo.png`
-   - `beefood-web-react-manual/manuais/cashback-operar/imagens-tratadas/09-cardapio-checkout-usar.png`
+   - `beefood-web-react-manual/manuais/cashback-operar/imagens-tratadas/08-cardapio-checkout.png`
 
 **NÃO leia** outros arquivos do projeto (ex.: `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`).
 
 **Como montar a página:**
 - Use o conteúdo do `cashback-operar.md` exatamente como está (seções, textos e tabelas).
-- Insira as 9 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
+- Insira as 8 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
 - **Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa"**.
 - Idioma **português do Brasil**, tom didático.
 - Mantenha em destaque: ajuste com **motivo**; fila só de **madrugada**; **Usar cashback** some sem cliente; telefone de teste **(11) 11111-1122**.
@@ -49,5 +48,4 @@ Crie um novo manual no app: em **Fidelidade (CRM)**, adicione um manual chamado
 | 5 | `05-fila-processamento.png` | setas | Fila da madrugada |
 | 6 | `06-pdv-usar-cashback.png` | setas | Botão no pagamento do PDV |
 | 7 | `07-pdv-modal-aplicar.png` | setas | Modal Usar Cashback |
-| 8 | `08-cardapio-checkout-saldo.png` | setas | Saldo na sacola do cardápio |
-| 9 | `09-cardapio-checkout-usar.png` | setas | Cashback aplicado no fechamento |
+| 8 | `08-cardapio-checkout.png` | setas | Cardápio: saldo + uso na sacola (dois celulares) |
