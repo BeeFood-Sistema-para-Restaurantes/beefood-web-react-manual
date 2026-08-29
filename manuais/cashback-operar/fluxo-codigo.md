@@ -9,5 +9,9 @@
 - Na venda: `isCashbackHabilitadoNaVenda` (`cashbackPagamentoConfig.ts`) olha tipo PDV/MESA/DELIVERY + flags da filial. `PanelUsarCashback` + `ModalAplicarCashback` em `ModalPagamentos`.
 - Saldo na venda: `GET /api/cliente2/cashback/saldo/{empresa}/{usuario}/{filial}/{clienteID}`.
 - Cadastro do cliente: `ClienteCashbackTab` + o mesmo `ModalAjusteSaldo`.
-- Cardápio: Perfil → Programa de fidelidade (pode pedir senha da conta). Aplicar no checkout é do Vue público.
+- Cardápio (Vue, `menu.beefood.com.br`, `?modal=carrinho`): identificado pelo telefone,
+  o fechamento aplica o cashback sozinho (`Utilizando R$ … de desconto`). **CANCELAR**
+  mostra `R$ … de cashback disponível` + **Usar**. Cupom some enquanto o cashback está
+  ativo. Não clicar **Retirada** na home (Leaflet); escolher **Retirar no estabelecimento**
+  dentro da sacola.
 - Crédito: só madrugada, pedido quitado. Uso: imediato no pagamento.

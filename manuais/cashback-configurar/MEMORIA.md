@@ -26,7 +26,7 @@ BeeFood3. Artigo antigo do ajuda.beefood (2021) ficou superado pela tela CRM.
 - Telefone de teste: **(11) 11111-1122** / Bruno XXX. Todos os eventos do cardápio.
 - Cache do cardápio: até 1 min — a faixa já estava visível, sem precisar esperar.
 - “Programa de fidelidade” no Perfil pede senha da conta; não entramos. A faixa +
-  identificar bastam para o #19.
+  identificar bastam para o #19; o saldo no fechamento da sacola está no #20.
 - Auto-save: nenhum switch foi invertido.
 
 ## Status

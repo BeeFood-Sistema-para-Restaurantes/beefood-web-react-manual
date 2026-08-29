@@ -144,23 +144,34 @@ gasto.
 
 ## Parte 5 — O cliente no cardápio digital
 
-No celular, depois de se identificar (telefone fake), o **Perfil** mostra
-**Programa de fidelidade**. A faixa amarela **Ganhe dinheiro de volta** já
-aparece na home com o programa ligado.
+Identificado com o telefone fake, o cliente monta o pedido e abre a **Sacola**.
+No **fechamento** (depois de escolher Entrega ou Retirada) o saldo aparece.
 
-![Perfil no cardápio](imagens-tratadas/08-cardapio-perfil.png)
+O sistema já tenta usar o cashback sozinho. Se você **Cancelar**, fica assim:
 
-| Nº | O que o cliente faz |
-|----|---------------------|
-| 1. | Faixa de cashback na home — o programa está ativo |
-| 2. | **Perfil** no rodapé |
-| 3. | **Programa de fidelidade** — saldo e regras (pode pedir a senha da conta) |
+![Saldo na sacola](imagens-tratadas/08-cardapio-checkout-saldo.png)
 
-No **fechamento do pedido**, o cliente decide se aplica o saldo. No Totem e no
-tablet o fluxo é o mesmo: quem usa é o cliente, não o operador.
+| Nº | O que o cliente vê |
+|----|--------------------|
+| 1. | **R$ 1.233,21 de cashback disponível** — o saldo do telefone de teste |
+| 2. | **Usar** — aplica como desconto (não pode passar do total) |
+| 3. | **Ganhe R$ … de cashback** — o que esta compra ainda vai creditar (de madrugada) |
 
-Se a faixa não atualizar depois de você ligar o programa, espere **1 minuto**
-e recarregue o cardápio.
+Toque em **Usar** (ou deixe o sistema aplicar sozinho):
+
+![Cashback aplicado no fechamento](imagens-tratadas/09-cardapio-checkout-usar.png)
+
+| Nº | O que acontece |
+|----|----------------|
+| 1. | **Utilizando R$ … de desconto** — o saldo entrou no pedido |
+| 2. | **CANCELAR** — tira o cashback e volta o total cheio |
+| 3. | **Desconto cashback** no resumo |
+| 4. | **Total R$ 0,00** — neste teste o saldo cobriu o combo inteiro |
+
+Cupom **não combina** com cashback ativo. **Finalizar** neste manual **não foi
+tocado** — o saldo do teste continua inteiro.
+
+Se a faixa da home não atualizar depois de ligar o programa, espere **1 minuto**.
 
 ---
 

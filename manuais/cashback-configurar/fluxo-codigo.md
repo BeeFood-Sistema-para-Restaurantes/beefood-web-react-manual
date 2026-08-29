@@ -9,5 +9,5 @@
 - Exceção de produto: `useCashbackProdutoExcecao` → `POST .../cashback2/produto`. `cashBackAtivo === false` no produto.
 - Bloqueio: filial sem `cardapioAdicional` ou sem `linkAcesso`.
 - Aba antiga: `CardapioDigital.tsx` `tab=cashback` → `AbaMigradaAviso` para `/cashback`.
-- Cardápio público (Vue, `menu.beefood.com.br`): faixa “Ganhe dinheiro de volta”; identificação em **Perfil** (`input[type=tel]` + CONTINUAR). Cache ~1 min.
+- Cardápio público (Vue, `menu.beefood.com.br`): faixa “Ganhe dinheiro de volta”; identificação em **Perfil** (`input[type=tel]` + 11 dígitos + CONTINUAR). No fechamento (`?modal=carrinho`) o saldo aparece e pode aplicar sozinho. Cache ~1 min.
 - Aplicativos → Cashback aponta para `/cardapio-digital?tab=cashback` (o aviso).

@@ -137,9 +137,11 @@ No rodapé, toque em **Perfil** e informe o número:
 | 1. | **Telefone WhatsApp** | Digite o número de teste |
 | 2. | **CONTINUAR** | Entra com esse telefone |
 
-Identificado, o cliente usa o saldo no **fechamento do pedido**. No painel,
-o operador aplica o mesmo saldo no PDV ou nas Mesas — isso está no manual
-**Cashback — operar**.
+Identificado, o saldo aparece no **fechamento da sacola** (não na home):
+**“R$ … de cashback disponível”** e o botão **Usar**. O sistema pode aplicar
+sozinho. O print dessa etapa está no manual **Cashback — operar**.
+
+No painel, o operador aplica o mesmo saldo no PDV ou nas Mesas.
 
 ---
 
