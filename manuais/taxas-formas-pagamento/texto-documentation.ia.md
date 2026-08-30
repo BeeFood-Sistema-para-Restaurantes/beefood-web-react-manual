@@ -34,7 +34,7 @@ Crie um novo manual no app: em **Financeiro**, adicione um manual chamado
 - Insira as 10 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
 - **Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa"**.
 - Idioma **português do Brasil**, tom didático.
-- Mantenha em destaque: a taxa é da **operadora**; bandeira ativa precisa de taxa (senão vira fantasma); débito **Visa 2,19%** e **Mastercard 2,89%** no mesmo dia; o relatório fica em **Desempenho → Vendas → Recebimento**; **SALVAR E SAIR (F2)**.
+- Mantenha em destaque: a taxa é da **operadora**; bandeira ativa precisa de taxa (senão vira fantasma); se a bandeira está configurada, **preencha a bandeira** na venda; débito **Visa 2,19%** (duas vendas) e **Mastercard 2,89%** no mesmo dia; o relatório fica em **Desempenho → Vendas → Recebimento**; **SALVAR E SAIR (F2)**.
 - **Não** publique o rodapé "Referências internas" nem o `fluxo-codigo.md`.
 
 ---
@@ -51,5 +51,5 @@ Crie um novo manual no app: em **Financeiro**, adicione um manual chamado
 | 6 | `05-tabela-configurada.png` | setas | Lista: Mastercard, Visa e geral |
 | 7 | `06-pdv-pago.png` | setas | Venda débito Visa + lupa |
 | 8 | `07-detalhe-pagamento.png` | setas | Visa 2,19%, líquido 13,69, D+0 |
-| 9 | `08-desemp-recebimento.png` | setas | Resumo: faturado 84,00 × realizado 83,29 |
-| 10 | `09-desemp-dados.png` | setas | Visa −2,19% e Mastercard −2,89% |
+| 9 | `08-desemp-recebimento.png` | setas | Resumo: faturado 42,00 × realizado 40,98 |
+| 10 | `09-desemp-dados.png` | setas | Duas Visas −2,19% e Mastercard −2,89% |

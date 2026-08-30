@@ -7,9 +7,9 @@ restaurante recebe o **líquido**, às vezes **no mesmo dia**, às vezes
 
 Neste manual: configurar **débito** (geral **2,50%** no mesmo dia, **Visa
 2,19%** e **Mastercard 2,89%**), **crédito (3,49% em 30 dias)** e **vale
-refeição (5% em 15 dias)**; vender no débito **uma vez em cada
-bandeira**; ver o detalhe com taxa; e ler **faturado** e **realizado**
-no relatório do dia.
+refeição (5% em 15 dias)**; vender no débito **duas vezes na Visa** e
+**uma na Mastercard**; ver o detalhe com taxa; e ler **faturado** e
+**realizado** no relatório do dia.
 
 > As imagens têm **setas com números** (1, 2, 3…). No texto, cada número
 > indica o campo ou botão correspondente na tela.
@@ -162,8 +162,8 @@ Conta do líquido: `valor × (1 − taxa/100)`. Visa: 100 × 0,9781 =
 No **PDV**, o mesmo item (**One Burger R$ 14,00**). **Receber (F3)** →
 **Débito** → escolha a **bandeira** → **CONFIRMAR (ENTER/F1)**.
 
-Faça **uma venda Visa** e **uma Mastercard**. Sem bandeira, vale a
-geral (2,50%).
+Se a bandeira está configurada, **preencha a bandeira** na venda. Faça
+**duas vendas Visa** (mesma taxa) e **uma Mastercard**.
 
 O pagamento aparece em **Pagamentos realizados** como **Débito — Pago**
 com a bandeira (1). A **lupa** (2) abre o detalhe.
@@ -199,7 +199,9 @@ linha → lupa do pagamento.
 
 No **crédito**, o PDV pode somar o acréscimo do cadastro (**+3%**). Isso
 **não** é a taxa da operadora. A taxa do crédito (3,49% em 30 dias)
-aparece no mesmo bloco, com recebimento em **29/09/2026**.
+aparece no mesmo bloco, com recebimento em **29/09/2026**. No **vale**,
+a taxa **5%** e o líquido **R$ 13,30**, com recebimento em
+**14/09/2026**.
 
 ---
 
@@ -210,10 +212,11 @@ relatório: **Vendas → Recebimento** (1).
 
 A aba **Resumo** tem **Valor Pago** (faturado) (2) e **Valor Realizado**
 (3). Quando existe taxa no pagamento, as duas colunas **diferem**. No
-débito do dia: **R$ 84,00** pago e **R$ 83,29** realizado (4) — a
-diferença são as taxas da Visa e da Mastercard.
+débito do dia: **R$ 42,00** pago e **R$ 40,98** realizado (4) — duas
+Visas (2,19% cada) e uma Mastercard (2,89%).
 
-O crédito com recebimento em outro dia **não entra** na lista deste dia.
+Crédito e vale com recebimento em outro dia **não entram** na lista
+deste dia.
 
 ![Desempenho → Recebimento: resumo](imagens-tratadas/08-desemp-recebimento.png)
 
@@ -222,20 +225,21 @@ O crédito com recebimento em outro dia **não entra** na lista deste dia.
 | 1. | **Recebimento** | Dentro de Vendas |
 | 2. | **Valor Pago** | Soma faturada (o cliente pagou) |
 | 3. | **Valor Realizado** | Soma líquida |
-| 4. | **Débito** | 84,00 faturado · 83,29 realizado |
+| 4. | **Débito** | 42,00 faturado · 40,98 realizado |
 
 A aba **Dados** (1) lista cada pagamento. **Valor** é o faturado; **V.
-Realizado** é o líquido; **Taxa** aparece quando foi gravada no
-pagamento. Visa **−2,19%** (2) e Mastercard **−2,89%** (3), ambos com
-venda e vencimento no **mesmo dia**.
+Realizado** é o líquido; **Taxa** é a da bandeira. As duas Visas
+**−2,19%** (2 e 4) e a Mastercard **−2,89%** (3), todas com venda e
+vencimento no **mesmo dia**.
 
 ![Desempenho → Recebimento: dados](imagens-tratadas/09-desemp-dados.png)
 
 | Nº | Campo | O que mostra |
 |----|--------|--------------|
-| 1. | **Aba Dados** | Um pagamento por linha |
+| 1. | **Aba Dados** | Lista do dia — um pagamento por linha |
 | 2. | **Visa** | 14,00 → 13,69 · taxa −2,19% |
 | 3. | **Mastercard** | 14,00 → 13,60 · taxa −2,89% |
+| 4. | **Visa de novo** | Mesma bandeira, mesma taxa −2,19% |
 
 Outro lugar, se quiser só o financeiro: **Financeiro → Recebimentos**,
 filtro **Previsto e Realizado**, abas Tipo e Datas. O relatório de

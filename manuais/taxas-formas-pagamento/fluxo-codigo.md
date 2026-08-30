@@ -49,12 +49,15 @@
 - Detalhe (lupa): bloco **Configuração de taxa** só renderiza se algum
   desses campos vier preenchido (linhas 1570–1614 de
   `ModalPagamentos.tsx`).
-- Bandeira opcional: `ccbandeiraID`. Sem bandeira → config geral.
-  Bandeira **ativa sem `desconto`** substitui a geral por vazio
-  (pagamento nasce com `taxa`/`valorLiquido` nulos).
-- Prova (30/08/2026): **#898** Visa `taxa=2.19` `valorLiquido=13.69`
-  datas D+0; **#899** Mastercard `2.89` / `13.60` D+0. IDs
-  `preVendaPagamentoID` 65398593 e 65398648.
+- Bandeira opcional: `ccbandeiraID`. Sem bandeira → config geral
+  (ajuste no servidor em 30/08/2026). Bandeira **ativa sem
+  `desconto`** ainda substitui a geral por vazio.
+- Manual **não** mostra venda de débito sem bandeira: se a bandeira
+  está configurada, a prova preenche a bandeira.
+- Prova (30/08/2026): **#898** e **#907** Visa `taxa=2.19`
+  `valorLiquido=13.69` D+0; **#899** Mastercard `2.89` / `13.60` D+0;
+  **#908** Vale `5` / `13.30` em 14/09; **#894** Crédito `3.49` /
+  `13.92` em 29/09.
 
 ## Relatório faturado × realizado
 
@@ -67,8 +70,9 @@
 - Colunas Resumo: Qtd Faturado, Qtd Realizado, Valor Pago, Valor
   Realizado. Dados: Valor, V. Realizado, Taxa, Data Venda, Vencimento,
   Receb. Previsto, Recebimento.
-- Relatório do dia (30/08): Débito 84,00 / 83,29; linhas **#898
-  −2,19%** e **#899 −2,89%**. Crédito #894 continua fora (29/09).
+- Relatório do dia (30/08): 3 débitos, 42,00 / 40,98; **#898** e
+  **#907** −2,19%; **#899** −2,89%. Vale #908 e crédito #894 fora
+  (14/09 e 29/09). Pagamentos sujos (#892–#897, #902) excluídos.
 
 ## Outro relatório
 
