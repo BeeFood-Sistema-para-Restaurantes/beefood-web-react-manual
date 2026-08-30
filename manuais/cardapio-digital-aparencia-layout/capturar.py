@@ -182,10 +182,10 @@ def admin_shots(page):
             except Exception as e:
                 print("preview fail", e)
 
-    # hover capa para mostrar overlay
-    capa = page.locator('img[alt="Capa"]')
-    if capa.count():
-        capa.first.hover()
+    # hover capa para mostrar overlay (o inset intercepta o img)
+    capa_area = page.locator('img[alt="Capa"]').locator("xpath=ancestor::div[contains(@class,'cursor-pointer')][1]")
+    if capa_area.count():
+        capa_area.first.hover(force=True)
         page.wait_for_timeout(600)
         shot(page, "02b-preview-hover.png")
 
