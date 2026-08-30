@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-30 (**#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas; **#64** Desconto formas)
+Última atualização: 2026-08-30 (**#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas; **#64** Desconto formas)
 
 ## Legenda de status
 
@@ -90,6 +90,7 @@
 | 67 | **Lançamentos: contas a receber** | O receber que a venda já lança (líquido da taxa #65) + receita extra (Outras Receitas) + aba Todos | `manuais/lancamentos-contas-receber/` | ✅ Concluído (5 imagens) | — |
 | 68 | **Exibir / Ocultar** | Tabela que esconde produto por dia, horário e canal; prova no cardápio: Brownie some da Sobremesas | `manuais/exibir-ocultar/` | ✅ Concluído (4 imagens) | — |
 | 69 | **Preço Programado** | Happy hour sem mudar o cadastro; 20% no Milk Shake de Morango (18,90 → 15,12) no cardápio digital | `manuais/preco-programado/` | ✅ Concluído (4 imagens) | — |
+| 70 | **Agendamento do cardápio digital** | Os 3 switches + 7 campos de prazo e onde cada um aparece na tela **AGENDAR PEDIDO** (dias e Hora Aproximada) | `manuais/cardapio-digital-agendamento/` | ✅ Concluído (3 imagens) | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -123,7 +124,7 @@
 | **Delivery** | Operar pedidos: colunas de situação, aceitar, despachar, entregador, pagamentos, cancelamento — e o **Aceite Automático** | 3 a 4 manuais | 5 | 💡 Ideia |
 | **PDV** | Venda no balcão: carrinho, cliente, balança, desconto com senha de gerente, pagamento, reabrir e agrupar vendas | 3 a 4 manuais | 5 | 💡 Ideia |
 | **Cardápio** | Produtos, grupos de opções e complementos — o modal do produto tem 6 abas; mais Exibir/Ocultar, Rodízio e importar do iFood | 4 a 5 manuais | 5 | ☑️ **#27–#31** fundamentos; **#68** Exibir/Ocultar; **#69** Preço Programado. Restam Rodízio e importar do iFood |
-| **Cardápio Digital** | Configurar a loja online na ordem certa: horário, área de entrega, formas de recebimento, pagamento online, pausa programada e avisos (11 abas) | 3 a 4 manuais | 5 | ☑️ Horário (#32/#33), Área de Entrega (#34–#38), Avisos (#47), Capas e Destaques (#48) e desconto/acréscimo das formas (#64) prontos; restam cadastro completo das formas e contratação do PIX Online |
+| **Cardápio Digital** | Configurar a loja online na ordem certa: horário, área de entrega, formas de recebimento, pagamento online, pausa programada e avisos (11 abas) | 3 a 4 manuais | 5 | ☑️ Horário (#32/#33), Agendamento (#70), Área de Entrega (#34–#38), Avisos (#47), Capas e Destaques (#48) e desconto/acréscimo das formas (#64) prontos; restam cadastro completo das formas e contratação do PIX Online |
 | **Fiscal** | Configuração fiscal, emissão e consulta de NFC-e e NF-e, inutilização, carta de correção e notas recebidas (a Reforma Tributária já é o #5) | 4 a 5 manuais | 5 | 💡 Ideia |
 | **Mesas / Comandas** | Mapa do salão, abrir e fechar conta, agrupar mesas, reabrir | 2 manuais | 4 | 💡 Ideia |
 | **Impressão** | Impressoras, impressão da cozinha, layout e os dois históricos | 2 a 3 manuais | 4 | 💡 Ideia |
@@ -217,6 +218,7 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 
 ## Histórico
 
+- 2026-08-30 — **#70 Concluído** (`manuais/cardapio-digital-agendamento/`). Aba **Cardápio Digital → Agendamento**: três switches + sete campos de prazo, cada um mapeado na tela **AGENDAR PEDIDO** do cardápio (`menu.beefood.com.br/beefood3`). Exemplo didático: min 2 / máx 7, 60/60/90/60 min, 5 pedidos; switches ON/ON/OFF. No cardápio (Retirada): **Hoje** + **Agendar**; calendário **TER 01 … SEG 07**; faixas **02:00–02:30** até **22:00–22:30** (intervalo 60 = passo entre inícios; a faixa visível dura 30 min). Grade do sandbox está ~01:00–23:59 (não é mais a 11–15/18–23 do #32). Auto-save 800 ms; `fill` em sequência não é confiável — gravar via POST. Cache até 5 min. 3 imagens (tira de 3 celulares). **Só aceita** ficou OFF. O #33 continua sendo a visão geral dos switches.
 - 2026-08-30 — **#68 e #69 Concluídos** (`manuais/exibir-ocultar/` e `manuais/preco-programado/`). Teste de campo no cardápio digital (`menu.beefood.com.br/beefood3`): os dois passaram (hide ~2 min, preço ~1 min; cache até 5 min). **#68:** tabela **Ocultar Brownie (manual)** (ocultar=0, 7 dias, canal Cardápio Digital) — Brownie some da Sobremesas. **#69:** tabela **Happy hour milk-shake (manual)** (ocultar=1, `?preco=1`) — Milk Shake de Morango 18,90 → **15,12 (−20%)**. Armadilhas: botão **Nova Tabela (F1)** (não “Novo”); desconto só depois de selecionar o produto; tabela sem dia = `0d` e não vale; sem `beeshop` o menu público não muda; aba Produtos salva a config sozinha. Rodízio ficou de fora. 4 + 4 imagens (tiras de celular). Tabelas deixadas **ativas**.
 - 2026-08-30 — **#66 e #67 Concluídos** (`manuais/lancamentos-contas-pagar/` e `manuais/lancamentos-contas-receber/`). Uma tela `/contas-pagar-receber`, 3 abas. #66: despesa única **Aluguel do ponto** R$ 800 Pix (paga) + parcelado **Máquina de café** 2× R$ 150 Boleto (1/2 no mês). #67: venda **#915** já vira receber no líquido (14,00 → 13,69, taxa Visa 2,19%) + receita extra **Patrocínio da festa junina** R$ 200 Pix (Outras Receitas) + aba Todos. 8 + 5 imagens. Fora do par: Recebimentos/Pagamentos agregados, DRE, cadastros.
 - 2026-08-30 — **#65 Concluído** (`manuais/taxas-formas-pagamento/`). Taxa e dias em **Financeiro → Formas Pagamento → Formas de Recebimento das Vendas** (não é o desconto do cardápio do #64). Configurados no sandbox: **Débito 2,50% D+0** (Visa **2,19%**, Mastercard **2,89%**), **Crédito 3,49% D+30**, **Vale Refeição 5% D+15**. Relatório certo: **Desempenho → Vendas → Resumo** com a data de hoje (não é Vendas → Recebimento). No dia: Valor Pago **183,26** × realizado **95,56**; Pagamentos: Débito 98/95,56, Crédito 43,26/0, Vale 42/0. 13 imagens. Cashback e descontos do #64 intactos.

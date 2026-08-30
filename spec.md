@@ -48,6 +48,7 @@ manuais/<nome>/
 | Lançamentos: contas a receber | #67 (concluído 30/08/2026) | `manuais/lancamentos-contas-receber/` |
 | Exibir / Ocultar | #68 (concluído 30/08/2026) | `manuais/exibir-ocultar/` |
 | Preço Programado | #69 (concluído 30/08/2026) | `manuais/preco-programado/` |
+| Agendamento do cardápio digital | #70 (concluído 30/08/2026) | `manuais/cardapio-digital-agendamento/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |

@@ -3,7 +3,7 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-30 (**#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
+Última atualização: 2026-08-30 (**#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
@@ -602,6 +602,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Lançamentos: contas a receber | `manuais/lancamentos-contas-receber/` | ✅ Concluído (#67) |
 | Exibir / Ocultar | `manuais/exibir-ocultar/` | ✅ Concluído (#68) |
 | Preço Programado | `manuais/preco-programado/` | ✅ Concluído (#69) |
+| Agendamento do cardápio digital | `manuais/cardapio-digital-agendamento/` | ✅ Concluído (#70) |
 
 ### Exibir/Ocultar e Preço Programado — #68 e #69
 
@@ -622,6 +623,18 @@ canais estão no modal.
 
 Sandbox (30/08/2026): **Ocultar Brownie (manual)** ativa; **Happy
 hour milk-shake (manual)** ativa (Milk Shake 18,90 → 15,12).
+
+---
+
+### Agendamento do cardápio digital — #70
+
+Aba `tab=agendamento`, auto-save 800 ms (unmount sem flush). Campo
+inválido não grava. O cardápio Vue (`menu.beefood.com.br`) abre
+**AGENDAR PEDIDO** depois de Entrega/Retirada: faixa **Dia** + lista
+**Hora Aproximada** (faixas de 30 min; `agendaInterM` é o passo entre
+inícios). `agendaAgoraM` só mexe no dia de hoje. `agendaMinAntes` =
+minutos **depois** de abrir. Preencher vários `input` via Playwright
+e sair perde o save — gravar pelo POST autenticado e recarregar.
 
 ---
 
