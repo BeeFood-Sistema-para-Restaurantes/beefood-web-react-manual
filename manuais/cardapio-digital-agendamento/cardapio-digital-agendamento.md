@@ -79,20 +79,42 @@ Role para o lado para ver os últimos dias.
 
 `0` no mínimo = a primeira bolinha é **HOJE**. `1` = amanhã.
 
-### Primeiro horário, último e o intervalo
+### Primeiro horário e último (os dois 60)
 
 A lista **Hora Aproximada** não é um relógio livre. Cada linha é uma
-faixa. A conta usa a grade de **Horário de Atendimento**:
+faixa. Os dois campos de **60 minutos** **não são o intervalo** —
+cada um **corta um lado** da janela que veio da grade de **Horário
+de Atendimento**.
 
-- **Iniciar depois de aberto 60** + loja às 01:00 → primeira faixa
-  **02:00 – 02:30**
-- **Finalizar antes de fechar 60** + fecha às 23:59 → última faixa
-  **22:00 – 22:30**
-- **Intervalo 60** → o *começo* da próxima faixa anda 1 hora
-  (02:00, 03:00, 04:00…). A faixa em si, neste cardápio, dura
-  **30 minutos**
+**Exemplo 1 — começar mais tarde.** Loja abre às **01:00**.
+**Iniciar depois de aberto = 60**. Primeira faixa do cliente:
+**02:00 – 02:30**. Conta: `01:00 + 60 min = 02:00`.
 
-![Painel: 60 / 60 / intervalo 60 → faixas 02:00 e 22:00](imagens-tratadas/04-par-horarios.png)
+**Exemplo 2 — terminar mais cedo.** Loja fecha às **23:59**.
+**Finalizar antes de fechar = 60**. O limite vira **22:59**. A
+última faixa **não é 22:59**: a que ainda cabe no passo de 1 hora
+é **22:00 – 22:30**.
+
+**A mesma conta no almoço típico (11:00–15:00), também com 60 e 60:**
+`11:00 + 60 = 12:00 – 12:30` (primeira). `15:00 − 60` vira o
+**limite 14:00** — a última faixa é a que ainda cabe nesse limite.
+Sem esses 60, a lista começaria na abertura e iria até o
+fechamento.
+
+![Painel: 60 depois / 60 antes → primeira e última faixa](imagens-tratadas/04-par-horarios.png)
+
+`0` em iniciar = começa na abertura. `0` em finalizar = vai até o
+fechamento.
+
+Dois turnos na grade (almoço e jantar) viram dois blocos na lista.
+
+### O intervalo é outra coisa
+
+**Intervalo 60** não entra na conta de abrir/fechar. Ele só define o
+*passo* entre o **começo** de uma faixa e o da seguinte (02:00,
+03:00, 04:00…). A faixa em si, neste cardápio, dura **30 minutos**.
+Por isso a lista mostra `02:00 – 02:30` e depois `03:00 – 03:30`,
+não `02:00 – 03:00`.
 
 **Tempo mínimo para iniciar agendamento agora** (90 min) só mexe no
 **dia de hoje**. Com mínimo `2` o cliente não vê hoje, então este
@@ -101,11 +123,6 @@ de hoje fica pelo menos 90 minutos à frente do relógio.
 
 **Quantidade máxima** (5) = quantos pedidos cabem numa faixa. Quando
 enche, aquele horário **some**. Não cria faixa nova.
-
-`0` em iniciar = começa na abertura. `0` em finalizar = vai até o
-fechamento.
-
-Dois turnos na grade (almoço e jantar) viram dois blocos na lista.
 
 ---
 

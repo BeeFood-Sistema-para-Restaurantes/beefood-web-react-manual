@@ -41,5 +41,5 @@ Crie um novo manual no app: em **Cardápio Digital**, adicione um manual chamado
 | 1 | `01-aba-switches.png` | setas | Aba + aviso + três switches |
 | 2 | `02-par-chaves.png` | recorte | Painel: chaves → cardápio: Hoje e Agendar |
 | 3 | `03-par-dias.png` | recorte | Painel: 2 e 7 dias → faixa TER 01 |
-| 4 | `04-par-horarios.png` | recorte | Painel: 60/60/60 → faixas 02:00 e 22:00 |
+| 4 | `04-par-horarios.png` | recorte | Dois 60: 01:00+60→02:00 e 23:59−60→22:00 |
 | 5 | `05-cardapio-digital.png` | setas | Fluxo no celular (três aparelhos) |

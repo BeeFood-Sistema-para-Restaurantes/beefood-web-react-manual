@@ -20,7 +20,7 @@ avisava que os prazos “merecem um manual próprio”.
 | `01-aba-switches.png` | setas | Aba + aviso + 3 switches |
 | `02-par-chaves.png` | recorte | Painel (3 switches) → Hoje / Agendar |
 | `03-par-dias.png` | recorte | Painel (2 e 7) → TER 01 / QUA 02… |
-| `04-par-horarios.png` | recorte | Painel (60/60/60) → 02:00 e 22:00 |
+| `04-par-horarios.png` | recorte | Dois 60 separados: 01:00+60→02:00 e 23:59−60→22:00 |
 | `05-cardapio-digital.png` | setas | Tira dos três celulares |
 | `04-cel-hoje-agendar.png` | pura | Fonte do recorte / tira |
 | `05-cel-calendario.png` | pura | Fonte do recorte / tira |
@@ -30,6 +30,13 @@ avisava que os prazos “merecem um manual próprio”.
 Pedido do dono (mesmo dia): lado a lado parâmetro → tela, com
 recortes. A Parte 2 passou a ser três pares `montar_par` (painel à
 esquerda, cardápio à direita, seta verde). A tira ficou na Parte 3.
+
+Pedido seguinte: a `04-par-horarios.png` misturava iniciar 60,
+finalizar 60 e intervalo 60 num par só — é onde mais se confundem.
+Virou compositor didático (`montar_horarios_didatico`): dois cards
+com a conta, linha do tempo, exemplo de almoço 11:00–15:00 e nota
+separando o intervalo. A última faixa **não** é `23:59−60=22:59`;
+o limite é 22:59 e a última que cabe no passo de 1 h é 22:00–22:30.
 
 `02-tempo-dias.png` e `03-tempo-intervalo.png` são extras de captura
 (não entram no `.md`).
