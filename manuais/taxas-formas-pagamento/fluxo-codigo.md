@@ -54,25 +54,28 @@
   `desconto`** ainda substitui a geral por vazio.
 - Manual **não** mostra venda de débito sem bandeira: se a bandeira
   está configurada, a prova preenche a bandeira.
-- Prova (30/08/2026): **#898** e **#907** Visa `taxa=2.19`
-  `valorLiquido=13.69` D+0; **#899** Mastercard `2.89` / `13.60` D+0;
-  **#908** Vale `5` / `13.30` em 14/09; **#894** Crédito `3.49` /
-  `13.92` em 29/09.
+- Prova (30/08/2026): **#915** Visa `taxa=2.19` `valorLiquido=13.69`
+  D+0; **#916** Mastercard `2.89` / `13.60` D+0; **#917** Crédito
+  `3.49` / `13.92` em 29/09; **#914** Vale `5` / `13.30` em 14/09.
 
 ## Relatório faturado × realizado
 
 - Rota `/desempenho` embute iframe
   `https://relatorios.beefood.com.br/relatorios?...&embedded=1`.
-- Menu interno: **Vendas → Recebimento** (não existe item "Financeiro"
-  dentro do iframe). Abas **Resumo** e **Dados**.
-- API: `GET https://report.beetechapi.be/api/relatorio2/resumoPagamentos/{empresaID}`
-  (além de `resumoVendaTicketMedio` no Resumo geral).
-- Colunas Resumo: Qtd Faturado, Qtd Realizado, Valor Pago, Valor
-  Realizado. Dados: Valor, V. Realizado, Taxa, Data Venda, Vencimento,
-  Receb. Previsto, Recebimento.
-- Relatório do dia (30/08): 3 débitos, 42,00 / 40,98; **#898** e
-  **#907** −2,19%; **#899** −2,89%. Vale #908 e crédito #894 fora
-  (14/09 e 29/09). Pagamentos sujos (#892–#897, #902) excluídos.
+- Menu interno certo: **Vendas → Resumo** (item indentado sob Vendas,
+  y≈213 — **não** o Resumo do topo do menu, y≈109, e **não**
+  Vendas → Recebimento).
+- API do Resumo: `GET https://report.beetechapi.be/api/relatorio2/resumoVendas/{empresaID}/{dataIni}/{dataFim}/00:00:01/23:59:59`
+- Tabela **Total**: Faturamento, Valor Pago, Valor Realizado.
+- Bloco **Pagamentos**: Qtd Fat., Qtd Real., Valor Faturado, Valor
+  Realizado por forma. Crédito e vale entram no faturado do dia da
+  venda; realizado fica 0 até a data de recebimento.
+- **Vendas → Recebimento** (`resumoPagamentos`) filtra pelo
+  vencimento/recebimento: com término = hoje, some crédito/vale.
+  Não usar no manual.
+- Relatório do dia (30/08, Hoje): Valor Pago **183,26**, realizado
+  **95,56**. Pagamentos: Débito 98,00 / 95,56 (7); Crédito 43,26 / 0
+  (3); Vale 42,00 / 0 (3).
 
 ## Outro relatório
 

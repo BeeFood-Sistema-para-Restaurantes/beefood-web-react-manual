@@ -15,7 +15,7 @@ Crie um novo manual no app: em **Financeiro**, adicione um manual chamado
 1. **Conteúdo do manual (use na íntegra):**
    `beefood-web-react-manual/manuais/taxas-formas-pagamento/taxas-formas-pagamento.md`
 
-2. **Imagens (use estas 10, nesta ordem):**
+2. **Imagens (use estas 13, nesta ordem):**
    - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/01-formas-pagamento.png`
    - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/02-debito-config.png`
    - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/02b-debito-bandeiras.png`
@@ -24,17 +24,20 @@ Crie um novo manual no app: em **Financeiro**, adicione um manual chamado
    - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/05-tabela-configurada.png`
    - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/06-pdv-pago.png`
    - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/07-detalhe-pagamento.png`
-   - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/08-desemp-recebimento.png`
-   - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/09-desemp-dados.png`
+   - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/07b-detalhe-mastercard.png`
+   - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/07c-detalhe-credito.png`
+   - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/07d-detalhe-vale.png`
+   - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/08-desemp-resumo.png`
+   - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/09-desemp-pagamentos.png`
 
 **NÃO leia** outros arquivos do projeto (ex.: `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`).
 
 **Como montar a página:**
 - Use o conteúdo do `taxas-formas-pagamento.md` exatamente como está (seções, textos e tabelas).
-- Insira as 10 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
+- Insira as 13 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
 - **Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa"**.
 - Idioma **português do Brasil**, tom didático.
-- Mantenha em destaque: a taxa é da **operadora**; bandeira ativa precisa de taxa (senão vira fantasma); se a bandeira está configurada, **preencha a bandeira** na venda; débito **Visa 2,19%** (duas vendas) e **Mastercard 2,89%** no mesmo dia; o relatório fica em **Desempenho → Vendas → Recebimento**; **SALVAR E SAIR (F2)**.
+- Mantenha em destaque: a taxa é da **operadora**; bandeira ativa precisa de taxa (senão vira fantasma); se a bandeira está configurada, **preencha a bandeira** na venda; débito **Visa 2,19%** (duas vendas) e **Mastercard 2,89%** no mesmo dia; o relatório fica em **Desempenho → Vendas → Resumo** com a data de hoje (não é Vendas → Recebimento); **SALVAR E SAIR (F2)**.
 - **Não** publique o rodapé "Referências internas" nem o `fluxo-codigo.md`.
 
 ---
@@ -51,5 +54,8 @@ Crie um novo manual no app: em **Financeiro**, adicione um manual chamado
 | 6 | `05-tabela-configurada.png` | setas | Lista: Mastercard, Visa e geral |
 | 7 | `06-pdv-pago.png` | setas | Venda débito Visa + lupa |
 | 8 | `07-detalhe-pagamento.png` | setas | Visa 2,19%, líquido 13,69, D+0 |
-| 9 | `08-desemp-recebimento.png` | setas | Resumo: faturado 42,00 × realizado 40,98 |
-| 10 | `09-desemp-dados.png` | setas | Duas Visas −2,19% e Mastercard −2,89% |
+| 9 | `07b-detalhe-mastercard.png` | setas | Mastercard 2,89%, líquido 13,60, D+0 |
+| 10 | `07c-detalhe-credito.png` | setas | Crédito 3,49%, líquido 13,92, D+30 |
+| 11 | `07d-detalhe-vale.png` | setas | Vale 5%, líquido 13,30, D+15 |
+| 12 | `08-desemp-resumo.png` | setas | Vendas → Resumo: pago 183,26 × realizado 95,56 |
+| 13 | `09-desemp-pagamentos.png` | setas | Débito, crédito e vale: faturado × realizado |

@@ -85,7 +85,7 @@
 | 62 | **Pick n Go!** | App ID / App Key em Aplicativos; cotação e entregador no Delivery | `manuais/integracao-pick-n-go/` | ✅ Concluído | — |
 | 63 | **Uai Rango** | Token do painel Uai Rango + credenciais e formas de recebimento no BeeFood | `manuais/integracao-uai-rango/` | ✅ Concluído | — |
 | 64 | **Desconto nas formas de recebimento** | PIX Online + formas normais (desconto no dinheiro, acréscimo no vale) e o que o cliente vê no cardápio | `manuais/cardapio-digital-desconto-formas/` | ✅ Concluído (6 imagens) | — |
-| 65 | **Taxas das formas de recebimento** | Taxa e dias (débito D+0, crédito, VR) em Financeiro → Formas Pagamento; detalhe do pagamento e faturado × realizado em Desempenho → Recebimento | `manuais/taxas-formas-pagamento/` | ✅ Concluído (9 imagens) | — |
+| 65 | **Taxas das formas de recebimento** | Taxa e dias (débito D+0, crédito, VR) em Financeiro → Formas Pagamento; detalhe do pagamento e faturado × realizado em Desempenho → Vendas → Resumo | `manuais/taxas-formas-pagamento/` | ✅ Concluído (13 imagens) | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -129,7 +129,7 @@
 | **Histórico de Vendas** | Consultar venda passada, filtros, detalhe, pagamentos e exportação | 1 manual | 4 | 💡 Ideia |
 | **Totem / autoatendimento** | Contratar, configurar (5 abas) e a pesagem automática do self-service | 2 a 3 manuais | 4 | 💡 Ideia |
 | **Clientes** | Cadastro, importação por Excel, duplicados e o que é a classificação RFV | 1 a 2 manuais | 3 | 💡 Ideia |
-| **Financeiro** | Lançamentos a pagar e receber, recebimentos, pagamentos, DRE e cadastros auxiliares | 3 a 4 manuais | 3 | 💡 Ideia — a taxa das formas de venda virou o **#65** |
+| **Financeiro** | Lançamentos a pagar e receber, recebimentos, pagamentos, DRE e cadastros auxiliares | 2 manuais (#66/#67) | 3 | 💡 Estudo feito — aguardando ok do dono. Taxa das vendas = **#65** |
 | **Fiado** | Visão geral, controle de dívidas e vendas sem pagamento | 1 manual | 3 | ☑️ **Virou #25 e #26** |
 | **Cadastros** | Mesas e comandas (com QR Code), formas de recebimento e funcionários | 2 manuais | 3 | 💡 Ideia |
 | **Cardápio no Tablet** | Cadastrar tablets, layout e eventos remotos | 2 manuais | 3 | 💡 Ideia — o modo kiosk saiu daqui e virou o **#24** |
@@ -213,7 +213,7 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 
 ## Histórico
 
-- 2026-08-30 — **#65 Concluído** (`manuais/taxas-formas-pagamento/`). Taxa e dias em **Financeiro → Formas Pagamento → Formas de Recebimento das Vendas** (não é o desconto do cardápio do #64). Configurados no sandbox: **Débito 2,50% D+0**, **Crédito 3,49% D+30**, **Vale Refeição 5% D+15**. Relatório real: **Desempenho → Vendas → Recebimento** (iframe `relatorios.beefood.com.br`) — Qtd/Valor Faturado × Realizado. Prova: vendas PDV **#892** e **#893** (One Burger R$ 14, débito, vencimento no mesmo dia); detalhe com taxa no **PIX Manual #878** (1% D+0, 63,90 → 63,26). 9 imagens. Tabela de exemplo no manual com R$ 100 em 30/08. Cashback e descontos do #64 intactos.
+- 2026-08-30 — **#65 Concluído** (`manuais/taxas-formas-pagamento/`). Taxa e dias em **Financeiro → Formas Pagamento → Formas de Recebimento das Vendas** (não é o desconto do cardápio do #64). Configurados no sandbox: **Débito 2,50% D+0** (Visa **2,19%**, Mastercard **2,89%**), **Crédito 3,49% D+30**, **Vale Refeição 5% D+15**. Relatório certo: **Desempenho → Vendas → Resumo** com a data de hoje (não é Vendas → Recebimento). No dia: Valor Pago **183,26** × realizado **95,56**; Pagamentos: Débito 98/95,56, Crédito 43,26/0, Vale 42/0. 13 imagens. Cashback e descontos do #64 intactos.
 - 2026-08-30 — **#19 e #20 refeitos** com telefone de teste **(15) 99999-8888** (Teste Manual, **R$ 5,00**). Saiu o (11) 11111-1122 / Bruno XXX / R$ 1.233,21. **#20** agora ensina **Adicionar** e **Remover** saldo na mão (modais preenchidos; o R$ 5 do extrato é o crédito real). PDV venda #891 (Aplicar F2 não clicado). Cardápio: combo R$ 39 − R$ 5 = **R$ 34**. 5 imagens no #19, 9 no #20. Config do sandbox **não foi alterada**.
 - 2026-08-29 — **#19 e #20 Concluídos** (`manuais/cashback-configurar/` e `manuais/cashback-operar/`). Tela canônica **CRM → Cashback**. Primeira versão usava (11) 11111-1122 / R$ 1.233,21 — substituída em 30/08.
 - 2026-08-28 — **#60–#63 Concluídos** (merge das PRs abertas, numeração ajustada): Let's Express, Foody Delivery, Pick n Go, Uai Rango. Cada um nasceu como #58/#59 e foi renumerado para não colidir com o #58 (IA) e o #59 (Entrega Fácil iFood).

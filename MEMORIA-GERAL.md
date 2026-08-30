@@ -596,6 +596,28 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Foody Delivery | `manuais/integracao-foody-delivery/` | ✅ Concluído |
 | Pick n Go! | `manuais/integracao-pick-n-go/` | ✅ Concluído |
 | Uai Rango | `manuais/integracao-uai-rango/` | ✅ Concluído |
+| Desconto nas formas de recebimento | `manuais/cardapio-digital-desconto-formas/` | ✅ Concluído (#64) |
+| Taxas das formas de recebimento | `manuais/taxas-formas-pagamento/` | ✅ Concluído (#65) |
+
+### Estudo guardado — Lançamentos (Financeiro)
+
+Rota `/contas-pagar-receber`. Uma tela, 3 abas: **Contas a pagar** /
+**Contas a receber** / **Todos**. **+ Novo (F1)** → **Despesa** (−) ou
+**Receita** (+).
+
+Achado (30/08/2026): venda **paga** já vira conta a receber (categoria
+**Receita de Pedidos**, valor = **líquido** da taxa do #65). Sem contas
+bancárias no sandbox. Fornecedores já existem.
+
+Proposta (aguardando ok do dono — **não criar pasta ainda**):
+
+- **#66** `manuais/lancamentos-contas-pagar/` — despesa, único + um
+  parcelado, marcar pago
+- **#67** `manuais/lancamentos-contas-receber/` — o que a venda já
+  lançou + receita extra + aba Todos
+
+Fora deste par: Recebimentos/Pagamentos agregados, DRE, cadastros,
+Fluxo Caixa (*Em breve!*).
 
 ---
 
