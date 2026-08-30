@@ -3,7 +3,7 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-29 (**#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
+Última atualização: 2026-08-30 (**#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
@@ -101,9 +101,44 @@ olho: uma cópia temporária com linha a cada 0,05 e rótulo a cada 0,10, e os v
 direto da grade. É rápido de escrever (umas 20 linhas de Pillow, em `/tmp`, fora do repositório)
 e acerta quase tudo de primeira. Usado no #24 em 16 capturas: das 29 setas, 24 nasceram no lugar.
 
-**Prints de celular do cardápio público:** em vez de várias imagens altas soltas,
-montar **uma tira** com os aparelhos lado a lado (`montar_celulares` no `annotate.py`
-do #19/#20). As puras individuais ficam de fonte; só a tira entra no manual.
+### Padrão oficial — tira de celulares (cardápio público)
+
+Não coloque vários prints altos de celular soltos no `.md`. Monte **uma tira**
+com os aparelhos lado a lado. O cliente lê o conjunto numa olhada; o arquivo
+único também cabe melhor na página publicada.
+
+**Captura (Playwright):**
+
+- Viewport **390×844**, `device_scale_factor=2` → pura **780×1688**
+- `is_mobile=True`, `has_touch=True`, `locale="pt-BR"`, `LANG=pt_BR.UTF-8`
+- Cardápio: `https://menu.beefood.com.br/beefood3`
+- **Não clicar Retirada na home** (abre o mapa Leaflet). Modalidade =
+  **Retirar no estabelecimento** dentro da sacola
+- Combo de teste: One Burger + Batata frita + Coca 350ml = **R$ 39,00**
+- Telefone de teste: **(15) 99999-8888** (`15999998888` no `input[type=tel]`)
+- Opções do combo: clique JS/mouse em `.modal-product__details .option-item`
+  (o `click` do Playwright falha “outside viewport”)
+
+**Montagem (`montar_celulares` no `annotate.py` — copiar do #19/#20/#64):**
+
+| Constante | Valor | Função |
+|-----------|------:|--------|
+| `PHONE_W` | 380 | Largura de cada aparelho na tira |
+| `GAP` | 18 | Espaço entre aparelhos |
+| `PAD` | 22 | Margem do canvas |
+| `CAP_H` | 44 | Faixa do título acima do aparelho |
+| raio | 26 | Canto arredondado + máscara |
+| fundo | `(244, 244, 245)` | Cinza claro |
+
+- Puras **individuais** ficam em `imagens-puras/` como **fonte**. Não entram no `.md`.
+- `montar_celulares` grava a tira **também em `imagens-puras/`**.
+- Só a tira (já anotada) entra no `.md` e no `texto-documentation.ia.md`.
+- 2 ou 3 aparelhos. Três ainda lê fácil (~1220 px de largura). Quatro aperta.
+- Título curto acima de cada um (“PIX Online — 5%”).
+- Setas na tira: `no_painel(i, tx, ty, W, H, ph_h)` — `tx/ty` são frações
+  **dentro daquele celular**, não da tira inteira.
+
+Usado no **#19**, **#20** e **#64**.
 
 **Mire a borda do elemento, não o centro, quando ele tem texto.** Seta apontada para o meio de um
 botão cai em cima do rótulo e cobre uma letra — aconteceu em quatro botões do #24 (`CONCEDER`,
