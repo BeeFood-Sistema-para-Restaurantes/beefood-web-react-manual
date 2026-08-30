@@ -3,7 +3,7 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-30 (**#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
+Última atualização: 2026-08-30 (**#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
@@ -603,6 +603,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Exibir / Ocultar | `manuais/exibir-ocultar/` | ✅ Concluído (#68) |
 | Preço Programado | `manuais/preco-programado/` | ✅ Concluído (#69) |
 | Agendamento do cardápio digital | `manuais/cardapio-digital-agendamento/` | ✅ Concluído (#70) |
+| Aparência e layout do cardápio digital | `manuais/cardapio-digital-aparencia-layout/` | ✅ Concluído (#71) |
 
 ### Exibir/Ocultar e Preço Programado — #68 e #69
 
@@ -635,6 +636,19 @@ inválido não grava. O cardápio Vue (`menu.beefood.com.br`) abre
 inícios). `agendaAgoraM` só mexe no dia de hoje. `agendaMinAntes` =
 minutos **depois** de abrir. Preencher vários `input` via Playwright
 e sair perde o save — gravar pelo POST autenticado e recarregar.
+
+---
+
+### Aparência e layout do cardápio digital — #71
+
+Card **Aparência** em `/cardapio-digital?tab=configuracoes`. Auto-save
+800 ms (POST do snapshot inteiro). Capa fixa = `fotoCapa`; logo =
+`logotipoS3Link`; tema = `corPrimaria`; capa vazia = `corAcao`.
+`layoutSetor` / `layoutStepCarrinho` boolean. Vitrine =
+`exibirPromocoes` + `abrirPromocoesAuto`. Capa/logo: clique no
+preview, máx 1 MB, sem recorte. **Não** é o modal de banners (#48).
+O preview sticky (xl) reflete na hora; o Vue público pode atrasar
+o cache. Clique “só para ver” já grava.
 
 ---
 
