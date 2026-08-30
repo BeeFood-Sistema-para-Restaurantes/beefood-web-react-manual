@@ -62,6 +62,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Cashback — configurar o programa | [`manuais/cashback-configurar/`](manuais/cashback-configurar/cashback-configurar.md) | ✅ Concluído |
 | Cashback — operar no dia a dia | [`manuais/cashback-operar/`](manuais/cashback-operar/cashback-operar.md) | ✅ Concluído |
 | Desconto e acréscimo nas formas de recebimento (cardápio digital) | [`manuais/cardapio-digital-desconto-formas/`](manuais/cardapio-digital-desconto-formas/cardapio-digital-desconto-formas.md) | ✅ Concluído |
+| Taxas das formas de recebimento (faturado e realizado) | [`manuais/taxas-formas-pagamento/`](manuais/taxas-formas-pagamento/taxas-formas-pagamento.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
