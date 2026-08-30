@@ -34,8 +34,9 @@ Teste: **os dois passaram**. Hide ~2 min; preço ~1 min.
 - “Antes” da tira: desativamos a tabela, esperamos o Brownie voltar
   (até 5 min), print, **reativamos**, esperamos sumir de novo.
 - Tira: 2 aparelhos, padrão `montar_celulares` (#19/#20/#64).
-- Cache do menu público: o dono pediu até **5 minutos** (outros
-  manuais falavam ~1 min).
+- Cache do menu público: o dono pediu até **5 minutos**. Nesta
+  recaptura: Brownie voltou em ~1 min (poll 2) e sumiu de novo em
+  ~2 min (poll 4).
 
 ## Estado deixado no sandbox
 - Tabela **Ocultar Brownie (manual)** **ativa** — Brownie oculto no
