@@ -386,7 +386,7 @@ def montar_horarios_didatico(nome_out):
     """Dois exemplos separados: iniciar 60 → 1ª faixa; finalizar 60 → última."""
     ini = anel(
         crop_frac("02-tempo.png", (0.225, 0.400, 0.355, 0.195)),
-        (0.02, 0.66, 0.28, 0.30), RED, 5, 10,
+        (0.145, 0.76, 0.815, 0.22), RED, 5, 10,
     )
     fim = anel(
         crop_frac("02-tempo.png", (0.575, 0.400, 0.385, 0.195)),
@@ -394,7 +394,7 @@ def montar_horarios_didatico(nome_out):
     )
     slot_ini = anel(
         crop_frac("05-cel-calendario.png", (0.00, 0.198, 1.00, 0.145)),
-        (0.10, 0.38, 0.62, 0.36), GREEN, 5, 10,
+        (0.250, 0.615, 0.480, 0.355), GREEN, 5, 10,
     )
     slot_fim = anel(
         crop_frac("06-cel-horarios.png", (0.00, 0.70, 1.00, 0.085)),
@@ -448,7 +448,7 @@ def montar_horarios_didatico(nome_out):
 
 
 annotate("01-aba-switches.png", [
-    (1, 0.078, 0.325, 0.165, 0.260),
+    (1, 0.128, 0.275, 0.200, 0.205),
     (2, 0.500, 0.175, 0.280, 0.130),
     (3, 0.860, 0.355, 0.740, 0.305),
     (4, 0.860, 0.470, 0.740, 0.530),
