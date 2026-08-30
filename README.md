@@ -61,6 +61,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Cupom de Desconto (campos + cardápio) | [`manuais/cupom-desconto/`](manuais/cupom-desconto/cupom-desconto.md) | ✅ Concluído |
 | Cashback — configurar o programa | [`manuais/cashback-configurar/`](manuais/cashback-configurar/cashback-configurar.md) | ✅ Concluído |
 | Cashback — operar no dia a dia | [`manuais/cashback-operar/`](manuais/cashback-operar/cashback-operar.md) | ✅ Concluído |
+| Desconto e acréscimo nas formas de recebimento (cardápio digital) | [`manuais/cardapio-digital-desconto-formas/`](manuais/cardapio-digital-desconto-formas/cardapio-digital-desconto-formas.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 

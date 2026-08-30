@@ -42,6 +42,7 @@ manuais/<nome>/
 | Cupom de Desconto (campos + cardápio) | #21 (concluído 28/08/2026) | `manuais/cupom-desconto/` |
 | Cashback — configurar o programa | #19 (concluído 29/08/2026) | `manuais/cashback-configurar/` |
 | Cashback — operar no dia a dia | #20 (concluído 29/08/2026) | `manuais/cashback-operar/` |
+| Desconto nas formas de recebimento | #64 (concluído 30/08/2026) | `manuais/cardapio-digital-desconto-formas/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |
@@ -72,6 +73,11 @@ antes do print.** Não é regra do Delivery: é de qualquer tela.
 Print cedo demais sai com painel vazio. O #43 já saiu assim (e de novo com
 `Atualizando...` no Pronto). A regra permanente está na `MEMORIA-GERAL.md`
 (seção 6) — é o arquivo lido no início de cada sessão.
+
+**Tira de celulares (cardápio público):** não publique vários prints altos
+soltos. Monte uma tira (`montar_celulares` no `annotate.py`, padrão do #19/#20/#64).
+Viewport do aparelho: **390×844** `device_scale_factor=2`. Puras individuais
+são fonte; só a tira entra no `.md`. Detalhe na `MEMORIA-GERAL.md` (seção 3).
 
 ## Validação
 

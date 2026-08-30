@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-29 (**#19** e **#20** Cashback)
+Última atualização: 2026-08-30 (**#64** Desconto formas de recebimento)
 
 ## Legenda de status
 
@@ -84,6 +84,7 @@
 | 61 | **Foody Delivery** | Token, webhook e origens no BeeFood; gestão e rastreio no painel Foody | `manuais/integracao-foody-delivery/` | ✅ Concluído | — |
 | 62 | **Pick n Go!** | App ID / App Key em Aplicativos; cotação e entregador no Delivery | `manuais/integracao-pick-n-go/` | ✅ Concluído | — |
 | 63 | **Uai Rango** | Token do painel Uai Rango + credenciais e formas de recebimento no BeeFood | `manuais/integracao-uai-rango/` | ✅ Concluído | — |
+| 64 | **Desconto nas formas de recebimento** | PIX Online + formas normais (desconto no dinheiro, acréscimo no vale) e o que o cliente vê no cardápio | `manuais/cardapio-digital-desconto-formas/` | ✅ Concluído (6 imagens) | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -117,7 +118,7 @@
 | **Delivery** | Operar pedidos: colunas de situação, aceitar, despachar, entregador, pagamentos, cancelamento — e o **Aceite Automático** | 3 a 4 manuais | 5 | 💡 Ideia |
 | **PDV** | Venda no balcão: carrinho, cliente, balança, desconto com senha de gerente, pagamento, reabrir e agrupar vendas | 3 a 4 manuais | 5 | 💡 Ideia |
 | **Cardápio** | Produtos, grupos de opções e complementos — o modal do produto tem 6 abas; mais Exibir/Ocultar, Rodízio e importar do iFood | 4 a 5 manuais | 5 | ☑️ **Virou #27–#31** — ver `PLANO-CARDAPIO.md` |
-| **Cardápio Digital** | Configurar a loja online na ordem certa: horário, área de entrega, formas de recebimento, pagamento online, pausa programada e avisos (11 abas) | 3 a 4 manuais | 5 | ☑️ Horário (#32/#33), Área de Entrega (#34–#38), Avisos (#47) e Capas e Destaques (#48) prontos; restam formas de recebimento e pagamento online |
+| **Cardápio Digital** | Configurar a loja online na ordem certa: horário, área de entrega, formas de recebimento, pagamento online, pausa programada e avisos (11 abas) | 3 a 4 manuais | 5 | ☑️ Horário (#32/#33), Área de Entrega (#34–#38), Avisos (#47), Capas e Destaques (#48) e desconto/acréscimo das formas (#64) prontos; restam cadastro completo das formas e contratação do PIX Online |
 | **Fiscal** | Configuração fiscal, emissão e consulta de NFC-e e NF-e, inutilização, carta de correção e notas recebidas (a Reforma Tributária já é o #5) | 4 a 5 manuais | 5 | 💡 Ideia |
 | **Mesas / Comandas** | Mapa do salão, abrir e fechar conta, agrupar mesas, reabrir | 2 manuais | 4 | 💡 Ideia |
 | **Impressão** | Impressoras, impressão da cozinha, layout e os dois históricos | 2 a 3 manuais | 4 | 💡 Ideia |
