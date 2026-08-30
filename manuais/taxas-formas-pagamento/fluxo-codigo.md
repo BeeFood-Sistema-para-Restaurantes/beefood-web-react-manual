@@ -50,6 +50,11 @@
   desses campos vier preenchido (linhas 1570–1614 de
   `ModalPagamentos.tsx`).
 - Bandeira opcional: `ccbandeiraID`. Sem bandeira → config geral.
+  Bandeira **ativa sem `desconto`** substitui a geral por vazio
+  (pagamento nasce com `taxa`/`valorLiquido` nulos).
+- Prova (30/08/2026): **#898** Visa `taxa=2.19` `valorLiquido=13.69`
+  datas D+0; **#899** Mastercard `2.89` / `13.60` D+0. IDs
+  `preVendaPagamentoID` 65398593 e 65398648.
 
 ## Relatório faturado × realizado
 
@@ -62,12 +67,8 @@
 - Colunas Resumo: Qtd Faturado, Qtd Realizado, Valor Pago, Valor
   Realizado. Dados: Valor, V. Realizado, Taxa, Data Venda, Vencimento,
   Receb. Previsto, Recebimento.
-- Prova ao vivo (30/08/2026): crédito **#894** — Valor 14,42 / líquido
-  13,92 / taxa 3,49% / recebimento 29/09. Débito #892/#893 e vale
-  #895 — vencimento no dia da venda; `taxa`/`valorLiquido` vazios no
-  registro (o front não desenha o bloco). O POST
-  `resumoPagamentos` com `ckDataVenda` no dia **não devolve o #894**
-  (fica no 29/09). Relatório do dia: débito + vale. Sem PIX #878.
+- Relatório do dia (30/08): Débito 84,00 / 83,29; linhas **#898
+  −2,19%** e **#899 −2,89%**. Crédito #894 continua fora (29/09).
 
 ## Outro relatório
 

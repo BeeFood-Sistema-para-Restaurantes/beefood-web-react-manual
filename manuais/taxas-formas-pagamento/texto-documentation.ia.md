@@ -15,9 +15,10 @@ Crie um novo manual no app: em **Financeiro**, adicione um manual chamado
 1. **Conteúdo do manual (use na íntegra):**
    `beefood-web-react-manual/manuais/taxas-formas-pagamento/taxas-formas-pagamento.md`
 
-2. **Imagens (use estas 9, nesta ordem):**
+2. **Imagens (use estas 10, nesta ordem):**
    - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/01-formas-pagamento.png`
    - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/02-debito-config.png`
+   - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/02b-debito-bandeiras.png`
    - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/03-credito-config.png`
    - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/04-vr-config.png`
    - `beefood-web-react-manual/manuais/taxas-formas-pagamento/imagens-tratadas/05-tabela-configurada.png`
@@ -30,10 +31,10 @@ Crie um novo manual no app: em **Financeiro**, adicione um manual chamado
 
 **Como montar a página:**
 - Use o conteúdo do `taxas-formas-pagamento.md` exatamente como está (seções, textos e tabelas).
-- Insira as 9 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
+- Insira as 10 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
 - **Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa"**.
 - Idioma **português do Brasil**, tom didático.
-- Mantenha em destaque: a taxa é da **operadora** (não é desconto do cliente); uma venda em cada forma; débito **D+0** para ver faturado e realizado no mesmo dia; o relatório fica em **Desempenho → Vendas → Recebimento**; **SALVAR E SAIR (F2)**.
+- Mantenha em destaque: a taxa é da **operadora**; bandeira ativa precisa de taxa (senão vira fantasma); débito **Visa 2,19%** e **Mastercard 2,89%** no mesmo dia; o relatório fica em **Desempenho → Vendas → Recebimento**; **SALVAR E SAIR (F2)**.
 - **Não** publique o rodapé "Referências internas" nem o `fluxo-codigo.md`.
 
 ---
@@ -43,11 +44,12 @@ Crie um novo manual no app: em **Financeiro**, adicione um manual chamado
 | Ordem | Arquivo (em `imagens-tratadas/`) | Tipo | Legenda |
 |------:|----------------------------------|------|---------|
 | 1 | `01-formas-pagamento.png` | setas | Financeiro → Formas Pagamento, bloco das vendas |
-| 2 | `02-debito-config.png` | setas | Débito 2,50% e 0 dias |
-| 3 | `03-credito-config.png` | setas | Crédito 3,49% e 30 dias |
-| 4 | `04-vr-config.png` | setas | Vale Refeição 5% e 15 dias |
-| 5 | `05-tabela-configurada.png` | setas | Crédito e débito na lista |
-| 6 | `06-pdv-pago.png` | setas | Venda no crédito + lupa |
-| 7 | `07-detalhe-pagamento.png` | setas | Taxa 3,49%, líquido e datas D+30 |
-| 8 | `08-desemp-recebimento.png` | setas | Resumo do dia: débito e vale |
-| 9 | `09-desemp-dados.png` | setas | Linhas do débito e do vale |
+| 2 | `02-debito-config.png` | setas | Débito geral 2,50% e 0 dias |
+| 3 | `02b-debito-bandeiras.png` | setas | Visa 2,19% e Mastercard 2,89% |
+| 4 | `03-credito-config.png` | setas | Crédito 3,49% e 30 dias |
+| 5 | `04-vr-config.png` | setas | Vale Refeição 5% e 15 dias |
+| 6 | `05-tabela-configurada.png` | setas | Lista: Mastercard, Visa e geral |
+| 7 | `06-pdv-pago.png` | setas | Venda débito Visa + lupa |
+| 8 | `07-detalhe-pagamento.png` | setas | Visa 2,19%, líquido 13,69, D+0 |
+| 9 | `08-desemp-recebimento.png` | setas | Resumo: faturado 84,00 × realizado 83,29 |
+| 10 | `09-desemp-dados.png` | setas | Visa −2,19% e Mastercard −2,89% |
