@@ -90,7 +90,7 @@
 | 67 | **Lançamentos: contas a receber** | O receber que a venda já lança (líquido da taxa #65) + receita extra (Outras Receitas) + aba Todos | `manuais/lancamentos-contas-receber/` | ✅ Concluído (5 imagens) | — |
 | 68 | **Exibir / Ocultar** | Tabela que esconde produto por dia, horário e canal; prova no cardápio: Brownie some da Sobremesas | `manuais/exibir-ocultar/` | ✅ Concluído (4 imagens) | — |
 | 69 | **Preço Programado** | Happy hour sem mudar o cadastro; 20% no Milk Shake de Morango (18,90 → 15,12) no cardápio digital | `manuais/preco-programado/` | ✅ Concluído (4 imagens) | — |
-| 70 | **Agendamento do cardápio digital** | Os 3 switches + 7 campos de prazo e onde cada um aparece na tela **AGENDAR PEDIDO** (dias e Hora Aproximada) | `manuais/cardapio-digital-agendamento/` | ✅ Concluído (3 imagens) | — |
+| 70 | **Agendamento do cardápio digital** | Os 3 switches + 7 campos de prazo, cada um em recorte **painel → cardápio** (Hoje/Agendar, faixa Dia, Hora Aproximada) | `manuais/cardapio-digital-agendamento/` | ✅ Concluído (5 imagens) | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >

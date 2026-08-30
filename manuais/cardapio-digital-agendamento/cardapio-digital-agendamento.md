@@ -8,8 +8,8 @@ O cliente escolhe isso na **sacola**, depois da modalidade (Entrega ou
 Retirada). A tela se chama **AGENDAR PEDIDO**: em cima os **dias**,
 embaixo a **Hora Aproximada**.
 
-> As imagens têm **setas com números** (1, 2, 3…). No texto, cada
-> número indica o campo ou botão correspondente na tela.
+Nas imagens da Parte 2, o recorte da **esquerda** é o painel; o da
+**direita** é o cardápio. A seta é o que aquele campo muda.
 
 ---
 
@@ -30,82 +30,105 @@ Não clique em switch “só para ver”: cada toque grava.
 
 ---
 
-## Parte 1 — Onde fica e as três chaves
+## Parte 1 — Onde fica
 
 No menu: **Cardápio Digital → Agendamento** (1). O aviso amarelo (2)
 repete: o agendamento **não vale para o salão**.
 
-Os três switches:
-
 ![Aba Agendamento: aviso e as três chaves](imagens-tratadas/01-aba-switches.png)
 
-| Nº | Campo | O que faz no cardápio |
-|----|--------|------------------------|
+| Nº | Campo | O que faz |
+|----|--------|-----------|
 | 1. | **Agendamento** (menu) | Abre esta aba |
 | 2. | Aviso | Só Entrega / Retirada |
-| 3. | **Agendamento** | Chave geral. Ligado: na sacola, depois de escolher Entrega ou Retirada, aparecem **Hoje** e **Agendar**. Desligado: some o **Agendar** — o cliente só pede para agora |
-| 4. | **Agendamento com o Cardápio Digital fechado** | Fora do horário o cliente ainda consegue tocar **Agendar**. Sem isto, loja fechada = não pede. Depende do (3) ligado |
-| 5. | **Só aceita agendamento** | Some o **Hoje**. Só resta **Agendar**. Útil para encomenda. Deixe **desligado** se ainda quiser pedido imediato |
+| 3. | **Agendamento** | Chave geral |
+| 4. | **… com o Cardápio Digital fechado** | Pede fora do horário |
+| 5. | **Só aceita agendamento** | Some o pedido imediato |
 
 O card **Configurações de Tempo** só aparece com o (3) ligado.
 
 ---
 
-## Parte 2 — Cada campo e a tela AGENDAR PEDIDO
+## Parte 2 — Do painel para o cardápio
 
-Estes números recortam o calendário e a lista de horários. No exemplo
-didático: **2 / 7 dias**, **60 / 60 / 90 / 60 minutos**, **5 pedidos**.
+Cada figura é um recorte: **o que você liga ou digita** → **o que o
+cliente vê**. Exemplo didático: mínimo **2**, máximo **7**, **60** min
+depois de abrir, **60** antes de fechar, intervalo **60**, **5**
+pedidos por faixa.
 
-![Configurações de Tempo](imagens-tratadas/02-tempo.png)
+### As três chaves
 
-| Nº | Campo (faixa) | Onde aparece no AGENDAR PEDIDO |
-|----|----------------|--------------------------------|
-| 1. | **Dias mínimo** (0–30) | Primeira bolinha de **Dia**. `0` = **HOJE**. `1` = amanhã. `2` = depois de amanhã (some HOJE e o dia seguinte) |
-| 2. | **Dias máximo** (1–60) | Quantas bolinhas cabem na faixa, **a contar do primeiro dia permitido**. `2` e `7` → de **TER 01** até **SEG 07** (sete dias). Não é “hoje + 7” |
-| 3. | **Iniciar depois de aberto** (0–720 min) | Primeiro horário do dia = abertura da grade + estes minutos. `60` e loja às 01:00 → a lista começa em **02:00 – 02:30** |
-| 4. | **Finalizar antes de fechar** (0–720 min) | Último horário = fechamento − estes minutos. `60` e fecha às 23:59 → a última faixa é **22:00 – 22:30** |
-| 5. | **Tempo mínimo para iniciar agendamento agora** (0–1440 min) | **Só no dia de hoje.** O primeiro slot fica pelo menos N minutos à frente do relógio. Com dias mínimo `2` o cliente **não vê hoje**, então este campo não mexe na lista. Se o mínimo for `0`, `90` empurra o primeiro horário de hoje (ex.: 16:35 + 90 min → 18:05) |
-| 6. | **Intervalo entre agendamentos** (1–240 min) | Espaço entre o **começo** de uma faixa e o da próxima. `60` → `02:00 – 02:30`, depois `03:00 – 03:30`. A faixa em si, neste cardápio, dura **30 minutos** |
-| 7. | **Quantidade máxima de pedidos por intervalo** (1–999) | Quantos pedidos cabem em **uma** faixa. Quando enche, aquele horário **some** da lista. Não cria faixa nova |
+**Agendamento** ligado solta os botões **Hoje** e **Agendar** na
+retirada (e na entrega). **Hoje** = pedido imediato (25–35 min da
+grade). **Agendar** abre o calendário.
 
-A conta dos horários usa a grade de **Horário de Atendimento** da
-sub-aba **Delivery**. Mude a grade e a lista muda. Dois turnos no
-mesmo dia viram dois blocos na lista (almoço e jantar).
+**Só aceita agendamento** desligado = os dois botões. Se ligar, some
+o **Hoje**. O segundo switch (loja fechada) não muda esses botões —
+ele só deixa o **Agendar** funcionar fora do horário.
 
-`0` em (3) = começa na abertura. `0` em (4) = vai até o fechamento.
-`0` em (5) = no dia de hoje, o próximo intervalo já aparece.
+![Painel: três switches → cardápio: Hoje e Agendar](imagens-tratadas/02-par-chaves.png)
+
+### Dias mínimo e máximo
+
+`2` some **HOJE** e o dia seguinte. A primeira bolinha vira
+**TER 01** (hoje é domingo 30/08). `7` é quantas bolinhas cabem **a
+partir dessa primeira**, não “hoje + 7”: a faixa vai até **SEG 07**.
+Role para o lado para ver os últimos dias.
+
+![Painel: 2 e 7 dias → cardápio: TER 01, QUA 02…](imagens-tratadas/03-par-dias.png)
+
+`0` no mínimo = a primeira bolinha é **HOJE**. `1` = amanhã.
+
+### Primeiro horário, último e o intervalo
+
+A lista **Hora Aproximada** não é um relógio livre. Cada linha é uma
+faixa. A conta usa a grade de **Horário de Atendimento**:
+
+- **Iniciar depois de aberto 60** + loja às 01:00 → primeira faixa
+  **02:00 – 02:30**
+- **Finalizar antes de fechar 60** + fecha às 23:59 → última faixa
+  **22:00 – 22:30**
+- **Intervalo 60** → o *começo* da próxima faixa anda 1 hora
+  (02:00, 03:00, 04:00…). A faixa em si, neste cardápio, dura
+  **30 minutos**
+
+![Painel: 60 / 60 / intervalo 60 → faixas 02:00 e 22:00](imagens-tratadas/04-par-horarios.png)
+
+**Tempo mínimo para iniciar agendamento agora** (90 min) só mexe no
+**dia de hoje**. Com mínimo `2` o cliente não vê hoje, então este
+campo não aparece na lista. Se o mínimo for `0`, o primeiro horário
+de hoje fica pelo menos 90 minutos à frente do relógio.
+
+**Quantidade máxima** (5) = quantos pedidos cabem numa faixa. Quando
+enche, aquele horário **some**. Não cria faixa nova.
+
+`0` em iniciar = começa na abertura. `0` em finalizar = vai até o
+fechamento.
+
+Dois turnos na grade (almoço e jantar) viram dois blocos na lista.
 
 ---
 
-## Parte 3 — O que o cliente vê
+## Parte 3 — O fluxo inteiro no celular
 
-Na sacola: **Continuar** → modalidade → **Retirar no estabelecimento**
-(ou Entrega). Não toque **Retirada** na home — abre o mapa.
+Na sacola: **Continuar** → **Retirar no estabelecimento** (ou
+Entrega). Não toque **Retirada** na home — abre o mapa.
 
-Com o agendamento ligado e **Só aceita** desligado (1): **Hoje** é o
-pedido imediato (tempo de retirada da grade). **Agendar** abre o
-**AGENDAR PEDIDO**.
+(1) **Hoje** ou **Agendar**. (2) A faixa **Dia**. (3) A
+**Hora Aproximada** — o cliente marca uma e toca **AGENDAR PEDIDO**.
 
-A faixa **Dia** (2) começa no dias mínimo. No exemplo (`2` e `7`,
-hoje domingo 30/08): a primeira bolinha é **TER 01** e a última,
-rolando a faixa, é **SEG 07**. Não aparece HOJE nem SEG 31.
-
-A lista **Hora Aproximada** (3) são faixas, não um relógio livre. No
-exemplo a primeira é **02:00 – 02:30** e a última **22:00 – 22:30**.
-O cliente marca uma e toca **AGENDAR PEDIDO**.
-
-![Cardápio: Hoje/Agendar, dias e horários](imagens-tratadas/03-cardapio-digital.png)
+![Cardápio: Hoje/Agendar, dias e horários](imagens-tratadas/05-cardapio-digital.png)
 
 | Nº | O que o cliente vê |
 |----|--------------------|
-| 1. | **Hoje** (agora) e **Agendar**. Com **Só aceita agendamento**, some o Hoje |
-| 2. | Bolinhas de **Dia** — primeira e última saem dos dias mínimo / máximo |
-| 3. | **Hora Aproximada** — primeira, última e o tamanho da faixa saem dos minutos (3), (4) e (6) da Parte 2 |
+| 1. | **Hoje** e **Agendar** — saem das três chaves |
+| 2. | Bolinhas de **Dia** — saem dos dias mínimo / máximo |
+| 3. | **Hora Aproximada** — saem da grade + iniciar / finalizar / intervalo |
 
 Pode levar **até 5 minutos**. **Não finalize** o pedido de teste. Se
 aparecer cashback, use **CANCELAR**.
 
-**Consumir no local** não agenda — o aviso da aba vale.
+**Consumir no local** não agenda.
 
 ---
 
@@ -120,7 +143,7 @@ aparecer cashback, use **CANCELAR**.
 | Poucos dias na faixa | **Dias máximo** |
 | Primeiro horário tarde demais | **Iniciar depois de aberto** + abertura da grade; no dia de hoje, some o **Tempo mínimo… agora** |
 | Lista acaba cedo | **Finalizar antes de fechar** + fechamento da grade |
-| Faixas de 30 min em vez de 1 h | **Intervalo entre agendamentos** |
+| Faixas de 30 min em vez de 1 h | **Intervalo** é o passo entre os *inícios*, não a duração da faixa |
 | Um horário some no meio do dia | Aquele intervalo já chegou na **quantidade máxima** |
 | Cliente agenda no presencial | Não existe. Só Delivery |
 | Procurou o botão Salvar | Não tem. Grava sozinha |
@@ -132,12 +155,10 @@ aparecer cashback, use **CANCELAR**.
 - **Horário de Atendimento:** a grade da semana (abre / fecha). Sem
   ela esta aba não tem de onde tirar horário.
 - **Pausa temporária / programada:** fecha a loja agora ou numa data.
-  Não monta calendário. Está no manual **Fechar a loja fora do
-  horário**.
+  Está no manual **Fechar a loja fora do horário**.
 - **Só aceita agendamento** no cadastro do **produto:** outro
-  interruptor, item a item. Não é esta aba.
-- Filtro de pedidos agendados no **Delivery** (operar a fila): outra
-  tela, outro assunto.
+  interruptor, item a item.
+- Filtro de pedidos agendados no **Delivery**: outra tela.
 
 ---
 

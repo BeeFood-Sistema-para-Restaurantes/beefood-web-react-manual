@@ -104,6 +104,101 @@ def no_painel(i, tx, ty, W, H, ph_h):
     return x / W, y / H
 
 
+BG = (244, 244, 245)
+DARK = (40, 40, 40)
+MUTED = (100, 100, 100)
+MID = 56
+COL_W = 560
+PAD_P = 28
+TIT_H = 46
+LAB_H = 32
+FOOT_H = 56
+RADIUS = 18
+
+
+def crop_frac(name, box):
+    im = Image.open(os.path.join(SRC, name)).convert("RGB")
+    W, H = im.size
+    x, y, w, h = box
+    return im.crop((int(x * W), int(y * H), int((x + w) * W), int((y + h) * H)))
+
+
+def encaixa(im, max_w, max_h):
+    w, h = im.size
+    scale = min(max_w / w, max_h / h)
+    nw, nh = max(1, int(w * scale)), max(1, int(h * scale))
+    return im.resize((nw, nh), Image.Resampling.LANCZOS)
+
+
+def cola_redondo(canvas, im, xy, radius=RADIUS):
+    w, h = im.size
+    mask = Image.new("L", (w, h), 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, w - 1, h - 1], radius=radius, fill=255)
+    canvas.paste(im, xy, mask)
+    d = ImageDraw.Draw(canvas)
+    d.rounded_rectangle([xy[0], xy[1], xy[0] + w - 1, xy[1] + h - 1], radius=radius, outline=(200, 200, 200), width=2)
+
+
+def seta_meio(d, x0, y, x1):
+    w = 4
+    ym = y
+    d.line([(x0, ym), (x1, ym)], fill=GREEN, width=w)
+    ang = 0
+    L = 14
+    d.line([(x1, ym), (x1 - L * math.cos(ang - 0.45), ym - L * math.sin(-0.45))], fill=GREEN, width=w)
+    d.line([(x1, ym), (x1 - L * math.cos(ang + 0.45), ym + L * math.sin(0.45))], fill=GREEN, width=w)
+
+
+def empilha(imgs, gap=12):
+    w = max(i.width for i in imgs)
+    h = sum(i.height for i in imgs) + gap * (len(imgs) - 1)
+    out = Image.new("RGB", (w, h), BG)
+    y = 0
+    for im in imgs:
+        out.paste(im, ((w - im.width) // 2, y))
+        y += im.height + gap
+    return out
+
+
+def montar_par(nome_out, titulo, esq, dir_, lab_esq, lab_dir, rodape):
+    """Painel (esq) → cardápio (dir). esq/dir: Image ou lista de Images."""
+    if isinstance(esq, list):
+        esq = empilha(esq)
+    if isinstance(dir_, list):
+        dir_ = empilha(dir_)
+    max_h = 420
+    esq = encaixa(esq, COL_W, max_h)
+    dir_ = encaixa(dir_, COL_W, max_h)
+    col_h = max(esq.height, dir_.height)
+    W = PAD_P * 2 + COL_W * 2 + MID
+    H = PAD_P + TIT_H + LAB_H + col_h + FOOT_H + PAD_P
+    canvas = Image.new("RGB", (W, H), BG)
+    d = ImageDraw.Draw(canvas)
+    ft = font(22)
+    fl = font(16)
+    fr = font(15)
+    bb = d.textbbox((0, 0), titulo, font=ft)
+    d.text(((W - (bb[2] - bb[0])) / 2, PAD_P + 8), titulo, fill=DARK, font=ft)
+    y_lab = PAD_P + TIT_H
+    y_img = y_lab + LAB_H
+    x_esq = PAD_P
+    x_dir = PAD_P + COL_W + MID
+    for lab, x in ((lab_esq, x_esq), (lab_dir, x_dir)):
+        bb = d.textbbox((0, 0), lab, font=fl)
+        d.text((x + (COL_W - (bb[2] - bb[0])) / 2, y_lab + 6), lab, fill=MUTED, font=fl)
+    cola_redondo(canvas, esq, (x_esq + (COL_W - esq.width) // 2, y_img + (col_h - esq.height) // 2))
+    cola_redondo(canvas, dir_, (x_dir + (COL_W - dir_.width) // 2, y_img + (col_h - dir_.height) // 2))
+    cx0 = x_esq + COL_W + 10
+    cx1 = x_dir - 10
+    seta_meio(d, cx0, y_img + col_h / 2, cx1)
+    bb = d.textbbox((0, 0), rodape, font=fr)
+    d.text(((W - (bb[2] - bb[0])) / 2, y_img + col_h + 16), rodape, fill=DARK, font=fr)
+    canvas.save(os.path.join(SRC, nome_out))
+    canvas.save(os.path.join(OUT, nome_out))
+    print("PAR", nome_out, canvas.size)
+    return canvas.size
+
+
 annotate("01-aba-switches.png", [
     (1, 0.078, 0.325, 0.165, 0.260),
     (2, 0.500, 0.175, 0.280, 0.130),
@@ -112,20 +207,46 @@ annotate("01-aba-switches.png", [
     (5, 0.860, 0.590, 0.740, 0.650),
 ])
 
-annotate("02-tempo.png", [
-    (1, 0.400, 0.300, 0.260, 0.240),
-    (2, 0.720, 0.300, 0.860, 0.240),
-    (3, 0.400, 0.480, 0.260, 0.420),
-    (4, 0.720, 0.480, 0.860, 0.420),
-    (5, 0.400, 0.640, 0.260, 0.580),
-    (6, 0.400, 0.800, 0.260, 0.740),
-    (7, 0.720, 0.800, 0.860, 0.740),
-])
+montar_par(
+    "02-par-chaves.png",
+    "As três chaves  →  Hoje e Agendar",
+    crop_frac("01-aba-switches.png", (0.230, 0.285, 0.735, 0.400)),
+    crop_frac("04-cel-hoje-agendar.png", (0.02, 0.165, 0.96, 0.40)),
+    "No painel",
+    "No cardápio",
+    "Agendamento ligado: aparecem Hoje (agora) e Agendar. Só aceita off = os dois botões.",
+)
+
+montar_par(
+    "03-par-dias.png",
+    "Dias mínimo 2 e máximo 7  →  faixa Dia",
+    crop_frac("02-tempo.png", (0.225, 0.175, 0.740, 0.250)),
+    crop_frac("05-cel-calendario.png", (0.00, 0.000, 1.00, 0.230)),
+    "No painel",
+    "No cardápio",
+    "Primeira bolinha = TER 01 (mínimo 2). Sem HOJE nem amanhã. Máximo 7 = sete dias a partir daí.",
+)
+
+montar_par(
+    "04-par-horarios.png",
+    "60 min depois / 60 antes / intervalo 60  →  Hora Aproximada",
+    [
+        crop_frac("02-tempo.png", (0.225, 0.400, 0.740, 0.200)),
+        crop_frac("02-tempo.png", (0.225, 0.700, 0.740, 0.230)),
+    ],
+    [
+        crop_frac("05-cel-calendario.png", (0.00, 0.198, 1.00, 0.250)),
+        crop_frac("06-cel-horarios.png", (0.00, 0.540, 1.00, 0.250)),
+    ],
+    "No painel",
+    "No cardápio",
+    "Primeira faixa 02:00–02:30 (abre 01:00 + 60). Última 22:00–22:30. Intervalo 60 = de hora em hora.",
+)
 
 if all(os.path.exists(os.path.join(SRC, n)) for n in (
     "04-cel-hoje-agendar.png", "05-cel-calendario.png", "06-cel-horarios.png"
 )):
-    W, H, ph_h = montar_celulares("03-cardapio-digital.png", [
+    W, H, ph_h = montar_celulares("05-cardapio-digital.png", [
         ("04-cel-hoje-agendar.png", "Hoje ou Agendar"),
         ("05-cel-calendario.png", "Dias do calendário"),
         ("06-cel-horarios.png", "Horários do dia"),
@@ -139,12 +260,10 @@ if all(os.path.exists(os.path.join(SRC, n)) for n in (
     b2 = f2(0.12, 0.07)
     a3 = f3(0.42, 0.74)
     b3 = f3(0.14, 0.62)
-    annotate("03-cardapio-digital.png", [
+    annotate("05-cardapio-digital.png", [
         (1, a1[0], a1[1], b1[0], b1[1]),
         (2, a2[0], a2[1], b2[0], b2[1]),
         (3, a3[0], a3[1], b3[0], b3[1]),
     ])
-else:
-    print("tira: celulares ainda nao capturados")
 
 print("done")

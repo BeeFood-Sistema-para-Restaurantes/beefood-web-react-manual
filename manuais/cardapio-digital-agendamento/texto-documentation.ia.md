@@ -15,19 +15,21 @@ Crie um novo manual no app: em **Cardápio Digital**, adicione um manual chamado
 1. **Conteúdo do manual (use na íntegra):**
    `beefood-web-react-manual/manuais/cardapio-digital-agendamento/cardapio-digital-agendamento.md`
 
-2. **Imagens (use estas 3, nesta ordem):**
+2. **Imagens (use estas 5, nesta ordem):**
    - `beefood-web-react-manual/manuais/cardapio-digital-agendamento/imagens-tratadas/01-aba-switches.png`
-   - `beefood-web-react-manual/manuais/cardapio-digital-agendamento/imagens-tratadas/02-tempo.png`
-   - `beefood-web-react-manual/manuais/cardapio-digital-agendamento/imagens-tratadas/03-cardapio-digital.png`
+   - `beefood-web-react-manual/manuais/cardapio-digital-agendamento/imagens-tratadas/02-par-chaves.png`
+   - `beefood-web-react-manual/manuais/cardapio-digital-agendamento/imagens-tratadas/03-par-dias.png`
+   - `beefood-web-react-manual/manuais/cardapio-digital-agendamento/imagens-tratadas/04-par-horarios.png`
+   - `beefood-web-react-manual/manuais/cardapio-digital-agendamento/imagens-tratadas/05-cardapio-digital.png`
 
 **NÃO leia** outros arquivos do projeto (ex.: `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`).
 
 **Como montar a página:**
 - Use o conteúdo do `cardapio-digital-agendamento.md` exatamente como está (seções, textos e tabelas).
-- Insira as 3 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
+- Insira as 5 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
 - **Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa"**.
 - Idioma **português do Brasil**, tom didático.
-- Mantenha em destaque: auto-save (sem SALVAR); só Entrega / Retirada; cada campo de tempo aponta para a tela **AGENDAR PEDIDO**; horários saem da grade de **Horário de Atendimento**; **Só aceita agendamento** some o Hoje; cache de **até 5 minutos**.
+- Mantenha em destaque: os recortes **painel → cardápio** (seta no meio); auto-save; só Entrega / Retirada; cache de **até 5 minutos**.
 - **Não** publique o rodapé "Referências internas" nem o `fluxo-codigo.md`.
 
 ---
@@ -37,5 +39,7 @@ Crie um novo manual no app: em **Cardápio Digital**, adicione um manual chamado
 | Ordem | Arquivo (em `imagens-tratadas/`) | Tipo | Legenda |
 |------:|----------------------------------|------|---------|
 | 1 | `01-aba-switches.png` | setas | Aba + aviso + três switches |
-| 2 | `02-tempo.png` | setas | Os sete campos de prazo |
-| 3 | `03-cardapio-digital.png` | setas | Cardápio: Hoje/Agendar, dias e horários |
+| 2 | `02-par-chaves.png` | recorte | Painel: chaves → cardápio: Hoje e Agendar |
+| 3 | `03-par-dias.png` | recorte | Painel: 2 e 7 dias → faixa TER 01 |
+| 4 | `04-par-horarios.png` | recorte | Painel: 60/60/60 → faixas 02:00 e 22:00 |
+| 5 | `05-cardapio-digital.png` | setas | Fluxo no celular (três aparelhos) |

@@ -18,11 +18,18 @@ avisava que os prazos “merecem um manual próprio”.
 | Arquivo | Tipo | O que mostra |
 |---------|------|----------------|
 | `01-aba-switches.png` | setas | Aba + aviso + 3 switches |
-| `02-tempo.png` | setas | Os 7 campos de Configurações de Tempo |
-| `04-cel-hoje-agendar.png` | pura | Fonte: Hoje / Agendar na retirada |
-| `05-cel-calendario.png` | pura | Fonte: faixa Dia |
-| `06-cel-horarios.png` | pura | Fonte: Hora Aproximada |
-| `03-cardapio-digital.png` | setas | Tira dos três celulares |
+| `02-par-chaves.png` | recorte | Painel (3 switches) → Hoje / Agendar |
+| `03-par-dias.png` | recorte | Painel (2 e 7) → TER 01 / QUA 02… |
+| `04-par-horarios.png` | recorte | Painel (60/60/60) → 02:00 e 22:00 |
+| `05-cardapio-digital.png` | setas | Tira dos três celulares |
+| `04-cel-hoje-agendar.png` | pura | Fonte do recorte / tira |
+| `05-cel-calendario.png` | pura | Fonte do recorte / tira |
+| `06-cel-horarios.png` | pura | Fonte do recorte / tira |
+| `02-tempo.png` | pura | Fonte dos recortes de tempo |
+
+Pedido do dono (mesmo dia): lado a lado parâmetro → tela, com
+recortes. A Parte 2 passou a ser três pares `montar_par` (painel à
+esquerda, cardápio à direita, seta verde). A tira ficou na Parte 3.
 
 `02-tempo-dias.png` e `03-tempo-intervalo.png` são extras de captura
 (não entram no `.md`).
