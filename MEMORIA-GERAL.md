@@ -3,7 +3,7 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-30 (**#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
+Última atualização: 2026-08-30 (**#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
@@ -600,6 +600,30 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Taxas das formas de recebimento | `manuais/taxas-formas-pagamento/` | ✅ Concluído (#65) |
 | Lançamentos: contas a pagar | `manuais/lancamentos-contas-pagar/` | ✅ Concluído (#66) |
 | Lançamentos: contas a receber | `manuais/lancamentos-contas-receber/` | ✅ Concluído (#67) |
+| Exibir / Ocultar | `manuais/exibir-ocultar/` | ✅ Concluído (#68) |
+| Preço Programado | `manuais/preco-programado/` | ✅ Concluído (#69) |
+
+### Exibir/Ocultar e Preço Programado — #68 e #69
+
+Mesmo modal (`ModalTabelaPreco`). **Exibir / Ocultar** força
+`ocultar=0` (Ocultar Item). **Preço Programado** manda `?preco=1` e
+força `ocultar=1` (Alterar Preço), sem produto de rodízio. Permissão
+do Preço Programado no menu é `rodizio`. Rodízio de verdade é
+`/rodizio` (só presencial + produto vinculado).
+
+Canal **Cardápio Digital** = `beeshop`. Sem ele o menu público não
+muda. Dias vazios = tabela `0d` e não vale. Aba Produtos numa tabela
+nova **salva a config sozinha**. Desconto em massa só depois de
+selecionar o produto. Cache do cardápio público: até **5 minutos**.
+
+No card da lista do Preço Programado o front esconde Delivery e
+Cardápio Digital (`!isRodizio`) — só o Presencial aparece; os três
+canais estão no modal.
+
+Sandbox (30/08/2026): **Ocultar Brownie (manual)** ativa; **Happy
+hour milk-shake (manual)** ativa (Milk Shake 18,90 → 15,12).
+
+---
 
 ### Lançamentos (Financeiro) — #66 e #67
 
