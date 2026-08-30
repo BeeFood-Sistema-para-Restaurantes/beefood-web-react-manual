@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-30 (**#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento)
+Última atualização: 2026-08-30 (**#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento)
 
 ## Legenda de status
 
@@ -86,6 +86,8 @@
 | 63 | **Uai Rango** | Token do painel Uai Rango + credenciais e formas de recebimento no BeeFood | `manuais/integracao-uai-rango/` | ✅ Concluído | — |
 | 64 | **Desconto nas formas de recebimento** | PIX Online + formas normais (desconto no dinheiro, acréscimo no vale) e o que o cliente vê no cardápio | `manuais/cardapio-digital-desconto-formas/` | ✅ Concluído (6 imagens) | — |
 | 65 | **Taxas das formas de recebimento** | Taxa e dias (débito D+0, crédito, VR) em Financeiro → Formas Pagamento; detalhe do pagamento e faturado × realizado em Desempenho → Vendas → Resumo | `manuais/taxas-formas-pagamento/` | ✅ Concluído (13 imagens) | — |
+| 66 | **Lançamentos: contas a pagar** | Despesa à mão em Financeiro → Lançamentos: única (aluguel Pix) + parcelada (máquina 2× Boleto) e marcar como paga | `manuais/lancamentos-contas-pagar/` | ✅ Concluído (8 imagens) | — |
+| 67 | **Lançamentos: contas a receber** | O receber que a venda já lança (líquido da taxa #65) + receita extra (Outras Receitas) + aba Todos | `manuais/lancamentos-contas-receber/` | ✅ Concluído (5 imagens) | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -129,7 +131,7 @@
 | **Histórico de Vendas** | Consultar venda passada, filtros, detalhe, pagamentos e exportação | 1 manual | 4 | 💡 Ideia |
 | **Totem / autoatendimento** | Contratar, configurar (5 abas) e a pesagem automática do self-service | 2 a 3 manuais | 4 | 💡 Ideia |
 | **Clientes** | Cadastro, importação por Excel, duplicados e o que é a classificação RFV | 1 a 2 manuais | 3 | 💡 Ideia |
-| **Financeiro** | Lançamentos a pagar e receber, recebimentos, pagamentos, DRE e cadastros auxiliares | 2 manuais (#66/#67) | 3 | 💡 Estudo feito — aguardando ok do dono. Taxa das vendas = **#65** |
+| **Financeiro** | Recebimentos, pagamentos, DRE e cadastros auxiliares (banco, fornecedor, categoria) | 3 a 4 manuais | 3 | 💡 Lançamentos = **#66/#67**. Taxa das vendas = **#65** |
 | **Fiado** | Visão geral, controle de dívidas e vendas sem pagamento | 1 manual | 3 | ☑️ **Virou #25 e #26** |
 | **Cadastros** | Mesas e comandas (com QR Code), formas de recebimento e funcionários | 2 manuais | 3 | 💡 Ideia |
 | **Cardápio no Tablet** | Cadastrar tablets, layout e eventos remotos | 2 manuais | 3 | 💡 Ideia — o modo kiosk saiu daqui e virou o **#24** |
@@ -213,6 +215,7 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 
 ## Histórico
 
+- 2026-08-30 — **#66 e #67 Concluídos** (`manuais/lancamentos-contas-pagar/` e `manuais/lancamentos-contas-receber/`). Uma tela `/contas-pagar-receber`, 3 abas. #66: despesa única **Aluguel do ponto** R$ 800 Pix (paga) + parcelado **Máquina de café** 2× R$ 150 Boleto (1/2 no mês). #67: venda **#915** já vira receber no líquido (14,00 → 13,69, taxa Visa 2,19%) + receita extra **Patrocínio da festa junina** R$ 200 Pix (Outras Receitas) + aba Todos. 8 + 5 imagens. Fora do par: Recebimentos/Pagamentos agregados, DRE, cadastros.
 - 2026-08-30 — **#65 Concluído** (`manuais/taxas-formas-pagamento/`). Taxa e dias em **Financeiro → Formas Pagamento → Formas de Recebimento das Vendas** (não é o desconto do cardápio do #64). Configurados no sandbox: **Débito 2,50% D+0** (Visa **2,19%**, Mastercard **2,89%**), **Crédito 3,49% D+30**, **Vale Refeição 5% D+15**. Relatório certo: **Desempenho → Vendas → Resumo** com a data de hoje (não é Vendas → Recebimento). No dia: Valor Pago **183,26** × realizado **95,56**; Pagamentos: Débito 98/95,56, Crédito 43,26/0, Vale 42/0. 13 imagens. Cashback e descontos do #64 intactos.
 - 2026-08-30 — **#19 e #20 refeitos** com telefone de teste **(15) 99999-8888** (Teste Manual, **R$ 5,00**). Saiu o (11) 11111-1122 / Bruno XXX / R$ 1.233,21. **#20** agora ensina **Adicionar** e **Remover** saldo na mão (modais preenchidos; o R$ 5 do extrato é o crédito real). PDV venda #891 (Aplicar F2 não clicado). Cardápio: combo R$ 39 − R$ 5 = **R$ 34**. 5 imagens no #19, 9 no #20. Config do sandbox **não foi alterada**.
 - 2026-08-29 — **#19 e #20 Concluídos** (`manuais/cashback-configurar/` e `manuais/cashback-operar/`). Tela canônica **CRM → Cashback**. Primeira versão usava (11) 11111-1122 / R$ 1.233,21 — substituída em 30/08.

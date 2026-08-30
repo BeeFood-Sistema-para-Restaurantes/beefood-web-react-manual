@@ -3,7 +3,7 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-30 (**#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
+Última atualização: 2026-08-30 (**#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
@@ -598,23 +598,23 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Uai Rango | `manuais/integracao-uai-rango/` | ✅ Concluído |
 | Desconto nas formas de recebimento | `manuais/cardapio-digital-desconto-formas/` | ✅ Concluído (#64) |
 | Taxas das formas de recebimento | `manuais/taxas-formas-pagamento/` | ✅ Concluído (#65) |
+| Lançamentos: contas a pagar | `manuais/lancamentos-contas-pagar/` | ✅ Concluído (#66) |
+| Lançamentos: contas a receber | `manuais/lancamentos-contas-receber/` | ✅ Concluído (#67) |
 
-### Estudo guardado — Lançamentos (Financeiro)
+### Lançamentos (Financeiro) — #66 e #67
 
 Rota `/contas-pagar-receber`. Uma tela, 3 abas: **Contas a pagar** /
 **Contas a receber** / **Todos**. **+ Novo (F1)** → **Despesa** (−) ou
-**Receita** (+).
+**Receita** (+). Formas do lançamento = topo de Formas Pagamento.
 
-Achado (30/08/2026): venda **paga** já vira conta a receber (categoria
-**Receita de Pedidos**, valor = **líquido** da taxa do #65). Sem contas
-bancárias no sandbox. Fornecedores já existem.
+Venda **paga** já vira conta a receber (categoria **Receita de Pedidos**,
+valor = **líquido** da taxa do #65). Receita extra: categoria fixa
+**Outras Receitas**. Sem contas bancárias no sandbox — deixar Conta
+vazia.
 
-Proposta (aguardando ok do dono — **não criar pasta ainda**):
-
-- **#66** `manuais/lancamentos-contas-pagar/` — despesa, único + um
-  parcelado, marcar pago
-- **#67** `manuais/lancamentos-contas-receber/` — o que a venda já
-  lançou + receita extra + aba Todos
+Sandbox (30/08/2026): **Aluguel do ponto** R$ 800 Pix pago; **Máquina
+de café** 2× R$ 150 Boleto (1/2 no mês); **Patrocínio da festa junina**
+R$ 200 Pix recebido; venda **#915** no receber (14,00 → 13,69).
 
 Fora deste par: Recebimentos/Pagamentos agregados, DRE, cadastros,
 Fluxo Caixa (*Em breve!*).
