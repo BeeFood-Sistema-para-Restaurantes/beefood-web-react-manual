@@ -152,9 +152,9 @@ isso em segundos, e foi assim que a ambiguidade apareceu.
 | **BeeFood3 - Manual** | `contato@beefood.com.br` | `1q2w3e4r` | **Sandbox dedicado aos manuais.** Usar esta. Usuário **Principal**, Gerente, grupo **Administrador2**. |
 | caixa.manual | `caixa.manual` | `manual123` | Usuário **restrito** criado em 19/08/2026 para o manual de restrições de caixa. Grupo **Acesso Funcionário**, **sem** função Gerente. Serve para ver o produto com permissões reduzidas. |
 
-> **Telefone de teste no cardápio digital (BeeFood3):** use sempre **(11) 11111-1122**
-> (cliente **Bruno XXX**). Digite **11 dígitos** `11111111122` no `input[type=tel]` — 10 dígitos
-> viram `(11) 11111-122` e quebram o login. Não use telefone de cliente real nas capturas
+> **Telefone de teste no cardápio digital (BeeFood3):** use **(15) 99999-8888**
+> (cliente **Teste Manual**, saldo de cashback **R$ 5,00**). Digite **11 dígitos**
+> `15999998888` no `input[type=tel]`. Não use telefone de cliente real nas capturas
 > (o repositório é público). Cache do cardápio público: até **1 minuto**.
 
 > **Atenção ao testar permissão no login principal:** o usuário Principal **não** ignora as

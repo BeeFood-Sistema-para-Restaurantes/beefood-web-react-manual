@@ -120,7 +120,7 @@ de configuração.
 
 Para o saldo aparecer no pedido, o cliente se identifica pelo WhatsApp.
 Use um **telefone de teste** da loja (nunca o de um cliente real nas capturas
-e nos testes). No sandbox: **(11) 11111-1122**. No rodapé, toque em **Perfil**.
+e nos testes). No sandbox: **(15) 99999-8888**. No rodapé, toque em **Perfil**.
 
 ![Cardápio digital — faixa e identificar](imagens-tratadas/05-cardapio-digital.png)
 

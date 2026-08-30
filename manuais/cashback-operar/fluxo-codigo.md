@@ -11,7 +11,8 @@
 - Cadastro do cliente: `ClienteCashbackTab` + o mesmo `ModalAjusteSaldo`.
 - Cardápio (Vue, `menu.beefood.com.br`, `?modal=carrinho`): identificado pelo telefone,
   o fechamento aplica o cashback sozinho (`Utilizando R$ … de desconto`). **CANCELAR**
-  mostra `R$ … de cashback disponível` + **Usar**. Cupom some enquanto o cashback está
-  ativo. Não clicar **Retirada** na home (Leaflet); escolher **Retirar no estabelecimento**
-  dentro da sacola.
+  mostra `R$ … de cashback disponível` + **Usar**. Com o telefone de teste
+  **(15) 99999-8888** o saldo é **R$ 5,00** (ajuste manual). Cupom some enquanto
+  o cashback está ativo. Não clicar **Retirada** na home (Leaflet); escolher
+  **Retirar no estabelecimento** dentro da sacola.
 - Crédito: só madrugada, pedido quitado. Uso: imediato no pagamento.
