@@ -393,8 +393,8 @@ def montar_horarios_didatico(nome_out):
         (0.02, 0.66, 0.26, 0.30), RED, 5, 10,
     )
     slot_ini = anel(
-        crop_frac("05-cel-calendario.png", (0.00, 0.198, 1.00, 0.145)),
-        (0.250, 0.615, 0.480, 0.355), GREEN, 5, 10,
+        crop_frac("05-cel-calendario.png", (0.00, 0.215, 1.00, 0.195)),
+        (0.235, 0.412, 0.500, 0.128), GREEN, 5, 10,
     )
     slot_fim = anel(
         crop_frac("06-cel-horarios.png", (0.00, 0.70, 1.00, 0.085)),
