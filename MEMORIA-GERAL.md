@@ -3,7 +3,7 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-28 (**#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
+Última atualização: 2026-08-29 (**#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
@@ -101,6 +101,10 @@ olho: uma cópia temporária com linha a cada 0,05 e rótulo a cada 0,10, e os v
 direto da grade. É rápido de escrever (umas 20 linhas de Pillow, em `/tmp`, fora do repositório)
 e acerta quase tudo de primeira. Usado no #24 em 16 capturas: das 29 setas, 24 nasceram no lugar.
 
+**Prints de celular do cardápio público:** em vez de várias imagens altas soltas,
+montar **uma tira** com os aparelhos lado a lado (`montar_celulares` no `annotate.py`
+do #19/#20). As puras individuais ficam de fonte; só a tira entra no manual.
+
 **Mire a borda do elemento, não o centro, quando ele tem texto.** Seta apontada para o meio de um
 botão cai em cima do rótulo e cobre uma letra — aconteceu em quatro botões do #24 (`CONCEDER`,
 `AGORA NÃO`, `CONCORDAR E CONTINUAR`, `ACESSAR`). A borda inferior ou lateral marca o mesmo
@@ -147,6 +151,11 @@ isso em segundos, e foi assim que a ambiguidade apareceu.
 | beefood1 | `beefood1` | `beefood123` | Conta de teste inicial (tem caixas históricos). |
 | **BeeFood3 - Manual** | `contato@beefood.com.br` | `1q2w3e4r` | **Sandbox dedicado aos manuais.** Usar esta. Usuário **Principal**, Gerente, grupo **Administrador2**. |
 | caixa.manual | `caixa.manual` | `manual123` | Usuário **restrito** criado em 19/08/2026 para o manual de restrições de caixa. Grupo **Acesso Funcionário**, **sem** função Gerente. Serve para ver o produto com permissões reduzidas. |
+
+> **Telefone de teste no cardápio digital (BeeFood3):** use **(15) 99999-8888**
+> (cliente **Teste Manual**, saldo de cashback **R$ 5,00**). Digite **11 dígitos**
+> `15999998888` no `input[type=tel]`. Não use telefone de cliente real nas capturas
+> (o repositório é público). Cache do cardápio público: até **1 minuto**.
 
 > **Atenção ao testar permissão no login principal:** o usuário Principal **não** ignora as
 > restrições do grupo (comprovado). Logo, desligar uma permissão do grupo **Administrador2**

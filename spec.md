@@ -40,6 +40,8 @@ manuais/<nome>/
 | IA ChatGPT no WhatsApp | #58 (concluído 28/08/2026) | `manuais/ia-chatgpt-whatsapp/` |
 | Campanhas SMS | #18 (concluído 28/08/2026) | `manuais/campanhas-sms/` |
 | Cupom de Desconto (campos + cardápio) | #21 (concluído 28/08/2026) | `manuais/cupom-desconto/` |
+| Cashback — configurar o programa | #19 (concluído 29/08/2026) | `manuais/cashback-configurar/` |
+| Cashback — operar no dia a dia | #20 (concluído 29/08/2026) | `manuais/cashback-operar/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |

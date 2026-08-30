@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-08-28 (**#18** SMS; **#21** Cupom; **#59–#63** entregas/marketplace)
+Última atualização: 2026-08-29 (**#19** e **#20** Cashback)
 
 ## Legenda de status
 
@@ -38,8 +38,8 @@
 | 16 | **Campanhas Inteligentes** | As seis campanhas que já vêm criadas na conta (quatro delas **ligadas**), o gatilho e a configuração de fábrica de cada uma, os campos dos passos 1, 2 e 3, o catálogo de 20 variáveis (e as nove que só funcionam com histórico do cliente), a variação automática das mensagens e a proteção **Anti Banimento** | `manuais/campanhas-inteligentes/` | ✅ Concluído | — |
 | 17 | **BeeFood Pixel Analytics** | Ler o funil do cardápio digital (Visitas → Visualizações → Carrinho → Pedidos), filtrar por contexto, cardápio e origem, entender os KPIs e o painel Ao vivo | `manuais/pixel-analytics/` | ☑️ Aprovado | — |
 | 18 | **Campanhas SMS** | Criar campanha de SMS, entender a contagem de créditos por segmento (e como economizar sem acento/emoji), comprar créditos por PIX e usar a blacklist / opt-out | `manuais/campanhas-sms/` | ✅ Concluído (14 imagens) | — |
-| 19 | **Cashback — configurar o programa** | Ativar o cashback, validade do saldo, saldo mínimo para resgate, percentual fixo ou por dia da semana, em quais canais o cliente ganha e as exceções de produto | `manuais/cashback-configurar/` | ☑️ Aprovado | — |
-| 20 | **Cashback — operar no dia a dia** | Histórico, saldo por cliente, ajuste manual de saldo (creditar e debitar com motivo), fila de processamento e como o operador aplica o cashback no PDV e nas Mesas | `manuais/cashback-operar/` | ☑️ Aprovado | — |
+| 19 | **Cashback — configurar o programa** | Ativar o cashback, validade do saldo, saldo mínimo para resgate, percentual fixo ou por dia da semana, em quais canais o cliente ganha e as exceções de produto + faixa no cardápio digital | `manuais/cashback-configurar/` | ✅ Concluído (5 imagens) | — |
+| 20 | **Cashback — operar no dia a dia** | Histórico, saldo por cliente, **Adicionar e Remover** saldo na mão, fila de processamento, PDV e **saldo na sacola do cardápio digital** | `manuais/cashback-operar/` | ✅ Concluído (9 imagens) | — |
 | 21 | **Cupom de Desconto** | Todos os campos (tipos, regras novas, modos libera/recebe) + o que o cliente vê no cardápio digital | `manuais/cupom-desconto/` | ✅ Concluído | — |
 | 22 | **Painel Fidelidade** | Ler o resultado dos programas: desconto concedido, faturamento influenciado, ROI, cupom × cashback, participação no faturamento e aquisição × recorrência | `manuais/fidelidade-painel/` | ☑️ Aprovado | — |
 | 23 | **Avaliações** | Está no menu Fidelidade (CRM), mas é reputação: nota geral, avaliações por período, por canal e como responder | `manuais/avaliacoes/` | ☑️ Aprovado | — |
@@ -211,6 +211,8 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 
 ## Histórico
 
+- 2026-08-30 — **#19 e #20 refeitos** com telefone de teste **(15) 99999-8888** (Teste Manual, **R$ 5,00**). Saiu o (11) 11111-1122 / Bruno XXX / R$ 1.233,21. **#20** agora ensina **Adicionar** e **Remover** saldo na mão (modais preenchidos; o R$ 5 do extrato é o crédito real). PDV venda #891 (Aplicar F2 não clicado). Cardápio: combo R$ 39 − R$ 5 = **R$ 34**. 5 imagens no #19, 9 no #20. Config do sandbox **não foi alterada**.
+- 2026-08-29 — **#19 e #20 Concluídos** (`manuais/cashback-configurar/` e `manuais/cashback-operar/`). Tela canônica **CRM → Cashback**. Primeira versão usava (11) 11111-1122 / R$ 1.233,21 — substituída em 30/08.
 - 2026-08-28 — **#60–#63 Concluídos** (merge das PRs abertas, numeração ajustada): Let's Express, Foody Delivery, Pick n Go, Uai Rango. Cada um nasceu como #58/#59 e foi renumerado para não colidir com o #58 (IA) e o #59 (Entrega Fácil iFood).
 - 2026-08-28 — **#59 Concluído** (`manuais/entrega-facil-ifood/`). Migração do [Entrega Fácil iFood](https://ajuda.beefood.com.br/baseconhecimento/entrega-facil-ifood-como-solicitar-entregador-para-pedidos-delivery/). Prints do portal iFood (Entrega Sob Demanda, BeeFood Ativo), Gestor e WhatsApp copiados do artigo. Telas novas do web: Aplicativos → iFood (Merchant ID **Ativo**); card Entrega Fácil iFood; Delivery → detalhes do pedido → **Adicionar Entregador** → lista com **iFood Entrega Fácil**. Cotação **não** fotografada (pedido do dono: não clicar no iFood da lista em teste). Checkbox *Incluir frete* do Windows **não existe** no web.
 - 2026-08-28 — **#18 Concluído** (`manuais/campanhas-sms/`). Produzido do zero no Cloud Agent. **Escopo:** criar campanha, créditos por segmento (GSM 160 × UCS-2 70 + switch sem acento), PIX e blacklist/opt-out. **Disparo autorizado** para o comercial 15 99132-0694. Campanha #65 enviada (3 dest / 3 créditos; o rascunho já tinha dois telefones de fixture). Saldo 95 → 92. 14 imagens. **Não geramos PIX.** Variáveis reais da API: `primeiro_nome`, `nome`, `saldo_cashback`, `meu_link`. Aguardando publicação do dono.
