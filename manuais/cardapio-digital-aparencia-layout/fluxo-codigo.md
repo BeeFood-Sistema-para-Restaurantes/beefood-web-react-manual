@@ -56,10 +56,11 @@ sandbox `beefood3`:
 - `corAcao` = fundo da capa quando não há imagem.
 - `nomeFantasia` = nome no cabeçalho.
 - `layoutSetor=false`: uma página com filtro de setores.
-- `layoutSetor=true`: grid de setores primeiro. Setor sem foto = card cinza
-  (alerta no painel). Foto do setor é em **Cardápio → Setores**.
+- `layoutSetor=true`: grid de setores primeiro (`.sector-card` no Vue).
+  Setor sem foto usa o logo da loja. Foto do setor é em **Cardápio → Setores**.
+  O texto “Escolha um setor” é só do preview do painel.
 - `layoutStepCarrinho=false`: todos os grupos de opção na mesma tela.
-- `layoutStepCarrinho=true`: um grupo por passo + **Avançar** (loja inteira).
+- `layoutStepCarrinho=true`: um grupo por passo + **Próximo** (loja inteira).
 - Vitrine: aba **Promoções** no rodapé só existe se houver produto com
   preço promocional valendo. `desligado` some a aba; o preço riscado
   continua no produto. `destacar` abre a vitrine sozinha na primeira

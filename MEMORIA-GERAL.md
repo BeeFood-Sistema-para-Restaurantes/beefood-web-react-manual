@@ -647,8 +647,10 @@ Card **Aparência** em `/cardapio-digital?tab=configuracoes`. Auto-save
 `layoutSetor` / `layoutStepCarrinho` boolean. Vitrine =
 `exibirPromocoes` + `abrirPromocoesAuto`. Capa/logo: clique no
 preview, máx 1 MB, sem recorte. **Não** é o modal de banners (#48).
-O preview sticky (xl) reflete na hora; o Vue público pode atrasar
-o cache. Clique “só para ver” já grava.
+Comparação do manual: painel à esquerda, **cardápio público** à
+direita (`menu.beefood.com.br/{link}`). O preview sticky do painel
+não entra no par. `validaDelivery` vem zlib+base64; cache ~1 min.
+Clique “só para ver” já grava.
 
 ---
 

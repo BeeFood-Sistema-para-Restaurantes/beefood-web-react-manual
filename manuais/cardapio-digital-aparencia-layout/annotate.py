@@ -238,7 +238,7 @@ montar_par(
     "02-par-capa-logo.png",
     "Capa e logo  →  topo do cardápio",
     crop_frac("02-preview.png", (0.00, 0.00, 1.00, 1.00)),
-    crop_frac("13-cel-home-setores.png", (0.00, 0.00, 1.00, 0.42)),
+    crop_frac("10-cel-home-lista.png", (0.00, 0.00, 1.00, 0.42)),
     "No painel (clique na câmera)",
     "No cardápio",
     "Capa = foto larga do topo. Logo = círculo sobre a capa. Máximo 1 MB (PNG, JPG ou WEBP).",
@@ -252,23 +252,23 @@ annotate("03b-modal-cor-tema.png", [
     (3, 0.780, 0.880, 0.880, 0.800),
 ], out_name="03-cor-tema.png")
 
-# --- 04: lista × setores ---
+# --- 04: lista × setores (os dois lados direitos são o cardápio público) ---
 montar_dois_pares(
     "04-par-lista-setores.png",
     "Layout do cardápio  →  como o cliente acha o produto",
     (
         crop_frac("04b-layout-setor.png", (0.00, 0.00, 0.50, 1.00)),
-        crop_frac("13-cel-home-setores.png", (0.00, 0.48, 1.00, 0.42)),
+        crop_frac("10-cel-home-lista.png", (0.00, 0.48, 1.00, 0.42)),
         "Painel: Lista completa",
         "Cardápio: filtro + produtos",
         "Uma página só. O cliente rola e usa o filtro de setores.",
     ),
     (
         crop_frac("04b-layout-setor.png", (0.50, 0.00, 0.50, 1.00)),
-        crop_frac("21-preview-setores.png", (0.00, 0.00, 1.00, 0.22)),
+        crop_frac("13-cel-home-setores.png", (0.00, 0.00, 1.00, 1.00)),
         "Painel: Navegação por setores",
         "Cardápio: escolha o setor",
-        "Primeira tela = grid de setores. Setor sem foto vira card cinza.",
+        "Primeira tela = grid de setores. Setor sem foto usa o logo da loja.",
     ),
 )
 
@@ -285,9 +285,9 @@ montar_dois_pares(
     ),
     (
         crop_frac("04c-layout-opcoes.png", (0.50, 0.00, 0.50, 1.00)),
-        crop_frac("04c-layout-opcoes.png", (0.52, 0.02, 0.46, 0.55)),
+        crop_frac("14-cel-produto-passos.png", (0.00, 0.28, 1.00, 0.72)),
         "Painel: Em Passos",
-        "Cardápio: 1, 2, 3 + Avançar",
+        "Cardápio: 1, 2, 3 + Próximo",
         "Um grupo por vez. Vale para a loja inteira.",
     ),
 )

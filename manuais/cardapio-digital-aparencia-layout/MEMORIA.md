@@ -30,10 +30,11 @@ cardápio ao lado.
 | `04b-layout-setor.png` | pura | Fonte do 04 |
 | `04c-layout-opcoes.png` | pura | Fonte do 05 |
 | `05b-vitrine-aberta.png` | pura | Fonte do 06 |
+| `10-cel-home-lista.png` | pura | Home pública em lista (filtro + avisos) |
 | `11-cel-produto-rolagem.png` | pura | Combo One Burger em rolagem |
 | `12-cel-promocoes.png` | pura | Aba Promoções |
-| `13-cel-home-setores.png` | pura | Home lista (nome histórico) |
-| `21-preview-setores.png` | pura | Preview sticky com grid de setores |
+| `13-cel-home-setores.png` | pura | Home pública: grid de setores |
+| `14-cel-produto-passos.png` | pura | Combo One Burger em passos (1-2-3 + Próximo) |
 
 ## Decisões
 - Número **#71** (#70 já é Agendamento).
@@ -42,12 +43,12 @@ cardápio ao lado.
   da loja no sandbox.
 - Cores: modal da cor já traz a prévia lado a lado — usamos ele
   como figura 03.
-- Layouts: POST autenticado confirmou `layoutSetor=true` no GET.
-  O Vue `menu.beefood.com.br/beefood3` **não** virou o grid na
-  sessão (cache ou app público atrasado). O resultado de setores
-  saiu do **preview sticky** do painel (`Escolha um setor`).
-  Passos: miniatura do próprio card (1-2-3 + Avançar). Rolagem:
-  Combo One Burger real.
+- Comparação de layout **só no cardápio público**
+  (`menu.beefood.com.br/beefood3`). O preview sticky do painel
+  **não** entra no par. Vue: `dadosEmpresa.layoutSetor === true`
+  (strict). `validaDelivery` vem zlib+base64; cache ~1 min.
+  Grid público = `.sector-card` (sem o texto “Escolha um setor”
+  do preview). Em Passos o botão do cliente é **Próximo**.
 - Vitrine do sandbox: **Deixar a aba disponível**. Milk Shake e
   burgers em promoção (#69) sustentam a aba.
 - Clique no banner verde de cupom **abre** ADICIONAR CUPOM — não

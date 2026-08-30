@@ -101,7 +101,8 @@ categorias*).
 
 **Navegação por setores** — o cliente escolhe o setor primeiro e
 só então vê os produtos. Melhor para catálogo grande. Setor **sem
-foto** aparece cinza: cadastre a imagem em **Cardápio → Setores**.
+foto** usa o logo da loja no card: cadastre a imagem em
+**Cardápio → Setores**.
 
 ---
 
@@ -116,8 +117,9 @@ bebida).
 **Em Rolagem (padrão)** — os três grupos na mesma tela. O cliente
 rola até o fim e toca **Adicionar**.
 
-**Em Passos** — um grupo por vez, com **1 · 2 · 3** e o botão
-**Avançar**. Quem prefere ir direto ao total usa a rolagem.
+**Em Passos** — um grupo por vez, com **1 · 2 · 3** (Detalhes,
+Burger, acompanhamentos…) e o botão **Próximo**. Quem prefere ir
+direto ao total usa a rolagem.
 
 ---
 
@@ -146,7 +148,7 @@ No exemplo do sandbox: **Deixar a aba disponível**. O cliente toca
 |---------|-----------------|
 | Capa/logo não mudou | Esperou **1 minuto**? Arquivo até **1 MB**? Recarregou o cardápio? |
 | Procurou o botão Salvar | Não tem. Grava sozinha |
-| Setor cinza no grid | Falta foto em **Cardápio → Setores** |
+| Setor sem foto no grid | Falta imagem em **Cardápio → Setores** (o card usa o logo) |
 | Aba Promoções sumiu | Não há produto em promoção **agora**, ou a opção é **Não mostrar** |
 | “Mudei a cor e o botão não mudou” | Confirme no modal e espere o auto-save + 1 minuto |
 | Queria vídeo na capa | Isso é **Capas e Destaques**, não o clique do preview |
