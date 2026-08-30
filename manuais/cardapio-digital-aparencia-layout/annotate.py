@@ -258,9 +258,12 @@ montar_dois_pares(
     "Layout do cardápio  →  como o cliente acha o produto",
     (
         crop_frac("04b-layout-setor.png", (0.00, 0.00, 0.50, 1.00)),
-        crop_frac("10-cel-home-lista.png", (0.00, 0.48, 1.00, 0.42)),
+        empilha([
+            crop_frac("10-cel-home-lista.png", (0.00, 0.66, 1.00, 0.08)),
+            crop_frac("10b-cel-home-lista-produtos.png", (0.00, 0.40, 1.00, 0.50)),
+        ], gap=6),
         "Painel: Lista completa",
-        "Cardápio: filtro + produtos",
+        "Cardápio: primeiro setor",
         "Uma página só. O cliente rola e usa o filtro de setores.",
     ),
     (

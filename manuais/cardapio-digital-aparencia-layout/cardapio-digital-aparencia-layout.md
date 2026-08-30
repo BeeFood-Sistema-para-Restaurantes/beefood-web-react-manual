@@ -96,8 +96,8 @@ a capa não tem foto.
 ![Lista completa × navegação por setores](imagens-tratadas/04-par-lista-setores.png)
 
 **Lista completa (padrão)** — todos os produtos numa página. O
-cliente rola e usa o filtro de setores (no exemplo: *Lista de
-categorias*).
+cliente rola e usa o filtro de setores. No exemplo o filtro está
+em *Combos* e já aparecem os produtos daquele setor.
 
 **Navegação por setores** — o cliente escolhe o setor primeiro e
 só então vê os produtos. Melhor para catálogo grande. Setor **sem

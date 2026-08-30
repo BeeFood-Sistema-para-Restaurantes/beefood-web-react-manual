@@ -30,7 +30,8 @@ cardápio ao lado.
 | `04b-layout-setor.png` | pura | Fonte do 04 |
 | `04c-layout-opcoes.png` | pura | Fonte do 05 |
 | `05b-vitrine-aberta.png` | pura | Fonte do 06 |
-| `10-cel-home-lista.png` | pura | Home pública em lista (filtro + avisos) |
+| `10-cel-home-lista.png` | pura | Home pública em lista (topo / filtro) |
+| `10b-cel-home-lista-produtos.png` | pura | Lista: primeiro setor (Combos + produtos) |
 | `11-cel-produto-rolagem.png` | pura | Combo One Burger em rolagem |
 | `12-cel-promocoes.png` | pura | Aba Promoções |
 | `13-cel-home-setores.png` | pura | Home pública: grid de setores |
