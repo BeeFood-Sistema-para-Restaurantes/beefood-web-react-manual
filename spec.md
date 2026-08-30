@@ -43,6 +43,7 @@ manuais/<nome>/
 | Cashback — configurar o programa | #19 (concluído 29/08/2026) | `manuais/cashback-configurar/` |
 | Cashback — operar no dia a dia | #20 (concluído 29/08/2026) | `manuais/cashback-operar/` |
 | Desconto nas formas de recebimento | #64 (concluído 30/08/2026) | `manuais/cardapio-digital-desconto-formas/` |
+| Taxas das formas de recebimento | #65 (concluído 30/08/2026) | `manuais/taxas-formas-pagamento/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |
