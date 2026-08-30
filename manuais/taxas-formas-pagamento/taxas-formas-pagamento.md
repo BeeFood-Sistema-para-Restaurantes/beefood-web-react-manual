@@ -6,9 +6,9 @@ restaurante recebe o **líquido**, às vezes **no mesmo dia**, às vezes
 **depois**.
 
 Neste manual: configurar **débito (2,50% no mesmo dia)**, **crédito
-(3,49% em 30 dias)** e **vale refeição (5% em 15 dias)**; fazer uma
-venda; ver o detalhe do pagamento com taxa; e ler **faturado** e
-**realizado** no relatório.
+(3,49% em 30 dias)** e **vale refeição (5% em 15 dias)**; fazer **uma
+venda em cada forma**; ver o detalhe do pagamento com taxa; e ler
+**faturado** e **realizado** no relatório do dia.
 
 > As imagens têm **setas com números** (1, 2, 3…). No texto, cada número
 > indica o campo ou botão correspondente na tela.
@@ -128,41 +128,48 @@ Conta do líquido: `valor × (1 − taxa/100)`. Débito: 100 × 0,975 =
 
 ---
 
-## Parte 4 — Venda e detalhe do pagamento
+## Parte 4 — Uma venda em cada forma
 
-No **PDV**, venda um item (no exemplo, **One Burger R$ 14,00**).
-**Receber (F3)** → **Débito**. Se pedir bandeira, pode confirmar sem
-escolher (usa a geral) ou marcar Visa/Mastercard. **CONFIRMAR
-(ENTER/F1)**.
+No **PDV**, o mesmo item (**One Burger R$ 14,00**) em cada forma:
 
-O pagamento aparece em **Pagamentos realizados** como **Débito — Pago**
-(1). A **lupa** (2) abre o detalhe.
+- **Débito** — o cliente paga **R$ 14,00**
+- **Crédito** — o botão do PDV pode somar o acréscimo do cadastro
+  (**+3%**). No exemplo o total vira **R$ 14,42**. Isso **não** é a
+  taxa da operadora
+- **Vale Refeição** — o cliente paga **R$ 14,00**
 
-![Venda paga no débito](imagens-tratadas/06-pdv-pago.png)
+**Receber (F3)** → forma → **CONFIRMAR (ENTER/F1)**. Se pedir bandeira,
+pode confirmar sem escolher (usa a geral).
+
+No crédito, o pagamento aparece em **Pagamentos realizados** como
+**Crédito — Pago** (1). A **lupa** (2) abre o detalhe.
+
+![Venda paga no crédito](imagens-tratadas/06-pdv-pago.png)
 
 | Nº | Campo | O que faz |
 |----|--------|-----------|
-| 1. | **Débito · Pago** | Pagamento registrado |
+| 1. | **Crédito · Pago** | Pagamento registrado (R$ 14,42) |
 | 2. | **Lupa** | Abre o detalhe (taxa, líquido e datas) |
 
 Quando a taxa já está no pagamento, o detalhe mostra o bloco
 **Configuração de taxa**:
 
-- **Taxa (%)** (1)
-- **Valor Líquido** (2) — o realizado
-- **Data de Recebimento** e **Recebimento Previsto** (3)
+- **Taxa (%)** (1) — **3,49**
+- **Valor Líquido** (2) — o realizado: **R$ 13,92**
+  (`14,42 × (1 − 3,49/100)`)
+- **Data de Recebimento** e **Recebimento Previsto** (3) — **29/09/2026**
+  (venda + 30 dias)
 
-No exemplo ao vivo, um **PIX Manual** com **1%** e **0 dias**: o cliente
-pagou **R$ 63,90**; o líquido é **R$ 63,26**; as duas datas são o
-**mesmo dia** (29/08/2026).
+O **+0,42** do PDV é o acréscimo do cadastro. A **3,49%** é o que a
+operadora fica.
 
 ![Detalhe do pagamento com taxa](imagens-tratadas/07-detalhe-pagamento.png)
 
 | Nº | Campo | O que mostra |
 |----|--------|--------------|
-| 1. | **Taxa (%)** | Percentual gravado no pagamento (1,00%) |
-| 2. | **Valor Líquido** | O que entra na conta (R$ 63,26) |
-| 3. | **Datas** | Recebimento e previsto — iguais quando dias = 0 |
+| 1. | **Taxa (%)** | Percentual da operadora (3,49%) |
+| 2. | **Valor Líquido** | O que entra na conta (R$ 13,92) |
+| 3. | **Datas** | Recebimento e previsto — 29/09/2026 |
 
 A lupa também existe no **Histórico de Vendas**: ícone de cartão da
 linha → lupa do pagamento.
@@ -175,9 +182,13 @@ Menu **Desempenho** (não é o Financeiro da barra). No menu interno do
 relatório: **Vendas → Recebimento** (1).
 
 A aba **Resumo** tem **Qtd Faturado**, **Qtd Realizado**, **Valor Pago**
-(faturado) (2) e **Valor Realizado** (3). Abaixo, uma linha por forma.
-Quando existe taxa no pagamento, as duas colunas **diferem** — no
-exemplo, **PIX Manual** R$ 63,90 × R$ 63,26 (4).
+(faturado) (2) e **Valor Realizado** (3). Abaixo, uma linha por forma
+(4). No dia do exemplo: **Débito** (R$ 28,00 — duas vendas de R$ 14,00)
+e **Vale Refeição** (R$ 14,00).
+
+O **crédito** desta venda **não entra na lista do dia**: o recebimento
+é **29/09/2026** (veja o detalhe). Faturado é o dia da venda; realizado
+é o dia + os dias da forma.
 
 ![Desempenho → Recebimento: resumo](imagens-tratadas/08-desemp-recebimento.png)
 
@@ -186,12 +197,11 @@ exemplo, **PIX Manual** R$ 63,90 × R$ 63,26 (4).
 | 1. | **Recebimento** | Dentro de Vendas |
 | 2. | **Valor Pago** | Soma faturada (o cliente pagou) |
 | 3. | **Valor Realizado** | Soma líquida |
-| 4. | **PIX Manual** | Mesma venda: 63,90 faturado e 63,26 realizado |
+| 4. | **Por forma** | Débito e Vale Refeição no dia |
 
 A aba **Dados** lista cada pagamento. **Valor** é o faturado; **V.
-Realizado** é o líquido; **Taxa** aparece quando existe (no PIX,
-**−1%**). **Data da venda** e **Vencimento** no débito D+0 caem no
-**mesmo dia** (vendas 892 e 893, 30/08/2026).
+Realizado** é o líquido. **Data da venda** e **Vencimento** no débito
+D+0 caem no **mesmo dia** (2). O vale do dia também aparece (3).
 
 ![Desempenho → Recebimento: dados](imagens-tratadas/09-desemp-dados.png)
 
@@ -199,7 +209,7 @@ Realizado** é o líquido; **Taxa** aparece quando existe (no PIX,
 |----|--------|--------------|
 | 1. | **Aba Dados** | Um pagamento por linha |
 | 2. | **Débito D+0** | Venda e vencimento no mesmo dia (30/08) |
-| 3. | **PIX com taxa** | Valor 63,90 · realizado 63,26 · taxa −1% |
+| 3. | **Vale Refeição** | A terceira venda do dia |
 
 Outro lugar, se quiser só o financeiro: **Financeiro → Recebimentos**,
 filtro **Previsto e Realizado**, abas Tipo e Datas. O relatório de

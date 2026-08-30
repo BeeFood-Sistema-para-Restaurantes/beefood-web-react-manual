@@ -62,10 +62,12 @@
 - Colunas Resumo: Qtd Faturado, Qtd Realizado, Valor Pago, Valor
   Realizado. Dados: Valor, V. Realizado, Taxa, Data Venda, Vencimento,
   Receb. Previsto, Recebimento.
-- Prova ao vivo (30/08/2026): PIX Manual #878 — Valor 63,90 / realizado
-  63,26 / taxa −1% / datas D+0. Débito #892 e #893 — vencimento no
-  mesmo dia da venda (D+0); taxa ainda não copiada para o registro
-  nessas duas vendas de cartão.
+- Prova ao vivo (30/08/2026): crédito **#894** — Valor 14,42 / líquido
+  13,92 / taxa 3,49% / recebimento 29/09. Débito #892/#893 e vale
+  #895 — vencimento no dia da venda; `taxa`/`valorLiquido` vazios no
+  registro (o front não desenha o bloco). O POST
+  `resumoPagamentos` com `ckDataVenda` no dia **não devolve o #894**
+  (fica no 29/09). Relatório do dia: débito + vale. Sem PIX #878.
 
 ## Outro relatório
 

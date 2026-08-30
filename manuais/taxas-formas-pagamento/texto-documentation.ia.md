@@ -33,7 +33,7 @@ Crie um novo manual no app: em **Financeiro**, adicione um manual chamado
 - Insira as 9 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
 - **Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa"**.
 - Idioma **português do Brasil**, tom didático.
-- Mantenha em destaque: a taxa é da **operadora** (não é desconto do cliente); débito **D+0** para ver faturado e realizado no mesmo dia; o relatório fica em **Desempenho → Vendas → Recebimento**; **SALVAR E SAIR (F2)**.
+- Mantenha em destaque: a taxa é da **operadora** (não é desconto do cliente); uma venda em cada forma; débito **D+0** para ver faturado e realizado no mesmo dia; o relatório fica em **Desempenho → Vendas → Recebimento**; **SALVAR E SAIR (F2)**.
 - **Não** publique o rodapé "Referências internas" nem o `fluxo-codigo.md`.
 
 ---
@@ -47,7 +47,7 @@ Crie um novo manual no app: em **Financeiro**, adicione um manual chamado
 | 3 | `03-credito-config.png` | setas | Crédito 3,49% e 30 dias |
 | 4 | `04-vr-config.png` | setas | Vale Refeição 5% e 15 dias |
 | 5 | `05-tabela-configurada.png` | setas | Crédito e débito na lista |
-| 6 | `06-pdv-pago.png` | setas | Venda no débito + lupa |
-| 7 | `07-detalhe-pagamento.png` | setas | Taxa, líquido e datas D+0 |
-| 8 | `08-desemp-recebimento.png` | setas | Resumo faturado e realizado |
-| 9 | `09-desemp-dados.png` | setas | Linhas do débito e do PIX com taxa |
+| 6 | `06-pdv-pago.png` | setas | Venda no crédito + lupa |
+| 7 | `07-detalhe-pagamento.png` | setas | Taxa 3,49%, líquido e datas D+30 |
+| 8 | `08-desemp-recebimento.png` | setas | Resumo do dia: débito e vale |
+| 9 | `09-desemp-dados.png` | setas | Linhas do débito e do vale |
