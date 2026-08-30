@@ -5,7 +5,7 @@ Aba **Cardápio Digital → Configurações**, card **Aparência**: trocar
 capa e logo no preview, identidade, cores e os três layouts
 (lista × setores, rolagem × passos, vitrine de promoções). Cada
 opção aparece **lado a lado** com o resultado no cardápio
-(`montar_par` / `montar_dois_pares`, padrão do #70).
+(`montar_par` — uma figura por opção, para caber zoom).
 
 Não cobre: Capas e Destaques / banners (#48), avisos (#47),
 agendamento (#70), horário, link de acesso, domínio.
@@ -21,9 +21,11 @@ cardápio ao lado.
 | `01-onde-fica.png` | setas | Sidebar + preview (capa/logo) + cores |
 | `02-par-capa-logo.png` | recorte | Preview (câmeras) → topo do cardápio |
 | `03-cor-tema.png` | setas | Modal da cor + prévia Ver sacola / Adicionar |
-| `04-par-lista-setores.png` | recorte | Lista → filtro; setores → grid |
-| `05-par-opcoes.png` | recorte | Rolagem → Combo One Burger; passos → 1-2-3 |
-| `06-par-vitrine.png` | recorte | Dropdown → aba Promoções |
+| `04-par-lista.png` | recorte | Lista completa → primeiro setor (Combos) |
+| `05-par-setores.png` | recorte | Navegação por setores → grid público |
+| `06-par-rolagem.png` | recorte | Em Rolagem → Combo One Burger |
+| `07-par-passos.png` | recorte | Em Passos → 1-2-3 + Próximo |
+| `08-par-vitrine.png` | recorte | Dropdown → aba Promoções |
 | `00-admin-full.png` | pura | Fonte do 01 |
 | `02-preview.png` | pura | Fonte do 02 |
 | `03b-modal-cor-tema.png` | pura | Fonte do 03 |

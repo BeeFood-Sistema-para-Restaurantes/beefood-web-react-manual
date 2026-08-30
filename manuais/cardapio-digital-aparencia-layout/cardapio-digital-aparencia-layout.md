@@ -93,16 +93,18 @@ a capa não tem foto.
 
 **Layout do cardápio** decide a primeira tela que o cliente vê.
 
-![Lista completa × navegação por setores](imagens-tratadas/04-par-lista-setores.png)
-
 **Lista completa (padrão)** — todos os produtos numa página. O
 cliente rola e usa o filtro de setores. No exemplo o filtro está
 em *Combos* e já aparecem os produtos daquele setor.
+
+![Painel: Lista completa → cardápio: primeiro setor](imagens-tratadas/04-par-lista.png)
 
 **Navegação por setores** — o cliente escolhe o setor primeiro e
 só então vê os produtos. Melhor para catálogo grande. Setor **sem
 foto** usa o logo da loja no card: cadastre a imagem em
 **Cardápio → Setores**.
+
+![Painel: Navegação por setores → cardápio: grid](imagens-tratadas/05-par-setores.png)
 
 ---
 
@@ -112,14 +114,16 @@ foto** usa o logo da loja no card: cadastre a imagem em
 inteira**. Exemplo: **Combo One Burger** (burger + acompanhamento +
 bebida).
 
-![Em Rolagem × Em Passos](imagens-tratadas/05-par-opcoes.png)
-
 **Em Rolagem (padrão)** — os três grupos na mesma tela. O cliente
 rola até o fim e toca **Adicionar**.
+
+![Painel: Em Rolagem → cardápio: todos os grupos](imagens-tratadas/06-par-rolagem.png)
 
 **Em Passos** — um grupo por vez, com **1 · 2 · 3** (Detalhes,
 Burger, acompanhamentos…) e o botão **Próximo**. Quem prefere ir
 direto ao total usa a rolagem.
+
+![Painel: Em Passos → cardápio: 1, 2, 3 + Próximo](imagens-tratadas/07-par-passos.png)
 
 ---
 
@@ -138,7 +142,7 @@ houver produto com preço promocional valendo naquele horário
 No exemplo do sandbox: **Deixar a aba disponível**. O cliente toca
 **Promoções** e vê a lista (Milk Shake, burgers em oferta…).
 
-![Painel: as três opções → cardápio: aba Promoções](imagens-tratadas/06-par-vitrine.png)
+![Painel: as três opções → cardápio: aba Promoções](imagens-tratadas/08-par-vitrine.png)
 
 ---
 

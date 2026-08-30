@@ -15,19 +15,21 @@ Crie um novo manual no app: em **Cardápio Digital**, adicione um manual chamado
 1. **Conteúdo do manual (use na íntegra):**
    `beefood-web-react-manual/manuais/cardapio-digital-aparencia-layout/cardapio-digital-aparencia-layout.md`
 
-2. **Imagens (use estas 6, nesta ordem):**
+2. **Imagens (use estas 8, nesta ordem):**
    - `beefood-web-react-manual/manuais/cardapio-digital-aparencia-layout/imagens-tratadas/01-onde-fica.png`
    - `beefood-web-react-manual/manuais/cardapio-digital-aparencia-layout/imagens-tratadas/02-par-capa-logo.png`
    - `beefood-web-react-manual/manuais/cardapio-digital-aparencia-layout/imagens-tratadas/03-cor-tema.png`
-   - `beefood-web-react-manual/manuais/cardapio-digital-aparencia-layout/imagens-tratadas/04-par-lista-setores.png`
-   - `beefood-web-react-manual/manuais/cardapio-digital-aparencia-layout/imagens-tratadas/05-par-opcoes.png`
-   - `beefood-web-react-manual/manuais/cardapio-digital-aparencia-layout/imagens-tratadas/06-par-vitrine.png`
+   - `beefood-web-react-manual/manuais/cardapio-digital-aparencia-layout/imagens-tratadas/04-par-lista.png`
+   - `beefood-web-react-manual/manuais/cardapio-digital-aparencia-layout/imagens-tratadas/05-par-setores.png`
+   - `beefood-web-react-manual/manuais/cardapio-digital-aparencia-layout/imagens-tratadas/06-par-rolagem.png`
+   - `beefood-web-react-manual/manuais/cardapio-digital-aparencia-layout/imagens-tratadas/07-par-passos.png`
+   - `beefood-web-react-manual/manuais/cardapio-digital-aparencia-layout/imagens-tratadas/08-par-vitrine.png`
 
 **NÃO leia** outros arquivos do projeto (ex.: `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`).
 
 **Como montar a página:**
 - Use o conteúdo do `cardapio-digital-aparencia-layout.md` exatamente como está (seções, textos e tabelas).
-- Insira as 6 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
+- Insira as 8 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
 - **Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa"**.
 - Idioma **português do Brasil**, tom didático.
 - Mantenha em destaque: os recortes **painel → cardápio** (seta no meio); auto-save; capa fixa ≠ Capas e Destaques; cache de **até 1 minuto**.
@@ -42,6 +44,8 @@ Crie um novo manual no app: em **Cardápio Digital**, adicione um manual chamado
 | 1 | `01-onde-fica.png` | setas | Card Aparência: capa, logo e cores |
 | 2 | `02-par-capa-logo.png` | recorte | Painel: câmeras → cardápio: topo |
 | 3 | `03-cor-tema.png` | setas | Modal da cor + prévia Ver sacola / Adicionar |
-| 4 | `04-par-lista-setores.png` | recorte | Lista completa × navegação por setores |
-| 5 | `05-par-opcoes.png` | recorte | Em Rolagem × Em Passos |
-| 6 | `06-par-vitrine.png` | recorte | Vitrine → aba Promoções |
+| 4 | `04-par-lista.png` | recorte | Lista completa → primeiro setor |
+| 5 | `05-par-setores.png` | recorte | Navegação por setores → grid |
+| 6 | `06-par-rolagem.png` | recorte | Em Rolagem → todos os grupos |
+| 7 | `07-par-passos.png` | recorte | Em Passos → 1, 2, 3 + Próximo |
+| 8 | `08-par-vitrine.png` | recorte | Vitrine → aba Promoções |

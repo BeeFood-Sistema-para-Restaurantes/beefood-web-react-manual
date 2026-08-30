@@ -86,7 +86,7 @@ BG = (244, 244, 245)
 DARK = (40, 40, 40)
 MUTED = (100, 100, 100)
 MID = 56
-COL_W = 560
+COL_W = 620
 PAD_P = 28
 TIT_H = 46
 LAB_H = 32
@@ -242,7 +242,7 @@ montar_par(
     "No painel (clique na câmera)",
     "No cardápio",
     "Capa = foto larga do topo. Logo = círculo sobre a capa. Máximo 1 MB (PNG, JPG ou WEBP).",
-    max_h=520,
+    max_h=580,
 )
 
 # --- 03: cor do tema (o modal já é o resultado lado a lado) ---
@@ -252,59 +252,67 @@ annotate("03b-modal-cor-tema.png", [
     (3, 0.780, 0.880, 0.880, 0.800),
 ], out_name="03-cor-tema.png")
 
-# --- 04: lista × setores (os dois lados direitos são o cardápio público) ---
-montar_dois_pares(
-    "04-par-lista-setores.png",
-    "Layout do cardápio  →  como o cliente acha o produto",
-    (
-        crop_frac("04b-layout-setor.png", (0.00, 0.00, 0.50, 1.00)),
-        empilha([
-            crop_frac("10-cel-home-lista.png", (0.00, 0.66, 1.00, 0.08)),
-            crop_frac("10b-cel-home-lista-produtos.png", (0.00, 0.40, 1.00, 0.50)),
-        ], gap=6),
-        "Painel: Lista completa",
-        "Cardápio: primeiro setor",
-        "Uma página só. O cliente rola e usa o filtro de setores.",
-    ),
-    (
-        crop_frac("04b-layout-setor.png", (0.50, 0.00, 0.50, 1.00)),
-        crop_frac("13-cel-home-setores.png", (0.00, 0.00, 1.00, 1.00)),
-        "Painel: Navegação por setores",
-        "Cardápio: escolha o setor",
-        "Primeira tela = grid de setores. Setor sem foto usa o logo da loja.",
-    ),
-)
-
-# --- 05: rolagem × passos ---
-montar_dois_pares(
-    "05-par-opcoes.png",
-    "Opções do produto  →  rolagem ou um grupo por vez",
-    (
-        crop_frac("04c-layout-opcoes.png", (0.00, 0.00, 0.50, 1.00)),
-        crop_frac("11-cel-produto-rolagem.png", (0.00, 0.00, 1.00, 0.72)),
-        "Painel: Em Rolagem",
-        "Cardápio: todos os grupos",
-        "Burger, acompanhamentos e bebidas na mesma tela.",
-    ),
-    (
-        crop_frac("04c-layout-opcoes.png", (0.50, 0.00, 0.50, 1.00)),
-        crop_frac("14-cel-produto-passos.png", (0.00, 0.28, 1.00, 0.72)),
-        "Painel: Em Passos",
-        "Cardápio: 1, 2, 3 + Próximo",
-        "Um grupo por vez. Vale para a loja inteira.",
-    ),
-)
-
-# --- 06: vitrine ---
+# --- 04: lista completa (uma figura só para caber zoom) ---
 montar_par(
-    "06-par-vitrine.png",
+    "04-par-lista.png",
+    "Lista completa  →  primeiro setor no cardápio",
+    crop_frac("04b-layout-setor.png", (0.00, 0.00, 0.50, 1.00)),
+    empilha([
+        crop_frac("10-cel-home-lista.png", (0.00, 0.66, 1.00, 0.08)),
+        crop_frac("10b-cel-home-lista-produtos.png", (0.00, 0.40, 1.00, 0.50)),
+    ], gap=8),
+    "No painel",
+    "No cardápio",
+    "Uma página só. O cliente rola e usa o filtro de setores.",
+    max_h=700,
+)
+
+# --- 05: navegação por setores ---
+montar_par(
+    "05-par-setores.png",
+    "Navegação por setores  →  grid no cardápio",
+    crop_frac("04b-layout-setor.png", (0.50, 0.00, 0.50, 1.00)),
+    crop_frac("13-cel-home-setores.png", (0.00, 0.00, 1.00, 1.00)),
+    "No painel",
+    "No cardápio",
+    "Primeira tela = grid de setores. Setor sem foto usa o logo da loja.",
+    max_h=700,
+)
+
+# --- 06: em rolagem ---
+montar_par(
+    "06-par-rolagem.png",
+    "Em Rolagem  →  todos os grupos na mesma tela",
+    crop_frac("04c-layout-opcoes.png", (0.00, 0.00, 0.50, 1.00)),
+    crop_frac("11-cel-produto-rolagem.png", (0.00, 0.00, 1.00, 0.78)),
+    "No painel",
+    "No cardápio",
+    "Burger, acompanhamentos e bebidas na mesma tela. Vale para a loja inteira.",
+    max_h=700,
+)
+
+# --- 07: em passos ---
+montar_par(
+    "07-par-passos.png",
+    "Em Passos  →  um grupo por vez",
+    crop_frac("04c-layout-opcoes.png", (0.50, 0.00, 0.50, 1.00)),
+    crop_frac("14-cel-produto-passos.png", (0.00, 0.22, 1.00, 0.78)),
+    "No painel",
+    "No cardápio",
+    "1 · 2 · 3 e o botão Próximo. Vale para a loja inteira.",
+    max_h=700,
+)
+
+# --- 08: vitrine ---
+montar_par(
+    "08-par-vitrine.png",
     "Vitrine de Promoções  →  aba Promoções",
     crop_frac("05b-vitrine-aberta.png", (0.220, 0.520, 0.500, 0.360)),
     crop_frac("12-cel-promocoes.png", (0.00, 0.00, 1.00, 0.70)),
     "No painel",
     "No cardápio",
     "Aba só aparece se existir produto com preço promocional valendo agora.",
-    max_h=500,
+    max_h=580,
 )
 
 print("done")
