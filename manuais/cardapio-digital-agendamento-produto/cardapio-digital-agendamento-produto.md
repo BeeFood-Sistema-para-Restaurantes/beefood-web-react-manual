@@ -23,7 +23,6 @@ isso em **lote**, sem abrir produto por produto.
    **Com ele desligado a marca de encomenda não segura nada:** a
    etiqueta continua no cardápio, mas o botão **Agendar** desaparece e
    o cliente fecha o pedido para agora, como qualquer outro item.
-   Testado no cardápio real.
 2. Vale **só para o cardápio digital**, nas modalidades **Entrega** e
    **Retirada**. No presencial (mesa / QR Code) e no PDV o produto é
    vendido normalmente.
@@ -92,8 +91,8 @@ selecionados*.
 | 4. | **PRÓXIMO** | Vai para a configuração |
 
 > Se você filtrou dentro do assistente e ainda há itens marcados fora
-> do filtro, o sistema avisa em um aviso próprio: a edição vale para
-> **todos os selecionados**, não só para os que estão na tela.
+> do filtro, o sistema pede confirmação antes de seguir: a edição vale
+> para **todos os selecionados**, não só para os que estão na tela.
 
 ### Etapa 2 — ligar o Somente Agendamento
 
