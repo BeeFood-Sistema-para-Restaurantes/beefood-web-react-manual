@@ -43,7 +43,10 @@ cardápio ao lado.
 - Número **#71** (#70 já é Agendamento).
 - Auto-save 800 ms. Não clicar opção “só para ver”.
 - Capa/logo: ensinar o clique no preview. **Não** trocamos a foto
-  da loja no sandbox.
+  da loja no sandbox. Texto do manual inclui as buscas do cliente:
+  *foto de perfil*, *foto do perfil*, *como colocar foto de
+  perfil*, *alterar foto*, *capa da loja* (logo = perfil; capa =
+  foto larga).
 - Cores: modal da cor já traz a prévia lado a lado — usamos ele
   como figura 03.
 - Comparação de layout **só no cardápio público**
