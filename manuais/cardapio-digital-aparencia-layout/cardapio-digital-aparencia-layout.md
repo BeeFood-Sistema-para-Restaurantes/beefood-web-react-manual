@@ -1,8 +1,8 @@
 # Aparência e layout do cardápio digital
 
-No cardápio digital você escolhe **a cara da loja** (capa, logo e
-cores) e **como o cliente navega** (lista ou setores, rolagem ou
-passos, aba de promoções).
+Como colocar **foto de perfil**, **alterar foto**, trocar a
+**capa da loja**, o logo e as cores — e como o cliente navega
+(lista ou setores, rolagem ou passos, aba de promoções).
 
 Tudo fica no mesmo card: **Cardápio Digital → Configurações →
 Aparência**. Nas figuras da Parte 2 em diante, o recorte da
@@ -10,7 +10,8 @@ Aparência**. Nas figuras da Parte 2 em diante, o recorte da
 que aquele campo muda.
 
 > Capas **com vídeo e carrossel** são outro assunto — manual
-> **Capas e Destaques**. Aqui a capa é a **foto fixa** do preview.
+> **Capas e Destaques**. Aqui a **capa da loja** é a **foto fixa**
+> do preview (a foto larga do topo).
 
 ---
 
@@ -19,10 +20,11 @@ que aquele campo muda.
 1. Menu **Cardápio Digital → Configurações**.
 2. **Não existe botão SALVAR.** A tela grava sozinha (*Salvo
    automaticamente*). Não clique numa opção “só para ver”.
-3. Capa e logo: **PNG, JPG ou WEBP**, até **1 MB**. O sistema
-   otimiza. Sem recorte — a foto entra como `object-cover`.
+3. Capa da loja e foto de perfil (logo): **PNG, JPG ou WEBP**, até
+   **1 MB**. O sistema otimiza. Sem recorte — a foto entra como
+   `object-cover`.
 4. Foto do **setor** (usada na navegação por setores) se cadastra em
-   **Cardápio → Setores**, não nesta tela.
+   **Cardápio → Setores**, não nesta tela. Não é a foto de perfil.
 
 Depois de gravar, o cardápio do cliente pode levar **até 1 minuto**.
 
@@ -31,7 +33,8 @@ Depois de gravar, o cardápio do cliente pode levar **até 1 minuto**.
 ## Parte 1 — Onde fica
 
 No menu: **Cardápio Digital → Configurações** (1). O card
-**Aparência** abre com o preview. Clique na **capa** (2) ou na
+**Aparência** abre com o preview. Para **colocar** ou **alterar
+foto**: clique na **capa da loja** (2) ou na **foto de perfil** /
 **logo** (3) — o ícone de câmera vermelho marca o alvo. Embaixo
 ficam **Cor do Tema** (4) e **Cor da Capa** (5).
 
@@ -42,25 +45,29 @@ ficam **Cor do Tema** (4) e **Cor da Capa** (5).
 | Nº | Campo | O que faz |
 |----|--------|-----------|
 | 1. | **Configurações** | Aba desta tela |
-| 2. | **Capa** | Foto larga do topo. Clique para trocar |
-| 3. | **Logo** | Quadrado sobre a capa. Clique para trocar |
+| 2. | **Capa da loja** | Foto larga do topo. Clique para colocar ou alterar a foto |
+| 3. | **Foto de perfil (logo)** | Círculo sobre a capa. Clique para trocar a foto do perfil |
 | 4. | **Cor do Tema** | Abre o modal da cor (botões, aba ativa) |
-| 5. | **Cor da Capa** | Fundo da capa quando não há imagem |
+| 5. | **Cor da Capa** | Fundo da capa da loja quando não há imagem |
 
 **Nome Fantasia** e **Categoria do Estabelecimento** ficam em
 **Identidade**. O **ID** é só leitura — serve para o suporte.
 
 ---
 
-## Parte 2 — Capa e logo no cardápio
+## Parte 2 — Como colocar foto de perfil e capa da loja
 
-Clique direto no preview. Não há outro botão de upload. No hover
-aparecem enviar e o **X** para remover.
+Clique direto no preview para **alterar foto**. Não há outro botão
+de upload. No hover aparecem enviar e o **X** para remover.
 
-![Painel: câmeras da capa e da logo → cardápio: topo](imagens-tratadas/02-par-capa-logo.png)
+- **Capa da loja** (foto da capa, foto larga) — o topo do cardápio.
+- **Foto de perfil** (foto do perfil, logo, logotipo) — o círculo
+  sobre a capa.
 
-A capa fixa é o **primeiro slide** do carrossel. Os banners do
-manual **Capas e Destaques** entram **depois**. Capa fixa aceita
+![Painel: câmeras da capa e da foto de perfil → cardápio: topo](imagens-tratadas/02-par-capa-logo.png)
+
+A capa da loja fixa é o **primeiro slide** do carrossel. Os banners
+do manual **Capas e Destaques** entram **depois**. Essa capa aceita
 só imagem; vídeo mora naquele outro modal.
 
 ---
@@ -150,7 +157,8 @@ No exemplo do sandbox: **Deixar a aba disponível**. O cliente toca
 
 | Sintoma | O que verificar |
 |---------|-----------------|
-| Capa/logo não mudou | Esperou **1 minuto**? Arquivo até **1 MB**? Recarregou o cardápio? |
+| Alterei a foto e não mudou (capa ou perfil) | Esperou **1 minuto**? Arquivo até **1 MB**? Recarregou o cardápio? |
+| Procurou “foto de perfil” / “capa da loja” | É o clique no preview: círculo = perfil (logo); faixa larga = capa |
 | Procurou o botão Salvar | Não tem. Grava sozinha |
 | Setor sem foto no grid | Falta imagem em **Cardápio → Setores** (o card usa o logo) |
 | Aba Promoções sumiu | Não há produto em promoção **agora**, ou a opção é **Não mostrar** |
