@@ -1,0 +1,69 @@
+# MEMORIA.md — #71 Aparência e layout do cardápio digital
+
+## Escopo
+Aba **Cardápio Digital → Configurações**, card **Aparência**: trocar
+capa e logo no preview, identidade, cores e os três layouts
+(lista × setores, rolagem × passos, vitrine de promoções). Cada
+opção aparece **lado a lado** com o resultado no cardápio
+(`montar_par` — uma figura por opção, para caber zoom).
+
+Não cobre: Capas e Destaques / banners (#48), avisos (#47),
+agendamento (#70), horário, link de acesso, domínio.
+
+## Origem
+Pedido do dono (30/08/2026): novo manual de layout do cardápio
+digital — foto, capa e configurações; cada uma com o resultado no
+cardápio ao lado.
+
+## Imagens
+| Arquivo | Tipo | O que mostra |
+|---------|------|----------------|
+| `01-onde-fica.png` | setas | Sidebar + preview (capa/logo) + cores |
+| `02-par-capa-logo.png` | recorte | Preview (câmeras) → topo do cardápio |
+| `03-cor-tema.png` | setas | Modal da cor + prévia Ver sacola / Adicionar |
+| `04-par-lista.png` | recorte | Lista completa → primeiro setor (Combos) |
+| `05-par-setores.png` | recorte | Navegação por setores → grid público |
+| `06-par-rolagem.png` | recorte | Em Rolagem → Combo One Burger |
+| `07-par-passos.png` | recorte | Em Passos → 1-2-3 + Próximo |
+| `08-par-vitrine.png` | recorte | Dropdown → aba Promoções |
+| `00-admin-full.png` | pura | Fonte do 01 |
+| `02-preview.png` | pura | Fonte do 02 |
+| `03b-modal-cor-tema.png` | pura | Fonte do 03 |
+| `04b-layout-setor.png` | pura | Fonte do 04 |
+| `04c-layout-opcoes.png` | pura | Fonte do 05 |
+| `05b-vitrine-aberta.png` | pura | Fonte do 06 |
+| `10-cel-home-lista.png` | pura | Home pública em lista (topo / filtro) |
+| `10b-cel-home-lista-produtos.png` | pura | Lista: primeiro setor (Combos + produtos) |
+| `11-cel-produto-rolagem.png` | pura | Combo One Burger em rolagem |
+| `12-cel-promocoes.png` | pura | Aba Promoções |
+| `13-cel-home-setores.png` | pura | Home pública: grid de setores |
+| `14-cel-produto-passos.png` | pura | Combo One Burger em passos (1-2-3 + Próximo) |
+
+## Decisões
+- Número **#71** (#70 já é Agendamento).
+- Auto-save 800 ms. Não clicar opção “só para ver”.
+- Capa/logo: ensinar o clique no preview. **Não** trocamos a foto
+  da loja no sandbox.
+- Cores: modal da cor já traz a prévia lado a lado — usamos ele
+  como figura 03.
+- Comparação de layout **só no cardápio público**
+  (`menu.beefood.com.br/beefood3`). O preview sticky do painel
+  **não** entra no par. Vue: `dadosEmpresa.layoutSetor === true`
+  (strict). `validaDelivery` vem zlib+base64; cache ~1 min.
+  Grid público = `.sector-card` (sem o texto “Escolha um setor”
+  do preview). Em Passos o botão do cliente é **Próximo**.
+- Vitrine do sandbox: **Deixar a aba disponível**. Milk Shake e
+  burgers em promoção (#69) sustentam a aba.
+- Clique no banner verde de cupom **abre** ADICIONAR CUPOM — não
+  usar esse texto para fechar.
+- Viewport celular 390×844 dsf 2. Não clicar Retirada na home.
+
+## Estado deixado no sandbox
+- `layoutSetor=false` (Lista completa)
+- `layoutStepCarrinho=false` (Em Rolagem)
+- `exibirPromocoes=true`, `abrirPromocoesAuto=false` (Deixar a aba)
+- Capa, logo, cores e nome **não** foram alterados
+- Agendamento #70, tabelas #68/#69 e descontos #64 intactos
+
+## Status
+Concluído — aguardando publicação.
