@@ -56,6 +56,12 @@ manuais/<nome>/
 | Pick n Go! | #62 (concluído 28/08/2026) | `manuais/integracao-pick-n-go/` |
 | Uai Rango | #63 (concluído 28/08/2026) | `manuais/integracao-uai-rango/` |
 
+## Estudos aguardando aprovação
+
+| Estudo | Situação | Documento |
+|--------|----------|-----------|
+| Ficha Técnica (exemplo de pizza) | 💡 estudo pronto, nada produzido | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md) |
+
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
 18040-370**. Endereço de entrega de teste nos quatro tipos: **R. Arthur Gomes, 13 — Centro,
 Sorocaba – SP, 18035-490**. No cardápio, os manuais #35–#38 mostram a **busca** (CEP ou
