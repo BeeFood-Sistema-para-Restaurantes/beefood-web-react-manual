@@ -8,11 +8,12 @@ O material está organizado em três blocos, porque as permissões **não funcio
 jeito**:
 
 1. **As que apagam uma tela inteira** — o item sai do menu e a URL digitada à mão não abre. É a
-   maioria: 82 das 93.
+   maioria: **83 das 93**.
 2. **As que mexem por dentro de uma tela** — a tela continua lá, mas com menos campos, menos
-   botões ou menos colunas. São 9, e é aqui que entra o cadastro de produto.
-3. **As que só põem um cadeado** — o item continua visível, apagado, com o aviso *Acesso
-   restrito*. Aparece na tela de Aplicativos.
+   botões ou menos colunas. São **9**, e é aqui que entra o cadastro de produto.
+3. **A que só põe um cadeado** — o item continua visível, apagado, com o aviso *Acesso
+   restrito*. É **1** (Multilojas). Outras seis põem cadeado em algum aplicativo **além** de
+   apagar a própria tela.
 
 E há um quarto grupo, que é a causa mais comum de confusão: **restrições que existem no BeeFood
 mas não moram no grupo de acesso**. Elas estão no fim do estudo.
@@ -80,10 +81,15 @@ Delivery, Financeiro, Fiscal, Estoque, relatórios, cadastros.
 | Visualizar Caixas Fechados | limita a listagem ao caixa aberto |
 | Transferência de Operações | tira o TRANSFERIR e o histórico de cancelados |
 
-**Põe cadeado.** Na tela de Aplicativos, algumas permissões deixam o cartão do aplicativo
-visível, apagado, com o aviso **Acesso restrito**. Acontece com sete aplicativos quando você
-desliga **Cardápio Digital**, e com um a um nos casos de WhatsApp, IA, KDS, Impressão de Cupom e
-Multilojas.
+> As três últimas são sub-itens de **Abrir e Fechar Caixa** e estão detalhadas no manual
+> **Restrições de caixa** (#13). As seis primeiras são sub-itens de **Cadastro de Cardápio** e
+> são o assunto da seção 5.
+
+**Põe cadeado.** Na tela de Aplicativos, seis permissões deixam o cartão do aplicativo visível,
+apagado, com o aviso **Acesso restrito**: **Cardápio Digital** (que atinge sete aplicativos de
+uma vez), **WhatsApp**, **Inteligência Artificial (ChatGPT)**, **KDS**, **Cadastro de
+Impressoras** e **Multilojas**. Só a última faz *apenas* isso; as outras cinco também apagam a
+tela correspondente no menu.
 
 ---
 
@@ -574,10 +580,14 @@ Esta é a seção que responde à maioria dos "por que não consigo bloquear iss
 | Limite máximo de desconto | **Configuração → Parâmetros** |
 | Exigir identificação do operador no PDV | **Configuração → Parâmetros** |
 | Cada um vê só o próprio caixa | campo **Usuário Fixo**, em Configuração → Caixa |
+| Acesso da pessoa aos aplicativos | switch **Aplicativos**, no cadastro do usuário |
 
 > A **Função Gerente** é um atalho poderoso: quem é gerente **não precisa** digitar senha de
 > gerente nas ações protegidas por Parâmetros. Marcar alguém como gerente para "resolver" um
 > bloqueio abre bem mais do que se imagina.
+
+> O switch **Aplicativos** do cadastro do usuário não muda nada no painel web — o usuário de
+> teste deste estudo estava com ele desligado e continuou entrando normalmente pelo navegador.
 
 ### 7.2 Itens que nenhum grupo consegue esconder
 
