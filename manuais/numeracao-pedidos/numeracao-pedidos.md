@@ -48,7 +48,6 @@ A palavra na frente muda de tela para tela, mas a ordem é sempre a mesma:
 | Delivery (card do pedido) | `#1 (931)` | `#931` |
 | Cupom do cliente | `Pedido #1 (931)` | `Venda Nº 931` |
 | Detalhe da venda | `Venda Nº 931 • Pedido Nº 1` | `Venda Nº 931` |
-| Tela do PDV | *sempre o da venda:* `VENDA Nº 931` | `VENDA Nº 931` |
 
 No **Delivery**, cada card traz o número do pedido e, entre parênteses, o da venda (1) e (2).
 
@@ -182,8 +181,9 @@ pedidos de delivery — e a contagem do pedido foi de **5** (3) direto para **6*
 | 2 | As cinco linhas **MESA** (854 a 858) | Só o número da venda. Nenhuma delas tem número de pedido. |
 | 3 | **5 (850)** | O delivery anterior era o pedido 5. Entre ele e o pedido 6 houve cinco vendas de mesa, e **a contagem do pedido não pulou**. |
 
-Ou seja: as vendas de mesa consumiram os números **de venda** 851 a 858, mas nenhum número
-**de pedido**. A contagem dos pedidos só anda quando sai um pedido que recebe número.
+Ou seja: cada uma dessas cinco vendas de mesa consumiu um número **de venda** (854 a 858), mas
+nenhuma consumiu número **de pedido**. A contagem dos pedidos só anda quando sai um pedido que
+recebe número.
 
 ---
 
