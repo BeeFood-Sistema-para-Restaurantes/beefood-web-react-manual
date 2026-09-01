@@ -49,14 +49,23 @@ manuais/<nome>/
 | Exibir / Ocultar | #68 (concluído 30/08/2026) | `manuais/exibir-ocultar/` |
 | Preço Programado | #69 (concluído 30/08/2026) | `manuais/preco-programado/` |
 | Agendamento do cardápio digital | #70 (concluído 30/08/2026) | `manuais/cardapio-digital-agendamento/` |
+| Produto só com agendamento (encomenda) | #73 (concluído 31/08/2026) | `manuais/cardapio-digital-agendamento-produto/` |
 | Aparência e layout do cardápio digital | #71 (concluído 30/08/2026) | `manuais/cardapio-digital-aparencia-layout/` |
-| Grupos de acesso (estudo completo das 93 permissões) | #72 (concluído 01/09/2026) | `manuais/grupos-acesso/` |
-| Criar usuário e montar grupo de acesso | #73 (concluído 01/09/2026) | `manuais/usuarios-criar/` |
+| Ficha técnica (hambúrguer) | #72 (concluído 01/09/2026) | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md) + `manuais/ficha-tecnica/` |
+| Numeração dos pedidos | #74 (concluído 01/09/2026) | [`PLANO-NUMERACAO-PEDIDOS.md`](PLANO-NUMERACAO-PEDIDOS.md) + `manuais/numeracao-pedidos/` |
+| Grupos de acesso (estudo completo das 93 permissões) | #75 (concluído 01/09/2026) | `manuais/grupos-acesso/` |
+| Criar usuário e montar grupo de acesso | #76 (concluído 01/09/2026) | `manuais/usuarios-criar/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |
 | Pick n Go! | #62 (concluído 28/08/2026) | `manuais/integracao-pick-n-go/` |
 | Uai Rango | #63 (concluído 28/08/2026) | `manuais/integracao-uai-rango/` |
+
+## Estudos aguardando aprovação
+
+| Estudo | Situação | Documento |
+|--------|----------|-----------|
+| Ficha técnica da **pizza** | ⏸️ em espera: aguarda a correção da pizza. O manual #72 já respondeu a dúvida técnica (opção repetida baixa em dobro) | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md), seção 9 |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
 18040-370**. Endereço de entrega de teste nos quatro tipos: **R. Arthur Gomes, 13 — Centro,

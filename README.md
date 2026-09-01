@@ -11,6 +11,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 ├─ CHECKLIST-MANUAIS.md        # O que já foi feito, o que está na fila e o histórico
 ├─ PLANO-CARDAPIO.md           # Plano aprovado dos manuais #27–#31 (cardápio por segmento)
 ├─ PLANO-MIGRACAO-AJUDA.md     # Fila #49–#56 (migração do ajuda.beefood.com.br)
+├─ PLANO-NUMERACAO-PEDIDOS.md  # Estudo do #74 (número da venda × número do pedido)
 ├─ validar-imagens.py          # Confere se as imagens referenciadas pelos manuais existem
 └─ manuais/
    └─ <nome-do-manual>/        # Uma pasta por manual
@@ -63,6 +64,9 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Cashback — operar no dia a dia | [`manuais/cashback-operar/`](manuais/cashback-operar/cashback-operar.md) | ✅ Concluído |
 | Desconto e acréscimo nas formas de recebimento (cardápio digital) | [`manuais/cardapio-digital-desconto-formas/`](manuais/cardapio-digital-desconto-formas/cardapio-digital-desconto-formas.md) | ✅ Concluído |
 | Taxas das formas de recebimento (faturado e realizado) | [`manuais/taxas-formas-pagamento/`](manuais/taxas-formas-pagamento/taxas-formas-pagamento.md) | ✅ Concluído |
+| Ficha técnica (custo do prato e baixa de estoque) | [`manuais/ficha-tecnica/`](manuais/ficha-tecnica/ficha-tecnica.md) | ✅ Concluído |
+| Produto só com agendamento (encomenda) | [`manuais/cardapio-digital-agendamento-produto/`](manuais/cardapio-digital-agendamento-produto/cardapio-digital-agendamento-produto.md) | ✅ Concluído |
+| Entendendo a numeração dos pedidos (número da venda × número do pedido) | [`manuais/numeracao-pedidos/`](manuais/numeracao-pedidos/numeracao-pedidos.md) | ✅ Concluído |
 | Grupos de acesso — estudo completo das 93 permissões | [`manuais/grupos-acesso/`](manuais/grupos-acesso/grupos-acesso.md) | ✅ Concluído |
 | Criar usuário e montar grupo de acesso | [`manuais/usuarios-criar/`](manuais/usuarios-criar/usuarios-criar.md) | ✅ Concluído |
 

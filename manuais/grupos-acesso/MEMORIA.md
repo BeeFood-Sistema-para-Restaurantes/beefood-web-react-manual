@@ -1,6 +1,6 @@
 # MEMORIA.md — Estudo completo dos grupos de acesso
 
-Manual **#72**. Estudo de **todas** as permissões de Configuração → Usuários → Grupos de Acesso,
+Manual **#75**. Estudo de **todas** as permissões de Configuração → Usuários → Grupos de Acesso,
 categorizado, com foco no efeito de cada uma na tela — e, em especial, no **cadastro de
 produto**.
 

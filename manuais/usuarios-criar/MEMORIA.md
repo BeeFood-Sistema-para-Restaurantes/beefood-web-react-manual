@@ -1,7 +1,7 @@
 # MEMORIA.md — Criar usuário e montar grupo de acesso
 
-Manual **#73**. Passo a passo operacional de dar acesso a alguém: criar o grupo, criar o
-usuário, ligar os dois, trocar senha e desativar. Complementa o **#72**
+Manual **#76**. Passo a passo operacional de dar acesso a alguém: criar o grupo, criar o
+usuário, ligar os dois, trocar senha e desativar. Complementa o **#75**
 (`manuais/grupos-acesso/`), que é o catálogo das 93 permissões.
 
 Última atualização: 01/09/2026.
@@ -10,8 +10,8 @@ usuário, ligar os dois, trocar senha e desativar. Complementa o **#72**
 
 ## 1. O pedido
 
-Sequência do #72. No `CHECKLIST-MANUAIS.md`, o item "Usuários e permissões" previa "1 a 2
-manuais: criar usuário, montar grupo de acesso e o que cada permissão faz". O #72 fechou o "o
+Sequência do #75. No `CHECKLIST-MANUAIS.md`, o item "Usuários e permissões" previa "1 a 2
+manuais: criar usuário, montar grupo de acesso e o que cada permissão faz". O #75 fechou o "o
 que cada permissão faz"; este fecha o "criar usuário e montar grupo".
 
 ---
@@ -83,7 +83,7 @@ Contas de teste do sandbox, atualizadas:
 - **A pesquisa de NPS** ("Como está sendo sua experiência?") aparece depois do login e cobre a
   tela. O botão dela é **FECHAR (ESC)** — o mesmo texto do botão de vários modais do sistema.
   Filtrar o diálogo pelo texto antes de clicar, senão a limpeza fecha o modal que você quer
-  fotografar. Foi o que quebrou duas rodadas de captura no #72.
+  fotografar. Foi o que quebrou duas rodadas de captura no #75.
 - **O `Select` de Grupo de Acesso é o último `combobox` do modal**; o primeiro é o de
   Funcionário. `page.locator('div[role="dialog"] button[role="combobox"]').last` resolve.
 - **Mostrar a senha digitada** (para a captura ficar útil) sai com

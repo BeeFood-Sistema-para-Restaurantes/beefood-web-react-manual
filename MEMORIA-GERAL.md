@@ -3,8 +3,16 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-01 (**#72** Grupos de acesso — estudo das 93 permissões, com a
-técnica de codificação binária para medir permissão e a espera de 85 s do cache; **#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
+Última atualização: 2026-09-01 (**#75/#76** Grupos de acesso — estudo das 93 permissões (com a
+técnica de codificação binária para medir permissão e a espera de 85 s do cache) e o manual de
+criar usuário/grupo — **usuário sem grupo enxerga quase tudo**;
+**#74** Entendendo a numeração dos pedidos — concluído: número da
+venda nunca reseta, número do pedido é do caixa, mesa nunca recebe **e não consome** número;
+virada 60→1 provada ao vivo; **cupom no navegador é IFRAME, não `window.open`**;
+**o `BITBUCKET_TOKEN` parou de autenticar** — backend não clona mais;
+**#72** Ficha técnica — base de insumos zerada, opção repetida
+baixa em dobro, insumo sem controle de estoque não movimenta; **#73** Produto só com agendamento;
+**#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
@@ -187,7 +195,7 @@ isso em segundos, e foi assim que a ambiguidade apareceu.
 | beefood1 | `beefood1` | `beefood123` | Conta de teste inicial (tem caixas históricos). |
 | **BeeFood3 - Manual** | `contato@beefood.com.br` | `1q2w3e4r` | **Sandbox dedicado aos manuais.** Usar esta. Usuário **Principal**, Gerente, grupo **Administrador2**. |
 | caixa.manual | `caixa.manual` | `manual123` | Usuário **restrito** criado em 19/08/2026 para o manual de restrições de caixa. Grupo **Acesso Funcionário**, **sem** função Gerente. Serve para ver o produto com permissões reduzidas. |
-| estoque.manual | `estoque.manual` | `manual123` | Criado em 01/09/2026 no **#73**. Grupo **Acesso Estoque** (71881, criado com as 93 permissões **ligadas**), sem função Gerente. O contador do plano foi a **5/99**. |
+| estoque.manual | `estoque.manual` | `manual123` | Criado em 01/09/2026 no **#76**. Grupo **Acesso Estoque** (71881, criado com as 93 permissões **ligadas**), sem função Gerente. O contador do plano foi a **5/99**. |
 
 > **Telefone de teste no cardápio digital (BeeFood3):** use **(15) 99999-8888**
 > (cliente **Teste Manual**, saldo de cashback **R$ 5,00**). Digite **11 dígitos**
@@ -290,7 +298,7 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
   "Como está sendo sua experiência?" e o botão **FECHAR (ESC)** — que é o **mesmo texto** de
   vários modais do sistema (produto, usuário). Uma rotina de limpeza que clique em
   `button:has-text("FECHAR (ESC)")` sem filtrar o diálogo **fecha o modal que você quer
-  fotografar**: foi o que quebrou duas rodadas de captura no #72. Filtre primeiro:
+  fotografar**: foi o que quebrou duas rodadas de captura no #75. Filtre primeiro:
   `page.locator('[role="dialog"]').filter(has_text="Como está sendo sua experiência")`. Ela pode
   reaparecer, então vale rodar a limpeza duas vezes.
 - **Diagnostique o estado pela API antes de planejar o manual.** Um script curto que só abre a
@@ -315,7 +323,7 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
 - **Se o traceback do Playwright citar um seletor que você já trocou**, desconfie de cache do
   script: criar um arquivo novo com outro nome resolveu (visto em 21/08/2026, manual #33).
 
-### Medir o efeito de uma permissão (grupo de acesso) — #72
+### Medir o efeito de uma permissão (grupo de acesso) — #75
 
 Vale para qualquer estudo que precise saber **o que cada switch faz**:
 
@@ -336,7 +344,7 @@ Vale para qualquer estudo que precise saber **o que cada switch faz**:
   resultados estranhos com teste individual.
 - **Nunca experimente no próprio grupo.** Salve o estado original antes e restaure no fim.
 - **Rodada de baseline com tudo ligado** é obrigatória: ela separa o que não depende do grupo
-  (no #72, apareceram três itens que dependem da **Função Gerente**).
+  (no #75, apareceram três itens que dependem da **Função Gerente**).
 - **Login novo por cenário.** Reaproveitar `storage_state` congela o `config_cache` no estado
   antigo.
 
@@ -584,6 +592,26 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 > na raiz. Foi o que permitiu fechar o estudo do manual #13: só o código do servidor explicou
 > por que o parâmetro "Caixa por Usuário" não fazia o que a tela promete.
 
+> ⚠️ **Parou de funcionar em 2026-09-01 (estudo #74).** O backend **não está mais** em
+> `~/refs/` — só `beefood-web-react` e `beefood-reports-hub` clonaram. O secret
+> `BITBUCKET_TOKEN` continua injetado no ambiente, mas o Bitbucket responde
+> *"You may not have access to this repository"*. Testadas as **quatro** combinações
+> (`x-token-auth` e `x-bitbucket-api-token-auth` × `BITBUCKET_TOKEN` e
+> `BITBUCKET_CARDAPIO_DIGITAL`): todas falham na autenticação. O token provavelmente
+> **expirou ou foi revogado** — Repository Access Token do Bitbucket tem validade. Para
+> voltar a ter o backend, gerar um token novo (Repository settings → Security → Access
+> tokens, escopo *Repositories: Read*) e regravar o secret no Cursor Dashboard;
+> **secret novo só entra em VM nova**.
+>
+> Enquanto isso, a saída que funcionou no #74 é **provar a regra por dado real** em vez de
+> ler o código do servidor: um script curto que loga com Playwright e consulta a API
+> autenticada de dentro da página (o token do app vem do `localStorage`, ofuscado por XOR
+> com a chave `bf2024_secure_key_token` — ver `src/lib/api.ts`). Base da API em produção é
+> `https://app3.beetechapi.be`, e o front troca `/datasnap/rest/` por `/api/`
+> (`src/config/api-endpoints.ts`). Cruzando `venda2/historicoVendas`,
+> `caixa2/caixaListagem`, `venda2/vendaDetalhes` e `empresa2/empresaConfig` deu para
+> provar o reset da numeração sem nenhuma linha do backend.
+
 > **Cuidado com repositório público.** Este repositório de manuais é público. Secret de
 > ambiente em repositório público é risco real: quem puder abrir um Cloud Agent nele recebe a
 > variável injetada — e o Cursor pode até bloquear a injeção por padrão nesse caso. Antes de
@@ -638,8 +666,11 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Preço Programado | `manuais/preco-programado/` | ✅ Concluído (#69) |
 | Agendamento do cardápio digital | `manuais/cardapio-digital-agendamento/` | ✅ Concluído (#70) |
 | Aparência e layout do cardápio digital | `manuais/cardapio-digital-aparencia-layout/` | ✅ Concluído (#71) |
-| Grupos de acesso — estudo completo | `manuais/grupos-acesso/` | ✅ Concluído (#72) |
-| Criar usuário e montar grupo de acesso | `manuais/usuarios-criar/` | ✅ Concluído (#73) |
+| Ficha técnica (custo do prato e baixa de estoque) | `manuais/ficha-tecnica/` | ✅ Concluído (#72) |
+| Produto só com agendamento (encomenda) | `manuais/cardapio-digital-agendamento-produto/` | ✅ Concluído (#73) |
+| Entendendo a numeração dos pedidos | `manuais/numeracao-pedidos/` | ✅ Concluído (#74) |
+| Grupos de acesso — estudo completo | `manuais/grupos-acesso/` | ✅ Concluído (#75) |
+| Criar usuário e montar grupo de acesso | `manuais/usuarios-criar/` | ✅ Concluído (#76) |
 
 ### Exibir/Ocultar e Preço Programado — #68 e #69
 
@@ -675,6 +706,33 @@ e sair perde o save — gravar pelo POST autenticado e recarregar.
 
 ---
 
+### Produto só com agendamento — #73 (complemento do #70)
+
+Switch do **produto**, campo da API `importadoMatriz` (nome legado).
+Dois caminhos: **Editar em Lote** (`ModalEditarLote` + `useEditarLote`,
+POST `/api/produto2/cardapio/editarLote` em lotes de **5**) e o
+cadastro em **Opções avançadas** (grava só no **SALVAR E SAIR**).
+No lote o valor nasce em **Não** — marcar o campo e processar
+**desliga** a flag; é assim que se desfaz. A etapa 1 herda o filtro de
+setor da aba, então **filtre antes de abrir**.
+
+Lista do painel: `CalendarDays` azul `#1565c0`. O Tooltip do grid
+virtualizado é **shim com `title` nativo** — hover **não** rende
+tooltip em screenshot (documentar por texto).
+
+Cardápio público: etiqueta **Encomenda** + `?`
+(`.attributes-row__help-btn`) → *Produto disponível apenas por
+agendamento*. Com o item na sacola, **Continuar** abre **AGENDAR
+PEDIDO** mesmo com **Hoje** marcado; produto normal vai direto ao
+pagamento. **Sem o `agendamento` da aba ligado a marca não segura
+nada** (testado e revertido). Campo também aparece no lote de
+**Complementos**, mas o cadastro do complemento não tem o switch.
+
+Sandbox (31/08/2026): 3 pudins de **Sobremesas** ON, Brownie OFF.
+Só abrir a aba Agendamento já dispara um POST do auto-save.
+
+---
+
 ### Aparência e layout do cardápio digital — #71
 
 Card **Aparência** em `/cardapio-digital?tab=configuracoes`. Auto-save
@@ -687,6 +745,106 @@ Comparação do manual: painel à esquerda, **cardápio público** à
 direita (`menu.beefood.com.br/{link}`). O preview sticky do painel
 não entra no par. `validaDelivery` vem zlib+base64; cache ~1 min.
 Clique “só para ver” já grava.
+
+---
+
+### Numeração dos pedidos — #74 (concluído)
+
+Dois números na mesma venda. **`numeroPreVenda` = número da venda**, contador
+único da loja, **nunca reinicia** (provado: faixa 627–930, 304 vendas, zero
+buraco e zero repetição). **`numeroPedido` = número do pedido**, contador **do
+caixa**: volta para 1 a cada caixa novo. Exibição: `numeroPedido
+(numeroPreVenda)`, ou só o da venda — em 12 pontos do código, mudando só a
+palavra da frente (`Pedido #`, `Venda Nº`, `#`, ou sem prefixo no Histórico).
+
+**A prova do reset:** caixa 927703 abriu **17/07 11:59:02** e o **pedido nº 1
+saiu 11:59:06 — 4 segundos depois**. Na virada seguinte o pedido caiu de **110
+para 1** enquanto a venda ia de **838 para 843**.
+
+**Por canal:** mesa **nunca** recebe (0 de 15) e não existe `mesaNumeroPedido`;
+PDV depende do switch **Número de Pedido no PDV** (`pdvNumeroPedido`, card PDV
+em Parâmetros, o último da tela); delivery depende do caixa.
+
+**Descoberta que vale para o manual de Caixa:** o caixa precisa ser aberto com
+**Delivery** marcado. O caixa 907962 abriu sem delivery e **79 pedidos ficaram
+sem número de pedido**, sem aviso na tela; nos caixas com delivery o número
+saiu em **100%**.
+
+**O #44 está errado numa linha:** ele diz que o switch "mostra o número da
+venda (ex.: Venda #848)". Não é isso — o *Venda #848* aparece com o switch
+desligado também, e a tela do PDV **nunca** mostra o número do pedido (o front
+manda `numeroPedido: null` sempre, com o comentário `// PDV não tem
+numeroPedido`). A venda 848 do próprio #44 tem pedido **3**. O switch faz o
+servidor **atribuir** o número, que aparece depois no Histórico (`3 (848)`), no
+cupom reimpresso e nos relatórios.
+
+**Mesa não consome número.** O caixa 927703 usou 110 números na faixa 1..110
+**sem um único buraco**, tendo 13 vendas sem número (5 de mesa). Visto também
+na tela: vendas de mesa 854–858 entre os pedidos **5** e **6**.
+
+**Truque do levantamento:** associe a venda à **janela de tempo do caixa**
+(abertura → fechamento), **não** ao `caixaID` gravado na venda — esse campo
+fica `null` enquanto a venda não é liquidada e esconde o padrão (217 de 304
+vinham `null`). Cuidado também com vendas criadas **em lote pela API** por
+scripts de manuais antigos: várias no mesmo segundo, sem `numeroPedido`, são
+ruído do sandbox e não regra do produto. E **marketplace grava `horaCadastro`
+fora de ordem** (AIQFome): produz reset falso em análise cronológica; reset real
+é o que cai **para 1**.
+
+**Cupom no Cloud Agent: o fallback de impressão é IFRAME, não `window.open`.**
+O botão de impressora do detalhe da venda (`lucide-printer` no cabeçalho do
+modal; o `chef-hat` ao lado é a ficha de cozinha) tenta o BeeImpressão, falha
+com *"Servidor offline. Usando impressão do navegador."* e chama
+`imprimirViaIframe` (`src/lib/impressao-service.ts`), que escreve num iframe
+oculto de id **`beefood-print-frame`**. Ou seja: **nenhuma aba nova abre** e
+sobrescrever `window.open` **não captura nada** (tentado e falhou). O que
+funciona é um `MutationObserver` + poll de 40 ms instalado **antes** do clique,
+ler `contentDocument.documentElement.outerHTML` do iframe e renderizar esse
+mesmo HTML numa página nova com viewport de **400 px** (bobina de 80 mm).
+Vale para qualquer manual que precise fotografar cupom.
+
+**Três armadilhas de tela descobertas aqui:** o modal **Reabrir Venda** do PDV
+exige **CONFIRMAR SELEÇÃO (F1 / ENTER)** — clicar na linha só seleciona e o
+**Receber** fica desabilitado; a **paginação do Histórico** não responde a
+`button:has-text('Próximo')` (troque **Itens por página** para 100 e role com
+`scrollIntoView({block:'center'})`); e a **aba de setor do PDV é `div`**, não
+`button`. O PDV manda `tipo: 'PDV'` mesmo com mesa selecionada no topo — venda
+de **mesa** exige o **Novo Pedido (F1)** da tela de Mesas, e clicar numa mesa
+livre não abre nada.
+
+Detalhe em [`PLANO-NUMERACAO-PEDIDOS.md`](PLANO-NUMERACAO-PEDIDOS.md) e em
+`manuais/numeracao-pedidos/` (`MEMORIA.md` e `fluxo-codigo.md`).
+
+---
+
+### Ficha técnica — #72
+
+Aba **Ficha Técnica** no modal de **produto e de complemento** (Cardápio ou Meu
+Estoque). Só aparece com o produto **salvo**; o insumo precisa existir antes
+(Estoque → Meu Estoque → Insumos). Mobile é **somente leitura**.
+
+`custoLinha = qtd × custo do insumo`; o total vira **Custo Ficha Técnica** no
+produto (`custoComposicao`) e **soma** com o campo **Custo** digitado à mão.
+Margem = `(venda − custo total) ÷ venda`, sobre a venda, não markup.
+
+**Sem conversão de unidade:** insumo em KG, quantidade em fração (100 g = `0,1`;
+5 g = `0,005`). Até 4 casas decimais. Decisão do dono: cadastrar em **KG/L**.
+
+Provado em venda real (#925/#927/#928): a baixa acontece no **Receber** (pré-venda,
+antes do pagamento); a trilha tem 2 ou 3 níveis (`produto -> insumo` e
+`produto -> opção -> insumo`); **opção repetida baixa em dobro** (`origemQtd`), o
+que libera o modelo Proporcional da pizza; e **insumo sem Controlar Estoque não
+gera movimentação** (entra no custo e some do relatório).
+
+Sandbox: base de insumos **zerada** em 01/09/2026 e remontada com 10 insumos de
+hamburgueria. Sobrou *Maionese da casa (sache)* — insumo preso a receitas já
+usadas em produção não é excluível, nem com a receita inativa, e a API recusa
+receita com `itens: []`.
+
+Base com **nomes repetidos** (dois *One Burger*, duas *Batata frita*): o que tem
+grupos e ficha é o `produtoID` 2515371 / 2515323. No PDV o card certo é o do selo
+**COMBO**. Preço do PDV ≠ Preço de Venda por causa de um **Preço Programado**
+ativo na conta.
 
 ---
 

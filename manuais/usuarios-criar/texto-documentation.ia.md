@@ -36,7 +36,7 @@ NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `ima
 2. Passo 1 — criar o grupo de acesso (e o fato de ele nascer com tudo liberado)
 3. Passo 2 — criar o usuário (os sete campos)
 4. O erro mais caro: deixar o grupo em "Nenhum"
-5. Passo 3 — ajustar as permissões do grupo (aponta para o estudo #72)
+5. Passo 3 — ajustar as permissões do grupo (aponta para o estudo #75)
 6. Trocar o grupo de alguém
 7. Alterar a senha
 8. Tirar o acesso de alguém (desativar, e o contador que não muda)

@@ -19,6 +19,7 @@ REFS_DIR="${HOME}/refs"
 # isso o clone precisa acontecer aqui, e nao sob demanda no meio do trabalho.
 REFERENCIAS=(
   "BeeFood-Sistema-para-Restaurantes/beefood-web-react"
+  "BeeFood-Sistema-para-Restaurantes/beefood-reports-hub"
 )
 
 # Referencias hospedadas no Bitbucket (backend e apps). "repositoryDependencies"
