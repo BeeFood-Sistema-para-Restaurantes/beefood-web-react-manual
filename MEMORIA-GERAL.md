@@ -4,7 +4,8 @@
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
 Última atualização: 2026-09-01 (**#72** Ficha técnica — base de insumos zerada, opção repetida
-baixa em dobro, insumo sem controle de estoque não movimenta; **#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
+baixa em dobro, insumo sem controle de estoque não movimenta; **#73** Produto só com agendamento;
+**#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
@@ -606,6 +607,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Agendamento do cardápio digital | `manuais/cardapio-digital-agendamento/` | ✅ Concluído (#70) |
 | Aparência e layout do cardápio digital | `manuais/cardapio-digital-aparencia-layout/` | ✅ Concluído (#71) |
 | Ficha técnica (custo do prato e baixa de estoque) | `manuais/ficha-tecnica/` | ✅ Concluído (#72) |
+| Produto só com agendamento (encomenda) | `manuais/cardapio-digital-agendamento-produto/` | ✅ Concluído (#73) |
 
 ### Exibir/Ocultar e Preço Programado — #68 e #69
 
@@ -638,6 +640,33 @@ inválido não grava. O cardápio Vue (`menu.beefood.com.br`) abre
 inícios). `agendaAgoraM` só mexe no dia de hoje. `agendaMinAntes` =
 minutos **depois** de abrir. Preencher vários `input` via Playwright
 e sair perde o save — gravar pelo POST autenticado e recarregar.
+
+---
+
+### Produto só com agendamento — #73 (complemento do #70)
+
+Switch do **produto**, campo da API `importadoMatriz` (nome legado).
+Dois caminhos: **Editar em Lote** (`ModalEditarLote` + `useEditarLote`,
+POST `/api/produto2/cardapio/editarLote` em lotes de **5**) e o
+cadastro em **Opções avançadas** (grava só no **SALVAR E SAIR**).
+No lote o valor nasce em **Não** — marcar o campo e processar
+**desliga** a flag; é assim que se desfaz. A etapa 1 herda o filtro de
+setor da aba, então **filtre antes de abrir**.
+
+Lista do painel: `CalendarDays` azul `#1565c0`. O Tooltip do grid
+virtualizado é **shim com `title` nativo** — hover **não** rende
+tooltip em screenshot (documentar por texto).
+
+Cardápio público: etiqueta **Encomenda** + `?`
+(`.attributes-row__help-btn`) → *Produto disponível apenas por
+agendamento*. Com o item na sacola, **Continuar** abre **AGENDAR
+PEDIDO** mesmo com **Hoje** marcado; produto normal vai direto ao
+pagamento. **Sem o `agendamento` da aba ligado a marca não segura
+nada** (testado e revertido). Campo também aparece no lote de
+**Complementos**, mas o cadastro do complemento não tem o switch.
+
+Sandbox (31/08/2026): 3 pudins de **Sobremesas** ON, Brownie OFF.
+Só abrir a aba Agendamento já dispara um POST do auto-save.
 
 ---
 

@@ -418,7 +418,7 @@ Só falta o dono avisar quando a **pizza** estiver corrigida, para tirar a seç�
 
 | Assunto | Onde está | Sugestão |
 |---------|-----------|----------|
-| **Receitas + Produção** | `Estoque → Receitas` e `→ Produção` | manual próprio (**#73**): insumo que vira insumo, com rendimento e perda |
+| **Receitas + Produção** | `Estoque → Receitas` e `→ Produção` | manual próprio (**#74**, já que o #73 ficou com o produto de encomenda): insumo que vira insumo, com rendimento e perda |
 | Movimentação manual de estoque, saldo, mínimo | `Estoque → Meu Estoque` e `Movimentações` | manual próprio de estoque (já está no backlog) |
 | Importar NF-e | `Estoque → Importar NFe` | manual próprio |
 | Ficha de consumo do PDV | Parâmetros | já é o **#45** |
