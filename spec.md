@@ -60,7 +60,7 @@ manuais/<nome>/
 
 | Estudo | Situação | Documento |
 |--------|----------|-----------|
-| Ficha Técnica (exemplo de pizza) | 💡 estudo pronto, nada produzido | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md) |
+| Ficha Técnica (exemplo de hambúrguer; pizza em espera) | 💡 estudo pronto, nada produzido | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md) |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
 18040-370**. Endereço de entrega de teste nos quatro tipos: **R. Arthur Gomes, 13 — Centro,

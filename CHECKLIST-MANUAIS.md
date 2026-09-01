@@ -131,7 +131,7 @@
 | **Impressão** | Impressoras, impressão da cozinha, layout e os dois históricos | 2 a 3 manuais | 4 | 💡 Ideia |
 | **WhatsApp / BeeBot** | Conectar o número, notificações automáticas de status, respostas automáticas, IA e resumo diário | 3 manuais | 4 | 💡 Ideia |
 | **Usuários e permissões** | Criar usuário, montar grupo de acesso e o que cada permissão faz (complementa o #13, que só cobre caixa) | 1 a 2 manuais | 4 | 💡 Ideia |
-| **Estoque** | Saldo e movimentações, importar NF-e de compra, receitas e ordens de produção | 3 manuais | 4 | 💡 Ideia. **Ficha Técnica** já tem estudo pronto (exemplo de pizza) em [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md) — aguardando aprovação |
+| **Estoque** | Saldo e movimentações, importar NF-e de compra, receitas e ordens de produção | 3 manuais | 4 | 💡 Ideia. **Ficha Técnica** já tem estudo pronto (exemplo de hambúrguer; pizza em espera) em [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md) — aguardando aprovação |
 | **Histórico de Vendas** | Consultar venda passada, filtros, detalhe, pagamentos e exportação | 1 manual | 4 | 💡 Ideia |
 | **Totem / autoatendimento** | Contratar, configurar (5 abas) e a pesagem automática do self-service | 2 a 3 manuais | 4 | 💡 Ideia |
 | **Clientes** | Cadastro, importação por Excel, duplicados e o que é a classificação RFV | 1 a 2 manuais | 3 | 💡 Ideia |

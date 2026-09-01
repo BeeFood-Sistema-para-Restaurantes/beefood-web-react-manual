@@ -1,8 +1,10 @@
-# Plano — manual de Ficha Técnica (exemplo: pizza)
+# Plano — manual de Ficha Técnica
 
 > **Status:** 💡 **ESTUDO — aguardando aprovação.** Nenhum manual foi produzido, nenhuma imagem
 > foi capturada, nada foi alterado no sandbox.
-> **Data:** 31/08/2026
+> **Segmento do primeiro manual:** **hambúrguer** (seção 7). A **pizza** fica em espera até a
+> correção do sistema — o estudo dela está guardado inteiro na seção 9.
+> **Última atualização:** 01/09/2026
 > **Conta sandbox:** BeeFood3 - Manual — `contato@beefood.com.br` (`https://beefood.app`)
 > **Rotas:** `/cardapio` (Produtos e Complementos) e `/meu-estoque` — a ficha é uma **aba** do
 > modal de produto/complemento, não tem tela própria
@@ -20,13 +22,13 @@ aprovar o recorte **antes** de qualquer captura.
 1. A **Ficha Técnica** é a lista de insumos que compõem um produto **ou um complemento**. Ela faz
    duas coisas: calcula o **custo** do item e **baixa o estoque dos insumos quando há venda**.
 2. A baixa automática **existe e já rodou neste sandbox**: das 228 movimentações de insumo do ano,
-   **170 vieram de venda** (evidência na seção 5).
+   **170 vieram de venda** (evidência na seção 6).
 3. A baixa acontece em **dois níveis**: a ficha do **produto** e a ficha do **complemento
-   escolhido como opção** — e é exatamente isso que torna a pizza um exemplo bom.
-4. A pizza precisa da ficha **dividida em duas camadas**: a base (massa, molho, mussarela, caixa)
-   fica no produto; o recheio de cada sabor fica no complemento do sabor.
-5. Existe uma **armadilha de meia pizza** que muda a recomendação do manual, e ela depende de um
-   teste que só a venda no PDV responde (seção 6.2).
+   escolhido como opção**. Todo cardápio com adicionais usa os dois.
+4. **Não existe conversão de unidade.** Insumo cadastrado em KG é sempre lançado em fração de KG:
+   100 g são `0,1`, 50 g são `0,05` e 5 g são `0,005` (seção 5).
+5. O primeiro manual sai no **hambúrguer**, que já está montado no sandbox e ainda permite rodar
+   o teste do qual a pizza depende (seção 8).
 
 ---
 
@@ -35,7 +37,7 @@ aprovar o recorte **antes** de qualquer captura.
 | Nome | Onde fica | O que faz | Manual |
 |------|-----------|-----------|--------|
 | **Ficha Técnica** | Aba do modal de **produto** e de **complemento** (Cardápio ou Meu Estoque) | Insumos que compõem o item → custo e baixa na venda | **é este estudo** |
-| **Receita** + **Produção** | Menu **Estoque → Receitas** e **Estoque → Produção** | Insumo que vira **outro insumo** (maionese da casa, molho especial). Tem rendimento e campo de perda | fora deste manual (proposta na seção 11) |
+| **Receita** + **Produção** | Menu **Estoque → Receitas** e **Estoque → Produção** | Insumo que vira **outro insumo** (maionese da casa, molho especial). Tem rendimento e campo de perda | fora deste manual (seção 14) |
 | **Ficha de consumo** | Configuração → Parâmetros | Papel impresso no PDV (Individual × Lista) | já é o **#45** (`manuais/pdv-fichas/`) |
 
 O sandbox já tem duas receitas ativas — *Maionese da Casa* e *Molho Especial (receita)* —, o que
@@ -82,7 +84,7 @@ A aba é enxuta: uma faixa **Adicionar Insumo** e uma tabela.
 
 **O que o BeeFood não tem** (importante dizer no manual, porque todo mundo pergunta):
 
-- **conversão de unidade** — insumo em KG e receita em gramas viram `0,15`, não `150`;
+- **conversão de unidade** — é o assunto da seção 5;
 - **perda / quebra** e **rendimento** na ficha do produto (existem só no módulo Receitas);
 - **markup** ou **preço sugerido** — o painel calcula margem, não sugere preço;
 - **repetir o mesmo insumo** na ficha — a segunda tentativa devolve *"Este insumo já foi
@@ -91,7 +93,38 @@ A aba é enxuta: uma faixa **Adicionar Insumo** e uma tabela.
 
 ---
 
-## 5. As contas — e a baixa, comprovada no sandbox
+## 5. Unidade e conversão — a regra do manual
+
+**Decisão do dono (01/09/2026):** o insumo é cadastrado numa unidade grande — **KG** para o que se
+compra por peso, **L** para líquido — e a ficha lança a **fração** dessa unidade. Não há conversão
+automática: quem digita faz a conta.
+
+O campo aceita **4 casas decimais**, então o menor lançamento em KG é `0,0001` (0,1 g) — sobra
+precisão até para tempero.
+
+| Você usa | Insumo em KG, digite | Insumo em L, digite |
+|----------|---------------------:|--------------------:|
+| 1 quilo / 1 litro | `1` | `1` |
+| 500 g / 500 ml | `0,5` | `0,5` |
+| 200 g / 200 ml | `0,2` | `0,2` |
+| 100 g / 100 ml | `0,1` | `0,1` |
+| 50 g / 50 ml | `0,05` | `0,05` |
+| 20 g / 20 ml | `0,02` | `0,02` |
+| 5 g / 5 ml | `0,005` | `0,005` |
+| 1 g / 1 ml | `0,001` | `0,001` |
+
+> **A conta é sempre gramas ÷ 1000.** O erro clássico é confundir `0,05` (50 g) com `0,005` (5 g) —
+> um fator de dez que passa despercebido na tela e só aparece quando o estoque não bate. Essa
+> tabela vira um quadro destacado no manual.
+
+O sistema aceita cadastrar o insumo em **GR** ou **ML** (as duas unidades existem), e aí a
+quantidade é digitada inteira. O custo, porém, passa a ser por grama — R$ 0,042 em vez de
+R$ 42,00 o quilo —, o que arredonda mal e não bate com a nota do fornecedor. **O manual recomenda
+KG e L**, e cita GR/ML só como alternativa possível.
+
+---
+
+## 6. As contas — e a baixa, comprovada no sandbox
 
 ### As contas
 
@@ -127,50 +160,124 @@ E a coluna **Descrição** mostra a trilha de onde a baixa veio — em **dois ou
 | `Selecione seu suco -> Suco abacaxi 1L -> Polpa abacaxi` | 3 | mesma coisa, em outro produto |
 
 Das 170 baixas de insumo por venda, **87 são de três níveis** e **83 de dois** — ou seja, a ficha
-do complemento funciona tanto quanto a do produto. É a base técnica do exemplo da pizza.
+do complemento funciona tanto quanto a do produto.
 
-**A quantidade multiplica.** Na venda #218 a baixa foi `-12` de Polpa abacaxi com `origemQtd 4`
-(ficha de 3 polpas × 4), e na #222 foi `-3` com `origemQtd 1`. O sistema multiplica a ficha pela
-quantidade vendida — falta confirmar se ele faz o mesmo quando a **mesma opção é escolhida duas
-vezes** dentro de um item (é o teste da seção 6.2).
+**A quantidade do item multiplica.** Na venda #218 a baixa foi `-12` de Polpa abacaxi com
+`origemQtd 4` (ficha de 3 polpas × 4), e na #222 foi `-3` com `origemQtd 1`.
 
 **Estorno existe:** a venda #189 tem `-0,35`, `+0,35` e `-0,35` do mesmo insumo — alterar ou
 cancelar a venda devolve o insumo ao estoque. Vale uma nota no manual.
 
 ---
 
-## 6. O exemplo da pizza
+## 7. O segmento do primeiro manual: hambúrguer
 
-### 6.1 Por que a pizza precisa de duas camadas
+### Por que hambúrguer
+
+| Motivo | Detalhe |
+|--------|---------|
+| **Cenário já existe** | O sandbox é uma hamburgueria completa hoje: 7 setores, 67 produtos, 41 complementos. Nada a limpar, nada a montar |
+| **Exercita as duas camadas** | Ficha no produto (o lanche) e ficha no complemento (o adicional) — sem a armadilha de metade que a pizza tem |
+| **Responde a pergunta da pizza** | Os adicionais **Carne 100g** e **Bacon** já estão cadastrados com **máximo 2** por opção. É o teste da seção 8 |
+| **A margem funciona** | O One Burger tem preço próprio (R$ 28,00), então a etiqueta de margem aparece verde e faz sentido — didaticamente melhor que a pizza, que tem preço R$ 0,00 |
+| **Três tipos de insumo num cardápio só** | Unidade (pão, embalagem), peso (blend, queijo, bacon) e volume (óleo) |
+| **Encaixe com Receitas** | O insumo *Maionese da casa (sache)* já é **gerado por uma receita**. Dá para mostrar o encaixe em um parágrafo, sem ensinar Receitas |
+
+**Segmentos que ficam para depois:** açaí (ótimo para conversão por peso e tamanhos, mas os
+produtos foram apagados do cardápio e teria de remontar o setor), japonesa (contagem de peças
+ensina pouco sobre custo) e cafeteria (não existe no sandbox). **Pizza fica em espera** — seção 9.
+
+### Cenário proposto
+
+Insumos a cadastrar em **Estoque → Meu Estoque → Insumos**:
+
+| Insumo | Un. | Custo | Observação |
+|--------|-----|------:|------------|
+| Pão brioche | UN | R$ 1,80 | |
+| Blend 100 g (carne) | KG | R$ 42,00 | |
+| Queijo prato fatiado | KG | R$ 39,00 | |
+| Bacon em fatias | KG | R$ 34,00 | |
+| Alface | KG | R$ 8,00 | |
+| Tomate | KG | R$ 6,00 | |
+| Embalagem do lanche | UN | R$ 0,90 | |
+| Óleo de fritura | L | R$ 9,00 | o caso de volume |
+| Embalagem da porção | UN | R$ 0,45 | |
+| Batata Frita Congelada | KG | R$ 10,00 | **já existe** no sandbox |
+| Maionese da casa (sache) | KG | R$ 10,19 | **já existe** — vem da Receita |
+
+**Ficha do produto One Burger** (venda R$ 28,00):
+
+| Insumo | Qtd | Un. | Equivale a | Custo |
+|--------|----:|-----|------------|------:|
+| Pão brioche | 1 | UN | 1 pão | R$ 1,80 |
+| Blend 100 g | 0,1 | KG | 100 g | R$ 4,20 |
+| Queijo prato | 0,02 | KG | 20 g | R$ 0,78 |
+| Alface | 0,01 | KG | 10 g | R$ 0,08 |
+| Tomate | 0,02 | KG | 20 g | R$ 0,12 |
+| Maionese da casa | 0,02 | KG | 20 g | R$ 0,20 |
+| Embalagem do lanche | 1 | UN | 1 caixa | R$ 0,90 |
+| **Custo Total** | | | | **R$ 8,08** |
+
+Margem sobre R$ 28,00: lucro **R$ 19,92**, **71,1%** — a etiqueta verde que o manual mostra.
+
+**Fichas dos complementos** (adicionais):
+
+| Complemento | Venda | Ficha | Custo |
+|-------------|------:|-------|------:|
+| **Carne 100g** | R$ 9,00 | Blend 0,1 KG | R$ 4,20 |
+| **Bacon** | R$ 4,00 | Bacon 0,03 KG (30 g) | R$ 1,02 |
+| **Fatia de queijo** | R$ 3,00 | Queijo prato 0,02 KG | R$ 0,78 |
+
+**Ficha da porção Batata frita** (venda R$ 14,00) — o caso de granel + volume:
+
+| Insumo | Qtd | Un. | Equivale a | Custo |
+|--------|----:|-----|------------|------:|
+| Batata Frita Congelada | 0,2 | KG | 200 g | R$ 2,00 |
+| Óleo de fritura | 0,01 | L | 10 ml | R$ 0,09 |
+| Embalagem da porção | 1 | UN | | R$ 0,45 |
+| **Custo Total** | | | | **R$ 2,54** |
+
+---
+
+## 8. O teste decisivo (e ele também serve para a pizza)
+
+A pergunta que ficou aberta no estudo da pizza é: **quando a mesma opção é escolhida duas vezes, a
+ficha é baixada duas vezes?** O sandbox permite responder isso **hoje**, no hambúrguer, porque
+*Carne 100g* já está com **máximo 2** por opção — é o smash duplo.
+
+**Venda de teste:** One Burger + 2 × Carne 100g = R$ 46,00 (custo esperado R$ 8,08 + R$ 8,40).
+
+| Insumo | Baixa esperada | Trilha |
+|--------|---------------:|--------|
+| Pão brioche | −1 | `One Burger -> Pão brioche` |
+| Blend 100 g | **−0,3** | −0,1 do produto **+ 2 × −0,1** dos adicionais ← **o número que decide** |
+| Queijo prato | −0,02 | `One Burger -> Queijo prato fatiado` |
+| Embalagem do lanche | −1 | `One Burger -> Embalagem do lanche` |
+
+Se o blend sair **0,3 KG**, o multiplicador funciona — e a pizza pode usar o modelo Proporcional
+com a ficha do sabor em meia pizza (seção 9.2). Se sair **0,2 KG**, o adicional repetido conta uma
+vez só, e os dois manuais mudam de recomendação.
+
+**Segunda venda de teste:** 2 × One Burger, para confirmar a multiplicação pela quantidade do item
+(esperado: blend −0,2, pão −2).
+
+---
+
+## 9. Pizza — em espera
+
+O estudo da pizza está completo e fica guardado aqui. **Ele não entra no primeiro manual**, por
+decisão do dono, enquanto o comportamento da pizza é corrigido.
+
+### 9.1 Por que a pizza precisa de duas camadas
 
 No BeeFood a pizza não é um produto só: o preço vem dos **sabores**, e o produto fica com
-**R$ 0,00** (é o que o manual **#29** ensina). Com a ficha técnica acontece a mesma divisão:
+**R$ 0,00** (é o que o manual **#29** ensina). Com a ficha técnica acontece a mesma divisão: a base
+(massa, molho, mussarela, caixa) fica no produto e é cadastrada **uma vez**; o recheio de cada
+sabor fica no complemento daquele sabor.
 
-```mermaid
-flowchart TB
-    subgraph Produto["Produto: Pizza Média — preço R$ 0,00"]
-        B["Ficha do produto = o que TODA pizza leva<br/>massa, molho, mussarela, caixa"]
-    end
-    subgraph Sabores["Complementos: os sabores (grupo de opções)"]
-        S1["Calabresa → calabresa + cebola"]
-        S2["Portuguesa → presunto, ovo, azeitona, cebola"]
-    end
-    subgraph Borda["Complemento: Borda Catupiry"]
-        S3["requeijão"]
-    end
-    B --> V["Venda"]
-    S1 --> V
-    S2 --> V
-    S3 --> V
-```
+### 9.2 A armadilha da metade
 
-Ninguém precisa cadastrar "Pizza de Calabresa" com a ficha inteira: cada sabor cuida do que só ele
-leva, e a base é cadastrada **uma vez**. Quatro sabores × ficha completa seria quatro vezes o mesmo
-trabalho — e quatro lugares para errar quando a mussarela mudar de preço.
-
-### 6.2 A armadilha da metade (a decisão do manual)
-
-A ficha do sabor é baixada **uma vez por opção escolhida**. E o número de opções muda conforme o
+A ficha do sabor é baixada **uma vez por opção escolhida**, e o número de opções muda conforme o
 modelo de preço do #29:
 
 | Modelo (#29) | Grupo | Pizza de 1 sabor | Meio a meio |
@@ -178,62 +285,27 @@ modelo de preço do #29:
 | **A — Valor da Maior** | mín 1 / máx 2, opção 0-1 | **1** opção | **2** opções |
 | **B — Proporcional** | mín 2 / máx 2, opção 0-2 | **2** opções (o mesmo sabor 2×) | **2** opções |
 
-Daí sai a conclusão que o manual precisa dar de bandeja:
-
 | Modelo | Ficha do sabor cadastrada como… | Pizza de 1 sabor | Meio a meio |
 |--------|--------------------------------|------------------|-------------|
 | A | pizza inteira | ✅ certo | ❌ baixa o **dobro** |
 | A | meia pizza | ❌ baixa **metade** | ✅ certo |
 | **B** | **meia pizza** | ✅ certo (2 × meia) | ✅ certo |
 
-**No Modelo A não existe cadastro que acerte os dois casos.** Quem quer estoque de pizza batendo
-usa o **Modelo B (Proporcional)** com a ficha do sabor em **meia pizza** — o mesmo modelo que já
-fazia a média do preço no #29. É a descoberta que dá título ao manual.
+**No Modelo A não existe cadastro que acerte os dois casos.** No Modelo B acerta — desde que o
+teste da seção 8 confirme o multiplicador.
 
-> **Isso depende de um teste.** O Modelo B só fecha se o sistema multiplicar a ficha pela
-> quantidade da opção (sabor escolhido 2× → baixa 2×). O histórico do sandbox indica que sim
-> (seção 5), mas a prova é vender uma pizza inteira de calabresa no PDV e conferir se a calabresa
-> saiu **0,12 KG** e não 0,06. **Se o teste falhar**, o manual muda de recomendação: cadastra-se a
-> ficha do sabor pela pizza inteira, usa-se o Modelo A e o texto assume o erro no meio a meio.
+### 9.3 Cenário guardado
 
-### 6.3 Cenário proposto (números para conferir na tela)
+Insumos: Farinha de trigo KG R$ 4,50 · Molho de tomate KG R$ 12,00 · Mussarela KG R$ 38,00 ·
+Caixa de pizza UN R$ 1,20 · Calabresa KG R$ 28,00 · Cebola KG R$ 5,00 · Presunto KG R$ 24,00 ·
+Ovo UN R$ 0,70 · Azeitona KG R$ 22,00 · Requeijão KG R$ 32,00.
 
-Insumos a cadastrar em **Estoque → Meu Estoque → Insumos**:
+**Ficha do produto Pizza Média:** Farinha 0,25 KG (R$ 1,13) + Molho 0,08 KG (R$ 0,96) +
+Mussarela 0,15 KG (R$ 5,70) + Caixa 1 UN (R$ 1,20) = **R$ 8,99**.
 
-| Insumo | Un. | Custo |
-|--------|-----|------:|
-| Farinha de trigo | KG | R$ 4,50 |
-| Molho de tomate | KG | R$ 12,00 |
-| Mussarela | KG | R$ 38,00 |
-| Caixa de pizza | UN | R$ 1,20 |
-| Calabresa | KG | R$ 28,00 |
-| Cebola | KG | R$ 5,00 |
-| Presunto | KG | R$ 24,00 |
-| Ovo | UN | R$ 0,70 |
-| Azeitona | KG | R$ 22,00 |
-| Requeijão | KG | R$ 32,00 |
-
-**Ficha do produto Pizza Média** (a base):
-
-| Insumo | Qtd | Un. | Custo | % |
-|--------|----:|-----|------:|--:|
-| Farinha de trigo | 0,25 | KG | R$ 1,13 | 12,5% |
-| Molho de tomate | 0,08 | KG | R$ 0,96 | 10,7% |
-| Mussarela | 0,15 | KG | R$ 5,70 | 63,4% |
-| Caixa de pizza | 1 | UN | R$ 1,20 | 13,4% |
-| **Custo Total** | | | **R$ 8,99** | 100% |
-
-**Fichas dos complementos** (quantidade de **meia** pizza — Modelo B):
-
-| Complemento | Insumos | Custo |
-|-------------|---------|------:|
-| **Calabresa** | Calabresa 0,06 KG + Cebola 0,02 KG | **R$ 1,78** |
-| **Portuguesa** | Presunto 0,05 KG + Ovo 0,5 UN + Azeitona 0,01 KG + Cebola 0,02 KG | **R$ 1,87** |
-| **Borda Catupiry** | Requeijão 0,08 KG | **R$ 2,56** |
-
-O **Ovo 0,5 UN** entra de propósito: mostra que dá para usar fração até em unidade.
-
-**As contas que o manual vai fechar** (preços de venda vêm do #29):
+**Fichas dos sabores** (quantidade de **meia** pizza): Calabresa = calabresa 0,06 KG + cebola
+0,02 KG = **R$ 1,78**; Portuguesa = presunto 0,05 KG + ovo 0,5 UN + azeitona 0,01 KG + cebola
+0,02 KG = **R$ 1,87**; Borda Catupiry = requeijão 0,08 KG = **R$ 2,56**.
 
 | Pedido | Custo | Venda | Margem |
 |--------|------:|------:|-------:|
@@ -241,31 +313,23 @@ O **Ovo 0,5 UN** entra de propósito: mostra que dá para usar fração até em 
 | Meio a meio Calabresa + Portuguesa | 8,99 + 1,78 + 1,87 = **R$ 12,64** | R$ 42,50 | 70,3% |
 | Meio a meio + Borda Catupiry | 12,64 + 2,56 = **R$ 15,20** | R$ 50,50 | 69,9% |
 
-**Baixa esperada na venda da pizza inteira de calabresa** (o que a tela Movimentações deve mostrar):
-
-| Insumo | Qtd | Trilha esperada |
-|--------|----:|-----------------|
-| Farinha de trigo | −0,25 | `Pizza Média -> Farinha de trigo` |
-| Molho de tomate | −0,08 | `Pizza Média -> Molho de tomate` |
-| Mussarela | −0,15 | `Pizza Média -> Mussarela` |
-| Caixa de pizza | −1 | `Pizza Média -> Caixa de pizza` |
-| **Calabresa** | **−0,12** | `Pizza Média -> Calabresa -> Calabresa` ← **o número que decide o manual** |
-| Cebola | −0,04 | `Pizza Média -> Calabresa -> Cebola` |
-
-### 6.4 Duas coisas que o painel não mostra (e o manual precisa avisar)
+### 9.4 Duas coisas que o painel não mostra
 
 1. **O custo da pizza montada não existe em lugar nenhum.** O painel mostra R$ 8,99 no produto e
    R$ 1,78 no complemento, cada um no seu modal. Somar base + sabores + borda é conta de quem
-   administra — e o manual entrega essa tabela pronta.
-2. **A margem da pizza aparece negativa, e está tudo certo.** Como o produto tem preço R$ 0,00 e
-   custo de ficha R$ 8,99, a etiqueta ao lado de *Custo Total* mostra **−R$ 8,99 (0,0%)** em
-   vermelho. É consequência de o preço vir dos sabores. Onde a margem funciona de verdade é em
-   produto de preço próprio (refrigerante, sobremesa) — e o manual mostra os dois casos lado a
-   lado para o leitor não achar que está no prejuízo.
+   administra.
+2. **A margem da pizza aparece negativa, e está tudo certo.** Preço R$ 0,00 com custo de ficha
+   R$ 8,99 faz a etiqueta mostrar **−R$ 8,99 (0,0%)** em vermelho.
+
+### 9.5 O que falta para tirar a pizza da espera
+
+- a correção que o dono está fazendo;
+- o resultado do teste da seção 8;
+- decidir se a pizza vira um manual próprio (`ficha-tecnica-pizza`) ou um capítulo do primeiro.
 
 ---
 
-## 7. Provas a capturar (~17 imagens)
+## 10. Provas a capturar (~16 imagens)
 
 | # | Imagem | Tipo |
 |---|--------|------|
@@ -273,77 +337,73 @@ O **Ovo 0,5 UN** entra de propósito: mostra que dá para usar fração até em 
 | 2 | Modal do insumo: Descrição\*, Custo, Unidade, Categoria | setas |
 | 3 | Aba **Estoque** do insumo: Controlar Estoque, mínimo, aceita negativo | setas |
 | 4 | Aba **Ficha Técnica** vazia com a faixa **Adicionar Insumo** | setas |
-| 5 | Ficha de um **produto simples** preenchida: Custo Total e coluna % | setas |
-| 6 | Aba **Produto** do mesmo item: Custo, Custo Ficha Técnica, Custo Total e a margem verde | setas |
-| 7 | Ficha do produto **Pizza Média** (4 insumos, R$ 8,99) | setas |
-| 8 | Margem **vermelha** da pizza (preço R$ 0,00) — o alerta | setas |
-| 9 | Ficha do complemento **Calabresa** (meia pizza) | setas |
-| 10 | Ficha do complemento **Portuguesa** | contexto |
-| 11 | Ficha da **Borda Catupiry** | contexto |
-| 12 | Meu Estoque → Produtos com a coluna **Ficha Técnica = Sim** e o filtro | setas |
-| 13 | PDV: pizza **inteira de calabresa** montada (2 metades) — R$ 40,00 | setas |
-| 14 | **Movimentações** da venda: as baixas de 2 e 3 níveis — **a prova** | setas |
-| 15 | PDV: **meio a meio** — R$ 42,50 | contexto |
-| 16 | Movimentações do meio a meio (calabresa −0,06 e presunto −0,05) | setas |
-| 17 | Editar quantidade na linha (lápis → ✓) e o diálogo **Remover Insumo** | setas |
+| 5 | Ficha do **One Burger** preenchida: Custo Total R$ 8,08 e a coluna % | setas |
+| 6 | Aba **Produto**: Custo, Custo Ficha Técnica, Custo Total e a margem verde (71,1%) | setas |
+| 7 | Quadro da conversão aplicado: o campo com `0,1` para 100 g de blend | setas |
+| 8 | Ficha do complemento **Carne 100g** | setas |
+| 9 | Ficha do complemento **Bacon** | contexto |
+| 10 | Ficha da porção **Batata frita** (granel + óleo em L + embalagem) | setas |
+| 11 | Meu Estoque → Produtos com a coluna **Ficha Técnica = Sim** e o filtro | setas |
+| 12 | PDV: One Burger + 2 × Carne 100g montado — R$ 46,00 | setas |
+| 13 | **Movimentações** da venda: as baixas de 2 e 3 níveis — **a prova** | setas |
+| 14 | Movimentações da venda de 2 lanches (multiplicação pela quantidade) | contexto |
+| 15 | Editar quantidade na linha (lápis → ✓) e o diálogo **Remover Insumo** | setas |
+| 16 | Insumo *Maionese da casa* mostrando que veio de uma **Receita** | contexto |
 
 ---
 
-## 8. Estrutura proposta do manual
+## 11. Estrutura proposta do manual
 
-**Opção A (recomendada) — um manual: `#72 Ficha técnica: o custo do prato`**
+**`#72 — Ficha técnica: o custo do prato`** (pasta `manuais/ficha-tecnica/`)
 
 1. O que é a ficha técnica e as duas coisas que ela faz (custo e baixa de estoque)
 2. Não confundir com Receita, Produção e ficha de consumo
 3. Pré-requisito: cadastrar o insumo (custo, unidade, controlar estoque)
-4. Ficha de um produto simples, do começo ao fim
-5. O que a ficha calcula: custo da linha, %, Custo Total, Custo Ficha Técnica, margem
-6. **A pizza: por que a ficha se divide em duas camadas**
-7. Cadastrar a ficha da base (Pizza Média)
-8. Cadastrar a ficha de cada sabor — e por que a quantidade é de **meia** pizza
-9. A conta completa da pizza (tabela) e a margem vermelha que não é prejuízo
-10. A prova: venda no PDV e a baixa em Movimentações
-11. Manter a ficha: mudou o custo do insumo, mudou tudo; editar e remover linha
-12. Limites e erros comuns (sem conversão de unidade, custo em dobro, mobile só leitura, insumo repetido)
-13. Perguntas frequentes
+4. **Unidade e conversão** — o quadro de gramas ÷ 1000
+5. A ficha do lanche, do começo ao fim
+6. O que a ficha calcula: custo da linha, %, Custo Total, Custo Ficha Técnica, margem
+7. A ficha do **adicional** (complemento) e por que ela é separada
+8. A porção: granel, óleo em litro e embalagem
+9. A prova: venda no PDV e a baixa em Movimentações
+10. Manter a ficha: mudou o custo do insumo, mudou tudo; editar e remover linha
+11. Limites e erros comuns (sem conversão, custo em dobro, mobile só leitura, insumo repetido)
+12. Perguntas frequentes
 
-**Opção B — dois manuais:** `#72` fundamentos (produto simples) e `#73` pizza. Fica mais leve de
-ler, mas separa a descoberta principal do assunto que a explica. **Recomendo a Opção A**, no mesmo
-espírito dos manuais de cardápio #27–#31: um assunto, um cenário completo, contas conferidas.
+A pizza entra depois, como manual próprio ou como capítulo — decisão da seção 9.5.
 
 ---
 
-## 9. Perguntas que só a execução responde
+## 12. Perguntas que só a execução responde
 
-1. **A opção escolhida duas vezes baixa em dobro?** É a pergunta da seção 6.2 e define a
-   recomendação do manual.
+1. **A opção escolhida duas vezes baixa em dobro?** Teste da seção 8. Define a recomendação dos
+   dois manuais.
 2. **A baixa acontece com *Controlar Estoque* desligado no insumo?** Hoje 18 insumos do sandbox
    estão "Sem Controle" e mesmo assim têm histórico de baixa. Se a resposta for sim, o manual
    precisa explicar que o consumo é registrado, mas o saldo só existe com o controle ligado.
 3. **Cancelar a venda devolve os insumos?** O histórico mostra estorno; falta confirmar em que
    ação exatamente ele acontece.
-4. **A Importação de NF-e atualiza o custo do insumo** (e portanto a ficha inteira)? Se sim, vale
-   um parágrafo — é o que mantém a ficha viva sem trabalho manual.
-5. **O produto "esgota" no cardápio quando o insumo zera?** O front cita esse comportamento; se for
-   verdade, é um argumento forte para o leitor.
+4. **A Importação de NF-e atualiza o custo do insumo** (e portanto a ficha inteira)?
+5. **O produto "esgota" no cardápio quando o insumo zera?** O front cita esse comportamento.
+6. **O combo desce até a ficha dos itens escolhidos?** O sandbox tem 9 combos (Burger + Porção +
+   Bebida) cujas opções são produtos com ficha própria. Se descer, vira uma nota; se não descer,
+   vira alerta.
 
 ---
 
-## 10. O que preciso do dono antes de começar
+## 13. O que preciso do dono antes de começar
 
-1. **Base do cardápio.** Hoje o sandbox é uma **hamburgueria** (67 produtos, 41 complementos,
-   7 setores) e **não existe pizza** — o cenário do #29 já foi limpo. Prefiro a base limpa antes de
-   começar (regra do bloco de cardápio), mas dá para criar o setor **Pizzas** por cima do que existe.
-   **Decide o dono.**
-2. **Insumos atuais.** São 21, vários de teste (`Maionse`, `Temero y`, custo R$ 0,00). Posso
-   ignorá-los e cadastrar os dez novos, ou o dono limpa junto com o resto.
-3. **Duas vendas reais no PDV** para provar a baixa (é sandbox, mas confirmo por escrito).
-4. **Recorte e número:** Opção A (um manual, **#72**) ou Opção B (dois).
-5. Confirmar se **Receitas + Produção** viram um manual próprio depois (seção 11).
+1. **Confirmar o segmento** (hambúrguer) e o número **#72**.
+2. **Base:** não precisa limpar. O cardápio de hambúrguer atual serve, e os insumos novos entram
+   por cima. Só aviso que há **produtos duplicados** na base (dois *One Burger*, dois *Chicken
+   Deluxe*…) — vou usar sempre o ativo e mais recente.
+3. **Insumos de teste** já existentes (`Maionse`, `Temero y`, custo R$ 0,00): deixo como estão ou
+   aproveito para apagar?
+4. **Duas vendas reais no PDV** para provar a baixa (é sandbox, mas confirmo por escrito).
+5. Avisar quando a **pizza** estiver corrigida, para tirar a seção 9 da espera.
 
 ---
 
-## 11. Fora deste manual
+## 14. Fora deste manual
 
 | Assunto | Onde está | Sugestão |
 |---------|-----------|----------|
@@ -351,17 +411,17 @@ espírito dos manuais de cardápio #27–#31: um assunto, um cenário completo, 
 | Movimentação manual de estoque, saldo, mínimo | `Estoque → Meu Estoque` e `Movimentações` | manual próprio de estoque (já está no backlog) |
 | Importar NF-e | `Estoque → Importar NFe` | manual próprio |
 | Ficha de consumo do PDV | Parâmetros | já é o **#45** |
-| Preço da pizza (Valor da Maior × Proporcional) | Cardápio | já é o **#29** — este manual **cita** e não repete |
+| Preço do hambúrguer e da pizza | Cardápio | já são o **#28** e o **#29** — este manual **cita** e não repete |
 
 ---
 
-## 12. Checklist de execução (depois de aprovado)
+## 15. Checklist de execução (depois de aprovado)
 
 1. Criar `manuais/ficha-tecnica/` com o padrão completo (`MEMORIA.md`, `fluxo-codigo.md`,
    `<nome>.md`, `texto-documentation.ia.md`, `annotate.py`, `imagens-puras/`, `imagens-tratadas/`).
-2. Cadastrar os dez insumos e montar a pizzaria (setor, sabores, bordas, produto R$ 0,00).
-3. Cadastrar as fichas e conferir os custos contra a tabela da seção 6.3.
-4. **Rodar o teste da seção 6.2 antes de escrever o texto** — ele decide a recomendação.
+2. Cadastrar os insumos da seção 7 e as fichas do lanche, dos adicionais e da porção.
+3. Conferir os custos contra as tabelas da seção 7.
+4. **Rodar o teste da seção 8 antes de escrever o texto** — ele decide a recomendação.
 5. Capturar com Playwright (1440×900, DPR 1,5, tema claro, `LANG=pt_BR.UTF-8`, esperar o spinner
    sumir **e mais 5 segundos**).
 6. Anotar com `annotate.py` e validar com `python3 validar-imagens.py ficha-tecnica`.
