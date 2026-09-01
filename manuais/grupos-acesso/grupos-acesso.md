@@ -156,13 +156,13 @@ A busca por texto serve para achar uma permissão específica — mas tem uma pe
 
 | Nº | Item | O que observar |
 |----|------|----------------|
-| 1 | **Buscar permissão...** | O texto digitado. |
-| 2 | O resultado | Todos os itens cujo nome casa com o texto, de qualquer categoria. |
+| 1 | **Buscar permissão...** | O texto digitado (`caixa`). |
+| 2 | O resultado | Itens de **três categorias diferentes**: Cadastro de Caixas (Empresa), Financeiro (Gestão) e Abrir e Fechar Caixa (Venda). |
 
-> **A busca esconde sub-itens.** Ela compara o texto com o nome do item, e sub-item cujo nome
-> não casa desaparece. Buscar exatamente **"Abrir e Fechar"** não mostra os três sub-itens do
-> caixa — parece que eles não existem. Busque um termo mais curto (**"caixa"**) e expanda pela
-> setinha.
+> **A busca devolve o item principal, não o sub-item.** No exemplo acima, **Financeiro** aparece
+> porque um dos sub-itens dele se chama *Fluxo de Caixa* — mas o sub-item continua escondido até
+> você clicar na setinha. Ou seja: se o resultado da busca parece não ter nada a ver com o que
+> você procurou, **expanda o item**: o que casou está lá dentro.
 
 ---
 

@@ -31,6 +31,21 @@ Escrita: `POST /api/empresa2/grupoAcessoItem`, **um POST por switch**, sem botã
 (`ModalEditarGrupoAcesso.tsx`). O corpo leva `nivelAcesso`, `campoLogico` e um `log` com os
 valores anteriores.
 
+A busca do modal (`ModalEditarGrupoAcesso.tsx:113-123`) filtra **só a lista de itens pai**, e
+casa com o pai **ou** com qualquer sub-item:
+
+```ts
+const matchAcesso = acesso.descricao.toLowerCase().includes(termo);
+const matchSubAcesso = acesso.subAcessos?.some(sub =>
+  sub.descricao.toLowerCase().includes(termo));
+return matchAcesso || matchSubAcesso;
+```
+
+Os sub-itens em si **não** são filtrados: ao expandir, todos aparecem. É por isso que buscar
+`caixa` traz **Financeiro** (por causa de *Fluxo de Caixa*) — o que casou está dentro, colapsado.
+O manual #13 registrou o comportamento oposto ("a busca esconde os sub-itens") em 19/08/2026;
+com o código atual isso não se confirma.
+
 Dois detalhes explicam quase todo comportamento estranho ao testar:
 
 - **Permissão ausente é permissão concedida.** `usePermissions` devolve `true` quando a chave não

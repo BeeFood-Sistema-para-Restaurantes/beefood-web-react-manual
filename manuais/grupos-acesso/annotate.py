@@ -148,17 +148,17 @@ annotate("01-usuarios-aba-usuarios.png", [
 
 # Aba Grupos de Acesso
 annotate("02-aba-grupos-de-acesso.png", [
-    (1, 0.235, 0.146, 0.330, 0.240),   # + Novo Grupo
+    (1, 0.255, 0.170, 0.330, 0.240),   # + Novo Grupo
     (2, 0.898, 0.252, 0.830, 0.340),   # lapis do grupo
-    (3, 0.360, 0.146, 0.480, 0.240),   # Buscar grupo
+    (3, 0.328, 0.160, 0.480, 0.240),   # Buscar grupo
 ])
 
 # O modal com as permissoes
 annotate("03-modal-grupo-todas-permissoes.png", [
-    (1, 0.400, 0.262, 0.480, 0.190),   # Descricao
-    (2, 0.300, 0.324, 0.180, 0.262),   # Buscar permissao
-    (3, 0.660, 0.324, 0.830, 0.250),   # filtro por recurso
-    (4, 0.291, 0.393, 0.170, 0.420),   # selo da categoria
+    (1, 0.700, 0.253, 0.480, 0.190),   # Descricao
+    (2, 0.255, 0.324, 0.180, 0.262),   # Buscar permissao
+    (3, 0.660, 0.310, 0.830, 0.250),   # filtro por recurso
+    (4, 0.268, 0.393, 0.170, 0.420),   # selo da categoria
     (5, 0.272, 0.443, 0.150, 0.520),   # setinha de expandir
     (6, 0.712, 0.443, 0.860, 0.430),   # switch
 ])
@@ -201,16 +201,16 @@ annotate("20-cadastro-usuario-gerente.png", [
 annotate("30a-lista-cardapio-completo.png", [
     (1, 0.905, 0.088, 0.905, 0.185),   # + Novo Produto (F1)
     (2, 0.265, 0.152, 0.175, 0.190),   # + Novo Setor
-    (3, 0.800, 0.157, 0.735, 0.190),   # Editar em Lote
+    (3, 0.800, 0.168, 0.735, 0.195),   # Editar em Lote
 ])
 
 annotate("30b-produto-completo.png", [
-    (1, 0.190, 0.155, 0.085, 0.120),   # abas do modal
-    (2, 0.308, 0.252, 0.085, 0.235),   # Nome
-    (3, 0.308, 0.427, 0.085, 0.405),   # Preco de Venda
-    (4, 0.308, 0.482, 0.085, 0.520),   # Custo
-    (5, 0.205, 0.870, 0.085, 0.900),   # OPCOES
-    (6, 0.665, 0.870, 0.665, 0.955),   # SALVAR E SAIR (F2)
+    (1, 0.178, 0.168, 0.085, 0.120),   # abas do modal
+    (2, 0.306, 0.252, 0.085, 0.235),   # Nome
+    (3, 0.306, 0.427, 0.085, 0.405),   # Preco de Venda
+    (4, 0.306, 0.500, 0.085, 0.520),   # Custo
+    (5, 0.176, 0.895, 0.085, 0.905),   # OPCOES
+    (6, 0.665, 0.895, 0.665, 0.955),   # SALVAR E SAIR (F2)
 ])
 
 # =====================================================================
