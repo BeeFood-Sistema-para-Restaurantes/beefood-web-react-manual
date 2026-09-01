@@ -95,6 +95,8 @@
 | 72 | **Ficha técnica** | Cadastrar insumo (custo, unidade, controlar estoque), montar a ficha do lanche, do adicional e da porção, ler custo e margem, e a prova da baixa no PDV → Movimentações. Exemplo de hambúrguer; inclui o quadro de conversão **gramas ÷ 1000** | `manuais/ficha-tecnica/` | ✅ Concluído (15 imagens) | — |
 | 73 | **Produto só com agendamento (encomenda)** | O switch **Somente agendamento** do produto pelo **Editar em Lote** e pelo cadastro, o ícone de calendário na lista e a etiqueta **Encomenda** no cardápio (o Continuar abre o AGENDAR PEDIDO) | `manuais/cardapio-digital-agendamento-produto/` | ✅ Concluído (8 imagens) | — |
 | 74 | **Entendendo a numeração dos pedidos** | Os dois números da venda: **número da venda** (contador único da loja, nunca reinicia) × **número do pedido** (contador do caixa, reinicia a cada caixa novo); o formato `1 (931)`; por que fechar o caixa todo dia; quem recebe número por canal (delivery sempre, PDV pelo switch, mesa nunca — e mesa não consome número) | `manuais/numeracao-pedidos/` | ✅ Concluído (6 imagens) | — |
+| 75 | **Grupos de acesso (estudo completo)** | Catálogo das **93 permissões** em 10 categorias, separando as que apagam tela, as que mexem por dentro e as que só põem cadeado; as 6 restrições da **tela de produto** em comparativos antes/depois; o que o grupo **não** controla (Função Gerente, Parâmetros, integrações) | `manuais/grupos-acesso/` | ✅ Concluído (17 imagens) | — |
+| 76 | **Criar usuário e montar grupo de acesso** | O caminho completo: criar o grupo (que nasce com tudo liberado), criar o usuário (7 campos), o risco de deixar **Grupo de Acesso: Nenhum** (vê quase tudo), trocar grupo, alterar senha, desativar e o usuário Principal | `manuais/usuarios-criar/` | ✅ Concluído (9 imagens) | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -133,7 +135,7 @@
 | **Mesas / Comandas** | Mapa do salão, abrir e fechar conta, agrupar mesas, reabrir | 2 manuais | 4 | 💡 Ideia |
 | **Impressão** | Impressoras, impressão da cozinha, layout e os dois históricos | 2 a 3 manuais | 4 | 💡 Ideia |
 | **WhatsApp / BeeBot** | Conectar o número, notificações automáticas de status, respostas automáticas, IA e resumo diário | 3 manuais | 4 | 💡 Ideia |
-| **Usuários e permissões** | Criar usuário, montar grupo de acesso e o que cada permissão faz (complementa o #13, que só cobre caixa) | 1 a 2 manuais | 4 | 💡 Ideia |
+| **Usuários e permissões** | Criar usuário, montar grupo de acesso e o que cada permissão faz (complementa o #13, que só cobre caixa) | 1 a 2 manuais | 4 | ✅ **Concluído**: **#75** é o catálogo das 93 permissões (`manuais/grupos-acesso/`) e **#76** o passo a passo de criar usuário e grupo (`manuais/usuarios-criar/`) |
 | **Estoque** | Saldo e movimentações, importar NF-e de compra, receitas e ordens de produção | 3 manuais | 4 | ☑️ **Ficha Técnica virou o #72** ([`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md)). Restam Receitas + Produção, movimentações/saldo e importar NF-e. A **pizza** volta como capítulo ou manual próprio quando o dono avisar |
 | **Histórico de Vendas** | Consultar venda passada, filtros, detalhe, pagamentos e exportação | 1 manual | 4 | 💡 Ideia |
 | **Totem / autoatendimento** | Contratar, configurar (5 abas) e a pesagem automática do self-service | 2 a 3 manuais | 4 | 💡 Ideia |

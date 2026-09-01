@@ -3,7 +3,10 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-01 (**#74** Entendendo a numeração dos pedidos — concluído: número da
+Última atualização: 2026-09-01 (**#75/#76** Grupos de acesso — estudo das 93 permissões (com a
+técnica de codificação binária para medir permissão e a espera de 85 s do cache) e o manual de
+criar usuário/grupo — **usuário sem grupo enxerga quase tudo**;
+**#74** Entendendo a numeração dos pedidos — concluído: número da
 venda nunca reseta, número do pedido é do caixa, mesa nunca recebe **e não consome** número;
 virada 60→1 provada ao vivo; **cupom no navegador é IFRAME, não `window.open`**;
 **o `BITBUCKET_TOKEN` parou de autenticar** — backend não clona mais;
@@ -192,6 +195,7 @@ isso em segundos, e foi assim que a ambiguidade apareceu.
 | beefood1 | `beefood1` | `beefood123` | Conta de teste inicial (tem caixas históricos). |
 | **BeeFood3 - Manual** | `contato@beefood.com.br` | `1q2w3e4r` | **Sandbox dedicado aos manuais.** Usar esta. Usuário **Principal**, Gerente, grupo **Administrador2**. |
 | caixa.manual | `caixa.manual` | `manual123` | Usuário **restrito** criado em 19/08/2026 para o manual de restrições de caixa. Grupo **Acesso Funcionário**, **sem** função Gerente. Serve para ver o produto com permissões reduzidas. |
+| estoque.manual | `estoque.manual` | `manual123` | Criado em 01/09/2026 no **#76**. Grupo **Acesso Estoque** (71881, criado com as 93 permissões **ligadas**), sem função Gerente. O contador do plano foi a **5/99**. |
 
 > **Telefone de teste no cardápio digital (BeeFood3):** use **(15) 99999-8888**
 > (cliente **Teste Manual**, saldo de cashback **R$ 5,00**). Digite **11 dígitos**
@@ -290,6 +294,13 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
 - **Esconda o widget flutuante de suporte antes de capturar.** É um `div.fixed.bottom-6` de
   56×56 no canto inferior esquerdo e cobre conteúdo de cards baixos. `page.add_style_tag` com
   `div.fixed.bottom-6 { display:none !important }` resolve, sem alterar nada no produto.
+- **A pesquisa de NPS aparece depois do login e cobre a tela.** É um diálogo com o título
+  "Como está sendo sua experiência?" e o botão **FECHAR (ESC)** — que é o **mesmo texto** de
+  vários modais do sistema (produto, usuário). Uma rotina de limpeza que clique em
+  `button:has-text("FECHAR (ESC)")` sem filtrar o diálogo **fecha o modal que você quer
+  fotografar**: foi o que quebrou duas rodadas de captura no #75. Filtre primeiro:
+  `page.locator('[role="dialog"]').filter(has_text="Como está sendo sua experiência")`. Ela pode
+  reaparecer, então vale rodar a limpeza duas vezes.
 - **Diagnostique o estado pela API antes de planejar o manual.** Um script curto que só abre a
   tela e imprime a resposta da listagem já diz quantos registros existem, em que estado estão e
   se há dados suficientes para as capturas — evita planejar imagens que o ambiente não tem.
@@ -311,6 +322,31 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
   um dump de `innerText`.
 - **Se o traceback do Playwright citar um seletor que você já trocou**, desconfie de cache do
   script: criar um arquivo novo com outro nome resolveu (visto em 21/08/2026, manual #33).
+
+### Medir o efeito de uma permissão (grupo de acesso) — #75
+
+Vale para qualquer estudo que precise saber **o que cada switch faz**:
+
+- **Espere 85 segundos** entre o `POST /api/empresa2/grupoAcessoItem` e a leitura das permissões.
+  Testado em oito rodadas: com 85 s, duas leituras espaçadas de 12 s deram sempre o mesmo
+  resultado; com menos, a resposta oscila entre o valor antigo e o novo.
+- **Leia as permissões efetivas pela API**, não pela tela:
+  `GET /api/empresa2/empresaConfig/{empresaID}/{usuarioID}/1` devolve o `grupoAcessoUsuario`.
+  Ele vem em **base64 + zlib** (`pako.inflate` no front) — em Python, `b64decode` +
+  `zlib.decompress`. A rota só aceita o **usuarioID do próprio token**: com o token do Principal
+  e o id de outro usuário ela responde **401**. Solução: dois contextos do Playwright abertos,
+  um por usuário.
+- **Codificação binária em vez de um teste por permissão.** Dê a cada permissão um código de N
+  bits e faça N rodadas desligando as que têm o bit da rodada ligado. A assinatura de bits em
+  que cada chave virou `false` identifica a permissão. Fechou 93 permissões em 7 rodadas
+  (~18 min) em vez de 93 rodadas (~2 h30). Ponto cego: chave que depende de **duas** permissões
+  gera assinatura combinada, que pode coincidir com o código de uma terceira — reconfira os
+  resultados estranhos com teste individual.
+- **Nunca experimente no próprio grupo.** Salve o estado original antes e restaure no fim.
+- **Rodada de baseline com tudo ligado** é obrigatória: ela separa o que não depende do grupo
+  (no #75, apareceram três itens que dependem da **Função Gerente**).
+- **Login novo por cenário.** Reaproveitar `storage_state` congela o `config_cache` no estado
+  antigo.
 
 ### Aplicativos Android — o emulador NÃO funciona no Cloud Agent (testado em 2026-08-19)
 
@@ -633,6 +669,8 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Ficha técnica (custo do prato e baixa de estoque) | `manuais/ficha-tecnica/` | ✅ Concluído (#72) |
 | Produto só com agendamento (encomenda) | `manuais/cardapio-digital-agendamento-produto/` | ✅ Concluído (#73) |
 | Entendendo a numeração dos pedidos | `manuais/numeracao-pedidos/` | ✅ Concluído (#74) |
+| Grupos de acesso — estudo completo | `manuais/grupos-acesso/` | ✅ Concluído (#75) |
+| Criar usuário e montar grupo de acesso | `manuais/usuarios-criar/` | ✅ Concluído (#76) |
 
 ### Exibir/Ocultar e Preço Programado — #68 e #69
 
