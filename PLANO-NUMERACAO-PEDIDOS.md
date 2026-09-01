@@ -399,5 +399,13 @@ e não afirmar nada sobre caixas simultâneos.
 
 O cruzamento que produziu a prova foi **associar cada venda à janela de tempo do caixa**
 (abertura → fechamento), e não ao `caixaID` gravado na venda — esse campo fica `null`
-enquanto a venda não é liquidada no caixa, e usá-lo esconderia o padrão. Fica registrado
-para quem repetir o levantamento.
+enquanto a venda não é liquidada no caixa (217 das 304 vinham `null`), e usá-lo esconderia o
+padrão. Fica registrado para quem repetir o levantamento, junto com duas armadilhas:
+
+- **Marketplace grava a hora fora de ordem.** Pedidos do AIQFome saem com `horaCadastro`
+  desalinhado da ordem de criação: a venda 630 aparece depois da 633 quando se ordena pelo
+  relógio. Isso produz "resets" falsos em qualquer análise cronológica — no levantamento
+  apareceu um (50 → 47) que não é reset nenhum. Os resets reais são os que caem **para 1**.
+- **A prova do contador único não é a contagem de quedas**, é a aritmética da faixa: 304
+  vendas ocupando 304 números entre 627 e 930. Contador que reinicia gera **número
+  repetido**; contador que pula gera **buraco**. Não há nem um nem outro.
