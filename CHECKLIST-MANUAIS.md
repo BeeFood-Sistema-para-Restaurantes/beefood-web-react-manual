@@ -114,7 +114,7 @@
 | 91 | **Relatório: Oportunidades de delivery** | Delivery → Oportunidades: endereços fora da área de entrega e os bairros com potencial | `manuais/relatorio-oportunidades/` | ☑️ Aprovado | — |
 | 92 | **Relatório: Top bairros** | Delivery → Top Bairros: ranking com ticket médio, % do total, origem principal, comparativo e insights dos 3 primeiros | `manuais/relatorio-top-bairros/` | ☑️ Aprovado | — |
 | 93 | **Relatório: Sugestões do cardápio (delivery)** | Delivery → Sugestões: desempenho dos itens sugeridos no cardápio digital do delivery | `manuais/relatorio-sugestoes-delivery/` | ☑️ Aprovado | — |
-| 94 | **Relatório: Taxa de serviço** | Presencial → Taxa Serviço: agrupamentos por garçom, mesa, comanda e forma de pagamento, com % e valor da taxa | `manuais/relatorio-taxa-servico/` | ☑️ Aprovado | — |
+| 94 | **Relatório: Taxa de serviço** | Presencial → Taxa Serviço: agrupamentos por garçom, mesa, comanda e forma de pagamento, com % e valor da taxa. **Primeiro da fila** — proposta de cenário em [`PLANO-RELATORIO-TAXA-SERVICO.md`](PLANO-RELATORIO-TAXA-SERVICO.md) | `manuais/relatorio-taxa-servico/` | 💡 Proposta entregue — aguardando aprovação do cenário | — |
 | 95 | **Relatório: Pedidos no mobile e comissão** | Presencial → Pedidos (Mobile e Comissão): comissão por garçom e por produto, pedidos lançados no app | `manuais/relatorio-pedidos-mobile/` | ☑️ Aprovado | — |
 | 96 | **Relatório: Sugestões do cardápio (presencial)** | Presencial → Sugestões: mesmo relatório do #93 no canal presencial (sem dado no sandbox — precisa cenário) | `manuais/relatorio-sugestoes-presencial/` | ☑️ Aprovado | — |
 
@@ -128,7 +128,11 @@
 >
 > **#75–#96 são o bloco dos relatórios (Desempenho):** plano e checklist detalhado em
 > [`PLANO-RELATORIOS.md`](PLANO-RELATORIOS.md). Regra do dono (01/09/2026): **um manual por
-> relatório**, produzidos **unitariamente**, com conversa antes de cada um. Ordem proposta:
+> relatório**, produzidos **unitariamente**, com conversa antes de cada um. **E o cenário de
+> cada relatório é construído por nós, não tirado do histórico** — o relatório é lido com o
+> filtro em **hoje**, para os números da tela serem exatamente os que o manual explica.
+> **Primeiro da fila: #94 Taxa de Serviço** (proposta em
+> [`PLANO-RELATORIO-TAXA-SERVICO.md`](PLANO-RELATORIO-TAXA-SERVICO.md)). Ordem proposta:
 > **Vendas (#75–#80) → Produtos (#81–#85) → Clientes (#86–#88) → Delivery (#89–#93) →
 > Presencial (#94–#96)**. Os relatórios vivem no repositório `beefood-reports-hub` e o painel
 > só os exibe num **iframe** pelo menu **Desempenho** — a captura funciona entrando por

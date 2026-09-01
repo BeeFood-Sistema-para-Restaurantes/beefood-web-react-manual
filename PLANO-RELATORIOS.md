@@ -3,6 +3,20 @@
 > Fila aprovada pelo dono em **01/09/2026**: **um manual por relatório**, produzidos
 > **unitariamente**, conversando um por vez antes de cada um.
 >
+> **Regra do dono (01/09/2026, revisão): não usar o histórico.** Para cada relatório o cenário é
+> **construído por nós** e o relatório é lido com o filtro em **hoje** (no máximo hoje + amanhã).
+> O motivo apareceu no primeiro manual: o histórico do sandbox tem dado *tecnicamente* presente
+> mas *didaticamente* ruim — no Taxa de Serviço, 34 dos 38 pedidos estavam sem garçom, todos com
+> a mesma taxa de 10%, e com valores quebrados que o leitor não confere de cabeça. Com o cenário
+> construído e o filtro no dia, os números da tela são exatamente os que o manual explica.
+>
+> Isso muda a coluna **Dado** das tabelas abaixo: ela passa a indicar se **existe base para
+> construir** o cenário, não se o histórico serve. E acrescenta um passo ao checklist de cada
+> manual: **desenhar e criar o cenário antes de capturar**.
+>
+> Primeiro da fila, em proposta: **#94 Taxa de Serviço** —
+> [`PLANO-RELATORIO-TAXA-SERVICO.md`](PLANO-RELATORIO-TAXA-SERVICO.md).
+>
 > Este documento é o **checklist da fila**. Ele não é o manual de nenhum relatório: serve
 > para saber quantos são, o que cada um precisa cobrir, quais têm dado para fotografar hoje
 > e em que ordem atacar.
@@ -103,7 +117,7 @@ Legenda de dado no sandbox: 🟢 abundante · 🟡 magro (print sai ralo) · �
 
 | Nº | Manual | Rótulo na tela | Pasta | Complex. | Dado |
 |----|--------|----------------|-------|----------|------|
-| 94 | **Taxa de serviço** | Presencial → Taxa Serviço | `relatorio-taxa-servico/` | Alta | 🟡 8 |
+| 94 | **Taxa de serviço** | Presencial → Taxa Serviço | `relatorio-taxa-servico/` | Alta | 🟡 → cenário próprio |
 | 95 | **Pedidos no mobile e comissão** | Presencial → Pedidos (Mobile e Comissão) | `relatorio-pedidos-mobile/` | Média | 🟢 74 |
 | 96 | **Sugestões do cardápio (presencial)** | Presencial → Sugestões | `relatorio-sugestoes-presencial/` | Média | 🔴 0 |
 
@@ -235,7 +249,9 @@ Repetir para cada um dos 22, um por vez, com conversa antes de começar:
 
 - [ ] Confirmar com o dono qual é o próximo
 - [ ] Ler o componente e os hooks do relatório no `beefood-reports-hub`
-- [ ] Conferir o dado do período pela API antes de capturar (evita print vazio)
+- [ ] **Desenhar o cenário** (quais registros criar, com valores que o leitor confira de cabeça) e **aprovar com o dono**
+- [ ] **Criar o cenário** no sandbox e conferir pela API que gravou como esperado
+- [ ] Ler o relatório com o filtro em **hoje** e confirmar que só o cenário aparece
 - [ ] Criar `manuais/relatorio-<slug>/` com as subpastas do padrão
 - [ ] Capturar por **Desempenho → grupo → relatório**, escondendo o widget do WhatsApp **dentro do frame**
 - [ ] Cobrir dado pessoal de cliente **na imagem pura** (vários relatórios listam nome, telefone e endereço)
