@@ -7,7 +7,8 @@
 > delas com prova em dado real do sandbox. Apareceram **três descobertas** que o pedido
 > original não previa, e uma delas obriga a **corrigir o manual #44**.
 
-Status: ⏸️ **aguardando aprovação do dono** para virar manual.
+Status: ✅ **aprovado e executado** em 01/09/2026 — manual em `manuais/numeracao-pedidos/`.
+As decisões do dono estão na seção 16.
 
 ---
 
@@ -373,16 +374,32 @@ e não afirmar nada sobre caixas simultâneos.
 
 ---
 
-## 16. Decisões que o dono precisa tomar
+## 16. Decisões do dono — respondidas em 01/09/2026
 
-1. **Aprovar o manual** com a estrutura da seção 11.
-2. **Responder a pergunta da seção 15** (dois caixas abertos), ou autorizar o teste.
-3. **Corrigir o #44?** A linha do switch está errada (seção 7). Sugestão: corrigir junto,
-   no mesmo trabalho.
-4. **Entra a descoberta do checkbox Delivery** (seção 6)? É informação valiosa e explica
-   chamado de suporte, mas mistura o assunto com o manual de abrir caixa. Sugestão: entra,
-   em bloco curto de aviso, com link para o manual de Caixa.
-5. **Nome do menu**: *Entendendo a numeração dos pedidos* — ou o dono prefere outro.
+| # | Pergunta | Decisão |
+|---|----------|---------|
+| 1 | Aprovar o manual com a estrutura da seção 11? | ✅ **Aprovado**, e executado |
+| 2 | Corrigir o **#44** junto (seção 7)? | ❌ **Deixar como está.** A imprecisão fica registrada no `fluxo-codigo.md` do #74 |
+| 3 | Entra a descoberta do **checkbox Delivery** (seção 6)? | ❌ **Não entra** no manual. Registrada no `fluxo-codigo.md` para o suporte |
+| 4 | Nome do menu | ✅ **Entendendo a numeração dos pedidos** |
+| 5 | Dois caixas abertos ao mesmo tempo (seção 15) | Sem resposta. Manual escrito **no singular**, sem afirmar nada sobre caixas simultâneos |
+
+### O que mudou na execução em relação ao plano
+
+- **A virada do contador foi provada ao vivo.** O dono fechou o caixa 967508 às 16:39:40 e o
+  caixa 983507 abriu às 16:39:44, o que deixou o reset disponível para fotografar. Duas vendas
+  lançadas pela tela do PDV fecharam a prova: a venda **930** encerrou o caixa antigo no pedido
+  **60** e a **931** abriu o novo no pedido **1**, com o número da venda seguindo **930 → 931**.
+- **Uma descoberta nova apareceu durante a produção:** **mesa não consome número de pedido.**
+  O caixa 927703 usou 110 números na faixa 1..110 **sem um único buraco**, tendo 13 vendas sem
+  número. E a tela confirma: as vendas de mesa 854–858 ficam entre os pedidos **5** e **6**. Isso
+  virou uma seção do manual e uma pergunta do FAQ.
+- **Oito imagens viraram seis.** O diagrama proposto (item 8 da seção 13) foi substituído por uma
+  tabela comparativa — o Histórico real já mostra a virada melhor do que um desenho. A imagem das
+  vendas pendentes do fechamento saiu para não abrir o fluxo de fechar caixa do dono.
+- **O cupom precisou de contorno técnico:** o fallback de impressão não usa `window.open`, e sim
+  um iframe oculto (`#beefood-print-frame`). Detalhe na `MEMORIA-GERAL.md` e na `MEMORIA.md` do
+  manual.
 
 ---
 

@@ -3,9 +3,10 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-01 (**#74** Numeração dos pedidos — estudo: número da venda nunca
-reseta, número do pedido é do caixa, mesa nunca recebe, e o caixa precisa abrir com Delivery
-marcado; **o `BITBUCKET_TOKEN` parou de autenticar** — backend não clona mais;
+Última atualização: 2026-09-01 (**#74** Entendendo a numeração dos pedidos — concluído: número da
+venda nunca reseta, número do pedido é do caixa, mesa nunca recebe **e não consome** número;
+virada 60→1 provada ao vivo; **cupom no navegador é IFRAME, não `window.open`**;
+**o `BITBUCKET_TOKEN` parou de autenticar** — backend não clona mais;
 **#72** Ficha técnica — base de insumos zerada, opção repetida
 baixa em dobro, insumo sem controle de estoque não movimenta; **#73** Produto só com agendamento;
 **#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
@@ -631,6 +632,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Aparência e layout do cardápio digital | `manuais/cardapio-digital-aparencia-layout/` | ✅ Concluído (#71) |
 | Ficha técnica (custo do prato e baixa de estoque) | `manuais/ficha-tecnica/` | ✅ Concluído (#72) |
 | Produto só com agendamento (encomenda) | `manuais/cardapio-digital-agendamento-produto/` | ✅ Concluído (#73) |
+| Entendendo a numeração dos pedidos | `manuais/numeracao-pedidos/` | ✅ Concluído (#74) |
 
 ### Exibir/Ocultar e Preço Programado — #68 e #69
 
@@ -708,7 +710,7 @@ Clique “só para ver” já grava.
 
 ---
 
-### Numeração dos pedidos — #74 (estudo, aguardando aprovação)
+### Numeração dos pedidos — #74 (concluído)
 
 Dois números na mesma venda. **`numeroPreVenda` = número da venda**, contador
 único da loja, **nunca reinicia** (provado: faixa 627–930, 304 vendas, zero
@@ -738,14 +740,42 @@ numeroPedido`). A venda 848 do próprio #44 tem pedido **3**. O switch faz o
 servidor **atribuir** o número, que aparece depois no Histórico (`3 (848)`), no
 cupom reimpresso e nos relatórios.
 
+**Mesa não consome número.** O caixa 927703 usou 110 números na faixa 1..110
+**sem um único buraco**, tendo 13 vendas sem número (5 de mesa). Visto também
+na tela: vendas de mesa 854–858 entre os pedidos **5** e **6**.
+
 **Truque do levantamento:** associe a venda à **janela de tempo do caixa**
 (abertura → fechamento), **não** ao `caixaID` gravado na venda — esse campo
 fica `null` enquanto a venda não é liquidada e esconde o padrão (217 de 304
 vinham `null`). Cuidado também com vendas criadas **em lote pela API** por
 scripts de manuais antigos: várias no mesmo segundo, sem `numeroPedido`, são
-ruído do sandbox e não regra do produto.
+ruído do sandbox e não regra do produto. E **marketplace grava `horaCadastro`
+fora de ordem** (AIQFome): produz reset falso em análise cronológica; reset real
+é o que cai **para 1**.
 
-Detalhe em [`PLANO-NUMERACAO-PEDIDOS.md`](PLANO-NUMERACAO-PEDIDOS.md).
+**Cupom no Cloud Agent: o fallback de impressão é IFRAME, não `window.open`.**
+O botão de impressora do detalhe da venda (`lucide-printer` no cabeçalho do
+modal; o `chef-hat` ao lado é a ficha de cozinha) tenta o BeeImpressão, falha
+com *"Servidor offline. Usando impressão do navegador."* e chama
+`imprimirViaIframe` (`src/lib/impressao-service.ts`), que escreve num iframe
+oculto de id **`beefood-print-frame`**. Ou seja: **nenhuma aba nova abre** e
+sobrescrever `window.open` **não captura nada** (tentado e falhou). O que
+funciona é um `MutationObserver` + poll de 40 ms instalado **antes** do clique,
+ler `contentDocument.documentElement.outerHTML` do iframe e renderizar esse
+mesmo HTML numa página nova com viewport de **400 px** (bobina de 80 mm).
+Vale para qualquer manual que precise fotografar cupom.
+
+**Três armadilhas de tela descobertas aqui:** o modal **Reabrir Venda** do PDV
+exige **CONFIRMAR SELEÇÃO (F1 / ENTER)** — clicar na linha só seleciona e o
+**Receber** fica desabilitado; a **paginação do Histórico** não responde a
+`button:has-text('Próximo')` (troque **Itens por página** para 100 e role com
+`scrollIntoView({block:'center'})`); e a **aba de setor do PDV é `div`**, não
+`button`. O PDV manda `tipo: 'PDV'` mesmo com mesa selecionada no topo — venda
+de **mesa** exige o **Novo Pedido (F1)** da tela de Mesas, e clicar numa mesa
+livre não abre nada.
+
+Detalhe em [`PLANO-NUMERACAO-PEDIDOS.md`](PLANO-NUMERACAO-PEDIDOS.md) e em
+`manuais/numeracao-pedidos/` (`MEMORIA.md` e `fluxo-codigo.md`).
 
 ---
 

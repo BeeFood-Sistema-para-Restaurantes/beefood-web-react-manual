@@ -66,6 +66,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Taxas das formas de recebimento (faturado e realizado) | [`manuais/taxas-formas-pagamento/`](manuais/taxas-formas-pagamento/taxas-formas-pagamento.md) | ✅ Concluído |
 | Ficha técnica (custo do prato e baixa de estoque) | [`manuais/ficha-tecnica/`](manuais/ficha-tecnica/ficha-tecnica.md) | ✅ Concluído |
 | Produto só com agendamento (encomenda) | [`manuais/cardapio-digital-agendamento-produto/`](manuais/cardapio-digital-agendamento-produto/cardapio-digital-agendamento-produto.md) | ✅ Concluído |
+| Entendendo a numeração dos pedidos (número da venda × número do pedido) | [`manuais/numeracao-pedidos/`](manuais/numeracao-pedidos/numeracao-pedidos.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 

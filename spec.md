@@ -52,6 +52,7 @@ manuais/<nome>/
 | Produto só com agendamento (encomenda) | #73 (concluído 31/08/2026) | `manuais/cardapio-digital-agendamento-produto/` |
 | Aparência e layout do cardápio digital | #71 (concluído 30/08/2026) | `manuais/cardapio-digital-aparencia-layout/` |
 | Ficha técnica (hambúrguer) | #72 (concluído 01/09/2026) | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md) + `manuais/ficha-tecnica/` |
+| Numeração dos pedidos | #74 (concluído 01/09/2026) | [`PLANO-NUMERACAO-PEDIDOS.md`](PLANO-NUMERACAO-PEDIDOS.md) + `manuais/numeracao-pedidos/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |
@@ -62,7 +63,6 @@ manuais/<nome>/
 
 | Estudo | Situação | Documento |
 |--------|----------|-----------|
-| **Numeração dos pedidos** (#74) | ⏸️ aguardando aprovação. As quatro regras foram confirmadas em dado real; falta decidir a pergunta dos dois caixas abertos e se o #44 é corrigido junto | [`PLANO-NUMERACAO-PEDIDOS.md`](PLANO-NUMERACAO-PEDIDOS.md) |
 | Ficha técnica da **pizza** | ⏸️ em espera: aguarda a correção da pizza. O manual #72 já respondeu a dúvida técnica (opção repetida baixa em dobro) | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md), seção 9 |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
