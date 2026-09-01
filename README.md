@@ -12,6 +12,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 ├─ PLANO-CARDAPIO.md           # Plano aprovado dos manuais #27–#31 (cardápio por segmento)
 ├─ PLANO-MIGRACAO-AJUDA.md     # Fila #49–#56 (migração do ajuda.beefood.com.br)
 ├─ PLANO-NUMERACAO-PEDIDOS.md  # Estudo do #74 (número da venda × número do pedido)
+├─ PLANO-RELATORIOS.md         # Fila #75–#96 (um manual por relatório do Desempenho)
 ├─ validar-imagens.py          # Confere se as imagens referenciadas pelos manuais existem
 └─ manuais/
    └─ <nome-do-manual>/        # Uma pasta por manual
