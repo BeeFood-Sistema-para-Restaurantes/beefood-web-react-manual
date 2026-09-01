@@ -62,6 +62,7 @@ manuais/<nome>/
 
 | Estudo | Situação | Documento |
 |--------|----------|-----------|
+| **Numeração dos pedidos** (#74) | ⏸️ aguardando aprovação. As quatro regras foram confirmadas em dado real; falta decidir a pergunta dos dois caixas abertos e se o #44 é corrigido junto | [`PLANO-NUMERACAO-PEDIDOS.md`](PLANO-NUMERACAO-PEDIDOS.md) |
 | Ficha técnica da **pizza** | ⏸️ em espera: aguarda a correção da pizza. O manual #72 já respondeu a dúvida técnica (opção repetida baixa em dobro) | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md), seção 9 |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,

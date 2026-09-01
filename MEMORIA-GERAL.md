@@ -3,7 +3,10 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-01 (**#72** Ficha técnica — base de insumos zerada, opção repetida
+Última atualização: 2026-09-01 (**#74** Numeração dos pedidos — estudo: número da venda nunca
+reseta, número do pedido é do caixa, mesa nunca recebe, e o caixa precisa abrir com Delivery
+marcado; **o `BITBUCKET_TOKEN` parou de autenticar** — backend não clona mais;
+**#72** Ficha técnica — base de insumos zerada, opção repetida
 baixa em dobro, insumo sem controle de estoque não movimenta; **#73** Produto só com agendamento;
 **#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
@@ -552,6 +555,26 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 > na raiz. Foi o que permitiu fechar o estudo do manual #13: só o código do servidor explicou
 > por que o parâmetro "Caixa por Usuário" não fazia o que a tela promete.
 
+> ⚠️ **Parou de funcionar em 2026-09-01 (estudo #74).** O backend **não está mais** em
+> `~/refs/` — só `beefood-web-react` e `beefood-reports-hub` clonaram. O secret
+> `BITBUCKET_TOKEN` continua injetado no ambiente, mas o Bitbucket responde
+> *"You may not have access to this repository"*. Testadas as **quatro** combinações
+> (`x-token-auth` e `x-bitbucket-api-token-auth` × `BITBUCKET_TOKEN` e
+> `BITBUCKET_CARDAPIO_DIGITAL`): todas falham na autenticação. O token provavelmente
+> **expirou ou foi revogado** — Repository Access Token do Bitbucket tem validade. Para
+> voltar a ter o backend, gerar um token novo (Repository settings → Security → Access
+> tokens, escopo *Repositories: Read*) e regravar o secret no Cursor Dashboard;
+> **secret novo só entra em VM nova**.
+>
+> Enquanto isso, a saída que funcionou no #74 é **provar a regra por dado real** em vez de
+> ler o código do servidor: um script curto que loga com Playwright e consulta a API
+> autenticada de dentro da página (o token do app vem do `localStorage`, ofuscado por XOR
+> com a chave `bf2024_secure_key_token` — ver `src/lib/api.ts`). Base da API em produção é
+> `https://app3.beetechapi.be`, e o front troca `/datasnap/rest/` por `/api/`
+> (`src/config/api-endpoints.ts`). Cruzando `venda2/historicoVendas`,
+> `caixa2/caixaListagem`, `venda2/vendaDetalhes` e `empresa2/empresaConfig` deu para
+> provar o reset da numeração sem nenhuma linha do backend.
+
 > **Cuidado com repositório público.** Este repositório de manuais é público. Secret de
 > ambiente em repositório público é risco real: quem puder abrir um Cloud Agent nele recebe a
 > variável injetada — e o Cursor pode até bloquear a injeção por padrão nesse caso. Antes de
@@ -682,6 +705,47 @@ Comparação do manual: painel à esquerda, **cardápio público** à
 direita (`menu.beefood.com.br/{link}`). O preview sticky do painel
 não entra no par. `validaDelivery` vem zlib+base64; cache ~1 min.
 Clique “só para ver” já grava.
+
+---
+
+### Numeração dos pedidos — #74 (estudo, aguardando aprovação)
+
+Dois números na mesma venda. **`numeroPreVenda` = número da venda**, contador
+único da loja, **nunca reinicia** (provado: faixa 627–930, 304 vendas, zero
+buraco e zero repetição). **`numeroPedido` = número do pedido**, contador **do
+caixa**: volta para 1 a cada caixa novo. Exibição: `numeroPedido
+(numeroPreVenda)`, ou só o da venda — em 12 pontos do código, mudando só a
+palavra da frente (`Pedido #`, `Venda Nº`, `#`, ou sem prefixo no Histórico).
+
+**A prova do reset:** caixa 927703 abriu **17/07 11:59:02** e o **pedido nº 1
+saiu 11:59:06 — 4 segundos depois**. Na virada seguinte o pedido caiu de **110
+para 1** enquanto a venda ia de **838 para 843**.
+
+**Por canal:** mesa **nunca** recebe (0 de 15) e não existe `mesaNumeroPedido`;
+PDV depende do switch **Número de Pedido no PDV** (`pdvNumeroPedido`, card PDV
+em Parâmetros, o último da tela); delivery depende do caixa.
+
+**Descoberta que vale para o manual de Caixa:** o caixa precisa ser aberto com
+**Delivery** marcado. O caixa 907962 abriu sem delivery e **79 pedidos ficaram
+sem número de pedido**, sem aviso na tela; nos caixas com delivery o número
+saiu em **100%**.
+
+**O #44 está errado numa linha:** ele diz que o switch "mostra o número da
+venda (ex.: Venda #848)". Não é isso — o *Venda #848* aparece com o switch
+desligado também, e a tela do PDV **nunca** mostra o número do pedido (o front
+manda `numeroPedido: null` sempre, com o comentário `// PDV não tem
+numeroPedido`). A venda 848 do próprio #44 tem pedido **3**. O switch faz o
+servidor **atribuir** o número, que aparece depois no Histórico (`3 (848)`), no
+cupom reimpresso e nos relatórios.
+
+**Truque do levantamento:** associe a venda à **janela de tempo do caixa**
+(abertura → fechamento), **não** ao `caixaID` gravado na venda — esse campo
+fica `null` enquanto a venda não é liquidada e esconde o padrão (217 de 304
+vinham `null`). Cuidado também com vendas criadas **em lote pela API** por
+scripts de manuais antigos: várias no mesmo segundo, sem `numeroPedido`, são
+ruído do sandbox e não regra do produto.
+
+Detalhe em [`PLANO-NUMERACAO-PEDIDOS.md`](PLANO-NUMERACAO-PEDIDOS.md).
 
 ---
 
