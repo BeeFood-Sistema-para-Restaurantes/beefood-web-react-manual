@@ -1,9 +1,8 @@
 # Plano — manual de Ficha Técnica
 
-> **Status:** 💡 **ESTUDO — aguardando aprovação.** Nenhum manual foi produzido, nenhuma imagem
-> foi capturada, nada foi alterado no sandbox.
-> **Segmento do primeiro manual:** **hambúrguer** (seção 7). A **pizza** fica em espera até a
-> correção do sistema — o estudo dela está guardado inteiro na seção 9.
+> **Status:** ✅ **O manual de hambúrguer virou o #72** (`manuais/ficha-tecnica/`, concluído em
+> 01/09/2026). A **pizza** segue em espera — o estudo dela está guardado inteiro na seção 9, e a
+> dúvida técnica que a travava **já foi respondida** (seção 8).
 > **Última atualização:** 01/09/2026
 > **Conta sandbox:** BeeFood3 - Manual — `contato@beefood.com.br` (`https://beefood.app`)
 > **Rotas:** `/cardapio` (Produtos e Complementos) e `/meu-estoque` — a ficha é uma **aba** do
@@ -239,27 +238,34 @@ Margem sobre R$ 28,00: lucro **R$ 19,92**, **71,1%** — a etiqueta verde que o 
 
 ---
 
-## 8. O teste decisivo (e ele também serve para a pizza)
+## 8. O teste decisivo — ✅ respondido
 
-A pergunta que ficou aberta no estudo da pizza é: **quando a mesma opção é escolhida duas vezes, a
-ficha é baixada duas vezes?** O sandbox permite responder isso **hoje**, no hambúrguer, porque
-*Carne 100g* já está com **máximo 2** por opção — é o smash duplo.
+A pergunta que travava a pizza era: **quando a mesma opção é escolhida duas vezes, a ficha é
+baixada duas vezes?** O teste foi feito no hambúrguer, porque *Carne 100g* já estava com
+**máximo 2** por opção — é o smash duplo.
 
-**Venda de teste:** One Burger + 2 × Carne 100g = R$ 46,00 (custo esperado R$ 8,08 + R$ 8,40).
+**Venda #928:** One Burger + 2 × Carne 100g = R$ 32,00. O que a tela **Movimentações** devolveu:
 
-| Insumo | Baixa esperada | Trilha |
-|--------|---------------:|--------|
+| Insumo | Baixa | Trilha |
+|--------|------:|--------|
+| Blend bovino | **−0,2** | `Venda de 2 "One Burger -> Carne 100g -> Blend bovino"` |
+| Blend bovino | **−0,1** | `One Burger -> Blend bovino` |
 | Pão brioche | −1 | `One Burger -> Pão brioche` |
-| Blend 100 g | **−0,3** | −0,1 do produto **+ 2 × −0,1** dos adicionais ← **o número que decide** |
-| Queijo prato | −0,02 | `One Burger -> Queijo prato fatiado` |
+| Alface | −0,01 | `One Burger -> Alface` |
+| Tomate | −0,02 | `One Burger -> Tomate` |
+| Queijo prato fatiado | −0,02 | `One Burger -> Queijo prato fatiado` |
 | Embalagem do lanche | −1 | `One Burger -> Embalagem do lanche` |
 
-Se o blend sair **0,3 KG**, o multiplicador funciona — e a pizza pode usar o modelo Proporcional
-com a ficha do sabor em meia pizza (seção 9.2). Se sair **0,2 KG**, o adicional repetido conta uma
-vez só, e os dois manuais mudam de recomendação.
+**Saíram 0,3 KG de blend — os três hambúrgueres do pedido.** O multiplicador funciona, e com isso
+**a pizza pode usar o modelo Proporcional com a ficha do sabor em meia pizza** (seção 9.2).
 
-**Segunda venda de teste:** 2 × One Burger, para confirmar a multiplicação pela quantidade do item
-(esperado: blend −0,2, pão −2).
+Outras três respostas que a execução trouxe:
+
+- **A baixa acontece no `Receber`**, na criação da pré-venda, antes de qualquer pagamento.
+- **Insumo com *Controlar Estoque* desligado não movimenta.** A maionese da casa está na ficha,
+  entra no custo e **não** apareceu nas movimentações. (Era a pergunta 2 da seção 12.)
+- **A quantidade do item multiplica:** a venda #927, com duas porções de batata frita, gerou dois
+  conjuntos de baixas.
 
 ---
 
@@ -324,8 +330,9 @@ Mussarela 0,15 KG (R$ 5,70) + Caixa 1 UN (R$ 1,20) = **R$ 8,99**.
 ### 9.5 O que falta para tirar a pizza da espera
 
 - a correção que o dono está fazendo;
-- o resultado do teste da seção 8;
-- decidir se a pizza vira um manual próprio (`ficha-tecnica-pizza`) ou um capítulo do primeiro.
+- ~~o resultado do teste da seção 8~~ — **feito: a opção repetida baixa em dobro**, então o modelo
+  Proporcional com ficha de meia pizza está liberado;
+- decidir se a pizza vira um manual próprio (`ficha-tecnica-pizza`) ou um capítulo do #72.
 
 ---
 
@@ -373,33 +380,37 @@ A pizza entra depois, como manual próprio ou como capítulo — decisão da se�
 
 ---
 
-## 12. Perguntas que só a execução responde
+## 12. Perguntas em aberto
 
-1. **A opção escolhida duas vezes baixa em dobro?** Teste da seção 8. Define a recomendação dos
-   dois manuais.
-2. **A baixa acontece com *Controlar Estoque* desligado no insumo?** Hoje 18 insumos do sandbox
-   estão "Sem Controle" e mesmo assim têm histórico de baixa. Se a resposta for sim, o manual
-   precisa explicar que o consumo é registrado, mas o saldo só existe com o controle ligado.
-3. **Cancelar a venda devolve os insumos?** O histórico mostra estorno; falta confirmar em que
-   ação exatamente ele acontece.
+Respondidas na execução do #72:
+
+1. ✅ **A opção escolhida duas vezes baixa em dobro?** Sim (seção 8).
+2. ✅ **A baixa acontece com *Controlar Estoque* desligado?** **Não.** O insumo entra no custo, mas
+   não gera movimentação nenhuma.
+
+Ainda em aberto (não bloqueiam nada):
+
+3. **Cancelar a venda devolve os insumos?** O histórico da conta mostra estorno; falta confirmar em
+   que ação exatamente ele acontece.
 4. **A Importação de NF-e atualiza o custo do insumo** (e portanto a ficha inteira)?
 5. **O produto "esgota" no cardápio quando o insumo zera?** O front cita esse comportamento.
 6. **O combo desce até a ficha dos itens escolhidos?** O sandbox tem 9 combos (Burger + Porção +
-   Bebida) cujas opções são produtos com ficha própria. Se descer, vira uma nota; se não descer,
-   vira alerta.
+   Bebida) cujas opções são produtos com ficha própria.
 
 ---
 
-## 13. O que preciso do dono antes de começar
+## 13. Como o #72 foi executado
 
-1. **Confirmar o segmento** (hambúrguer) e o número **#72**.
-2. **Base:** não precisa limpar. O cardápio de hambúrguer atual serve, e os insumos novos entram
-   por cima. Só aviso que há **produtos duplicados** na base (dois *One Burger*, dois *Chicken
-   Deluxe*…) — vou usar sempre o ativo e mais recente.
-3. **Insumos de teste** já existentes (`Maionse`, `Temero y`, custo R$ 0,00): deixo como estão ou
-   aproveito para apagar?
-4. **Duas vendas reais no PDV** para provar a baixa (é sandbox, mas confirmo por escrito).
-5. Avisar quando a **pizza** estiver corrigida, para tirar a seção 9 da espera.
+1. **Insumos zerados** a pedido do dono: 20 dos 21 apagados. O único que ficou —
+   *Maionese da casa (sache)* — é travado por três receitas já usadas em produção (só dá para
+   desativar a receita, e a API recusa receita com `itens: []`). Ele virou conteúdo do manual: é o
+   exemplo de **insumo com custo controlado por receita**.
+2. **10 insumos novos** cadastrados com custo, unidade, controle de estoque e saldo inicial.
+3. **Cinco fichas**: One Burger, Carne 100g, Bacon, Fatia de queijo e Batata frita.
+4. **Três vendas reais** no PDV (#925, #927, #928), pagas em dinheiro.
+5. **15 imagens, 41 setas**, validadas por `python3 validar-imagens.py ficha-tecnica`.
+
+Só falta o dono avisar quando a **pizza** estiver corrigida, para tirar a seção 9 da espera.
 
 ---
 
@@ -415,15 +426,18 @@ A pizza entra depois, como manual próprio ou como capítulo — decisão da se�
 
 ---
 
-## 15. Checklist de execução (depois de aprovado)
+## 15. Checklist de execução
 
-1. Criar `manuais/ficha-tecnica/` com o padrão completo (`MEMORIA.md`, `fluxo-codigo.md`,
-   `<nome>.md`, `texto-documentation.ia.md`, `annotate.py`, `imagens-puras/`, `imagens-tratadas/`).
-2. Cadastrar os insumos da seção 7 e as fichas do lanche, dos adicionais e da porção.
-3. Conferir os custos contra as tabelas da seção 7.
-4. **Rodar o teste da seção 8 antes de escrever o texto** — ele decide a recomendação.
-5. Capturar com Playwright (1440×900, DPR 1,5, tema claro, `LANG=pt_BR.UTF-8`, esperar o spinner
-   sumir **e mais 5 segundos**).
-6. Anotar com `annotate.py` e validar com `python3 validar-imagens.py ficha-tecnica`.
-7. Atualizar `CHECKLIST-MANUAIS.md`, `MEMORIA-GERAL.md` e `spec.md`.
-8. Commits `docs(#72): ...`, sempre com push.
+Tudo concluído para o **#72** (hambúrguer):
+
+1. ✅ `manuais/ficha-tecnica/` no padrão completo (`MEMORIA.md`, `fluxo-codigo.md`,
+   `ficha-tecnica.md`, `texto-documentation.ia.md`, `annotate.py`, `capturar.py`,
+   `imagens-puras/`, `imagens-tratadas/`).
+2. ✅ Insumos e fichas cadastrados; custos conferidos contra as tabelas da seção 7.
+3. ✅ Teste da seção 8 rodado **antes** de escrever o texto.
+4. ✅ Captura com Playwright (1440×900, DPR 1,5, tema claro, `LANG=pt_BR.UTF-8`, espera do spinner
+   **e mais 5 segundos**).
+5. ✅ Anotação e `python3 validar-imagens.py ficha-tecnica` limpo.
+6. ✅ `README.md`, `CHECKLIST-MANUAIS.md`, `MEMORIA-GERAL.md` e `spec.md` atualizados.
+
+Quando a pizza voltar, repetir os mesmos passos com o cenário da seção 9.3.
