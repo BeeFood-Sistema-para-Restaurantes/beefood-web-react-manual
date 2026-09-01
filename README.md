@@ -64,6 +64,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Desconto e acréscimo nas formas de recebimento (cardápio digital) | [`manuais/cardapio-digital-desconto-formas/`](manuais/cardapio-digital-desconto-formas/cardapio-digital-desconto-formas.md) | ✅ Concluído |
 | Taxas das formas de recebimento (faturado e realizado) | [`manuais/taxas-formas-pagamento/`](manuais/taxas-formas-pagamento/taxas-formas-pagamento.md) | ✅ Concluído |
 | Grupos de acesso — estudo completo das 93 permissões | [`manuais/grupos-acesso/`](manuais/grupos-acesso/grupos-acesso.md) | ✅ Concluído |
+| Criar usuário e montar grupo de acesso | [`manuais/usuarios-criar/`](manuais/usuarios-criar/usuarios-criar.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 

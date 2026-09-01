@@ -187,6 +187,7 @@ isso em segundos, e foi assim que a ambiguidade apareceu.
 | beefood1 | `beefood1` | `beefood123` | Conta de teste inicial (tem caixas históricos). |
 | **BeeFood3 - Manual** | `contato@beefood.com.br` | `1q2w3e4r` | **Sandbox dedicado aos manuais.** Usar esta. Usuário **Principal**, Gerente, grupo **Administrador2**. |
 | caixa.manual | `caixa.manual` | `manual123` | Usuário **restrito** criado em 19/08/2026 para o manual de restrições de caixa. Grupo **Acesso Funcionário**, **sem** função Gerente. Serve para ver o produto com permissões reduzidas. |
+| estoque.manual | `estoque.manual` | `manual123` | Criado em 01/09/2026 no **#73**. Grupo **Acesso Estoque** (71881, criado com as 93 permissões **ligadas**), sem função Gerente. O contador do plano foi a **5/99**. |
 
 > **Telefone de teste no cardápio digital (BeeFood3):** use **(15) 99999-8888**
 > (cliente **Teste Manual**, saldo de cashback **R$ 5,00**). Digite **11 dígitos**
@@ -285,6 +286,13 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
 - **Esconda o widget flutuante de suporte antes de capturar.** É um `div.fixed.bottom-6` de
   56×56 no canto inferior esquerdo e cobre conteúdo de cards baixos. `page.add_style_tag` com
   `div.fixed.bottom-6 { display:none !important }` resolve, sem alterar nada no produto.
+- **A pesquisa de NPS aparece depois do login e cobre a tela.** É um diálogo com o título
+  "Como está sendo sua experiência?" e o botão **FECHAR (ESC)** — que é o **mesmo texto** de
+  vários modais do sistema (produto, usuário). Uma rotina de limpeza que clique em
+  `button:has-text("FECHAR (ESC)")` sem filtrar o diálogo **fecha o modal que você quer
+  fotografar**: foi o que quebrou duas rodadas de captura no #72. Filtre primeiro:
+  `page.locator('[role="dialog"]').filter(has_text="Como está sendo sua experiência")`. Ela pode
+  reaparecer, então vale rodar a limpeza duas vezes.
 - **Diagnostique o estado pela API antes de planejar o manual.** Um script curto que só abre a
   tela e imprime a resposta da listagem já diz quantos registros existem, em que estado estão e
   se há dados suficientes para as capturas — evita planejar imagens que o ambiente não tem.
@@ -631,6 +639,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Agendamento do cardápio digital | `manuais/cardapio-digital-agendamento/` | ✅ Concluído (#70) |
 | Aparência e layout do cardápio digital | `manuais/cardapio-digital-aparencia-layout/` | ✅ Concluído (#71) |
 | Grupos de acesso — estudo completo | `manuais/grupos-acesso/` | ✅ Concluído (#72) |
+| Criar usuário e montar grupo de acesso | `manuais/usuarios-criar/` | ✅ Concluído (#73) |
 
 ### Exibir/Ocultar e Preço Programado — #68 e #69
 
