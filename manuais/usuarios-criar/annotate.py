@@ -138,15 +138,15 @@ annotate("01-aba-usuarios-limite-do-plano.png", [
 # Passo 1 — criar o grupo
 # =====================================================================
 
-annotate("05-modal-novo-grupo-vazio.png", [
-    (1, 0.400, 0.262, 0.180, 0.230),   # campo do nome do grupo
-    (2, 0.660, 0.360, 0.830, 0.330),   # aviso de que as permissoes vem depois
+annotate("06-modal-novo-grupo-preenchido.png", [
+    (1, 0.258, 0.497, 0.180, 0.470),   # campo do nome do grupo
+    (2, 0.725, 0.600, 0.800, 0.660),   # Salvar (so habilita com o nome preenchido)
 ])
 
 annotate("07-grupo-novo-permissoes-iniciais.png", [
     (1, 0.400, 0.253, 0.180, 0.210),   # nome do grupo salvo
     (2, 0.712, 0.443, 0.860, 0.420),   # todos os switches ligados
-    (3, 0.712, 0.535, 0.870, 0.560),
+    (3, 0.712, 0.638, 0.870, 0.660),
 ])
 
 # =====================================================================
@@ -174,14 +174,15 @@ annotate("10-escolher-grupo-de-acesso.png", [
 # =====================================================================
 
 annotate("13-modal-alterar-senha.png", [
-    (1, 0.320, 0.400, 0.180, 0.370),   # Nova Senha
-    (2, 0.320, 0.500, 0.180, 0.530),   # Confirmar Senha
+    (1, 0.470, 0.372, 0.280, 0.330),   # de quem e a senha
+    (2, 0.382, 0.472, 0.280, 0.470),   # Nova Senha
+    (3, 0.382, 0.568, 0.280, 0.600),   # Confirmar Senha
 ])
 
 annotate("14-usuario-principal-login-bloqueado.png", [
     (1, 0.320, 0.270, 0.180, 0.230),   # aviso Usuario principal
     (2, 0.288, 0.390, 0.180, 0.420),   # Login travado
-    (3, 0.330, 0.763, 0.180, 0.800),   # ALTERAR SENHA continua disponivel
+    (3, 0.283, 0.775, 0.180, 0.810),   # ALTERAR SENHA continua disponivel
 ])
 
 # Usuario desativado: badge Inativo e o contador do plano, que nao muda

@@ -54,14 +54,15 @@ confira a aba **Grupos de Acesso** antes de criar mais um.
 
 Na aba **Grupos de Acesso**, clique em **+ Novo Grupo**.
 
-![Modal Novo Grupo de Acesso, só com o campo de nome](imagens-tratadas/05-modal-novo-grupo-vazio.png)
+![Modal Novo Grupo de Acesso, com o nome preenchido](imagens-tratadas/06-modal-novo-grupo-preenchido.png)
 
 | Nº | Item | O que fazer |
 |----|------|-------------|
 | 1 | **Descrição** | O nome do grupo. Use o cargo, não o nome da pessoa: *Acesso Estoque*, não *João*. |
-| 2 | O aviso | O sistema avisa que as permissões aparecem **depois** de salvar o grupo. |
+| 2 | **Salvar** | Fica **apagado** enquanto o nome está vazio. |
 
-Clique em **Salvar**. O grupo é criado e a lista de permissões aparece na mesma hora.
+Repare que o modal tem **só** este campo: as permissões não aparecem aqui. Clique em **Salvar** e
+o grupo é criado — e a lista de permissões surge na mesma hora, no lugar do formulário.
 
 ![O grupo recém-criado, com todas as permissões ligadas](imagens-tratadas/07-grupo-novo-permissoes-iniciais.png)
 
@@ -166,10 +167,11 @@ dentro do cadastro da pessoa — ou no ícone de chave, na linha da lista.
 
 ![Modal Alterar Senha](imagens-tratadas/13-modal-alterar-senha.png)
 
-| Nº | Campo | O que fazer |
-|----|-------|-------------|
-| 1 | **Nova Senha** | Mínimo de **4 caracteres**. |
-| 2 | **Confirmar Senha** | Repita. Se as duas não forem iguais, o sistema avisa e não salva. |
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1 | *Alterando senha para:* | Confirme o login antes de digitar — o modal não fecha ao trocar de linha. |
+| 2 | **Nova Senha** | Mínimo de **4 caracteres**. |
+| 3 | **Confirmar Senha** | Repita. Se as duas não forem iguais, o sistema avisa e não salva. |
 
 > Você não precisa saber a senha antiga para trocar. Quem tem acesso a esta tela pode redefinir
 > a senha de qualquer usuário — mais um motivo para a permissão **Usuários** ficar só com quem
