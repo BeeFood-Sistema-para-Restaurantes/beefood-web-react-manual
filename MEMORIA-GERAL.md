@@ -3,7 +3,9 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-01 (**#74** Entendendo a numeração dos pedidos — concluído: número da
+Última atualização: 2026-09-01 (**#75–#96** fila dos relatórios aprovada — os relatórios vivem no
+`beefood-reports-hub` e o painel só os mostra num **iframe**; captura só funciona por
+`/desempenho`; **#74** Entendendo a numeração dos pedidos — concluído: número da
 venda nunca reseta, número do pedido é do caixa, mesa nunca recebe **e não consome** número;
 virada 60→1 provada ao vivo; **cupom no navegador é IFRAME, não `window.open`**;
 **o `BITBUCKET_TOKEN` parou de autenticar** — backend não clona mais;
@@ -500,10 +502,12 @@ Obs.: ainda **não existe `spec.md`** no projeto (a regra do projeto pede criar 
 
 ### Onde fica o código (por máquina)
 
-| Máquina | Caminho do `beefood-web-react` |
-|---------|--------------------------------|
-| Windows (dono) | `C:\projetos\beefood-web-react` |
-| Cloud Agent | `~/refs/beefood-web-react` (clone raso, **somente leitura**) |
+| Repositório | Cloud Agent | O que tem |
+|-------------|-------------|-----------|
+| `beefood-web-react` | `~/refs/beefood-web-react` (no Windows do dono: `C:\projetos\beefood-web-react`) | O painel. Tem também 13 docs internos em `docs/` que valem leitura |
+| `beefood-reports-hub` | `~/refs/beefood-reports-hub` | Os relatórios do menu **Desempenho** (bloco #75–#96). **README desatualizado** — vá pelo `src/pages/Reports.tsx` |
+
+Os dois são **clone raso, somente leitura**.
 
 No Cloud Agent o clone é feito pelo `.cursor/install.sh`. Para o clone funcionar são
 necessárias **duas** liberações: o repositório precisa estar selecionado no **GitHub App do
@@ -707,6 +711,43 @@ Comparação do manual: painel à esquerda, **cardápio público** à
 direita (`menu.beefood.com.br/{link}`). O preview sticky do painel
 não entra no par. `validaDelivery` vem zlib+base64; cache ~1 min.
 Clique “só para ver” já grava.
+
+---
+
+### Relatórios (Desempenho) — bloco #75–#96 (fila aprovada)
+
+**Os relatórios NÃO estão no `beefood-web-react`.** O menu **Desempenho** é só um
+**iframe** apontando para `relatorios.beefood.com.br`, e todo o conteúdo vem do
+repositório **`beefood-reports-hub`** (em `~/refs/beefood-reports-hub`, o token do
+ambiente alcança). São **25 telas**; o **README daquele repositório está
+desatualizado** e descreve uma árvore que não existe mais — vá pelo código
+(`src/pages/Reports.tsx`), não pelo README.
+
+**Captura: só funciona entrando por `beefood.app/desempenho`** e trabalhando
+**dentro do iframe**. Montar a URL direta de `relatorios.beefood.com.br` com o
+bearer **falha** (redireciona para o `beefood.app`): o `?auth=` que o painel
+envia é um token **criptografado** (`U2FsdGVkX1...`), diferente do bearer da API,
+e não dá para reconstruir de fora. E atenção: **o `add_style_tag` da página
+principal não alcança o iframe** — para esconder o widget do WhatsApp, injete o
+CSS no **frame**.
+
+**API dos relatórios** é outra base: `https://report.beetechapi.be/api/relatorio2/...`
+(não é o `app3.beetechapi.be`). Cache de **5 minutos** por empresa + período +
+filial, e o **comparativo dispara depois** da chamada principal — print cedo sai
+sem as variações. Os **cinco submenus de Produtos compartilham uma única
+chamada**. Visibilidade de cada relatório depende do **grupo de acesso**.
+
+**Bloqueados (não documentar):** *Itens Vendidos* devolve **404** em produção e
+não tem item no menu; os dois *Acesso Cardápio Digital* estão **ocultos por
+código** (`isProduction` em `src/lib/accessControl.ts`).
+
+**Dado pessoal:** este é o primeiro bloco em que vários relatórios **listam
+clientes** (Oportunidades traz nome, endereço e **telefone**; Base de Clientes e
+RFV são o cadastro inteiro; Resumo de vendas, Descontos e Cancelamentos têm
+coluna Cliente). Borrão na **pura** antes do primeiro commit, sem exceção.
+
+Fila, diagnóstico de dado por relatório e armadilhas em
+[`PLANO-RELATORIOS.md`](PLANO-RELATORIOS.md).
 
 ---
 

@@ -7,7 +7,10 @@ Repositório de manuais de usuário final do BeeFood (`https://beefood.app`).
 - Markdown + imagens PNG (puras + tratadas com `annotate.py`)
 - Python 3.10+ e Pillow para anotações
 - Playwright para capturas no Cloud Agent
-- Código de referência: `beefood-web-react` e `beetech-server-node-2.0` (somente leitura)
+- Código de referência (somente leitura, em `~/refs`): `beefood-web-react` (painel) e
+  `beefood-reports-hub` (relatórios do menu Desempenho). O backend
+  `beetech-server-node-2.0` **não clona mais** — o `BITBUCKET_TOKEN` parou de autenticar
+  em 01/09/2026
 
 ## Estrutura
 
@@ -53,6 +56,7 @@ manuais/<nome>/
 | Aparência e layout do cardápio digital | #71 (concluído 30/08/2026) | `manuais/cardapio-digital-aparencia-layout/` |
 | Ficha técnica (hambúrguer) | #72 (concluído 01/09/2026) | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md) + `manuais/ficha-tecnica/` |
 | Numeração dos pedidos | #74 (concluído 01/09/2026) | [`PLANO-NUMERACAO-PEDIDOS.md`](PLANO-NUMERACAO-PEDIDOS.md) + `manuais/numeracao-pedidos/` |
+| **Relatórios (Desempenho)** | #75–#96 aprovados 01/09/2026 — **em fila**, um manual por relatório | [`PLANO-RELATORIOS.md`](PLANO-RELATORIOS.md) |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |
