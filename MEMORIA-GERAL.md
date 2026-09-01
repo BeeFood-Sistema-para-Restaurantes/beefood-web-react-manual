@@ -3,7 +3,8 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-30 (**#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
+Última atualização: 2026-09-01 (**#72** Ficha técnica — base de insumos zerada, opção repetida
+baixa em dobro, insumo sem controle de estoque não movimenta; **#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
@@ -604,6 +605,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Preço Programado | `manuais/preco-programado/` | ✅ Concluído (#69) |
 | Agendamento do cardápio digital | `manuais/cardapio-digital-agendamento/` | ✅ Concluído (#70) |
 | Aparência e layout do cardápio digital | `manuais/cardapio-digital-aparencia-layout/` | ✅ Concluído (#71) |
+| Ficha técnica (custo do prato e baixa de estoque) | `manuais/ficha-tecnica/` | ✅ Concluído (#72) |
 
 ### Exibir/Ocultar e Preço Programado — #68 e #69
 
@@ -651,6 +653,37 @@ Comparação do manual: painel à esquerda, **cardápio público** à
 direita (`menu.beefood.com.br/{link}`). O preview sticky do painel
 não entra no par. `validaDelivery` vem zlib+base64; cache ~1 min.
 Clique “só para ver” já grava.
+
+---
+
+### Ficha técnica — #72
+
+Aba **Ficha Técnica** no modal de **produto e de complemento** (Cardápio ou Meu
+Estoque). Só aparece com o produto **salvo**; o insumo precisa existir antes
+(Estoque → Meu Estoque → Insumos). Mobile é **somente leitura**.
+
+`custoLinha = qtd × custo do insumo`; o total vira **Custo Ficha Técnica** no
+produto (`custoComposicao`) e **soma** com o campo **Custo** digitado à mão.
+Margem = `(venda − custo total) ÷ venda`, sobre a venda, não markup.
+
+**Sem conversão de unidade:** insumo em KG, quantidade em fração (100 g = `0,1`;
+5 g = `0,005`). Até 4 casas decimais. Decisão do dono: cadastrar em **KG/L**.
+
+Provado em venda real (#925/#927/#928): a baixa acontece no **Receber** (pré-venda,
+antes do pagamento); a trilha tem 2 ou 3 níveis (`produto -> insumo` e
+`produto -> opção -> insumo`); **opção repetida baixa em dobro** (`origemQtd`), o
+que libera o modelo Proporcional da pizza; e **insumo sem Controlar Estoque não
+gera movimentação** (entra no custo e some do relatório).
+
+Sandbox: base de insumos **zerada** em 01/09/2026 e remontada com 10 insumos de
+hamburgueria. Sobrou *Maionese da casa (sache)* — insumo preso a receitas já
+usadas em produção não é excluível, nem com a receita inativa, e a API recusa
+receita com `itens: []`.
+
+Base com **nomes repetidos** (dois *One Burger*, duas *Batata frita*): o que tem
+grupos e ficha é o `produtoID` 2515371 / 2515323. No PDV o card certo é o do selo
+**COMBO**. Preço do PDV ≠ Preço de Venda por causa de um **Preço Programado**
+ativo na conta.
 
 ---
 
