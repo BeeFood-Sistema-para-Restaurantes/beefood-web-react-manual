@@ -92,6 +92,7 @@
 | 69 | **Preço Programado** | Happy hour sem mudar o cadastro; 20% no Milk Shake de Morango (18,90 → 15,12) no cardápio digital | `manuais/preco-programado/` | ✅ Concluído (4 imagens) | — |
 | 70 | **Agendamento do cardápio digital** | Os 3 switches + 7 campos de prazo, cada um em recorte **painel → cardápio** (Hoje/Agendar, faixa Dia, Hora Aproximada) | `manuais/cardapio-digital-agendamento/` | ✅ Concluído (5 imagens) | — |
 | 71 | **Aparência e layout do cardápio digital** | Capa, logo, cores e os três layouts (lista × setores, rolagem × passos, vitrine), cada opção em recorte **painel → cardápio** | `manuais/cardapio-digital-aparencia-layout/` | ✅ Concluído (8 imagens) | — |
+| 72 | **Grupos de acesso (estudo completo)** | Catálogo das **93 permissões** em 10 categorias, separando as que apagam tela, as que mexem por dentro e as que só põem cadeado; as 6 restrições da **tela de produto** em comparativos antes/depois; o que o grupo **não** controla (Função Gerente, Parâmetros, integrações) | `manuais/grupos-acesso/` | ✅ Concluído (17 imagens) | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -130,7 +131,7 @@
 | **Mesas / Comandas** | Mapa do salão, abrir e fechar conta, agrupar mesas, reabrir | 2 manuais | 4 | 💡 Ideia |
 | **Impressão** | Impressoras, impressão da cozinha, layout e os dois históricos | 2 a 3 manuais | 4 | 💡 Ideia |
 | **WhatsApp / BeeBot** | Conectar o número, notificações automáticas de status, respostas automáticas, IA e resumo diário | 3 manuais | 4 | 💡 Ideia |
-| **Usuários e permissões** | Criar usuário, montar grupo de acesso e o que cada permissão faz (complementa o #13, que só cobre caixa) | 1 a 2 manuais | 4 | 💡 Ideia |
+| **Usuários e permissões** | Criar usuário, montar grupo de acesso e o que cada permissão faz (complementa o #13, que só cobre caixa) | 1 a 2 manuais | 4 | ✅ **#72** cobre o catálogo das 93 permissões e as restrições da tela de produto (`manuais/grupos-acesso/`). Resta o passo a passo de *criar usuário* |
 | **Estoque** | Saldo e movimentações, importar NF-e de compra, receitas e ordens de produção | 3 manuais | 4 | 💡 Ideia |
 | **Histórico de Vendas** | Consultar venda passada, filtros, detalhe, pagamentos e exportação | 1 manual | 4 | 💡 Ideia |
 | **Totem / autoatendimento** | Contratar, configurar (5 abas) e a pesagem automática do self-service | 2 a 3 manuais | 4 | 💡 Ideia |

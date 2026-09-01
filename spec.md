@@ -50,6 +50,7 @@ manuais/<nome>/
 | Preço Programado | #69 (concluído 30/08/2026) | `manuais/preco-programado/` |
 | Agendamento do cardápio digital | #70 (concluído 30/08/2026) | `manuais/cardapio-digital-agendamento/` |
 | Aparência e layout do cardápio digital | #71 (concluído 30/08/2026) | `manuais/cardapio-digital-aparencia-layout/` |
+| Grupos de acesso (estudo completo das 93 permissões) | #72 (concluído 01/09/2026) | `manuais/grupos-acesso/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |

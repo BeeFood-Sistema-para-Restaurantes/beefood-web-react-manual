@@ -3,7 +3,8 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-08-30 (**#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
+Última atualização: 2026-09-01 (**#72** Grupos de acesso — estudo das 93 permissões, com a
+técnica de codificação binária para medir permissão e a espera de 85 s do cache; **#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
 ajuda.beefood em `PLANO-MIGRACAO-AJUDA.md`; screenshot Playwright
 precisa de `type="png"`; prévia `aside` pode sair com 5000+ px — recortar o aparelho;
 `get_by_role(name=lambda)` quebra no Playwright Python desta VM; banner de cupom
@@ -306,6 +307,31 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
 - **Se o traceback do Playwright citar um seletor que você já trocou**, desconfie de cache do
   script: criar um arquivo novo com outro nome resolveu (visto em 21/08/2026, manual #33).
 
+### Medir o efeito de uma permissão (grupo de acesso) — #72
+
+Vale para qualquer estudo que precise saber **o que cada switch faz**:
+
+- **Espere 85 segundos** entre o `POST /api/empresa2/grupoAcessoItem` e a leitura das permissões.
+  Testado em oito rodadas: com 85 s, duas leituras espaçadas de 12 s deram sempre o mesmo
+  resultado; com menos, a resposta oscila entre o valor antigo e o novo.
+- **Leia as permissões efetivas pela API**, não pela tela:
+  `GET /api/empresa2/empresaConfig/{empresaID}/{usuarioID}/1` devolve o `grupoAcessoUsuario`.
+  Ele vem em **base64 + zlib** (`pako.inflate` no front) — em Python, `b64decode` +
+  `zlib.decompress`. A rota só aceita o **usuarioID do próprio token**: com o token do Principal
+  e o id de outro usuário ela responde **401**. Solução: dois contextos do Playwright abertos,
+  um por usuário.
+- **Codificação binária em vez de um teste por permissão.** Dê a cada permissão um código de N
+  bits e faça N rodadas desligando as que têm o bit da rodada ligado. A assinatura de bits em
+  que cada chave virou `false` identifica a permissão. Fechou 93 permissões em 7 rodadas
+  (~18 min) em vez de 93 rodadas (~2 h30). Ponto cego: chave que depende de **duas** permissões
+  gera assinatura combinada, que pode coincidir com o código de uma terceira — reconfira os
+  resultados estranhos com teste individual.
+- **Nunca experimente no próprio grupo.** Salve o estado original antes e restaure no fim.
+- **Rodada de baseline com tudo ligado** é obrigatória: ela separa o que não depende do grupo
+  (no #72, apareceram três itens que dependem da **Função Gerente**).
+- **Login novo por cenário.** Reaproveitar `storage_state` congela o `config_cache` no estado
+  antigo.
+
 ### Aplicativos Android — o emulador NÃO funciona no Cloud Agent (testado em 2026-08-19)
 
 Investigação completa, para não se repetir o teste:
@@ -604,6 +630,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Preço Programado | `manuais/preco-programado/` | ✅ Concluído (#69) |
 | Agendamento do cardápio digital | `manuais/cardapio-digital-agendamento/` | ✅ Concluído (#70) |
 | Aparência e layout do cardápio digital | `manuais/cardapio-digital-aparencia-layout/` | ✅ Concluído (#71) |
+| Grupos de acesso — estudo completo | `manuais/grupos-acesso/` | ✅ Concluído (#72) |
 
 ### Exibir/Ocultar e Preço Programado — #68 e #69
 
