@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-09-02 (**#77** Cardápio digital presencial e QR Code; **#74** Entendendo a numeração dos pedidos; **#72** Ficha técnica; **#73** Produto só com agendamento; **#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas; **#64** Desconto formas)
+Última atualização: 2026-09-02 (**#17** BeeFood Pixel Analytics — funil e campanhas pagas; **#77** Cardápio digital presencial e QR Code; **#75/#76** Grupos de acesso; **#74** Numeração dos pedidos)
 
 ## Legenda de status
 
@@ -36,7 +36,7 @@
 | 14 | **Segmentação de clientes** | Criar públicos em Food Marketing → Segmentação de Cliente: o que é, os 37 filtros disponíveis, como combinar com E/OU, testar o tamanho do público e usar em campanhas — com vários exemplos prontos de restaurante | `manuais/segmentacao-clientes/` | ✅ Concluído | 🌐 Sim |
 | 15 | **Campanhas de WhatsApp** | Criar campanha em massa: escrever a mensagem com variações (reduz risco de bloqueio), anexar mídia, montar a lista de destinatários pelos cinco caminhos (avulso, RFV, filtro avançado, segmentação, Excel), revisar e publicar — mais abortar campanha e ler o resultado | `manuais/campanhas-whatsapp/` | ☑️ Aprovado | — |
 | 16 | **Campanhas Inteligentes** | As seis campanhas que já vêm criadas na conta (quatro delas **ligadas**), o gatilho e a configuração de fábrica de cada uma, os campos dos passos 1, 2 e 3, o catálogo de 20 variáveis (e as nove que só funcionam com histórico do cliente), a variação automática das mensagens e a proteção **Anti Banimento** | `manuais/campanhas-inteligentes/` | ✅ Concluído | — |
-| 17 | **BeeFood Pixel Analytics** | Ler o funil do cardápio digital (Visitas → Visualizações → Carrinho → Pedidos), filtrar por contexto, cardápio e origem, entender os KPIs e o painel Ao vivo | `manuais/pixel-analytics/` | ☑️ Aprovado | — |
+| 17 | **BeeFood Pixel Analytics** | Ler o funil do cardápio digital (Visitas → Visualizações → Carrinho → Pedidos), filtrar por contexto, cardápio e origem, entender os KPIs e o painel Ao vivo | `manuais/pixel-analytics/` | ✅ Concluído | — |
 | 18 | **Campanhas SMS** | Criar campanha de SMS, entender a contagem de créditos por segmento (e como economizar sem acento/emoji), comprar créditos por PIX e usar a blacklist / opt-out | `manuais/campanhas-sms/` | ✅ Concluído (14 imagens) | — |
 | 19 | **Cashback — configurar o programa** | Ativar o cashback, validade do saldo, saldo mínimo para resgate, percentual fixo ou por dia da semana, em quais canais o cliente ganha e as exceções de produto + faixa no cardápio digital | `manuais/cashback-configurar/` | ✅ Concluído (5 imagens) | — |
 | 20 | **Cashback — operar no dia a dia** | Histórico, saldo por cliente, **Adicionar e Remover** saldo na mão, fila de processamento, PDV e **saldo na sacola do cardápio digital** | `manuais/cashback-operar/` | ✅ Concluído (9 imagens) | — |
