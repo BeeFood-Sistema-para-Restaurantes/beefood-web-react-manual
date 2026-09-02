@@ -69,12 +69,36 @@ pela API antes. Filtro padrão da tela é **Delivery**.
 
 ---
 
-## 5. Estado
+## 5. Diagnóstico do sandbox (02/09/2026)
+
+Empresa **38311**, filial **39202**. Período padrão da tela: **27/08–02/09**
+(últimos 7 dias), contexto **Delivery**.
+
+Funil Delivery (todas as origens), lido da API `report.beetechapi.be`:
+
+| Etapa | Sessões | % das visitas |
+|-------|--------:|--------------:|
+| Visitas | 208 | 100% |
+| Visualizações | 63 | 30% |
+| Carrinho | 29 | 14% |
+| Finalização | 30 | 14% |
+| Pagamento | 23 | 11% |
+| Pedidos | 4 | 2% |
+
+Receita **R$ 138,32**, ticket **R$ 34,58**. Checkout (30) pode ficar um
+passo acima do carrinho (29): cada etapa é flag da sessão, não subconjunto
+estrito. Origens reais no recorte: Direto (114), Localhost, Instagram,
+SMS, cupom. Ao vivo devolveu 20 eventos (PAGEVIEW → ADD_PAYMENT).
+
+Uma visita em `menu.beefood.com.br/beefood3` durante a captura subiu
+visitas de 208 para 209 e apareceu no feed.
+
+## 6. Estado
 
 - [x] Código do front lido
-- [ ] Diagnóstico da API no sandbox
-- [ ] Capturas
-- [ ] Anotação
-- [ ] Manual do usuário
-- [ ] `texto-documentation.ia.md`
-- [ ] `validar-imagens.py`
+- [x] Diagnóstico da API no sandbox
+- [x] Capturas
+- [x] Anotação
+- [x] Manual do usuário
+- [x] `texto-documentation.ia.md`
+- [x] `validar-imagens.py`

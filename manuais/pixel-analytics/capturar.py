@@ -101,100 +101,63 @@ def tirar(page, nome: str, full: bool = False):
     print("   ->", nome, PURA / nome)
 
 
-def api_pixel(page, empresa_id: int, ini: str, fim: str):
-    return page.evaluate(
-        """async ({empresaID, ini, fim}) => {
-            const raw = localStorage.getItem('beefood_auth_token');
-            if (!raw) return {erro: 'sem token'};
-            const key = 'bf2024_secure_key_token';
-            const bin = Uint8Array.from(atob(raw), c => c.charCodeAt(0));
-            let token = '';
-            for (let i = 0; i < bin.length; i++) token += String.fromCharCode(bin[i] ^ key.charCodeAt(i % key.length));
-            const tz = -3;
-            const url = `https://app3.beetechapi.be/api/relatorio2/pixelAnalytics/${empresaID}/${ini}/${fim}?tz=${tz}`;
-            const r = await fetch(url, {headers: {Authorization: `Bearer ${token}`}});
-            const j = await r.json();
-            return {status: r.status, funil: j.funil || [], tempos: j.tempos || [],
-                    produtos: (j.produtos||[]).slice(0,8),
-                    visitantesDia: (j.visitantesDia||[]).length,
-                    evolucaoDia: (j.evolucaoDia||[]).length,
-                    dispositivos: j.dispositivos || [],
-                    cupomCashback: j.cupomCashback || []};
-        }""",
-        {"empresaID": empresa_id, "ini": ini, "fim": fim},
-    )
-
-
-def api_aovivo(page, empresa_id: int):
-    return page.evaluate(
-        """async (empresaID) => {
-            const raw = localStorage.getItem('beefood_auth_token');
-            const key = 'bf2024_secure_key_token';
-            const bin = Uint8Array.from(atob(raw), c => c.charCodeAt(0));
-            let token = '';
-            for (let i = 0; i < bin.length; i++) token += String.fromCharCode(bin[i] ^ key.charCodeAt(i % key.length));
-            const url = `https://app3.beetechapi.be/api/relatorio2/pixelAoVivo/${empresaID}/0`;
-            const r = await fetch(url, {headers: {Authorization: `Bearer ${token}`}});
-            const j = await r.json();
-            return {status: r.status, n: (j.eventos||[]).length, tipos: (j.eventos||[]).slice(0,12)};
-        }""",
-        empresa_id,
-    )
-
-
-def sessao_empresa(page) -> int:
-    return page.evaluate(
-        """() => {
-            const s = localStorage.getItem('user_session') || localStorage.getItem('beefood_user_session');
-            try {
-                const j = JSON.parse(s || '{}');
-                return j.empresaID || j.empresaId || 0;
-            } catch { return 0; }
-        }"""
-    )
-
-
 def diagnosticar(page):
-    # A sessão do front guarda empresaID ofuscado; ler da própria página após login.
+    """Lê as respostas que a própria tela já faz (report.beetechapi.be)."""
+    capturado = {"pixel": None, "aovivo": None, "seg": None}
+
+    def on_response(resp):
+        url = resp.url
+        if "pixelAnalytics" in url and capturado["pixel"] is None:
+            try:
+                capturado["pixel"] = {"status": resp.status, "url": url, "json": resp.json()}
+            except Exception as e:
+                capturado["pixel"] = {"status": resp.status, "url": url, "erro": str(e)}
+        elif "pixelAoVivo" in url and capturado["aovivo"] is None:
+            try:
+                capturado["aovivo"] = {"status": resp.status, "url": url, "json": resp.json()}
+            except Exception as e:
+                capturado["aovivo"] = {"status": resp.status, "url": url, "erro": str(e)}
+        elif "pixelSegmentacao" in url and capturado["seg"] is None:
+            try:
+                capturado["seg"] = {"status": resp.status, "url": url, "json": resp.json()}
+            except Exception as e:
+                capturado["seg"] = {"status": resp.status, "url": url, "erro": str(e)}
+
+    page.on("response", on_response)
     page.goto(URL, wait_until="domcontentloaded")
-    after_click(page, 4000)
-    empresa = page.evaluate(
-        """() => {
-            const keys = Object.keys(localStorage);
-            const out = {keys, empresaID: 0};
-            for (const k of keys) {
-                const v = localStorage.getItem(k) || '';
-                if (v.includes('empresaID') || v.includes('empresaId')) {
-                    try {
-                        const j = JSON.parse(v);
-                        out.empresaID = j.empresaID || j.empresaId || (j.user && (j.user.empresaID||j.user.empresaId)) || 0;
-                        out.from = k;
-                    } catch {}
-                }
-            }
-            return out;
-        }"""
-    )
-    print("SESSION", json.dumps(empresa, ensure_ascii=False)[:800])
-    eid = int(empresa.get("empresaID") or 0)
-    if not eid:
-        # fallback: interceptar a própria chamada da tela
-        print("empresaID não achado no localStorage; lendo da rede da tela")
-        return
-    atual = api_pixel(page, eid, DATA_INI, DATA_FIM)
-    print("PIXEL", json.dumps({
-        "status": atual.get("status"),
-        "funil_linhas": len(atual.get("funil") or []),
-        "funil": atual.get("funil"),
-        "visitantesDia": atual.get("visitantesDia"),
-        "evolucaoDia": atual.get("evolucaoDia"),
-        "produtos": atual.get("produtos"),
-        "dispositivos": atual.get("dispositivos"),
-        "cupomCashback": atual.get("cupomCashback"),
-    }, ensure_ascii=False, indent=2)[:6000])
-    vivo = api_aovivo(page, eid)
-    print("AOVIVO", json.dumps(vivo, ensure_ascii=False, indent=2)[:4000])
-    return eid, atual, vivo
+    after_click(page, 8000)
+
+    pix = capturado["pixel"] or {}
+    j = pix.get("json") or {}
+    funil = j.get("funil") or []
+    produtos = (j.get("produtos") or [])[:8]
+    print("PIXEL_URL", pix.get("url"), "status", pix.get("status"))
+    print("FUNIL_LINHAS", len(funil))
+    print("FUNIL", json.dumps(funil, ensure_ascii=False, indent=2)[:4000])
+    print("PRODUTOS", json.dumps(produtos, ensure_ascii=False, indent=2)[:2500])
+    print("VISITANTES_DIA", len(j.get("visitantesDia") or []))
+    print("EVOLUCAO_DIA", len(j.get("evolucaoDia") or []))
+    print("DISPOSITIVOS", json.dumps(j.get("dispositivos") or [], ensure_ascii=False)[:1500])
+    print("CUPOM", json.dumps(j.get("cupomCashback") or [], ensure_ascii=False)[:1500])
+
+    vivo = capturado["aovivo"] or {}
+    ev = (vivo.get("json") or {}).get("eventos") or []
+    print("AOVIVO_URL", vivo.get("url"), "status", vivo.get("status"), "n", len(ev))
+    print("AOVIVO", json.dumps(ev[:15], ensure_ascii=False, indent=2)[:3000])
+
+    seg = capturado["seg"] or {}
+    print("SEG_URL", seg.get("url"), "status", seg.get("status"))
+    linhas = (seg.get("json") or {}).get("linhas") or []
+    print("SEG", json.dumps(linhas[:12], ensure_ascii=False, indent=2)[:2500])
+    print("TELA", page.inner_text("body")[:1500])
+    return capturado
+
+
+def gerar_visita_publica(page):
+    """Abre o cardápio público para o ao vivo não ficar só com evento antigo."""
+    page.goto("https://menu.beefood.com.br/beefood3", wait_until="domcontentloaded")
+    after_click(page, 6000)
+    print("   visita pública ok", page.url)
 
 
 def abrir_pixel(page):
@@ -269,6 +232,7 @@ def cap_kpis(page):
 
 
 def cap_aovivo(page):
+    gerar_visita_publica(page)
     abrir_pixel(page)
     esconder_ao_vivo(page, False)
     # Abrir o painel (pílula "Ao vivo")
@@ -300,6 +264,7 @@ def cap_segmentacao(page):
 
 
 ETAPAS = {
+    "visita": gerar_visita_publica,
     "menu": cap_menu,
     "filtros": cap_filtros,
     "funil": cap_funil_colunas,
