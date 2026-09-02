@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-09-02 (**#77** Cardápio digital presencial e QR Code — em execução; **#74** Entendendo a numeração dos pedidos; **#72** Ficha técnica; **#73** Produto só com agendamento; **#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas; **#64** Desconto formas)
+Última atualização: 2026-09-02 (**#77** Cardápio digital presencial e QR Code; **#74** Entendendo a numeração dos pedidos; **#72** Ficha técnica; **#73** Produto só com agendamento; **#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas; **#64** Desconto formas)
 
 ## Legenda de status
 
@@ -97,7 +97,7 @@
 | 74 | **Entendendo a numeração dos pedidos** | Os dois números da venda: **número da venda** (contador único da loja, nunca reinicia) × **número do pedido** (contador do caixa, reinicia a cada caixa novo); o formato `1 (931)`; por que fechar o caixa todo dia; quem recebe número por canal (delivery sempre, PDV pelo switch, mesa nunca — e mesa não consome número) | `manuais/numeracao-pedidos/` | ✅ Concluído (6 imagens) | — |
 | 75 | **Grupos de acesso (estudo completo)** | Catálogo das **93 permissões** em 10 categorias, separando as que apagam tela, as que mexem por dentro e as que só põem cadeado; as 6 restrições da **tela de produto** em comparativos antes/depois; o que o grupo **não** controla (Função Gerente, Parâmetros, integrações) | `manuais/grupos-acesso/` | ✅ Concluído (17 imagens) | — |
 | 76 | **Criar usuário e montar grupo de acesso** | O caminho completo: criar o grupo (que nasce com tudo liberado), criar o usuário (7 campos), o risco de deixar **Grupo de Acesso: Nenhum** (vê quase tudo), trocar grupo, alterar senha, desativar e o usuário Principal | `manuais/usuarios-criar/` | ✅ Concluído (9 imagens) | — |
-| 77 | **Cardápio digital presencial e QR Code** | Ligar o canal, cadastro/e-mail/nascimento, opções do garçom, os 3 QRs (geral/mesa/comanda) e **Meus Links** (presencial.beefood, visualização, gerador em passos) | `manuais/cardapio-digital-presencial-qrcode/` | 🔨 Em execução | — |
+| 77 | **Cardápio digital presencial e QR Code** | Ligar o canal, cadastro/e-mail/nascimento, opções do garçom, os 3 QRs (geral/mesa/comanda) e **Meus Links** (presencial.beefood, visualização, gerador em passos e aviso de comanda) | `manuais/cardapio-digital-presencial-qrcode/` | ✅ Concluído (11 imagens) | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -131,7 +131,7 @@
 | **Delivery** | Operar pedidos: colunas de situação, aceitar, despachar, entregador, pagamentos, cancelamento — e o **Aceite Automático** | 3 a 4 manuais | 5 | 💡 Ideia |
 | **PDV** | Venda no balcão: carrinho, cliente, balança, desconto com senha de gerente, pagamento, reabrir e agrupar vendas | 3 a 4 manuais | 5 | 💡 Ideia |
 | **Cardápio** | Produtos, grupos de opções e complementos — o modal do produto tem 6 abas; mais Exibir/Ocultar, Rodízio e importar do iFood | 4 a 5 manuais | 5 | ☑️ **#27–#31** fundamentos; **#68** Exibir/Ocultar; **#69** Preço Programado. Restam Rodízio e importar do iFood |
-| **Cardápio Digital** | Configurar a loja online na ordem certa: horário, área de entrega, formas de recebimento, pagamento online, pausa programada e avisos (11 abas) | 3 a 4 manuais | 5 | ☑️ Horário (#32/#33), Agendamento (#70) + produto de encomenda (#73), Aparência/layout (#71), Área de Entrega (#34–#38), Avisos (#47), Capas e Destaques (#48), desconto/acréscimo das formas (#64) e presencial/QR (#77 em execução); restam cadastro completo das formas e contratação do PIX Online |
+| **Cardápio Digital** | Configurar a loja online na ordem certa: horário, área de entrega, formas de recebimento, pagamento online, pausa programada e avisos (11 abas) | 3 a 4 manuais | 5 | ☑️ Horário (#32/#33), Agendamento (#70) + produto de encomenda (#73), Aparência/layout (#71), Área de Entrega (#34–#38), Avisos (#47), Capas e Destaques (#48), desconto/acréscimo das formas (#64) e presencial/QR (#77); restam cadastro completo das formas e contratação do PIX Online |
 | **Fiscal** | Configuração fiscal, emissão e consulta de NFC-e e NF-e, inutilização, carta de correção e notas recebidas (a Reforma Tributária já é o #5) | 4 a 5 manuais | 5 | 💡 Ideia |
 | **Mesas / Comandas** | Mapa do salão, abrir e fechar conta, agrupar mesas, reabrir | 2 manuais | 4 | 💡 Ideia |
 | **Impressão** | Impressoras, impressão da cozinha, layout e os dois históricos | 2 a 3 manuais | 4 | 💡 Ideia |

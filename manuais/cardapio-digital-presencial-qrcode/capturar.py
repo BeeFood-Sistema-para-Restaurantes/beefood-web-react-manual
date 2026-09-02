@@ -211,14 +211,23 @@ def admin_shots(page):
 
     shot(page, "01-onde-fica.png")
 
-    # parâmetros (cadastro / e-mail / nascimento) — já no card; recorte extra
+    # modal garçom: no sandbox o switch vem desligado. Liga só para o
+    # print (02 + 03), abre o modal, fecha e restaura. Auto-save ~800 ms.
+    garcom_lbl = page.locator("label", has_text="Habilitar opções do Garçom")
+    restaurou_garcom = False
+    if garcom_lbl.count():
+        row = garcom_lbl.first.locator("xpath=ancestor::div[contains(@class,'flex')][1]")
+        sw = row.locator('[role="switch"]')
+        if sw.count() and sw.first.get_attribute("data-state") != "checked":
+            sw.first.click()
+            after_click(page, 2500)
+            restaurou_garcom = True
+            print("ligou garçom temporariamente")
     cad = page.get_by_text("Cadastro", exact=True)
     if cad.count():
         cad.first.scroll_into_view_if_needed()
         after_click(page, 2000)
-        shot(page, "02-parametros.png")
-
-    # modal garçom — só abrir, não clicar switch
+    shot(page, "02-parametros.png")
     cfg_btn = page.locator("button", has_text="Configurar")
     if cfg_btn.count():
         cfg_btn.first.click()
@@ -228,6 +237,13 @@ def admin_shots(page):
         after_click(page, 1500)
     else:
         print("botão Configurar não achado (garçom desligado?)")
+    if restaurou_garcom and garcom_lbl.count():
+        row = garcom_lbl.first.locator("xpath=ancestor::div[contains(@class,'flex')][1]")
+        sw = row.locator('[role="switch"]')
+        if sw.count() and sw.first.get_attribute("data-state") == "checked":
+            sw.first.click()
+            after_click(page, 2500)
+            print("restaurou garçom desligado")
 
 
 def qr_shots(page):

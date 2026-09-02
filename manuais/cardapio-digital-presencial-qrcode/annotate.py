@@ -117,6 +117,91 @@ def no_painel(i, tx, ty, W, H, ph_h):
     return x / W, y / H
 
 
-# Marcadores provisórios — ajustar depois das capturas (grade de frações).
 if __name__ == "__main__":
-    print("rode de novo depois das capturas; marcadores ainda são rascunho")
+    # 01) Aba + card Presencial (viewport inteiro)
+    annotate("01-onde-fica.png", [
+        (1, 0.235, 0.078, 0.235, 0.020),   # aba Configurações
+        (2, 0.330, 0.385, 0.250, 0.300),   # título Presencial
+        (3, 0.638, 0.385, 0.720, 0.300),   # switch Presencial Ativo
+        (4, 0.430, 0.490, 0.560, 0.430),   # link /?tipo=p
+        (5, 0.300, 0.585, 0.220, 0.660),   # botões QR
+    ])
+
+    # 02) recorte do card — cadastro e opções
+    annotate("02-parametros.png", [
+        (1, 0.720, 0.520, 0.900, 0.430),   # Cadastro
+        (2, 0.580, 0.780, 0.520, 0.900),   # E-mail
+        (3, 0.820, 0.780, 0.920, 0.900),   # Nascimento
+        (4, 0.155, 0.630, 0.070, 0.560),   # Garçom
+        (5, 0.155, 0.760, 0.070, 0.850),   # Fechamento
+    ], raio=0.018)
+
+    # 03) modal opções do garçom
+    annotate("03-garcom-opcoes.png", [
+        (1, 0.380, 0.390, 0.260, 0.280),   # switch Copo
+        (2, 0.620, 0.790, 0.720, 0.860),   # FECHAR (ESC)
+    ])
+
+    # 04) QR geral
+    annotate("04-qr-geral.png", [
+        (1, 0.500, 0.430, 0.320, 0.280),   # o QR
+        (2, 0.455, 0.715, 0.350, 0.715),   # Download
+        (3, 0.545, 0.715, 0.660, 0.715),   # Imprimir
+    ])
+
+    # 05) QR mesa gerados
+    annotate("05-qr-mesa.png", [
+        (1, 0.360, 0.300, 0.250, 0.230),   # Mesa Inicial / Final
+        (2, 0.520, 0.300, 0.640, 0.230),   # Gerar QR Codes
+        (3, 0.680, 0.400, 0.800, 0.340),   # Download / Imprimir Todos
+    ])
+
+    # 06) Meus Links — grupo presencial (Sem mesa / Sem comanda)
+    annotate("06-meus-links.png", [
+        (1, 0.075, 0.825, 0.185, 0.770),   # Meus Links (rodapé)
+        (2, 0.780, 0.505, 0.680, 0.450),   # CARDÁPIOS PRESENCIAL
+        (3, 0.730, 0.640, 0.660, 0.560),   # Sem mesa
+        (4, 0.850, 0.640, 0.920, 0.560),   # Sem comanda
+        (5, 0.800, 0.730, 0.680, 0.790),   # olho · copiar · WhatsApp · QR (pedir)
+        (6, 0.800, 0.880, 0.680, 0.940),   # Cardápio de visualização
+    ])
+
+    # 07) Mesa 2 escolhida — URL com ?mesa=2
+    annotate("07-meus-links-mesa.png", [
+        (1, 0.730, 0.650, 0.650, 0.580),   # Mesa 2
+        (2, 0.800, 0.700, 0.680, 0.700),   # URL ?mesa=2
+        (3, 0.800, 0.745, 0.680, 0.820),   # ícones deste link (Mesa 2)
+    ])
+
+    # 08) gerador passo 1
+    annotate("08-gerador-passo1.png", [
+        (1, 0.350, 0.500, 0.240, 0.320),   # QR Codes de Mesas
+        (2, 0.650, 0.500, 0.780, 0.320),   # QR Codes de Comandas
+    ])
+
+    # 09) tipo de QR
+    annotate("09-tipo-qr.png", [
+        (1, 0.350, 0.500, 0.240, 0.300),   # Cardápio Digital Presencial
+        (2, 0.650, 0.500, 0.780, 0.300),   # Código da Mesa
+    ])
+
+    # 09c) recomendação comanda (gate)
+    annotate("09c-gate-comanda.png", [
+        (1, 0.320, 0.420, 0.200, 0.250),   # não recomendado
+        (2, 0.680, 0.420, 0.820, 0.250),   # recomendado
+        (3, 0.720, 0.820, 0.820, 0.900),   # QUERO GERAR DE COMANDA
+    ], out_name="09b-recomendacao-comanda.png")
+
+    W, H, ph_h = montar_celulares("10-cardapio-digital.png", [
+        ("10-cel-presencial-home.png", "Pedir  ·  /?tipo=p"),
+        ("11-cel-visualizacao.png", "Só olhar  ·  visualização"),
+    ])
+    t1 = no_painel(0, 0.50, 0.955, W, H, ph_h)
+    t2 = no_painel(1, 0.50, 0.955, W, H, ph_h)
+    annotate("10-cardapio-digital.png", [
+        (1, t1[0], t1[1], t1[0] - 0.04, t1[1] - 0.10),
+        (2, t2[0], t2[1], t2[0] + 0.04, t2[1] - 0.10),
+    ], raio=0.016)
+
+    print("done")
+

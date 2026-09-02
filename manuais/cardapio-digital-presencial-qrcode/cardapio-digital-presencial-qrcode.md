@@ -91,9 +91,9 @@ e data de nascimento (3) só valem quando o cadastro está ligado.
 
 | Opção na tela | O que acontece |
 |---------------|----------------|
-| **Cadastro rápido com nome e telefone** *(Venda separada por telefone)* | Cada celular vira uma conta. Bom para mesa compartilhada em que cada um paga o seu. |
-| **Sem cadastro** *(Venda única por Mesa/Comanda)* | A conta é da mesa. E-mail e nascimento **somem**. |
-| **Cadastro completo com login e senha** *(Venda separada por cadastro)* | O cliente entra com conta. |
+| **Cadastro rápido com nome e telefone (Venda separada por telefone)** | Cada celular vira uma conta. Bom para mesa compartilhada em que cada um paga o seu. |
+| **Sem cadastro (Venda única por Mesa/Comanda)** | A conta é da mesa. E-mail e nascimento **somem**. |
+| **Cadastro completo com login e senha (Venda separada por cadastro)** | O cliente entra com conta. |
 
 **Obrigatório** no e-mail ou no nascimento trava o cadastro até o
 cliente preencher.
@@ -167,7 +167,9 @@ BeeFood*.
 No rodapé do menu lateral: **Meus Links** (1). Abre um painel à
 direita. Desça até **Cardápios Presencial** (2).
 
-Há **três peças** neste grupo.
+Há **três peças** neste grupo: o link para **pedir** na mesa/comanda,
+o cardápio de **visualização** (só olhar) e o **gerador** em passos.
+O botão do gerador fica no **fim** do painel — role até ele.
 
 ![Meus Links: grupo Cardápios Presencial](imagens-tratadas/06-meus-links.png)
 
@@ -175,44 +177,63 @@ Há **três peças** neste grupo.
 |----|--------|-----------|
 | 1. | **Meus Links** | Abre o painel |
 | 2. | **Cardápios Presencial** | O grupo deste manual |
-| 3. | **Link para pedidos de mesa e comanda** | URL `presencial.beefood.com.br/…` |
-| 4. | **Sem mesa** / **Sem comanda** | Amarra o link a uma mesa ou comanda |
-| 5. | Olho · copiar · WhatsApp · QR | Abrir, copiar, mandar, gerar um QR |
+| 3. | **Sem mesa** | Select da mesa (aqui: link genérico) |
+| 4. | **Sem comanda** | Select da comanda |
+| 5. | Olho · copiar · WhatsApp · QR | Abrir, copiar, mandar, gerar **um** QR deste link |
 | 6. | **Cardápio de visualização** | Só ver o cardápio, **sem pedir** |
-| 7. | **Abrir Gerador de QR Codes** | O mesmo gerador da Configurações, em passos |
 
 O grupo de cima (**Cardápios Delivery**) é o link da entrega, o do
 balcão e o multilojas. Não entra aqui.
 
+Os quatro ícones valem para **o link que está na caixa**:
+
+- **Olho** — abre numa aba nova
+- **Copiar** — *Link copiado!*
+- **WhatsApp** — monta `Olá! Acesse nosso cardápio digital:` + a URL
+- **QR** — um código só, deste link (não é o intervalo da Parte 3)
+
 ### Um link por mesa
 
-Deixe **Sem comanda** e escolha **Mesa 3** (1). A URL ganha
-`?mesa=3` (2). Aí o olho, o copiar, o WhatsApp e o QR (3) já saem
-amarrados naquela mesa.
+Na lista só entram as mesas e comandas **cadastradas**. No BeeFood3
+a primeira é a **Mesa 2** (não existe Mesa 1). Deixe **Sem comanda**
+e escolha **Mesa 2** (1). A URL ganha `?mesa=2` (2). Os quatro
+ícones (3) já saem amarrados nessa mesa.
 
-![Meus Links com a Mesa 3 escolhida](imagens-tratadas/07-meus-links-mesa.png)
+![Meus Links com a Mesa 2 escolhida](imagens-tratadas/07-meus-links-mesa.png)
 
 | Nº | Campo | O que faz |
 |----|--------|-----------|
-| 1. | **Mesa 3** | Select da mesa cadastrada |
-| 2. | A URL | `presencial.beefood.com.br/beefood3/?mesa=3` |
+| 1. | **Mesa 2** | Select da mesa cadastrada |
+| 2. | A URL | `presencial.beefood.com.br/beefood3/?mesa=2` |
 | 3. | Os quatro ícones | Vale para **este** link |
 
-Se a loja tem **comanda cadastrada** e você gera o QR **só com
-mesa**, o sistema pergunta *Você usa Comanda?* e recomenda o QR da
-comanda — vários clientes na mesma mesa não deveriam cair na mesma
-conta. Nos três botões da Configurações **esse aviso não aparece**.
+Dá para marcar mesa **e** comanda ao mesmo tempo: a URL fica
+`?mesa=2&comanda=N`.
+
+Se a loja já tem **comanda cadastrada** e você gera o QR **só com
+mesa** (ícone QR deste card **ou** o gerador no passo *Cardápio
+Digital Presencial*), o sistema abre o aviso abaixo. Vários
+clientes na mesma mesa não deveriam cair na mesma conta. Nos três
+botões da Configurações **esse aviso não aparece**.
+
+![Aviso: recomendamos o QR da comanda](imagens-tratadas/09b-recomendacao-comanda.png)
+
+| Nº | Campo | O que faz |
+|----|--------|-----------|
+| 1. | **QR Code de Mesa** | O caminho que o sistema **não** recomenda quando já existe comanda |
+| 2. | **QR Code de Comanda** | Cada cliente lê o código da própria comanda; a mesa só organiza a entrega |
+| 3. | **QUERO GERAR DE COMANDA** | Segue o fluxo da comanda. *Continuar com QR Code de Mesa* ignora o aviso |
 
 ### Cardápio de visualização
 
 `https://cardapio.beefood.com.br/beefood3` — o cliente **vê** o
-cardápio e **não pede**. Serve para TV, totem só de consulta ou
-imprimir o cardápio sem abrir venda.
+cardápio e **não pede**. No celular some a aba **Pedidos**. Serve
+para TV, totem só de consulta ou mandar o cardápio sem abrir venda.
 
 ### O gerador em passos
 
-**Abrir Gerador de QR Codes** pergunta primeiro: **mesas** ou
-**comandas**.
+No fim do painel: **Abrir Gerador de QR Codes**. Primeiro pergunta
+**mesas** ou **comandas**.
 
 ![Gerador: Mesas ou Comandas](imagens-tratadas/08-gerador-passo1.png)
 
@@ -231,7 +252,8 @@ No passo seguinte, escolha **o que** o código faz:
 | 2. | **Código da Mesa** | Código para o PDV / tablet (outro QR) |
 
 **Cardápio Digital Presencial** abre o mesmo modal da Parte 3
-(intervalo, gerar, baixar, imprimir).
+(intervalo, gerar, baixar, imprimir). Se você pediu **mesas** e a
+loja tem comanda, cai no aviso da imagem anterior.
 
 ---
 
@@ -244,10 +266,19 @@ Dois jeitos de abrir o presencial no celular:
   chega no mesmo lugar.
 - Só olhar: `https://cardapio.beefood.com.br/beefood3`.
 
-![Cardápio presencial no celular](imagens-tratadas/10-cardapio-digital.png)
+![Pedir × só olhar: a aba Pedidos some na visualização](imagens-tratadas/10-cardapio-digital.png)
 
-O QR da **Mesa 3** já chega com a mesa preenchida. O QR **Geral**
+| Nº | Campo | O que faz |
+|----|--------|-----------|
+| 1. | Aba **Pedidos** | O link de pedir (`/?tipo=p` ou `presencial.beefood.com.br`) |
+| 2. | Sem aba **Pedidos** | O de visualização (`cardapio.beefood.com.br`) |
+
+O QR da **Mesa 2** já chega com a mesa preenchida. O QR **Geral**
 pede para o cliente escolher.
+
+A loja pode aparecer **Fechado** no celular se a grade do
+Presencial estiver fechada agora — o QR abre, o pedido é que
+não entra. Veja o manual **Horário de atendimento**.
 
 ---
 
@@ -264,12 +295,18 @@ horário do Delivery **não** vale para o QR.
 **Gerei Mesa 1 a 20 e o cliente caiu numa mesa que não existe.**
 O gerador da Configurações não confere o cadastro. Gere só o
 intervalo que você cadastrou, ou use **Meus Links** e escolha a mesa
-na lista — ali só aparecem as que existem.
+na lista — ali só aparecem as que existem (no BeeFood3, a primeira
+é a Mesa 2).
 
 **Qual link eu imprimo na mesa?**
 Para o cliente **pedir**: o da Configurações (`/?tipo=p`) ou o de
 Meus Links (`presencial.beefood.com.br`), com a mesa no parâmetro.
-Para o cliente **só ver**: o de visualização.
+Para o cliente **só ver**: o de visualização
+(`cardapio.beefood.com.br`).
+
+**O WhatsApp de Meus Links manda o quê?**
+A frase pronta *Olá! Acesse nosso cardápio digital:* mais a URL
+que está na caixa — inclusive com `?mesa=` se você escolheu a mesa.
 
 **O QR do PDV não abre o cardápio.**
 É o **Código da Mesa** (`empresa_1`). A câmera do celular não sabe o
