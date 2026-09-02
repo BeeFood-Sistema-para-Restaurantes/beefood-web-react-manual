@@ -53,7 +53,7 @@ manuais/<nome>/
 | Aparência e layout do cardápio digital | #71 (concluído 30/08/2026) | `manuais/cardapio-digital-aparencia-layout/` |
 | Ficha técnica (hambúrguer) | #72 (concluído 01/09/2026) | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md) + `manuais/ficha-tecnica/` |
 | Numeração dos pedidos | #74 (concluído 01/09/2026) | [`PLANO-NUMERACAO-PEDIDOS.md`](PLANO-NUMERACAO-PEDIDOS.md) + `manuais/numeracao-pedidos/` |
-| BeeFood Pixel Analytics | #17 (concluído 02/09/2026) | `manuais/pixel-analytics/` |
+| BeeFood Pixel Analytics | #17 (concluído 02/09/2026; campanhas pagas no mesmo dia) | `manuais/pixel-analytics/` |
 | Grupos de acesso (estudo completo das 93 permissões) | #75 (concluído 01/09/2026) | `manuais/grupos-acesso/` |
 | Criar usuário e montar grupo de acesso | #76 (concluído 01/09/2026) | `manuais/usuarios-criar/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |

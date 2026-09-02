@@ -3,8 +3,10 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-02 (**#17** BeeFood Pixel Analytics — painel de leitura do
-funil, filtros, KPIs e ao vivo; sandbox com 208 visitas / 4 pedidos nos últimos 7 dias);
+Última atualização: 2026-09-02 (**#17** BeeFood Pixel Analytics — funil +
+campanha paga: Origem isola a plataforma, UTM isola a campanha; 4 pedidos
+gerados com URLs fake Google/Facebook/Instagram/TikTok; 228 visitas / 8
+pedidos / 4% nos últimos 7 dias);
 **#75/#76** Grupos de acesso — estudo das 93 permissões (com a
 técnica de codificação binária para medir permissão e a espera de 85 s do cache) e o manual de
 criar usuário/grupo — **usuário sem grupo enxerga quase tudo**;

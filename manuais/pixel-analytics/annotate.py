@@ -93,52 +93,73 @@ def annotate(name, markers, ring=None, raio=0.0125):
     print("OK", name)
 
 
-# 01) Menu: Food Marketing → BeeFood Pixel Analytics (estamos na home)
+# 01) Menu: Food Marketing → BeeFood Pixel Analytics
 annotate("01-menu-food-marketing.png", [
-    (1, 0.095, 0.148, 0.040, 0.148),  # FOOD MARKETING
-    (2, 0.110, 0.198, 0.040, 0.198),  # BeeFood Pixel Analytics
+    (1, 0.095, 0.148, 0.040, 0.148),
+    (2, 0.110, 0.198, 0.040, 0.198),
 ])
 
 # 02) Filtros do topo
 annotate("02-filtros-topo.png", [
-    (1, 0.300, 0.198, 0.300, 0.130),  # período
-    (2, 0.430, 0.198, 0.430, 0.130),  # contexto
-    (3, 0.560, 0.198, 0.560, 0.130),  # cardápio
-    (4, 0.690, 0.198, 0.690, 0.130),  # origem
-    (5, 0.820, 0.198, 0.820, 0.130),  # Excel
-    (6, 0.940, 0.198, 0.940, 0.130),  # ajuda
+    (1, 0.300, 0.198, 0.300, 0.130),
+    (2, 0.430, 0.198, 0.430, 0.130),
+    (3, 0.560, 0.198, 0.560, 0.130),
+    (4, 0.690, 0.198, 0.690, 0.130),
+    (5, 0.820, 0.198, 0.820, 0.130),
+    (6, 0.940, 0.198, 0.940, 0.130),
 ])
 
-# 03) Funil em colunas — as 6 etapas
+# 03) Funil em colunas
 annotate("03-funil-colunas.png", [
-    (1, 0.280, 0.340, 0.280, 0.255),  # Visitas
-    (2, 0.405, 0.340, 0.405, 0.255),  # Visualizações
-    (3, 0.530, 0.340, 0.530, 0.255),  # Carrinho
-    (4, 0.655, 0.340, 0.655, 0.255),  # Finalização
-    (5, 0.780, 0.340, 0.780, 0.255),  # Pagamento
-    (6, 0.905, 0.340, 0.905, 0.255),  # Pedidos
+    (1, 0.280, 0.340, 0.280, 0.255),
+    (2, 0.405, 0.340, 0.405, 0.255),
+    (3, 0.530, 0.340, 0.530, 0.255),
+    (4, 0.655, 0.340, 0.655, 0.255),
+    (5, 0.780, 0.340, 0.780, 0.255),
+    (6, 0.905, 0.340, 0.905, 0.255),
 ])
 
 passthrough("04-funil-classico.png")
 
-# 05) KPIs (depois de rolar até Receita / Ticket / Conversão)
+# 05) KPIs
 annotate("05-kpis-resumo.png", [
-    (1, 0.320, 0.640, 0.250, 0.555),  # Receita total
-    (2, 0.550, 0.640, 0.550, 0.555),  # Ticket médio
-    (3, 0.780, 0.640, 0.900, 0.555),  # Conversão geral
+    (1, 0.320, 0.640, 0.250, 0.555),
+    (2, 0.550, 0.640, 0.550, 0.555),
+    (3, 0.780, 0.640, 0.900, 0.555),
 ])
 
-# 06) Ao vivo (canto inferior direito)
+# 06) Ao vivo — eventos de Kwai / YouTube / pedido
 annotate("06-ao-vivo.png", [
-    (1, 0.880, 0.560, 0.780, 0.500),  # título Ao vivo
-    (2, 0.860, 0.680, 0.760, 0.680),  # um evento
+    (1, 0.880, 0.500, 0.760, 0.455),
+    (2, 0.880, 0.680, 0.760, 0.680),
 ])
 
 passthrough("07-como-funciona.png")
 
-# 08) Segmentação — tabela de origens
+# 08) Top Origens — Google na tabela
 annotate("08-segmentacao.png", [
-    (1, 0.300, 0.640, 0.220, 0.575),  # atalho Top Origens
-    (2, 0.300, 0.860, 0.220, 0.860),  # linha Direto
-    (3, 0.620, 0.800, 0.750, 0.740),  # coluna Conv. %
+    (1, 0.275, 0.585, 0.195, 0.530),  # atalho Top Origens
+    (2, 0.280, 0.825, 0.195, 0.825),  # linha Google
+    (3, 0.625, 0.825, 0.770, 0.770),  # Conv. %
+])
+
+# 09) Campanhas que mais vendem
+annotate("09-campanhas-vendem.png", [
+    (1, 0.455, 0.585, 0.355, 0.530),  # atalho vermelho
+    (2, 0.305, 0.848, 0.200, 0.848),  # manual-meta-feed
+    (3, 0.625, 0.848, 0.780, 0.790),  # Conv. % / receita
+])
+
+# 10) UTM Source × Medium
+annotate("10-utm-source-medium.png", [
+    (1, 0.505, 0.585, 0.400, 0.530),  # atalho UTM Source × Medium
+    (2, 0.305, 0.788, 0.200, 0.788),  # google · cpc
+    (3, 0.625, 0.788, 0.780, 0.730),  # Conv. %
+])
+
+# 11) Filtro Origem = Google
+annotate("11-origem-google.png", [
+    (1, 0.700, 0.200, 0.700, 0.130),
+    (2, 0.905, 0.340, 0.905, 0.255),
+    (3, 0.620, 0.760, 0.760, 0.700),
 ])

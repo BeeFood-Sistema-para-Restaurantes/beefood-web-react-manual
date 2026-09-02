@@ -147,6 +147,38 @@ Filtro do painel expandido: Todos / Pedidos / Carrinhos / Visualizações.
 
 ---
 
+## Origem × UTM (campanha paga)
+
+O cardápio público (`menu.beefood.com.br`) grava no `localStorage`:
+
+- `beefood_pixel_attrib` — `paramsRaw` (utm_*, gclid, fbclid) + `origem` +
+  `referrer` HTTP. Expiração ~30 dias.
+- `beefood_pixel_sessao`, `beefood_pixel_ef`, `beefood_meta_attr`, `beefood_uid`
+
+`POST https://marketing.beetechapi.be/api/rest/pixel/session` envia esses
+params. O **relatório** classifica a origem pelo `utm_source`, mesmo quando
+o HTTP referrer veio vazio (`referrer: "direto"` no attrib):
+
+| `utm_source` | Origem no filtro / ao vivo |
+|--------------|----------------------------|
+| `google` | Google |
+| `facebook` | Facebook |
+| `instagram` | Instagram |
+| `tiktok` | TikTok |
+| `youtube` | YouTube |
+| `kwai` | Kwai |
+
+O filtro **Origem** do topo recorta o `pixelAnalytics` **em memória**
+(`recorte` compara `referrer`). A segmentação UTM é outro endpoint
+(`pixelSegmentacao/.../utmCampaign`, `utmSource/utmMedium`, `utmContent`).
+
+Presets de tabela que o manual ensina: **Top Origens** (`referrer`),
+**Campanhas que mais vendem** (`utmCampaign`, sort receita),
+**UTM Source × Medium** (`utmSource` + `utmMedium`, sort pedidos),
+**Conteúdo de anúncio (UTM)** (`utmContent`).
+
+Gerador das URLs de exemplo: `pedido_anuncio.py` (não publicar).
+
 ## O que este manual NÃO cobre
 
 - Pixel da Meta + API de Conversões (#49) e Pixel da Meta somente (#50).
