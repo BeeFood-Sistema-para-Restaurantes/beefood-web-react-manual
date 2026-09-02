@@ -256,11 +256,103 @@ def cap_ajuda(page):
 def cap_segmentacao(page):
     abrir_pixel(page)
     esconder_ao_vivo(page, True)
-    alvo = page.get_by_text("Segmentação", exact=False)
+    alvo = page.get_by_text("Segmentação personalizada", exact=False)
     if alvo.count():
         alvo.first.scroll_into_view_if_needed()
         after_click(page, 3000)
+    # Top Origens é o padrão da tabela
     tirar(page, "08-segmentacao.png")
+
+
+def _abrir_atalho_seg(page, nome: str):
+    abrir_pixel(page)
+    esconder_ao_vivo(page, True)
+    alvo = page.get_by_text("Segmentação personalizada", exact=False)
+    if alvo.count():
+        alvo.first.scroll_into_view_if_needed()
+        after_click(page, 2500)
+    btn = page.locator("button", has_text=nome)
+    if not btn.count():
+        raise RuntimeError(f"atalho não encontrado: {nome}")
+    btn.first.click()
+    after_click(page, 5000)
+    alvo.first.scroll_into_view_if_needed()
+    after_click(page, 1500)
+
+
+def cap_campanhas(page):
+    _abrir_atalho_seg(page, "Campanhas que mais vendem")
+    tirar(page, "09-campanhas-vendem.png")
+
+
+def cap_utm(page):
+    _abrir_atalho_seg(page, "UTM Source × Medium")
+    tirar(page, "10-utm-source-medium.png")
+
+
+def cap_conteudo(page):
+    _abrir_atalho_seg(page, "Conteúdo de anúncio (UTM)")
+    tirar(page, "11-utm-content.png")
+
+
+def cap_origem_google(page):
+    """Funil recortado na origem Google — prova do filtro de campanha paga."""
+    abrir_pixel(page)
+    esconder_ao_vivo(page, True)
+    combo = page.get_by_role("combobox")
+    print("   combobox count", combo.count())
+    alvo = None
+    for i in range(combo.count()):
+        txt = (combo.nth(i).inner_text() or "").strip()
+        print("   combo", i, txt)
+        if txt in ("Todas", "Google", "Direto"):
+            alvo = combo.nth(i)
+    if alvo is None and combo.count():
+        alvo = combo.last
+    alvo.click()
+    after_click(page, 1500)
+    # item dentro do popover (Command), não a linha da tabela
+    pop = page.locator("[cmdk-list], [role=listbox], [data-radix-popper-content-wrapper]").last
+    item = pop.get_by_text("Google", exact=True)
+    if not item.count():
+        item = page.locator("[cmdk-item]").filter(has_text="Google")
+    print("   item google", item.count())
+    item.first.click()
+    after_click(page, 5000)
+    print("   origem agora", page.get_by_role("combobox").last.inner_text())
+    tirar(page, "11-origem-google.png")
+
+
+def diagnosticar_utm(page):
+    """Lê segmentações UTM/origem com o cookie da sessão já autenticada."""
+    abrir_pixel(page)
+    tz = "America/Sao_Paulo"
+    ini, fim = DATA_INI, DATA_FIM
+    # Para o recorte "últimos 7 dias" da tela:
+    ini7, fim7 = "2026-08-27", "2026-09-02"
+    emp = 38311
+    grupos = [
+        ("referrer", None),
+        ("utmSource", None),
+        ("utmCampaign", None),
+        ("utmSource", "utmMedium"),
+        ("utmContent", None),
+        ("utmTerm", None),
+    ]
+    for periodo, a, b in (("amplo", ini, fim), ("7d", ini7, fim7)):
+        print(f"== seg {periodo} {a}..{b}")
+        for g1, g2 in grupos:
+            extra = f"/{g2}" if g2 else ""
+            url = (
+                f"https://report.beetechapi.be/api/relatorio2/pixelSegmentacao/"
+                f"{emp}/{a}/{b}/{g1}{extra}?contexto=delivery&tz={tz}"
+            )
+            try:
+                resp = page.request.get(url)
+                corpo = resp.text()
+                print(g1, g2 or "-", resp.status, corpo[:1800])
+            except Exception as e:
+                print(g1, g2 or "-", "ERRO", e)
 
 
 ETAPAS = {
@@ -273,6 +365,11 @@ ETAPAS = {
     "aovivo": cap_aovivo,
     "ajuda": cap_ajuda,
     "segmentacao": cap_segmentacao,
+    "campanhas": cap_campanhas,
+    "utm": cap_utm,
+    "conteudo": cap_conteudo,
+    "origem-google": cap_origem_google,
+    "diag-utm": diagnosticar_utm,
 }
 
 
