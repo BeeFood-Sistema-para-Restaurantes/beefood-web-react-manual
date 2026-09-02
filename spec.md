@@ -68,6 +68,7 @@ manuais/<nome>/
 | Estudo | Situação | Documento |
 |--------|----------|-----------|
 | Ficha técnica da **pizza** | ⏸️ em espera: aguarda a correção da pizza. O manual #72 já respondeu a dúvida técnica (opção repetida baixa em dobro) | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md), seção 9 |
+| **Vínculo Marketplace** (proposta de #78) | ⏳ entregue em 02/09/2026, aguarda aprovação. Sandbox pronto (786 vínculos, 22 vendas de marketplace); 5 perguntas em aberto na seção 14 | [`PLANO-VINCULO-MARKETPLACE.md`](PLANO-VINCULO-MARKETPLACE.md) |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
 18040-370**. Endereço de entrega de teste nos quatro tipos: **R. Arthur Gomes, 13 — Centro,
