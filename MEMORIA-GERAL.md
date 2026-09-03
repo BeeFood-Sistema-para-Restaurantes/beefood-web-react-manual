@@ -697,6 +697,9 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | BeeFood Pixel Analytics | `manuais/pixel-analytics/` | ✅ Concluído (#17) |
 | Cardápio digital presencial e QR Code | `manuais/cardapio-digital-presencial-qrcode/` | ✅ Concluído (#77) |
 | Vínculo Marketplace | `manuais/vinculo-marketplace/` | ✅ Concluído (#79) |
+| Cadastrar mesas e gerar o QR Code | `manuais/cadastro-mesas/` | ✅ Concluído (#80) |
+| Cadastrar comandas e gerar o QR Code | `manuais/cadastro-comandas/` | ✅ Concluído (#81) |
+| Cadastrar forma de recebimento | `manuais/formas-recebimento/` | ✅ Concluído (#82) |
 
 ### Exibir/Ocultar e Preço Programado — #68 e #69
 

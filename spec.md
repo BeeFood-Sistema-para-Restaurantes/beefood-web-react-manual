@@ -59,6 +59,9 @@ manuais/<nome>/
 | Cardápio digital presencial e QR Code | #77 (concluído 02/09/2026) | `manuais/cardapio-digital-presencial-qrcode/` |
 | Classificação RFV | #78 (concluído 02/09/2026) | `manuais/classificacao-rfv/` |
 | Vínculo Marketplace | #79 (concluído 02/09/2026) | [`PLANO-VINCULO-MARKETPLACE.md`](PLANO-VINCULO-MARKETPLACE.md) + `manuais/vinculo-marketplace/` |
+| Cadastro de mesas e QR Code | #80 (concluído 03/09/2026) | `manuais/cadastro-mesas/` |
+| Cadastro de comandas e QR Code | #81 (concluído 03/09/2026) | `manuais/cadastro-comandas/` |
+| Formas de recebimento (Delivery, Presencial e PDV) | #82 (concluído 03/09/2026) | `manuais/formas-recebimento/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |
