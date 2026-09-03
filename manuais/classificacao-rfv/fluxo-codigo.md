@@ -9,7 +9,9 @@
 - Relatório: `beefood-reports-hub` → `AnaliseRFV.tsx` (Desempenho → Clientes → Análise RFV).
 
 Rotas: `/clientes`, `/food-marketing/segmentacao-cliente`,
-`/food-marketing/campanhas-whatsapp?tab=automacao`.
+`/food-marketing/campanhas-whatsapp`,
+`/food-marketing/campanhas-whatsapp?tab=automacao`,
+`/food-marketing/campanhas-sms`.
 
 ## API (app3.beetechapi.be)
 
@@ -49,12 +51,33 @@ dormentes → Hibernando → Perdidos.
 - Frequência / Valor: editar o mínimo de cima preenche o máximo de baixo
   (F: −1 pedido; V: −0,01). F5 e V5 não têm máximo.
 
-## Cadeia até a campanha
+## Onde o RFV entra (mapa real do front)
+
+Dois jeitos, não um:
+
+1. **Direto no WhatsApp em massa**
+   - Atalho **Campanha RFV**: `ModalNovaCampanhaRFV.tsx` (dropdown
+     “Nova Campanha Filtro Avançado” em `WhatsAppEnviosMassaTab.tsx`).
+   - **Adicionar → RFV** numa campanha já aberta: `ModalAdicionarPorRFV.tsx`
+     (`ModalEditarCampanha.tsx`).
+   - Os dois leem `cliente.classificacao` da lista de cadastro. Incluem
+     “Sem classificação”.
+2. **Pela segmentação** (recalcula o público na hora)
+   - 4 campos no catálogo: `classificacao`, `recencia`, `frequencia`,
+     `valorMonetario`.
+   - WhatsApp: atalho **Campanha Segmentação Cliente**
+     (`ModalNovaCampanhaSegmentacao`).
+   - Inteligente: `origemPublico = SEGMENTACAO` + `segmentacaoID`.
+   - SMS: passo 2, modo **Por segmentação** → `POST /sms2/campanha/segmentacao`.
+     SMS **não** tem atalho RFV direto.
 
 ```
 rfvParametro  →  job diário grava classificacao/recencia/frequencia/valorMonetario
-              →  segmentação (grupo RFV, 4 campos) recalcula o público na hora
-              →  campanha inteligente com origemPublico = SEGMENTACAO
+              ├── WhatsApp: Campanha RFV / Adicionar por RFV
+              └── segmentação
+                    ├── WhatsApp: Campanha Segmentação Cliente
+                    ├── inteligente (SEGMENTACAO)
+                    └── SMS (passo 2)
 ```
 
 Quatro inteligentes padrão usam `SEGMENTACAO` + público fixo (não são filtro RFV
@@ -71,8 +94,9 @@ O usuário **pode** trocar o campo Segmentação por um público seu que filtre
 `classificacao` / R / F / V. Carrinho (`PIXEL_CARRINHO`) e BeeBot sem compra
 (`BEEBOT_SEM_COMPRA`) não passam por segmentação.
 
-WhatsApp em massa (#15, ainda não escrito) tem RFV como um dos 5 caminhos da
-lista. SMS (#18) entra via segmentação.
+WhatsApp em massa (#15, aprovado sem pasta) tem RFV **e** segmentação como
+caminhos da lista (além de avulso, filtro avançado e Excel). SMS (#18) entra
+**só** via segmentação.
 
 ## Padrão ao vivo no sandbox (BeeFood3, 2026-09-02)
 

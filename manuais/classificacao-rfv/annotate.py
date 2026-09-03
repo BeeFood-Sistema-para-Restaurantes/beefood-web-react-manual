@@ -166,4 +166,23 @@ annotate("07-campanha-inteligente-segmentacao.png", [
     (2, 0.620, 0.515, 0.520, 0.575),  # campo Segmentacao
 ])
 
+# 08) WhatsApp: dropdown Campanha RFV + Segmentacao
+annotate("08-whatsapp-menu-rfv.png", [
+    (1, 0.305, 0.218, 0.200, 0.168),  # item Campanha RFV
+    (2, 0.330, 0.292, 0.200, 0.355),  # item Campanha Segmentacao Cliente
+])
+
+# 09) WhatsApp: modal Nova Campanha RFV
+annotate("09-whatsapp-campanha-rfv.png", [
+    (1, 0.500, 0.225, 0.720, 0.175),  # titulo da modal
+    (2, 0.500, 0.530, 0.250, 0.455),  # cards (Perdidos / Sem classificacao)
+    (3, 0.680, 0.850, 0.820, 0.790),  # Avancar
+])
+
+# 10) SMS: destinatarios por segmentacao
+annotate("10-sms-segmentacao.png", [
+    (1, 0.400, 0.200, 0.300, 0.155),  # Por segmentacao
+    (2, 0.500, 0.245, 0.620, 0.310),  # Selecione um publico
+])
+
 print("done")

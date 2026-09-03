@@ -3,10 +3,11 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-02 (**#78** Classificação RFV — limites em
-Clientes → RFV, 11 grupos, recálculo em 24h; a campanha inteligente usa RFV
-**pela segmentação**, não direto; V é ticket médio apesar do rótulo “Total
-gasto” na ficha);
+Última atualização: 2026-09-03 (**#78** Classificação RFV — header com o
+*porquê* da segmentação; mapa de usos: WhatsApp **direto ou via segmentação**,
+inteligente e SMS **só pela segmentação**; 10 imagens);
+**#78** (02/09) limites em Clientes → RFV, 11 grupos, recálculo em 24h; V é
+ticket médio apesar do rótulo “Total gasto” na ficha);
 **#17** BeeFood Pixel Analytics — funil +
 campanha paga: Origem isola a plataforma, UTM isola a campanha; 4 pedidos
 gerados com URLs fake Google/Facebook/Instagram/TikTok; 228 visitas / 8
