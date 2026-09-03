@@ -148,6 +148,6 @@ Cinco vínculos novos, um produto novo e um setor novo:
 |-------|---------|
 | Vínculos criados | *Pudim - Tradicional* → Pudim - Leite Condensado; *Sachê Maionese* e *Sachê Maionese Temperada* → Maionese Grill (Defumada/Tasty); *Adicionar queijo cheddar* → Fatia de queijo cheddar; *Complemento 1 - Segundo Nível* → Batata frita com cheddar e bacon (teste) |
 | Produto criado | **Salada Caesar** (`produtoID 2540502`), sem preço, no setor **Vínculo Marketplace** — o dono autorizou deixar |
-   140|| Contadores | Saíram de **69 / 717** para **74 / 712** |
+   140|| Contadores | Saíram de **69 / 717** para **75 / 711** (as capturas do manual param em 74 / 712; o 75º é o vínculo de teste do *Complemento 1*) |
 | Venda 865 | Ficou com o pagamento **marcado como pago** (Dinheiro R$ 36,03). O `valorPago` da venda continua 0, ou seja, ela **não** foi recebida no caixa; o botão *Marcar como não pago* não reverteu |
 | Nenhuma nota fiscal foi emitida | O bloqueio foi fotografado e fechado com **FECHAR (ESC)**; o **EMITIR FISCAL** nunca foi clicado |
