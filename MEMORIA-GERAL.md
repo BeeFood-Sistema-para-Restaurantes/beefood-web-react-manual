@@ -326,6 +326,18 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
   um dump de `innerText`.
 - **Se o traceback do Playwright citar um seletor que você já trocou**, desconfie de cache do
   script: criar um arquivo novo com outro nome resolveu (visto em 21/08/2026, manual #33).
+- **O detalhe da venda (`/pedido=<preVendaID>`) demora ~12 s para montar por completo.** Os 5 s de
+  praxe não bastam: no #78, a faixa *Produto não associado no pedido* só entrou no DOM depois
+  disso, e duas capturas saíram sem ela. Para essa tela, espere **14 s**, role até o elemento
+  (`scroll_into_view_if_needed`) e confirme pelo `inner_text` antes do print.
+- **Ensaie a captura antes de gravar qualquer coisa (`DRY=1`).** Em tela que salva sem
+  confirmação — o *Confirmar Vínculo* do #78 é um exemplo — vale um script que faz todo o
+  caminho, imprime o que a janela devolveu e **para antes do último clique**. Foi o que evitou
+  gravar o vínculo errado quando a janela mostrou dois produtos com o mesmo nome.
+- **Antes de escolher o exemplo do manual, cheque se o nome é único** nos dois lados (na lista e
+  no cardápio). A base do sandbox tem **21 nomes de produto repetidos**; um exemplo com nome
+  repetido rende imagem confusa. Um ensaio que imprime os botões da janela mostra isso em
+  segundos.
 
 ### Medir o efeito de uma permissão (grupo de acesso) — #75
 
@@ -676,6 +688,8 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Grupos de acesso — estudo completo | `manuais/grupos-acesso/` | ✅ Concluído (#75) |
 | Criar usuário e montar grupo de acesso | `manuais/usuarios-criar/` | ✅ Concluído (#76) |
 | BeeFood Pixel Analytics | `manuais/pixel-analytics/` | ✅ Concluído (#17) |
+| Cardápio digital presencial e QR Code | `manuais/cardapio-digital-presencial-qrcode/` | ✅ Concluído (#77) |
+| Vínculo Marketplace | `manuais/vinculo-marketplace/` | ✅ Concluído (#78) |
 
 ### Exibir/Ocultar e Preço Programado — #68 e #69
 

@@ -57,6 +57,7 @@ manuais/<nome>/
 | Grupos de acesso (estudo completo das 93 permissões) | #75 (concluído 01/09/2026) | `manuais/grupos-acesso/` |
 | Criar usuário e montar grupo de acesso | #76 (concluído 01/09/2026) | `manuais/usuarios-criar/` |
 | Cardápio digital presencial e QR Code | #77 (concluído 02/09/2026) | `manuais/cardapio-digital-presencial-qrcode/` |
+| Vínculo Marketplace | #78 (concluído 02/09/2026) | [`PLANO-VINCULO-MARKETPLACE.md`](PLANO-VINCULO-MARKETPLACE.md) + `manuais/vinculo-marketplace/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |
@@ -68,7 +69,6 @@ manuais/<nome>/
 | Estudo | Situação | Documento |
 |--------|----------|-----------|
 | Ficha técnica da **pizza** | ⏸️ em espera: aguarda a correção da pizza. O manual #72 já respondeu a dúvida técnica (opção repetida baixa em dobro) | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md), seção 9 |
-| **Vínculo Marketplace** (proposta de #78) | ⏳ entregue em 02/09/2026, aguarda aprovação. Sandbox pronto (786 vínculos, 22 vendas de marketplace); 5 perguntas em aberto na seção 14 | [`PLANO-VINCULO-MARKETPLACE.md`](PLANO-VINCULO-MARKETPLACE.md) |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
 18040-370**. Endereço de entrega de teste nos quatro tipos: **R. Arthur Gomes, 13 — Centro,

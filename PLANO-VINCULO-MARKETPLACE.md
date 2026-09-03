@@ -10,8 +10,8 @@
 > elas uma com produto pendente e uma com opção pendente. Apareceram **sete achados** fora do
 > pedido; dois deles são candidatos a correção de produto, não de manual.
 
-Status: ⏳ **aguardando aprovação do dono.** Proposta: manual **#78**, pasta
-`manuais/vinculo-marketplace/`.
+Status: ✅ **aprovado e executado** em 02/09/2026 — manual em `manuais/vinculo-marketplace/`.
+As respostas do dono estão na seção 15.
 
 ---
 
@@ -294,3 +294,25 @@ específicas medidas neste estudo:
 4. **Autoriza registrar pagamento numa venda de marketplace** (ou lançar um pedido novo) para
    fotografar o bloqueio fiscal?
 5. **Confirma o achado 7** (permissão por marketplace)? Se existir, o #75 precisa de correção.
+
+---
+
+## 15. Respostas do dono (02/09/2026) e o que mudou no manual
+
+| # | Resposta | Efeito no manual |
+|---|----------|------------------|
+| 1 | **Duplicidade de base de testes — evite mostrar** | Nenhuma seção fala de linhas repetidas. Todos os exemplos foram escolhidos com **nome único na busca**, para as capturas não exibirem linhas iguais. A única menção é uma pergunta frequente que orienta a marcar todas as linhas pendentes do mesmo nome e vincular de uma vez |
+| 2 | **Não dá para saber de qual marketplace é a linha — não focar no assunto** | Assunto fora do texto. O manual trata a lista como uma lista de nomes; quando o operador precisa saber de qual pedido veio, o caminho ensinado é o **modo venda** |
+| 3 | **Pode vincular, criar produto e excluir à vontade** | Cinco vínculos criados ao vivo e o produto **Salada Caesar** criado e mantido. O diálogo de exclusão foi fotografado e cancelado (nenhum vínculo foi apagado) |
+| 4 | **Pode gerar venda de marketplace e pagar** | Não foi preciso fabricar venda: a **769** já estava recebida e serviu para fotografar o bloqueio fiscal. A tentativa na **865** revelou que *marcar como pago* na linha do pagamento **não** alimenta o `valorPago` — registrado no `fluxo-codigo.md` |
+| 5 | **A permissão por marketplace não existe** | O achado 7 fica registrado como hipótese descartada. O **#75 não precisa de correção** |
+
+### O que o manual acrescentou ao estudo
+
+Duas descobertas só apareceram na execução, e as duas viraram destaque no texto:
+
+- **O produto do "Criar produto e vincular" nasce cru**: sem preço, num setor novo chamado
+  **Vínculo Marketplace**, e já **ativo** em delivery e presencial.
+- **Vincular por dentro do pedido também alimenta a lista geral** (testado com o
+  *Complemento 1 - Segundo Nível* do pedido 871), o que responde se o trabalho feito no pedido
+  vale para os próximos.

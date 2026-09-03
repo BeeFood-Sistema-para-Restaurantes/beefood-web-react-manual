@@ -69,6 +69,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Entendendo a numeração dos pedidos (número da venda × número do pedido) | [`manuais/numeracao-pedidos/`](manuais/numeracao-pedidos/numeracao-pedidos.md) | ✅ Concluído |
 | Grupos de acesso — estudo completo das 93 permissões | [`manuais/grupos-acesso/`](manuais/grupos-acesso/grupos-acesso.md) | ✅ Concluído |
 | Criar usuário e montar grupo de acesso | [`manuais/usuarios-criar/`](manuais/usuarios-criar/usuarios-criar.md) | ✅ Concluído |
+| Vínculo Marketplace (nome do marketplace → produto do cardápio) | [`manuais/vinculo-marketplace/`](manuais/vinculo-marketplace/vinculo-marketplace.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
