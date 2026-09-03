@@ -124,6 +124,19 @@ def tirar(page, nome: str, full: bool = False):
     print("   ->", nome, PURA / nome)
 
 
+def tirar_dialog(page, nome: str, texto: str):
+    """Corta só o modal — setas não caem no fundo escurecido."""
+    limpar_tela(page)
+    dlg = page.locator('[role="dialog"]').filter(has_text=texto)
+    if dlg.count() == 0:
+        dlg = page.locator('[role="dialog"]')
+    if dlg.count() == 0:
+        tirar(page, nome)
+        return
+    dlg.first.screenshot(path=str(PURA / nome), type="png")
+    print("   ->", nome, "(dialog)")
+
+
 def abrir_clientes(page):
     page.goto("https://beefood.app/clientes", wait_until="domcontentloaded")
     after_click(page, 8000)
@@ -350,6 +363,128 @@ def cap_inteligente(page):
     page.wait_for_timeout(600)
 
 
+def cap_whatsapp_menu(page):
+    """Dropdown que abre Campanha RFV e Campanha Segmentação."""
+    _abrir_aba_campanhas_massa(page)
+    page.locator("button", has_text="Nova Campanha Filtro Avançado").first.click()
+    after_click(page, 2000)
+    tirar(page, "08-whatsapp-menu-rfv.png")
+    page.keyboard.press("Escape")
+    page.wait_for_timeout(400)
+
+
+def _abrir_aba_campanhas_massa(page):
+    page.goto(
+        "https://beefood.app/food-marketing/campanhas-whatsapp",
+        wait_until="domcontentloaded",
+    )
+    after_click(page, 7000)
+    limpar_tela(page)
+    tema_claro(page)
+    after_click(page, 2000)
+    aba = page.locator("button, [role=tab]").filter(has_text="Campanhas")
+    for i in range(aba.count()):
+        txt = (aba.nth(i).inner_text() or "").strip()
+        if txt == "Campanhas":
+            aba.nth(i).click()
+            after_click(page, 2500)
+            break
+
+
+def cap_whatsapp_rfv(page):
+    """Modal Nova Campanha RFV — escolha das classificações."""
+    _abrir_aba_campanhas_massa(page)
+    page.locator("button", has_text="Nova Campanha Filtro Avançado").first.click()
+    after_click(page, 1500)
+    page.get_by_text("Campanha RFV", exact=True).first.click()
+    after_click(page, 5000)
+    page.wait_for_selector("text=Nova Campanha RFV", timeout=20000)
+    after_click(page, 2000)
+    # marcar um grupo classificado para o print não ficar só em "Sem classificação"
+    for nome in ("Perdidos", "Fiéis", "Fieis", "Em risco"):
+        card = page.locator("div").filter(has_text=nome).filter(has=page.locator('[role=checkbox]'))
+        if card.count():
+            card.first.scroll_into_view_if_needed()
+            after_click(page, 800)
+            card.first.click()
+            after_click(page, 800)
+            break
+    tirar_dialog(page, "09-whatsapp-campanha-rfv.png", "Nova Campanha RFV")
+    page.keyboard.press("Escape")
+    page.wait_for_timeout(600)
+
+
+def cap_sms(page):
+    """SMS passo 2: destinatários por segmentação (sem gravar campanha)."""
+    page.goto(
+        "https://beefood.app/food-marketing/campanhas-sms",
+        wait_until="domcontentloaded",
+    )
+    after_click(page, 7000)
+    limpar_tela(page)
+    tema_claro(page)
+    after_click(page, 2000)
+    page.locator("button", has_text="NOVA CAMPANHA").first.click()
+    after_click(page, 3000)
+    # passo 1: nome + mensagem mínimos só para avançar
+    nome = page.locator("input").first
+    if nome.count():
+        nome.fill("ZZ-manual-rfv-nao-enviar")
+    msg = page.locator("textarea")
+    if msg.count():
+        msg.first.fill("teste rfv")
+    after_click(page, 1500)
+    avancar = page.locator("button").filter(has_text="AVANÇAR")
+    if not avancar.count():
+        avancar = page.locator("button").filter(has_text="PRÓXIMO")
+    if avancar.count():
+        avancar.first.click()
+        after_click(page, 4000)
+    # garantir modo Por segmentação
+    seg = page.locator("button").filter(has_text="Por segmentação")
+    if seg.count():
+        seg.first.click()
+        after_click(page, 2000)
+    tirar_dialog(page, "10-sms-segmentacao.png", "Destinatários")
+    page.keyboard.press("Escape")
+    page.wait_for_timeout(800)
+    # se abriu confirmação de descartar, confirmar
+    desc = page.locator("button").filter(has_text="Descartar")
+    if desc.count():
+        desc.first.click()
+        after_click(page, 1500)
+    cancel = page.locator("button").filter(has_text="CANCELAR")
+    if cancel.count():
+        cancel.first.click()
+        after_click(page, 1000)
+
+
+def limpar_sms_rascunho(page):
+    """Apaga o rascunho 'Manual RFV' se o avançar do SMS tiver gravado."""
+    page.goto(
+        "https://beefood.app/food-marketing/campanhas-sms",
+        wait_until="domcontentloaded",
+    )
+    after_click(page, 5000)
+    limpar_tela(page)
+    linha = page.locator("tr").filter(has_text="ZZ-manual-rfv")
+    if not linha.count():
+        linha = page.locator("tr").filter(has_text="Manual RFV")
+    if not linha.count():
+        print("   nenhum rascunho de captura")
+        return
+    lixeira = linha.first.locator("button").last
+    lixeira.click()
+    after_click(page, 1500)
+    conf = page.locator("button").filter(has_text="Descartar")
+    if not conf.count():
+        conf = page.locator("button").filter(has_text="Excluir")
+    if conf.count():
+        conf.last.click()
+        after_click(page, 2500)
+    print("   rascunho Manual RFV descartado")
+
+
 ETAPAS = {
     "menu": cap_menu,
     "lista": cap_lista,
@@ -358,6 +493,10 @@ ETAPAS = {
     "ficha": cap_ficha,
     "seg": cap_seg,
     "inteligente": cap_inteligente,
+    "whatsapp-menu": cap_whatsapp_menu,
+    "whatsapp-rfv": cap_whatsapp_rfv,
+    "sms": cap_sms,
+    "limpar-sms": limpar_sms_rascunho,
 }
 
 

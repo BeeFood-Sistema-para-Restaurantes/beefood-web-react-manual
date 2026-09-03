@@ -1,21 +1,55 @@
 # Manual — Classificação RFV
 
-O BeeFood **classifica sozinho** cada cliente em um grupo — Campeão, Fiel, Em risco,
-Perdido… Você **não escolhe** o grupo na ficha. O que você configura são os **limites**
-que o sistema usa para dar as notas de 1 a 5.
+A loja não tem um cliente só. Tem quem pediu ontem, quem some há três meses,
+quem gasta pouco e aparece toda semana, quem gasta muito e sumiu.
 
-Essas notas viram o grupo. O grupo entra na **segmentação**. E a segmentação é o
-público das **campanhas inteligentes** (e também das campanhas de WhatsApp e SMS).
+**Mandar a mesma mensagem para todo mundo** custa três vezes:
+
+- gasta crédito de WhatsApp e SMS com quem não ia responder
+- queima o número: o Campeão de ontem recebe “sentimos sua falta” e bloqueia
+- fala a coisa errada: o Perdido de 90 dias não precisa do lançamento VIP —
+  precisa de um motivo para voltar
+
+Por isso a BeeFood **segmenta**. Segmentar é recusar o disparo único. É olhar
+o comportamento de cada pessoa e decidir *quem* entra na campanha e *o que*
+ela lê. Sem isso, o Food Marketing vira megafone: alto, caro e fácil de
+ignorar.
+
+A classificação RFV é o jeito **automático** de fazer isso. Você não escolhe
+o grupo na ficha do cliente e não precisa lembrar quem sumiu. Você configura
+os **limites** — e o sistema, todo dia, responde três perguntas e coloca cada
+pessoa num grupo. O resto do Food Marketing usa esse grupo para montar o
+público.
+
+| | Pergunta | Em uma palavra |
+|---|---|---|
+| **R** Recência | Quando foi o último pedido? | Ainda está perto — ou já esfriou? |
+| **F** Frequência | Quantas vezes pediu? | É de casa — ou veio uma vez? |
+| **V** Valor | Qual o ticket médio? | Pede o combo — ou o item mais barato? |
+
+Com essas três notas o sistema junta a base em **11 grupos** (Campeão, Fiel,
+Em risco, Perdido…). Esse grupo é o que a **segmentação** filtra. E a
+segmentação é o público das campanhas — WhatsApp, inteligente e SMS.
+
+Na prática, o grupo muda o que a loja fala:
+
+| Situação | Grupo | Tom da mensagem | Onde mandar |
+|---|---|---|---|
+| Cliente bom que está esfriando | Em risco / Não posso perder | “Sua falta pesou” + oferta pessoal | WhatsApp direto ou inteligente (troca o público) |
+| Quase ninguém volta | Perdidos / Hibernando | Reativação curta, um motivo para voltar | WhatsApp Campanha RFV ou SMS por segmentação |
+| Já é de casa | Campeões / Fiéis | Lançamento, combo, programa — **nunca** “sentimos sua falta” | Segmentação + campanha de lançamento |
+| Primeira compra recente | Novos / Promissores | Boas-vindas, segundo pedido | Inteligente Boas-vindas ou segmentação |
 
 Este manual explica:
 
-1. O que são R, F e V
-2. Os 11 grupos
-3. Como editar os limites
-4. Onde a classificação aparece (lista e ficha)
-5. Como ela chega na segmentação e na campanha — o básico; o detalhe já está nos
-   manuais de [Segmentação de clientes](../segmentacao-clientes/segmentacao-clientes.md)
-   e [Campanhas Inteligentes](../campanhas-inteligentes/campanhas-inteligentes.md)
+1. O que são R, F e V e os 11 grupos
+2. Como editar os limites (a única tela em que você mexe)
+3. Onde a classificação aparece (lista e ficha)
+4. **Onde o RFV é usado** — Campanhas WhatsApp, Segmentação de Cliente,
+   Campanhas Inteligentes, Campanhas SMS e o relatório
+
+O passo a passo de cada campanha e da segmentação já está nos manuais dessas
+telas. Aqui o assunto é o elo: **de onde o grupo nasce e para onde ele vai**.
 
 > As imagens têm **setas numeradas** (1, 2, 3…). Cada número indica o campo
 > correspondente na tela.
@@ -24,24 +58,25 @@ Este manual explica:
 
 ## Onde encontrar
 
-No menu lateral, abra **Clientes**.
+No menu lateral, abra **Clientes**. A classificação mora aqui, não em
+Configuração → Parâmetros.
 
 ![Menu lateral com o item Clientes](imagens-tratadas/01-menu-clientes.png)
 
-1. **Clientes** — a classificação RFV mora aqui, não em Configuração → Parâmetros
+1. **Clientes**
 
-No topo da lista estão o botão **RFV**, o ponto de interrogação da ajuda e os chips
-de cada grupo.
+No topo da lista estão o botão **RFV**, o ponto de interrogação da ajuda e os
+chips de cada grupo.
 
 ![Lista de clientes com o botão RFV e os chips](imagens-tratadas/02-lista-rfv-chips.png)
 
-1. **RFV** — abre a tela para editar os limites das notas 1 a 5
+1. **RFV** — edita os limites das notas 1 a 5
 2. **?** — explica os 11 grupos (Recência × FV)
-3. Os **chips** — um por grupo que tem pelo menos um cliente; clique para filtrar a lista
+3. Os **chips** — um por grupo que tem pelo menos um cliente; clique para filtrar
 4. O **emoji** na linha — o grupo daquele cliente
 
-O chip só aparece quando aquele grupo tem alguém. Na loja da imagem não há Campeão
-nem Novo Cliente, então esses chips não mostram.
+O chip só aparece quando aquele grupo tem alguém. Na loja da imagem não há
+Campeão nem Novo Cliente, então esses chips não mostram.
 
 ---
 
@@ -124,6 +159,10 @@ o mesmo cruzamento. A lista pode mostrar qualquer um dos dois.
 Você **não atribui** Campeão ou Perdido na mão. Se o grupo parece errado, o
 caminho é rever os **limites** da tela RFV — e esperar o recálculo do dia.
 
+Quem ainda não tem histórico de pedido suficiente aparece como **Sem
+classificação**. Esse grupo também entra na campanha de WhatsApp, se você
+marcar.
+
 ---
 
 ## A ficha do cliente (só leitura)
@@ -149,23 +188,47 @@ O círculo do Valor traz o rótulo “Total gasto”, mas a **nota** segue o
 
 ---
 
-## De onde a campanha pega o RFV
+## Onde o RFV é usado
 
-A campanha inteligente **não lê a classificação direto**. Ela lê uma
-**segmentação**. A segmentação é que pode filtrar por grupo, por Recência, por
-Frequência ou por Valor.
+O grupo gravado no cliente alimenta o Food Marketing de **dois jeitos**. O
+WhatsApp lê o grupo direto. Segmentação, campanha inteligente e SMS leem o
+grupo **só se você filtrar por ele** num público salvo.
 
 ```
 Limites RFV (Clientes → RFV)
         ↓  recálculo diário
-Notas + grupo gravados no cliente
-        ↓
-Segmentação filtra por classificação / R / F / V
-        ↓
-Campanha inteligente (origem “Segmentação de clientes”)
+Notas + grupo no cliente
+        │
+        ├── direto ──────► Campanhas WhatsApp  (Campanha RFV / Adicionar por RFV)
+        │
+        └── Segmentação ─► Campanhas WhatsApp  (Campanha Segmentação Cliente)
+                         ► Campanhas Inteligentes
+                         ► Campanhas SMS
 ```
 
-### Na segmentação
+| Onde | Como o RFV entra | Manual |
+|------|------------------|--------|
+| **Clientes** | Ver, filtrar pelos chips, exportar Excel; editar os limites | este |
+| **Segmentação de Cliente** | Quatro filtros: grupo, Recência, Frequência, Valor. O modelo **Clientes VIP** já usa F 4–5 e V 4–5 | [Segmentação](../segmentacao-clientes/segmentacao-clientes.md) |
+| **Campanhas WhatsApp** | **Direto** (escolhe o grupo) **ou** via uma segmentação | #15 *(aprovado, ainda sem pasta)* |
+| **Campanhas Inteligentes** | **Só** via segmentação (campo *Origem do público*) | [Campanhas Inteligentes](../campanhas-inteligentes/campanhas-inteligentes.md) |
+| **Campanhas SMS** | **Só** via segmentação (passo 2, *Por segmentação*) | [Campanhas SMS](../campanhas-sms/campanhas-sms.md) |
+| **Desempenho → Análise RFV** | Só leitura: o mesmo grupo em gráfico e Excel | — |
+| **Desempenho → Base de Clientes** | Gráfico da mesma classificação, no meio dos outros recortes da base | — |
+
+A regra prática:
+
+- Precisa só do grupo (todos os Perdidos, todos os Fiéis) → **Campanha RFV** no
+  WhatsApp, ou o filtro da segmentação.
+- Precisa misturar RFV com outra coisa (Perdidos **e** bairro X, Fiéis **que**
+  têm cashback) → crie a **segmentação** e use ela no WhatsApp, na inteligente
+  ou no SMS.
+
+Cupom, cashback, PDV e Pixel **não** leem o grupo RFV. Quem entra nessas telas
+entra por outra regra (produto, saldo, evento). O RFV mora no cadastro do
+cliente e no Food Marketing.
+
+### 1. Segmentação de Cliente
 
 Em **Food Marketing → Segmentação de Cliente**, ao montar um público, a
 categoria **RFV** tem quatro filtros.
@@ -176,51 +239,113 @@ categoria **RFV** tem quatro filtros.
 2. **Classificação RFV (público)** — o grupo (Campeões, Fiéis, Perdidos…). Também
    dá para filtrar pela nota 1 a 5 de Recência, Frequência ou Valor
 
-O passo a passo de criar o público, testar o tamanho e combinar E/OU está no
-manual de [Segmentação de clientes](../segmentacao-clientes/segmentacao-clientes.md).
+Uma segmentação **Ativa** fica disponível para as três campanhas abaixo. Se o
+botão Ativa estiver desligado, o público continua salvo, mas some da hora de
+montar campanha.
 
-### Na campanha inteligente
+O modelo pronto **Clientes VIP (alto valor)** já nasce com Frequência 4 ou 5
+**e** Valor 4 ou 5 — ou seja, já é RFV, sem você montar do zero. Os outros
+modelos (sumidos, 2ª compra, cashback) usam indicadores, não o grupo. Se a
+ideia for “todos os Perdidos” ou “Em risco + Hibernando”, crie a
+segmentação pelo filtro **Classificação RFV**.
 
-Quatro das seis campanhas padrão falam com um **público de clientes**:
-Recuperador de vendas, Cashback parado, Aniversário e Boas-vindas. No passo 1,
-a origem do público é **Segmentação de clientes**.
+O passo a passo (E/OU, testar o tamanho, modelos prontos) está no manual de
+[Segmentação de clientes](../segmentacao-clientes/segmentacao-clientes.md).
+
+### 2. Campanhas WhatsApp — dois caminhos
+
+Em **Food Marketing → Campanhas WhatsApp**, aba **Campanhas**, o botão
+**Nova Campanha Filtro Avançado** abre três atalhos. Dois deles usam o RFV.
+
+![Atalhos de Campanha RFV e Campanha Segmentação](imagens-tratadas/08-whatsapp-menu-rfv.png)
+
+1. **Campanha RFV** — escolhe o grupo na hora; o sistema monta a lista com quem
+   está classificado assim
+2. **Campanha Segmentação Cliente** — usa um público que você já salvou (e esse
+   público *pode* filtrar RFV, sozinho ou misturado com outro filtro)
+
+**Campanha RFV** abre a escolha das classificações:
+
+![Nova Campanha RFV em Massa](imagens-tratadas/09-whatsapp-campanha-rfv.png)
+
+1. **Nova Campanha RFV em Massa** — um disparo por grupo que você marcar
+2. Os **cards** — cada classificação e quantos clientes tem agora. **Sem
+   classificação** são os que ainda não caíram em grupo (pouco histórico)
+3. **Avançar** — segue para a mensagem. Não confirme se estiver só olhando
+
+Dentro de uma campanha já aberta existe o mesmo atalho: **Adicionar → RFV**,
+para completar a lista sem criar campanha nova.
+
+O editor da mensagem, as variações e o resultado ficam no manual de Campanhas
+WhatsApp (#15).
+
+### 3. Campanhas Inteligentes — pela segmentação
+
+A campanha inteligente **não lê o grupo RFV direto**. No passo 1, a origem do
+público é **Segmentação de clientes**.
 
 ![Passo 1 da campanha inteligente com o campo Segmentação](imagens-tratadas/07-campanha-inteligente-segmentacao.png)
 
 1. **Origem do público** — aqui, Segmentação de clientes
 2. **Segmentação** — qual público a campanha avalia todo dia
 
-As de fábrica já vêm com um público da BeeFood (sumidos, aniversariantes,
-cashback, novos). Esse público **pode** ser trocado por um seu que filtre RFV
-— por exemplo, só **Em risco** ou só **Não posso perder**.
+Quatro das seis campanhas padrão falam com um público: Recuperador de vendas,
+Cashback parado, Aniversário e Boas-vindas. Elas já vêm com um público da
+BeeFood (sumidos, cashback, aniversariantes, novos) — **não** são filtro de
+classificação RFV. Troque o campo Segmentação por um público seu que filtre
+**Em risco** ou **Não posso perder**, se for isso que você quer.
 
 Carrinho abandonado e “Recebeu o cardápio e não pediu” disparam por **evento**,
 não por segmentação: o RFV não entra.
 
-O detalhe dos seis modelos, das variáveis e do anti-banimento está no manual
-de [Campanhas Inteligentes](../campanhas-inteligentes/campanhas-inteligentes.md).
+O detalhe dos seis modelos está no manual de
+[Campanhas Inteligentes](../campanhas-inteligentes/campanhas-inteligentes.md).
 
-Campanha de WhatsApp em massa e campanha de SMS também usam segmentação (e a
-de WhatsApp ainda pode montar a lista direto por RFV). Isso fica nos manuais
-dessas telas.
+### 4. Campanhas SMS — pela segmentação
 
----
+O SMS **também não tem atalho RFV**. No passo 2 dos destinatários, o caminho é
+**Por segmentação**.
 
-## Relatório
+![SMS: destinatários por segmentação](imagens-tratadas/10-sms-segmentacao.png)
+
+1. **Por segmentação** — o modo que usa o público salvo
+2. **Selecione um público** + **ADICIONAR** — só entram segmentações **Ativas**.
+   Se essa segmentação filtrar RFV, o SMS fala com esse grupo. A segmentação já
+   traz só cliente com telefone válido, ativo e que aceita mensagem
+
+Os outros dois modos (telefone avulso e planilha) não passam pelo RFV.
+Créditos, UCS-2 e blacklist estão no manual de
+[Campanhas SMS](../campanhas-sms/campanhas-sms.md).
+
+### Relatório e Excel
 
 Em **Desempenho → Clientes → Análise RFV** o sistema mostra a mesma
-classificação em gráfico, na ordem de prioridade dos grupos. Não se edita
-limite por lá — só se lê o resultado.
+classificação em gráfico e deixa baixar Excel. Não se edita limite por lá —
+só se lê o resultado.
+
+A mesma classificação aparece de novo em **Desempenho → Clientes → Base de
+Clientes**, no gráfico *Classificação RFV*, no meio dos outros recortes da
+base (origem, canal, ticket).
+
+A exportação Excel da lista de **Clientes** e a da **segmentação** também
+trazem a coluna Classificação.
 
 ---
 
 ## O que lembrar
 
+- O BeeFood segmenta para a loja **não falar a mesma coisa com todo mundo**.
 - O grupo é **calculado**. Não se marca Campeão na ficha.
 - Você edita só os **limites** das notas 1 a 5, em **Clientes → RFV**.
 - Depois de salvar, espere o recálculo do **dia seguinte**.
-- A campanha inteligente usa RFV **através da segmentação**, não direto.
-- Segmentação e campanha inteligente já têm manual próprio; aqui basta o elo.
+- **WhatsApp** usa RFV de dois jeitos: direto (**Campanha RFV**) ou via
+  segmentação.
+- **Campanha inteligente** e **SMS** usam RFV **só pela segmentação**.
+- Cupom, cashback, PDV e Pixel não leem o grupo.
+- O mesmo grupo aparece em **Desempenho → Análise RFV** e em **Base de
+  Clientes** — só leitura.
+- Segmentação, WhatsApp, inteligente e SMS já têm manual próprio; aqui o
+  assunto é o elo.
 
 ---
 

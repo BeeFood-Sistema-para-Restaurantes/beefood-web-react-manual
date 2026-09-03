@@ -2,8 +2,10 @@
 
 > Memória detalhada deste manual. Ver também: `../../MEMORIA-GERAL.md`.
 
-Status: ✅ **Concluído** em 2026-09-02 — 7 imagens, `classificacao-rfv.md`,
-`fluxo-codigo.md` e `texto-documentation.ia.md`.
+Status: ✅ **Concluído** em 2026-09-02 (7 imagens). **Complementado** em
+2026-09-03: cabeçalho com o *porquê* da segmentação (custo do disparo único +
+tabela de tom por grupo) + mapa de usos; 10 imagens. 09 e 10 são recorte do
+modal, para a seta não cair no fundo.
 
 ---
 
@@ -13,7 +15,10 @@ O dono pediu o manual depois do estudo. Correção dele no meio do caminho:
 
 - Campanha inteligente **também** usa segmentação, e a segmentação **usa RFV**.
   Isso faltava no primeiro estudo (parecia que a inteligente lia RFV direto).
-- Campanhas e Segmentação neste manual são **básicos**. Já existem o #14 e o #16.
+- Campanhas e Segmentação neste manual são **básicos**. Já existem o #14, o #16
+  e o #18. O #15 (WhatsApp em massa) está aprovado, ainda sem pasta.
+- Em 03/09 o dono pediu para completar **onde o RFV é usado** e um header com
+  mentalidade: *para que serve, por que a BeeFood segmenta*.
 
 Núcleo: o que é R/F/V, os 11 grupos, como editar os limites, prazo de 24h,
 classificação não se atribui na mão. Um parágrafo + 1 print para segmentação e
@@ -29,10 +34,11 @@ backlog de Clientes).
 ```
 Parâmetros RFV (Clientes → RFV)
   → recálculo diário grava grupo + notas no cliente
-  → Segmentação (#14) filtra por classificação / R / F / V
-  → Campanha inteligente (#16) com origem SEGMENTACAO avalia esse público
-  → WhatsApp em massa (#15) e SMS (#18) também podem chegar no RFV
-     (massa: direto ou via segmentação; SMS: via segmentação)
+  ├── direto → WhatsApp em massa: Campanha RFV / Adicionar por RFV
+  └── Segmentação (#14) filtra por classificação / R / F / V
+        ├── WhatsApp em massa: Campanha Segmentação Cliente
+        ├── Campanha inteligente (#16) origem SEGMENTACAO
+        └── SMS (#18) passo 2, Por segmentação
 ```
 
 As quatro inteligentes de público (Recuperador, Cashback parado, Aniversário,
@@ -48,8 +54,10 @@ Carrinho abandonado e “Recebeu cardápio e não pediu” são por evento.
 
 ## 3. Decisões de produção
 
-- 7 imagens, desktop 1440×900 DPR 1.5, tema claro, widget escondido, spinner + 5 s.
-- Relatório Análise RFV só em texto (não inflar).
+- 10 imagens (eram 7; 08–10 = WhatsApp dropdown, Campanha RFV, SMS passo 2),
+  desktop 1440×900 DPR 1.5, tema claro, widget escondido, spinner + 5 s.
+- Relatório Análise RFV e Base de Clientes só em texto (não inflar).
+- 09 e 10 são recorte do `[role=dialog]` — seta em tela cheia caía no fundo.
 - Ajuda dos 11 grupos não coube inteira no modal (rola). A tabela do `.md` é a
   lista completa; a foto mostra o formato do card.
 - Nome e telefone cobertos **na pura** (02 e 05) — repo público. Cliente da
