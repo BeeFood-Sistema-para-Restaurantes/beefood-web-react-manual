@@ -34,7 +34,7 @@ Crie um novo manual no app: em **Clientes**, adicione um manual chamado
 - Insira as 10 imagens na ordem acima, com as legendas da tabela no fim deste arquivo.
 - **Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa"**.
 - Idioma **português do Brasil**, tom didático.
-- Mantenha em destaque: o BeeFood segmenta para a loja **não falar a mesma coisa com todo mundo**; o grupo é **calculado**; recálculo **diário**; WhatsApp usa RFV **direto ou via segmentação**; inteligente e SMS usam RFV **só pela segmentação**.
+- Mantenha em destaque: o BeeFood segmenta para a loja **não falar a mesma coisa com todo mundo** (crédito, banimento, tom errado); o grupo é **calculado**; recálculo **diário**; WhatsApp usa RFV **direto ou via segmentação**; inteligente e SMS usam RFV **só pela segmentação**; cupom/cashback/PDV/Pixel **não** leem o grupo.
 - **Não** publique o rodapé "Referências internas" nem o `fluxo-codigo.md`.
 
 ---

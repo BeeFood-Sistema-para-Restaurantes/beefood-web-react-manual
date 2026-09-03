@@ -124,6 +124,19 @@ def tirar(page, nome: str, full: bool = False):
     print("   ->", nome, PURA / nome)
 
 
+def tirar_dialog(page, nome: str, texto: str):
+    """Corta só o modal — setas não caem no fundo escurecido."""
+    limpar_tela(page)
+    dlg = page.locator('[role="dialog"]').filter(has_text=texto)
+    if dlg.count() == 0:
+        dlg = page.locator('[role="dialog"]')
+    if dlg.count() == 0:
+        tirar(page, nome)
+        return
+    dlg.first.screenshot(path=str(PURA / nome), type="png")
+    print("   ->", nome, "(dialog)")
+
+
 def abrir_clientes(page):
     page.goto("https://beefood.app/clientes", wait_until="domcontentloaded")
     after_click(page, 8000)
@@ -396,7 +409,7 @@ def cap_whatsapp_rfv(page):
             card.first.click()
             after_click(page, 800)
             break
-    tirar(page, "09-whatsapp-campanha-rfv.png")
+    tirar_dialog(page, "09-whatsapp-campanha-rfv.png", "Nova Campanha RFV")
     page.keyboard.press("Escape")
     page.wait_for_timeout(600)
 
@@ -416,7 +429,7 @@ def cap_sms(page):
     # passo 1: nome + mensagem mínimos só para avançar
     nome = page.locator("input").first
     if nome.count():
-        nome.fill("Manual RFV (não enviar)")
+        nome.fill("ZZ-manual-rfv-nao-enviar")
     msg = page.locator("textarea")
     if msg.count():
         msg.first.fill("teste rfv")
@@ -432,7 +445,7 @@ def cap_sms(page):
     if seg.count():
         seg.first.click()
         after_click(page, 2000)
-    tirar(page, "10-sms-segmentacao.png")
+    tirar_dialog(page, "10-sms-segmentacao.png", "Destinatários")
     page.keyboard.press("Escape")
     page.wait_for_timeout(800)
     # se abriu confirmação de descartar, confirmar
@@ -454,9 +467,11 @@ def limpar_sms_rascunho(page):
     )
     after_click(page, 5000)
     limpar_tela(page)
-    linha = page.locator("tr").filter(has_text="Manual RFV")
+    linha = page.locator("tr").filter(has_text="ZZ-manual-rfv")
     if not linha.count():
-        print("   nenhum rascunho Manual RFV")
+        linha = page.locator("tr").filter(has_text="Manual RFV")
+    if not linha.count():
+        print("   nenhum rascunho de captura")
         return
     lixeira = linha.first.locator("button").last
     lixeira.click()

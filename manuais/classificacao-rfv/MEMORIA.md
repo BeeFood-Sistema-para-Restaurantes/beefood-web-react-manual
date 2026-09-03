@@ -3,7 +3,9 @@
 > Memória detalhada deste manual. Ver também: `../../MEMORIA-GERAL.md`.
 
 Status: ✅ **Concluído** em 2026-09-02 (7 imagens). **Complementado** em
-2026-09-03: cabeçalho com o *porquê* da segmentação + mapa de usos; 10 imagens.
+2026-09-03: cabeçalho com o *porquê* da segmentação (custo do disparo único +
+tabela de tom por grupo) + mapa de usos; 10 imagens. 09 e 10 são recorte do
+modal, para a seta não cair no fundo.
 
 ---
 
@@ -54,7 +56,8 @@ Carrinho abandonado e “Recebeu cardápio e não pediu” são por evento.
 
 - 10 imagens (eram 7; 08–10 = WhatsApp dropdown, Campanha RFV, SMS passo 2),
   desktop 1440×900 DPR 1.5, tema claro, widget escondido, spinner + 5 s.
-- Relatório Análise RFV só em texto (não inflar).
+- Relatório Análise RFV e Base de Clientes só em texto (não inflar).
+- 09 e 10 são recorte do `[role=dialog]` — seta em tela cheia caía no fundo.
 - Ajuda dos 11 grupos não coube inteira no modal (rola). A tabela do `.md` é a
   lista completa; a foto mostra o formato do card.
 - Nome e telefone cobertos **na pura** (02 e 05) — repo público. Cliente da

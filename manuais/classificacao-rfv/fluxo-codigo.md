@@ -7,6 +7,7 @@
 - Ajuda dos 11 grupos: `src/components/ModalRFVClassificacao.tsx` (texto fixo no front).
 - Ficha, aba Indicadores: `src/components/ModalCadastroCliente.tsx` — só leitura; selo + círculos R/F/V; “Atualizado a cada 24h”.
 - Relatório: `beefood-reports-hub` → `AnaliseRFV.tsx` (Desempenho → Clientes → Análise RFV).
+- O mesmo grupo também aparece em `BaseClientes.tsx` (gráfico Classificação RFV).
 
 Rotas: `/clientes`, `/food-marketing/segmentacao-cliente`,
 `/food-marketing/campanhas-whatsapp`,
@@ -97,6 +98,12 @@ O usuário **pode** trocar o campo Segmentação por um público seu que filtre
 WhatsApp em massa (#15, aprovado sem pasta) tem RFV **e** segmentação como
 caminhos da lista (além de avulso, filtro avançado e Excel). SMS (#18) entra
 **só** via segmentação.
+
+Cupom, cashback, PDV e Pixel **não** leem `cliente.classificacao`. O modelo
+pronto de segmentação **Clientes VIP** filtra `frequencia` 4–5 e
+`valorMonetario` 4–5 (notas RFV, não o grupo). O mock `em-risco` (Em risco +
+Hibernando) existe no front; o #14 publicado lista 9 modelos e não inclui
+esse — o texto do #78 cita só o VIP, que o #14 já documenta.
 
 ## Padrão ao vivo no sandbox (BeeFood3, 2026-09-02)
 

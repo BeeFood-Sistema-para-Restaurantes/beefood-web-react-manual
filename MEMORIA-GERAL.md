@@ -4,8 +4,10 @@
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
 Última atualização: 2026-09-03 (**#78** Classificação RFV — header com o
-*porquê* da segmentação; mapa de usos: WhatsApp **direto ou via segmentação**,
-inteligente e SMS **só pela segmentação**; 10 imagens);
+custo do disparo único e tabela de tom por grupo; mapa de usos: WhatsApp
+**direto ou via segmentação**, inteligente e SMS **só pela segmentação**,
+relatório + Base de Clientes; cupom/cashback/PDV/Pixel não leem o grupo;
+10 imagens);
 **#78** (02/09) limites em Clientes → RFV, 11 grupos, recálculo em 24h; V é
 ticket médio apesar do rótulo “Total gasto” na ficha);
 **#17** BeeFood Pixel Analytics — funil +
