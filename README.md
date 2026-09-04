@@ -70,6 +70,9 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Grupos de acesso — estudo completo das 93 permissões | [`manuais/grupos-acesso/`](manuais/grupos-acesso/grupos-acesso.md) | ✅ Concluído |
 | Criar usuário e montar grupo de acesso | [`manuais/usuarios-criar/`](manuais/usuarios-criar/usuarios-criar.md) | ✅ Concluído |
 | Vínculo Marketplace (nome do marketplace → produto do cardápio) | [`manuais/vinculo-marketplace/`](manuais/vinculo-marketplace/vinculo-marketplace.md) | ✅ Concluído |
+| Cadastrar mesas e gerar o QR Code | [`manuais/cadastro-mesas/`](manuais/cadastro-mesas/cadastro-mesas.md) | ✅ Concluído |
+| Cadastrar comandas e gerar o QR Code | [`manuais/cadastro-comandas/`](manuais/cadastro-comandas/cadastro-comandas.md) | ✅ Concluído |
+| Cadastrar forma de recebimento (Delivery, Presencial e PDV) | [`manuais/formas-recebimento/`](manuais/formas-recebimento/formas-recebimento.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
