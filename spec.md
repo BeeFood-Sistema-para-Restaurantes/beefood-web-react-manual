@@ -74,6 +74,7 @@ manuais/<nome>/
 | Atender no BeeBot | #91 (concluído 06/09/2026) | `manuais/whatsapp-atendimento-beebot/` |
 | Indicadores de WhatsApp | #92 (concluído 06/09/2026) | `manuais/whatsapp-indicadores/` |
 | Histórico de mensagens | #93 (concluído 06/09/2026) | `manuais/whatsapp-historico/` |
+| Transferir item entre mesas e comandas | #94 (concluído 06/09/2026) | `manuais/transferencia-itens-mesas/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |
