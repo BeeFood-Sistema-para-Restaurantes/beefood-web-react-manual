@@ -3,7 +3,10 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-03 (**#78** Classificação RFV — header com o
+Última atualização: 2026-09-06 (**#83** Pedidos pelo chat no WhatsApp —
+interruptor no BeeBot, fluxo simulado via API `validaFluxo`, 4 celulares em
+2 tiras);
+**#78** Classificação RFV — header com o
 custo do disparo único e tabela de tom por grupo; mapa de usos: WhatsApp
 **direto ou via segmentação**, inteligente e SMS **só pela segmentação**,
 relatório + Base de Clientes; cupom/cashback/PDV/Pixel não leem o grupo;
@@ -700,6 +703,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Cadastrar mesas e gerar o QR Code | `manuais/cadastro-mesas/` | ✅ Concluído (#80) |
 | Cadastrar comandas e gerar o QR Code | `manuais/cadastro-comandas/` | ✅ Concluído (#81) |
 | Cadastrar forma de recebimento | `manuais/formas-recebimento/` | ✅ Concluído (#82) |
+| Pedidos pelo chat no WhatsApp | `manuais/whatsapp-pedidos-chat/` | ✅ Concluído (#83) |
 
 ### Exibir/Ocultar e Preço Programado — #68 e #69
 

@@ -62,6 +62,7 @@ manuais/<nome>/
 | Cadastro de mesas e QR Code | #80 (concluído 03/09/2026) | `manuais/cadastro-mesas/` |
 | Cadastro de comandas e QR Code | #81 (concluído 03/09/2026) | `manuais/cadastro-comandas/` |
 | Formas de recebimento (Delivery, Presencial e PDV) | #82 (concluído 03/09/2026) | `manuais/formas-recebimento/` |
+| Pedidos pelo chat no WhatsApp | #83 (concluído 06/09/2026) | `manuais/whatsapp-pedidos-chat/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |

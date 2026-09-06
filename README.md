@@ -73,6 +73,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Cadastrar mesas e gerar o QR Code | [`manuais/cadastro-mesas/`](manuais/cadastro-mesas/cadastro-mesas.md) | ✅ Concluído |
 | Cadastrar comandas e gerar o QR Code | [`manuais/cadastro-comandas/`](manuais/cadastro-comandas/cadastro-comandas.md) | ✅ Concluído |
 | Cadastrar forma de recebimento (Delivery, Presencial e PDV) | [`manuais/formas-recebimento/`](manuais/formas-recebimento/formas-recebimento.md) | ✅ Concluído |
+| Pedidos pelo chat no WhatsApp (BeeBot) | [`manuais/whatsapp-pedidos-chat/`](manuais/whatsapp-pedidos-chat/whatsapp-pedidos-chat.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
