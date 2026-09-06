@@ -65,6 +65,15 @@ manuais/<nome>/
 | Comissão do garçom: cadastrar e lançar | #83 (concluído 06/09/2026) | [`PLANO-GARCOM.md`](PLANO-GARCOM.md) + `manuais/comissao-garcom-cadastrar/` |
 | Relatório de comissão do garçom | #84 (concluído 06/09/2026) | `manuais/relatorio-comissao-garcom/` |
 | Relatório de taxa de serviço | #85 (concluído 06/09/2026) | `manuais/relatorio-taxa-servico/` |
+| Pedidos pelo chat no WhatsApp | #86 (concluído 06/09/2026) | `manuais/whatsapp-pedidos-chat/` |
+| Campanhas de WhatsApp | #15 (concluído 06/09/2026) | `manuais/campanhas-whatsapp/` |
+| Notificações de cada etapa | #87 (concluído 06/09/2026) | `manuais/whatsapp-notificacoes/` |
+| Respostas automáticas | #88 (concluído 06/09/2026) | `manuais/whatsapp-respostas/` |
+| Resumo diário e semanal | #89 (concluído 06/09/2026) | `manuais/whatsapp-resumo-diario/` |
+| Conectar o WhatsApp (QR) | #90 (concluído 06/09/2026) | `manuais/whatsapp-conectar/` |
+| Atender no BeeBot | #91 (concluído 06/09/2026) | `manuais/whatsapp-atendimento-beebot/` |
+| Indicadores de WhatsApp | #92 (concluído 06/09/2026) | `manuais/whatsapp-indicadores/` |
+| Histórico de mensagens | #93 (concluído 06/09/2026) | `manuais/whatsapp-historico/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |

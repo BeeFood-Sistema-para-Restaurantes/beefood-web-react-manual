@@ -3,7 +3,9 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-06 (**#83/#84/#85** comissão do garçom ≠ taxa de serviço — o % mora no funcionário, só nasce com identidade (app / usuário / operador); Relatório de Desempenho item a item; Resumo Presencial do caixa lista a taxa e **não** substitui o fechamento da comissão; switch Sem taxa de serviço no produto);
+Última atualização: 2026-09-06 (**série WhatsApp #15 e #86–#93** — campanhas
+em rascunho, QR só gerado, conversas fake; Pedido Chat **#86**;
+**#83/#84/#85** comissão do garçom ≠ taxa de serviço — o % mora no funcionário, só nasce com identidade (app / usuário / operador); Relatório de Desempenho item a item; Resumo Presencial do caixa lista a taxa e **não** substitui o fechamento da comissão; switch Sem taxa de serviço no produto);
 **#80/#81/#82** mesas, comandas e formas de recebimento; **#78** Classificação RFV — header com o
 custo do disparo único e tabela de tom por grupo; mapa de usos: WhatsApp
 **direto ou via segmentação**, inteligente e SMS **só pela segmentação**,
@@ -701,6 +703,18 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Cadastrar mesas e gerar o QR Code | `manuais/cadastro-mesas/` | ✅ Concluído (#80) |
 | Cadastrar comandas e gerar o QR Code | `manuais/cadastro-comandas/` | ✅ Concluído (#81) |
 | Cadastrar forma de recebimento | `manuais/formas-recebimento/` | ✅ Concluído (#82) |
+| Comissão do garçom: cadastrar e lançar | `manuais/comissao-garcom-cadastrar/` | ✅ Concluído (#83) |
+| Relatório de comissão do garçom | `manuais/relatorio-comissao-garcom/` | ✅ Concluído (#84) |
+| Relatório de taxa de serviço | `manuais/relatorio-taxa-servico/` | ✅ Concluído (#85) |
+| Pedidos pelo chat no WhatsApp | `manuais/whatsapp-pedidos-chat/` | ✅ Concluído (#86) |
+| Campanhas de WhatsApp | `manuais/campanhas-whatsapp/` | ✅ Concluído (#15) |
+| Notificações de cada etapa | `manuais/whatsapp-notificacoes/` | ✅ Concluído (#87) |
+| Respostas automáticas | `manuais/whatsapp-respostas/` | ✅ Concluído (#88) |
+| Resumo diário e semanal | `manuais/whatsapp-resumo-diario/` | ✅ Concluído (#89) |
+| Conectar o WhatsApp (QR) | `manuais/whatsapp-conectar/` | ✅ Concluído (#90) |
+| Atender no BeeBot | `manuais/whatsapp-atendimento-beebot/` | ✅ Concluído (#91) |
+| Indicadores de WhatsApp | `manuais/whatsapp-indicadores/` | ✅ Concluído (#92) |
+| Histórico de mensagens | `manuais/whatsapp-historico/` | ✅ Concluído (#93) |
 
 ### Exibir/Ocultar e Preço Programado — #68 e #69
 

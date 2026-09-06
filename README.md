@@ -73,6 +73,18 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Cadastrar mesas e gerar o QR Code | [`manuais/cadastro-mesas/`](manuais/cadastro-mesas/cadastro-mesas.md) | ✅ Concluído |
 | Cadastrar comandas e gerar o QR Code | [`manuais/cadastro-comandas/`](manuais/cadastro-comandas/cadastro-comandas.md) | ✅ Concluído |
 | Cadastrar forma de recebimento (Delivery, Presencial e PDV) | [`manuais/formas-recebimento/`](manuais/formas-recebimento/formas-recebimento.md) | ✅ Concluído |
+| Comissão do garçom: cadastrar e lançar | [`manuais/comissao-garcom-cadastrar/`](manuais/comissao-garcom-cadastrar/comissao-garcom-cadastrar.md) | ✅ Concluído |
+| Relatório de comissão do garçom | [`manuais/relatorio-comissao-garcom/`](manuais/relatorio-comissao-garcom/relatorio-comissao-garcom.md) | ✅ Concluído |
+| Relatório de taxa de serviço | [`manuais/relatorio-taxa-servico/`](manuais/relatorio-taxa-servico/relatorio-taxa-servico.md) | ✅ Concluído |
+| Pedidos pelo chat no WhatsApp (BeeBot) | [`manuais/whatsapp-pedidos-chat/`](manuais/whatsapp-pedidos-chat/whatsapp-pedidos-chat.md) | ✅ Concluído |
+| Campanhas de WhatsApp | [`manuais/campanhas-whatsapp/`](manuais/campanhas-whatsapp/campanhas-whatsapp.md) | ✅ Concluído |
+| Notificações de cada etapa do pedido | [`manuais/whatsapp-notificacoes/`](manuais/whatsapp-notificacoes/whatsapp-notificacoes.md) | ✅ Concluído |
+| Respostas automáticas no WhatsApp | [`manuais/whatsapp-respostas/`](manuais/whatsapp-respostas/whatsapp-respostas.md) | ✅ Concluído |
+| Resumo diário e semanal | [`manuais/whatsapp-resumo-diario/`](manuais/whatsapp-resumo-diario/whatsapp-resumo-diario.md) | ✅ Concluído |
+| Conectar o WhatsApp (QR Code) | [`manuais/whatsapp-conectar/`](manuais/whatsapp-conectar/whatsapp-conectar.md) | ✅ Concluído |
+| Atender no BeeBot | [`manuais/whatsapp-atendimento-beebot/`](manuais/whatsapp-atendimento-beebot/whatsapp-atendimento-beebot.md) | ✅ Concluído |
+| Indicadores de WhatsApp e BeeBot | [`manuais/whatsapp-indicadores/`](manuais/whatsapp-indicadores/whatsapp-indicadores.md) | ✅ Concluído |
+| Histórico de mensagens do WhatsApp | [`manuais/whatsapp-historico/`](manuais/whatsapp-historico/whatsapp-historico.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
