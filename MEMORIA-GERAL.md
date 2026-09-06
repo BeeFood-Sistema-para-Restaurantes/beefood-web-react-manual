@@ -3,9 +3,8 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-06 (**#83** Pedidos pelo chat no WhatsApp —
-interruptor no BeeBot, fluxo simulado via API `validaFluxo`, 4 celulares em
-2 tiras);
+Última atualização: 2026-09-06 (**série WhatsApp #15 e #84–#90** — campanhas
+em rascunho, QR só gerado, conversas fake; **#83** Pedido Chat);
 **#78** Classificação RFV — header com o
 custo do disparo único e tabela de tom por grupo; mapa de usos: WhatsApp
 **direto ou via segmentação**, inteligente e SMS **só pela segmentação**,

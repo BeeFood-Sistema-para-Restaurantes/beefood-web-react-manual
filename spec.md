@@ -63,6 +63,14 @@ manuais/<nome>/
 | Cadastro de comandas e QR Code | #81 (concluído 03/09/2026) | `manuais/cadastro-comandas/` |
 | Formas de recebimento (Delivery, Presencial e PDV) | #82 (concluído 03/09/2026) | `manuais/formas-recebimento/` |
 | Pedidos pelo chat no WhatsApp | #83 (concluído 06/09/2026) | `manuais/whatsapp-pedidos-chat/` |
+| Campanhas de WhatsApp | #15 (concluído 06/09/2026) | `manuais/campanhas-whatsapp/` |
+| Notificações de cada etapa | #84 (concluído 06/09/2026) | `manuais/whatsapp-notificacoes/` |
+| Respostas automáticas | #85 (concluído 06/09/2026) | `manuais/whatsapp-respostas/` |
+| Resumo diário e semanal | #86 (concluído 06/09/2026) | `manuais/whatsapp-resumo-diario/` |
+| Conectar o WhatsApp (QR) | #87 (concluído 06/09/2026) | `manuais/whatsapp-conectar/` |
+| Atender no BeeBot | #88 (concluído 06/09/2026) | `manuais/whatsapp-atendimento-beebot/` |
+| Indicadores de WhatsApp | #89 (concluído 06/09/2026) | `manuais/whatsapp-indicadores/` |
+| Histórico de mensagens | #90 (concluído 06/09/2026) | `manuais/whatsapp-historico/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |

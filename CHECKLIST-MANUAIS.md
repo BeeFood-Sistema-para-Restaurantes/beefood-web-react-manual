@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-09-06 (**#83** Pedidos pelo chat no WhatsApp; **#80/#81/#82** mesas, comandas e formas de recebimento)
+Última atualização: 2026-09-06 (**#15** e **#84–#90** série WhatsApp; **#83** Pedido Chat)
 
 ## Legenda de status
 
@@ -34,7 +34,7 @@
 | 12 | **Segunda conferência (dupla checagem)** | Por que recontar, abrir a conferência de um caixa fechado (Ver Conferência), Adicionar 2ª Conferência, recontar com a calculadora, observações, marcar como conferido (cadeado) e resolver a quebra de caixa | `manuais/caixa-conferencia-2/` | ✅ Concluído | 🌐 Sim |
 | 13 | **Restrições de caixa (grupo de acesso)** | Todas as restrições de caixa que podem ser aplicadas a um usuário — Abrir e Fechar Caixa, Visualizar Valores de Referência, Visualizar Caixas Fechados, Transferência de Operações, Cadastro de Caixas, Função Gerente e o parâmetro Caixa por Usuário — cada uma com **como configurar** e **como o caixa fica** | `manuais/caixa-restricoes/` | ✅ Concluído | 🌐 Sim |
 | 14 | **Segmentação de clientes** | Criar públicos em Food Marketing → Segmentação de Cliente: o que é, os 37 filtros disponíveis, como combinar com E/OU, testar o tamanho do público e usar em campanhas — com vários exemplos prontos de restaurante | `manuais/segmentacao-clientes/` | ✅ Concluído | 🌐 Sim |
-| 15 | **Campanhas de WhatsApp** | Criar campanha em massa: escrever a mensagem com variações (reduz risco de bloqueio), anexar mídia, montar a lista de destinatários pelos cinco caminhos (avulso, RFV, filtro avançado, segmentação, Excel), revisar e publicar — mais abortar campanha e ler o resultado | `manuais/campanhas-whatsapp/` | ☑️ Aprovado | — |
+| 15 | **Campanhas de WhatsApp** | Criar campanha em massa: escrever a mensagem com variações (reduz risco de bloqueio), anexar mídia, montar a lista de destinatários pelos cinco caminhos (avulso, RFV, filtro avançado, segmentação, Excel), revisar (sem publicar no sandbox) | `manuais/campanhas-whatsapp/` | ✅ Concluído (7 imagens) | — |
 | 16 | **Campanhas Inteligentes** | As seis campanhas que já vêm criadas na conta (quatro delas **ligadas**), o gatilho e a configuração de fábrica de cada uma, os campos dos passos 1, 2 e 3, o catálogo de 20 variáveis (e as nove que só funcionam com histórico do cliente), a variação automática das mensagens e a proteção **Anti Banimento** | `manuais/campanhas-inteligentes/` | ✅ Concluído | — |
 | 17 | **BeeFood Pixel Analytics** | Ler o funil do cardápio digital (Visitas → Visualizações → Carrinho → Pedidos), filtrar por contexto, cardápio e origem, entender os KPIs e o painel Ao vivo | `manuais/pixel-analytics/` | ✅ Concluído | — |
 | 18 | **Campanhas SMS** | Criar campanha de SMS, entender a contagem de créditos por segmento (e como economizar sem acento/emoji), comprar créditos por PIX e usar a blacklist / opt-out | `manuais/campanhas-sms/` | ✅ Concluído (14 imagens) | — |
@@ -104,6 +104,13 @@
 | 81 | **Cadastrar comandas e gerar o QR Code** | Par do #80 para comandas: cadastro, lote até 100, exclusão, os três QR Codes (`?tipo=p&comanda=`, código interno e EAN-13 com dígito de tipo diferente) e a aba Comandas do mapa do salão | `manuais/cadastro-comandas/` | ✅ Concluído (12 imagens) | — |
 | 82 | **Cadastrar forma de recebimento** | As **três telas parecidas** (Cadastros × Cardápio Digital × Financeiro), o cadastro completo nas 3 abas (Configuração, Taxas e Bandeiras, TEF), os 10 tipos, o ajuste de desconto/acréscimo e — a resposta central — que **não existe switch de PDV**: PDV, mesa e comanda são o canal **Presencial** | `manuais/formas-recebimento/` | ✅ Concluído (11 imagens) | — |
 | 83 | **Pedidos pelo chat no WhatsApp** | Ligar o interruptor **Pedido Chat** no BeeBot (`bot.beefood.com.br`) e o fluxo do cliente: setor → produto → grupos → carrinho → entrega/retirada → pagamento → confirmar | `manuais/whatsapp-pedidos-chat/` | ✅ Concluído (5 imagens) | — |
+| 84 | **Notificações de cada etapa** | WhatsApp → Notificações: ligar/editar os 8 avisos de Delivery + 3 do entregador, variações `{a\|b}` e o raio do **Entregador próximo** | `manuais/whatsapp-notificacoes/` | ✅ Concluído (4 imagens) | — |
+| 85 | **Respostas automáticas** | WhatsApp → Respostas: palavra-chave, Boas Vindas, **Loja Fechada** (principal + agendamento) | `manuais/whatsapp-respostas/` | ✅ Concluído (4 imagens) | — |
+| 86 | **Resumo diário e semanal** | WhatsApp → Resumo Diário: cadastrar nome/telefone; envio às **07h** pelo cardápio principal | `manuais/whatsapp-resumo-diario/` | ✅ Concluído (3 imagens) | — |
+| 87 | **Conectar o WhatsApp (QR)** | Só a **geração** do QR: Conectar → Gerando → Expandir. Não escaneia o número | `manuais/whatsapp-conectar/` | ✅ Concluído (3 imagens) | — |
+| 88 | **Atender no BeeBot** | Inbox `bot.beefood.com.br`: interruptores, `/` respostas rápidas, humano e pedido assistido (conversas em mockup) | `manuais/whatsapp-atendimento-beebot/` | ✅ Concluído (3 imagens) | — |
+| 89 | **Indicadores de WhatsApp** | Aba Indicadores (BeeBot × Campanha × Inteligente). Sandbox em prévia vazia | `manuais/whatsapp-indicadores/` | ✅ Concluído (1 imagem) | — |
+| 90 | **Histórico de mensagens** | WhatsApp → Histórico: boletim/campanha/delivery e *Aguardando envio* | `manuais/whatsapp-historico/` | ✅ Concluído (1 imagem) | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -141,7 +148,7 @@
 | **Fiscal** | Configuração fiscal, emissão e consulta de NFC-e e NF-e, inutilização, carta de correção e notas recebidas (a Reforma Tributária já é o #5) | 4 a 5 manuais | 5 | 💡 Ideia |
 | **Mesas / Comandas** | Mapa do salão, abrir e fechar conta, agrupar mesas, reabrir | 2 manuais | 4 | 💡 Ideia — o **cadastro** de mesas e comandas saiu daqui e virou o **#80** e o **#81**; falta a operação (abrir/fechar conta, agrupar, reabrir) |
 | **Impressão** | Impressoras, impressão da cozinha, layout e os dois históricos | 2 a 3 manuais | 4 | 💡 Ideia |
-| **WhatsApp / BeeBot** | Conectar o número, notificações automáticas de status, respostas automáticas, IA e resumo diário | 3 manuais | 4 | 💡 Ideia — o **Pedido Chat** saiu daqui e virou o **#83** (`manuais/whatsapp-pedidos-chat/`) |
+| **WhatsApp / BeeBot** | Conectar o número, notificações, respostas, IA e resumo diário | — | 4 | ✅ **Concluído** na série **#15** campanhas, **#58** IA, **#83** Pedido Chat, **#84–#90** (conectar QR, notificações, respostas, boletim, atendimento, indicadores, histórico). **API Oficial** continua fora (*Em breve!*) |
 | **Usuários e permissões** | Criar usuário, montar grupo de acesso e o que cada permissão faz (complementa o #13, que só cobre caixa) | 1 a 2 manuais | 4 | ✅ **Concluído**: **#75** é o catálogo das 93 permissões (`manuais/grupos-acesso/`) e **#76** o passo a passo de criar usuário e grupo (`manuais/usuarios-criar/`) |
 | **Estoque** | Saldo e movimentações, importar NF-e de compra, receitas e ordens de produção | 3 manuais | 4 | ☑️ **Ficha Técnica virou o #72** ([`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md)). Restam Receitas + Produção, movimentações/saldo e importar NF-e. A **pizza** volta como capítulo ou manual próprio quando o dono avisar |
 | **Histórico de Vendas** | Consultar venda passada, filtros, detalhe, pagamentos e exportação | 1 manual | 4 | 💡 Ideia |
@@ -174,9 +181,8 @@ ser produzido com dados reais ou se precisa de cenário montado antes.
 | Estoque | 45 produtos (nenhum com controle de estoque ligado) |
 | Fiado | R$ 14,00 em dívidas, 3 clientes |
 
-**Decisão pendente com o dono:** no manual **#15**, publicar uma campanha **dispara mensagem de
-verdade** para os clientes da conta. Todo o caminho pode ser capturado em rascunho; falta
-definir se um disparo real fica autorizado para a captura final.
+**Resolvido no #15 (06/09/2026):** o dono pediu a série sem parar, **sem parear** o WhatsApp
+e **sem publicar** campanha. Os prints são de rascunho; o celular do cliente é mockup.
 
 > **Resolvido no #18:** o dono autorizou disparo de teste para o comercial
 > **15 99132-0694**. A campanha #65 foi enviada (3 destinatários / 3 créditos — o rascunho
@@ -195,7 +201,7 @@ definir se um disparo real fica autorizado para a captura final.
 |-------|-----------------|--------|
 | **Estratégias de cupom** | Depois do #21 (campos): manuais de receita — Pix só, primeira compra, só um setor, só retirada… | 💡 Ideia |
 | **Receitas de campanhas** | Juntar o #14 (Segmentação) com o #16 (Campanhas Inteligentes) num manual de receitas prontas: público + mensagem sugerida + parâmetros de agenda. Ex.: quem só pede no fim de semana recebendo oferta de terça, ticket alto recebendo lançamento, quem comprou uma categoria e nunca outra, quem usou cupom uma vez e não voltou | 💡 Ideia |
-| **Indicadores (aba da mesma página)** | A primeira aba de Campanhas WhatsApp: analytics de BeeBot, campanha e campanha inteligente — nenhum manual cobre | 💡 Ideia |
+| **Indicadores (aba da mesma página)** | A primeira aba de Campanhas WhatsApp: analytics de BeeBot, campanha e campanha inteligente | ✅ **#89** (`manuais/whatsapp-indicadores/`) |
 
 ### Parâmetros (aprovado 21/08/2026 — Opção B)
 
@@ -231,6 +237,7 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 
 ## Histórico
 
+- 2026-09-06 — **Série WhatsApp concluída** a pedido do dono (*fazer sem parar todos*). **#15** Campanhas (7 imagens, rascunho, **não publicado**); **#84** Notificações; **#85** Respostas (inclui Loja Fechada); **#86** Resumo diário; **#87** Conectar (só geração do QR, Expandir); **#88** Atendimento no BeeBot; **#89** Indicadores (prévia vazia); **#90** Histórico (boletins pendentes). Conversas de celular são mockup. Destinatários e telefones borrados/ofuscados. QR gerado no sandbox e **não** escaneado (card ficou *Conectando*).
 - 2026-09-06 — **#83 FAQ/SEO** (`manuais/whatsapp-pedidos-chat/`): abertura e perguntas frequentes no tom de busca (pedido pelo WhatsApp, diferença da IA, atendente, entrega/retirada, preço, loja fechada). Sem imagem nova.
 - 2026-09-06 — **#83 Concluído** (`manuais/whatsapp-pedidos-chat/`). Primeiro da série WhatsApp: ligar **Pedido Chat** no BeeBot. WhatsApp do sandbox **desconectado**; o painel `bot.beefood.com.br` abre com o mesmo login do BeeFood3. Switch `#beeBotBeeChatPedido` grava sozinho (toast *Pedido via Chat ativado com sucesso*). Diálogo do cliente simulado na API `validaFluxo` (filial 3408): Junior Burger R$ 20 + Coca, retirada, dinheiro — **não confirmado**. 5 imagens (3 do painel + 2 tiras de 2 celulares). Lista de conversas ofuscada. Pedido Chat religado depois de um clique acidental no rótulo.
 - 2026-09-03 — **#80, #81 e #82 concluídos** na mesma sessão, a pedido do dono (*"crie um manual completo como cadastrar mesas, qrcode / como cadastrar comanda, qrcode / como cadastrar forma de recebimento para delivery, presencial e PDV — explore a tela inteira e exemplo prático final"*). **40 imagens no total** (17 + 12 + 11) e cenário montado ao vivo: a base foi de **14 para 19 mesas** (a Mesa 1 no cadastro individual, as 16–19 em lote) e de **25 para 30 comandas** (a 26 individual, as 27–30 em lote), mais a forma **Vale Refeição Sodexo** (tipo Vale Refeição, taxa 4,5%, 30 dias, Delivery + Presencial). **A descoberta que responde ao pedido do #82:** *não existe switch de PDV* — PDV, mesa e comanda são o mesmo canal **Presencial**, e a prova é a forma nova aparecendo em **CTRL+1** no recebimento de uma mesa. Também ficou registrado que a aba **Taxas e Bandeiras** nasce desabilitada porque o tipo padrão é Dinheiro (*"Não disponível para este tipo de pagamento"*), que **Taxa (%)** e **Desconto Fixo** se bloqueiam mutuamente, e que **trocar de aba já salva** a forma. Nos QR Codes, os três tipos foram gerados e comparados: o do **cardápio** monta a URL `?tipo=p&mesa=` / `?tipo=p&comanda=` e **gera pela faixa mesmo que a mesa não exista**; o **código interno** é `38311_1` (mesa) contra `38311_c1` (comanda); e o **EAN-13** muda o segundo dígito — `2 003831 100015` na Mesa 1, `2 103831 100012` na Comanda 1. **A folha de impressão foi capturada de verdade** com o truque do iframe oculto `#beefood-print-frame` (o mesmo do cupom no #74) e virou a imagem final dos dois manuais de QR. **Três armadilhas de captura:** o item do submenu Cadastros é `button`, não `<a>`; clicar no texto do **Tipo** não marca o radio (é preciso o `id` `tipo-<valor>`); e **ESC no dropdown fecha o modal inteiro**. Documento do cliente borrado no `annotate.py` (parâmetro `borrao`) na tela de pagamento. Nada foi recebido e nada foi excluído.
