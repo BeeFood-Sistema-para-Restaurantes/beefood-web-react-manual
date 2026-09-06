@@ -47,5 +47,14 @@ público).
   conectando/conectada. Com a loja desconectada, o caminho é o botão
   **Abrir Conversas WhatsApp**.
 
+## SEO / FAQ (06/09, pedido do dono)
+Texto de abertura e H2 passaram a falar **pedido pelo WhatsApp**, BeeBot e
+cardápio digital — o que o restaurante pesquisa. FAQ com pergunta completa
+(padrão do #33): ativar, diferença da IA, o que escrever, Delivery, grupos,
+entrega/retirada, atendente, preço, WhatsApp conectado, desligar, vários
+itens, loja fechada, PIX, resumo, caixa. Sem afirmar cupom no chat (o fluxo
+`validaFluxo` não mostrou cupom). Loja fechada aponta para Respostas, sem
+garantir que o Pedido Chat bloqueia sozinho.
+
 ## Status
 Concluído — aguardando publicação do dono.

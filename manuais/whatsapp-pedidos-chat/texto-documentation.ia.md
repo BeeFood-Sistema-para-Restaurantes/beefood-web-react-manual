@@ -8,7 +8,8 @@
 ## PROMPT (copiar e colar)
 
 Crie um novo manual no app: em **WhatsApp**, adicione um manual chamado
-**"Pedidos pelo chat no WhatsApp"**.
+**"Pedidos pelo chat no WhatsApp"** (também serve para busca: pedido pelo
+WhatsApp, BeeBot, pedido pelo chat).
 
 **Leia APENAS os arquivos abaixo (não varra o resto do projeto):**
 
@@ -30,6 +31,7 @@ Crie um novo manual no app: em **WhatsApp**, adicione um manual chamado
 - **Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa"**.
 - Idioma **português do Brasil**, tom didático.
 - Mantenha em destaque: o interruptor é **Pedido Chat** no BeeBot; WhatsApp precisa estar **conectado** para o cliente conversar; o bot usa o **mesmo cardápio** da loja; **1** confirma no resumo.
+- **Mantenha a seção Perguntas frequentes inteira** (são as dúvidas de busca: pedido pelo WhatsApp sem cardápio, diferença da IA, atendente humano, entrega/retirada, preço, loja fechada, caixa de delivery).
 - **Não** publique o rodapé "Referências internas" nem o `fluxo-codigo.md`.
 
 ---
