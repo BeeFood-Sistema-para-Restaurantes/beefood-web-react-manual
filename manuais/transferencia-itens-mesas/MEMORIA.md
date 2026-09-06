@@ -38,8 +38,7 @@ já estava aberta.
 
 ## Imagens
 
-6 no `.md` (01–06). Extras nas puras (`01-mapa-mesas`, `04b`, `04-passo-destino`
-sem filtro) não entram no manual.
+6 no `.md` e nas puras (01–06), na mesma sequência.
 
 ## Help
 
