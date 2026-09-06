@@ -62,6 +62,9 @@ manuais/<nome>/
 | Cadastro de mesas e QR Code | #80 (concluído 03/09/2026) | `manuais/cadastro-mesas/` |
 | Cadastro de comandas e QR Code | #81 (concluído 03/09/2026) | `manuais/cadastro-comandas/` |
 | Formas de recebimento (Delivery, Presencial e PDV) | #82 (concluído 03/09/2026) | `manuais/formas-recebimento/` |
+| Comissão do garçom: cadastrar e lançar | #83 (concluído 06/09/2026) | [`PLANO-GARCOM.md`](PLANO-GARCOM.md) + `manuais/comissao-garcom-cadastrar/` |
+| Relatório de comissão do garçom | #84 (concluído 06/09/2026) | `manuais/relatorio-comissao-garcom/` |
+| Relatório de taxa de serviço | #85 (concluído 06/09/2026) | `manuais/relatorio-taxa-servico/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |

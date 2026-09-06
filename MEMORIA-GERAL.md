@@ -3,7 +3,8 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-03 (**#78** Classificação RFV — header com o
+Última atualização: 2026-09-06 (**#83/#84/#85** comissão do garçom ≠ taxa de serviço — o % mora no funcionário, só nasce com identidade (app / usuário / operador); Relatório de Desempenho item a item; Resumo Presencial do caixa lista a taxa e **não** substitui o fechamento da comissão; switch Sem taxa de serviço no produto);
+**#80/#81/#82** mesas, comandas e formas de recebimento; **#78** Classificação RFV — header com o
 custo do disparo único e tabela de tom por grupo; mapa de usos: WhatsApp
 **direto ou via segmentação**, inteligente e SMS **só pela segmentação**,
 relatório + Base de Clientes; cupom/cashback/PDV/Pixel não leem o grupo;
