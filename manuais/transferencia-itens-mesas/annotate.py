@@ -1,0 +1,107 @@
+"""Anota os screenshots do manual #97 — Transferir item entre mesas e comandas."""
+import os, math
+from PIL import Image, ImageDraw, ImageFont
+
+SRC = "imagens-puras"
+OUT = "imagens-tratadas"
+os.makedirs(OUT, exist_ok=True)
+
+GREEN = (22, 150, 78)
+WHITE = (255, 255, 255)
+A_LINE = 220
+A_BADGE = 235
+FONT_CANDIDATES = [
+    r"C:\Windows\Fonts\arialbd.ttf",
+    "/usr/share/fonts/truetype/croscore/Arimo-Bold.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+]
+
+
+def font(sz):
+    for caminho in FONT_CANDIDATES:
+        if os.path.exists(caminho):
+            return ImageFont.truetype(caminho, sz)
+    raise RuntimeError("nenhuma fonte bold encontrada")
+
+
+def draw_arrow(d, x0, y0, x1, y1, w):
+    col = GREEN + (A_LINE,)
+    d.line([(x0, y0), (x1, y1)], fill=col, width=w)
+    ang = math.atan2(y1 - y0, x1 - x0)
+    L = w * 3.6
+    for s in (0.45, -0.45):
+        xa = x1 - L * math.cos(ang - s)
+        ya = y1 - L * math.sin(ang - s)
+        d.line([(x1, y1), (xa, ya)], fill=col, width=w)
+
+
+def badge(d, cx, cy, r, num, fnt):
+    d.ellipse([cx - r - 2, cy - r - 2, cx + r + 2, cy + r + 2], fill=WHITE + (235,))
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=GREEN + (A_BADGE,))
+    t = str(num)
+    bb = d.textbbox((0, 0), t, font=fnt)
+    tw, th = bb[2] - bb[0], bb[3] - bb[1]
+    d.text((cx - tw / 2 - bb[0], cy - th / 2 - bb[1]), t, fill=WHITE, font=fnt)
+
+
+def passthrough(name):
+    img = Image.open(os.path.join(SRC, name)).convert("RGB")
+    img.save(os.path.join(OUT, name))
+    print("OK (contexto)", name)
+
+
+def annotate(name, markers, ring=None):
+    img = Image.open(os.path.join(SRC, name)).convert("RGBA")
+    W, H = img.size
+    overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(overlay)
+    r = int(W * 0.0125)
+    fnt = font(int(r * 1.2))
+    w = max(2, int(W * 0.0022))
+    for (fx, fy, fw, fh) in (ring or []):
+        x0, y0 = fx * W, fy * H
+        d.rectangle([x0, y0, x0 + fw * W, y0 + fh * H], outline=GREEN + (A_LINE,), width=w)
+    for (num, tx, ty, bx, by) in markers:
+        TX, TY = tx * W, ty * H
+        BX, BY = bx * W, by * H
+        ang = math.atan2(TY - BY, TX - BX)
+        sx = BX + (r + 5) * math.cos(ang)
+        sy = BY + (r + 5) * math.sin(ang)
+        draw_arrow(d, sx, sy, TX, TY, w)
+        badge(d, BX, BY, r, num, fnt)
+    out_img = Image.alpha_composite(img, overlay).convert("RGB")
+    out_img.save(os.path.join(OUT, name))
+    print("OK", name)
+
+
+annotate("01-conta-origem-transferir.png", [
+    (1, 0.50, 0.66, 0.36, 0.52),   # Mesa 16 ocupada
+    (2, 0.82, 0.405, 0.72, 0.30),  # Transferir
+    (3, 0.80, 0.48, 0.92, 0.58),   # Chicken Deluxe na conta
+])
+annotate("02-passo-produtos.png", [
+    (1, 0.30, 0.41, 0.22, 0.30),   # Chicken Deluxe selecionado
+    (2, 0.30, 0.50, 0.22, 0.60),   # Anéis que ficam
+    (3, 0.70, 0.90, 0.55, 0.82),   # Próximo
+])
+annotate("03-passo-destino.png", [
+    (1, 0.50, 0.24, 0.28, 0.15),   # busca Comanda
+    (2, 0.50, 0.33, 0.22, 0.42),   # Comanda 1 selecionada
+    (3, 0.70, 0.90, 0.55, 0.82),   # Próximo
+])
+annotate("04-passo-confirmar.png", [
+    (1, 0.50, 0.28, 0.22, 0.20),   # DE Mesa 16
+    (2, 0.50, 0.38, 0.22, 0.46),   # PARA Comanda 1
+    (3, 0.50, 0.50, 0.22, 0.58),   # Chicken Deluxe
+    (4, 0.70, 0.90, 0.55, 0.82),   # Confirmar
+])
+annotate("05-origem-depois.png", [
+    (1, 0.78, 0.51, 0.92, 0.60),   # só Anéis restaram
+    (2, 0.50, 0.64, 0.36, 0.50),   # Mesa 16 com R$ 19,20
+])
+annotate("06-destino-depois.png", [
+    (1, 0.22, 0.28, 0.34, 0.16),   # Comanda 1 ocupada
+    (2, 0.78, 0.51, 0.92, 0.60),   # Chicken Deluxe chegou
+])
+
+print("done")
