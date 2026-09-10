@@ -6,7 +6,7 @@ Cada marcador: (numero, alvo_x, alvo_y, badge_x, badge_y)
 import math
 import os
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 SRC = "imagens-puras"
 OUT = "imagens-tratadas"
@@ -50,8 +50,21 @@ def badge(d, cx, cy, r, num, fnt):
            t, fill=WHITE, font=fnt)
 
 
-def annotate(name, markers, ring=None):
+def desfocar(img, regioes):
+    """Embaça valores fiscais do cliente antes das setas."""
+    W, H = img.size
+    raio = max(20, W // 55)
+    for (fx, fy, fw, fh) in regioes:
+        caixa = (int(fx * W), int(fy * H), int((fx + fw) * W), int((fy + fh) * H))
+        recorte = img.crop(caixa).filter(ImageFilter.GaussianBlur(radius=raio))
+        img.paste(recorte.filter(ImageFilter.GaussianBlur(radius=raio)), caixa)
+    return img
+
+
+def annotate(name, markers, ring=None, blur=None):
     img = Image.open(os.path.join(SRC, name)).convert("RGBA")
+    if blur:
+        img = desfocar(img, blur)
     W, H = img.size
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(overlay)
@@ -75,11 +88,16 @@ annotate("01-email-criar-senha.png", [
     (1, 0.500, 0.400, 0.220, 0.340),   # empresa
     (2, 0.500, 0.440, 0.220, 0.500),   # documento
     (3, 0.500, 0.530, 0.280, 0.600),   # CRIAR MINHA SENHA
+], blur=[
+    (0.500, 0.428, 0.230, 0.045),
+    (0.400, 0.648, 0.230, 0.045),
 ])
 
 annotate("02-email-acessar-portal.png", [
     (1, 0.500, 0.420, 0.220, 0.370),   # 2 CNPJs
     (2, 0.500, 0.530, 0.280, 0.600),   # ACESSAR O PORTAL
+], blur=[
+    (0.500, 0.448, 0.230, 0.045),
 ])
 
 # 3. Identificar
@@ -95,6 +113,8 @@ annotate("05-login-senha.png", [
     (2, 0.500, 0.480, 0.280, 0.520),   # senha
     (3, 0.500, 0.545, 0.280, 0.600),   # Entrar
     (4, 0.500, 0.585, 0.720, 0.650),  # Esqueci
+], blur=[
+    (0.385, 0.405, 0.180, 0.040),
 ])
 
 # 6. Clientes
@@ -104,6 +124,10 @@ annotate("06-meus-clientes.png", [
     (3, 0.080, 0.265, 0.200, 0.320),   # selo Matriz
     (4, 0.120, 0.400, 0.280, 0.360),   # Edicao fiscal
     (5, 0.150, 0.445, 0.320, 0.500),   # permissoes
+], blur=[
+    (0.026, 0.245, 0.145, 0.035),  # MAGA
+    (0.026, 0.592, 0.145, 0.038),  # Nippon
+    (0.352, 0.612, 0.165, 0.040),  # Hey Sushi
 ])
 
 # 7. Competencias
@@ -112,6 +136,13 @@ annotate("07-competencias.png", [
     (2, 0.080, 0.200, 0.080, 0.140),   # mes
     (3, 0.820, 0.255, 0.720, 0.180),   # Ver fechamento
     (4, 0.930, 0.255, 0.970, 0.320),   # Baixar XMLs
+], blur=[
+    (0.018, 0.198, 0.165, 0.035),  # CNPJ
+    (0.018, 0.322, 0.130, 0.045),  # set
+    (0.018, 0.472, 0.130, 0.045),  # ago
+    (0.018, 0.615, 0.130, 0.045),  # jul
+    (0.018, 0.765, 0.130, 0.045),  # jun
+    (0.018, 0.915, 0.130, 0.045),  # mai
 ])
 
 # 8. Fechamento
@@ -121,6 +152,13 @@ annotate("08-fechamento.png", [
     (3, 0.820, 0.175, 0.820, 0.120),   # Exportar
     (4, 0.150, 0.300, 0.080, 0.360),   # cartoes
     (5, 0.200, 0.520, 0.080, 0.600),   # tributos
+], blur=[
+    (0.018, 0.198, 0.220, 0.038),  # CNPJ
+    (0.040, 0.295, 0.165, 0.058),  # valor autorizado
+    (0.018, 0.455, 0.965, 0.058),  # composição
+    (0.280, 0.605, 0.200, 0.090),  # ICMS
+    (0.280, 0.745, 0.200, 0.055),  # total tributos
+    (0.830, 0.612, 0.155, 0.055),  # valor por tipo
 ])
 
 # 9. Produtos
@@ -128,6 +166,8 @@ annotate("09-produtos.png", [
     (1, 0.220, 0.055, 0.220, 0.110),   # aba Produtos
     (2, 0.220, 0.230, 0.080, 0.180),   # Por CFOP / CST / NCM
     (3, 0.200, 0.380, 0.080, 0.450),   # tabela
+], blur=[
+    (0.888, 0.360, 0.112, 0.510),  # coluna R$
 ])
 
 # 10. Documentos
@@ -135,6 +175,10 @@ annotate("10-documentos.png", [
     (1, 0.180, 0.200, 0.080, 0.160),   # busca
     (2, 0.900, 0.300, 0.900, 0.230),   # Ver XML / Baixar
     (3, 0.760, 0.300, 0.680, 0.230),   # Ver itens
+], blur=[
+    (0.075, 0.295, 0.095, 0.595),  # numero
+    (0.268, 0.295, 0.220, 0.595),  # chave
+    (0.610, 0.295, 0.105, 0.595),  # valor
 ])
 
 # 11. NFe recebidas
@@ -142,6 +186,9 @@ annotate("11-nfe-recebidas.png", [
     (1, 0.180, 0.055, 0.180, 0.110),   # aba
     (2, 0.150, 0.185, 0.080, 0.240),   # intervalo
     (3, 0.200, 0.560, 0.080, 0.500),   # lista
+], blur=[
+    (0.335, 0.358, 0.195, 0.065),  # valor total
+    (0.108, 0.585, 0.530, 0.355),  # fornecedor, n°, valor
 ])
 
 # 12. Edicao fiscal

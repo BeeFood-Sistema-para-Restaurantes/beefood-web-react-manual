@@ -6,7 +6,7 @@ Cada marcador: (numero, alvo_x, alvo_y, badge_x, badge_y)
 import math
 import os
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 SRC = "imagens-puras"
 OUT = "imagens-tratadas"
@@ -50,8 +50,21 @@ def badge(d, cx, cy, r, num, fnt):
            t, fill=WHITE, font=fnt)
 
 
-def annotate(name, markers, ring=None):
+def desfocar(img, regioes):
+    """Embaça valores fiscais do cliente antes das setas."""
+    W, H = img.size
+    raio = max(20, W // 55)
+    for (fx, fy, fw, fh) in regioes:
+        caixa = (int(fx * W), int(fy * H), int((fx + fw) * W), int((fy + fh) * H))
+        recorte = img.crop(caixa).filter(ImageFilter.GaussianBlur(radius=raio))
+        img.paste(recorte.filter(ImageFilter.GaussianBlur(radius=raio)), caixa)
+    return img
+
+
+def annotate(name, markers, ring=None, blur=None):
     img = Image.open(os.path.join(SRC, name)).convert("RGBA")
+    if blur:
+        img = desfocar(img, blur)
     W, H = img.size
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(overlay)
@@ -70,6 +83,18 @@ def annotate(name, markers, ring=None):
     print("OK", name)
 
 
+# CNPJ e R$ da tela de resumo (sidebar à esquerda).
+CNPJ = (0.238, 0.152, 0.190, 0.035)
+RESUMO = [
+    CNPJ,
+    (0.195, 0.298, 0.155, 0.052),  # valor autorizado
+    (0.175, 0.452, 0.780, 0.055),  # composição
+    (0.420, 0.608, 0.155, 0.080),  # ICMS
+    (0.400, 0.742, 0.175, 0.055),  # total tributos
+    (0.838, 0.610, 0.145, 0.055),  # valor total por tipo
+]
+
+
 # 1. Resumo
 annotate("01-tela-resumo.png", [
     (1, 0.235, 0.115, 0.235, 0.175),   # aba Fechamento
@@ -82,13 +107,13 @@ annotate("01-tela-resumo.png", [
     (8, 0.480, 0.310, 0.560, 0.250),   # Documentos
     (9, 0.250, 0.430, 0.200, 0.500),   # Composicao
     (10, 0.250, 0.560, 0.200, 0.720),  # Tributos
-])
+], blur=RESUMO)
 
 # 2. Exportar
 annotate("02-exportar-pdf-excel.png", [
     (1, 0.905, 0.205, 0.840, 0.155),   # PDF
     (2, 0.905, 0.245, 0.840, 0.300),   # Excel
-])
+], blur=RESUMO)
 
 # 3. Recorte
 annotate("03-filtro-periodo.png", [
@@ -96,7 +121,7 @@ annotate("03-filtro-periodo.png", [
     (2, 0.680, 0.230, 0.760, 0.175),   # 1a / 2a quinzena
     (3, 0.500, 0.280, 0.430, 0.340),   # De
     (4, 0.800, 0.620, 0.640, 0.680),   # APLICAR
-])
+], blur=RESUMO)
 
 # 4. Produtos
 annotate("04-aba-produtos.png", [
@@ -105,13 +130,16 @@ annotate("04-aba-produtos.png", [
     (3, 0.280, 0.280, 0.210, 0.330),   # busca
     (4, 0.930, 0.280, 0.930, 0.220),   # Colunas
     (5, 0.280, 0.400, 0.200, 0.480),   # tabela
-])
+], blur=[CNPJ])
 
 # 5. Por CFOP
 annotate("05-produtos-por-cfop.png", [
     (1, 0.310, 0.230, 0.250, 0.175),   # Por CFOP
     (2, 0.300, 0.420, 0.210, 0.300),   # grafico
     (3, 0.620, 0.300, 0.780, 0.230),   # tabela
+], blur=[
+    CNPJ,
+    (0.665, 0.368, 0.330, 0.090),  # colunas R$
 ])
 
 # 6. Documentos
@@ -121,19 +149,31 @@ annotate("06-aba-documentos.png", [
     (3, 0.780, 0.330, 0.700, 0.270),   # Ver itens
     (4, 0.870, 0.330, 0.870, 0.270),   # Ver XML
     (5, 0.945, 0.330, 0.945, 0.270),   # Baixar
+], blur=[
+    CNPJ,
+    (0.198, 0.360, 0.085, 0.545),  # numero
+    (0.350, 0.360, 0.195, 0.545),  # chave
+    (0.620, 0.360, 0.090, 0.545),  # valor
 ])
 
 # 7. Itens da nota
 annotate("07-dialog-itens.png", [
     (1, 0.300, 0.345, 0.210, 0.260),   # NFC-e 332709
     (2, 0.300, 0.500, 0.210, 0.580),   # itens
+], blur=[
+    CNPJ,
+    (0.175, 0.305, 0.500, 0.165),  # NFC-e + chave
+    (0.605, 0.505, 0.250, 0.125),  # valores da linha
+    (0.198, 0.575, 0.085, 0.340),  # numeros no fundo
+    (0.350, 0.575, 0.200, 0.340),  # chave no fundo
+    (0.610, 0.575, 0.100, 0.330),  # valores no fundo
 ])
 
 # 8. Ajuda
 annotate("08-ajuda-acesso.png", [
     (1, 0.965, 0.235, 0.900, 0.185),   # ?
     (2, 0.880, 0.340, 0.780, 0.400),   # Ver contadores
-])
+], blur=RESUMO)
 
 # 10. Permissao
 annotate("10-permissao-fechamento-fiscal.png", [

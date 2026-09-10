@@ -3,7 +3,7 @@
 Manual do lojista: aba **Contadores** em Fiscal → Fechamento Fiscal. Inserir,
 permissões, e-mail, encerrar, reativar, reset de senha.
 
-Última atualização: 10/09/2026.
+Última atualização: 10/09/2026 (CNPJ embassado nas tratadas).
 
 ---
 
@@ -46,6 +46,7 @@ Os e-mails vieram dos anexos Gmail do dono (`contato@beefood.com.br`).
 - Encerrar nesta sessão: só abriu o diálogo; **CANCELAR**. Nada revogado.
 - Formulário de autorizar: CNPJ `12.345.678/0001-90` de exemplo, não enviado.
 - Aba Contadores ainda atrás de `isDevelopment` no front de produção.
+- CNPJ do escritório e da empresa saem **embassados** nas `imagens-tratadas/`.
 
 ---
 

@@ -6,7 +6,7 @@ Cada marcador: (numero, alvo_x, alvo_y, badge_x, badge_y)
 import math
 import os
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 SRC = "imagens-puras"
 OUT = "imagens-tratadas"
@@ -50,8 +50,21 @@ def badge(d, cx, cy, r, num, fnt):
            t, fill=WHITE, font=fnt)
 
 
-def annotate(name, markers, ring=None):
+def desfocar(img, regioes):
+    """Embaça CNPJ e demais dados fiscais do cliente antes das setas."""
+    W, H = img.size
+    raio = max(20, W // 55)
+    for (fx, fy, fw, fh) in regioes:
+        caixa = (int(fx * W), int(fy * H), int((fx + fw) * W), int((fy + fh) * H))
+        recorte = img.crop(caixa).filter(ImageFilter.GaussianBlur(radius=raio))
+        img.paste(recorte.filter(ImageFilter.GaussianBlur(radius=raio)), caixa)
+    return img
+
+
+def annotate(name, markers, ring=None, blur=None):
     img = Image.open(os.path.join(SRC, name)).convert("RGBA")
+    if blur:
+        img = desfocar(img, blur)
     W, H = img.size
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(overlay)
@@ -70,6 +83,12 @@ def annotate(name, markers, ring=None):
     print("OK", name)
 
 
+CNPJ_LISTA = [
+    (0.172, 0.298, 0.110, 0.035),
+    (0.172, 0.360, 0.110, 0.035),
+]
+
+
 # 1. Lista
 annotate("01-aba-contadores.png", [
     (1, 0.310, 0.115, 0.310, 0.070),   # aba Contadores
@@ -80,7 +99,7 @@ annotate("01-aba-contadores.png", [
     (6, 0.680, 0.280, 0.680, 0.230),   # permissoes
     (7, 0.860, 0.280, 0.800, 0.230),   # ultimo acesso
     (8, 0.965, 0.280, 0.965, 0.230),   # tres pontinhos
-])
+], blur=CNPJ_LISTA)
 
 # 2. Formulario
 annotate("02-dialog-autorizar.png", [
@@ -92,6 +111,8 @@ annotate("02-dialog-autorizar.png", [
     (6, 0.655, 0.720, 0.780, 0.680),   # XML
     (7, 0.655, 0.755, 0.780, 0.800),   # Ver fechamento
     (8, 0.655, 0.845, 0.780, 0.900),   # Editar impostos
+], blur=CNPJ_LISTA + [
+    (0.400, 0.648, 0.195, 0.070),  # CNPJs da empresa no aviso
 ])
 
 # 3. Menu da linha Ativo
@@ -99,27 +120,30 @@ annotate("03-menu-acoes.png", [
     (1, 0.880, 0.395, 0.780, 0.320),   # Alterar permissoes
     (2, 0.850, 0.430, 0.760, 0.500),   # redefinir senha
     (3, 0.850, 0.530, 0.760, 0.580),   # Encerrar
-])
+], blur=CNPJ_LISTA)
 
 # 4. Permissoes
 annotate("04-dialog-permissoes.png", [
     (1, 0.620, 0.430, 0.720, 0.390),   # XML
     (2, 0.620, 0.480, 0.720, 0.520),   # Ver fechamento
     (3, 0.620, 0.560, 0.720, 0.620),   # Editar impostos
-])
+], blur=CNPJ_LISTA)
 
 # 5. Encerrar
 annotate("05-confirmar-encerrar.png", [
     (1, 0.500, 0.470, 0.280, 0.430),   # recado
     (2, 0.600, 0.530, 0.720, 0.500),   # ENCERRAR
     (3, 0.460, 0.530, 0.380, 0.580),   # CANCELAR
-])
+], blur=CNPJ_LISTA)
 
 # 6. E-mail primeiro acesso
 annotate("06-email-primeiro-acesso.png", [
     (1, 0.500, 0.380, 0.220, 0.330),   # titulo
     (2, 0.500, 0.430, 0.220, 0.480),   # empresa + documento
     (3, 0.500, 0.530, 0.280, 0.600),   # CRIAR MINHA SENHA
+], blur=[
+    (0.500, 0.428, 0.230, 0.045),
+    (0.400, 0.648, 0.230, 0.045),
 ])
 
 # 7. E-mail conta existente
@@ -127,6 +151,8 @@ annotate("07-email-conta-existente.png", [
     (1, 0.580, 0.455, 0.220, 0.370),   # 2 CNPJs
     (2, 0.500, 0.530, 0.280, 0.480),   # ACESSAR O PORTAL
     (3, 0.500, 0.610, 0.280, 0.680),   # senha ja cadastrada
+], blur=[
+    (0.500, 0.448, 0.230, 0.045),
 ])
 
 print("done")
