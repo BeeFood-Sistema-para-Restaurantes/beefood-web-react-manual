@@ -6,7 +6,7 @@ Cada marcador: (numero, alvo_x, alvo_y, badge_x, badge_y)
 import math
 import os
 
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps, ImageStat
 
 SRC = "imagens-puras"
 OUT = "imagens-tratadas"
@@ -50,14 +50,44 @@ def badge(d, cx, cy, r, num, fnt):
            t, fill=WHITE, font=fnt)
 
 
+def faixas(perfil, gap):
+    """Trechos com tinta no perfil, unindo lacunas de ate `gap` pixels.
+
+    Trechos com menos de 6 px caem fora: sao bordas de tabela, nao texto.
+    """
+    achadas = []
+    inicio = fim = None
+    for i, v in enumerate(perfil):
+        if v >= 2:
+            inicio = i if inicio is None else inicio
+            fim = i
+        elif inicio is not None and i - fim > gap:
+            achadas.append((inicio, fim + 1))
+            inicio = fim = None
+    if inicio is not None:
+        achadas.append((inicio, fim + 1))
+    return [(a, b) for a, b in achadas if b - a >= 6]
+
+
 def desfocar(img, regioes):
-    """Embaça valores fiscais do cliente antes das setas."""
+    """Suaviza so a mancha de cada valor: da para ver que ali tem um numero."""
     W, H = img.size
-    raio = max(20, W // 55)
+    gap = max(6, W // 150)
     for (fx, fy, fw, fh) in regioes:
-        caixa = (int(fx * W), int(fy * H), int((fx + fw) * W), int((fy + fh) * H))
-        recorte = img.crop(caixa).filter(ImageFilter.GaussianBlur(radius=raio))
-        img.paste(recorte.filter(ImageFilter.GaussianBlur(radius=raio)), caixa)
+        x0, y0 = int(fx * W), int(fy * H)
+        x1, y1 = int((fx + fw) * W), int((fy + fh) * H)
+        lg, at = x1 - x0, y1 - y0
+        cinza = ImageOps.autocontrast(img.crop((x0, y0, x1, y1)).convert("L"))
+        fundo = ImageStat.Stat(cinza).median[0]
+        tinta = cinza.point(lambda v: 255 if abs(v - fundo) > 28 else 0)
+        for (ly0, ly1) in faixas(list(tinta.resize((1, at), Image.BOX).getdata()), 1):
+            linha = tinta.crop((0, ly0, lg, ly1)).resize((lg, 1), Image.BOX)
+            alt = ly1 - ly0
+            margem = max(2, alt // 4)
+            for (lx0, lx1) in faixas(list(linha.getdata()), gap):
+                caixa = (max(0, x0 + lx0 - margem), max(0, y0 + ly0 - margem),
+                         min(W, x0 + lx1 + margem), min(H, y0 + ly1 + margem))
+                img.paste(img.crop(caixa).filter(ImageFilter.GaussianBlur(max(3, alt // 4))), caixa)
     return img
 
 
@@ -83,15 +113,15 @@ def annotate(name, markers, ring=None, blur=None):
     print("OK", name)
 
 
-# CNPJ e R$ da tela de resumo (sidebar à esquerda).
-CNPJ = (0.238, 0.152, 0.190, 0.035)
+# CNPJ da empresa e os R$ da tela de resumo.
+CNPJ = (0.214, 0.166, 0.088, 0.020)
 RESUMO = [
     CNPJ,
-    (0.195, 0.298, 0.155, 0.052),  # valor autorizado
-    (0.175, 0.452, 0.780, 0.055),  # composição
-    (0.420, 0.608, 0.155, 0.080),  # ICMS
-    (0.400, 0.742, 0.175, 0.055),  # total tributos
-    (0.838, 0.610, 0.145, 0.055),  # valor total por tipo
+    (0.193, 0.318, 0.098, 0.026),  # valor autorizado
+    (0.165, 0.476, 0.690, 0.026),  # composição
+    (0.488, 0.625, 0.072, 0.052),  # ICMS
+    (0.468, 0.770, 0.094, 0.029),  # total dos tributos
+    (0.913, 0.634, 0.072, 0.025),  # valor total por tipo
 ]
 
 
@@ -121,7 +151,15 @@ annotate("03-filtro-periodo.png", [
     (2, 0.680, 0.230, 0.760, 0.175),   # 1a / 2a quinzena
     (3, 0.500, 0.280, 0.430, 0.340),   # De
     (4, 0.800, 0.620, 0.640, 0.680),   # APLICAR
-], blur=RESUMO)
+], blur=[
+    CNPJ,
+    (0.193, 0.318, 0.098, 0.026),  # valor autorizado
+    (0.165, 0.476, 0.088, 0.026),  # produtos
+    (0.370, 0.476, 0.052, 0.026),  # desconto (resto fica atrás do popover)
+    (0.798, 0.476, 0.058, 0.026),  # outros
+    (0.468, 0.770, 0.094, 0.029),  # total dos tributos
+    (0.913, 0.634, 0.072, 0.025),  # valor total por tipo
+])
 
 # 4. Produtos
 annotate("04-aba-produtos.png", [
@@ -139,7 +177,7 @@ annotate("05-produtos-por-cfop.png", [
     (3, 0.620, 0.300, 0.780, 0.230),   # tabela
 ], blur=[
     CNPJ,
-    (0.665, 0.368, 0.330, 0.090),  # colunas R$
+    (0.663, 0.388, 0.325, 0.068),  # colunas R$
 ])
 
 # 6. Documentos
@@ -151,9 +189,9 @@ annotate("06-aba-documentos.png", [
     (5, 0.945, 0.330, 0.945, 0.270),   # Baixar
 ], blur=[
     CNPJ,
-    (0.198, 0.360, 0.085, 0.545),  # numero
-    (0.350, 0.360, 0.195, 0.545),  # chave
-    (0.620, 0.360, 0.090, 0.545),  # valor
+    (0.216, 0.383, 0.042, 0.505),  # numero da nota
+    (0.371, 0.383, 0.137, 0.505),  # chave de acesso
+    (0.665, 0.383, 0.048, 0.505),  # valor
 ])
 
 # 7. Itens da nota
@@ -162,11 +200,14 @@ annotate("07-dialog-itens.png", [
     (2, 0.300, 0.500, 0.210, 0.580),   # itens
 ], blur=[
     CNPJ,
-    (0.175, 0.305, 0.500, 0.165),  # NFC-e + chave
-    (0.605, 0.505, 0.250, 0.125),  # valores da linha
-    (0.198, 0.575, 0.085, 0.340),  # numeros no fundo
-    (0.350, 0.575, 0.200, 0.340),  # chave no fundo
-    (0.610, 0.575, 0.100, 0.330),  # valores no fundo
+    CNPJ,
+    (0.196, 0.362, 0.052, 0.026),  # numero no titulo
+    (0.159, 0.394, 0.228, 0.020),  # chave de acesso
+    (0.650, 0.545, 0.250, 0.045),  # valores do item
+    (0.650, 0.600, 0.250, 0.032),  # total do rodape
+    (0.216, 0.678, 0.042, 0.212),  # numeros no fundo
+    (0.371, 0.678, 0.137, 0.212),  # chaves no fundo
+    (0.665, 0.678, 0.048, 0.212),  # valores no fundo
 ])
 
 # 8. Ajuda

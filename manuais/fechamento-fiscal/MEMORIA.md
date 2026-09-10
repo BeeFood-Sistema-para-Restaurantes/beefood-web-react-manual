@@ -53,6 +53,9 @@ Não publicadas (ficam só em `imagens-puras/`): `07-dialog-xml.png` (erro
 - Credenciais da Nippon **não** entram no repositório.
 - Valores em R$, CNPJ, número da nota e chave de acesso saem **embassados** nas
   `imagens-tratadas/` (`blur=` no `annotate.py`). As puras ficam como fonte.
+- O blur é **sutil e colado no texto**: `desfocar()` recebe uma região ampla,
+  acha as linhas e as palavras dentro dela e borra só a mancha de cada valor.
+  A silhueta continua visível — dá para ver que ali tem um número.
 
 ---
 

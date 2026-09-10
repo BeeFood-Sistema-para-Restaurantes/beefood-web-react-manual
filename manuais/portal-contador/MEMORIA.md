@@ -53,6 +53,9 @@ já mostra o campo).
 - Senha da conta de teste **não** entra no repositório.
 - Valores em R$, CNPJ, chave, número da nota e dados de fornecedor saem
   **embassados** nas `imagens-tratadas/` (`blur=` no `annotate.py`).
+- O blur é **sutil e colado no texto**: `desfocar()` recebe uma região ampla,
+  acha as linhas e as palavras dentro dela e borra só a mancha de cada valor.
+- `09-produtos.png` não tem blur: a tela corta antes das colunas de R$.
 
 ---
 

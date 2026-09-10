@@ -47,6 +47,8 @@ Os e-mails vieram dos anexos Gmail do dono (`contato@beefood.com.br`).
 - Formulário de autorizar: CNPJ `12.345.678/0001-90` de exemplo, não enviado.
 - Aba Contadores ainda atrás de `isDevelopment` no front de produção.
 - CNPJ do escritório e da empresa saem **embassados** nas `imagens-tratadas/`.
+- O blur é **sutil e colado no texto**: `desfocar()` recebe uma região ampla,
+  acha as linhas e as palavras dentro dela e borra só a mancha de cada valor.
 
 ---
 

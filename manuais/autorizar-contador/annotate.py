@@ -6,7 +6,7 @@ Cada marcador: (numero, alvo_x, alvo_y, badge_x, badge_y)
 import math
 import os
 
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps, ImageStat
 
 SRC = "imagens-puras"
 OUT = "imagens-tratadas"
@@ -50,14 +50,44 @@ def badge(d, cx, cy, r, num, fnt):
            t, fill=WHITE, font=fnt)
 
 
+def faixas(perfil, gap):
+    """Trechos com tinta no perfil, unindo lacunas de ate `gap` pixels.
+
+    Trechos com menos de 6 px caem fora: sao bordas de tabela, nao texto.
+    """
+    achadas = []
+    inicio = fim = None
+    for i, v in enumerate(perfil):
+        if v >= 2:
+            inicio = i if inicio is None else inicio
+            fim = i
+        elif inicio is not None and i - fim > gap:
+            achadas.append((inicio, fim + 1))
+            inicio = fim = None
+    if inicio is not None:
+        achadas.append((inicio, fim + 1))
+    return [(a, b) for a, b in achadas if b - a >= 6]
+
+
 def desfocar(img, regioes):
-    """Embaça CNPJ e demais dados fiscais do cliente antes das setas."""
+    """Suaviza so a mancha de cada valor: da para ver que ali tem um numero."""
     W, H = img.size
-    raio = max(20, W // 55)
+    gap = max(6, W // 150)
     for (fx, fy, fw, fh) in regioes:
-        caixa = (int(fx * W), int(fy * H), int((fx + fw) * W), int((fy + fh) * H))
-        recorte = img.crop(caixa).filter(ImageFilter.GaussianBlur(radius=raio))
-        img.paste(recorte.filter(ImageFilter.GaussianBlur(radius=raio)), caixa)
+        x0, y0 = int(fx * W), int(fy * H)
+        x1, y1 = int((fx + fw) * W), int((fy + fh) * H)
+        lg, at = x1 - x0, y1 - y0
+        cinza = ImageOps.autocontrast(img.crop((x0, y0, x1, y1)).convert("L"))
+        fundo = ImageStat.Stat(cinza).median[0]
+        tinta = cinza.point(lambda v: 255 if abs(v - fundo) > 28 else 0)
+        for (ly0, ly1) in faixas(list(tinta.resize((1, at), Image.BOX).getdata()), 1):
+            linha = tinta.crop((0, ly0, lg, ly1)).resize((lg, 1), Image.BOX)
+            alt = ly1 - ly0
+            margem = max(2, alt // 4)
+            for (lx0, lx1) in faixas(list(linha.getdata()), gap):
+                caixa = (max(0, x0 + lx0 - margem), max(0, y0 + ly0 - margem),
+                         min(W, x0 + lx1 + margem), min(H, y0 + ly1 + margem))
+                img.paste(img.crop(caixa).filter(ImageFilter.GaussianBlur(max(3, alt // 4))), caixa)
     return img
 
 
@@ -84,8 +114,8 @@ def annotate(name, markers, ring=None, blur=None):
 
 
 CNPJ_LISTA = [
-    (0.172, 0.298, 0.110, 0.035),
-    (0.172, 0.360, 0.110, 0.035),
+    (0.166, 0.299, 0.090, 0.026),
+    (0.166, 0.366, 0.090, 0.026),
 ]
 
 
@@ -112,7 +142,8 @@ annotate("02-dialog-autorizar.png", [
     (7, 0.655, 0.755, 0.780, 0.800),   # Ver fechamento
     (8, 0.655, 0.845, 0.780, 0.900),   # Editar impostos
 ], blur=CNPJ_LISTA + [
-    (0.400, 0.648, 0.195, 0.070),  # CNPJs da empresa no aviso
+    (0.428, 0.662, 0.078, 0.022),  # CNPJ da matriz no aviso
+    (0.442, 0.685, 0.088, 0.021),  # CNPJ da filial no aviso
 ])
 
 # 3. Menu da linha Ativo
@@ -142,8 +173,8 @@ annotate("06-email-primeiro-acesso.png", [
     (2, 0.500, 0.430, 0.220, 0.480),   # empresa + documento
     (3, 0.500, 0.530, 0.280, 0.600),   # CRIAR MINHA SENHA
 ], blur=[
-    (0.500, 0.428, 0.230, 0.045),
-    (0.400, 0.648, 0.230, 0.045),
+    (0.592, 0.441, 0.144, 0.026),  # documento no texto
+    (0.471, 0.661, 0.128, 0.024),  # documento no rodape
 ])
 
 # 7. E-mail conta existente
@@ -152,7 +183,7 @@ annotate("07-email-conta-existente.png", [
     (2, 0.500, 0.530, 0.280, 0.480),   # ACESSAR O PORTAL
     (3, 0.500, 0.610, 0.280, 0.680),   # senha ja cadastrada
 ], blur=[
-    (0.500, 0.448, 0.230, 0.045),
+    (0.561, 0.452, 0.142, 0.030),  # documento no texto
 ])
 
 print("done")

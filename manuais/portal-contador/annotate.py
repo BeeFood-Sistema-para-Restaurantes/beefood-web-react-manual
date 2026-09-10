@@ -6,7 +6,7 @@ Cada marcador: (numero, alvo_x, alvo_y, badge_x, badge_y)
 import math
 import os
 
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps, ImageStat
 
 SRC = "imagens-puras"
 OUT = "imagens-tratadas"
@@ -50,14 +50,44 @@ def badge(d, cx, cy, r, num, fnt):
            t, fill=WHITE, font=fnt)
 
 
+def faixas(perfil, gap):
+    """Trechos com tinta no perfil, unindo lacunas de ate `gap` pixels.
+
+    Trechos com menos de 6 px caem fora: sao bordas de tabela, nao texto.
+    """
+    achadas = []
+    inicio = fim = None
+    for i, v in enumerate(perfil):
+        if v >= 2:
+            inicio = i if inicio is None else inicio
+            fim = i
+        elif inicio is not None and i - fim > gap:
+            achadas.append((inicio, fim + 1))
+            inicio = fim = None
+    if inicio is not None:
+        achadas.append((inicio, fim + 1))
+    return [(a, b) for a, b in achadas if b - a >= 6]
+
+
 def desfocar(img, regioes):
-    """Embaça valores fiscais do cliente antes das setas."""
+    """Suaviza so a mancha de cada valor: da para ver que ali tem um numero."""
     W, H = img.size
-    raio = max(20, W // 55)
+    gap = max(6, W // 150)
     for (fx, fy, fw, fh) in regioes:
-        caixa = (int(fx * W), int(fy * H), int((fx + fw) * W), int((fy + fh) * H))
-        recorte = img.crop(caixa).filter(ImageFilter.GaussianBlur(radius=raio))
-        img.paste(recorte.filter(ImageFilter.GaussianBlur(radius=raio)), caixa)
+        x0, y0 = int(fx * W), int(fy * H)
+        x1, y1 = int((fx + fw) * W), int((fy + fh) * H)
+        lg, at = x1 - x0, y1 - y0
+        cinza = ImageOps.autocontrast(img.crop((x0, y0, x1, y1)).convert("L"))
+        fundo = ImageStat.Stat(cinza).median[0]
+        tinta = cinza.point(lambda v: 255 if abs(v - fundo) > 28 else 0)
+        for (ly0, ly1) in faixas(list(tinta.resize((1, at), Image.BOX).getdata()), 1):
+            linha = tinta.crop((0, ly0, lg, ly1)).resize((lg, 1), Image.BOX)
+            alt = ly1 - ly0
+            margem = max(2, alt // 4)
+            for (lx0, lx1) in faixas(list(linha.getdata()), gap):
+                caixa = (max(0, x0 + lx0 - margem), max(0, y0 + ly0 - margem),
+                         min(W, x0 + lx1 + margem), min(H, y0 + ly1 + margem))
+                img.paste(img.crop(caixa).filter(ImageFilter.GaussianBlur(max(3, alt // 4))), caixa)
     return img
 
 
@@ -89,15 +119,15 @@ annotate("01-email-criar-senha.png", [
     (2, 0.500, 0.440, 0.220, 0.500),   # documento
     (3, 0.500, 0.530, 0.280, 0.600),   # CRIAR MINHA SENHA
 ], blur=[
-    (0.500, 0.428, 0.230, 0.045),
-    (0.400, 0.648, 0.230, 0.045),
+    (0.592, 0.441, 0.144, 0.026),  # documento no texto
+    (0.471, 0.661, 0.128, 0.024),  # documento no rodape
 ])
 
 annotate("02-email-acessar-portal.png", [
     (1, 0.500, 0.420, 0.220, 0.370),   # 2 CNPJs
     (2, 0.500, 0.530, 0.280, 0.600),   # ACESSAR O PORTAL
 ], blur=[
-    (0.500, 0.448, 0.230, 0.045),
+    (0.561, 0.452, 0.142, 0.030),  # documento no texto
 ])
 
 # 3. Identificar
@@ -114,7 +144,7 @@ annotate("05-login-senha.png", [
     (3, 0.500, 0.545, 0.280, 0.600),   # Entrar
     (4, 0.500, 0.585, 0.720, 0.650),  # Esqueci
 ], blur=[
-    (0.385, 0.405, 0.180, 0.040),
+    (0.358, 0.423, 0.096, 0.022),  # documento do contador
 ])
 
 # 6. Clientes
@@ -125,9 +155,9 @@ annotate("06-meus-clientes.png", [
     (4, 0.120, 0.400, 0.280, 0.360),   # Edicao fiscal
     (5, 0.150, 0.445, 0.320, 0.500),   # permissoes
 ], blur=[
-    (0.026, 0.245, 0.145, 0.035),  # MAGA
-    (0.026, 0.592, 0.145, 0.038),  # Nippon
-    (0.352, 0.612, 0.165, 0.040),  # Hey Sushi
+    (0.021, 0.258, 0.098, 0.021),  # CNPJ da MAGA
+    (0.021, 0.606, 0.098, 0.021),  # CNPJ da matriz
+    (0.350, 0.606, 0.098, 0.021),  # CNPJ da filial
 ])
 
 # 7. Competencias
@@ -137,12 +167,12 @@ annotate("07-competencias.png", [
     (3, 0.820, 0.255, 0.720, 0.180),   # Ver fechamento
     (4, 0.930, 0.255, 0.970, 0.320),   # Baixar XMLs
 ], blur=[
-    (0.018, 0.198, 0.165, 0.035),  # CNPJ
-    (0.018, 0.322, 0.130, 0.045),  # set
-    (0.018, 0.472, 0.130, 0.045),  # ago
-    (0.018, 0.615, 0.130, 0.045),  # jul
-    (0.018, 0.765, 0.130, 0.045),  # jun
-    (0.018, 0.915, 0.130, 0.045),  # mai
+    (0.008, 0.207, 0.098, 0.020),  # CNPJ
+    (0.021, 0.340, 0.074, 0.021),  # set
+    (0.021, 0.491, 0.074, 0.021),  # ago
+    (0.021, 0.642, 0.074, 0.021),  # jul
+    (0.021, 0.793, 0.074, 0.021),  # jun
+    (0.021, 0.944, 0.074, 0.021),  # mai
 ])
 
 # 8. Fechamento
@@ -153,12 +183,12 @@ annotate("08-fechamento.png", [
     (4, 0.150, 0.300, 0.080, 0.360),   # cartoes
     (5, 0.200, 0.520, 0.080, 0.600),   # tributos
 ], blur=[
-    (0.018, 0.198, 0.220, 0.038),  # CNPJ
-    (0.040, 0.295, 0.165, 0.058),  # valor autorizado
-    (0.018, 0.455, 0.965, 0.058),  # composição
-    (0.280, 0.605, 0.200, 0.090),  # ICMS
-    (0.280, 0.745, 0.200, 0.055),  # total tributos
-    (0.830, 0.612, 0.155, 0.055),  # valor por tipo
+    (0.084, 0.207, 0.098, 0.021),  # CNPJ
+    (0.048, 0.328, 0.100, 0.028),  # valor autorizado
+    (0.020, 0.485, 0.795, 0.025),  # composição
+    (0.420, 0.635, 0.070, 0.050),  # ICMS
+    (0.400, 0.780, 0.092, 0.025),  # total dos tributos
+    (0.915, 0.643, 0.070, 0.023),  # valor total por tipo
 ])
 
 # 9. Produtos
@@ -166,9 +196,7 @@ annotate("09-produtos.png", [
     (1, 0.220, 0.055, 0.220, 0.110),   # aba Produtos
     (2, 0.220, 0.230, 0.080, 0.180),   # Por CFOP / CST / NCM
     (3, 0.200, 0.380, 0.080, 0.450),   # tabela
-], blur=[
-    (0.888, 0.360, 0.112, 0.510),  # coluna R$
-])
+])  # a tela corta antes das colunas de R$: nao ha valor a esconder
 
 # 10. Documentos
 annotate("10-documentos.png", [
@@ -176,9 +204,9 @@ annotate("10-documentos.png", [
     (2, 0.900, 0.300, 0.900, 0.230),   # Ver XML / Baixar
     (3, 0.760, 0.300, 0.680, 0.230),   # Ver itens
 ], blur=[
-    (0.075, 0.295, 0.095, 0.595),  # numero
-    (0.268, 0.295, 0.220, 0.595),  # chave
-    (0.610, 0.295, 0.105, 0.595),  # valor
+    (0.083, 0.318, 0.040, 0.572),  # numero da nota
+    (0.264, 0.318, 0.136, 0.572),  # chave de acesso
+    (0.619, 0.318, 0.047, 0.572),  # valor
 ])
 
 # 11. NFe recebidas
@@ -187,8 +215,10 @@ annotate("11-nfe-recebidas.png", [
     (2, 0.150, 0.185, 0.080, 0.240),   # intervalo
     (3, 0.200, 0.560, 0.080, 0.500),   # lista
 ], blur=[
-    (0.335, 0.358, 0.195, 0.065),  # valor total
-    (0.108, 0.585, 0.530, 0.355),  # fornecedor, n°, valor
+    (0.345, 0.381, 0.093, 0.030),  # valor total
+    (0.103, 0.612, 0.290, 0.292),  # fornecedor e CNPJ
+    (0.418, 0.615, 0.062, 0.260),  # numero / serie
+    (0.525, 0.615, 0.062, 0.260),  # valor
 ])
 
 # 12. Edicao fiscal
