@@ -88,6 +88,7 @@ manuais/<nome>/
 
 | Estudo | Situação | Documento |
 |--------|----------|-----------|
+| **Bloco do Entregador** (estudo; números originais #83–#85 já usados pelo garçom) | ⏳ entregue em 05/09/2026, aguarda aprovação. Valida o pedido do dono: o manual da taxa por área **já existe** (#35–#38) e precisa de escopo novo; a **diária não tem tela de lançamento**; a **Gestão de Entregas** é o maior buraco | [`PLANO-ENTREGADOR.md`](PLANO-ENTREGADOR.md) |
 | Ficha técnica da **pizza** | ⏸️ em espera: aguarda a correção da pizza. O manual #72 já respondeu a dúvida técnica (opção repetida baixa em dobro) | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md), seção 9 |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
