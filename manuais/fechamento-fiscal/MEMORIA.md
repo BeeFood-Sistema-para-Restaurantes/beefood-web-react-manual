@@ -3,7 +3,7 @@
 Manual do lojista: tela **Fiscal → Fechamento Fiscal** (aba Fechamento) e a
 permissão **item 301** no grupo de acesso.
 
-Última atualização: 10/09/2026.
+Última atualização: 10/09/2026 (valores fiscais embassados nas tratadas).
 
 ---
 
@@ -51,6 +51,11 @@ Não publicadas (ficam só em `imagens-puras/`): `07-dialog-xml.png` (erro
   Os rótulos da UI (Mês inteiro, quinzenas, APLICAR) estão em pt-BR.
 - Widget flutuante e banner promocional escondidos por CSS na recaptura.
 - Credenciais da Nippon **não** entram no repositório.
+- Valores em R$, CNPJ, número da nota e chave de acesso saem **embassados** nas
+  `imagens-tratadas/` (`blur=` no `annotate.py`). As puras ficam como fonte.
+- O blur é **sutil e colado no texto**: `desfocar()` recebe uma região ampla,
+  acha as linhas e as palavras dentro dela e borra só a mancha de cada valor.
+  A silhueta continua visível — dá para ver que ali tem um número.
 
 ---
 

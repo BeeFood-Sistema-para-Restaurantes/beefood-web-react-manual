@@ -6,7 +6,7 @@ Cada marcador: (numero, alvo_x, alvo_y, badge_x, badge_y)
 import math
 import os
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps, ImageStat
 
 SRC = "imagens-puras"
 OUT = "imagens-tratadas"
@@ -50,8 +50,51 @@ def badge(d, cx, cy, r, num, fnt):
            t, fill=WHITE, font=fnt)
 
 
-def annotate(name, markers, ring=None):
+def faixas(perfil, gap):
+    """Trechos com tinta no perfil, unindo lacunas de ate `gap` pixels.
+
+    Trechos com menos de 6 px caem fora: sao bordas de tabela, nao texto.
+    """
+    achadas = []
+    inicio = fim = None
+    for i, v in enumerate(perfil):
+        if v >= 2:
+            inicio = i if inicio is None else inicio
+            fim = i
+        elif inicio is not None and i - fim > gap:
+            achadas.append((inicio, fim + 1))
+            inicio = fim = None
+    if inicio is not None:
+        achadas.append((inicio, fim + 1))
+    return [(a, b) for a, b in achadas if b - a >= 6]
+
+
+def desfocar(img, regioes):
+    """Suaviza so a mancha de cada valor: da para ver que ali tem um numero."""
+    W, H = img.size
+    gap = max(6, W // 150)
+    for (fx, fy, fw, fh) in regioes:
+        x0, y0 = int(fx * W), int(fy * H)
+        x1, y1 = int((fx + fw) * W), int((fy + fh) * H)
+        lg, at = x1 - x0, y1 - y0
+        cinza = ImageOps.autocontrast(img.crop((x0, y0, x1, y1)).convert("L"))
+        fundo = ImageStat.Stat(cinza).median[0]
+        tinta = cinza.point(lambda v: 255 if abs(v - fundo) > 28 else 0)
+        for (ly0, ly1) in faixas(list(tinta.resize((1, at), Image.BOX).getdata()), 1):
+            linha = tinta.crop((0, ly0, lg, ly1)).resize((lg, 1), Image.BOX)
+            alt = ly1 - ly0
+            margem = max(2, alt // 4)
+            for (lx0, lx1) in faixas(list(linha.getdata()), gap):
+                caixa = (max(0, x0 + lx0 - margem), max(0, y0 + ly0 - margem),
+                         min(W, x0 + lx1 + margem), min(H, y0 + ly1 + margem))
+                img.paste(img.crop(caixa).filter(ImageFilter.GaussianBlur(max(3, alt // 4))), caixa)
+    return img
+
+
+def annotate(name, markers, ring=None, blur=None):
     img = Image.open(os.path.join(SRC, name)).convert("RGBA")
+    if blur:
+        img = desfocar(img, blur)
     W, H = img.size
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(overlay)
@@ -70,6 +113,12 @@ def annotate(name, markers, ring=None):
     print("OK", name)
 
 
+CNPJ_LISTA = [
+    (0.166, 0.299, 0.090, 0.026),
+    (0.166, 0.366, 0.090, 0.026),
+]
+
+
 # 1. Lista
 annotate("01-aba-contadores.png", [
     (1, 0.310, 0.115, 0.310, 0.070),   # aba Contadores
@@ -80,7 +129,7 @@ annotate("01-aba-contadores.png", [
     (6, 0.680, 0.280, 0.680, 0.230),   # permissoes
     (7, 0.860, 0.280, 0.800, 0.230),   # ultimo acesso
     (8, 0.965, 0.280, 0.965, 0.230),   # tres pontinhos
-])
+], blur=CNPJ_LISTA)
 
 # 2. Formulario
 annotate("02-dialog-autorizar.png", [
@@ -92,6 +141,9 @@ annotate("02-dialog-autorizar.png", [
     (6, 0.655, 0.720, 0.780, 0.680),   # XML
     (7, 0.655, 0.755, 0.780, 0.800),   # Ver fechamento
     (8, 0.655, 0.845, 0.780, 0.900),   # Editar impostos
+], blur=CNPJ_LISTA + [
+    (0.428, 0.662, 0.078, 0.022),  # CNPJ da matriz no aviso
+    (0.442, 0.685, 0.088, 0.021),  # CNPJ da filial no aviso
 ])
 
 # 3. Menu da linha Ativo
@@ -99,27 +151,30 @@ annotate("03-menu-acoes.png", [
     (1, 0.880, 0.395, 0.780, 0.320),   # Alterar permissoes
     (2, 0.850, 0.430, 0.760, 0.500),   # redefinir senha
     (3, 0.850, 0.530, 0.760, 0.580),   # Encerrar
-])
+], blur=CNPJ_LISTA)
 
 # 4. Permissoes
 annotate("04-dialog-permissoes.png", [
     (1, 0.620, 0.430, 0.720, 0.390),   # XML
     (2, 0.620, 0.480, 0.720, 0.520),   # Ver fechamento
     (3, 0.620, 0.560, 0.720, 0.620),   # Editar impostos
-])
+], blur=CNPJ_LISTA)
 
 # 5. Encerrar
 annotate("05-confirmar-encerrar.png", [
     (1, 0.500, 0.470, 0.280, 0.430),   # recado
     (2, 0.600, 0.530, 0.720, 0.500),   # ENCERRAR
     (3, 0.460, 0.530, 0.380, 0.580),   # CANCELAR
-])
+], blur=CNPJ_LISTA)
 
 # 6. E-mail primeiro acesso
 annotate("06-email-primeiro-acesso.png", [
     (1, 0.500, 0.380, 0.220, 0.330),   # titulo
     (2, 0.500, 0.430, 0.220, 0.480),   # empresa + documento
     (3, 0.500, 0.530, 0.280, 0.600),   # CRIAR MINHA SENHA
+], blur=[
+    (0.592, 0.441, 0.144, 0.026),  # documento no texto
+    (0.471, 0.661, 0.128, 0.024),  # documento no rodape
 ])
 
 # 7. E-mail conta existente
@@ -127,6 +182,8 @@ annotate("07-email-conta-existente.png", [
     (1, 0.580, 0.455, 0.220, 0.370),   # 2 CNPJs
     (2, 0.500, 0.530, 0.280, 0.480),   # ACESSAR O PORTAL
     (3, 0.500, 0.610, 0.280, 0.680),   # senha ja cadastrada
+], blur=[
+    (0.561, 0.452, 0.142, 0.030),  # documento no texto
 ])
 
 print("done")

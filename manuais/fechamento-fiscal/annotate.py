@@ -6,7 +6,7 @@ Cada marcador: (numero, alvo_x, alvo_y, badge_x, badge_y)
 import math
 import os
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps, ImageStat
 
 SRC = "imagens-puras"
 OUT = "imagens-tratadas"
@@ -50,8 +50,51 @@ def badge(d, cx, cy, r, num, fnt):
            t, fill=WHITE, font=fnt)
 
 
-def annotate(name, markers, ring=None):
+def faixas(perfil, gap):
+    """Trechos com tinta no perfil, unindo lacunas de ate `gap` pixels.
+
+    Trechos com menos de 6 px caem fora: sao bordas de tabela, nao texto.
+    """
+    achadas = []
+    inicio = fim = None
+    for i, v in enumerate(perfil):
+        if v >= 2:
+            inicio = i if inicio is None else inicio
+            fim = i
+        elif inicio is not None and i - fim > gap:
+            achadas.append((inicio, fim + 1))
+            inicio = fim = None
+    if inicio is not None:
+        achadas.append((inicio, fim + 1))
+    return [(a, b) for a, b in achadas if b - a >= 6]
+
+
+def desfocar(img, regioes):
+    """Suaviza so a mancha de cada valor: da para ver que ali tem um numero."""
+    W, H = img.size
+    gap = max(6, W // 150)
+    for (fx, fy, fw, fh) in regioes:
+        x0, y0 = int(fx * W), int(fy * H)
+        x1, y1 = int((fx + fw) * W), int((fy + fh) * H)
+        lg, at = x1 - x0, y1 - y0
+        cinza = ImageOps.autocontrast(img.crop((x0, y0, x1, y1)).convert("L"))
+        fundo = ImageStat.Stat(cinza).median[0]
+        tinta = cinza.point(lambda v: 255 if abs(v - fundo) > 28 else 0)
+        for (ly0, ly1) in faixas(list(tinta.resize((1, at), Image.BOX).getdata()), 1):
+            linha = tinta.crop((0, ly0, lg, ly1)).resize((lg, 1), Image.BOX)
+            alt = ly1 - ly0
+            margem = max(2, alt // 4)
+            for (lx0, lx1) in faixas(list(linha.getdata()), gap):
+                caixa = (max(0, x0 + lx0 - margem), max(0, y0 + ly0 - margem),
+                         min(W, x0 + lx1 + margem), min(H, y0 + ly1 + margem))
+                img.paste(img.crop(caixa).filter(ImageFilter.GaussianBlur(max(3, alt // 4))), caixa)
+    return img
+
+
+def annotate(name, markers, ring=None, blur=None):
     img = Image.open(os.path.join(SRC, name)).convert("RGBA")
+    if blur:
+        img = desfocar(img, blur)
     W, H = img.size
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(overlay)
@@ -70,6 +113,18 @@ def annotate(name, markers, ring=None):
     print("OK", name)
 
 
+# CNPJ da empresa e os R$ da tela de resumo.
+CNPJ = (0.214, 0.166, 0.088, 0.020)
+RESUMO = [
+    CNPJ,
+    (0.193, 0.318, 0.098, 0.026),  # valor autorizado
+    (0.165, 0.476, 0.690, 0.026),  # composição
+    (0.488, 0.625, 0.072, 0.052),  # ICMS
+    (0.468, 0.770, 0.094, 0.029),  # total dos tributos
+    (0.913, 0.634, 0.072, 0.025),  # valor total por tipo
+]
+
+
 # 1. Resumo
 annotate("01-tela-resumo.png", [
     (1, 0.235, 0.115, 0.235, 0.175),   # aba Fechamento
@@ -82,13 +137,13 @@ annotate("01-tela-resumo.png", [
     (8, 0.480, 0.310, 0.560, 0.250),   # Documentos
     (9, 0.250, 0.430, 0.200, 0.500),   # Composicao
     (10, 0.250, 0.560, 0.200, 0.720),  # Tributos
-])
+], blur=RESUMO)
 
 # 2. Exportar
 annotate("02-exportar-pdf-excel.png", [
     (1, 0.905, 0.205, 0.840, 0.155),   # PDF
     (2, 0.905, 0.245, 0.840, 0.300),   # Excel
-])
+], blur=RESUMO)
 
 # 3. Recorte
 annotate("03-filtro-periodo.png", [
@@ -96,6 +151,14 @@ annotate("03-filtro-periodo.png", [
     (2, 0.680, 0.230, 0.760, 0.175),   # 1a / 2a quinzena
     (3, 0.500, 0.280, 0.430, 0.340),   # De
     (4, 0.800, 0.620, 0.640, 0.680),   # APLICAR
+], blur=[
+    CNPJ,
+    (0.193, 0.318, 0.098, 0.026),  # valor autorizado
+    (0.165, 0.476, 0.088, 0.026),  # produtos
+    (0.370, 0.476, 0.052, 0.026),  # desconto (resto fica atrás do popover)
+    (0.798, 0.476, 0.058, 0.026),  # outros
+    (0.468, 0.770, 0.094, 0.029),  # total dos tributos
+    (0.913, 0.634, 0.072, 0.025),  # valor total por tipo
 ])
 
 # 4. Produtos
@@ -105,13 +168,16 @@ annotate("04-aba-produtos.png", [
     (3, 0.280, 0.280, 0.210, 0.330),   # busca
     (4, 0.930, 0.280, 0.930, 0.220),   # Colunas
     (5, 0.280, 0.400, 0.200, 0.480),   # tabela
-])
+], blur=[CNPJ])
 
 # 5. Por CFOP
 annotate("05-produtos-por-cfop.png", [
     (1, 0.310, 0.230, 0.250, 0.175),   # Por CFOP
     (2, 0.300, 0.420, 0.210, 0.300),   # grafico
     (3, 0.620, 0.300, 0.780, 0.230),   # tabela
+], blur=[
+    CNPJ,
+    (0.663, 0.388, 0.325, 0.068),  # colunas R$
 ])
 
 # 6. Documentos
@@ -121,19 +187,34 @@ annotate("06-aba-documentos.png", [
     (3, 0.780, 0.330, 0.700, 0.270),   # Ver itens
     (4, 0.870, 0.330, 0.870, 0.270),   # Ver XML
     (5, 0.945, 0.330, 0.945, 0.270),   # Baixar
+], blur=[
+    CNPJ,
+    (0.216, 0.383, 0.042, 0.505),  # numero da nota
+    (0.371, 0.383, 0.137, 0.505),  # chave de acesso
+    (0.665, 0.383, 0.048, 0.505),  # valor
 ])
 
 # 7. Itens da nota
 annotate("07-dialog-itens.png", [
     (1, 0.300, 0.345, 0.210, 0.260),   # NFC-e 332709
     (2, 0.300, 0.500, 0.210, 0.580),   # itens
+], blur=[
+    CNPJ,
+    CNPJ,
+    (0.196, 0.362, 0.052, 0.026),  # numero no titulo
+    (0.159, 0.394, 0.228, 0.020),  # chave de acesso
+    (0.650, 0.545, 0.250, 0.045),  # valores do item
+    (0.650, 0.600, 0.250, 0.032),  # total do rodape
+    (0.216, 0.678, 0.042, 0.212),  # numeros no fundo
+    (0.371, 0.678, 0.137, 0.212),  # chaves no fundo
+    (0.665, 0.678, 0.048, 0.212),  # valores no fundo
 ])
 
 # 8. Ajuda
 annotate("08-ajuda-acesso.png", [
     (1, 0.965, 0.235, 0.900, 0.185),   # ?
     (2, 0.880, 0.340, 0.780, 0.400),   # Ver contadores
-])
+], blur=RESUMO)
 
 # 10. Permissao
 annotate("10-permissao-fechamento-fiscal.png", [

@@ -3,7 +3,7 @@
 Manual do escritório contábil: e-mail, login, clientes, competências, XML,
 NFe recebidas e edição fiscal.
 
-Última atualização: 10/09/2026.
+Última atualização: 10/09/2026 (valores fiscais embassados nas tratadas).
 
 ---
 
@@ -51,6 +51,11 @@ já mostra o campo).
   Em `beefood.app/contador` o front de produção redireciona para `/login`.
 - E-mails já apontam para `https://beefood.app/contador`.
 - Senha da conta de teste **não** entra no repositório.
+- Valores em R$, CNPJ, chave, número da nota e dados de fornecedor saem
+  **embassados** nas `imagens-tratadas/` (`blur=` no `annotate.py`).
+- O blur é **sutil e colado no texto**: `desfocar()` recebe uma região ampla,
+  acha as linhas e as palavras dentro dela e borra só a mancha de cada valor.
+- `09-produtos.png` não tem blur: a tela corta antes das colunas de R$.
 
 ---
 
