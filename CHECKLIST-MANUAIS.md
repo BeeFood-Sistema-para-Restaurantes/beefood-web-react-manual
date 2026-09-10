@@ -4,7 +4,7 @@
 > Regras: o **dono publica** e avisa → só então marcamos a coluna **Publicado**.
 > Cada manual concluído fica em `manuais/<nome>/`.
 
-Última atualização: 2026-09-06 (**#15** e **#86–#93** série WhatsApp; **#83/#84/#85** comissão do garçom e taxa de serviço; **#80/#81/#82** mesas, comandas e formas de recebimento)
+Última atualização: 2026-09-10 (**#94/#95/#96** fechamento fiscal e portal do contador; **#15** e **#86–#93** série WhatsApp; **#83/#84/#85** comissão do garçom e taxa de serviço)
 
 ## Legenda de status
 
@@ -114,6 +114,9 @@
 | 91 | **Atender no BeeBot** | Inbox `bot.beefood.com.br`: interruptores, `/` respostas rápidas, humano e pedido assistido (conversas em mockup) | `manuais/whatsapp-atendimento-beebot/` | ✅ Concluído (3 imagens) | — |
 | 92 | **Indicadores de WhatsApp** | Aba Indicadores (BeeBot × Campanha × Inteligente). Sandbox em prévia vazia | `manuais/whatsapp-indicadores/` | ✅ Concluído (1 imagem) | — |
 | 93 | **Histórico de mensagens** | WhatsApp → Histórico: boletim/campanha/delivery e *Aguardando envio* | `manuais/whatsapp-historico/` | ✅ Concluído (1 imagem) | — |
+| 94 | **Fechamento Fiscal** | Fiscal → Fechamento Fiscal: resumo do mês, XML, PDF/Excel, produtos, documentos e a permissão **item 301** no grupo de acesso | `manuais/fechamento-fiscal/` | ✅ Concluído (9 imagens) | — |
+| 95 | **Autorizar o contador** | Aba Contadores: autorizar, e-mail, permissões, encerrar/reativar e reset de senha. Acesso da **empresa inteira** | `manuais/autorizar-contador/` | ✅ Concluído (7 imagens) | — |
+| 96 | **Portal do contador** | `beefood.app/contador`: login, clientes, competências, ZIP, NFe recebidas e edição fiscal. Senha única por CPF/CNPJ | `manuais/portal-contador/` | ✅ Concluído (11 imagens) | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -148,7 +151,7 @@
 | **PDV** | Venda no balcão: carrinho, cliente, balança, desconto com senha de gerente, pagamento, reabrir e agrupar vendas | 3 a 4 manuais | 5 | 💡 Ideia |
 | **Cardápio** | Produtos, grupos de opções e complementos — o modal do produto tem 6 abas; mais Exibir/Ocultar, Rodízio e importar do iFood | 4 a 5 manuais | 5 | ☑️ **#27–#31** fundamentos; **#68** Exibir/Ocultar; **#69** Preço Programado. Restam Rodízio e importar do iFood |
 | **Cardápio Digital** | Configurar a loja online na ordem certa: horário, área de entrega, formas de recebimento, pagamento online, pausa programada e avisos (11 abas) | 3 a 4 manuais | 5 | ☑️ Horário (#32/#33), Agendamento (#70) + produto de encomenda (#73), Aparência/layout (#71), Área de Entrega (#34–#38), Avisos (#47), Capas e Destaques (#48), desconto/acréscimo das formas (#64) e presencial/QR (#77); restam cadastro completo das formas e contratação do PIX Online |
-| **Fiscal** | Configuração fiscal, emissão e consulta de NFC-e e NF-e, inutilização, carta de correção e notas recebidas (a Reforma Tributária já é o #5) | 4 a 5 manuais | 5 | 💡 Ideia |
+| **Fiscal** | Configuração fiscal, emissão e consulta de NFC-e e NF-e, inutilização, carta de correção e notas recebidas (a Reforma Tributária já é o #5) | 4 a 5 manuais | 5 | ☑️ **#94** fechamento, **#95** autorizar contador, **#96** portal do contador. Restam emissão/consulta NFC-e e NF-e, inutilização, CC-e |
 | **Mesas / Comandas** | Mapa do salão, abrir e fechar conta, agrupar mesas, reabrir | 2 manuais | 4 | 💡 Ideia — o **cadastro** de mesas e comandas saiu daqui e virou o **#80** e o **#81**; falta a operação (abrir/fechar conta, agrupar, reabrir) |
 | **Impressão** | Impressoras, impressão da cozinha, layout e os dois históricos | 2 a 3 manuais | 4 | 💡 Ideia |
 | **WhatsApp / BeeBot** | Conectar o número, notificações, respostas, IA e resumo diário | — | 4 | ✅ **Concluído** na série **#15** campanhas, **#58** IA, **#86** Pedido Chat, **#87–#93** (conectar QR, notificações, respostas, boletim, atendimento, indicadores, histórico). **API Oficial** continua fora (*Em breve!*) |
@@ -240,6 +243,7 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 
 ## Histórico
 
+- 2026-09-10 — **#94, #95 e #96 concluídos** na mesma sessão (`manuais/fechamento-fiscal/`, `manuais/autorizar-contador/`, `manuais/portal-contador/`). Captura na Nippon (empresa 31049, CNPJ `30.436.379/0001-48`): setembro/2026 R$ 97.808,04 e 1.992 NFC-e, iguais no painel e no portal. **Uma permissão só** (item 301 `fechamentoFiscal`) libera as duas abas. Acesso do contador é da **empresa inteira**; o lojista não escolhe a senha. Edição fiscal **não corrige XML já emitido**. NFe recebidas no portal começam em **março/2026**. Aba Contadores e rotas `/contador/*` ainda atrás de `isDevelopment` no front de produção — capturas no Vite local (`127.0.0.1:5173`) com API de produção. E-mails já apontam para `beefood.app/contador`. **27 imagens** (9 + 7 + 11).
 - 2026-09-06 — **Série WhatsApp na `main`:** por conflito com **#83–#85** (garçom), Pedido Chat e o restante da série passaram a **#86–#93**. Pastas iguais.
 - 2026-09-06 — **Série WhatsApp concluída** a pedido do dono (*fazer sem parar todos*). **#15** Campanhas (7 imagens, rascunho, **não publicado**); **#87** Notificações; **#88** Respostas (inclui Loja Fechada); **#89** Resumo diário; **#90** Conectar (só geração do QR, Expandir); **#91** Atendimento no BeeBot; **#92** Indicadores (prévia vazia); **#93** Histórico (boletins pendentes). Conversas de celular são mockup. Destinatários e telefones borrados/ofuscados. QR gerado no sandbox e **não** escaneado (card ficou *Conectando*).
 - 2026-09-06 — **#86 FAQ/SEO** (`manuais/whatsapp-pedidos-chat/`): abertura e perguntas frequentes no tom de busca (pedido pelo WhatsApp, diferença da IA, atendente, entrega/retirada, preço, loja fechada). Sem imagem nova.

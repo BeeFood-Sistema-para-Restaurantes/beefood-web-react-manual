@@ -3,7 +3,8 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-06 (**série WhatsApp #15 e #86–#93** — campanhas
+Última atualização: 2026-09-10 (**#94/#95/#96** fechamento fiscal, autorizar contador e portal do contador — item 301, vínculo por empresa, `/contador` ainda em `isDevelopment` no front de produção);
+2026-09-06 (**série WhatsApp #15 e #86–#93** — campanhas
 em rascunho, QR só gerado, conversas fake; Pedido Chat **#86**;
 **#83/#84/#85** comissão do garçom ≠ taxa de serviço — o % mora no funcionário, só nasce com identidade (app / usuário / operador); Relatório de Desempenho item a item; Resumo Presencial do caixa lista a taxa e **não** substitui o fechamento da comissão; switch Sem taxa de serviço no produto);
 **#80/#81/#82** mesas, comandas e formas de recebimento; **#78** Classificação RFV — header com o
