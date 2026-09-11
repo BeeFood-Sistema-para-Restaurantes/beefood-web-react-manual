@@ -78,6 +78,7 @@ manuais/<nome>/
 | Autorizar o contador | #95 (concluído 10/09/2026) | `manuais/autorizar-contador/` |
 | Portal do contador | #96 (concluído 10/09/2026) | `manuais/portal-contador/` |
 | Transferir item entre mesas e comandas | #97 (concluído 06/09/2026; número no merge) | `manuais/transferencia-itens-mesas/` |
+| Taxa de serviço opcional no cupom | #98 (concluído 11/09/2026) | `manuais/cupom-taxa-servico-opcional/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |

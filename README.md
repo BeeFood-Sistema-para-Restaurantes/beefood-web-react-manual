@@ -86,6 +86,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Atender no BeeBot | [`manuais/whatsapp-atendimento-beebot/`](manuais/whatsapp-atendimento-beebot/whatsapp-atendimento-beebot.md) | ✅ Concluído |
 | Indicadores de WhatsApp e BeeBot | [`manuais/whatsapp-indicadores/`](manuais/whatsapp-indicadores/whatsapp-indicadores.md) | ✅ Concluído |
 | Histórico de mensagens do WhatsApp | [`manuais/whatsapp-historico/`](manuais/whatsapp-historico/whatsapp-historico.md) | ✅ Concluído |
+| Taxa de serviço opcional no cupom | [`manuais/cupom-taxa-servico-opcional/`](manuais/cupom-taxa-servico-opcional/cupom-taxa-servico-opcional.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 
