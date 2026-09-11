@@ -78,9 +78,8 @@ annotate("02-modal-abas.png", [
 ])
 
 annotate("03-texto-rodape.png", [
-    (1, 0.380, 0.655, 0.220, 0.540),  # rodapé Delivery
-    (2, 0.620, 0.655, 0.810, 0.500),  # rodapé Presencial
-    (3, 0.705, 0.878, 0.820, 0.800),  # SALVAR E FECHAR
+    (1, 0.620, 0.655, 0.810, 0.500),  # rodapé Presencial
+    (2, 0.705, 0.878, 0.820, 0.800),  # SALVAR E FECHAR
 ], ring=[
     (0.508, 0.548, 0.230, 0.130),  # caixa do rodapé Presencial
 ])
@@ -91,8 +90,8 @@ annotate("04-detalhe-venda.png", [
 ])
 
 annotate("05-cupom-presencial.png", [
-    (1, 0.22, 0.355, 0.10, 0.355),  # Serviço (10%)
-    (2, 0.50, 0.880, 0.12, 0.880),  # TAXA DE SERVIÇO OPCIONAL
-], crop=(0.0, 0.0, 1.0, 0.72), rmin=14)
+    (1, 0.20, 0.536, 0.10, 0.536),  # Serviço (10%)
+    (2, 0.50, 0.804, 0.12, 0.804),  # TAXA DE SERVIÇO OPCIONAL
+], crop=(0.0, 0.0, 1.0, 0.56), rmin=14)
 
 print("done")

@@ -1,10 +1,11 @@
 # Como deixar a taxa de serviço opcional no cupom
 
-A taxa de serviço (a gorjeta da mesa) pode estar ligada no pedido — mas o
-**cupom do cliente** precisa dizer que ela é opcional.
+A taxa de serviço (a gorjeta da **mesa, comanda e PDV**) pode estar ligada no
+pedido — mas o **cupom do cliente** precisa dizer que ela é opcional.
 
-Isso se faz no **rodapé do Cupom Pedido**. Não é o parâmetro que liga os 10%,
-nem o switch do produto.
+Isso se faz no **rodapé presencial** do Cupom Pedido. Não é o parâmetro que
+liga os 10%, nem o switch do produto. **Delivery não tem taxa de serviço** —
+esse rodapé fica de fora.
 
 > As imagens têm **setas numeradas** (1, 2, 3…). Cada número indica o campo ou
 > botão correspondente na tela.
@@ -15,7 +16,7 @@ nem o switch do produto.
 
 | Onde | O que acontece |
 |------|----------------|
-| **Rodapé do Cupom Pedido** (este manual) | A frase sai impressa no papel. O pedido **não** muda. |
+| **Rodapé presencial** do Cupom Pedido (este manual) | A frase sai impressa no papel da mesa, da comanda e do PDV. O pedido **não** muda. |
 | [Taxa e obrigatoriedades de mesa](https://ajuda.beefood.com.br/mesas-taxas-obrigatorias) | Liga a taxa no pedido novo e define o %. |
 | [Relatório de taxa de serviço](https://ajuda.beefood.com.br/relatorio-taxa-servico) | Lê o resultado e o switch **Sem taxa de serviço** no produto. |
 
@@ -29,8 +30,7 @@ detalhe). O rodapé só avisa o cliente.
 **Configuração → Impressão → Layout**.
 
 A lista agrupa os layouts por cardápio. O que interessa é o **Cupom Pedido** —
-é o cupom do cliente (mesa, PDV e delivery). Os outros (Cozinha, Chamar Garçom)
-não levam este rodapé.
+é o cupom do cliente. Os outros (Cozinha, Chamar Garçom) não levam este rodapé.
 
 ![Aba Layout com o Cupom Pedido](imagens-tratadas/01-aba-layout.png)
 
@@ -53,16 +53,13 @@ texto de fábrica e apaga o que você digitou.
 
 ---
 
-## 3. Escreva no Rodapé
+## 3. Escreva no Rodapé presencial
 
-São **duas colunas independentes**:
+A aba tem duas colunas. A da esquerda é o **Delivery** (não tem taxa de
+serviço — não mexa no rodapé dela). A da direita é o **Texto padrão
+Presencial**: mesa, comanda e PDV.
 
-- **Texto padrão Delivery** — pedidos de entrega e retirada.
-- **Texto padrão Presencial** — mesa, comanda e PDV.
-
-Se a casa imprime os dois, preencha os **dois** rodapés. Um não copia o outro.
-
-Digite, por exemplo:
+Digite no **Rodapé** presencial, por exemplo:
 
 ```
 TAXA DE SERVIÇO OPCIONAL
@@ -74,16 +71,12 @@ linha (Enter) vira outra linha no papel. Asterisco (`**`) **não** vira negrito
 
 Clique em **SALVAR E FECHAR**. Esta tela **não** grava sozinha.
 
-![Rodapé Delivery e Presencial com a frase](imagens-tratadas/03-texto-rodape.png)
+![Rodapé presencial com a frase](imagens-tratadas/03-texto-rodape.png)
 
 | Nº | Item | O que fazer |
 |----|------|-------------|
-| 1 | **Rodapé** do Delivery | A frase nos cupons de entrega/retirada. |
-| 2 | **Rodapé** do Presencial | A frase nos cupons de mesa, comanda e PDV. |
-| 3 | **SALVAR E FECHAR** | Grava. Sem este clique, o papel continua sem o texto. |
-
-Os dois checks de baixo (**QR Code Cardápio Digital** e **Código de Barras App
-Entrega**) são de outro assunto. Não mexa neles só para colocar a frase.
+| 1 | **Rodapé** do Presencial | A frase nos cupons de mesa, comanda e PDV. |
+| 2 | **SALVAR E FECHAR** | Grava. Sem este clique, o papel continua sem o texto. |
 
 ---
 
@@ -106,8 +99,7 @@ R$ 19,90 + taxa 10% (**+ R$ 1,99**), total **R$ 21,69**.
 
 ## 5. O que sai no papel
 
-O cupom traz a linha **Serviço (10%)** no total **e** a frase no rodapé, depois
-do QR (se ele estiver ligado).
+O cupom traz a linha **Serviço (10%)** no total **e** a frase no rodapé.
 
 ![Cupom da venda 940 com a frase no rodapé](imagens-tratadas/05-cupom-presencial.png)
 
@@ -124,8 +116,8 @@ de saída.
 
 ## Perguntas rápidas
 
-**Preenchi só o Presencial. O delivery sai sem a frase?** Sim. São campos
-separados.
+**Preciso preencher o rodapé do Delivery?** Não. Delivery não cobra taxa de
+serviço. A frase vale só no presencial.
 
 **Vale para o Cupom Cozinha?** Não. A aba Texto Padrão do Cupom Pedido é que
 manda no papel do cliente.
@@ -134,7 +126,7 @@ manda no papel do cliente.
 do rodapé. A próxima impressão já usa o texto novo.
 
 **Posso colocar mais de uma linha?** Pode. Endereço, agradecimento e a frase da
-taxa no mesmo rodapé.
+taxa no mesmo rodapé presencial.
 
 **Isso torna a taxa opcional no sistema?** Não. Só avisa no papel. Para não
 cobrar naquele pedido, desligue o interruptor do detalhe. Para não nascer

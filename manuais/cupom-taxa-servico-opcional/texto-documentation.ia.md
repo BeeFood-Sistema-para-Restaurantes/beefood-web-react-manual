@@ -21,8 +21,8 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 - Apresentação IGUAL ao menu "Abrir Caixa".
 - pt-BR. Manter a tabela **O que este texto faz (e o que não faz)**.
 - Linkar taxa obrigatória (#41) e relatório de taxa (#85).
-- Destacar: dois rodapés independentes (Delivery × Presencial); **SALVAR E
-  FECHAR** (não é auto-save); asterisco não vira negrito.
+- Destacar: a frase vai **só no rodapé Presencial** (Delivery não tem taxa);
+  **SALVAR E FECHAR** (não é auto-save); asterisco não vira negrito.
 - Não publicar o rodapé interno.
 
 ## Estrutura da página
@@ -41,6 +41,6 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 |-------|---------|------|---------|
 | 1 | `01-aba-layout.png` | com setas | Layout → Cupom Pedido |
 | 2 | `02-modal-abas.png` | com setas | Aba Texto Padrão |
-| 3 | `03-texto-rodape.png` | com setas | Rodapé Delivery, Presencial e SALVAR |
+| 3 | `03-texto-rodape.png` | com setas | Rodapé Presencial e SALVAR |
 | 4 | `04-detalhe-venda.png` | com setas | Taxa 10% na venda 940 + impressora |
-| 5 | `05-cupom-presencial.png` | com setas | Serviço (10%) e a frase no rodapé |
+| 5 | `05-cupom-presencial.png` | com setas | Serviço (10%) e a frase no rodapé (sem QR) |

@@ -15,8 +15,9 @@
 
 | Campo da API | Coluna da aba Texto Padrão | Quem usa |
 |--------------|----------------------------|----------|
-| `descricaoRodapeDelivery` | Texto padrão Delivery → Rodapé | venda `tipo === 'DELIVERY'` |
-| `descricaoRodape` | Texto padrão Presencial → Rodapé | mesa, comanda, PDV |
+| `descricaoRodapeDelivery` | Texto padrão Delivery → Rodapé | venda `tipo === 'DELIVERY'` — **não** entra neste manual (delivery sem taxa) |
+| `descricaoRodape` | Texto padrão Presencial → Rodapé | mesa, comanda, PDV — **é este** |
+| `qrCodeCardapioDelivery` | QR Code Cardápio Digital | desligado no exemplo para o cupom ficar limpo |
 
 Montagem: `src/lib/cupom-pedido-utils.ts` (`gerarLinhasCupomPedido`). O rodapé
 personalizado entra **depois** do QR do cardápio e **antes** do rodapé BeeFood.
