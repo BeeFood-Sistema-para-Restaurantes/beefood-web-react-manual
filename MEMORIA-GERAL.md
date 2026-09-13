@@ -3,7 +3,7 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-13 (**#99** Destaque na impressão — produto/complemento/lote; fundo escuro no Cupom Pedido e na Cozinha);
+Última atualização: 2026-09-13 (**#99** Destaque na impressão — produto/complemento/lote; fundo escuro no Cupom Pedido, na Cozinha e no cupom do delivery; texto em tom de busca a partir da discussão *Destaque de bebida*);
 2026-09-11 (**#98** taxa de serviço opcional no cupom — rodapé do Cupom Pedido, Delivery ≠ Presencial);
 2026-09-10 (**#94/#95/#96** fechamento fiscal, autorizar contador e portal do contador; **#97** transferir item entre mesas/comandas);
 2026-09-06 (**série WhatsApp #15 e #86–#93** — campanhas
