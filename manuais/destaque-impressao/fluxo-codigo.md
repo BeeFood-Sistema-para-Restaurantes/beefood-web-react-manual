@@ -27,10 +27,13 @@
 - A venda (`ProdutoVenda` / `OpcaoVenda`) **não** traz o campo. O front monta mapas por `produtoID` e `produtoGrupoOpcID` em `destaque-impressao-cache.ts`:
   - GET `cardapio2/cardapio/{empresa}/{usuario}/{delivery}/{presencial}/1` (as duas visões)
   - GET `cardapio2/grupoOpcoes/{empresa}/{usuario}/{delivery}/{presencial}/1`
-  - Cache `localStorage` `beefood_destaque_impressao_v3`, TTL **12 h**. Falha = conjuntos vazios (cupom igual ao antigo).
+  - Cache `localStorage` `beefood_destaque_impressao_v3:{empresa}:{usuario}`, TTL **12 h**. Falha = conjuntos vazios (cupom igual ao antigo).
+  - `limparDestaqueImpressaoCache()` roda **no navegador que salvou**. Outra estação só troca a lista quando o TTL vence (até 12 h) — é o que o manual chama de "um computador imprime com destaque e o outro não".
 - Cupom Pedido: `cupom-pedido-utils.ts` marca a linha com `invertido` (fundo preto, letra branca). Preço na linha de baixo **não** inverte.
+  - `invertido` é o mesmo estilo usado na **observação** quando `config.obsNegrito` está ligado — daí a resposta "é igual ao da observação".
+  - `gerarLinhasCupomPedido` é compartilhado por `VendaDetalhes`, `useModalPagamentosLogic` e `AceiteAutomatico` → o destaque vale para **presencial e delivery**, inclusive na impressão do aceite automático.
 - Cozinha (fallback do navegador): `VendaDetalhes.imprimirCozinhaFallback` — mesma regra, sem valores.
-- Cozinha via BeeImpressão (`POST /imprimirCozinha` em `localhost:1317`) depende do servidor de impressão.
+- Cozinha via BeeImpressão (`POST /imprimirCozinha` em `localhost:1317`) manda só IDs (`preVendaID`) — o layout é montado no servidor, que não recebe o mapa de destaques. O fundo escuro na cozinha está comprovado no caminho do navegador; pelo BeeImpressão depende de o servidor de impressão ter a regra. **Não afirmar no manual publicado.**
 - Fichas do PDV ficaram de fora nesta versão (não carregam `produtoID` no topo).
 
 ## Cloud Agent

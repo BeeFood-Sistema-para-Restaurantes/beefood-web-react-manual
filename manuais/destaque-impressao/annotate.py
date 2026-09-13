@@ -107,4 +107,9 @@ annotate("06-cupom-cozinha.png",
                   (3, 533, 437, 664, 437)],
          crop=(0, 0, 600, 568), pad_right=170, r=19, w=3)
 
+# --- Cupom Pedido de um pedido de delivery (600x1650) -----------------------
+annotate("07-cupom-delivery.png",
+         markers=[(1, 529, 603, 660, 603)],
+         crop=(0, 0, 600, 1040), pad_right=170, r=19, w=3)
+
 print("done")
