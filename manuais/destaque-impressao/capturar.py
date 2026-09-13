@@ -232,8 +232,8 @@ def escolher_opcao(dlg, texto: str):
     return True
 
 
-def clicar_card_pdv(page, nome: str, precisa_combo: bool = False):
-    page.fill('input[placeholder="Digite algo para buscar..."]', nome)
+def clicar_card_pdv(page, nome: str, precisa_combo: bool = False, busca: str | None = None):
+    page.fill('input[placeholder="Digite algo para buscar..."]', busca or nome)
     after_click(page, 3000)
     cards = page.locator('div[class*="cursor-pointer"]')
     escolhido = None
@@ -263,29 +263,18 @@ def cap_pedido(page, context):
 
     clicar_card_pdv(page, "Combo One Burger", precisa_combo=True)
     dlg = page.locator('div[role="dialog"]').last
-    print("DIALOG combo:", dlg.inner_text()[:1500].replace("\n", " | "))
-    for txt in ("Coca Cola 350ml", "Sem Maionese Verde"):
-        ok = False
+    for txt in ("One Burger", "Batata frita", "Coca Cola 350ml", "Sem Maionese Verde"):
         loc = dlg.get_by_text(txt, exact=True)
-        if loc.count():
-            loc.first.scroll_into_view_if_needed()
-            loc.first.click()
-            after_click(page, 1500)
-            ok = True
-        print("opcao", txt, ok)
-    add = dlg.locator('button:has-text("Adicionar ao carrinho")')
-    if add.count() and add.first.is_disabled():
-        print("carrinho desabilitado, tentando obrigatórios")
-        for txt in ("One Burger", "Batata frita", "Batata"):
-            loc = dlg.get_by_text(txt)
-            if loc.count():
-                loc.first.click()
-                after_click(page, 1200)
-                print("clique extra", txt)
-    add.first.click()
+        loc.first.scroll_into_view_if_needed()
+        loc.first.click()
+        after_click(page, 1200)
+    dlg.locator('button:has-text("Adicionar ao carrinho")').first.click()
     after_click(page, 4000)
 
-    clicar_card_pdv(page, "Mozza Sticks + Molho", precisa_combo=True)
+    campo = page.locator('input[placeholder="Digite algo para buscar..."]')
+    campo.first.fill("Mozza")
+    after_click(page, 3000)
+    clicar_card_pdv(page, "Mozza Sticks", precisa_combo=True, busca="Mozza")
     dlg = page.locator('div[role="dialog"]').last
     print("DIALOG mozza:", dlg.inner_text()[:1200].replace("\n", " | "))
     loc = dlg.get_by_text("Molho verde", exact=True)
@@ -316,7 +305,10 @@ def cap_pedido(page, context):
         after_click(page, 3000)
     row = page.locator("table tbody tr").first
     print("primeira linha:", row.inner_text()[:200].replace("\n", " | "))
-    row.click()
+    if row.locator("button").count():
+        row.locator("button").first.click()
+    else:
+        row.click()
     after_click(page, 14000)
     limpar(page)
     shot(page, "04-detalhe-venda.png")
@@ -329,7 +321,7 @@ def cap_pedido(page, context):
         printer = page.locator("button").filter(has=page.locator("svg.lucide-printer"))
     print("printer", printer.count())
     page.evaluate("() => { window.__cupomHTML = null; }")
-    printer.first.click()
+    printer.first.click(force=True)
     html = None
     for _ in range(80):
         html = page.evaluate("() => window.__cupomHTML")

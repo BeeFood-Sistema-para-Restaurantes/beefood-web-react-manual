@@ -68,36 +68,36 @@ def annotate(name, markers, ring=None, crop=None, rmin=0):
     print("OK", name, W, H)
 
 
-# Coordenadas provisórias — ajustar depois da captura com grade.
-if os.path.exists(os.path.join(SRC, "01-cadastro-produto.png")):
-    annotate("01-cadastro-produto.png", [
-        (1, 0.22, 0.72, 0.08, 0.72),
-    ])
-if os.path.exists(os.path.join(SRC, "02-cadastro-complemento.png")):
-    annotate("02-cadastro-complemento.png", [
-        (1, 0.22, 0.72, 0.08, 0.72),
-    ])
-if os.path.exists(os.path.join(SRC, "03-editar-lote.png")):
-    annotate("03-editar-lote.png", [
-        (1, 0.28, 0.62, 0.12, 0.50),
-        (2, 0.78, 0.90, 0.88, 0.78),
-    ])
-if os.path.exists(os.path.join(SRC, "04-detalhe-venda.png")):
-    annotate("04-detalhe-venda.png", [
-        (1, 0.66, 0.11, 0.78, 0.20),
-        (2, 0.70, 0.11, 0.84, 0.20),
-    ])
-if os.path.exists(os.path.join(SRC, "05-cupom-pedido.png")):
-    annotate("05-cupom-pedido.png", [
-        (1, 0.50, 0.42, 0.12, 0.42),
-        (2, 0.50, 0.50, 0.12, 0.50),
-        (3, 0.50, 0.62, 0.12, 0.62),
-    ], crop=(0.0, 0.0, 1.0, 0.70), rmin=14)
-if os.path.exists(os.path.join(SRC, "06-cupom-cozinha.png")):
-    annotate("06-cupom-cozinha.png", [
-        (1, 0.50, 0.42, 0.12, 0.42),
-        (2, 0.50, 0.50, 0.12, 0.50),
-        (3, 0.50, 0.62, 0.12, 0.62),
-    ], crop=(0.0, 0.0, 1.0, 0.70), rmin=14)
+annotate("01-cadastro-produto.png", [
+    (1, 0.255, 0.722, 0.155, 0.630),  # switch Destaque na impressão
+])
+
+annotate("02-cadastro-complemento.png", [
+    (1, 0.255, 0.668, 0.155, 0.575),  # switch no Molho verde
+])
+
+annotate("03-editar-lote.png", [
+    (1, 0.305, 0.500, 0.185, 0.400),  # checkbox do campo
+    (2, 0.700, 0.855, 0.830, 0.760),  # PROCESSAR
+], ring=[
+    (0.285, 0.455, 0.430, 0.085),  # card Destaque na impressão
+])
+
+annotate("04-detalhe-venda.png", [
+    (1, 0.655, 0.088, 0.575, 0.175),  # impressora do cupom
+    (2, 0.688, 0.088, 0.780, 0.175),  # chapéu da cozinha
+])
+
+annotate("05-cupom-pedido.png", [
+    (1, 0.04, 0.355, 0.93, 0.355),
+    (2, 0.04, 0.405, 0.93, 0.405),
+    (3, 0.04, 0.548, 0.93, 0.548),
+], crop=(0.0, 0.0, 1.0, 0.50), rmin=16)
+
+annotate("06-cupom-cozinha.png", [
+    (1, 0.04, 0.445, 0.93, 0.445),
+    (2, 0.04, 0.505, 0.93, 0.505),
+    (3, 0.04, 0.700, 0.93, 0.700),
+], crop=(0.0, 0.0, 1.0, 0.32), rmin=16)
 
 print("done")

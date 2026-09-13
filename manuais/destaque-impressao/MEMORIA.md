@@ -22,8 +22,10 @@ redução e molhos** ligados.
 - Complemento de cadastro: **Molho verde** — switch já ON.
 - Lote: **Cardápio → Produtos → Bebidas → Editar em Lote** etapa 2
   (fotografado com o campo marcado em **Sim**; **não processado**).
-- Pedido de prova no PDV: **Combo One Burger** (Coca Cola 350ml +
-  Sem Maionese Verde) + **Mozza Sticks + Molho** (Molho verde).
+- Pedido de prova no PDV: venda **#968** / pedido **32** /
+  `preVendaID` 59204137. **Combo One Burger** R$ 39,00 (Coca +
+  Sem Maionese Verde) + **Mozza Sticks + Molho** R$ 35,90
+  (Molho verde) = **R$ 74,15** (dinheiro). Sem taxa de serviço.
 
 ## Imagens
 
@@ -45,4 +47,4 @@ redução e molhos** ligados.
 
 ## Status
 
-Em execução.
+Concluído — aguardando publicação.

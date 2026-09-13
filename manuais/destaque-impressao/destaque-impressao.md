@@ -90,10 +90,11 @@ O mesmo campo existe no **Editar em Lote** da aba **Complementos**
 
 ## 4. O pedido de prova
 
-Um **Combo One Burger** com **Coca Cola 350ml** e a redução
-**Sem Maionese Verde**, mais **Mozza Sticks + Molho** com
-**Molho verde**. Bebida, redução e molho já estavam ligados no
-cadastro.
+Neste exemplo: venda **#968**, pedido **32**. Um **Combo One
+Burger** (R$ 39,00) com **Coca Cola 350ml** e a redução
+**Sem Maionese Verde**, mais **Mozza Sticks + Molho** (R$ 35,90)
+com **Molho verde**. Total **R$ 74,15**. Bebida, redução e molho
+já estavam ligados no cadastro.
 
 No detalhe da venda, a impressora (1) é o **Cupom Pedido**. O
 chapéu (2) é a **ficha da cozinha**.

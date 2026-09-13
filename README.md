@@ -87,7 +87,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Indicadores de WhatsApp e BeeBot | [`manuais/whatsapp-indicadores/`](manuais/whatsapp-indicadores/whatsapp-indicadores.md) | ✅ Concluído |
 | Histórico de mensagens do WhatsApp | [`manuais/whatsapp-historico/`](manuais/whatsapp-historico/whatsapp-historico.md) | ✅ Concluído |
 | Taxa de serviço opcional no cupom | [`manuais/cupom-taxa-servico-opcional/`](manuais/cupom-taxa-servico-opcional/cupom-taxa-servico-opcional.md) | ✅ Concluído |
-| Destaque na impressão (produto, complemento, lote e cupons) | [`manuais/destaque-impressao/`](manuais/destaque-impressao/destaque-impressao.md) | 🔨 Em execução |
+| Destaque na impressão (produto, complemento, lote e cupons) | [`manuais/destaque-impressao/`](manuais/destaque-impressao/destaque-impressao.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 

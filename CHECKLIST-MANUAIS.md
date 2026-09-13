@@ -119,7 +119,7 @@
 | 96 | **Portal do contador** | `beefood.app/contador`: login, clientes, competências, ZIP, NFe recebidas e edição fiscal. Senha única por CPF/CNPJ | `manuais/portal-contador/` | ✅ Concluído (11 imagens) | — |
 | 97 | **Transferir item entre mesas e comandas** | Assistente em 3 passos no painel da venda: escolher linhas, destino **ABERTO** (mesa ou comanda) e confirmar. Prova: Chicken Deluxe da Mesa 16 (#941) → Comanda 1 (#942). Não é o chip de mesa nem o TRANSFERIR do caixa | `manuais/transferencia-itens-mesas/` | ✅ Concluído (6 imagens) | — |
 | 98 | **Taxa de serviço opcional no cupom** | Rodapé **presencial** do Cupom Pedido (aba Texto Padrão). Delivery **não** tem taxa. A frase **não** desliga a gorjeta. Prova: venda #940 com Serviço 10% + `TAXA DE SERVIÇO OPCIONAL` no papel (sem QR) | `manuais/cupom-taxa-servico-opcional/` | ✅ Concluído (5 imagens) | — |
-| 99 | **Destaque na impressão** | Campo `destaqueImpressao` no cadastro de produto/complemento e no Editar em Lote. Prova: Combo One Burger (Coca + redução) + molho no Cupom Pedido e na Cozinha (fundo escuro) | `manuais/destaque-impressao/` | 🔨 Em execução | — |
+| 99 | **Destaque na impressão** | Campo `destaqueImpressao` no cadastro de produto/complemento e no Editar em Lote. Prova: venda **#968** Combo One Burger (Coca + Sem Maionese Verde) + Mozza + Molho verde — fundo escuro no Cupom Pedido e na Cozinha | `manuais/destaque-impressao/` | ✅ Concluído (6 imagens) | — |
 
 > **Plano completo do bloco de cardápio:** [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) — ordem #27 → #29 → #28 → #30 → #31; **limpar base** antes de cada manual; **fotos** em todos produtos/opções (não documentar no texto).
 >
@@ -246,7 +246,7 @@ Não misturar com o backlog **PDV** (operar a venda) nem com **Mesas / Comandas*
 
 ## Histórico
 
-- 2026-09-13 — **#99 Em execução** (`manuais/destaque-impressao/`). Campo **Destaque na impressão** no cadastro e no lote; prova no Cupom Pedido e na Cozinha. Bebidas, redução e molhos já ligados no sandbox.
+- 2026-09-13 — **#99 Concluído** (`manuais/destaque-impressao/`). Campo **Destaque na impressão** no cadastro de produto/complemento e no lote. Prova na venda **#968** (pedido 32): Combo One Burger (Coca + Sem Maionese Verde) + Mozza Sticks + Molho verde. Fundo escuro só nas linhas marcadas, no Cupom Pedido e na Cozinha. 6 imagens. Flags do sandbox **não** foram alteradas. Conta padrão `contato@beefood.com.br`.
 - 2026-09-11 — **#98 Concluído** (`manuais/cupom-taxa-servico-opcional/`). Rodapé **presencial** do Cupom Pedido. Delivery não tem taxa; QR desligado no exemplo. Prova na reimpressão da venda **#940** (Mesa 17, Serviço R$ 1,99). 5 imagens. Conta padrão `contato@beefood.com.br`.
 - 2026-09-10 — Merge da PR #60: entra [`PLANO-ENTREGADOR.md`](PLANO-ENTREGADOR.md). As propostas **#83/#84/#85** desse estudo **já foram usadas** pela série do garçom; o estudo continua aguardando aprovação com nova numeração.
 - 2026-09-10 — Merge da PR #53: entram [`PLANO-RELATORIOS.md`](PLANO-RELATORIOS.md) e [`PLANO-RELATORIO-TAXA-SERVICO.md`](PLANO-RELATORIO-TAXA-SERVICO.md). A numeração proposta lá (#75–#96) **já foi usada** por outros manuais; a taxa de serviço já é o **#85**. O checklist da `main` prevalece.

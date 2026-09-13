@@ -710,7 +710,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Relatório de comissão do garçom | `manuais/relatorio-comissao-garcom/` | ✅ Concluído (#84) |
 | Relatório de taxa de serviço | `manuais/relatorio-taxa-servico/` | ✅ Concluído (#85) |
 | Taxa de serviço opcional no cupom | `manuais/cupom-taxa-servico-opcional/` | ✅ Concluído (#98) |
-| Destaque na impressão | `manuais/destaque-impressao/` | 🔨 Em execução (#99) |
+| Destaque na impressão | `manuais/destaque-impressao/` | ✅ Concluído (#99) |
 | Pedidos pelo chat no WhatsApp | `manuais/whatsapp-pedidos-chat/` | ✅ Concluído (#86) |
 | Campanhas de WhatsApp | `manuais/campanhas-whatsapp/` | ✅ Concluído (#15) |
 | Notificações de cada etapa | `manuais/whatsapp-notificacoes/` | ✅ Concluído (#87) |
