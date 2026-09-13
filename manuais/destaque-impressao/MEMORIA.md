@@ -34,7 +34,7 @@ redução e molhos** ligados.
 | `01-cadastro-produto.png` | setas | Cadastro da Coca, switch abaixo da Descrição |
 | `02-cadastro-complemento.png` | setas | Cadastro do Molho verde, mesmo switch |
 | `03-editar-lote.png` | setas | Etapa 2 do lote com o campo marcado |
-| `04-detalhe-venda.png` | setas | Venda do combo + molho e ícones de impressão |
+| `04-detalhe-venda.png` | moldura | Venda #968 (contexto dos itens do pedido) |
 | `05-cupom-pedido.png` | setas | Cupom do cliente com linhas em destaque |
 | `06-cupom-cozinha.png` | setas | Ficha da cozinha com as mesmas linhas |
 
@@ -44,6 +44,13 @@ redução e molhos** ligados.
 - Um molho extra (**Mozza Sticks + Molho**) porque o Combo One Burger
   tem Bebidas e Redução, mas não tem grupo de molho.
 - Destaque é por item (produto ou opção), não pelo combo pai.
+- O manual **não ensina a imprimir** (pedido do dono): os cupons entram
+  apenas como resultado prático. A tela da venda ficou só como contexto,
+  sem setas nos botões de impressora/cozinha.
+- Anotação (2ª rodada, pedido do dono): setas **curtas** e horizontais,
+  coordenadas em **pixels** no `annotate.py` (não mais frações estimadas).
+  Nos cupons o `pad_right` cria uma faixa branca à direita para os números,
+  então a seta encosta na borda da faixa escura sem cruzar o texto.
 
 ## Status
 

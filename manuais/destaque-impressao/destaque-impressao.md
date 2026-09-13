@@ -65,8 +65,8 @@ Quem manda no papel é o complemento marcado, não só o produto pai.
 
 ## 3. Vários de uma vez
 
-**Cardápio → Produtos →** filtre o setor (1) **e só então**
-**Editar em Lote** (2). O assistente já abre com **essa** lista.
+**Cardápio → Produtos →** filtre o setor **e só então**
+**Editar em Lote**. O assistente já abre com **essa** lista.
 
 Na etapa 2, marque o grupo **Destaque na impressão** e deixe
 **Sim**. Sem marcar o grupo, o lote não mexe nesse campo. O valor
@@ -96,15 +96,11 @@ Burger** (R$ 39,00) com **Coca Cola 350ml** e a redução
 com **Molho verde**. Total **R$ 74,15**. Bebida, redução e molho
 já estavam ligados no cadastro.
 
-No detalhe da venda, a impressora (1) é o **Cupom Pedido**. O
-chapéu (2) é a **ficha da cozinha**.
+São dois produtos e cinco opções. Só três opções têm o destaque
+ligado: **Coca Cola 350ml**, **Sem Maionese Verde** e
+**Molho verde**. É esse pedido que sai nos dois papéis a seguir.
 
-![Detalhe da venda com os dois botões de impressão](imagens-tratadas/04-detalhe-venda.png)
-
-| Nº | Item | O que conferir |
-|----|------|----------------|
-| 1. | Ícone da impressora | **Imprimir Cupom** — o papel do cliente. |
-| 2. | Ícone do chapéu | **Imprimir Cozinha** — a ficha da produção. |
+![Detalhe da venda #968 com os itens do pedido](imagens-tratadas/04-detalhe-venda.png)
 
 ---
 
@@ -139,9 +135,6 @@ redução e o molho.
 | 1. | **Coca Cola 350ml** | Mesma bebida do cupom do cliente. |
 | 2. | **Sem Maionese Verde** | A redução. |
 | 3. | **Molho verde** | O molho. |
-
-Sem o BeeImpressão no computador, o BeeFood avisa *Servidor offline.
-Usando impressão do navegador* e mostra o **mesmo papel** no preview.
 
 ---
 

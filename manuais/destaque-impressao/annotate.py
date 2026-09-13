@@ -9,8 +9,8 @@ os.makedirs(OUT, exist_ok=True)
 
 GREEN = (22, 150, 78)
 WHITE = (255, 255, 255)
-A_LINE = 220
-A_BADGE = 235
+A_LINE = 235
+A_BADGE = 245
 FONT_CANDIDATES = [
     r"C:\Windows\Fonts\arialbd.ttf",
     "/usr/share/fonts/truetype/croscore/Arimo-Bold.ttf",
@@ -29,14 +29,14 @@ def draw_arrow(d, x0, y0, x1, y1, w):
     col = GREEN + (A_LINE,)
     d.line([(x0, y0), (x1, y1)], fill=col, width=w)
     ang = math.atan2(y1 - y0, x1 - x0)
-    L = w * 3.6
-    for s in (0.45, -0.45):
+    L = w * 4.0
+    for s in (0.5, -0.5):
         d.line([(x1, y1), (x1 - L * math.cos(ang - s), y1 - L * math.sin(ang - s))],
                fill=col, width=w)
 
 
 def badge(d, cx, cy, r, num, fnt):
-    d.ellipse([cx - r - 2, cy - r - 2, cx + r + 2, cy + r + 2], fill=WHITE + (235,))
+    d.ellipse([cx - r - 3, cy - r - 3, cx + r + 3, cy + r + 3], fill=WHITE + (245,))
     d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=GREEN + (A_BADGE,))
     t = str(num)
     bb = d.textbbox((0, 0), t, font=fnt)
@@ -44,60 +44,67 @@ def badge(d, cx, cy, r, num, fnt):
            t, fill=WHITE, font=fnt)
 
 
-def annotate(name, markers, ring=None, crop=None, rmin=0):
+def annotate(name, markers=(), ring=(), crop=None, pad_right=0, r=None, w=None):
+    """Marcadores e molduras em pixels da imagem final (após crop e pad)."""
     img = Image.open(os.path.join(SRC, name)).convert("RGBA")
     W0, H0 = img.size
     if crop:
-        img = img.crop((int(crop[0] * W0), int(crop[1] * H0),
-                        int(crop[2] * W0), int(crop[3] * H0)))
+        img = img.crop(crop)
+    if pad_right:
+        base = Image.new("RGBA", (img.width + pad_right, img.height), WHITE + (255,))
+        base.paste(img, (0, 0))
+        img = base
     W, H = img.size
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(overlay)
-    r = max(rmin, int(W * 0.0125))
-    fnt = font(int(r * 1.2))
-    w = max(2, int(W * 0.0022))
-    for (fx, fy, fw, fh) in (ring or []):
-        x0, y0 = fx * W, fy * H
-        d.rectangle([x0, y0, x0 + fw * W, y0 + fh * H], outline=GREEN + (A_LINE,), width=w)
+    r = r or int(W * 0.0125)
+    fnt = font(int(r * 1.25))
+    w = w or max(2, int(W * 0.0022))
+    for (x0, y0, x1, y1) in ring:
+        d.rounded_rectangle([x0, y0, x1, y1], radius=int(r * 0.6),
+                            outline=GREEN + (A_LINE,), width=w)
     for (num, tx, ty, bx, by) in markers:
-        TX, TY, BX, BY = tx * W, ty * H, bx * W, by * H
-        ang = math.atan2(TY - BY, TX - BX)
-        draw_arrow(d, BX + (r + 5) * math.cos(ang), BY + (r + 5) * math.sin(ang), TX, TY, w)
-        badge(d, BX, BY, r, num, fnt)
+        ang = math.atan2(ty - by, tx - bx)
+        draw_arrow(d, bx + (r + 6) * math.cos(ang), by + (r + 6) * math.sin(ang),
+                   tx, ty, w)
+        badge(d, bx, by, r, num, fnt)
     Image.alpha_composite(img, overlay).convert("RGB").save(os.path.join(OUT, name))
     print("OK", name, W, H)
 
 
-annotate("01-cadastro-produto.png", [
-    (1, 0.255, 0.722, 0.155, 0.630),  # switch Destaque na impressão
-])
+# --- Cadastro do produto (2160x1350): switch "Destaque na impressão" ---------
+annotate("01-cadastro-produto.png",
+         markers=[(1, 634, 987, 520, 987)],
+         ring=[(640, 953, 1222, 1024)])
 
-annotate("02-cadastro-complemento.png", [
-    (1, 0.255, 0.668, 0.155, 0.575),  # switch no Molho verde
-])
+# --- Cadastro do complemento (2160x1350) -------------------------------------
+annotate("02-cadastro-complemento.png",
+         markers=[(1, 474, 913, 360, 913)],
+         ring=[(480, 881, 1102, 948)])
 
-annotate("03-editar-lote.png", [
-    (1, 0.305, 0.500, 0.185, 0.400),  # checkbox do campo
-    (2, 0.700, 0.855, 0.830, 0.760),  # PROCESSAR
-], ring=[
-    (0.285, 0.455, 0.430, 0.085),  # card Destaque na impressão
-])
+# --- Editar em Lote (2160x1350): card do campo + botão PROCESSAR -------------
+annotate("03-editar-lote.png",
+         markers=[(1, 1548, 690, 1664, 690),
+                  (2, 1552, 1181, 1668, 1181)],
+         ring=[(620, 641, 1542, 738),
+               (1304, 1150, 1549, 1212)])
 
-annotate("04-detalhe-venda.png", [
-    (1, 0.655, 0.088, 0.575, 0.175),  # impressora do cupom
-    (2, 0.688, 0.088, 0.780, 0.175),  # chapéu da cozinha
-])
+# --- Detalhe da venda (contexto: o que foi pedido) ---------------------------
+annotate("04-detalhe-venda.png",
+         ring=[(598, 372, 1564, 710)])
 
-annotate("05-cupom-pedido.png", [
-    (1, 0.04, 0.355, 0.93, 0.355),
-    (2, 0.04, 0.405, 0.93, 0.405),
-    (3, 0.04, 0.548, 0.93, 0.548),
-], crop=(0.0, 0.0, 1.0, 0.50), rmin=16)
+# --- Cupom Pedido (600x1950): faixa branca à direita para os números --------
+annotate("05-cupom-pedido.png",
+         markers=[(1, 533, 365, 664, 365),
+                  (2, 533, 413, 664, 413),
+                  (3, 533, 553, 664, 553)],
+         crop=(0, 0, 600, 992), pad_right=170, r=19, w=3)
 
-annotate("06-cupom-cozinha.png", [
-    (1, 0.04, 0.445, 0.93, 0.445),
-    (2, 0.04, 0.505, 0.93, 0.505),
-    (3, 0.04, 0.700, 0.93, 0.700),
-], crop=(0.0, 0.0, 1.0, 0.32), rmin=16)
+# --- Cupom da Cozinha (600x1950) --------------------------------------------
+annotate("06-cupom-cozinha.png",
+         markers=[(1, 533, 300, 664, 300),
+                  (2, 533, 347, 664, 347),
+                  (3, 533, 437, 664, 437)],
+         crop=(0, 0, 600, 568), pad_right=170, r=19, w=3)
 
 print("done")
