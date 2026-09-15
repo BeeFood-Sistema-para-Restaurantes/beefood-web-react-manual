@@ -1,36 +1,35 @@
-<!-- Modelo: MOCKUP DE CELULAR (um ou dois aparelhos lado a lado).
-     A moldura é CSS: o print entra inteiro, sem perder nitidez, e sem precisar
-     de script de montagem. Capture com `--dispositivo celular` (390x844 @3x).
-     Dois aparelhos ainda leem bem no 4:5; três aperta. -->
+<!-- Modelo: MOCKUP DE CELULAR EM SANGRIA (o padrão).
+     Um aparelho só, com mais de meia largura do slide, saindo pela borda de
+     baixo. Dois celulares lado a lado couberam no 4:5 mas ninguém lê a tela
+     deles no feed — só use lado a lado quando a comparação for entre as duas
+     telas, e mesmo aí prefira dois slides.
+
+     A moldura é CSS: o print entra inteiro, sem perder nitidez. Capture com
+     `--dispositivo celular` (390x844 @3x).
+
+     Orçamento de espaço: com o celular em `top: 530px`, o texto acima cabe em
+     chapéu + título de 2 linhas (`titulo--pequeno`) + 2 linhas de corpo. A
+     terceira linha de corpo já cai atrás do aparelho. -->
 <div class="slide">
   <div class="topo">
     <span class="logo"></span>
-    <span class="data">4 de 7</span>
+    <span class="data">4 de 8</span>
   </div>
 
-  <div class="empurra"></div>
-
-  <div class="pilha g40">
+  <div class="pilha g24" style="margin-top: 50px; max-width: 880px">
     <span class="chapeu">No celular do cliente</span>
     <h2 class="titulo titulo--pequeno">
       A etiqueta aparece <span class="destaque">antes</span> de ele pedir
     </h2>
-    <div class="par">
-      <div class="pilha g24 centro">
-        <div class="celular">
-          <div class="celular__tela">
-            <img src="../imagens-puras/04-cardapio.png" alt="Cardápio digital">
-          </div>
-        </div>
-        <span class="cartao__rotulo">No cardápio</span>
-      </div>
-      <div class="pilha g24 centro">
-        <div class="celular">
-          <div class="celular__tela">
-            <img src="../imagens-puras/05-sacola.png" alt="Sacola">
-          </div>
-        </div>
-        <span class="cartao__rotulo">Na sacola</span>
+    <p class="corpo">
+      Duas linhas de largura cheia, e nada além disso.
+    </p>
+  </div>
+
+  <div class="sangria sangria--celular" style="top: 530px">
+    <div class="celular">
+      <div class="celular__tela">
+        <img src="../imagens-puras/04-cardapio.png" alt="Cardápio digital no celular">
       </div>
     </div>
   </div>
@@ -38,9 +37,10 @@
   <div class="empurra"></div>
 
   <div class="rodape">
+    <!-- Os pontos ficam à esquerda do aparelho (que começa em x=376). -->
     <span class="pontos">
-      <span></span><span></span><span class="on"></span><span></span>
+      <span></span><span></span><span></span><span class="on"></span>
+      <span></span><span></span><span></span><span></span>
     </span>
-    <span>beefood.app</span>
   </div>
 </div>

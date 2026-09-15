@@ -316,6 +316,62 @@ body {
 
 /* --------------------------------------------------------------- mockups */
 
+/* SANGRIA — o modo padrão de mostrar aparelho no carrossel.
+ *
+ * O mockup começa por volta de 27% da altura, ocupa pouco mais de meia largura
+ * e sai pela borda de baixo. Aparelho inteiro dentro da margem fica pequeno e a
+ * tela ilegível; em sangria ele ganha escala, e o corte na borda passa a
+ * sensação de que a tela continua. O texto do slide mora acima dele.
+ *
+ * Medidas vindas do esboço do dono: topo em 371 px, largura ~586 px, recuo de
+ * 118 px na direita. Ajuste por estilo inline quando o conteúdo pedir.
+ */
+.sangria {
+  position: absolute;
+  top: 371px;
+  right: 118px;
+  z-index: 1;
+}
+
+.sangria--celular {
+  width: 586px;
+}
+
+/* Janela de navegador é o mockup de computador de um sistema web. Sendo
+ * deitada, ela sangra pela direita (e de raspão pela base) em vez de pela base
+ * como o celular — é o que permite passar de 1000 px de largura e deixar o
+ * texto da tela legível. */
+.sangria--janela {
+  width: 1120px;
+  right: -180px;
+  top: 700px;
+}
+
+/* Texto e rodapé precisam ficar por cima da sangria, nunca por baixo. */
+.pilha,
+.rodape,
+.topo {
+  position: relative;
+  z-index: 2;
+}
+
+/* Anel vermelho por cima do mockup, para dizer "olhe aqui". Posicione por
+ * porcentagem dentro do .navegador__tela / .celular__tela: assim o realce
+ * acompanha a escala do mockup e não quebra quando a largura muda. */
+.realce {
+  position: absolute;
+  z-index: 3;
+  border: 5px solid var(--primaria);
+  border-radius: 16px;
+  box-shadow: 0 0 0 4px rgba(239, 66, 57, 0.18);
+}
+
+/* Papel na bancada: uma inclinação mínima faz o cupom parecer objeto, não
+ * arquivo. Só na capa — em slide de conteúdo, atrapalha a leitura. */
+.inclinado {
+  transform: rotate(-3deg);
+}
+
 /* Moldura de celular: proporção 390×844 do cardápio público. */
 .celular {
   position: relative;
@@ -326,6 +382,16 @@ body {
   background: #101010;
   box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.45);
   flex: none;
+}
+
+.sangria .celular {
+  width: 100%;
+  border-radius: 68px;
+  padding: 16px;
+}
+
+.sangria .celular__tela {
+  border-radius: 54px;
 }
 
 .celular__tela {
@@ -381,6 +447,10 @@ body {
   font-size: 22px;
   font-weight: 700;
   color: var(--texto-suave);
+}
+
+.navegador__tela {
+  position: relative;
 }
 
 .navegador img {
@@ -439,6 +509,108 @@ body {
 .cupom__corte {
   border-top: 3px dashed #c9c9c9;
   margin: 16px 0;
+}
+
+/* ----------------------------------------------------------- ilustração */
+
+/* Tela de aplicativo desenhada, para o caso em que a captura real não existe
+ * (app Android não roda no Cloud Agent). Vocabulário de propósito diferente do
+ * produto: cartão arredondado, tipografia do carrossel, sem imitar pixel a
+ * pixel. Ilustração que parece captura engana o leitor — por isso o
+ * `.selo-ilustracao` é obrigatório no slide que usa isto. */
+.tela-app {
+  height: 100%;
+  background: var(--fundo-suave);
+  display: flex;
+  flex-direction: column;
+  font-size: 26px;
+}
+
+.tela-app__barra {
+  padding: 26px 34px 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+
+.tela-app__topo {
+  padding: 14px 34px 26px;
+  background: var(--fundo-suave);
+}
+
+.tela-app__titulo {
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.tela-app__corpo {
+  padding: 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tela-app__cartao {
+  background: #fff;
+  border: 2px solid var(--borda);
+  border-radius: 24px;
+  padding: 26px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tela-app__linha {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 14px;
+  border-radius: 12px;
+}
+
+.tela-app__linha--destaque {
+  background: var(--escuro);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* O aviso fica no fluxo, logo abaixo do cartão, e não colado na base da tela:
+ * o terço de baixo do celular em sangria está fora do slide. */
+.tela-app__aviso {
+  background: var(--escuro);
+  color: #fff;
+  border-radius: 24px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  line-height: 1.35;
+}
+
+.tela-app__botao {
+  align-self: stretch;
+  text-align: center;
+  padding: 18px;
+  border-radius: 999px;
+  background: var(--primaria);
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.selo-ilustracao {
+  position: absolute;
+  z-index: 4;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(30, 30, 30, 0.72);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* --------------------------------------------------------------- rodapé */
