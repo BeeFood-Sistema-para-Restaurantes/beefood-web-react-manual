@@ -87,6 +87,10 @@ No carrossel *Destaque na impressão* a primeira tentativa usou a faixa
 foi fechar no **interruptor com o rótulo e a linha de apoio** — e escolher a
 borda direita em área vazia, porque corte no meio de uma palavra parece defeito.
 
+A tabela vale para mockup **dentro da margem**, onde a largura útil é 904 px. Em
+sangria a largura de exibição vai a 1120 px, o que empurra o teto de ~440 px para
+~620 px lógicos — a conta refeita está em *Mockup de computador*, abaixo.
+
 ## Zona segura — o que o Instagram realmente cobre
 
 A primeira versão do `--guias` pintava 120 px no topo e 180 px na base do 4:5.
