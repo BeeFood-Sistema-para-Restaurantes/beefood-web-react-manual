@@ -4,14 +4,14 @@ Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
 continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
 entra o que é de carrossel.
 
-Última atualização: 2026-09-15 (2ª rodada: texto reescrito em vez de recortado,
-capa com imagem, mockup em sangria, mockup de computador, ilustração com selo).
+Última atualização: 2026-09-15 (3ª rodada: linguagem falada em vez de aforismo,
+emoji, e capa recortada em um destaque só).
 
 ## Índice
 
 | Carrossel | Novidade | Pasta | Formato | Estado |
 |-----------|----------|-------|---------|--------|
-| Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ renderizado (2ª versão) |
+| Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ renderizado (3ª versão) |
 
 ## Texto: publicação, não changelog
 
@@ -30,6 +30,39 @@ tabela **fato → ângulo → o que o slide diz**:
   à da novidade.
 
 Método detalhado em [`roteiro-e-copy.md`](roteiro-e-copy.md).
+
+### O segundo vício: aforismo
+
+Reescrever a partir do fato resolveu o conteúdo e criou um problema de registro.
+Os títulos da 2ª versão eram todos **máxima**: curtos, impessoais, em terceira
+pessoa, fechados em si mesmos. "Um esquecido custa duas viagens." "A linha que
+importa para de se esconder." "Todo recurso novo vira manual no mesmo dia."
+Frase por frase, tudo correto; lidas em sequência, oito placas de museu.
+
+Ninguém fala assim. O que tirou do aforismo foi chamar a pessoa de **você**,
+**perguntar** em vez de declarar, e parar de cortar palavra até virar telegrama —
+é a palavra de ligação ("e", "então", "aí", "só") que faz a frase soar falada.
+O teste que pega tudo: ler os oito títulos em voz alta, seguidos. A tabela
+travado × falado está em [`roteiro-e-copy.md`](roteiro-e-copy.md), com o
+antes-e-depois dos oito slides deste carrossel.
+
+Máxima tem lugar, mas **uma por carrossel** — e o carrossel vive bem sem nenhuma.
+
+### Emoji
+
+Passou de "só o que a novidade usa" para **pouco e onde couber**: até um por
+slide, em cerca de metade dos slides. O ambiente tem Noto Color Emoji, então sai
+colorido no PNG sem configuração.
+
+Dois detalhes que custaram uma rodada:
+
+- **Emoji que aponta precisa de `&nbsp;`.** O 👇 no fim do título caiu sozinho na
+  linha seguinte e parecia acidente. Encostado com `&nbsp;`, e com o título em
+  uma linha, ele manda o olho para o mockup logo abaixo.
+- **Slide de limite não leva emoji.** No slide "não saia marcando tudo" qualquer
+  carinha soa sarcástica.
+
+### Cópia literal
 
 O `conferir-texto.py` mecaniza a parte objetiva: acusa sequência de **6 palavras**
 igual ao título ou ao texto da novidade. A janela é 6 porque nenhum rótulo do
@@ -119,8 +152,39 @@ sobra ao lado (288 px) é estreita demais para 38 px de corpo. Orçamento medido
 | celular (`.sangria--celular`) | 530 px | chapéu + título de 2 linhas (`titulo--pequeno`) + 2 linhas de corpo |
 | janela (`.sangria--janela`) | 700 px | chapéu + título de 2 linhas + 4 linhas de corpo |
 
-Na capa a conta muda: o `.inclinado` (rotação de −3°) avança o canto do papel
-~15 px além da largura declarada, então a coluna de texto para em 400 px.
+### A imagem da capa
+
+Duas coisas se aprenderam refazendo a capa do *Destaque na impressão*:
+
+**A imagem da capa mostra UM destaque.** A versão anterior usava o cupom inteiro,
+que tem três linhas em fundo preto (Coca Cola, Sem Maionese Verde, Molho verde).
+A capa ficava bonita e dizia o contrário do slide do limite — "não saia marcando
+tudo" logo depois de uma foto com tudo marcado. Recortar até sobrar a linha do
+assunto resolve as duas coisas de uma vez: foco e coerência.
+
+O corte **não gera arquivo novo**: `aspect-ratio` no `.recorte--topo` já corta o
+topo da imagem por `object-fit`. Onde cortar se acha pela tinta, não no olho —
+no `05-cupom-pedido.png` a faixa preta vai de y 341 a 439 e tem duas linhas de
+49 px, então `600 / 390` fecha no fim exato da linha da bebida:
+
+```python
+import numpy as np
+from PIL import Image
+a = np.asarray(Image.open('05-cupom-pedido.png').convert('L'))
+escuro = a[:, 500] < 80                        # coluna de fundo, sem letra
+# blocos invertidos → [(341, 439), (530, 579)]
+```
+
+**Papel inclinado não sangra bem.** Com o recorte deitado (600×390) e `inclinado`,
+a sangria pela base cortava justo a faixa preta, que é o assunto. O que funcionou
+foi tratar a capa como **objeto na bancada**: 620 px de largura, `top: 760px`,
+`right: 40px`, inteiro dentro do slide, com os cantos de baixo quase retos
+(`border-radius: 24px 24px 5px 5px`) porque o arredondamento comia a ponta da
+faixa. A regra da sangria continua valendo para mockup de aparelho — não para
+recorte de papel na capa.
+
+Na capa a conta da coluna de texto também muda: o `.inclinado` (rotação de −3°)
+avança o canto do papel ~15 px além da largura declarada.
 
 - **Rodapé só onde sobra chão.** A janela cobre a base inteira; pontos desenhados
   por cima dela parecem sujeira, e o slide fica melhor sem rodapé (o "4 de 8" do

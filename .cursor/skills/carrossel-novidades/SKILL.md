@@ -227,10 +227,20 @@ carrosseis/<slug>/
 - **Uma ideia por slide.** Duas frases longas no mesmo slide são dois slides.
 - **Máximo 10 slides**, e quem lê no feed costuma parar no quinto: ponha o ganho
   logo no começo, não no fim.
-- **O gancho fala do salão, não do sistema.** "Toda loja tem uma gambiarra para
-  não esquecer a bebida" prende; "Novo campo Destaque na impressão" não.
+- **O gancho fala do salão, não do sistema.** "Cansou de bebida esquecida na
+  sacola?" prende; "Novo campo Destaque na impressão" não.
+- **Escreva como gente fala.** O vício que aparece sozinho é o aforismo — título
+  curto, impessoal, fechado em si mesmo ("Todo recurso novo vira manual no mesmo
+  dia"). Chame a pessoa de **você**, pergunte, e não corte a frase até virar
+  telegrama. Teste: leia os títulos em voz alta, seguidos. A tabela
+  travado × falado está em `references/roteiro-e-copy.md`.
+- **Emoji: pouco e onde couber.** Até um por slide, e não em todos. Prefira os
+  que a novidade usa (🖨️ 🛵) e os do assunto (🥤). Emoji que aponta (👇) vai
+  encostado com `&nbsp;`, senão cai sozinho na linha. Slide de limite não leva.
 - **A capa tem imagem**, e a imagem é o resultado da novidade (o papel impresso,
   a tela nova) — nunca um ícone decorativo. Capa só de texto perde no feed.
+- **A imagem da capa mostra um destaque só.** Cupom com três linhas marcadas
+  contradiz o slide que pede critério. Recorte até sobrar a linha do assunto.
 - **Metade dos slides, no mínimo, tem imagem.** Três slides de texto seguidos é
   sinal de que dois deveriam virar um.
 - **Mockup em sangria**, não aparelho inteiro no meio do slide.
@@ -240,7 +250,6 @@ carrosseis/<slug>/
 - **Sem seta e sem número dentro da imagem.** Anotação assada no arquivo é
   linguagem de manual. Para dirigir o olhar no carrossel: recorte mais fechado e,
   se ainda faltar, o `.realce` — que é CSS no slide, não pixel no print.
-- **Um emoji por slide, no máximo**, e só se a novidade já usa aquele emoji.
 
 ## O que nunca fazer
 

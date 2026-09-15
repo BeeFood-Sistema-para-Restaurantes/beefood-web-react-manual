@@ -43,11 +43,16 @@ a imagem certa é o resultado da novidade (o papel impresso, a tela nova), não 
 
 | Em vez de | Escreva |
 |-----------|---------|
-| "Novo campo Destaque na impressão" | "Toda loja tem uma gambiarra para não esquecer a bebida" |
-| "Nova etapa Pronto no Delivery" | "Quem está pronto não é quem já saiu" |
-| "DRE: controle Considerar Custo Vendas" | "Seu custo está entrando duas vezes no DRE" |
+| "Novo campo Destaque na impressão" | "Cansou de bebida esquecida na sacola?" |
+| "Nova etapa Pronto no Delivery" | "Quem está pronto já saiu, ou ainda não?" |
+| "DRE: controle Considerar Custo Vendas" | "Seu custo pode estar entrando duas vezes no DRE" |
 
 Teste rápido: leia só o slide 1 em voz alta. Se soa como changelog, reescreva.
+
+**A imagem da capa mostra UM destaque.** A primeira versão desta capa usava o
+cupom inteiro, com três linhas em fundo preto — e aí a imagem dizia o contrário
+do slide do limite ("não saia marcando tudo"). Recorte até sobrar a linha do
+assunto, só ela.
 
 ## Estrutura que funciona (6 a 8 slides)
 
@@ -72,6 +77,41 @@ produz slide vazio — que é pior do que carrossel curto.
 Pelo menos metade dos slides tem imagem, e a capa nunca fica de fora. Três
 slides de texto seguidos é sinal de que dois deveriam virar um.
 
+## Fale como gente fala
+
+O vício que aparece sozinho na segunda rodada de escrita é o **aforismo**: título
+curto, impessoal, em terceira pessoa, fechado em si mesmo. Cada frase fica
+correta, elegante — e nenhuma é como alguém fala. O carrossel passa a soar como
+placa de museu.
+
+| Travado | Como alguém falaria |
+|---------|---------------------|
+| "Toda loja tem uma gambiarra para não esquecer a bebida" | "Cansou de bebida esquecida na sacola?" |
+| "Um esquecido custa duas viagens" | "Você sabe como essa história termina" |
+| "A linha que importa para de se esconder" | "Olha o que muda no cupom" |
+| "É um interruptor no cadastro do item" | "É só um interruptor" |
+| "Marque a geladeira inteira de uma vez" | "Tem muita bebida? Marque tudo de uma vez" |
+| "O entregador confirma antes de ir embora" | "Seu entregador também vê" |
+| "Se tudo é destaque, nada é" | "Não saia marcando tudo" |
+| "Todo recurso novo vira manual no mesmo dia" | "Acompanhe tudo que entra no sistema" |
+
+O que tira do aforismo:
+
+- **Chame a pessoa de você.** "Seu entregador também vê" tem dono; "o entregador
+  confirma" é relatório.
+- **Pergunte.** Pergunta abre conversa e a pessoa responde de cabeça; declaração
+  fecha o assunto antes de começar.
+- **Convide com o verbo.** "Olha o que muda", "Acompanhe", "Marque" — não
+  "veja-se o que muda".
+- **Não corte até virar telegrama.** "Um esquecido custa duas viagens" economiza
+  três palavras e gasta toda a naturalidade. Palavra de ligação ("e", "então",
+  "aí", "só") é o que faz a frase soar falada.
+- **Leia em voz alta.** Se você não diria aquilo para um cliente no balcão,
+  reescreva. É o teste que pega tudo o que está acima.
+
+Aforismo tem lugar, mas **um por carrossel, no máximo** — e o carrossel funciona
+bem sem nenhum.
+
 ## Escrita
 
 - Frase curta. Ponto final em vez de vírgula.
@@ -81,11 +121,26 @@ slides de texto seguidos é sinal de que dois deveriam virar um.
 - Caminho de menu na classe `.caminho`: `Cardápio → Produtos`. Um por slide; duas
   pílulas de caminho na mesma frase viram um bloco colorido difícil de ler.
 - Número sempre `1.`, `2.`, `3.`.
-- Emoji: no máximo um por slide, e só se a novidade publicada já usa aquele.
 - Nada de "revolucionário", "incrível", "poderoso". O ganho concreto convence
   mais: "a equipe vê de longe o que conferir".
 - **Número só se ele existir.** "Reduz 30% dos erros" não está na novidade nem no
   manual: é invenção, e invenção em post de produto volta como reclamação.
+
+## Emoji
+
+Pouco e onde couber — é o que dá cara de conversa sem virar post de promoção.
+
+- **Até um por slide, e não em todos os slides.** Metade dos slides sem nenhum é
+  o que faz os outros funcionarem.
+- **Prefira os que a própria novidade usa** (🖨️ 🛵) e, depois, os do assunto
+  (🥤 para bebida, 💰 para dinheiro).
+- **Emoji que aponta tem função.** O 👇 no fim do título, encostado com `&nbsp;`,
+  manda o olho para o mockup logo abaixo. Sem o `&nbsp;` ele cai sozinho na
+  linha seguinte e parece acidente.
+- **Nada de emoji em slide de limite, erro ou cuidado.** Ali ele sai
+  sarcástico — o slide que avisa "não saia marcando tudo" fica sério.
+- O ambiente tem a Noto Color Emoji instalada, então o emoji sai colorido no PNG
+  sem configuração nenhuma.
 
 ## Legenda de publicação
 
@@ -100,7 +155,10 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 
 - [ ] Existe a tabela **fato → ângulo → slide** no `roteiro.md`.
 - [ ] Nenhuma frase do carrossel aparece igual no texto da novidade.
-- [ ] O slide 1 tem imagem.
+- [ ] Você leu os oito títulos em voz alta seguidos. Soa conversa, ou desfile de
+      aforismo?
+- [ ] No máximo um emoji por slide, e não em todos.
+- [ ] O slide 1 tem imagem, e a imagem mostra **um** destaque só.
 - [ ] Cada slide tem **uma** ideia; o título do slide diz qual.
 - [ ] Toda afirmação está no texto da novidade ou no manual — ou foi conferida
       na tela.
