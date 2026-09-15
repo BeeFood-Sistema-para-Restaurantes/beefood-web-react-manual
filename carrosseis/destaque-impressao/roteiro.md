@@ -13,40 +13,59 @@ inventado, e nenhuma frase copiada.
 
 | Fato (novidade + manual #99) | Ângulo | O que o slide diz | Slide |
 |---|---|---|---|
-| Campo novo **Destaque na impressão** no cadastro de produto e de complemento | toda loja já tem uma gambiarra caseira para não esquecer a bebida | "Toda loja tem uma gambiarra para não esquecer a bebida" | 1 |
-| A linha do item marcado sai com fundo escuro e letra clara | no cupom todas as linhas têm o mesmo peso, e a bebida some dentro do combo | "Um esquecido custa duas viagens" + o custo em cena (cliente liga, alguém sai de novo, a nota cai) | 2 |
-| Efeito no **Cupom Pedido** e na ficha da cozinha, no presencial e no delivery | é marca-texto impresso | "A linha que importa para de se esconder" | 3 |
-| O campo fica logo abaixo de **Descrição**, em produto e em complemento | é um interruptor, não um projeto | "É um interruptor no cadastro do item" | 4 |
-| **Editar em Lote** com o setor filtrado marca vários itens | quem tem cardápio grande não vai abrir item por item | "Marque a geladeira inteira de uma vez" | 5 |
-| No app do Entregador o item aparece em evidência e a entrega pede confirmação | o cuidado não para no balcão | "O entregador confirma antes de ir embora" | 6 |
-| Usar com critério: marcar tudo anula o efeito | destaque funciona por contraste | "Se tudo é destaque, nada é" | 7 |
-| A novidade tem manual publicado no mesmo dia | — | "Todo recurso novo vira manual no mesmo dia" | 8 |
+| Campo novo **Destaque na impressão** no cadastro de produto e de complemento | a bebida esquecida na sacola é a dor que todo mundo já teve | "Cansou de bebida esquecida na sacola? 🥤" | 1 |
+| A linha do item marcado sai com fundo escuro e letra clara | no cupom toda linha tem o mesmo peso, e a bebida desaparece dentro do combo | "Você sabe como essa história termina" + o custo em cena (o cliente liga, alguém sai de novo, a nota cai) | 2 |
+| Efeito no **Cupom Pedido** e na ficha da cozinha, no presencial e no delivery | é marca-texto impresso | "Olha o que muda no cupom 🖨️" | 3 |
+| O campo fica logo abaixo de **Descrição**, em produto e em complemento | é um interruptor, não um projeto | "É só um interruptor 👇" | 4 |
+| **Editar em Lote** com o setor filtrado marca vários itens | quem tem cardápio grande não vai abrir item por item | "Tem muita bebida? Marque tudo de uma vez" | 5 |
+| No app do Entregador o item aparece em evidência e a entrega pede confirmação | o cuidado não para no balcão | "Seu entregador também vê 🛵" | 6 |
+| Usar com critério: marcar tudo anula o efeito | destaque funciona por contraste | "Não saia marcando tudo" | 7 |
+| A novidade tem manual publicado no mesmo dia | — | "Acompanhe tudo que entra no sistema" | 8 |
 
 Números: nenhum. A novidade não traz métrica, e o custo do item esquecido está
-descrito em cena ("alguém sai de novo, no meio do pico") justamente para não
-inventar percentual.
+descrito em cena ("alguém tem que sair de novo, no meio do pico") justamente para
+não inventar percentual.
+
+Registro: os títulos passaram por uma segunda reescrita. A primeira leva estava
+correta e **travada** — "Um esquecido custa duas viagens", "A linha que importa
+para de se esconder", "Todo recurso novo vira manual no mesmo dia". Oito
+aforismos seguidos soam placa de museu. O antes-e-depois dos oito virou tabela em
+[`roteiro-e-copy.md`](../../.cursor/skills/carrossel-novidades/references/roteiro-e-copy.md).
+
+Emoji em quatro dos oito slides, um em cada: 🥤 na capa, 🖨️ no papel, 👇
+apontando o mockup e 🛵 na rua. Os slides de custo, de lote, de limite e o CTA
+ficam sem — e é o vazio deles que faz os quatro funcionarem.
 
 ## Slides
 
 | # | Arquivo | Tipo | Ideia única | Imagem |
 |---|---------|------|-------------|--------|
-| 1 | `01-capa.html` | capa com imagem | Toda loja tem uma gambiarra para não esquecer a bebida | cupom real em sangria, inclinado — `manuais/destaque-impressao/imagens-puras/05-cupom-pedido.png` |
-| 2 | `02-custo.html` | texto | Um item esquecido custa uma segunda viagem | — |
+| 1 | `01-capa.html` | capa com imagem | A bebida esquecida na sacola tem fim | cupom real recortado em **uma** linha destacada — `manuais/destaque-impressao/imagens-puras/05-cupom-pedido.png` |
+| 2 | `02-custo.html` | texto | Você já sabe como termina quando o item fica para trás | — |
 | 3 | `03-no-papel.html` | antes × depois | O contraste é o que faz a linha ser vista | cupom desenhado em CSS (o "antes" não existe como captura) |
 | 4 | `04-onde-ligar.html` | mockup de computador | Um interruptor abaixo de Descrição | `imagens-puras/03-modal-janela.png` em `.sangria--janela`, com `.realce` no campo |
 | 5 | `05-em-lote.html` | passos | Editar em Lote marca o setor inteiro | — |
 | 6 | `06-na-rua.html` | mockup de celular (ilustração) | O app do entregador pede confirmação | tela desenhada em `.tela-app`, com `.selo-ilustracao` |
 | 7 | `07-limite.html` | texto | Marcar tudo anula o efeito | — |
-| 8 | `08-cta.html` | mockup de celular + CTA | A novidade já tem manual | `imagens-puras/04-novidades-celular.png` em sangria |
+| 8 | `08-cta.html` | mockup de celular + CTA | Toda novidade fica registrada, com manual | `imagens-puras/04-novidades-celular.png` em sangria |
 
 Cinco dos oito slides têm imagem, e a capa é um deles.
 
 ## Decisões de roteiro
 
-**A capa mostra o resultado, não um ícone.** O cupom real do manual #99 entra em
-sangria pela base, com a inclinação de −3° que faz o papel parecer objeto na
-bancada. As duas barras preta sobre branco são o contraste que para o dedo — é a
-própria novidade funcionando, sem precisar de legenda.
+**A capa mostra o resultado, e mostra UM destaque.** O cupom real do manual #99
+tem três linhas em fundo preto (Coca Cola, Sem Maionese Verde, Molho verde). A
+capa com as três ficava bonita e dizia o contrário do slide 7 — "não saia
+marcando tudo" depois de uma foto com tudo marcado. O recorte fecha em
+`600 / 390`, que é o fim exato da linha da bebida (a faixa preta vai de y 341 a
+439 e tem duas linhas de 49 px), então sobra só ela. O corte é declarado no
+`aspect-ratio` do slide, sem gerar arquivo novo: duas cópias do mesmo cupom
+seriam duas verdades para manter.
+
+Com o recorte deitado, a sangria pela base cortava justo a faixa preta. O papel
+passou a ser tratado como **objeto na bancada**: 620 px, inteiro dentro do slide,
+inclinado −3°, cantos de baixo quase retos porque o arredondamento comia a ponta
+da faixa. A sangria continua valendo para mockup de aparelho (slides 4, 6 e 8).
 
 **O "antes" é desenho, o "depois" é captura.** O slide 3 compara os dois cupons
 em `.cupom` (CSS) porque o cupom sem destaque não existe em `imagens-puras/`:
@@ -108,22 +127,29 @@ python .cursor/skills/carrossel-novidades/scripts/renderizar.py \
 
 ## Legenda para publicar
 
-> Toda loja tem uma gambiarra para não esquecer a bebida: canetinha vermelha na
-> lata, durex colorido na comanda, grito na cozinha.
+> Cansou de bebida esquecida na sacola? 🥤
 >
-> O problema nunca foi falta de atenção. É que no cupom todas as linhas têm o
-> mesmo peso — e a bebida é justo a que some no meio do combo. Aí o pedido volta,
-> alguém sai de novo no meio do pico e a nota cai sem ninguém saber onde falhou.
+> Você sabe como essa história termina: o cliente liga com a sacola já aberta na
+> mesa, alguém tem que sair de novo no meio do pico, e a nota cai sem ninguém
+> descobrir onde foi que falhou.
 >
-> Agora o papel avisa sozinho. Ligue **Destaque na impressão** no cadastro do
-> item, logo abaixo de Descrição, e aquela linha passa a sair com fundo escuro e
-> letra clara no Cupom Pedido e na ficha da cozinha, no salão e no delivery. Para
-> a geladeira inteira de uma vez, filtre o setor e use o **Editar em Lote**.
+> E não é falta de atenção. No cupom, toda linha tem o mesmo peso — a bebida
+> simplesmente desaparece dentro do combo.
 >
-> Um cuidado só: o recurso trabalha por contraste. Marque o que já ficou para
-> trás alguma vez — bebida, molho, brinde, "sem maionese". Se tudo é destaque,
-> nada é.
+> Agora dá para avisar no papel. Abra o produto em **Cardápio → Produtos**, ligue
+> o **Destaque na impressão** (ele fica ali, abaixo de Descrição) e aquela linha
+> passa a sair com fundo preto e letra branca: no Cupom Pedido, na ficha da
+> cozinha, no salão e no delivery. 🖨️
 >
-> Passo a passo completo no manual **Destaque na impressão**, dentro do sistema.
+> Tem muita bebida? Filtre o setor e resolva o grupo todo pelo **Editar em Lote**.
+>
+> Seu entregador também vê: o item salta no pedido dele e, na hora de entregar,
+> o app pergunta se aquilo foi junto. 🛵
+>
+> Um cuidado só — não saia marcando tudo. O destaque vive de contraste, então
+> comece pelo que já ficou para trás alguma vez: bebida, molho, brinde e os
+> pedidos de retirada, do tipo "sem maionese".
+>
+> O passo a passo está no manual **Destaque na impressão**, dentro do sistema.
 >
 > #beefood #restaurante #delivery #gestaoderestaurante #pdv
