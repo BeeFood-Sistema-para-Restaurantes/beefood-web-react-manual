@@ -40,7 +40,10 @@ quem está capturando para carrossel:
 - **Detalhe da venda demora ~12 s** para montar. Ali a espera é de 14 s
   (`--espera 14000`), não de 5.
 - **App Android não tem emulador no Cloud Agent.** Testado e documentado: o
-  guest nunca inicia. Captura de app vem de aparelho real ou não vem.
+  guest nunca inicia. Captura de app vem de **aparelho real**, e o caminho
+  confirmado para ela chegar aqui é **zip numa URL pública** — link do arquivo,
+  não da pasta, com compartilhamento aberto (seção 6). Enquanto o print não vem,
+  o carrossel ilustra a tela com selo; o manual, não (ver abaixo).
 
 ## O que esta skill acrescenta
 
@@ -49,10 +52,11 @@ O manual e o carrossel querem coisas diferentes da mesma tela:
 | | Manual | Carrossel |
 |---|--------|-----------|
 | Objetivo | ensinar a executar | fazer parar de rolar o feed |
-| Imagem | tela cheia, com setas verdes numeradas (`annotate.py`) | recorte da região, dentro de moldura, **sem** setas |
-| Texto | passo a passo, tabela nº → campo | uma ideia por slide, gancho no problema |
+| Imagem | tela cheia, com setas verdes numeradas (`annotate.py`) | recorte da região em mockup que sangra pela borda; para dirigir o olhar, `.realce` em CSS — nunca seta assada no arquivo |
+| Texto | passo a passo, tabela nº → campo | publicação escrita a partir do fato, uma ideia por slide |
 | Formato | `.md` + PNG anotado | PNG 1080×1350 |
 | Fonte da verdade | o código e a tela | o manual e a novidade publicada |
+| Tela sem captura | o manual **espera** o print real | o carrossel pode ilustrar, com selo, e registrar o print pendente |
 
 Por isso as capturas do carrossel vivem em `carrosseis/<slug>/imagens-puras/` e
 não em `manuais/`: são outro recorte, para outro fim. Quando o print do manual
