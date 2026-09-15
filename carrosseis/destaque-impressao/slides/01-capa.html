@@ -4,23 +4,27 @@
     <span class="data">15/09/2026</span>
   </div>
 
-  <div class="pilha g32" style="margin-top: 78px; max-width: 900px">
+  <div class="pilha g32" style="margin-top: 60px">
     <span class="pilula pilula--novidade">Novidade</span>
-    <h1 class="titulo">Toda loja tem uma <span class="destaque">gambiarra</span> para não esquecer a bebida</h1>
-    <p class="subtitulo" style="max-width: 400px">
-      Canetinha na lata. Durex na comanda. Agora o papel avisa sozinho.
+    <h1 class="titulo">Cansou de bebida esquecida na sacola? 🥤</h1>
+    <p class="subtitulo">
+      Sem canetinha na lata, sem grito na cozinha. O cupom marca sozinho.
     </p>
   </div>
 
-  <!-- A imagem da capa é o próprio resultado da novidade: cupom real do
-       manual #99, em sangria e levemente inclinado. As duas barras preta
-       sobre branco fazem o contraste que para o dedo do leitor. A coluna de
-       texto para em 400 px porque a inclinação avança o papel até x=508. -->
-  <div class="sangria inclinado"
-       style="top: 700px; right: 30px; width: 520px">
-    <div class="recorte recorte--topo" style="aspect-ratio: 600 / 1000">
+  <!-- A imagem da capa é o resultado da novidade: cupom real do manual #99,
+       recortado em UMA linha destacada (a bebida). O corte é declarado aqui no
+       aspect-ratio, e não num arquivo novo — 600x390 para no fim exato da linha
+       da Coca Cola, antes do "Sem Maionese Verde" que também sai marcado no
+       cupom de verdade. Capa com duas ou três linhas pretas dilui o assunto e
+       contradiz o slide 7. -->
+  <div class="sangria inclinado" style="top: 760px; right: 40px; width: 620px">
+    <!-- Cantos de baixo quase retos: o corte cai exatamente na faixa preta, e o
+         arredondamento de 24 px comia a ponta dela. -->
+    <div class="recorte recorte--topo"
+         style="aspect-ratio: 600 / 390; border-radius: 24px 24px 5px 5px">
       <img src="../../../manuais/destaque-impressao/imagens-puras/05-cupom-pedido.png"
-           alt="Cupom Pedido com a Coca Cola e o molho verde em destaque">
+           alt="Cupom Pedido com a linha da Coca Cola 350ml em fundo preto">
     </div>
   </div>
 
