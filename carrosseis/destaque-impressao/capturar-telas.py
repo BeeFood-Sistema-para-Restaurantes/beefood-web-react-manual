@@ -6,8 +6,9 @@ Rodar da raiz do repositório:
 
 O que sai em imagens-puras/:
     03-modal-produto.png     modal da Coca Cola 350ml com o interruptor ligado
-    03-modal-recorte.png     só a faixa Descrição + interruptor (é essa que vai ao slide)
-    04-novidades-celular.png a página de novidades no celular (para o mockup)
+    03-modal-janela.png      pedaço do modal que entra na janela em sangria
+    03-modal-recorte.png     faixa do interruptor, usada na lupa sobre a janela
+    04-novidades-celular.png a página de novidades no celular
 """
 
 import sys
@@ -56,11 +57,15 @@ def modal_do_produto() -> None:
         pagina.screenshot(path=str(PURAS / "03-modal-produto.png"), type="png")
         print("OK  03-modal-produto.png")
 
-        # O modal inteiro fica ilegível reduzido no feed. Regra de bolso: o
-        # recorte não pode passar de ~540 px de largura lógica, senão o texto da
-        # tela cai abaixo de 20 px na arte de 1080 px e ninguém lê no celular.
-        # Aqui o recorte fecha na faixa do interruptor, e a borda direita cai em
-        # área vazia — corte no meio de uma palavra parece defeito.
+        # Dois recortes, dois papéis. A janela em sangria dá o contexto ("é uma
+        # tela do sistema") e por isso pode ser larga; a lupa por cima é a que
+        # precisa ser lida, e para isso não passa de ~440 px de largura lógica.
+        pagina.screenshot(path=str(PURAS / "03-modal-janela.png"), type="png",
+                          clip=recorte(0.25, 0.47, 0.67, 0.83))
+        print("OK  03-modal-janela.png")
+
+        # A borda direita da lupa cai em área vazia: corte no meio de uma
+        # palavra parece defeito.
         pagina.screenshot(path=str(PURAS / "03-modal-recorte.png"), type="png",
                           clip=recorte(0.295, 0.706, 0.615, 0.780))
         print("OK  03-modal-recorte.png")
