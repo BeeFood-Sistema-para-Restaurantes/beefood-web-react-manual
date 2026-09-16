@@ -524,7 +524,7 @@ O que a referência corrigiu, e que nenhuma intuição acertaria:
 | totem, carcaça | preta, canto de 28 px | **branca**, canto quase reto |
 | totem, tela | escura, lista vertical | **clara**, coluna de setores em caixa alta, banner no topo, grade de produtos com foto, barra vermelha da sacola no pé |
 | tablet, tela | clara, grade de dois cartões | **escura**, cartões deitados com foto à esquerda, preço em **amarelo**, botão `Order` |
-| tablet, suporte | pedestal fino com pé chato | **chapa de alumínio curva** que sai de trás e dobra até a mesa |
+| tablet, suporte | pedestal fino com pé chato | **chapa de alumínio** larga que sai de trás e dobra até a mesa |
 | bandeiras | redondas nos dois | redondas no totem, **retangulares** no tablet |
 
 ### O que faz cada aparelho ler como o que é
@@ -532,24 +532,35 @@ O que a referência corrigiu, e que nenhuma intuição acertaria:
 | Aparelho | O que dá a leitura | O que errei primeiro |
 |---|---|---|
 | totem | carcaça **branca**, tela 9/16 com moldura preta fina, **painel** embaixo com leitor de aproximação, boca de impressora e **pinpad**, e coluna + base pretas mais estreitas que a carcaça | sem o painel, é um celular gigante numa coluna; o painel é o que diz "autoatendimento" |
-| tablet | moldura **proporcional e igual nos quatro lados** (`padding: 2.2%`), canto **bem arredondado** (38 px), fio de alumínio em volta, dois botões na lateral direita, ponto de câmera na moldura da esquerda e a **chapa curva** atrás | moldura em px, canto de 20 px e pedestal com pé: sai um iMac |
+| tablet | moldura **proporcional e igual nos quatro lados** (`padding: 4.4%`), canto **bem arredondado** (38 px), fio de alumínio em volta, dois botões na lateral direita, ponto de câmera na moldura da esquerda e a **chapa larga** atrás | moldura em px, canto de 20 px e pedestal com pé: sai um iMac |
 
-O tablet custou quatro rodadas, e o que resolveu foi medir em vez de opinar:
+O tablet custou cinco rodadas, e o que resolveu foi medir em vez de opinar:
 
-- **moldura em px não escala.** O mockup nasceu com `padding: 11px`, que é 1,5%
-  de uma largura de 720 e 1,2% de uma de 880: quanto maior o slide usa o
-  aparelho, mais a moldura desaparece e mais ele vira monitor. Em `%` o `padding`
-  mede a própria largura do elemento e a moldura acompanha.
+- **moldura em px não escala, e 2,2% ainda era fina.** O mockup nasceu com
+  `padding: 11px`, que é 1,5% de uma largura de 720 e 1,2% de uma de 880: quanto
+  maior o slide usa o aparelho, mais a moldura desaparece e mais ele vira
+  monitor. Em `%` o `padding` mede a própria largura do elemento e a moldura
+  acompanha — mas o primeiro valor em `%` foi chutado. Medido na foto do
+  catálogo, o aparelho de 960 px tem ~45 px de preto de cada lado, ou seja
+  **4,4%**, o dobro do que estava. Moldura grossa é o que separa tablet de
+  monitor mais do que qualquer outro detalhe.
 - **o canto é o sinal mais forte.** 20 px de raio em 880 de largura é canto de
   monitor; 38 px já é tablet. Em px e não em `%`, que daria elipse.
 - **4/3 pareceu "mais tablet" e não é.** Testei, encolhe a tela e inventa um
   aparelho que o cliente não tem — o aplicativo roda em tablet Android, 16/10,
   que é também a proporção do print de produção (1280×800).
-- **o suporte não é um trapézio.** Duas tentativas com `clip-path` de trapézio
-  saíram lendo "chapéu chinês" embaixo do aparelho. A peça real é uma chapa
-  curva: vista de frente é quase um retângulo de cantos arredondados, com o
-  volume vindo do gradiente (claro no meio, escuro nas beiradas) e a dobra do
-  pé vindo de um `border-radius` assimétrico.
+- **o suporte não é um trapézio, e também não é coluna com base.** Duas
+  tentativas com `clip-path` de trapézio invertido saíram lendo "chapéu chinês"
+  embaixo do aparelho. Depois vieram três tentativas de rolo estreito com aba
+  oval na mesa, imitando a perspectiva da foto — e as três leram como **pedestal
+  de monitor**, porque em desenho frontal "coluna + base" é monitor, ponto. O
+  que funcionou foi **uma chapa só**, larga e rasa: 46% da largura do aparelho
+  por `100 / 24` de altura, abrindo 5% para cada lado de cima para baixo
+  (`clip-path`), com o vinco da dobra a 76% e a aba de baixo mais clara.
+
+  A lição geral: a foto do catálogo está em perspectiva e o mockup é frontal.
+  **Copie a peça, não a pose.** Reproduzir o que a perspectiva revela (o lado do
+  rolo, a aba fugindo para a direita) num desenho frontal devolve outro objeto.
 
 Medidas que cabem no slide, com o texto acima:
 
@@ -557,9 +568,9 @@ Medidas que cabem no slide, com o texto acima:
 |---|---|---|---|
 | totem sozinho (capa) | 410 px | 802 px (tela 641 + painel 144 + topo 17) | `top: 522px`, centralizado, coluna sangrando pela base |
 | totem ao lado de texto | 396 px | 775 px | `top: 462px`, `right: 46px` |
-| totem pequeno, com outro aparelho | 322 px | 629 px | `top: 450px`, `right: 34px` |
-| tablet inteiro | 880 px | 565 px + 81 px de suporte | `.figura`, centralizado |
-| tablet ao lado de outro aparelho | 640 px | 410 px + 59 px de suporte | `top: 828px`, `left: 28px` |
+| totem pequeno, com outro aparelho | 322 px | 630 px | `top: 450px`, `right: 34px` |
+| tablet inteiro | 880 px | 579 px + 97 px de chapa | `.figura`, centralizado |
+| tablet ao lado de outro aparelho | 640 px | 421 px + 71 px de chapa | `top: 828px`, `left: 28px` |
 
 **Aparelho em pé na capa pode sair pela base**, e é melhor que caber inteiro: a
 borda de baixo do slide lê como chão. O que **não** pode sair é o painel do
@@ -574,7 +585,58 @@ e empilhadas — dois aparelhos, dois desenhos. A **bolinha verde** de "esse idi
 já tem texto" não entrou no desenho de propósito: ela só existe no cadastro, e do
 cadastro existe captura real.
 
-### Duas armadilhas de CSS que custaram render
+### A coluna de setores, e por que 24%
+
+A coluna da esquerda da tela do totem nasceu com 21% e, no totem pequeno da
+capa, `COMBOS (BURGER + PORÇÃO + BEBIDA)` quebrava em **seis linhas**: a coluna
+virava uma pilha de fragmentos de uma palavra, e lia como layout estourado. Não
+era `word-break` — era só coluna estreita com nome longo.
+
+24% é a medida do print (230 px de 1024) e derruba o pior caso para quatro
+linhas. Mais largo que isso só rouba da grade de produtos, que é onde estão as
+fotos e os nomes em inglês.
+
+Duas coisas relacionadas, para não perder tempo de novo:
+
+- **letra minúscula no render não é quebra de palavra.** Em 8 px, `MOLHOS` com
+  `letter-spacing` sai com vãos que parecem `MOL HOS` quando você dá zoom no
+  PNG. Antes de mexer no CSS, meça: `Range.getClientRects()` no elemento diz
+  quantas linhas o texto ocupa de verdade.
+- **grade de 2 colunas na tela do totem, sempre.** Em 3 (como no print) o nome
+  do produto quebra em três linhas dentro do cartão e sobra um vão branco
+  embaixo. O setor Drinks tem três produtos, então a segunda linha fica com um
+  cartão só — e isso é o que uma tela de duas colunas mostra mesmo.
+
+### O corte da rolagem não pode cair em cima de número
+
+A tela desenhada do totem é **cortada** pelo que cabe (`.tela-totem__rolagem`),
+com a barra da sacola fixa no pé — é assim que a tela se comporta e evita vão
+branco no meio. Mas *onde* o corte cai é escolha sua, e cortar no meio dos
+dígitos de `R$ 8,90` lê como falha de render, não como tela rolada.
+
+O parâmetro que move o corte é o `font-size` da `.tela-totem`, porque tudo lá
+dentro é `em`. Vale varrer alguns valores e escolher o que deixa o último cartão
+**inteiro** (ou cortado dentro da foto): 13 px na capa com dois aparelhos, 17 px
+na capa só com o totem. Dá para medir sem olhar, comparando `rolagem.bottom` com
+`card.bottom` e `img.bottom`.
+
+### Selo de ilustração em fundo escuro
+
+`.selo-ilustracao` é uma pílula `rgba(30,30,30,.72)`, e em cima do `--escuro` da
+capa ela simplesmente não existe: sobra o texto branco solto no vão, que lê como
+legenda perdida. `.slide--capa .selo-ilustracao` troca o fundo por
+`rgba(255,255,255,.16)`. Vale para qualquer peça de UI da arte: **toda pílula
+escura precisa da versão clara** antes de ser usada na capa.
+
+### Três armadilhas de CSS que custaram render
+
+- **dois blocos com o mesmo seletor, e o segundo ganha calado.** O redesenho do
+  tablet entrou como um bloco `.tablet` novo, e o bloco antigo continuou no
+  arquivo mais abaixo. Cascata resolve empate pela ordem: o `background`
+  chapado e a ausência do fio de alumínio do bloco velho venceram o desenho
+  novo, e o render saiu sem metade do trabalho. Ao redesenhar, **apague o bloco
+  antigo**; e depois confirme com `grep -n '^\.classe {'` que ele existe uma
+  vez só.
 
 - **`.moldura img` pega as imagens de dentro da tela desenhada.** `.totem__tela
   img { height: 100% }` foi escrito para o print que ocupa a tela inteira, mas

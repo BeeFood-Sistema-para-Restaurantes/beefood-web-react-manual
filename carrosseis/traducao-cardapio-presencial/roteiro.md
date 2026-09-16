@@ -112,7 +112,7 @@ O que os prints corrigiram, e que nenhuma memória substitui:
 | totem, carcaça | preta, canto de 28 px | **branca**, canto quase reto, painel com leitor, impressora e pinpad |
 | totem, tela | escura, lista vertical de itens | **clara**, coluna de setores em caixa alta, banner no topo e grade de produtos com foto |
 | tablet, tela | clara, grade de dois cartões | **escura**, cartões deitados, preço em amarelo, botão `Order` |
-| tablet, suporte | pedestal fino com pé chato | **chapa de alumínio curva** que dobra até a mesa |
+| tablet, suporte | pedestal fino com pé chato | **chapa de alumínio** larga que dobra até a mesa |
 | bandeiras | redondas nos dois | redondas no totem, **retangulares** no tablet |
 
 **As telas continuam desenhadas, e continuam com selo.** Colar o print inteiro
@@ -123,6 +123,20 @@ as reais**, recortadas dos prints pelo `preparar-telas.py` — inclusive o banne
 do totem, que vem com o `CANCEL ORDER` e a pílula de bandeiras de produção
 dentro. O único desvio deliberado é a grade do totem, que vai em duas colunas em
 vez de três: em três, o nome do produto não sobrevive à redução.
+
+Duas medidas foram para o `base.css` depois de uma rodada de conferência no PNG,
+e as duas valem para o próximo carrossel:
+
+- **coluna de setores em 24%**, e não 21%. Em 21% o nome longo
+  (`COMBOS (BURGER + PORÇÃO + BEBIDA)`) quebrava em seis linhas no totem pequeno
+  da capa, e a coluna lia como layout estourado.
+- **moldura do tablet em 4,4%** e suporte em chapa única. A moldura fina e o
+  pedestal com base faziam o tablet ler como monitor — e havia dois blocos
+  `.tablet` no CSS, com o antigo ganhando por ordem de cascata.
+
+O `font-size` da tela do totem (13 px na capa com dois aparelhos, 17 px na capa
+só com o totem) não é gosto: é o valor em que a rolagem corta **depois** do
+terceiro cartão. Nos valores maiores o corte caía no meio de `R$ 8,90`.
 
 Texto em inglês continua tendo de ser **texto documentado**: `DRINKS`,
 `MOLHOS ADICIONAIS` (setor sem tradução, que fica em português), `Cola US` /

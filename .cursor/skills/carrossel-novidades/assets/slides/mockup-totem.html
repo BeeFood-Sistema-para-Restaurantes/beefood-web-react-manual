@@ -29,7 +29,14 @@
      As fotos dos produtos e o banner saem de um recorte do próprio print, feito
      por um `preparar-telas.py` na pasta do carrossel — este modelo vai sem
      imagem para renderizar sozinho. Troque os `<div class="tela-totem__card">`
-     por `<img src="../imagens-puras/…">` + o bloco de texto. -->
+     por `<img src="../imagens-puras/…">` + o bloco de texto.
+
+     O `font-size` da `.tela-totem` é o que decide **onde a rolagem corta**
+     (tudo lá dentro é `em`). Escolha o valor que deixa o último cartão inteiro,
+     ou cortado dentro da foto: corte no meio do preço lê como falha de render.
+     Nas capas deste carrossel deu 13 px (com o tablet ao lado) e 17 px
+     (sozinho). -->
+
 <div class="slide slide--suave">
   <div class="topo">
     <span class="logo"></span>

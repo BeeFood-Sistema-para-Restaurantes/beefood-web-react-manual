@@ -651,7 +651,7 @@ body {
 }
 
 /* Moldura do Cardápio Digital no Tablet, desenhada a partir da foto do catálogo
- * (`beefood.com.br/cardapio-digital-tablet`): tablet **preto**, moldura fina e
+ * (`beefood.com.br/cardapio-digital-tablet`): tablet **preto**, moldura grossa e
  * igual nos quatro lados, canto bem arredondado, botões na lateral direita, o
  * ponto da câmera na moldura da esquerda — e um **suporte de metal escovado**
  * que sai de trás e se alarga até a mesa.
@@ -659,13 +659,16 @@ body {
  * O que separa "tablet no suporte" de "monitor de mesa", e as três já saíram
  * erradas aqui:
  *
- * - **moldura proporcional.** `padding` em % mede a própria largura do
+ * - **moldura proporcional e grossa.** `padding` em % mede a própria largura do
  *   elemento, então a moldura acompanha o tamanho em que o mockup é usado.
- *   Moldura em px (11 px) desaparece quando o mockup cresce, e devolve monitor.
+ *   Moldura em px (11 px) desaparece quando o mockup cresce, e devolve monitor;
+ *   2,2% também é fino demais. A foto mostra 4,4%.
  * - **canto bem arredondado.** 20 px em 880 de largura é canto de monitor.
- * - **suporte largo e de metal, atrás.** O pedestal fino com pé chato era o
+ * - **suporte em chapa única, larga e rasa.** O pedestal fino com pé chato era o
  *   erro mais visível: base de monitor. Um berço à frente da moldura de baixo
- *   também foi tentado, e lê como borrão cinza. */
+ *   também foi tentado, e lê como borrão cinza; e rolo estreito com aba oval
+ *   volta a ler como pedestal, porque num desenho frontal "coluna + base" é
+ *   monitor. */
 .tablet {
   position: relative;
   width: 720px;

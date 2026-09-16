@@ -194,12 +194,14 @@ escala, e o corte passa a sensação de que a tela continua.
   O que faz ler "totem" e não "celular gigante" é o **painel**: numa capa deixe
   a **coluna** sair pela base (a borda de baixo lê como chão), mas nunca corte o
   painel.
-- **Tablet** (`.tablet`) é **preto**, deitado, e cabe inteiro em 880 px (565 px
-  de carcaça + 81 px de suporte), em `.figura`. O que separa "tablet no suporte"
-  de "monitor de mesa" são moldura proporcional e igual nos quatro lados
-  (`padding` em `%`, nunca em px), canto bem arredondado, fio de alumínio em
-  volta, ponto da câmera na moldura da esquerda e o suporte, que é uma **chapa
-  curva atrás** — trapézio sai como chapéu. A tela é 16/10, do tablet Android:
+- **Tablet** (`.tablet`) é **preto**, deitado, e cabe inteiro em 880 px (579 px
+  de carcaça + 97 px de chapa), em `.figura`. O que separa "tablet no suporte"
+  de "monitor de mesa" são moldura **grossa** (4,4% da largura, medido na foto
+  do catálogo) e igual nos quatro lados, em `%` e nunca em px; canto bem
+  arredondado; fio de alumínio em volta; ponto da câmera na moldura da esquerda;
+  e o suporte, que é **uma chapa só**, larga e rasa (46% da largura por
+  `100 / 24`), abrindo para os lados. Coluna estreita com base — ou trapézio
+  invertido — devolve pedestal de monitor. A tela é 16/10, do tablet Android:
   4/3 parece "mais tablet" e só inventa aparelho.
 - **Nos dois, a caixa do elemento é só o corpo da tela** e coluna, painel e
   suporte são absolutos pendurados embaixo.
@@ -273,6 +275,17 @@ tela em inglês com tradução que você mesmo escreveu é inventar comportament
 produto. Falta item para encher a grade? Mostre menos itens, e deixe em português
 o que não tem tradução documentada. Para preencher sem afirmar nada: preço (não
 muda de idioma) e faixa de capa sem texto.
+
+**Tela desenhada que é cortada tem de ser cortada num lugar limpo.** A
+`.tela-totem__rolagem` corta o conteúdo que não cabe, com a barra da sacola fixa
+no pé — sem isso sobra um vão branco de 200 px no meio da tela. O `font-size` da
+tela é o que move o corte (tudo lá dentro é `em`): varra alguns valores e fique
+com o que deixa o último cartão inteiro ou cortado **dentro da foto**. Corte em
+cima de `R$ 8,90` lê como falha de render.
+
+Na capa o slide é escuro, e aí o `.selo-ilustracao` precisa da pílula clara
+(`.slide--capa .selo-ilustracao`): a escura desaparece no fundo e sobra texto
+branco solto.
 
 Cupom desenhado em `.cupom` não precisa de selo: bobina térmica em monoespaçada é
 claramente desenho, e é a única forma de mostrar o "antes", que não existe como
