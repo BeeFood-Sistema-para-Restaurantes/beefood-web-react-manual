@@ -27,7 +27,7 @@ o processo até o domínio ficar **No ar**.
    ela muda o que você precisa fazer no registrador e, no caso do domínio principal,
    mexe no e-mail.
 4. Cada cardápio da conta aceita **um** domínio por vez. Para trocar, exclua o atual
-   (Parte 6) e cadastre outro.
+   (Parte 8) e cadastre outro.
 
 ---
 
@@ -187,7 +187,93 @@ segurança.
 
 ---
 
-## 7. Parte 1 — domínio próprio: excluir o domínio
+## 7. Parte 1 — domínio próprio: alterar a zona DNS
+
+Quando você troca os servidores DNS para os do BeeFood, **toda a zona do domínio
+passa a morar aqui** — inclusive o que não é cardápio. É por isso que existe a aba
+**DNS**: sem ela, configurar o e-mail do domínio ou apontar outro serviço exigiria
+voltar ao registrador, onde o domínio já não é mais gerenciado.
+
+> Essa aba só aparece no **domínio próprio**. No subdomínio (Parte 9) a zona continua
+> no seu registrador, então quem manda lá é você.
+
+Com o domínio no ar, clique na aba **DNS** (1). A tela mostra a zona inteira: os
+registros que o BeeFood criou vêm com **cadeado** e não podem ser mexidos (3) — são
+eles que fazem o cardápio abrir e o `https` funcionar. Para criar o que é seu, use
+**Adicionar registro** (2).
+
+![Aba DNS com a zona do domínio](imagens-tratadas/08-aba-dns.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1. | **Aba DNS** | Fica ao lado de *Situação*. Só existe depois que o domínio está no ar. |
+| 2. | **Adicionar registro** | Cria um registro seu. É por aqui que entram o e-mail e outros serviços. |
+| 3. | **Lista da zona** | Nome, tipo, valor e TTL. Os de cadeado são do BeeFood; o ícone ao lado do valor copia o conteúdo. |
+
+O motivo mais comum de mexer aqui é o **e-mail do domínio**. Contrate o provedor
+(Google Workspace, Zoho, Titan…), pegue com ele os registros e traga para cá. No
+exemplo abaixo entram os dois **MX** do Google Workspace.
+
+Escolha o **Tipo** (1) — a tela explica cada um e mostra um exemplo do valor. Em
+**Nome** (2), deixe vazio para o domínio principal (o `@`): logo abaixo do campo a
+tela confirma o que vai criar. Em **Valores** (3), cole um valor por linha, usando
+**Adicionar valor** para a segunda; no MX, o número na frente é a prioridade — o
+menor é tentado primeiro. O **TTL** (4) é quanto tempo o valor fica guardado por aí:
+5 minutos para o que você ainda vai mexer, 1 hora para o que é estável. Salve em
+**SALVAR (F2)** (5).
+
+![Formulário do registro DNS](imagens-tratadas/09-form-registro.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1. | **Tipo** | A, AAAA, CNAME, MX, TXT, SRV ou CAA. Quem informa é o serviço que você está configurando. |
+| 2. | **Nome** | Vazio ou `@` = o domínio principal. `loja` cria `loja.seudominio.com.br`. |
+| 3. | **Valores** | Um por linha. O `x` remove uma linha; **Adicionar valor** acrescenta outra. |
+| 4. | **TTL** | Tempo de cache. Na dúvida, deixe o padrão. |
+| 5. | **SALVAR (F2)** | Grava. O atalho **F2** faz o mesmo. |
+
+O registro novo entra no topo da lista, destacado por alguns segundos (1). Na linha
+dele ficam os dois botões que os registros do BeeFood não têm (moldura): o **lápis**
+edita e a **lixeira** remove.
+
+![Registro criado na zona](imagens-tratadas/10-registro-criado.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1. | **Registro novo** | Confira nome, tipo, valores e TTL. É o que o mundo vai ler. |
+
+Para alterar, clique no lápis: tipo e nome ficam travados (para trocá-los, remova e
+crie outro) e você muda valores e TTL. Depois de salvar uma alteração aparece o aviso
+de propagação (1): a mudança já está no ar, mas o valor antigo pode continuar valendo
+em alguns provedores pelo tempo do TTL anterior. A linha já mostra o valor novo (2).
+
+![Aviso de propagação depois da alteração](imagens-tratadas/11-propagacao.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1. | **Aviso de propagação** | Só informa. O tempo mostrado é o TTL que valia antes da mudança. |
+| 2. | **Linha alterada** | Já com o valor novo. Se não bateu, clique em **Atualizar lista**. |
+
+Remover é igual: clique na lixeira e confirme. A confirmação repete nome, tipo e
+valores do registro, porque o serviço ligado a ele para de funcionar na hora.
+
+Toda mudança fica registrada em **Histórico de alterações** (1), no pé da lista. Cada
+linha abre e mostra **Antes** e **Depois** (2), com o TTL em segundos — é onde você
+descobre o que foi alterado e quando, se o e-mail parar de repente.
+
+![Histórico de alterações da zona](imagens-tratadas/12-historico-dns.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1. | **Histórico de alterações** | Clique para abrir. Lista criações, alterações e remoções com data e hora. |
+| 2. | **Antes e depois** | Clique na linha para ver os valores antigos e os novos. |
+
+> Não tente apagar ou alterar os registros de cadeado. São eles que fazem o cardápio
+> responder no seu endereço; sem eles o site sai do ar.
+
+---
+
+## 8. Parte 1 — domínio próprio: excluir o domínio
 
 Excluir serve para dois casos: você quer **trocar** o endereço (cadastrar outro no
 lugar) ou vai **devolver o domínio** ao seu site antigo. Não é a mesma coisa que
@@ -196,7 +282,7 @@ desligar o cardápio: o cardápio continua no ar pelo endereço
 
 No rodapé do painel, clique em **Excluir domínio** (1).
 
-![Rodapé do painel com o botão Excluir domínio](imagens-tratadas/11-excluir-botao.png)
+![Rodapé do painel com o botão Excluir domínio](imagens-tratadas/13-excluir-botao.png)
 
 | Nº | Item | O que fazer |
 |----|------|-------------|
@@ -206,7 +292,7 @@ A confirmação (1) diz exatamente o que vai acontecer: o endereço para de func
 quem acessar por ele não encontra mais o cardápio. Para confirmar, clique em
 **Excluir (ENTER)** (2) — ou pressione **ENTER**. Para desistir, **Não (ESC)**.
 
-![Confirmação da exclusão do domínio](imagens-tratadas/12-confirmar-exclusao.png)
+![Confirmação da exclusão do domínio](imagens-tratadas/14-confirmar-exclusao.png)
 
 | Nº | Item | O que fazer |
 |----|------|-------------|

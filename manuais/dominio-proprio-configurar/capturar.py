@@ -211,6 +211,17 @@ def cap_no_ar(page):
     shot(page, "07-dominio-no-ar.png")
 
 
+MX_VALORES = ["1 aspmx.l.google.com", "5 alt1.aspmx.l.google.com"]
+
+
+def escolher_opcao(page, combo, nome: str):
+    """Select do shadcn: abre o gatilho e clica na opção (que vive fora do modal)."""
+    combo.click()
+    page.wait_for_timeout(700)
+    page.get_by_role("option", name=nome, exact=True).first.click()
+    page.wait_for_timeout(700)
+
+
 def cap_dns(page):
     s = abrir_modal(page)
     escolher_cardapio(page, s, 7000)
@@ -219,9 +230,19 @@ def cap_dns(page):
     print("=== ABA DNS ===")
     print(s.inner_text()[:3000])
     shot(page, "08-aba-dns.png")
+
     s.get_by_role("button", name="Adicionar registro").click()
     after_click(page, 2500)
-    form = page.locator('[role="dialog"]').filter(has_text="Adicionar registro").last
+    form = page.locator('[role="dialog"]').filter(has_text="Os dados do registro").last
+    combos = form.get_by_role("combobox")
+    escolher_opcao(page, combos.nth(0), "MX (e-mail)")          # tipo
+    campos = form.locator('input[placeholder="10 mx.provedor.com"]')
+    campos.first.fill(MX_VALORES[0])
+    form.get_by_role("button", name="Adicionar valor").click()
+    page.wait_for_timeout(600)
+    campos.nth(1).fill(MX_VALORES[1])
+    escolher_opcao(page, combos.nth(1), "1 hora")               # ttl
+    after_click(page, 1500)
     print("=== FORM DNS ===")
     print(form.inner_text()[:1500])
     shot(page, "09-form-registro.png")
@@ -229,19 +250,89 @@ def cap_dns(page):
         print("DRY: paro antes de SALVAR o registro")
         return
 
+    form.get_by_role("button", name="SALVAR (F2)").click()
+    page.wait_for_timeout(3000)
+    shot(page, "10-registro-criado.png")
+    print("=== DEPOIS DE SALVAR ===")
+    print(s.inner_text()[:3000])
+
+
+def cap_dns_editar(page):
+    """Altera o TTL do registro MX: é a alteração que faz aparecer o aviso de propagação."""
+    s = abrir_modal(page)
+    escolher_cardapio(page, s, 7000)
+    s.get_by_role("tab", name="DNS").click()
+    after_click(page, 6000)
+    linha = s.locator("tr", has_text="MX").first
+    linha.locator("button").filter(has=page.locator("svg")).nth(-2).click()
+    after_click(page, 2500)
+    form = page.locator('[role="dialog"]').filter(has_text="Para mudar o nome ou o tipo").last
+    print("=== FORM EDICAO ===")
+    print(form.inner_text()[:1200])
+    escolher_opcao(page, form.get_by_role("combobox").nth(1), "5 minutos")
+    if DRY:
+        print("DRY: paro antes de SALVAR a alteração")
+        return
+    form.get_by_role("button", name="SALVAR (F2)").click()
+    page.wait_for_timeout(4000)
+    shot(page, "11-propagacao.png")
+    print("=== DEPOIS DA ALTERACAO ===")
+    print(s.inner_text()[:1500])
+
+    hist = s.get_by_role("button", name="Histórico de alterações")
+    hist.scroll_into_view_if_needed()
+    hist.click()
+    after_click(page, 2000)
+    linhas = s.locator('button:has-text("Alterou")')
+    if linhas.count():
+        linhas.first.click()
+        after_click(page, 1500)
+    cap_historico(page, s)
+
+
+def cap_historico(page, s):
+    """O histórico fica no pé da lista: rola o painel até o fim antes de fotografar."""
+    ultima = s.locator('button:has-text("Criou")').last
+    if ultima.count():
+        ultima.scroll_into_view_if_needed()
+    for _ in range(6):
+        page.mouse.wheel(0, 600)
+        page.wait_for_timeout(300)
+    page.wait_for_timeout(1200)
+    shot(page, "12-historico-dns.png")
+    print(s.inner_text()[-1200:])
+
+
+def cap_dns_hist(page):
+    """Só o histórico: abre a aba DNS, expande e rola até o fim."""
+    s = abrir_modal(page)
+    escolher_cardapio(page, s, 7000)
+    s.get_by_role("tab", name="DNS").click()
+    after_click(page, 6000)
+    hist = s.get_by_role("button", name="Histórico de alterações")
+    hist.scroll_into_view_if_needed()
+    hist.click()
+    after_click(page, 2000)
+    for rot in ("Alterou", "Criou"):
+        linha = s.locator(f'button:has-text("{rot}")').first
+        if linha.count():
+            linha.click()
+            after_click(page, 1200)
+    cap_historico(page, s)
+
 
 def cap_excluir(page):
     s = abrir_modal(page)
     escolher_cardapio(page, s, 7000)
     s.get_by_role("button", name="Excluir domínio").click()
     after_click(page, 2500)
-    shot(page, "12-confirmar-exclusao.png")
+    shot(page, "14-confirmar-exclusao.png")
     if DRY:
         print("DRY: paro antes de confirmar a exclusão")
         return
     page.get_by_role("button", name="Excluir (ENTER)").click()
     after_click(page, 8000)
-    shot(page, "13-apos-exclusao.png")
+    shot(page, "15-apos-exclusao.png")
 
 
 def cap_sub(page):
@@ -250,14 +341,14 @@ def cap_sub(page):
     escolher_tipo(page, s, apex=False)
     digitar_endereco(page, s, DOMINIO_SUB)
     print(s.inner_text()[:2000])
-    shot(page, "14-subdominio-conferido.png")
+    shot(page, "16-subdominio-conferido.png")
     if DRY:
         print("DRY: paro antes de CADASTRAR DOMÍNIO")
         return
     s.get_by_role("button", name="CADASTRAR DOMÍNIO").click()
     after_click(page, 8000)
     if esperar_instrucao(page, s):
-        shot(page, "15-instrucao-cname.png")
+        shot(page, "17-instrucao-cname.png")
     print("=== SITUACAO ===")
     print(s.inner_text()[:3000])
 
@@ -266,7 +357,7 @@ def cap_sub_no_ar(page):
     s = abrir_modal(page)
     escolher_cardapio(page, s, 7000)
     print(s.inner_text()[:3000])
-    shot(page, "16-subdominio-no-ar.png")
+    shot(page, "18-subdominio-no-ar.png")
 
 
 ETAPAS = {
@@ -275,6 +366,8 @@ ETAPAS = {
     "verificar": cap_verificar,
     "no-ar": cap_no_ar,
     "dns": cap_dns,
+    "dns-editar": cap_dns_editar,
+    "dns-hist": cap_dns_hist,
     "excluir": cap_excluir,
     "sub": cap_sub,
     "sub-no-ar": cap_sub_no_ar,

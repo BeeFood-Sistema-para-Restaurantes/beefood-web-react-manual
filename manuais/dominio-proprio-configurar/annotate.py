@@ -156,15 +156,47 @@ painel("07-dominio-no-ar.png",
                 (2, 1187, 395, 1065, 395),
                 (3, 1190, 600, 1065, 600)])
 
-# --- 11 Rodapé do painel: o botão de excluir (recorte da mesma captura do No ar) --
-annotate("07-dominio-no-ar.png", out_name="11-excluir-botao.png",
-         markers=[(1, 1900, 1310, 1660, 1310)],
-         crop=(1154, 1262, 2160, 1350), pad_left=0, r=RAIO, w=TRACO)
+# --- 08 Aba DNS: a zona como o BeeFood deixou -------------------------------
+painel("08-aba-dns.png",
+       markers=[(1, 1178, 158, 1065, 158),
+                (2, 1840, 503, 1065, 503),
+                (3, 1185, 749, 1065, 749)],
+       ring=[(1316, 128, 1392, 190)])
 
-# --- 12 Confirmação da exclusão (diálogo no centro da tela) -----------------
-annotate("12-confirmar-exclusao.png",
-         markers=[(1, 705, 593, 620, 593),
+# --- 09 Formulário do registro (diálogo no centro, com o painel atrás) ------
+dialogo = dict(pad_left=MARGEM, r=RAIO, w=TRACO)
+annotate("09-form-registro.png",
+         markers=[(1, 740, 400, 565, 400),
+                  (2, 740, 580, 565, 580),
+                  (3, 740, 759, 565, 759),
+                  (4, 740, 1019, 565, 1019),
+                  (5, 1334, 1122, 1334, 1216)],
+         crop=(640, 100, 2160, 1280), **dialogo)
+
+# --- 10 Registro criado -----------------------------------------------------
+painel("10-registro-criado.png",
+       markers=[(1, 1185, 645, 1065, 645)],
+       ring=[(1998, 616, 2114, 688)])
+
+# --- 11 Alteração no ar + aviso de propagação -------------------------------
+painel("11-propagacao.png",
+       markers=[(1, 1185, 368, 1065, 368),
+                (2, 1185, 792, 1065, 792)])
+
+# --- 12 Histórico de alterações da zona -------------------------------------
+painel("12-historico-dns.png",
+       markers=[(1, 1185, 956, 1065, 956),
+                (2, 1185, 1090, 1065, 1090)])
+
+# --- 13 Rodapé do painel: o botão de excluir (painel inteiro, sem zoom) -----
+annotate("07-dominio-no-ar.png", out_name="13-excluir-botao.png",
+         markers=[(1, 1900, 1301, 1065, 1301)],
+         crop=PAINEL, **dialogo)
+
+# --- 14 Confirmação da exclusão (diálogo no centro, com o painel atrás) -----
+annotate("14-confirmar-exclusao.png",
+         markers=[(1, 705, 593, 565, 593),
                   (2, 1358, 782, 1358, 872)],
-         crop=(680, 470, 1500, 920), pad_left=MARGEM, r=RAIO, w=TRACO)
+         crop=(640, 100, 2160, 1280), **dialogo)
 
 print("done")
