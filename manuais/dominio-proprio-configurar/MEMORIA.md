@@ -1,0 +1,168 @@
+# MEMORIA.md — #101 Configurar domínio próprio e subdomínio
+
+## Pedido do dono (16/09/2026)
+
+> "em /aplicativos -> domínio próprio agora é possível configurar o seu próprio
+> domínio diretamente pela tela e iremos criar um manual de configuração de:
+> 1. 1.1 domínio próprio / 1.2 alterar zona DNS / 1.3 excluir domínio
+> 2. 2.1 subdomínio — são 2 fluxos diferentes.
+> (…) 1.1 → tu faz a configuração com o domínio cardapioteste.com.br → me passa o
+> DNS e espera eu te retornar. Assim que eu retornar tu mostra o domínio com
+> sucesso configurado e depois segue para 1.2. depois faz 1.3 e conclui. depois já
+> pode seguir pro 2.1, me passa o CNAME, eu te retorno e você finaliza tudo."
+
+## Escopo
+
+A tela **nova** de Aplicativos → **Domínio Próprio**, em que o próprio lojista
+cadastra o endereço sem passar pelo suporte. Dois fluxos:
+
+1. **Domínio próprio (APEX)** — `cardapioteste.com.br`: cadastro, troca dos
+   servidores DNS, domínio no ar, **aba DNS** (a "zona DNS") e **exclusão**.
+2. **Subdomínio** — `cardapio.cardapioteste.com.br`: cadastro e registro **CNAME**.
+
+**Não é o #52.** O manual `manuais/dominio-proprio/` documenta o modal antigo
+(*Domínio Personalizado* → falar com o suporte) e a verificação na Meta, e continua
+valendo para quem ainda não foi liberado: `dominioAcesso.ts` libera a tela nova em
+produção **só para a empresa 38311**, que por sorte é o sandbox dos manuais.
+
+## Ambiente
+
+- Capturas em **produção** (`https://beefood.app`), sandbox BeeFood3
+  (`contato@beefood.com.br`), empresa **38311**, filial **39202**, tema claro,
+  1440×900 DPR 1.5 → puras 2160×1350.
+- O domínio de teste é do dono: **`cardapioteste.com.br`**. Em 16/09 ele ainda não
+  resolvia no DNS (sem NS, sem SOA), o que fez a tela mostrar o aviso amarelo
+  *"Não encontramos … no DNS"* — o cadastro é liberado mesmo assim.
+- Antes deste trabalho havia um cadastro de ensaio do mesmo domínio, removido às
+  13:58 de 16/09 (aparece em *Domínios removidos anteriormente*, `dominioID 13`).
+  O cadastro que vale é o **`dominioID 14`**, criado 16/09 14:30.
+
+## Cronologia (o manual precisa parar para o dono trocar o DNS)
+
+| Etapa | Quando | Situação |
+|-------|--------|----------|
+| 1.1 cadastro do APEX + instrução NS | 16/09 14:30 | ✅ capturado (imagens 01–06) |
+| 1.1 domínio **No ar** | 16/09 14:54 | ✅ capturado (imagem 07) |
+| 1.2 aba **DNS** (zona) | — | ⛔ **bloqueado**: a API responde 503 *"O gerenciamento de DNS não está disponível neste ambiente"* |
+| 1.2 alterar zona DNS | 16/09 16:00 | ✅ registro MX criado, TTL alterado, propagação e histórico (imagens 08–12) |
+| 1.3 excluir domínio | 16/09 16:15 | ✅ excluído de verdade; remoção é assíncrona (*Removendo* por ~2 min) — imagens 13–15 |
+| 2.1 subdomínio | 16/09 18:47 | ✅ `cardapio.cardapioteste.com.br` no ar (imagens 16–18) |
+| 2.1 subdomínio + CNAME | depois de 1.3 | ⏸ aguardando |
+
+**Servidores DNS entregues ao dono em 16/09 14:31** (é o que ele precisa colocar no
+registrador de `cardapioteste.com.br`):
+
+```
+ns-991.awsdns-59.net
+ns-62.awsdns-07.com
+ns-1150.awsdns-15.org
+ns-1648.awsdns-14.co.uk
+```
+
+## Imagens
+
+| Arquivo | Tipo | Conteúdo |
+|---------|------|----------|
+| `01-aplicativos-dominio.png` | setas 1–2 | Aplicativos → card **Domínio Próprio** |
+| `02-escolher-cardapio.png` | seta 1 | passo 1: escolher o cardápio |
+| `03-escolher-tipo.png` | contexto | passo 2: os dois cartões (domínio próprio × subdomínio) |
+| `04-endereco-conferido.png` | setas 1–4 | passo 3: endereço conferido, aviso e **CADASTRAR DOMÍNIO** |
+| `05-cadastrado-preparando.png` | seta 1 | *Estamos preparando os dados do seu DNS* (~1 min) |
+| `06-instrucao-ns.png` | setas 1–3 + moldura | os quatro servidores DNS e o **Já configurei, verificar agora** |
+| `07-dominio-no-ar.png` | setas 1–3 | domínio **No ar**, endereços e as cinco etapas concluídas |
+| `11-excluir-botao.png` | seta 1 | tira do rodapé do painel — **Excluir domínio** (recorte da mesma pura da 07) |
+| `08-aba-dns.png` | setas 1–3 + moldura | aba **DNS**, **Adicionar registro** e a zona com os cadeados |
+| `09-form-registro.png` | setas 1–5 | formulário do registro (MX do Google Workspace, dois valores, TTL) |
+| `10-registro-criado.png` | seta 1 + moldura | registro novo destacado e os botões lápis/lixeira |
+| `11-propagacao.png` | setas 1–2 | aviso de propagação depois de alterar o TTL |
+| `12-historico-dns.png` | setas 1–2 | **Histórico de alterações** aberto, com *Antes* e *Depois* |
+| `13-excluir-botao.png` | seta 1 | **Excluir domínio** no rodapé (painel inteiro, gerado da pura da 07) |
+| `14-confirmar-exclusao.png` | setas 1–2 | diálogo *Excluir o domínio?* |
+| `15-apos-exclusao.png` | setas 1–2 | cardápio livre e *Domínios removidos anteriormente* |
+| `16-subdominio-conferido.png` | setas 1–4 | endereço do subdomínio conferido, com o CNAME adiantado |
+| `17-instrucao-cname.png` | setas 1–3 + moldura | **Tipo/Nome/Valor** do CNAME e o botão de verificar |
+| `18-subdominio-no-ar.png` | setas 1–3 | subdomínio **No ar**, com o histórico das tentativas |
+
+A imagem **03** ficou de **contexto** de propósito: a tela inteira são os dois
+cartões, cada um com título próprio, e o manual os compara numa tabela. Seta ali só
+cobriria o texto de um dos dois (o cartão do APEX tem o aviso do e-mail, que é
+justamente o que precisa ser lido).
+
+## Decisões
+
+- **Recortar o painel lateral (pedido do dono, 16/09).** A captura inteira tem
+  2160 px e o painel começa exatamente em **x = 1154**: mais da metade da imagem era
+  tela escurecida sem uso, e o texto do painel ficava pequeno na página publicada.
+  Agora o `annotate.py` recorta em `PAINEL = (1154, 0, 2160, 1350)` e cola uma
+  **faixa branca de 150 px à esquerda**, que é onde ficam as etiquetas — as setas
+  entram na horizontal e nenhuma cruza texto. Cada imagem também é cortada na altura
+  (`ate(y)`) para não sobrar branco embaixo. As **coordenadas continuam sendo medidas
+  na captura pura de 2160 px**; a função converte. Só a `01`, que é a tela de
+  Aplicativos, fica inteira.
+- Etiqueta e traço mantêm o tamanho da captura inteira (`RAIO = 27`, `TRACO = 4`)
+  passados na mão: o recorte não redimensiona o painel, então a proporção
+  etiqueta × texto continua igual à dos outros manuais.
+- Captura da instrução de DNS precisa **rolar até o botão** *Já configurei,
+  verificar agora* (`scroll_into_view_if_needed`), senão o 4º servidor fica cortado
+  — foi o que aconteceu na primeira tentativa. Etapa própria no script:
+  `python3 capturar.py instrucao`.
+- O script grava de verdade. `DRY=1` percorre o caminho inteiro e para antes do
+  clique que grava (regra da `MEMORIA-GERAL.md`, seção 7) — foi assim antes do
+  cadastro e foi assim que o **diálogo de exclusão saiu sem excluir nada**: o ensaio
+  abre a confirmação, fotografa e fecha o navegador.
+- O diálogo de exclusão **não** fica dentro do painel: é um `ConfirmationDialog` no
+  centro da tela. Recorte próprio (`crop` com `y0` também, por isso o `annotate.py`
+  desloca x **e** y).
+- Numeração final: **08–12** aba DNS, **13–15** exclusão, **16–18** subdomínio.
+- **Sem super zoom** (pedido do dono, 16/09): tira estreita de um botão confunde. A
+  imagem de um clique no rodapé é o **painel inteiro** com a seta no botão; diálogo
+  do centro entra com o painel atrás (`crop=(640, 100, 2160, 1280)`).
+- Diálogo do centro precisa de `crop` com `y0` → o `annotate.py` desloca **x e y**.
+- A exclusão é **assíncrona**: o cartão fica *Removendo* por ~2 min. Capturar a tela
+  final exige recarregar até sair (`pos-exclusao`).
+- A aba DNS voltou a responder em 16/09 15:56 (era falha de backend, não de ambiente).
+- Um conferidor curto compara os marcadores do `annotate.py` com os números citados
+  nas tabelas do `.md` — rodar sempre antes do commit.
+- **Cronologia real, para o texto do manual:** domínio próprio — pedido 14:30, DNS
+  reconhecido 14:50, no ar **14:54**. Subdomínio — pedido 16:17, CNAME criado pelo
+  dono ~16:38, publicado pelo Registro.br só às **18:41** (~2 h de atraso do
+  provedor), DNS reconhecido 18:43, no ar **18:47**. Os dois casos levaram **4 min**
+  entre o DNS responder e o cardápio abrir: o que demora é sempre a parte do
+  provedor, e vale dizer isso no manual.
+- **Como provar que um registro não está na zona** (o subdomínio ficou 2 h parado e a
+  suspeita era o BeeFood): com a zona assinada (DNSSEC), a resposta negativa traz o
+  **NSEC**, que lista os nomes existentes. `dig nome @8.8.8.8 +dnssec +noall
+  +authority` mostrou `cardapioteste.com.br. NSEC cardapioteste.com.br. NS SOA MX TXT
+  RRSIG NSEC DNSKEY` — cadeia de um só nó, isto é, **só o apex** na zona. Também dá
+  para separar reassinatura de alteração: o serial subiu, mas a RRSIG tinha janela
+  nova (16:55→19:05), então foi só re-signing.
+
+## Bloqueio da parte 1.2 (16/09 15:0x)
+
+A aba **DNS** abre, mas fica vazia: `GET /api/dominio2/dns/38311/88711/14` devolve
+`{"resultado": false, "msg": "O gerenciamento de DNS não está disponível neste
+ambiente.", "status": 503}`, e a tela mostra o toast com essa mesma frase. Ou seja, o
+gerenciamento da zona **não está habilitado no ambiente de produção** — não é
+problema do domínio, que está `ativo` e com `dnsGerenciavel: true` no detalhe.
+
+Consequência na ordem do trabalho: **não dá para excluir o domínio (1.3) antes de
+capturar a 1.2**. O cardápio aceita um domínio por vez, então excluir para cadastrar
+o subdomínio (2.1) tira do ar o único domínio que serviria para fotografar a zona —
+e cadastrar de novo depois provavelmente devolveria **outros quatro servidores DNS**,
+obrigando o dono a trocar tudo no registrador outra vez.
+
+## Prova de que o domínio está no ar
+
+```
+$ dig +short NS cardapioteste.com.br @8.8.8.8
+ns-1150.awsdns-15.org. ns-1648.awsdns-14.co.uk. ns-991.awsdns-59.net. ns-62.awsdns-07.com.
+
+$ curl -sL https://cardapioteste.com.br
+302 → https://cardapioteste.com.br/beefood3/  (http 200, <title>Cardápio Digital BeeFood</title>)
+```
+
+## Status
+
+Em andamento — 1.1 completa (cadastro, instrução de DNS e domínio no ar). A 1.2
+depende de habilitar o gerenciamento de DNS no ambiente; 1.3 e 2.1 ficam atrás dela
+para não desperdiçar o domínio que já está no ar.

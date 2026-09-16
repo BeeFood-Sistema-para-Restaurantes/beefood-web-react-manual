@@ -133,6 +133,61 @@ olho: uma cópia temporária com linha a cada 0,05 e rótulo a cada 0,10, e os v
 direto da grade. É rápido de escrever (umas 20 linhas de Pillow, em `/tmp`, fora do repositório)
 e acerta quase tudo de primeira. Usado no #24 em 16 capturas: das 29 setas, 24 nasceram no lugar.
 
+### Padrão oficial — tela em painel lateral (`Sheet`)
+
+Telas que abrem num painel à direita (o **Domínio Próprio** do #101 é o primeiro
+caso) desperdiçam mais da metade da imagem: no viewport de 1440×900 com DPR 1.5 o
+painel começa em **x = 1154** dos 2160 px, e o resto é a tela escurecida. Print
+inteiro deixa o texto do painel pequeno na página publicada — foi o pedido do dono em
+16/09/2026: *"as imagens precisam ficar mais recortadas quando for essa modal
+lateral, pois 60% da tela à esquerda é sem uso"*.
+
+O padrão:
+
+- **Recortar no painel** e colar uma **faixa branca de ~150 px à esquerda**, que é
+  onde ficam as etiquetas numeradas. As setas entram na **horizontal**, então nenhuma
+  cruza texto — dentro do painel não há espaço vazio para etiqueta.
+- Cortar também **na altura**, logo depois do último elemento útil, para não sobrar
+  branco embaixo (o painel tem rodapé fixo e sobra um vão no meio).
+- **Medir as coordenadas na captura pura inteira** e deixar o `annotate.py` converter
+  (`crop` + `pad_left`, com o deslocamento aplicado a setas e molduras). Assim a
+  medição não muda quando o recorte muda.
+- Passar `r` e `w` **na mão** com os valores da captura inteira (27 e 4). O recorte
+  não redimensiona nada, e o cálculo automático por largura encolheria a etiqueta.
+- A tela que **contém** o painel (o card que abre) entra inteira, como contexto.
+- **Recortar não é dar zoom.** Tira estreita com um botão só (o rodapé do painel, por
+  exemplo) tira a referência de onde aquilo fica e o cliente se perde — foi o segundo
+  recado do dono no #101: *"não devemos ter imagens com super zoom dentro da modal
+  lateral, senão o usuário se perde no entendimento"*. Para um clique no rodapé, a
+  imagem é o **painel inteiro** com a seta no botão.
+- **Diálogo no centro da tela** (`ConfirmationDialog`, formulários em `Dialog`) não
+  está dentro do painel: recorte próprio, com o painel visível atrás como contexto
+  (no #101, `crop=(640, 100, 2160, 1280)`). Como esse recorte tem `y0`, o
+  `annotate.py` desloca as coordenadas em **x e y**.
+
+### Manual que depende de DNS — como não culpar o produto errado
+
+No #101 o subdomínio ficou **duas horas** em *Aguardando você* depois de o dono criar
+o CNAME, e a suspeita natural caiu no BeeFood. O jeito de decidir sem chutar:
+
+- `dig +short CNAME nome @8.8.8.8` vazio não prova nada sozinho (pode ser cache
+  negativo). Peça a autoridade: `dig nome @8.8.8.8 +noall +authority` mostra o **SOA**
+  de quem respondeu.
+- Se a zona tem **DNSSEC** (`.com.br` do Registro.br tem), a negativa vem com um
+  registro **NSEC** que lista os nomes existentes. `cardapioteste.com.br. NSEC
+  cardapioteste.com.br. NS SOA MX TXT RRSIG NSEC DNSKEY` = cadeia de um só nó, ou
+  seja, **só o apex está publicado** — o registro do cliente não entrou. Isso é prova,
+  não suposição.
+- Serial do SOA subindo **não** quer dizer que a alteração entrou: comparar a janela
+  da `RRSIG` (início/fim) revela reassinatura periódica do DNSSEC.
+- Provedor pode demorar para publicar. Deixe um monitor em `tmux`
+  (`dig` a cada 60 s gravando em log) em vez de ficar consultando na mão, e avise o
+  dono com o que a evidência mostra — no #101 o CNAME apareceu às 18:41 e o cardápio
+  abriu às 18:47, sem que nada precisasse ser mexido no BeeFood.
+
+Implementação de referência: `manuais/dominio-proprio-configurar/annotate.py`
+(`PAINEL`, `MARGEM`, `ate(y)` e o atalho `painel(...)`).
+
 ### Padrão oficial — tira de celulares (cardápio público)
 
 Não coloque vários prints altos de celular soltos no `.md`. Monte **uma tira**
