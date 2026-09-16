@@ -1,10 +1,19 @@
 <!-- O tablet da mesa, sozinho na faixa: centralizado, reto e no maior tamanho que
      couber. Sem 3D, que aqui só tiraria escala.
 
-     Tela desenhada com texto documentado: SEARCH, MY CART e MY BILL vêm
-     traduzidos com o aplicativo, e Cola US / The drink cola é o produto do
-     exemplo. O item de baixo continua em português porque não foi traduzido — é
-     o comportamento que o slide 6 explica. -->
+     A tela é desenhada em cima do print de produção (09), e por isso o fundo é
+     escuro, o preço sai em amarelo e o botão é `Order`. Todo texto em inglês
+     está documentado: SEARCH, MY CART, MY BILL, HIGHLIGHTS, MENU, RATE, Order,
+     Cola US, The drink cola.
+
+     Dois detalhes do produto que o slide mostra de propósito:
+
+     - a faixa continua **Bebidas**, em português, porque o título vem do Nome
+       Público do setor e esse não troca de idioma;
+     - a segunda Coca continua com nome e descrição em português, porque não foi
+       traduzida. É o comportamento que o slide 6 explica.
+
+     As fotos são as do próprio print, recortadas pelo `preparar-telas.py`. -->
 <div class="slide slide--suave">
   <div class="topo">
     <span class="logo"></span>
@@ -18,51 +27,70 @@
     </h2>
     <p class="corpo">
       As bandeiras ficam na coluna da esquerda, no pé dos atalhos. O cliente
-      toca, o cardápio troca, e ele resolve sozinho — sem precisar chamar
-      ninguém para traduzir.
+      toca, o cardápio troca, e ele resolve sozinho.
     </p>
   </div>
 
-  <span class="selo-ilustracao" style="left: 88px; top: 1246px">Ilustração</span>
+  <span class="selo-ilustracao" style="left: 88px; top: 1262px">Ilustração</span>
 
-  <div class="figura" style="margin-top: 44px; width: 880px">
+  <div class="figura" style="margin-top: 52px; width: 880px">
     <div class="tablet" style="width: 880px">
       <div class="tablet__tela">
-        <div class="tela-tablet" style="font-size: 23px">
-          <div class="tela-tablet__coluna">
-            <div class="tela-tablet__aba tela-tablet__aba--ativa">DESTAQUES</div>
-            <div class="tela-tablet__aba">CARDÁPIO</div>
-            <div class="tela-tablet__aba">AVALIE</div>
-            <div class="tela-tablet__idiomas">
-              <span class="bandeira"><span>&#127463;&#127479;</span></span>
-              <span class="bandeira bandeira--anel"><span>&#127482;&#127480;</span></span>
-              <span class="bandeira"><span>&#127466;&#127480;</span></span>
-            </div>
+        <div class="tela-tablet" style="font-size: 19px">
+          <div class="tela-tablet__topo">
+            <span class="tela-tablet__logo"></span>
+            <span class="tela-tablet__busca"><i class="lupa"></i>SEARCH</span>
+            <span class="tela-tablet__acao"><i></i>MY CART</span>
+            <span class="tela-tablet__acao"><i></i>MY BILL</span>
           </div>
-          <div class="tela-tablet__corpo">
-            <div class="tela-tablet__barra">
-              <b>MESA 2</b><span>SEARCH</span><span>MY CART</span><span>MY BILL</span>
+          <div class="tela-tablet__miolo">
+            <div class="tela-tablet__atalhos">
+              <div class="tela-tablet__atalho"><i></i>HIGHLIGHTS</div>
+              <div class="tela-tablet__atalho tela-tablet__atalho--ativo">
+                <i class="talher"></i>MENU
+              </div>
+              <div class="tela-tablet__atalho"><i class="sino"></i>RATE</div>
+              <div class="tela-tablet__idiomas">
+                <span class="bandeira bandeira--retangular"><span>&#127463;&#127479;</span></span>
+                <span class="bandeira bandeira--retangular bandeira--anel"><span>&#127482;&#127480;</span></span>
+                <span class="bandeira bandeira--retangular"><span>&#127466;&#127480;</span></span>
+              </div>
             </div>
-            <div class="tela-tablet__capa"></div>
-            <div class="tela-tablet__grade">
+            <div class="tela-tablet__setores">
+              <div class="tela-tablet__setor tela-tablet__setor--ativo">Drinks</div>
+              <div class="tela-tablet__setor">Molhos adicionais</div>
+              <div class="tela-tablet__setor">Combos (Burger + Porção + Bebida)</div>
+            </div>
+            <div class="tela-tablet__corpo">
+              <div class="tela-tablet__faixa">Bebidas</div>
               <div class="tela-tablet__item">
-                <div class="tela-tablet__foto"></div>
+                <img src="../imagens-puras/foto-bebida-1.png" alt="">
                 <div class="tela-tablet__texto">
-                  <span>Cola US</span><small>The drink cola</small>
+                  <span>Cola US</span><small>The drink cola</small><b>R$ 5,00</b>
                 </div>
+                <span class="tela-tablet__pedir">Order</span>
               </div>
               <div class="tela-tablet__item">
-                <div class="tela-tablet__foto tela-tablet__foto--verde"></div>
+                <img src="../imagens-puras/foto-bebida-5.png" alt="">
                 <div class="tela-tablet__texto">
-                  <span>Geleia de Pimenta</span><small>Pote 30 g</small>
+                  <span>Coca Cola 350ml</span><small>Coca Cola Lata 350ml</small>
+                  <b>R$ 8,90</b>
                 </div>
+                <span class="tela-tablet__pedir">Order</span>
+              </div>
+              <div class="tela-tablet__item">
+                <img src="../imagens-puras/foto-bebida-3.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>Coca Zero 350ml</span><small>Coca Zero Lata 350ml</small>
+                  <b>R$ 8,90</b>
+                </div>
+                <span class="tela-tablet__pedir">Order</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="tablet__haste"></div>
-      <div class="tablet__pe"></div>
+      <div class="tablet__suporte"></div>
     </div>
   </div>
 </div>

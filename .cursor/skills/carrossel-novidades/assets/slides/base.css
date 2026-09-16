@@ -496,7 +496,7 @@ body {
   background: #fff;
 }
 
-.celular__tela img {
+.celular__tela > img {
   display: block;
   width: 100%;
   height: 100%;
@@ -508,44 +508,50 @@ body {
  * da própria tela que o slide quer mostrar. A moldura já basta para o leitor
  * entender que é celular. */
 
-/* Moldura de totem de autoatendimento: tela em pé sobre coluna e pé chato.
+/* Moldura do Totem de Autoatendimento, desenhada a partir da foto do catálogo
+ * (`beefood.com.br/totem-de-autoatendimento`). O aparelho é assim, e cada peça
+ * abaixo existe porque existe na foto:
  *
- * A coluna é o que dá a escala. Sem ela, um retângulo preto em pé de 600 px
- * parece celular gigante; com ela, mesmo cortada pela base do slide, a leitura é
- * imediata.
+ * - **carcaça branca**, retangular, de canto quase reto. Não é preta: a primeira
+ *   versão daqui saiu com corpo escuro e canto de 28 px, e o resultado era um
+ *   celular gigante em pé. Quem olha o aparelho de verdade vê um armário branco.
+ * - **tela em pé**, 9/16, com uma moldura preta fina em volta — o vidro é preto
+ *   e a carcaça branca sobra em torno dele.
+ * - **painel embaixo da tela**, que é o que mais entrega "autoatendimento": o
+ *   leitor de aproximação, a boca da impressora de cupom e o **pinpad** preto.
+ * - **coluna preta** e **base preta chapada**, as duas mais estreitas que a
+ *   carcaça.
  *
- * O elemento `.totem` é **só o corpo da tela**: coluna e pé são absolutos,
- * pendurados embaixo. Parece detalhe e não é — em 3D, o `.g3d::after` (o brilho)
- * cobre `inset: 0` do elemento girado, e com a coluna dentro da caixa o brilho
- * pintava também o vão transparente dos lados dela, que saía no render como duas
- * abas brancas. Sendo absolutos, os dois giram junto com o pai e ficam fora do
- * retângulo que recebe o brilho. */
+ * A altura da coluna é `--coluna` para o slide poder encurtar quando falta
+ * espaço, sem reescrever o `top` da base.
+ *
+ * Coluna e base são absolutos, pendurados embaixo. Parece detalhe e não é: em
+ * 3D o `.g3d::after` cobre `inset: 0` do elemento girado, e com a coluna dentro
+ * da caixa o brilho pintava o vão transparente dos lados dela — saíam duas abas
+ * brancas no render. (O totem, de todo jeito, não vai em 3D; ver `.cena3d`.) */
 .totem {
+  --coluna: 210px;
   position: relative;
   width: 420px;
-  padding: 16px;
-  border-radius: 28px;
-  background: #101010;
-  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.45);
+  padding: 4% 6% 0;
+  border-radius: 10px;
+  background: linear-gradient(102deg, #f7f7f9, #fff 34%, #e6e7ea);
+  box-shadow: 0 34px 64px -22px rgba(0, 0, 0, 0.45);
   flex: none;
-}
-
-/* Modelo de carcaça clara, que existe no catálogo. Em slide de fundo escuro o
- * totem preto desaparece no fundo — foi o que aconteceu na primeira capa. */
-.totem--claro {
-  background: #f2f2f4;
-  box-shadow: 0 30px 70px -18px rgba(0, 0, 0, 0.6);
 }
 
 .totem__tela {
   width: 100%;
   aspect-ratio: 9 / 16;
-  border-radius: 14px;
+  border-radius: 3px;
   overflow: hidden;
   background: #fff;
+  /* O vidro preto em volta do conteúdo. `box-shadow` em vez de `border` para a
+   * moldura não entrar na conta do `aspect-ratio`. */
+  box-shadow: 0 0 0 9px #17181a;
 }
 
-.totem__tela img {
+.totem__tela > img {
   display: block;
   width: 100%;
   height: 100%;
@@ -553,30 +559,203 @@ body {
   object-position: top center;
 }
 
+/* Painel de autoatendimento. `aspect-ratio` e não `height` porque altura em %
+ * resolveria contra a altura do pai, que aqui é automática. */
+.totem__painel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 100 / 40;
+}
+
+/* Leitor de aproximação: o círculo acima da boca da impressora. */
+.totem__leitor {
+  position: absolute;
+  left: 28%;
+  top: 16%;
+  width: 7%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #d8d9dd;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* Boca da impressora de cupom. */
+.totem__impressora {
+  position: absolute;
+  left: 16%;
+  top: 40%;
+  width: 34%;
+  aspect-ratio: 100 / 16;
+  border-radius: 3px;
+  background: #1d1e21;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+.totem__pinpad {
+  position: absolute;
+  right: 7%;
+  top: 13%;
+  width: 30%;
+  aspect-ratio: 100 / 112;
+  border-radius: 7px;
+  background: linear-gradient(102deg, #15161a, #33363c 40%, #101114);
+  box-shadow: -6px 10px 18px -8px rgba(0, 0, 0, 0.55);
+  padding: 9% 12%;
+  display: flex;
+  flex-direction: column;
+  gap: 7%;
+}
+
+/* Visor do pinpad, e depois três fileiras de teclas. O desenho para aqui: em
+ * miniatura de carrossel, tecla com número viraria sujeira. */
+.totem__pinpad::before {
+  content: "";
+  display: block;
+  width: 100%;
+  aspect-ratio: 100 / 42;
+  border-radius: 2px;
+  background: #5b6066;
+}
+
+.totem__tecla {
+  display: flex;
+  gap: 9%;
+}
+
+.totem__tecla span {
+  flex: 1;
+  aspect-ratio: 1;
+  border-radius: 1px;
+  background: #6d7278;
+}
+
 .totem__coluna,
-.totem__pe {
+.totem__base {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(90deg, #0a0a0a, #232323 42%, #0d0d0d);
-}
-
-.totem--claro .totem__coluna,
-.totem--claro .totem__pe {
-  background: linear-gradient(90deg, #b9bbc0, #eceef1 42%, #c2c4c9);
+  background: linear-gradient(102deg, #15161a, #32353a 45%, #0e0f11);
 }
 
 .totem__coluna {
   top: 100%;
-  width: 30%;
-  height: 92px;
+  width: 38%;
+  height: var(--coluna);
 }
 
-.totem__pe {
-  top: calc(100% + 92px);
-  width: 62%;
-  height: 16px;
-  border-radius: 0 0 8px 8px;
+.totem__base {
+  top: calc(100% + var(--coluna));
+  width: 82%;
+  height: 15px;
+  border-radius: 0 0 3px 3px;
+}
+
+/* Moldura do Cardápio Digital no Tablet, desenhada a partir da foto do catálogo
+ * (`beefood.com.br/cardapio-digital-tablet`): tablet **preto**, moldura fina e
+ * igual nos quatro lados, canto bem arredondado, botões na lateral direita, o
+ * ponto da câmera na moldura da esquerda — e um **suporte de metal escovado**
+ * que sai de trás e se alarga até a mesa.
+ *
+ * O que separa "tablet no suporte" de "monitor de mesa", e as três já saíram
+ * erradas aqui:
+ *
+ * - **moldura proporcional.** `padding` em % mede a própria largura do
+ *   elemento, então a moldura acompanha o tamanho em que o mockup é usado.
+ *   Moldura em px (11 px) desaparece quando o mockup cresce, e devolve monitor.
+ * - **canto bem arredondado.** 20 px em 880 de largura é canto de monitor.
+ * - **suporte largo e de metal, atrás.** O pedestal fino com pé chato era o
+ *   erro mais visível: base de monitor. Um berço à frente da moldura de baixo
+ *   também foi tentado, e lê como borrão cinza. */
+.tablet {
+  position: relative;
+  width: 720px;
+  padding: 2.2%;
+  border-radius: 38px;
+  background: linear-gradient(102deg, #15161a, #2c2f35 42%, #101114);
+  /* Fio de alumínio em volta da moldura preta, que é o que a foto mostra: a
+   * carcaça é prateada e a moldura do vidro é preta. Sem ele o aparelho vira
+   * um retângulo preto sobre fundo preto na capa. */
+  box-shadow: 0 0 0 3px #9ea4ab, 0 30px 60px -20px rgba(0, 0, 0, 0.42);
+  flex: none;
+}
+
+/* Câmera na moldura da esquerda, que é onde ela fica no tablet deitado. O
+ * celular não tem isso de propósito (ilha desenhada em cima de print tapa o
+ * cabeçalho da tela), mas aqui o ponto cai na moldura, não na tela. */
+.tablet::before {
+  content: "";
+  position: absolute;
+  /* Metade do `padding` do `.tablet`: o ponto fica no meio da moldura em
+   * qualquer largura, em vez de encostar na borda de fora. */
+  left: 1.1%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Botões de volume e de ligar, na lateral direita. Dois traços claros que
+ * encostam na borda — é o detalhe que a foto tem e que nenhum monitor tem. */
+.tablet::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 24%;
+  width: 3px;
+  height: 34%;
+  border-radius: 0 3px 3px 0;
+  /* Dois traços num elemento só: `box-shadow` não aceita deslocamento em %, e
+   * em px o segundo botão saía do lugar quando o mockup mudava de tamanho. */
+  background: linear-gradient(#7e848b 0 38%, transparent 38% 58%,
+              #7e848b 58% 100%);
+}
+
+/* 16/10 é a proporção dos tablets Android que rodam o aplicativo, e é a do
+ * print de produção (1280×800). 4/3 foi testado por parecer "mais tablet" e
+ * não é: encolhe a tela e inventa um aparelho que o cliente não tem. */
+.tablet__tela {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.tablet__tela > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Suporte de mesa: uma aba de metal que sai de trás do aparelho e se abre até a
+ * mesa. O trapézio invertido é o que a foto mostra, e é o que faz o conjunto
+ * parecer apoiado em vez de flutuando.
+ *
+ * O topo é largo (38%–62% da peça) porque o suporte **nasce colado** no
+ * aparelho: com o topo estreito, a peça saía no render como um chapéu solto
+ * embaixo do tablet. Os cantos de baixo são chanfrados e a peça tem um vinco
+ * claro no meio — sem o vinco o metal fica chapado e lê como papel cinza. */
+.tablet__suporte {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  width: 42%;
+  aspect-ratio: 100 / 22;
+  /* A peça real é uma **chapa de alumínio curva** que sai de trás do aparelho,
+   * desce e dobra para a frente até a mesa. Vista de frente é quase um
+   * retângulo de cantos arredondados, não um trapézio: duas tentativas com
+   * `clip-path` de trapézio saíram lendo "chapéu chinês" embaixo do tablet.
+   *
+   * A curvatura vem do gradiente claro no meio e escuro nas duas beiradas; o
+   * `border-radius` assimétrico no pé é a dobra que apoia. */
+  border-radius: 12px 12px 44% 8% / 20px 20px 100% 64%;
+  background: linear-gradient(94deg, #7f858c 0%, #c4c9ce 14%, #eceef0 32%,
+              #dadee2 48%, #b2b8be 66%, #8d9399 84%, #767c83 100%);
+  box-shadow: 0 14px 22px -12px rgba(0, 0, 0, 0.6);
 }
 
 /* Moldura de tablet em suporte de mesa: tela deitada (16/10) e pé de metal.
@@ -687,6 +866,19 @@ body {
 
 .bandeira--anel {
   box-shadow: 0 0 0 0.09em var(--primaria);
+}
+
+/* No **tablet** o seletor não é redondo: o print mostra bandeiras retangulares
+ * empilhadas no pé da coluna de atalhos. Dois aparelhos, dois desenhos — copiar
+ * o círculo do totem para o tablet foi um dos erros da primeira versão. */
+.bandeira--retangular {
+  width: 1.34em;
+  height: 0.92em;
+  border-radius: 0.07em;
+}
+
+.bandeira--retangular > span {
+  transform: scale(1.12);
 }
 
 /* Moldura de navegador: para print do painel (2160×1350 → 16:10). */
@@ -897,181 +1089,386 @@ body {
   letter-spacing: 0.04em;
 }
 
-/* Tela de totem desenhada. Dois estados, os dois documentados no manual:
+/* Telas do totem e do tablet, desenhadas a partir dos prints de produção que o
+ * dono mandou e que o manual versiona
+ * (`manuais/traducao-cardapio-presencial/imagens-puras/`):
  *
- *   `.tela-totem--espera`  tela de espera, com o botão de começar e o seletor
- *                          de idioma embaixo dele;
- *   (padrão)               cardápio, com o seletor no topo direito.
+ *   07-totem-iniciar-idioma.png   tela de espera do totem
+ *   08-totem-menu-idioma.png      cardápio do totem em inglês
+ *   09-tablet-coca-traduzida.png  cardápio do tablet em inglês
  *
- * Mesma regra do `.tela-app`: o desenho só mostra o que o manual afirma, e
- * **todo texto em inglês tem de ser texto documentado** (DRINKS, CANCEL ORDER,
- * SEARCH, MY CART, MY BILL, Cola US). Inventar tradução no desenho é inventar
- * comportamento.
+ * **Por que desenhar em vez de colar o print inteiro na moldura.** O print do
+ * totem é paisagem (1186×699) e a tela do aparelho é retrato — colar um no
+ * outro é inventar aparelho. E print de tela cheia reduzido para caber num
+ * slide fica com letra de 4 px no feed. O desenho copia o layout e a paleta, e
+ * usa **as fotos reais** recortadas do print (`preparar-telas.py` do carrossel)
+ * onde o produto mostra foto. Muda só a escala do texto e o número de colunas
+ * da grade.
  *
- * Tudo aqui é em `em`: a mesma tela entra em slides com larguras diferentes, e
- * assim basta trocar o `font-size` da raiz da tela para ela escalar inteira.
- * Foi o que faltou no `.tela-app` do carrossel anterior, que tem px no meio e
- * por isso não acompanha a moldura. */
+ * Duas regras que valem para qualquer tela desenhada:
+ *
+ * 1. **Todo texto em inglês tem de ser texto documentado** — DRINKS, CANCEL
+ *    ORDER, SEARCH, MY CART, MY BILL, RATE, HIGHLIGHTS, MENU, Order, Cola US,
+ *    The drink cola. Inventar tradução no desenho é inventar comportamento.
+ * 2. **Tudo em `em`.** A mesma tela entra em slides de larguras diferentes;
+ *    trocar o `font-size` da raiz da tela escala ela inteira.
+ *
+ * As cores não são escolha de arte, são leitura do print: o **totem é claro**
+ * (fundo branco, texto quase preto) e o **tablet é escuro** (fundo #1b1b1d,
+ * texto branco, preço em amarelo). A primeira versão daqui tinha os dois
+ * invertidos, e era o erro mais visível do carrossel. */
+
+/* ---------------------------------------------------------------- totem */
+
 .tela-totem {
   position: relative;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  background: var(--escuro);
-  color: #fff;
+  background: #fff;
+  color: #17181a;
   font-size: 22px;
-  line-height: 1.25;
+  line-height: 1.22;
 }
 
+/* Tela de espera: fundo cinza claro, o botão de começar no meio e o seletor de
+ * idioma logo embaixo dele, na pílula branca. É o print 07 inteiro. */
 .tela-totem--espera {
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  gap: 1.4em;
-  padding: 0 1.5em 4.6em;
-  /* Sem foto de comida: o totem de verdade mostra vídeo, e imagem de banco
-   * seria a única coisa da arte que não veio do produto. O quente do gradiente
-   * dá o mesmo recado. */
-  background:
-    radial-gradient(120% 70% at 50% 4%, rgba(239, 66, 57, 0.5), transparent 60%),
-    linear-gradient(180deg, #2a1410, #161616 62%, #101010);
+  justify-content: center;
+  gap: 1.1em;
+  padding: 0 1.1em;
+  background: #f2f2f3;
 }
 
 .tela-totem__marca {
   position: absolute;
-  top: 2.4em;
-  font-size: 1.3em;
+  top: 2.2em;
+  font-size: 1.15em;
   font-weight: 900;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.82);
+  color: #9a9a9e;
 }
 
 .tela-totem__botao {
   align-self: stretch;
   text-align: center;
-  padding: 0.85em 0.6em;
-  border-radius: 0.6em;
+  padding: 1.1em 0.5em;
+  border-radius: 0.5em;
   background: var(--primaria);
   color: #fff;
-  font-size: 1.45em;
+  font-size: 1.32em;
   font-weight: 900;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+  /* Uma linha, como no aparelho. Em duas, a chamada perde a força e o botão
+   * deixa de parecer o botão de começar. */
+  white-space: nowrap;
+  box-shadow: 0 0 0 0.12em #fff, 0 0.5em 1.2em -0.3em rgba(0, 0, 0, 0.3);
 }
 
+/* A pílula branca com as três bandeiras, como o print 07 mostra: fundo branco,
+ * cantos totalmente redondos e as bandeiras encostadas. */
 .tela-totem__idiomas {
   display: flex;
-  gap: 0.5em;
-  font-size: 2.4em;
+  gap: 0.28em;
+  padding: 0.22em 0.3em;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 0.2em 0.6em -0.2em rgba(0, 0, 0, 0.25);
+  font-size: 1.9em;
 }
 
-.tela-totem__topo {
+/* Coluna de setores, à esquerda. No print o setor ativo leva uma linha vermelha
+ * embaixo, e os nomes vão em caixa alta. Em retrato a coluna é estreita e o
+ * nome fica pequeno — é assim na foto do aparelho, e é o preço de a grade de
+ * produtos ficar legível. */
+.tela-totem__setores {
+  width: 21%;
+  flex: none;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1em;
-  padding: 1.1em 1.2em;
-  background: #0c0c0c;
+  flex-direction: column;
+  border-right: 0.05em solid #ececee;
 }
 
-.tela-totem__acao {
-  font-size: 0.85em;
-  white-space: nowrap;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.55);
+.tela-totem__marca-caixa {
+  margin: 0.7em;
+  padding: 0.7em 0.3em;
+  border: 0.05em solid #ececee;
+  border-radius: 0.3em;
+  display: flex;
+  justify-content: center;
 }
 
-.tela-totem__idiomas--topo {
-  gap: 0.34em;
-  font-size: 1.5em;
+/* O logo entra como imagem da marca, o mesmo arquivo de fundo claro que o
+ * `.logo` do slide usa. */
+.tela-totem__marca-caixa span {
+  width: 80%;
+  aspect-ratio: 260 / 96;
+  background: var(--logo) center / contain no-repeat;
+}
+
+.tela-totem__setor {
+  padding: 0.85em 0.7em;
+  font-size: 0.62em;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  color: #17181a;
+}
+
+.tela-totem__setor--ativo {
+  border-bottom: 0.12em solid var(--primaria);
+}
+
+.tela-totem__corpo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* A lista de setores e produtos, que no aparelho rola. Aqui ela só é **cortada**
+ * pelo que cabe, com a barra da sacola fixa embaixo — que é como a tela se
+ * comporta. Sem isso a alternativa era caber tudo, e a tela ficava com um vão
+ * branco de 200 px no meio. */
+.tela-totem__rolagem {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Banner do topo. É o recorte do print, então traz o CANCEL ORDER e a pílula
+ * de bandeiras de produção — a prova da novidade em pixel real. */
+.tela-totem__banner {
+  width: 100%;
+  aspect-ratio: 870 / 350;
+  overflow: hidden;
+  flex: none;
+}
+
+.tela-totem__banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .tela-totem__secao {
-  padding: 1.1em 1.2em 0.5em;
-  font-size: 1.3em;
+  padding: 0.7em 0.7em 0.45em;
+  font-size: 1.2em;
   font-weight: 900;
-  letter-spacing: 0.06em;
 }
 
 /* Setor sem tradução continua em português no meio de uma tela em inglês. É
  * comportamento do produto, não descuido do desenho. */
 .tela-totem__secao--sem-traducao {
-  color: rgba(255, 255, 255, 0.5);
+  color: #8a8a8e;
 }
 
-.tela-totem__lista {
-  padding: 0 1.2em;
+/* Duas colunas, e não as três do aparelho: em três, o nome do produto some na
+ * redução do feed. É o único desvio de layout, e é o mesmo motivo que manda
+ * recortar print em vez de encolher. */
+.tela-totem__grade {
+  padding: 0 0.7em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6em;
+}
+
+/* Card em bloco, não em flex. O card é item de grid e a grade estica a linha
+ * inteira; num flex column a foto era a peça que cedia, e duas fotos lado a
+ * lado saíam com alturas diferentes. Com `flex: none` o problema virava outro:
+ * `flex-basis: auto` passa a ler a altura **intrínseca** do arquivo e o
+ * `aspect-ratio` é ignorado, então a foto esticava e o texto sumia embaixo. */
+.tela-totem__card {
+  border: 0.05em solid #ececed;
+  border-radius: 0.35em;
+  overflow: hidden;
+  background: #fff;
+}
+
+.tela-totem__card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.tela-totem__card div {
+  padding: 0.5em 0.55em 0.6em;
   display: flex;
   flex-direction: column;
-  gap: 0.7em;
+  gap: 0.12em;
 }
 
-.tela-totem__item {
-  background: #1d1d1f;
-  border: 0.08em solid rgba(255, 255, 255, 0.08);
-  border-radius: 0.8em;
-  padding: 0.8em 0.9em;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25em;
-}
-
-.tela-totem__item span {
-  font-weight: 700;
-}
-
-.tela-totem__item small {
+.tela-totem__card span {
   font-size: 0.85em;
-  color: rgba(255, 255, 255, 0.5);
+  font-weight: 900;
+}
+
+.tela-totem__card small {
+  font-size: 0.7em;
+  color: #8a8a8e;
 }
 
 /* Preço não muda de idioma — é o que o manual diz, e é o detalhe que faz a tela
  * desenhada parecer a tela do produto. */
-.tela-totem__item b {
-  margin-top: 0.2em;
-  font-size: 1.05em;
-  color: #fff;
+.tela-totem__card b {
+  margin-top: 0.15em;
+  font-size: 0.85em;
 }
 
-/* Tela do Cardápio Digital no Tablet: coluna clara à esquerda, cardápio à
- * direita. As bandeiras ficam no pé da coluna, embaixo de Avaliar.
- *
- * Sem título de faixa de propósito. No tablet o título da faixa **não** troca
- * de idioma (o nome traduzido do setor aparece na coluna de setores), e um
- * "Bebidas" em português no meio de uma tela em inglês pede uma explicação que
- * o slide não vai dar. Os textos do app em inglês já provam a troca. */
+/* Barra da sacola, no pé. Vermelha e sem frase: a do aparelho diz "Sua sacola
+ * está vazia" em português, e a versão em inglês não está documentada em lugar
+ * nenhum. Ícone e contador dizem a mesma coisa sem inventar string. */
+.tela-totem__sacola {
+  margin-top: auto;
+  padding: 0.7em 0.9em;
+  background: var(--primaria);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.9em;
+  font-weight: 900;
+}
+
+.tela-totem__sacola i {
+  width: 1.1em;
+  height: 1.1em;
+  flex: none;
+  background: currentColor;
+  /* Sacola: retângulo com a alça recortada em cima. */
+  clip-path: polygon(0 26%, 30% 26%, 30% 12%, 70% 12%, 70% 26%, 100% 26%,
+             100% 100%, 0 100%);
+}
+
+/* --------------------------------------------------------------- tablet */
+
 .tela-tablet {
   height: 100%;
   display: flex;
-  background: #fff;
+  flex-direction: column;
+  background: #1b1b1d;
+  color: #fff;
   font-size: 20px;
   line-height: 1.3;
 }
 
-.tela-tablet__coluna {
-  width: 6.2em;
+/* Barra de topo: logo à esquerda, busca no meio e as duas ações em vermelho na
+ * direita, encostadas uma na outra até a borda. */
+.tela-tablet__topo {
+  display: flex;
+  align-items: stretch;
   flex: none;
-  background: #e9eaec;
+  background: #111113;
+  font-size: 0.62em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.tela-tablet__logo {
+  width: 5.4em;
+  flex: none;
+  background: var(--logo-escuro) center / 72% auto no-repeat;
+}
+
+.tela-tablet__busca {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 1.1em 1.6em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.tela-tablet__acao {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 1.1em 1.4em;
+  background: var(--primaria);
+  border-left: 0.14em solid rgba(255, 255, 255, 0.22);
+}
+
+/* Lupa, carrinho e cartão desenhados com forma simples: em 0,6em de altura o
+ * que se lê é a silhueta, e ícone de fonte traria dependência nova. */
+.tela-tablet__topo i {
+  width: 1.5em;
+  height: 1.5em;
+  flex: none;
+  border-radius: 0.2em;
+  background: currentColor;
+}
+
+.tela-tablet__topo i.lupa {
+  border-radius: 50%;
+  background: none;
+  box-shadow: inset 0 0 0 0.22em currentColor;
+}
+
+.tela-tablet__miolo {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+/* Coluna 1: atalhos do aplicativo e, no pé, as bandeiras. No tablet elas são
+ * **retangulares** e empilhadas, não redondas — é o que o print mostra. */
+.tela-tablet__atalhos {
+  /* `em` aqui mede o font-size **deste** elemento, que já é 0,5em do pai: 9em
+   * dá os 63 px que o rótulo precisa. Com 5,6em a coluna saía com 39 px e
+   * "HIGHLIGHTS" perdia as primeiras letras. */
+  width: 9em;
+  flex: none;
+  background: #26262a;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.9em 0 1em;
-  gap: 0.8em;
+  padding: 1.2em 0 0.8em;
+  gap: 1em;
+  /* 0,5em e não 0,6em: com a coluna estreita do aparelho, "HIGHLIGHTS" em
+   * 0,6em saía cortado no meio da palavra. Rótulo pequeno é fiel — no totem
+   * de verdade também não se lê de longe —, rótulo cortado é defeito. */
+  font-size: 0.5em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
-.tela-tablet__aba {
+.tela-tablet__atalho {
   width: 100%;
-  padding: 0.8em 0;
+  padding: 0.6em 0.15em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35em;
   text-align: center;
-  font-size: 0.85em;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  color: #4a4a4f;
+  line-height: 1.1;
+  color: #fff;
 }
 
-.tela-tablet__aba--ativa {
+.tela-tablet__atalho--ativo {
   background: var(--primaria);
-  color: #fff;
+}
+
+.tela-tablet__atalho i {
+  width: 1.7em;
+  height: 1.7em;
+  background: currentColor;
+  clip-path: polygon(50% 0, 62% 36%, 100% 38%, 70% 61%, 80% 100%, 50% 77%,
+             20% 100%, 30% 61%, 0 38%, 38% 36%);
+}
+
+.tela-tablet__atalho i.talher {
+  clip-path: polygon(6% 0, 20% 0, 20% 44%, 30% 44%, 30% 0, 44% 0, 44% 56%,
+             32% 66%, 32% 100%, 18% 100%, 18% 66%, 6% 56%,
+             62% 0, 76% 0, 94% 30%, 82% 44%, 82% 100%, 68% 100%, 68% 44%,
+             56% 30%);
+}
+
+.tela-tablet__atalho i.sino {
+  clip-path: polygon(50% 0, 72% 14%, 78% 62%, 92% 78%, 8% 78%, 22% 62%, 28% 14%);
 }
 
 .tela-tablet__idiomas {
@@ -1079,75 +1476,73 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.34em;
-  font-size: 2em;
+  gap: 0.6em;
+  font-size: 2.1em;
+}
+
+/* Coluna 2: os setores, com o ativo em faixa mais clara. No print os nomes
+ * traduzidos aparecem aqui (Drinks), e os sem tradução continuam em português
+ * (Molhos adicionais) — é a prova do slide "não precisa traduzir tudo". */
+.tela-tablet__setores {
+  width: 9.4em;
+  flex: none;
+  background: #1f1f22;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.72em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.tela-tablet__setor {
+  padding: 1.5em 1em;
+  text-align: center;
+}
+
+.tela-tablet__setor--ativo {
+  background: #2f2f34;
+  font-weight: 700;
 }
 
 .tela-tablet__corpo {
   flex: 1;
+  min-width: 0;
+  padding: 1em 1.1em;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  gap: 0.7em;
 }
 
-.tela-tablet__barra {
-  display: flex;
-  align-items: center;
-  gap: 1.1em;
-  padding: 0.8em 1.2em;
-  background: var(--escuro);
-  color: #fff;
-  font-size: 0.85em;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-
-.tela-tablet__barra b {
-  margin-right: auto;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-/* Capa sem texto, como o espaço de destaque do cardápio do tablet. Ela existe
- * para a tela não ficar com um terço vazio embaixo da barra; texto nenhum aqui,
- * porque qualquer frase em inglês teria de ser documentada. */
-.tela-tablet__capa {
-  margin: 1.1em 1.2em 0;
-  height: 8.6em;
-  border-radius: 0.9em;
-  background:
-    radial-gradient(70% 120% at 18% 15%, rgba(255, 255, 255, 0.35), transparent 60%),
-    linear-gradient(135deg, #e8b98a, #c9713f 52%, #8f3f24);
-}
-
-.tela-tablet__grade {
-  padding: 1.2em;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.9em;
+/* O título da faixa **não** troca de idioma: é o Nome Público do setor, e o
+ * manual registra que ele continua em português. Deixar "Bebidas" aqui, ao lado
+ * de "Cola US", é o produto como ele é. */
+.tela-tablet__faixa {
+  font-size: 1.1em;
+  font-weight: 900;
 }
 
 .tela-tablet__item {
-  border: 0.1em solid var(--borda);
-  border-radius: 0.9em;
-  overflow: hidden;
   display: flex;
-  flex-direction: column;
+  align-items: stretch;
+  gap: 0.9em;
+  background: #26262a;
+  border-radius: 0.3em;
+  overflow: hidden;
 }
 
-.tela-tablet__foto {
-  height: 7.4em;
-  background: linear-gradient(135deg, #f3d9b0, #e7a86a 55%, #cf7f45);
-}
-
-.tela-tablet__foto--verde {
-  background: linear-gradient(135deg, #dfe9c8, #a8bf7d 55%, #7f9a55);
+.tela-tablet__item img {
+  display: block;
+  width: 8em;
+  flex: none;
+  object-fit: cover;
 }
 
 .tela-tablet__texto {
-  padding: 0.8em 0.9em;
+  flex: 1;
+  min-width: 0;
+  padding: 0.8em 0 0.8em;
   display: flex;
   flex-direction: column;
-  gap: 0.2em;
+  gap: 0.15em;
 }
 
 .tela-tablet__texto span {
@@ -1157,7 +1552,25 @@ body {
 
 .tela-tablet__texto small {
   font-size: 0.85em;
-  color: var(--texto-suave);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Preço em amarelo, como no print. */
+.tela-tablet__texto b {
+  margin-top: auto;
+  font-size: 0.95em;
+  color: #f2c94c;
+}
+
+.tela-tablet__pedir {
+  align-self: center;
+  margin-right: 0.9em;
+  padding: 0.6em 1.5em;
+  border-radius: 999px;
+  background: var(--primaria);
+  color: #fff;
+  font-size: 0.9em;
+  flex: none;
 }
 
 .selo-ilustracao {

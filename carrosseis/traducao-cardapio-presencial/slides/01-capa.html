@@ -1,84 +1,165 @@
-<!-- Capa: a pergunta é retórica e quem responde é a imagem. O totem mostra o
-     cardápio DRINKS com "Cola US / The drink cola" — a resposta está na tela,
-     não no texto.
+<!-- Capa, versão com os DOIS aparelhos. A pergunta é retórica e quem responde é
+     a imagem: o totem mostra o cardápio com DRINKS e Cola US, e o tablet mostra
+     o mesmo produto na mesa. Os dois juntos dizem "no totem e no tablet" sem
+     gastar uma linha de texto com isso.
 
-     Aqui a tela é o cardápio, e não a tela de espera com o seletor, que foi a
-     primeira tentativa. A de espera é mais icônica (botão vermelho e três
-     bandeiras), mas o miolo dela é um gradiente: sobrava um vão morto de 300 px
-     no meio da capa. O cardápio enche a tela e prova a frase. O seletor ganhou
-     o slide 3, onde uma coluna de texto equilibra o vão.
+     Existe também `01-capa-so-totem.html`, com o totem sozinho e maior. As duas
+     estão no repositório de propósito: com dois aparelhos a capa informa mais e
+     cada tela fica menor; com um, a tela fica grande e legível. Escolha uma na
+     hora de publicar.
 
-     MOLHOS ADICIONAIS fica em português na capa de propósito. Dilui um pouco o
-     "fala inglês", e mesmo assim entra: é o comportamento real (setor sem
-     tradução não fica em branco) e é o que o slide 6 explica. Capa que promete
-     mais do que o produto entrega volta como reclamação.
+     Totem branco com tela clara, tablet preto com tela escura: é assim nos
+     prints de produção que o manual versiona. A primeira versão desta capa
+     tinha os dois invertidos, e era o erro mais visível do carrossel.
 
-     Totem centralizado e no maior tamanho que couber, porque está sozinho na
-     faixa (MEMORIA-CARROSSEIS.md, "Onde a imagem fica na faixa"). É a coluna
-     que faz ler "totem" em vez de "celular gigante", e o pé sai pela base de
-     propósito: a borda de baixo do slide lê como chão, e aparelho em pé com o
-     pé inteiro no meio do slide parece recortado e colado.
+     A composição copia as artes do catálogo: o aparelho alto atrás, na direita,
+     o baixo à frente, na esquerda. A coluna do totem e o suporte do tablet saem
+     pela base — a borda de baixo do slide lê como piso e mesa.
 
-     O subtítulo tem UMA linha. Aparelho em pé come 830 px de altura, e com duas
-     linhas de subtítulo o totem começava dentro do texto.
-
-     Carcaça clara (`.totem--claro`, modelo que existe no catálogo) porque o
-     slide é escuro: na primeira tentativa o totem preto sumiu no fundo preto. -->
+     Sem rodapé: o tablet cobre o canto onde o "Arraste" ficaria, e seta
+     desenhada em cima de aparelho parece sujeira. -->
 <div class="slide slide--capa">
   <div class="topo">
     <span class="logo"></span>
     <span class="contador">1 de 7</span>
   </div>
 
-  <div class="pilha g24" style="margin-top: 36px">
+  <div class="pilha g24" style="margin-top: 28px">
     <span class="pilula pilula--novidade">Novidade</span>
     <h1 class="titulo">Seu cardápio já fala <span class="destaque">inglês</span>?</h1>
-    <p class="subtitulo">
-      Agora fala — e espanhol também.
-    </p>
+    <p class="subtitulo">Agora fala — e espanhol também.</p>
   </div>
 
-  <span class="selo-ilustracao" style="right: 88px; top: 1230px">Ilustração</span>
+  <!-- As duas telas são desenhadas (com as fotos reais dos prints dentro), e
+       por isso o selo. Ele fica no vão da esquerda, entre o texto e o tablet:
+       é o único lugar da capa sem aparelho em cima. -->
+  <span class="selo-ilustracao" style="left: 88px; top: 706px">Ilustração</span>
 
-  <div class="sangria" style="top: 552px; right: 330px; width: 420px">
-    <div class="totem totem--claro" style="width: 420px">
+  <!-- Totem: alto e atrás, na direita. -->
+  <div class="sangria" style="top: 450px; right: 34px; width: 322px">
+    <div class="totem" style="width: 322px; --coluna: 300px">
       <div class="totem__tela">
-        <div class="tela-totem" style="font-size: 22px">
-          <div class="tela-totem__topo">
-            <span class="tela-totem__acao">CANCEL ORDER</span>
-            <span class="tela-totem__idiomas tela-totem__idiomas--topo">
-              <span class="bandeira"><span>&#127463;&#127479;</span></span>
-              <span class="bandeira bandeira--anel"><span>&#127482;&#127480;</span></span>
-              <span class="bandeira"><span>&#127466;&#127480;</span></span>
-            </span>
+        <div class="tela-totem" style="font-size: 15px">
+          <div class="tela-totem__setores">
+            <div class="tela-totem__marca-caixa"><span></span></div>
+            <div class="tela-totem__setor tela-totem__setor--ativo">DRINKS</div>
+            <div class="tela-totem__setor">MOLHOS ADICIONAIS</div>
+            <div class="tela-totem__setor">COMBOS (BURGER + PORÇÃO + BEBIDA)</div>
+            <div class="tela-totem__setor">BURGERS AVULSOS (SÓ O LANCHE)</div>
+            <div class="tela-totem__setor">SIDES</div>
           </div>
-          <div class="tela-totem__secao">DRINKS</div>
-          <div class="tela-totem__lista">
-            <div class="tela-totem__item">
-              <span>Cola US</span><small>The drink cola</small><b>R$ 8,90</b>
+          <div class="tela-totem__corpo">
+            <div class="tela-totem__banner">
+              <img src="../imagens-puras/tela-totem-banner.png"
+                   alt="Banner do totem com o seletor de idioma no canto direito">
             </div>
-          </div>
-          <div class="tela-totem__secao tela-totem__secao--sem-traducao">
-            MOLHOS ADICIONAIS
-          </div>
-          <div class="tela-totem__lista">
-            <div class="tela-totem__item">
-              <span>Geleia de Pimenta</span><small>Pote 30 g</small><b>R$ 3,00</b>
+            <div class="tela-totem__rolagem">
+              <div class="tela-totem__secao">Drinks</div>
+              <div class="tela-totem__grade">
+                <div class="tela-totem__card">
+                  <img src="../imagens-puras/foto-bebida-1.png" alt="">
+                  <div>
+                    <span>Cola US</span><small>The drink cola</small><b>R$ 5,00</b>
+                  </div>
+                </div>
+                <div class="tela-totem__card">
+                  <img src="../imagens-puras/foto-bebida-4.png" alt="">
+                  <div>
+                    <span>Coca Cola 350ml</span><small>Coca Cola Lata</small>
+                    <b>R$ 8,90</b>
+                  </div>
+                </div>
+                <div class="tela-totem__card">
+                  <img src="../imagens-puras/foto-bebida-3.png" alt="">
+                  <div>
+                    <span>Coca Zero 350ml</span><small>Coca Zero Lata</small>
+                    <b>R$ 8,90</b>
+                  </div>
+                </div>
+              </div>
+              <div class="tela-totem__secao tela-totem__secao--sem-traducao">
+                Molhos adicionais
+              </div>
             </div>
-            <div class="tela-totem__item">
-              <span>Molho verde</span><small>Porção</small><b>R$ 2,00</b>
+            <div class="tela-totem__sacola"><i></i><span>0</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="totem__painel">
+        <div class="totem__leitor"></div>
+        <div class="totem__impressora"></div>
+        <div class="totem__pinpad">
+          <div class="totem__tecla"><span></span><span></span><span></span></div>
+          <div class="totem__tecla"><span></span><span></span><span></span></div>
+          <div class="totem__tecla"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+      <div class="totem__coluna"></div>
+      <div class="totem__base"></div>
+    </div>
+  </div>
+
+  <!-- Tablet: baixo e à frente, na esquerda. Não sangra pela lateral: as
+       bandeiras ficam no pé da coluna da esquerda, e é justamente o que o slide
+       precisa mostrar. -->
+  <div class="sangria" style="top: 828px; left: 28px; width: 640px">
+    <div class="tablet" style="width: 640px">
+      <div class="tablet__tela">
+        <div class="tela-tablet" style="font-size: 14px">
+          <div class="tela-tablet__topo">
+            <span class="tela-tablet__logo"></span>
+            <span class="tela-tablet__busca"><i class="lupa"></i>SEARCH</span>
+            <span class="tela-tablet__acao"><i></i>MY CART</span>
+            <span class="tela-tablet__acao"><i></i>MY BILL</span>
+          </div>
+          <div class="tela-tablet__miolo">
+            <div class="tela-tablet__atalhos">
+              <div class="tela-tablet__atalho"><i></i>HIGHLIGHTS</div>
+              <div class="tela-tablet__atalho tela-tablet__atalho--ativo">
+                <i class="talher"></i>MENU
+              </div>
+              <div class="tela-tablet__atalho"><i class="sino"></i>RATE</div>
+              <div class="tela-tablet__idiomas">
+                <span class="bandeira bandeira--retangular"><span>&#127463;&#127479;</span></span>
+                <span class="bandeira bandeira--retangular bandeira--anel"><span>&#127482;&#127480;</span></span>
+                <span class="bandeira bandeira--retangular"><span>&#127466;&#127480;</span></span>
+              </div>
+            </div>
+            <div class="tela-tablet__setores">
+              <div class="tela-tablet__setor tela-tablet__setor--ativo">Drinks</div>
+              <div class="tela-tablet__setor">Molhos adicionais</div>
+              <div class="tela-tablet__setor">Combos (Burger + Porção + Bebida)</div>
+            </div>
+            <div class="tela-tablet__corpo">
+              <div class="tela-tablet__faixa">Bebidas</div>
+              <div class="tela-tablet__item">
+                <img src="../imagens-puras/foto-bebida-1.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>Cola US</span><small>The drink cola</small><b>R$ 5,00</b>
+                </div>
+                <span class="tela-tablet__pedir">Order</span>
+              </div>
+              <div class="tela-tablet__item">
+                <img src="../imagens-puras/foto-bebida-5.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>Coca Cola 350ml</span><small>Coca Cola Lata 350ml</small>
+                  <b>R$ 8,90</b>
+                </div>
+                <span class="tela-tablet__pedir">Order</span>
+              </div>
+              <div class="tela-tablet__item">
+                <img src="../imagens-puras/foto-bebida-3.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>Coca Zero 350ml</span><small>Coca Zero Lata 350ml</small>
+                  <b>R$ 8,90</b>
+                </div>
+                <span class="tela-tablet__pedir">Order</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="totem__coluna"></div>
-      <div class="totem__pe"></div>
+      <div class="tablet__suporte"></div>
     </div>
-  </div>
-
-  <div class="empurra"></div>
-
-  <div class="rodape">
-    <span class="arraste">Arraste &rarr;</span>
   </div>
 </div>
