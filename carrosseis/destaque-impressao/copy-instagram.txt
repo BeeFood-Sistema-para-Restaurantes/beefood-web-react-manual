@@ -1,5 +1,6 @@
 CARROSSEL — DESTAQUE NA IMPRESSÃO
-BeeFood · novidade de 15/09/2026 · beefood.app/novidades
+Fonte: novidade de 15/09/2026 em beefood.app/novidades (referência de produção;
+a arte não tem data, então este carrossel pode ser publicado a qualquer momento)
 
 Publicar como carrossel de feed, 8 imagens em 1080x1350 (4:5), na ordem dos
 nomes de arquivo: 01-capa, 02-custo, 03-no-papel, 04-onde-ligar, 05-em-lote,

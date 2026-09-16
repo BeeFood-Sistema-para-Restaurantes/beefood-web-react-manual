@@ -156,6 +156,11 @@ só o que a novidade afirma — item em evidência no pedido e confirmação na 
 > item destacado e na confirmação de entrega. Quando chegar, substitui a
 > ilustração do slide 6 e o selo sai.
 
+**Sem data na arte.** A capa trazia "15/09/2026" no canto superior direito e
+agora traz "1 de 8", como os outros sete. O carrossel fica pronto antes de
+entrar na fila de conteúdo, e arte datada anuncia novidade que parece velha. A
+data do cupom continua no papel — aquela é do pedido #43, não do post.
+
 **Sem rodapé nos slides 4 e 8.** A janela em sangria cobre a base inteira do
 slide 4, e os pontos desenhados por cima dela pareciam sujeira; o "4 de 8" do topo
 resolve. No 8, o celular centralizado passou a cobrir a base — e o
