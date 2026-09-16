@@ -374,6 +374,19 @@ def cap_sub(page):
     print(s.inner_text()[:3000])
 
 
+def cap_sub_verificar(page):
+    """Pede a verificação do CNAME e mostra o que o BeeFood respondeu."""
+    s = abrir_modal(page)
+    escolher_cardapio(page, s, 7000)
+    botao = s.get_by_role("button", name="Já configurei, verificar agora")
+    if botao.count():
+        botao.first.scroll_into_view_if_needed()
+        botao.first.click()
+        after_click(page, 7000)
+    print(s.inner_text()[:2500])
+    shot(page, "tmp-verificacao-cname.png")
+
+
 def cap_sub_no_ar(page):
     s = abrir_modal(page)
     escolher_cardapio(page, s, 7000)
@@ -392,6 +405,7 @@ ETAPAS = {
     "excluir": cap_excluir,
     "pos-exclusao": cap_pos_exclusao,
     "sub": cap_sub,
+    "sub-verificar": cap_sub_verificar,
     "sub-no-ar": cap_sub_no_ar,
 }
 
