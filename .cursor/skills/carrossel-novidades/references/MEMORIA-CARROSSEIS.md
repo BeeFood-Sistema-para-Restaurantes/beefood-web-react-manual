@@ -4,14 +4,14 @@ Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
 continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
 entra o que é de carrossel.
 
-Última atualização: 2026-09-15 (4ª rodada: cupom capturado só com a bebida
-destacada, serrilha de bobina, mockup 3D intercalado e vermelho legível na capa).
+Última atualização: 2026-09-16 (5ª rodada: imagem sozinha na faixa vai
+centralizada e grande, e o 3D passou a exigir conteúdo ao lado).
 
 ## Índice
 
 | Carrossel | Novidade | Pasta | Formato | Estado |
 |-----------|----------|-------|---------|--------|
-| Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ renderizado (4ª versão) |
+| Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ renderizado (5ª versão) |
 
 ## Texto: publicação, não changelog
 
@@ -138,6 +138,36 @@ Consequência de projeto: o canto superior direito do slide leva só coisa
 dispensável (a data, o "3 de 7"). As faixas largas de topo e base valem para o
 **story (9:16)**, e o `--guias` agora pinta a zona certa de cada formato.
 
+## Onde a imagem fica na faixa
+
+Regra que organiza todas as outras de arte, e que só ficou clara na 5ª rodada:
+
+> **Imagem sozinha na faixa vai centralizada e no maior tamanho que couber, e
+> reta. Encostar numa borda e inclinar só se paga quando o outro lado tem
+> conteúdo.**
+
+Era o que estava errado na capa: o cupom encostado na direita e girado em 3D
+deixava a metade esquerda do slide vazia **e** saía menor do que podia, porque a
+inclinação come altura. Centralizado e reto, o mesmo recorte cresceu e a capa
+recuperou o subtítulo de duas linhas que tinha sido cortado para dar espaço.
+
+Como isso se traduz nas classes:
+
+| Situação | Classe | Posição |
+|----------|--------|---------|
+| imagem ocupa a faixa toda, sem sangrar | `.figura` | no fluxo, `align-self: center`, a maior largura que a base aceita |
+| mockup sozinho na faixa, sangrando | `.sangria` com recuo **igual** dos dois lados | centralizado, sangrando só pela base |
+| mockup dividindo a faixa com texto | `.sangria` encostada + `.cena3d`/`.g3d` | de um lado, e aí o 3D tem função |
+
+Sangrar não é o mesmo que ficar torto: o celular do CTA sangrava pela base *e*
+estava encostado na direita sem nada do outro lado. Centralizar o recuo e subir
+de 586 para 660 px de largura fez o texto da página caber legível, e o rodapé
+saiu porque o aparelho passou a cobrir a base inteira.
+
+E o caminho inverso vale: para manter o 3D no slide do entregador, o corpo do
+texto **desceu para uma coluna de 412 px ao lado do celular**. Foi o que deu
+licença para o aparelho sair do centro.
+
 ## Mockup em sangria — o padrão
 
 Aparelho inteiro dentro da margem sai com ~420 px de largura numa arte de 1080,
@@ -211,11 +241,12 @@ entrou e foi mordido pelos dentes.
 - a máscara **come a sombra**. Em fundo escuro isso não custa nada (sombra escura
   em fundo escuro não aparece); em slide claro, custa, e aí é melhor corte reto.
 
-**O papel é objeto na bancada, não elemento sangrado.** 700 px de largura,
-`top: 600px`, `right: 40px`, inteiro dentro do slide, canto de 5 px (bobina
-térmica não tem canto arredondado, e os 24 px que o `.recorte` traz de fábrica
-faziam o papel parecer cartão). A regra da sangria continua valendo para mockup
-de aparelho — não para recorte de papel na capa.
+**O papel é objeto na bancada, não elemento sangrado** — e, estando sozinho na
+faixa, vai **centralizado**: `.figura` com 728 px de largura (o máximo que cabe
+entre o subtítulo e o "Arraste"), inteiro dentro do slide, canto de 5 px (bobina térmica não tem canto arredondado, e os 24 px que o
+`.recorte` traz de fábrica faziam o papel parecer cartão). A versão encostada na
+direita e girada em 3D deixava a metade esquerda vazia e saía menor. A regra da
+sangria continua valendo para mockup de aparelho — não para recorte de papel.
 
 **A faixa preta cai no terço de baixo, e está tudo bem.** Antes dela há 454 px de
 cabeçalho de cupom (PDV, empresa, número, data), ou seja ~40% da tira. Dá para
@@ -236,11 +267,16 @@ corte e precisa de serrilha; não compensa. O olho vai na faixa de qualquer jeit
   O 3× existe porque o print entra reduzido na moldura e o 2× já mostrava serra
   no texto pequeno.
 
-## Mockup 3D — para intercalar, não para tudo
+## Mockup 3D — só quando divide a faixa
 
 Oito slides com o mesmo mockup reto viram catálogo. `.cena3d` + `.g3d` põem o
 mockup em perspectiva: o pai dá o ponto de fuga e o filho gira. Sem o
 `perspective` no pai, `rotateY` sai como achatamento, não como profundidade.
+
+**A condição de entrada é a de cima:** o mockup precisa estar dividindo a faixa
+com alguma coisa. Imagem sozinha fica centralizada, grande e reta. Inclinar uma
+imagem que tem o slide todo para si troca tamanho por efeito, e tamanho é o que
+faz a imagem funcionar no feed.
 
 Três coisas que fazem o 3D ler como 3D:
 
@@ -258,8 +294,14 @@ estar caindo para fora do slide — foi o primeiro render desta rodada.
 **Onde não usar:** no slide em que o leitor precisa ler rótulo de interface. A
 face que recua come contraste justo onde está a informação. Neste carrossel o
 slide 4 (achar o interruptor) ficou reto e o slide 6 (ilustração do app, texto
-grande) ficou em 3D — um 3D a cada dois ou três mockups é o suficiente para dar
-ritmo.
+grande, com coluna de texto ao lado) ficou em 3D — um 3D a cada dois ou três
+mockups é o suficiente para dar ritmo.
+
+**Efeito colateral útil:** aparelho que termina dentro do slide mostra a base da
+tela, e aí a barra de ação da ilustração tem de ir para lá (`flex: 1` no
+`.tela-app__corpo` e `margin-top: auto` no `.tela-app__aviso`). Sem isso a tela
+fica com um vazio de 300 px embaixo e parece render pela metade. Em mockup que
+sangra pela base é o contrário: o aviso fica no fluxo, senão sai do slide.
 
 ## Mockup de computador
 

@@ -60,11 +60,22 @@ assunto ("a **bebida**") dá o ponto de entrada do olho. Duas palavras vermelhas
 na mesma frase não destacam nada, e emoji junto do vermelho é grifo em cima de
 grifo — escolha um.
 
+**O subtítulo é onde a frase respira.** O título corta até o osso; o subtítulo
+recupera o tom, e pode ocupar duas linhas: "Sem canetinha na lata, sem grito na
+cozinha. O cupom marca sozinho." A versão de uma linha só ("Agora o cupom já sai
+com ela marcada") tinha sido encurtada para abrir espaço para a imagem — e a
+imagem, centralizada, coube junto com as duas linhas. Aperte a imagem antes de
+apertar o subtítulo.
+
 **A imagem da capa mostra UM destaque.** A primeira versão desta capa usava o
 cupom inteiro, com duas linhas em fundo preto — e aí a imagem dizia o contrário
 do slide do limite ("não saia marcando tudo"). Quando a captura que existe não dá
 para recortar até sobrar um destaque só, gere uma captura nova em que só ele
 aparece; desenhar o cupom é o último recurso.
+
+**E ela fica centralizada e grande.** Imagem sozinha na faixa, encostada numa
+borda, deixa metade do slide vazia e sai menor do que podia. Inclinar em 3D só se
+paga quando tem conteúdo do outro lado.
 
 ## Estrutura que funciona (6 a 8 slides)
 

@@ -148,6 +148,23 @@ arquivo, não os slides.
 O logo não é `<img>`: use `<span class="logo"></span>` e o renderizador injeta o
 arquivo da skill.
 
+#### Onde a imagem fica na faixa
+
+A regra que manda nas outras:
+
+> **Imagem sozinha na faixa vai centralizada e no maior tamanho que couber, e
+> reta. Encostar numa borda e inclinar só se paga quando o outro lado tem
+> conteúdo.**
+
+| Situação | Como |
+|----------|------|
+| imagem ocupa a faixa toda, sem sangrar | `.figura` — no fluxo, centralizada, na maior largura que a base aceita |
+| mockup sozinho na faixa, sangrando | `.sangria` com recuo **igual** dos dois lados; sangra só pela base |
+| mockup dividindo a faixa com texto | `.sangria` encostada + `.cena3d`/`.g3d`; é aqui que o 3D tem função |
+
+Sangrar não é ficar torto: mockup encostado num lado com o outro lado vazio troca
+tamanho por nada.
+
 #### Mockup em sangria
 
 Aparelho inteiro dentro da margem sai com ~420 px numa arte de 1080, e a tela
@@ -166,16 +183,23 @@ escala, e o corte passa a sensação de que a tela continua.
   `.navegador__tela` e **meça a posição no arquivo** — estimar na miniatura
   circula a linha errada, já aconteceu duas vezes.
 
-#### Mockup 3D, para intercalar
+#### Mockup 3D, só quando divide a faixa
 
 `.cena3d` no contêiner e `.g3d .g3d--direita` (ou `--esquerda`) no mockup põem o
 aparelho em perspectiva. O nome é pela borda que **recua**: objeto encostado na
 direita do slide usa `--direita`, e a quina de fora afunda.
 
+- **Só com conteúdo ao lado.** É a coluna de texto ao lado que dá licença para o
+  mockup sair do centro e girar. Sozinho na faixa, ele vai centralizado, grande e
+  reto — inclinar ali troca tamanho por efeito.
 - **Um a cada dois ou três mockups.** Serve para dar ritmo; em todos, vira efeito.
 - **Nunca no slide em que o leitor precisa ler rótulo da interface.** A face que
   recua come contraste justo onde está a informação. Slide de "onde ligar" fica
   reto; slide de ilustração ou de resultado aceita 3D.
+- **Aparelho que termina dentro do slide mostra a base da tela.** Aí a barra de
+  ação da ilustração vai para lá (`flex: 1` no `.tela-app__corpo` e
+  `margin-top: auto` no `.tela-app__aviso`), senão sobra um vazio de 300 px e a
+  tela parece render pela metade. Em mockup que sangra pela base é o contrário.
 - **`.rasgado`** serrilha a base do recorte, para corte de papel não parecer erro
   de render. Vai no **mesmo elemento** do `.g3d` (a máscara recorta box-shadow e
   pseudo-elemento junto) e **come a sombra** — o que é irrelevante em fundo
@@ -227,8 +251,9 @@ fato → ângulo → slide.
 2. Abra em **tamanho real** os slides com print. Miniatura esconde texto ilegível
    e esconde realce fora de lugar — os dois erros mais comuns.
 3. Confira que o mockup em sangria não cobriu nenhuma linha de texto nem os
-   pontos do rodapé, e que o mockup em 3D não caiu no slide que pede leitura de
-   rótulo.
+   pontos do rodapé, que o mockup em 3D não caiu no slide que pede leitura de
+   rótulo, e que nenhuma imagem sozinha na faixa ficou encostada numa borda —
+   sozinha, ela vai centralizada e grande.
 4. Toda afirmação do slide está no manual ou na novidade? Se não está em nenhum
    dos dois, ou você confere no sistema, ou corta. Toda tela desenhada tem selo?
 5. Registre o que aprendeu em
@@ -272,7 +297,9 @@ carrosseis/<slug>/
   recortar até sobrar um destaque, gere uma captura nova em que só ele apareça.
 - **Metade dos slides, no mínimo, tem imagem.** Três slides de texto seguidos é
   sinal de que dois deveriam virar um.
-- **Mockup em sangria**, não aparelho inteiro no meio do slide.
+- **Mockup em sangria**, não aparelho inteiro pequeno no meio do slide. E se ele
+  está sozinho na faixa, a sangria vai centralizada, com recuo igual dos dois
+  lados.
 - **Número só se ele existir** na novidade ou no manual. "Reduz 30% dos erros"
   é invenção, e invenção em post de produto volta como reclamação.
 - **Números normais** (`1.`, `2.`, `3.`) — nunca ①②③. Mesma regra dos manuais.

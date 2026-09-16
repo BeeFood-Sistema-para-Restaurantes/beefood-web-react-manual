@@ -38,6 +38,12 @@ mesmo, e o que sobra vai para a imagem. O emoji saiu quando "bebida" ficou
 vermelha: vermelho e emoji na mesma linha são dois grifos brigando, e o vermelho
 é o que manda o olho para a palavra que carrega o assunto.
 
+O subtítulo voltou às duas linhas — "Sem canetinha na lata, sem grito na cozinha.
+O cupom marca sozinho." Ele tinha sido encurtado para "Agora o cupom já sai com
+ela marcada" só para abrir altura para a imagem; com o cupom centralizado, as
+duas coisas couberam. O título corta até o osso, o subtítulo é onde a frase
+respira.
+
 Emoji em três dos oito slides, um em cada: 🖨️ no papel, 👇 apontando o mockup e
 🛵 na rua. A capa, o custo, o lote, o limite e o CTA ficam sem — e é o vazio
 deles que faz os três funcionarem.
@@ -46,14 +52,14 @@ deles que faz os três funcionarem.
 
 | # | Arquivo | Tipo | Ideia única | Imagem |
 |---|---------|------|-------------|--------|
-| 1 | `01-capa.html` | capa com imagem | A bebida esquecida na sacola tem fim | cupom real com **uma** linha destacada, em 3D e com a base serrilhada — `imagens-puras/01-cupom-bebida.png` |
+| 1 | `01-capa.html` | capa com imagem | A bebida esquecida na sacola tem fim | cupom real com **uma** linha destacada, centralizado em `.figura` e com a base serrilhada — `imagens-puras/01-cupom-bebida.png` |
 | 2 | `02-custo.html` | texto | Você já sabe como termina quando o item fica para trás | — |
 | 3 | `03-no-papel.html` | antes × depois | O contraste é o que faz a linha ser vista | cupom desenhado em CSS (o "antes" não existe como captura) |
 | 4 | `04-onde-ligar.html` | mockup de computador | Um interruptor abaixo de Descrição | `imagens-puras/03-modal-janela.png` em `.sangria--janela`, com `.realce` no campo |
 | 5 | `05-em-lote.html` | passos | Editar em Lote marca o setor inteiro | — |
-| 6 | `06-na-rua.html` | mockup de celular 3D (ilustração) | O app do entregador pede confirmação | tela desenhada em `.tela-app`, em `.g3d`, com `.selo-ilustracao` |
+| 6 | `06-na-rua.html` | mockup de celular 3D, com texto ao lado (ilustração) | O app do entregador pede confirmação | tela desenhada em `.tela-app`, em `.g3d`, com `.selo-ilustracao` |
 | 7 | `07-limite.html` | texto | Marcar tudo anula o efeito | — |
-| 8 | `08-cta.html` | mockup de celular + CTA | Toda novidade fica registrada, com manual | `imagens-puras/04-novidades-celular.png` em sangria |
+| 8 | `08-cta.html` | mockup de celular + CTA | Toda novidade fica registrada, com manual | `imagens-puras/04-novidades-celular.png` em sangria centralizada, 660 px |
 
 Cinco dos oito slides têm imagem, e a capa é um deles.
 
@@ -79,11 +85,17 @@ mexer no eixo X, que o `.recorte--topo` não faz.
 
 O corte fecha em `680 / 554`: é a última janela que cabe, entre o traço duplo que
 fecha o bloco de itens (y 535) e o "Subtotal" (y 557). `.rasgado` come os 13 px
-finais e transforma o corte em papel destacado. E `.cena3d` + `.g3d--direita`
-tiram o papel do plano: reto sobre fundo escuro ele parecia arquivo colado; em
-perspectiva, com luz de cima à esquerda, vira objeto fotografado na bancada. O
-canto é de 5 px porque bobina térmica não tem canto arredondado — os 24 px de
-fábrica do `.recorte` faziam o papel parecer cartão.
+finais e transforma o corte em papel destacado. O canto é de 5 px porque bobina
+térmica não tem canto arredondado — os 24 px de fábrica do `.recorte` faziam o
+papel parecer cartão.
+
+**E o papel fica centralizado, grande e reto.** A versão anterior encostava o
+cupom na direita e o inclinava em `.cena3d`/`.g3d--direita`: virava objeto
+fotografado na bancada, mas deixava a metade esquerda do slide vazia **e** saía
+menor, porque a inclinação come altura. Centralizado em `.figura`, o mesmo
+recorte foi a 728 px — o máximo que cabe entre o subtítulo e o "Arraste" — e
+ainda sobrou espaço para o subtítulo voltar às duas linhas que ele tinha. O 3D foi para o slide 6, que é o único com conteúdo do lado
+do mockup.
 
 A faixa preta cai no terço de baixo do papel, porque antes dela há 454 px de
 cabeçalho de cupom. Dá para subir cortando o topo também, mas aí o topo vira
@@ -96,16 +108,32 @@ seria preciso desmarcar o produto, imprimir, remarcar. Bobina térmica em
 monoespaçada é claramente desenho, então não engana — e o cupom real já apareceu
 na capa, em tamanho grande.
 
-**Um mockup 3D, não três.** O celular do slide 6 é o único em perspectiva. Ali o
-texto da tela é grande e ninguém precisa ler rótulo de interface, então o giro só
-ajuda. No slide 4 o leitor tem que achar o interruptor: a face que recua come
-contraste justo onde está a informação, e o mockup fica reto. No slide 8 também
-reto, para o 3D não virar efeito padrão. Um a cada dois ou três mockups é o que
-dá ritmo sem chamar atenção para si.
+**Um mockup 3D, e ele é o único que divide a faixa.** O celular do slide 6 é o
+único em perspectiva, e para isso o corpo do texto desceu para uma coluna de
+412 px ao lado dele — é o texto ao lado que dá licença para o aparelho sair do
+centro e girar. Ali o texto da tela é grande e ninguém precisa ler rótulo de
+interface, então o giro só ajuda.
+
+No slide 4 o leitor tem que achar o interruptor: a face que recua come contraste
+justo onde está a informação, e o mockup fica reto. No slide 8 o celular está
+sozinho na faixa, então em vez de girar ele **centraliza e cresce** — de 586 para
+660 px, com recuo igual dos dois lados. Encostado na direita, como estava, ele
+deixava um vão à esquerda e mostrava a página de novidades menor.
+
+**Celular que termina dentro do slide mostra a base da tela.** Com 462 px de
+largura e `top: 300px`, o aparelho do slide 6 acaba em y 1335, dentro da arte. Aí
+a barra "Confirmar entrega" precisou ir para a base da tela (`flex: 1` no corpo,
+`margin-top: auto` no aviso) e a lista ganhou a quarta linha do pedido: no lugar
+onde a tela sangrava pela base, esse terço final ficava fora do slide e o aviso
+podia ficar no fluxo. Sem esse ajuste a tela fica com 300 px de branco embaixo e
+parece render pela metade.
 
 **O mockup de computador sangra pela direita.** O recorte do modal tem 605 px
 lógicos e é exibido a 1120 px (1,85×): o rótulo *Destaque na impressão* sai com
 27 px na arte, legível no feed. O painel inteiro na mesma janela sairia a 0,8×.
+Aqui a sangria é assimétrica de propósito, e não por descuido: ela é 40 px mais
+larga que o slide, e o que fica de fora tem de ser a direita, porque o campo e o
+interruptor que o slide quer mostrar estão à esquerda da janela.
 O `.realce` foi posicionado por medida do arquivo (o interruptor verde está em
 y 0,70–0,77), não no olho — as duas primeiras tentativas circularam a linha
 *"Exibido nos aplicativos…"*, que é a de cima.
@@ -121,8 +149,10 @@ só o que a novidade afirma — item em evidência no pedido e confirmação na 
 > item destacado e na confirmação de entrega. Quando chegar, substitui a
 > ilustração do slide 6 e o selo sai.
 
-**Sem rodapé no slide 4.** A janela em sangria cobre a base inteira do slide, e
-os pontos desenhados por cima dela pareciam sujeira. O "4 de 8" do topo resolve.
+**Sem rodapé nos slides 4 e 8.** A janela em sangria cobre a base inteira do
+slide 4, e os pontos desenhados por cima dela pareciam sujeira; o "4 de 8" do topo
+resolve. No 8, o celular centralizado passou a cobrir a base — e o
+`beefood.app/novidades` já está no subtítulo, em negrito, que é onde ele é lido.
 
 ## Capturas
 
