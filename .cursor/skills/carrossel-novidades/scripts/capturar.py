@@ -29,6 +29,10 @@ Uso como módulo, quando a tela exige cliques:
         pagina.screenshot(path="carrosseis/<slug>/imagens-puras/02-produtos.png",
                           type="png")
 
+Cupom impresso é caso especial: ele nasce dentro de um iframe que vai para a
+impressora, então não dá para fotografar a tela. Use `ganchar_cupom` antes do
+clique e `salvar_cupom` depois.
+
 A saída é sempre `carrosseis/<slug>/imagens-puras/`. Print é matéria-prima:
 o que o slide referencia é este arquivo, sem edição.
 """
@@ -148,6 +152,64 @@ def _logar(navegador, opcoes: dict) -> None:
     ctx.storage_state(path=str(ESTADO))
     print(f"--> logado como {LOGIN}; sessão guardada em {ESTADO}")
     ctx.close()
+
+
+def ganchar_cupom(pagina) -> None:
+    """Prepara a página para interceptar o cupom antes de ele ir para a impressora.
+
+    O sistema monta o cupom num iframe `beefood-print-frame` e chama `print()`
+    nele. Em Chromium headless o diálogo de impressão trava a página e o HTML
+    some junto. O truque é o mesmo do manual #99: observar o DOM, copiar o
+    documento do iframe assim que ele tem conteúdo e neutralizar o `print()`.
+
+    Chame antes do clique no botão de imprimir; depois, `salvar_cupom`.
+    """
+    pagina.evaluate(
+        """() => {
+          window.__cupomHTML = null;
+          const pegar = () => {
+            const f = document.getElementById('beefood-print-frame');
+            if (!f) return;
+            try {
+              const doc = f.contentDocument;
+              if (doc && doc.body && (doc.body.innerText || '').trim().length > 20) {
+                window.__cupomHTML = doc.documentElement.outerHTML;
+                if (f.contentWindow) f.contentWindow.print = () => {};
+              }
+            } catch (e) {}
+          };
+          new MutationObserver(pegar).observe(document.documentElement,
+                                              {childList: true, subtree: true});
+          setInterval(pegar, 40);
+        }"""
+    )
+
+
+def salvar_cupom(pagina, destino: Path, largura: int = 600) -> str:
+    """Fotografa o cupom interceptado por `ganchar_cupom` e devolve o texto dele.
+
+    A bobina é estreita e alta: renderiza numa aba própria com `full_page`, então
+    a imagem sai na altura do cupom e não na do viewport. O texto voltar é o que
+    permite conferir no script se o destaque saiu nos itens certos.
+    """
+    html = None
+    for _ in range(80):
+        html = pagina.evaluate("() => window.__cupomHTML")
+        if html:
+            break
+        pagina.wait_for_timeout(250)
+    if not html:
+        raise SystemExit("ERRO: o cupom não apareceu — o gancho foi instalado antes do clique?")
+
+    aba = pagina.context.new_page()
+    aba.set_viewport_size({"width": largura, "height": 1100})
+    aba.set_content(html, wait_until="domcontentloaded")
+    aba.wait_for_timeout(1500)
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    aba.screenshot(path=str(destino), type="png", full_page=True)
+    texto = aba.inner_text("body")
+    aba.close()
+    return texto
 
 
 def recorte_em_px(recorte: str, largura: int, altura: int) -> dict:
