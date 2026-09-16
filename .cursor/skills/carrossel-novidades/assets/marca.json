@@ -1,0 +1,40 @@
+{
+  "nome": "BeeFood",
+  "site": "beefood.app",
+  "novidades": "https://beefood.app/novidades",
+  "feed": "https://beefood.app/novidades/feed.xml",
+  "cores": {
+    "primaria": "#ef4239",
+    "primaria_escura": "#d92e26",
+    "primaria_clara": "#fdeceb",
+    "escuro": "#1e1e1e",
+    "texto": "#2b2b2b",
+    "texto_suave": "#6b6b6b",
+    "fundo": "#ffffff",
+    "fundo_suave": "#faf9f8",
+    "borda": "#ececec",
+    "novidade": "#16964e",
+    "melhoria": "#2196f3",
+    "amarelo": "#fbbf24"
+  },
+  "fontes": {
+    "titulo": "Mulish",
+    "corpo": "Mulish",
+    "pesos": [400, 700, 900]
+  },
+  "logo": "logo-beefood.png",
+  "tom": [
+    "português do Brasil, direto, sem jargão de TI",
+    "fala com dono de restaurante: problema do salão antes da tela do sistema",
+    "verbo no imperativo nas instruções, frase curta",
+    "números normais (1., 2., 3.) — nunca ①②③",
+    "no máximo um emoji por slide, e só quando a novidade já usa um"
+  ],
+  "formatos": {
+    "4:5": [1080, 1350],
+    "1:1": [1080, 1080],
+    "9:16": [1080, 1920]
+  },
+  "formato_padrao": "4:5",
+  "max_slides": 10
+}

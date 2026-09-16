@@ -1,0 +1,44 @@
+<!-- Modelo: MOCKUP DE CELULAR EM SANGRIA CENTRALIZADA (o padrão).
+     Um aparelho só, com o texto todo acima dele, saindo pela borda de baixo.
+     Como ele está sozinho na faixa, a sangria vai **centralizada** — recuo igual
+     dos dois lados — e na maior largura que a base aceita. Encostar num lado
+     deixa um vão do outro e o aparelho sai menor de graça; para inclinar em 3D,
+     use o modelo `ilustracao-app.html`, que põe texto ao lado.
+
+     Dois celulares lado a lado couberam no 4:5 mas ninguém lê a tela deles no
+     feed — só use lado a lado quando a comparação for entre as duas telas, e
+     mesmo aí prefira dois slides.
+
+     A moldura é CSS: o print entra inteiro, sem perder nitidez. Capture com
+     `--dispositivo celular` (390x844 @3x).
+
+     Orçamento de espaço: com o celular em `top: 520px`, o texto acima cabe em
+     chapéu + título de 2 linhas (`titulo--pequeno`) + 2 linhas de corpo. A
+     terceira linha de corpo já cai atrás do aparelho. -->
+<div class="slide">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="data">4 de 8</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 50px; max-width: 880px">
+    <span class="chapeu">No celular do cliente</span>
+    <h2 class="titulo titulo--pequeno">
+      A etiqueta aparece <span class="destaque">antes</span> de ele pedir
+    </h2>
+    <p class="corpo">
+      Duas linhas de largura cheia, e nada além disso.
+    </p>
+  </div>
+
+  <div class="sangria" style="top: 520px; right: 210px; width: 660px">
+    <div class="celular">
+      <div class="celular__tela">
+        <img src="../imagens-puras/04-cardapio.png" alt="Cardápio digital no celular">
+      </div>
+    </div>
+  </div>
+
+  <!-- Sem rodapé: o aparelho centralizado cobre a base do slide, e ponto
+       desenhado por cima de print parece sujeira. O "4 de 8" do topo basta. -->
+</div>

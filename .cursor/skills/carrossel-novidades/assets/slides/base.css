@@ -1,0 +1,800 @@
+/* Sistema visual dos carrosséis BeeFood.
+ *
+ * Injetado pelo renderizar.py em todo slide, junto com as @font-face da Mulish.
+ * O slide é um fragmento de body: ele nunca carrega este arquivo sozinho.
+ *
+ * Medidas pensadas para 1080 px de largura. Quem renderiza em 1:1 ou 9:16 só
+ * muda a altura do .slide (a variável --altura vem do renderizador).
+ */
+
+:root {
+  --primaria: #ef4239;
+  --primaria-escura: #d92e26;
+  --primaria-clara: #fdeceb;
+  --escuro: #1e1e1e;
+  --texto: #2b2b2b;
+  --texto-suave: #6b6b6b;
+  --fundo: #ffffff;
+  --fundo-suave: #faf9f8;
+  --borda: #ececec;
+  --novidade: #16964e;
+  --melhoria: #2196f3;
+  --amarelo: #fbbf24;
+
+  --margem: 88px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Mulish, sans-serif;
+  color: var(--texto);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ------------------------------------------------------------------ slide */
+
+.slide {
+  position: relative;
+  width: var(--largura);
+  height: var(--altura);
+  padding: var(--margem);
+  background: var(--fundo);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Capa: fundo escuro e um halo da cor da marca no canto. */
+.slide--capa {
+  background: var(--escuro);
+  color: #fff;
+}
+
+.slide--capa::after {
+  content: "";
+  position: absolute;
+  right: -240px;
+  top: -240px;
+  width: 760px;
+  height: 760px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(239, 66, 57, 0.55) 0%, rgba(239, 66, 57, 0) 70%);
+}
+
+.slide--suave {
+  background: var(--fundo-suave);
+}
+
+/* Empurra o que vier depois para o rodapé. */
+.empurra {
+  flex: 1;
+}
+
+/* -------------------------------------------------------------------- topo */
+
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* O logo não é <img>: o renderizar.py injeta o arquivo da skill em --logo, e
+ * assim nenhum carrossel precisa carregar uma cópia do arquivo. */
+.logo {
+  width: 163px;
+  height: 52px;
+  background: var(--logo) left center / contain no-repeat;
+}
+
+.slide--capa .logo {
+  filter: brightness(0) invert(1);
+}
+
+.data {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--texto-suave);
+  letter-spacing: 0.02em;
+}
+
+.slide--capa .data {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ------------------------------------------------------------------ pílula */
+
+.pilula {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--primaria-clara);
+  color: var(--primaria-escura);
+}
+
+.pilula--novidade {
+  background: rgba(22, 150, 78, 0.12);
+  color: var(--novidade);
+}
+
+.pilula--melhoria {
+  background: rgba(33, 150, 243, 0.12);
+  color: var(--melhoria);
+}
+
+.slide--capa .pilula {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+/* ------------------------------------------------------------------ textos */
+
+.chapeu {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--primaria);
+}
+
+.titulo {
+  font-size: 92px;
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.titulo--medio {
+  font-size: 68px;
+  line-height: 1.08;
+}
+
+.titulo--pequeno {
+  font-size: 52px;
+  line-height: 1.14;
+}
+
+.destaque {
+  color: var(--primaria);
+}
+
+/* Na capa escura o #ef4239 puro fica em 4,4:1 e o vermelho some; clarear demais
+ * (o #ff8078 de antes) vira salmão e deixa de ler como a cor da marca. O
+ * #ff5a50 dá 5,4:1 sobre o #1e1e1e e continua vermelho. */
+.slide--capa .destaque {
+  color: #ff5a50;
+}
+
+.linha {
+  width: 120px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--primaria);
+}
+
+.subtitulo {
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.42;
+  color: var(--texto-suave);
+}
+
+.slide--capa .subtitulo {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.corpo {
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.corpo b,
+.corpo strong {
+  font-weight: 900;
+}
+
+/* Caminho de menu do sistema: Cardápio → Produtos */
+.caminho {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 12px;
+  background: var(--primaria-clara);
+  color: var(--primaria-escura);
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- listas */
+
+.marcadores {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.marcadores li {
+  position: relative;
+  padding-left: 58px;
+  font-size: 36px;
+  line-height: 1.42;
+}
+
+.marcadores li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--primaria);
+}
+
+.passos {
+  list-style: none;
+  counter-reset: passo;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.passos li {
+  counter-increment: passo;
+  position: relative;
+  padding-left: 88px;
+  font-size: 36px;
+  line-height: 1.4;
+  min-height: 62px;
+}
+
+.passos li::before {
+  content: counter(passo) ".";
+  position: absolute;
+  left: 0;
+  top: -4px;
+  font-size: 46px;
+  font-weight: 900;
+  color: var(--primaria);
+}
+
+/* ---------------------------------------------------------------- cartões */
+
+.cartao {
+  padding: 40px 44px;
+  border: 2px solid var(--borda);
+  border-radius: 32px;
+  background: #fff;
+}
+
+.cartao--marca {
+  border-color: transparent;
+  background: var(--primaria-clara);
+}
+
+.cartao--escuro {
+  border-color: transparent;
+  background: var(--escuro);
+  color: #fff;
+}
+
+.cartao__rotulo {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.cartao--escuro .cartao__rotulo {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.par {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.numerao {
+  font-size: 150px;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--primaria);
+}
+
+/* --------------------------------------------------------------- mockups */
+
+/* SANGRIA — o modo padrão de mostrar aparelho no carrossel.
+ *
+ * O mockup começa por volta de 27% da altura, ocupa pouco mais de meia largura
+ * e sai pela borda de baixo. Aparelho inteiro dentro da margem fica pequeno e a
+ * tela ilegível; em sangria ele ganha escala, e o corte na borda passa a
+ * sensação de que a tela continua. O texto do slide mora acima dele.
+ *
+ * Medidas vindas do esboço do dono: topo em 371 px, largura ~586 px, recuo de
+ * 118 px na direita. Ajuste por estilo inline quando o conteúdo pedir.
+ *
+ * Sangrar não é o mesmo que ficar torto. Se o mockup está sozinho na faixa,
+ * **centralize a sangria** (recuo igual dos dois lados) e use a largura que a
+ * base aceitar; encostar num lado só se paga quando o outro lado tem conteúdo.
+ */
+.sangria {
+  position: absolute;
+  top: 371px;
+  right: 118px;
+  z-index: 1;
+}
+
+.sangria--celular {
+  width: 586px;
+}
+
+/* Janela de navegador é o mockup de computador de um sistema web. Sendo
+ * deitada, ela sangra pela direita (e de raspão pela base) em vez de pela base
+ * como o celular — é o que permite passar de 1000 px de largura e deixar o
+ * texto da tela legível. */
+.sangria--janela {
+  width: 1120px;
+  right: -180px;
+  top: 700px;
+}
+
+/* FIGURA — imagem que ocupa a faixa inteira, sem nada do lado.
+ *
+ * Aí ela vai **centralizada e no maior tamanho que couber**, e reta. Encostar
+ * numa borda e inclinar só se paga quando o mockup divide a faixa com alguma
+ * coisa; sozinho, deixa uma metade do slide vazia e a imagem menor do que
+ * podia. É a diferença entre `.figura` (fluxo, centralizada) e `.sangria`
+ * (absoluta, encostada numa borda).
+ */
+.figura {
+  align-self: center;
+  margin-top: 36px;
+}
+
+/* Texto e rodapé precisam ficar por cima da sangria, nunca por baixo. */
+.pilha,
+.rodape,
+.topo {
+  position: relative;
+  z-index: 2;
+}
+
+/* Anel vermelho por cima do mockup, para dizer "olhe aqui". Posicione por
+ * porcentagem dentro do .navegador__tela / .celular__tela: assim o realce
+ * acompanha a escala do mockup e não quebra quando a largura muda. */
+.realce {
+  position: absolute;
+  z-index: 3;
+  border: 5px solid var(--primaria);
+  border-radius: 16px;
+  box-shadow: 0 0 0 4px rgba(239, 66, 57, 0.18);
+}
+
+/* ------------------------------------------------------------------- 3D
+ *
+ * Mockup em perspectiva, para intercalar com os retos e dar ritmo ao carrossel.
+ *
+ * Só entra quando o mockup **divide a faixa com alguma coisa** — uma coluna de
+ * texto ao lado, tipicamente. Imagem sozinha na faixa vai centralizada, grande e
+ * reta (`.figura`): inclinada e encostada numa borda, ela deixa metade do slide
+ * vazia e ainda sai menor do que podia.
+ *
+ * E NÃO vale no slide em que o leitor precisa ler rótulo da interface, porque a
+ * face girada come contraste onde ela recua.
+ *
+ * A cena define o ponto de fuga e o filho gira dentro dela. Sem o `perspective`
+ * no pai, `rotateY` sai como achatamento, não como profundidade.
+ */
+.cena3d {
+  perspective: 2200px;
+  perspective-origin: 50% 35%;
+}
+
+.g3d {
+  position: relative;
+}
+
+/* Luz e sombra têm de vir do mesmo lado da quina que está na frente, senão a
+ * face girada sai chapada e o 3D não lê. O padrão serve o caso comum — mockup na
+ * direita, quina de fora à frente, luz de cima à direita e sombra caindo para a
+ * esquerda; `--na-esquerda` espelha as duas coisas. */
+.g3d::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(-104deg,
+    rgba(255, 255, 255, 0.30) 0%,
+    rgba(255, 255, 255, 0) 34%,
+    rgba(0, 0, 0, 0.05) 70%,
+    rgba(0, 0, 0, 0.18) 100%);
+}
+
+/* SEMPRE VIRADO PARA DENTRO, e o nome é pelo lado do slide em que o mockup
+ * está, não pelo eixo do `rotateY` — assim não dá para usar errado.
+ *
+ * Mockup encostado na direita usa `--na-direita`: a quina de dentro, a que
+ * aponta para o texto, é a que afunda, e o aparelho parece entrar no slide.
+ * Girado ao contrário, a face abre para o texto e o aparelho parece cair para
+ * fora da arte; também aperta o vão entre a coluna de texto e o mockup, porque a
+ * quina de dentro é que vem para frente.
+ */
+.g3d--na-direita {
+  transform: rotateY(-14deg) rotateX(5deg) rotateZ(2deg);
+  box-shadow: -34px 54px 92px -34px rgba(0, 0, 0, 0.55);
+}
+
+.g3d--na-esquerda {
+  transform: rotateY(14deg) rotateX(5deg) rotateZ(-2deg);
+  box-shadow: 34px 54px 92px -34px rgba(0, 0, 0, 0.55);
+}
+
+.g3d--na-esquerda::after {
+  background: linear-gradient(104deg,
+    rgba(255, 255, 255, 0.30) 0%,
+    rgba(255, 255, 255, 0) 34%,
+    rgba(0, 0, 0, 0.05) 70%,
+    rgba(0, 0, 0, 0.18) 100%);
+}
+
+/* Moldura de celular: proporção 390×844 do cardápio público. */
+.celular {
+  position: relative;
+  width: 420px;
+  aspect-ratio: 390 / 844;
+  padding: 14px;
+  border-radius: 56px;
+  background: #101010;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.45);
+  flex: none;
+}
+
+.sangria .celular {
+  width: 100%;
+  border-radius: 68px;
+  padding: 16px;
+}
+
+.sangria .celular__tela {
+  border-radius: 54px;
+}
+
+.celular__tela {
+  width: 100%;
+  height: 100%;
+  border-radius: 44px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.celular__tela img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Sem notch de propósito: a ilha desenhada em cima da captura tapa o cabeçalho
+ * da própria tela que o slide quer mostrar. A moldura já basta para o leitor
+ * entender que é celular. */
+
+/* Moldura de navegador: para print do painel (2160×1350 → 16:10). */
+.navegador {
+  border-radius: 28px;
+  overflow: hidden;
+  background: #fff;
+  border: 2px solid var(--borda);
+  box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.28);
+}
+
+.navegador__barra {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 26px;
+  background: #f4f4f5;
+  border-bottom: 2px solid var(--borda);
+}
+
+.navegador__bolinha {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #d9d9de;
+}
+
+.navegador__url {
+  margin-left: 14px;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+
+.navegador__tela {
+  position: relative;
+}
+
+.navegador img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Recorte de print sem moldura, para destacar um detalhe da tela. */
+.recorte {
+  border-radius: 24px;
+  overflow: hidden;
+  border: 2px solid var(--borda);
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.26);
+}
+
+.recorte img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Print alto (cupom, celular) que só interessa pelo topo: dê um `aspect-ratio`
+ * inline ao .recorte e a imagem se ajusta sem editar o arquivo puro. */
+.recorte--topo img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Bobina arrancada: serrilha a base do elemento.
+ *
+ * Serve ao recorte de cupom, que sempre corta o papel no meio de algum lugar.
+ * Borda reta ali parece erro de render; dente parece papel destacado.
+ *
+ * Vai no MESMO elemento do `.g3d`: a máscara recorta também o box-shadow e o
+ * brilho do pseudo-elemento, então o dente sai limpo em vez de aparecer dentro
+ * de um retângulo. Só a base é serrilhada — cupom cortado em cima come o
+ * cabeçalho da impressão.
+ */
+.rasgado {
+  --dente: 26px;
+  --dente-altura: 13px;
+  -webkit-mask:
+    linear-gradient(#000 0 0) top / 100% calc(100% - var(--dente-altura)) no-repeat,
+    conic-gradient(from 45deg at top, #0000, #000 1deg 89deg, #0000 90deg)
+      bottom / var(--dente) var(--dente-altura) repeat-x;
+}
+
+/* Cupom térmico (bobina de 80 mm) desenhado em CSS. */
+.cupom {
+  width: 100%;
+  max-width: 460px;
+  padding: 32px 30px;
+  background: #fff;
+  font-family: "Courier New", monospace;
+  font-size: 26px;
+  line-height: 1.5;
+  box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.3);
+}
+
+.cupom__linha {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 4px 8px;
+}
+
+.cupom__linha--destaque {
+  background: var(--escuro);
+  color: #fff;
+  font-weight: 700;
+}
+
+.cupom__corte {
+  border-top: 3px dashed #c9c9c9;
+  margin: 16px 0;
+}
+
+/* ----------------------------------------------------------- ilustração */
+
+/* Tela de aplicativo desenhada, para o caso em que a captura real não existe
+ * (app Android não roda no Cloud Agent). Vocabulário de propósito diferente do
+ * produto: cartão arredondado, tipografia do carrossel, sem imitar pixel a
+ * pixel. Ilustração que parece captura engana o leitor — por isso o
+ * `.selo-ilustracao` é obrigatório no slide que usa isto. */
+.tela-app {
+  height: 100%;
+  background: var(--fundo-suave);
+  display: flex;
+  flex-direction: column;
+  font-size: 26px;
+}
+
+.tela-app__barra {
+  padding: 26px 34px 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+
+.tela-app__topo {
+  padding: 14px 34px 26px;
+  background: var(--fundo-suave);
+}
+
+.tela-app__titulo {
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.tela-app__corpo {
+  padding: 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tela-app__cartao {
+  background: #fff;
+  border: 2px solid var(--borda);
+  border-radius: 24px;
+  padding: 26px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tela-app__linha {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 14px;
+  border-radius: 12px;
+}
+
+.tela-app__linha--destaque {
+  background: var(--escuro);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Por padrão o aviso fica no fluxo, logo abaixo do cartão: em celular que sangra
+ * pela base, o terço de baixo da tela está fora do slide, e aviso colado na base
+ * da tela sai junto. Quando o aparelho termina DENTRO do slide, a base da tela
+ * aparece e o aviso deve ir para lá — `flex: 1` no `__corpo` e
+ * `margin-top: auto` aqui, por estilo inline no slide. */
+.tela-app__aviso {
+  background: var(--escuro);
+  color: #fff;
+  border-radius: 24px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  line-height: 1.35;
+}
+
+.tela-app__botao {
+  align-self: stretch;
+  text-align: center;
+  padding: 18px;
+  border-radius: 999px;
+  background: var(--primaria);
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.selo-ilustracao {
+  position: absolute;
+  z-index: 4;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: rgba(30, 30, 30, 0.72);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------- rodapé */
+
+.rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+
+.slide--capa .rodape {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.pontos {
+  display: flex;
+  gap: 10px;
+}
+
+.pontos span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--borda);
+}
+
+.pontos span.on {
+  background: var(--primaria);
+  width: 40px;
+}
+
+.slide--capa .pontos span {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.arraste {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primaria);
+}
+
+.slide--capa .arraste {
+  color: #ff8078;
+}
+
+/* ------------------------------------------------------------ espaçamento */
+
+.pilha {
+  display: flex;
+  flex-direction: column;
+}
+
+.g16 { gap: 16px; }
+.g24 { gap: 24px; }
+.g32 { gap: 32px; }
+.g40 { gap: 40px; }
+.g56 { gap: 56px; }
+
+.centro {
+  align-items: center;
+  text-align: center;
+}
+
+/* No feed, o que o Instagram desenha por cima da arte é o contador do carrossel,
+ * no canto superior direito — por isso o `.data` do topo direito guarda coisa
+ * dispensável (a data, o "3 de 7") e nunca informação. No story (9:16) as faixas
+ * cobertas são largas, no topo e na base. Este elemento não é escrito no slide:
+ * o `renderizar.py --guias` injeta e pinta as faixas do formato. */
+.zona-segura {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
