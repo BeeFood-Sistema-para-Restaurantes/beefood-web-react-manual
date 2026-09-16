@@ -75,9 +75,18 @@ justamente o que precisa ser lido).
 
 ## Decisões
 
-- **Etiquetas na faixa escurecida da esquerda.** O painel abre à direita e ocupa
-  pouco mais de 40% da largura; qualquer seta nascida dentro dele cruzaria texto. As
-  etiquetas ficam fora do painel e as setas entram na horizontal.
+- **Recortar o painel lateral (pedido do dono, 16/09).** A captura inteira tem
+  2160 px e o painel começa exatamente em **x = 1154**: mais da metade da imagem era
+  tela escurecida sem uso, e o texto do painel ficava pequeno na página publicada.
+  Agora o `annotate.py` recorta em `PAINEL = (1154, 0, 2160, 1350)` e cola uma
+  **faixa branca de 150 px à esquerda**, que é onde ficam as etiquetas — as setas
+  entram na horizontal e nenhuma cruza texto. Cada imagem também é cortada na altura
+  (`ate(y)`) para não sobrar branco embaixo. As **coordenadas continuam sendo medidas
+  na captura pura de 2160 px**; a função converte. Só a `01`, que é a tela de
+  Aplicativos, fica inteira.
+- Etiqueta e traço mantêm o tamanho da captura inteira (`RAIO = 27`, `TRACO = 4`)
+  passados na mão: o recorte não redimensiona o painel, então a proporção
+  etiqueta × texto continua igual à dos outros manuais.
 - Captura da instrução de DNS precisa **rolar até o botão** *Já configurei,
   verificar agora* (`scroll_into_view_if_needed`), senão o 4º servidor fica cortado
   — foi o que aconteceu na primeira tentativa. Etapa própria no script:

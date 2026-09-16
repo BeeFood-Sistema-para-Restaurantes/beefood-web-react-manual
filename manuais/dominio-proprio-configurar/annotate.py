@@ -1,8 +1,13 @@
 """Anota os screenshots do #101 — Domínio próprio e subdomínio.
 
-Coordenadas em pixels da imagem final (2160x1350). O painel do Domínio Próprio
-abre à direita, então as etiquetas ficam na faixa escurecida da esquerda e as
-setas entram na horizontal — assim nenhuma seta cruza texto do painel.
+Coordenadas sempre em pixels da **captura pura** (2160x1350), inclusive nas
+imagens recortadas — a função converte.
+
+O Domínio Próprio abre num painel lateral que começa em x=1154 e vai até a borda
+direita: os 1154 px da esquerda são a tela escurecida, sem uso. Toda imagem desse
+painel é recortada em `PAINEL` e ganha uma faixa branca de `MARGEM` px à esquerda,
+onde ficam as etiquetas — assim nenhuma seta cruza texto e nada de espaço morto
+entra no manual.
 """
 import os
 import math
@@ -11,6 +16,11 @@ from PIL import Image, ImageDraw, ImageFont
 SRC = "imagens-puras"
 OUT = "imagens-tratadas"
 os.makedirs(OUT, exist_ok=True)
+
+PAINEL = (1154, 0, 2160, 1350)   # painel lateral do Domínio Próprio
+MARGEM = 150                     # faixa branca à esquerda, para as etiquetas
+RAIO = 27                        # etiqueta do tamanho da captura inteira (2160 px)
+TRACO = 4
 
 GREEN = (22, 150, 78)
 WHITE = (255, 255, 255)
@@ -49,10 +59,24 @@ def badge(d, cx, cy, r, num, fnt):
            t, fill=WHITE, font=fnt)
 
 
-def annotate(name, markers=(), ring=(), crop=None, out_name=None, r=None, w=None):
+def preparar(name, crop, pad_left):
+    """Recorta e devolve a imagem já com a faixa branca, mais o deslocamento em x."""
     img = Image.open(os.path.join(SRC, name)).convert("RGBA")
+    dx = 0
     if crop:
         img = img.crop(crop)
+        dx = -crop[0]
+    if pad_left:
+        base = Image.new("RGBA", (img.width + pad_left, img.height), WHITE + (255,))
+        base.paste(img, (pad_left, 0))
+        img = base
+        dx += pad_left
+    return img, dx
+
+
+def annotate(name, markers=(), ring=(), crop=None, pad_left=0, out_name=None,
+             r=None, w=None):
+    img, dx = preparar(name, crop, pad_left)
     W, H = img.size
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(overlay)
@@ -60,9 +84,10 @@ def annotate(name, markers=(), ring=(), crop=None, out_name=None, r=None, w=None
     fnt = font(int(r * 1.25))
     w = w or max(2, int(W * 0.0022))
     for (x0, y0, x1, y1) in ring:
-        d.rounded_rectangle([x0, y0, x1, y1], radius=int(r * 0.6),
+        d.rounded_rectangle([x0 + dx, y0, x1 + dx, y1], radius=int(r * 0.6),
                             outline=GREEN + (A_LINE,), width=w)
     for (num, tx, ty, bx, by) in markers:
+        tx, bx = tx + dx, bx + dx
         ang = math.atan2(ty - by, tx - bx)
         draw_arrow(d, bx + (r + 6) * math.cos(ang), by + (r + 6) * math.sin(ang),
                    tx, ty, w)
@@ -72,41 +97,56 @@ def annotate(name, markers=(), ring=(), crop=None, out_name=None, r=None, w=None
     print("OK", out_name or name, W, H)
 
 
-def passthrough(name):
-    """Imagem de contexto: entra no manual sem seta."""
-    Image.open(os.path.join(SRC, name)).convert("RGB").save(os.path.join(OUT, name))
-    print("OK (contexto)", name)
+def passthrough(name, crop=None):
+    """Imagem de contexto: entra no manual sem seta (mas recortada igual às outras)."""
+    img, _ = preparar(name, crop, 0)
+    img.convert("RGB").save(os.path.join(OUT, name))
+    print("OK (contexto)", name, img.size[0], img.size[1])
 
 
-# --- 01 Aplicativos → Domínio Próprio ---------------------------------------
+def ate(fim: int):
+    """Painel cortado na altura `fim` — corta o branco sobrando embaixo."""
+    return (PAINEL[0], PAINEL[1], PAINEL[2], fim)
+
+
+def painel(name, markers=(), ring=(), crop=PAINEL, **kw):
+    """Atalho para as imagens do painel lateral."""
+    annotate(name, markers=markers, ring=ring, crop=crop, pad_left=MARGEM,
+             r=RAIO, w=TRACO, **kw)
+
+
+# --- 01 Aplicativos → Domínio Próprio (tela inteira, sem recorte) -----------
 annotate("01-aplicativos-dominio.png",
          markers=[(1, 295, 599, 411, 599),
                   (2, 1968, 719, 2078, 719)])
 
 # --- 02 Passo 1: escolher o cardápio ----------------------------------------
-annotate("02-escolher-cardapio.png",
-         markers=[(1, 1477, 352, 1477, 500)],
-         ring=[(1187, 228, 2126, 340)])
+painel("02-escolher-cardapio.png",
+       markers=[(1, 1190, 284, 1065, 284)],
+       ring=[(1187, 228, 2126, 340)],
+       crop=ate(440))
 
 # --- 03 Passo 2: os dois tipos (contexto — os dois cartões são o conteúdo) --
-passthrough("03-escolher-tipo.png")
+passthrough("03-escolher-tipo.png", crop=ate(760))
 
 # --- 04 Passo 3: endereço conferido -----------------------------------------
-annotate("04-endereco-conferido.png",
-         markers=[(1, 1183, 300, 1065, 300),
-                  (2, 1183, 454, 1065, 454),
-                  (3, 1183, 626, 1065, 626),
-                  (4, 1983, 939, 1983, 1044)])
+painel("04-endereco-conferido.png",
+       markers=[(1, 1183, 300, 1065, 300),
+                (2, 1183, 454, 1065, 454),
+                (3, 1183, 626, 1065, 626),
+                (4, 1983, 939, 1983, 1044)],
+       crop=ate(1130))
 
 # --- 05 Cadastrado: preparando os dados do DNS ------------------------------
-annotate("05-cadastrado-preparando.png",
-         markers=[(1, 1183, 802, 1065, 802)])
+painel("05-cadastrado-preparando.png",
+       markers=[(1, 1183, 802, 1065, 802)],
+       crop=ate(1080))
 
 # --- 06 Instrução: trocar os servidores DNS ---------------------------------
-annotate("06-instrucao-ns.png",
-         markers=[(1, 1882, 783, 1065, 783),
-                  (2, 1194, 960, 1065, 960),
-                  (3, 1219, 1196, 1065, 1196)],
-         ring=[(1202, 819, 2109, 1114)])
+painel("06-instrucao-ns.png",
+       markers=[(1, 1882, 783, 1065, 783),
+                (2, 1194, 960, 1065, 960),
+                (3, 1219, 1196, 1065, 1196)],
+       ring=[(1202, 819, 2109, 1114)])
 
 print("done")

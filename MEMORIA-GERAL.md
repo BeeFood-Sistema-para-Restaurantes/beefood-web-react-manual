@@ -131,6 +131,32 @@ olho: uma cópia temporária com linha a cada 0,05 e rótulo a cada 0,10, e os v
 direto da grade. É rápido de escrever (umas 20 linhas de Pillow, em `/tmp`, fora do repositório)
 e acerta quase tudo de primeira. Usado no #24 em 16 capturas: das 29 setas, 24 nasceram no lugar.
 
+### Padrão oficial — tela em painel lateral (`Sheet`)
+
+Telas que abrem num painel à direita (o **Domínio Próprio** do #101 é o primeiro
+caso) desperdiçam mais da metade da imagem: no viewport de 1440×900 com DPR 1.5 o
+painel começa em **x = 1154** dos 2160 px, e o resto é a tela escurecida. Print
+inteiro deixa o texto do painel pequeno na página publicada — foi o pedido do dono em
+16/09/2026: *"as imagens precisam ficar mais recortadas quando for essa modal
+lateral, pois 60% da tela à esquerda é sem uso"*.
+
+O padrão:
+
+- **Recortar no painel** e colar uma **faixa branca de ~150 px à esquerda**, que é
+  onde ficam as etiquetas numeradas. As setas entram na **horizontal**, então nenhuma
+  cruza texto — dentro do painel não há espaço vazio para etiqueta.
+- Cortar também **na altura**, logo depois do último elemento útil, para não sobrar
+  branco embaixo (o painel tem rodapé fixo e sobra um vão no meio).
+- **Medir as coordenadas na captura pura inteira** e deixar o `annotate.py` converter
+  (`crop` + `pad_left`, com o deslocamento aplicado a setas e molduras). Assim a
+  medição não muda quando o recorte muda.
+- Passar `r` e `w` **na mão** com os valores da captura inteira (27 e 4). O recorte
+  não redimensiona nada, e o cálculo automático por largura encolheria a etiqueta.
+- A tela que **contém** o painel (o card que abre) entra inteira, como contexto.
+
+Implementação de referência: `manuais/dominio-proprio-configurar/annotate.py`
+(`PAINEL`, `MARGEM`, `ate(y)` e o atalho `painel(...)`).
+
 ### Padrão oficial — tira de celulares (cardápio público)
 
 Não coloque vários prints altos de celular soltos no `.md`. Monte **uma tira**
