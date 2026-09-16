@@ -4,8 +4,8 @@ Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
 continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
 entra o que é de carrossel.
 
-Última atualização: 2026-09-16 (7ª rodada: as duas artes oficiais do logo, uma
-por tipo de fundo, e a entrega em .zip com as imagens e a copy).
+Última atualização: 2026-09-16 (8ª rodada: fora a data da arte — o topo direito
+leva só o contador, porque carrossel é publicado depois de pronto).
 
 ## Índice
 
@@ -159,6 +159,27 @@ A tabela vale para mockup **dentro da margem**, onde a largura útil é 904 px. 
 sangria a largura de exibição vai a 1120 px, o que empurra o teto de ~440 px para
 ~620 px lógicos — a conta refeita está em *Mockup de computador*, abaixo.
 
+## Nada de data na arte
+
+A capa saía com a data da novidade no canto superior direito, que parecia
+inofensiva — é o canto que o contador do Instagram cobre, e era informação
+dispensável. **Datava o post.** Carrossel aprovado não é publicado no dia: ele
+entra na fila de conteúdo e sai dias ou semanas depois, e aí a arte anuncia uma
+novidade que parece velha. Pior, ela envelhece no arquivo: o mesmo carrossel não
+pode ser republicado nem reaproveitado.
+
+O topo direito agora leva só **"N de 8"**, na capa também. A classe deixou de se
+chamar `.data` e virou `.contador` — nome de classe é regra, e enquanto ela se
+chamava `.data` alguém ia pôr uma data ali de novo.
+
+Onde a data **pode** ficar:
+
+- **dentro de um print de verdade.** O cupom da capa sai com "15/09/2026 21:01"
+  porque é a data do pedido impresso, e essa é do papel, não do post. Cupom sem
+  data pareceria adulterado.
+- **no `roteiro.md` e no cabeçalho do `copy-instagram.txt`**, como referência de
+  qual novidade é. É nota de produção, não sai na arte.
+
 ## Zona segura — o que o Instagram realmente cobre
 
 A primeira versão do `--guias` pintava 120 px no topo e 180 px na base do 4:5.
@@ -167,7 +188,7 @@ o cabeçalho do perfil e os botões de curtir ficam fora da imagem. O que ele
 desenha por cima é o **contador do carrossel**, no canto superior direito.
 
 Consequência de projeto: o canto superior direito do slide leva só coisa
-dispensável (a data, o "3 de 7"). As faixas largas de topo e base valem para o
+dispensável — o `.contador`, e nada além dele. As faixas de topo e base valem para o
 **story (9:16)**, e o `--guias` agora pinta a zona certa de cada formato.
 
 ## Onde a imagem fica na faixa

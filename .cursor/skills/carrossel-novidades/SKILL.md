@@ -244,7 +244,7 @@ uma vez. O script recusa PNG fora da medida e recusa mais de 10 slides.
 `--formato 1:1` ou `9:16` quando o pedido não for o 4:5 padrão.
 `--guias` pinta o que a interface do Instagram cobre naquele formato: no feed é
 só o **contador do carrossel**, no canto superior direito (por isso o topo
-direito do slide leva a data ou o "3 de 7", nunca informação); no story (9:16)
+direito do slide leva só o `.contador`, nunca informação); no story (9:16)
 são faixas largas no topo e na base. A saída de `--guias` e de `--formato`
 diferente do padrão ganha sufixo no nome, para não sobrescrever a arte final.
 
@@ -271,7 +271,9 @@ fato → ângulo → slide.
    dos dois, ou você confere no sistema, ou corta. Toda tela desenhada tem selo?
 5. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE" em
    branco, contorno branco no selo, tarja amarela e "food" vermelho?
-6. Registre o que aprendeu em
+6. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa
+   inclusive. (Data impressa dentro de um print de verdade pode ficar.)
+7. Registre o que aprendeu em
    [`references/MEMORIA-CARROSSEIS.md`](references/MEMORIA-CARROSSEIS.md).
 
 ### 7. Entrega
@@ -319,6 +321,11 @@ carrosseis/<slug>/
 
 ## Regras de arte
 
+- **Nenhuma data na arte.** O topo direito leva só o `.contador` ("1 de 8"), na
+  capa também. Carrossel aprovado entra na fila de conteúdo e é publicado dias
+  depois: data na arte faz a novidade parecer velha e impede reaproveitar o post.
+  Data **dentro de print de verdade** fica (a do cupom é do pedido, não do post),
+  e a data da novidade mora no `roteiro.md` e no cabeçalho da copy.
 - **Uma ideia por slide.** Duas frases longas no mesmo slide são dois slides.
 - **Máximo 10 slides**, e quem lê no feed costuma parar no quinto: ponha o ganho
   logo no começo, não no fim.
