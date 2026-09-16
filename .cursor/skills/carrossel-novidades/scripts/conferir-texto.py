@@ -72,6 +72,7 @@ def main() -> None:
     fonte = sequencias(palavras(f"{ficha['titulo']} {ficha['texto']}"), args.janela)
 
     achados = 0
+    conferidos = 0
     for arquivo in sorted(pasta.glob("*.html")):
         leitor = SomenteTexto()
         leitor.feed(arquivo.read_text(encoding="utf-8"))
@@ -79,6 +80,17 @@ def main() -> None:
         for seq in sorted(copiadas):
             print(f"COPIADO  {arquivo.name}: {' '.join(seq)}")
             achados += 1
+        conferidos += 1
+
+    # A legenda entra na mesma régua dos slides: ela vai no mesmo post, e é ainda
+    # mais fácil de encher com recorte do release, porque cabe texto longo.
+    copy = pasta.parent / "copy-instagram.txt"
+    if copy.is_file():
+        copiadas = sequencias(palavras(copy.read_text(encoding="utf-8")), args.janela) & fonte
+        for seq in sorted(copiadas):
+            print(f"COPIADO  {copy.name}: {' '.join(seq)}")
+            achados += 1
+        conferidos += 1
 
     if achados:
         print(f"\n{achados} sequência(s) de {args.janela} palavras igual à "
@@ -87,7 +99,7 @@ def main() -> None:
         sys.exit(1)
 
     print(f"OK  nenhuma sequência de {args.janela} palavras repetida da novidade "
-          f"({len(list(pasta.glob('*.html')))} slides)")
+          f"({conferidos} arquivos)")
 
 
 if __name__ == "__main__":
