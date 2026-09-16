@@ -103,14 +103,18 @@ body {
   background-image: var(--logo-escuro);
 }
 
-.data {
+/* Topo direito: só "N de 8". Já se chamou `.data` e guardava a data da novidade,
+ * o que **datava o post** — carrossel pronto costuma ser publicado dias depois, e
+ * arte com data velha dá a entender que a novidade é velha. O nome da classe é o
+ * que ela aceita. */
+.contador {
   font-size: 28px;
   font-weight: 700;
   color: var(--texto-suave);
   letter-spacing: 0.02em;
 }
 
-.slide--capa .data {
+.slide--capa .contador {
   color: rgba(255, 255, 255, 0.6);
 }
 
@@ -796,8 +800,8 @@ body {
 }
 
 /* No feed, o que o Instagram desenha por cima da arte é o contador do carrossel,
- * no canto superior direito — por isso o `.data` do topo direito guarda coisa
- * dispensável (a data, o "3 de 7") e nunca informação. No story (9:16) as faixas
+ * no canto superior direito — por isso o `.contador` do topo direito guarda coisa
+ * dispensável (o "3 de 7") e nunca informação. No story (9:16) as faixas
  * cobertas são largas, no topo e na base. Este elemento não é escrito no slide:
  * o `renderizar.py --guias` injeta e pinta as faixas do formato. */
 .zona-segura {
