@@ -88,6 +88,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Histórico de mensagens do WhatsApp | [`manuais/whatsapp-historico/`](manuais/whatsapp-historico/whatsapp-historico.md) | ✅ Concluído |
 | Taxa de serviço opcional no cupom | [`manuais/cupom-taxa-servico-opcional/`](manuais/cupom-taxa-servico-opcional/cupom-taxa-servico-opcional.md) | ✅ Concluído |
 | Destaque na impressão — destacar bebidas e produtos no cupom | [`manuais/destaque-impressao/`](manuais/destaque-impressao/destaque-impressao.md) | ✅ Concluído |
+| Tradução do cardápio presencial — tablet e totem em inglês e espanhol | [`manuais/traducao-cardapio-presencial/`](manuais/traducao-cardapio-presencial/traducao-cardapio-presencial.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 

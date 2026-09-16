@@ -3,7 +3,11 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-13 (**#99** Destaque na impressão — produto/complemento/lote; fundo escuro no Cupom Pedido, na Cozinha e no cupom do delivery; texto em tom de busca a partir da discussão *Destaque de bebida*);
+Última atualização: 2026-09-16 (**#100** Tradução do cardápio presencial — bandeiras
+Brasil/EUA/Espanha no cadastro de setor, produto, complemento e grupo de opções;
+só existem com **totem ou tablet contratado** (`temTraducaoContratada`); item sem
+tradução cai para o português; **Habilitar tradução** no totem; **sem** tradução em lote);
+2026-09-13 (**#99** Destaque na impressão — produto/complemento/lote; fundo escuro no Cupom Pedido, na Cozinha e no cupom do delivery; texto em tom de busca a partir da discussão *Destaque de bebida*);
 2026-09-11 (**#98** taxa de serviço opcional no cupom — rodapé do Cupom Pedido, Delivery ≠ Presencial);
 2026-09-10 (**#94/#95/#96** fechamento fiscal, autorizar contador e portal do contador; **#97** transferir item entre mesas/comandas);
 2026-09-06 (**série WhatsApp #15 e #86–#93** — campanhas
@@ -711,6 +715,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Relatório de taxa de serviço | `manuais/relatorio-taxa-servico/` | ✅ Concluído (#85) |
 | Taxa de serviço opcional no cupom | `manuais/cupom-taxa-servico-opcional/` | ✅ Concluído (#98) |
 | Destaque na impressão | `manuais/destaque-impressao/` | ✅ Concluído (#99) |
+| Tradução do cardápio presencial (tablet e totem) | `manuais/traducao-cardapio-presencial/` | ✅ Concluído (#100) |
 | Pedidos pelo chat no WhatsApp | `manuais/whatsapp-pedidos-chat/` | ✅ Concluído (#86) |
 | Campanhas de WhatsApp | `manuais/campanhas-whatsapp/` | ✅ Concluído (#15) |
 | Notificações de cada etapa | `manuais/whatsapp-notificacoes/` | ✅ Concluído (#87) |
@@ -720,6 +725,35 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Atender no BeeBot | `manuais/whatsapp-atendimento-beebot/` | ✅ Concluído (#91) |
 | Indicadores de WhatsApp | `manuais/whatsapp-indicadores/` | ✅ Concluído (#92) |
 | Histórico de mensagens | `manuais/whatsapp-historico/` | ✅ Concluído (#93) |
+
+### Tradução do cardápio presencial — #100
+
+Campo `traducao` (JSON `{ "en": { chave: texto }, "es": {...} }`, **português fora
+do objeto**) em quatro cadastros: setor (chave `setor`, no **Nome Interno**, não no
+Nome Público), produto e complemento (`descricao` = nome, `descritivo` = descrição)
+e grupo de opções (`descricao`). Tudo mora em
+`src/components/cardapio/BandeiraIdioma.tsx`.
+
+As bandeiras só aparecem quando `temTraducaoContratada()` → `qtdAA > 0 ||
+qtdTablet > 0` no `config_cache`. Trocar de bandeira **não** salva nem descarta:
+é visão sobre o mesmo `formData`, gravado no `SALVAR E SAIR (F2)`. Bolinha verde =
+aquele idioma já tem texto. **Sem tradução em lote** (o `ModalEditarLote` não
+importa nada de tradução) e **sem sub-setor traduzível**.
+
+Armadilha: **Melhorar com Inteligência Artificial** grava `formData.descricao`, ou
+seja o **português**, mesmo com a bandeira do inglês ativa.
+
+Totem: `aaTraducao` em Aplicativos → Totem → **Configuração** → grupo **Idiomas**
+(auto-save, sem botão). O texto do próprio produto documenta o fallback: item sem
+tradução continua em português. **Não existe interruptor de idioma do tablet no
+painel.** `statusTraduzido` das listagens de grupo é formação de preço, não idioma.
+
+Captura: a aba do Cardápio **não tem campo de busca** e a lista é virtualizada —
+em Produtos, clicar no setor antes de procurar o item. As listagens
+(`cardapio2/cardapio`, `produto2/cardapio/setores`) **não** devolvem `traducao`;
+só os endpoints de detalhe.
+
+---
 
 ### Exibir/Ocultar e Preço Programado — #68 e #69
 
