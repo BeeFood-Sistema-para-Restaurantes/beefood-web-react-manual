@@ -175,17 +175,80 @@ confirmação.
 | 1. | **Habilitar tradução** | Marque para o totem mostrar as bandeiras ao cliente. Desmarcado, o totem fica só em português. |
 
 No **Cardápio Digital no Tablet** não existe esse interruptor no painel: o
-texto traduzido segue com o aplicativo do tablet.
+texto traduzido segue com o aplicativo do tablet (seção 8).
 
 ---
 
-## 7. Como o cliente vê
+## 7. Como o cliente vê no totem
 
-- O cliente toca na bandeira e o cardápio troca de idioma: setores,
-  nomes, descrições e títulos dos grupos de opções.
-- **Item sem tradução aparece em português.** É por isso que dá para
-  traduzir aos poucos, começando pelos mais vendidos.
-- Preço, foto e a montagem do pedido não mudam: só o texto.
+### 7.1 Na hora de iniciar o pedido
+
+O seletor de idioma fica **embaixo do botão FAÇA SEU PEDIDO** (1), na tela
+de espera do totem. É o primeiro toque do cliente: escolhe a bandeira e
+só depois começa o pedido. Na foto, o **Brasil** está selecionado (o
+círculo em volta mostra o idioma atual) e o totem segue em português.
+
+![Bandeiras embaixo do FAÇA SEU PEDIDO, na tela inicial do totem](imagens-tratadas/07-totem-iniciar-idioma.png)
+
+| Nº | Item | O que faz |
+|----|------|-----------|
+| 1. | **Seletor de idioma** | Brasil, Estados Unidos e Espanha. O cliente toca na bandeira antes de iniciar o pedido. Só aparece com **Habilitar tradução** marcado (seção 6). |
+
+### 7.2 No menu, com a listagem de produtos
+
+Depois de iniciar o pedido, as bandeiras continuam à mão no **canto
+superior direito** do cardápio (1) — o cliente troca de idioma a qualquer
+momento, sem sair da tela.
+
+Nesta foto o **inglês** está selecionado, e a lista de setores mostra
+exatamente como a tradução funciona item por item: **DRINKS** (2) é o
+setor *Bebidas* com tradução cadastrada, enquanto **MOLHOS ADICIONAIS**
+(3) continua em português porque esse setor ainda não foi traduzido.
+
+![Seletor de idioma no menu do totem e setores traduzidos](imagens-tratadas/08-totem-menu-idioma.png)
+
+| Nº | Item | O que faz |
+|----|------|-----------|
+| 1. | **Bandeiras no topo** | Trocam o idioma durante o pedido. O círculo marca o idioma atual — aqui, o inglês. |
+| 2. | **Setor traduzido** | *Bebidas* aparece como **Drinks**: é a tradução que você escreveu no cadastro do setor. |
+| 3. | **Setor sem tradução** | *Molhos adicionais* continua em português. Nada quebra: o texto original entra no lugar. |
+
+Os textos do próprio totem — *CANCEL ORDER*, carrinho, botões — já vêm
+traduzidos com o aplicativo. Você cadastra só o cardápio.
+
+---
+
+## 8. Como o cliente vê no Cardápio Digital no Tablet
+
+No tablet as bandeiras ficam na **coluna da esquerda** (2), embaixo de
+*Avaliar*, e o cardápio troca de idioma na mesma tela.
+
+O exemplo é a **Coca**: cadastrada em português como *Coca Cola 350ml*,
+com a descrição *Coca Cola Lata 350ml*, ela aparece como **Cola US** com
+a descrição **The drink cola** (1). São os dois campos da seção 3 — Nome e
+Descrição do produto — do jeito que o cliente lê.
+
+Logo abaixo está o outro lado da moeda (3): a segunda lata **não tem
+tradução cadastrada**, então continua em português no meio de uma tela em
+inglês. É o comportamento normal e é o que permite traduzir aos poucos.
+
+![Coca traduzida no cardápio do tablet, com as bandeiras na lateral](imagens-tratadas/09-tablet-coca-traduzida.png)
+
+| Nº | Item | O que faz |
+|----|------|-----------|
+| 1. | **Produto traduzido** | Nome e Descrição em inglês, vindos do cadastro do produto. |
+| 2. | **Bandeiras do tablet** | O cliente troca entre português, inglês e espanhol. |
+| 3. | **Produto sem tradução** | Continua com o nome e a descrição em português. |
+
+Detalhes que costumam gerar dúvida nessa tela:
+
+- **Preço, foto e o botão de pedir não mudam** com o idioma: a tradução é
+  só do texto que você cadastrou.
+- O título da faixa continua *Bebidas* porque é o cabeçalho da lista do
+  tablet, que não acompanha o idioma. O nome traduzido do setor
+  (*Drinks*) aparece na coluna de setores, à esquerda.
+- *SEARCH*, *MY CART*, *MY BILL*, *Order* e os demais textos do
+  aplicativo já vêm traduzidos — não são cadastro seu.
 
 ---
 
@@ -213,6 +276,7 @@ cadastro e olhe a bandeira antes de digitar de novo.
 | Não vejo bandeira nenhuma no cadastro | O recurso aparece para lojas com **Totem** ou **Cardápio Digital no Tablet**. Sem um dos dois, não há bandeiras |
 | O totem continua só em português | **Habilitar tradução** precisa estar marcado em Aplicativos → Totem de Autoatendimento → Configuração |
 | Alguns itens aparecem em inglês e outros não | Item sem tradução cai para o português. Abra o cadastro e veja se a bandeira tem bolinha verde |
+| Traduzi o setor, mas no tablet o título da faixa continua em português | Esse título é o cabeçalho da lista do tablet e não troca de idioma. O nome traduzido aparece na coluna de setores, à esquerda (seção 8) |
 | Traduzi o produto, mas as opções ficaram em português | As opções são **complementos**. Traduza em Cardápio → Complementos, e o título da lista em Cardápio → Grupo de Opções |
 | O nome em português mudou sozinho | O texto foi digitado com a **bandeira do Brasil** selecionada. Volte para o Brasil e corrija o cadastro |
 | Escrevi a tradução e ela não ficou | Faltou **SALVAR E SAIR (F2)**. Trocar de bandeira ou fechar a janela não grava |
@@ -239,8 +303,10 @@ Não. O **Editar em Lote** não tem o campo de tradução; a tradução é feita
 no cadastro de cada item.
 
 **Onde o cliente troca o idioma?**
-No totem, nas bandeirinhas — depois de **Habilitar tradução** na
-configuração do Totem de Autoatendimento.
+No totem, nas bandeiras **embaixo do FAÇA SEU PEDIDO** e no **canto
+superior direito** do menu — depois de **Habilitar tradução** na
+configuração do Totem de Autoatendimento. No tablet, nas bandeiras da
+**coluna da esquerda**, embaixo de *Avaliar*.
 
 **A tradução muda o cupom, a ficha da cozinha ou o PDV?**
 Não. A impressão e as telas da operação continuam em português. A

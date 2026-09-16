@@ -48,13 +48,14 @@ def badge(d, cx, cy, r, num, fnt):
            t, fill=WHITE, font=fnt)
 
 
-def annotate(name, markers=(), ring=(), crop=None, pad_right=0, r=None, w=None):
+def annotate(name, markers=(), ring=(), crop=None, pad_right=0, pad_top=0, r=None, w=None):
     img = Image.open(os.path.join(SRC, name)).convert("RGBA")
     if crop:
         img = img.crop(crop)
-    if pad_right:
-        base = Image.new("RGBA", (img.width + pad_right, img.height), WHITE + (255,))
-        base.paste(img, (0, 0))
+    if pad_right or pad_top:
+        base = Image.new("RGBA", (img.width + pad_right, img.height + pad_top),
+                         WHITE + (255,))
+        base.paste(img, (0, pad_top))
         img = base
     W, H = img.size
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -105,5 +106,31 @@ annotate("05-grupo-opcoes-ingles.png",
 annotate("06-totem-idiomas.png",
          markers=[(1, 475, 757, 359, 757)],
          ring=[(443, 633, 1073, 953)])
+
+# --- 07/08/09 telas do cliente (imagens enviadas pelo dono, resolução menor) -
+# 07 Totem, tela inicial: bandeiras embaixo do FAÇA SEU PEDIDO (recorte tira a
+# borda vazia da tela do totem; dx=-40, dy=-175)
+annotate("07-totem-iniciar-idioma.png",
+         crop=(40, 175, 1095, 650),
+         markers=[(1, 418, 370, 310, 370)],
+         ring=[(422, 330, 636, 411)],
+         r=15, w=3)
+
+# 08 Totem, menu: faixa branca em cima para o número do seletor de idioma
+annotate("08-totem-menu-idioma.png",
+         pad_top=100,
+         markers=[(1, 1044, 130, 1044, 52),
+                  (2, 80, 321, 205, 321),
+                  (3, 184, 388, 205, 358)],
+         ring=[(938, 133, 1150, 199)],
+         r=15, w=3)
+
+# 09 Tablet: produto traduzido, produto sem tradução e bandeiras da lateral
+annotate("09-tablet-coca-traduzida.png",
+         markers=[(1, 858, 208, 960, 172),
+                  (2, 95, 668, 190, 630),
+                  (3, 932, 480, 1000, 480)],
+         ring=[(688, 204, 852, 290), (688, 438, 928, 524), (40, 624, 92, 756)],
+         r=15, w=3)
 
 print("done")

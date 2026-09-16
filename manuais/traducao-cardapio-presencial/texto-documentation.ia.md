@@ -16,6 +16,9 @@ Leia APENAS os arquivos abaixo:
    - `beefood-web-react-manual/manuais/traducao-cardapio-presencial/imagens-tratadas/04-complemento-ingles.png`
    - `beefood-web-react-manual/manuais/traducao-cardapio-presencial/imagens-tratadas/05-grupo-opcoes-ingles.png`
    - `beefood-web-react-manual/manuais/traducao-cardapio-presencial/imagens-tratadas/06-totem-idiomas.png`
+   - `beefood-web-react-manual/manuais/traducao-cardapio-presencial/imagens-tratadas/07-totem-iniciar-idioma.png`
+   - `beefood-web-react-manual/manuais/traducao-cardapio-presencial/imagens-tratadas/08-totem-menu-idioma.png`
+   - `beefood-web-react-manual/manuais/traducao-cardapio-presencial/imagens-tratadas/09-tablet-coca-traduzida.png`
 
 NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 
@@ -43,11 +46,12 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 6. Traduzir um complemento
 7. Traduzir um grupo de opções
 8. Ligar as bandeiras no totem
-9. Como o cliente vê
-10. Roteiro para traduzir um cardápio inteiro
-11. Problemas comuns
-12. Perguntas frequentes
-13. Manuais relacionados
+9. Como o cliente vê no totem (iniciar o pedido e o menu)
+10. Como o cliente vê no Cardápio Digital no Tablet
+11. Roteiro para traduzir um cardápio inteiro
+12. Problemas comuns
+13. Perguntas frequentes
+14. Manuais relacionados
 
 ## Anexo — legendas
 
@@ -59,9 +63,10 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 | 4 | `04-complemento-ingles.png` | com setas | Molho verde → *Green sauce* |
 | 5 | `05-grupo-opcoes-ingles.png` | com setas | Escolha um molho → *Choose a sauce* |
 | 6 | `06-totem-idiomas.png` | com setas | Habilitar tradução na configuração do totem |
+| 7 | `07-totem-iniciar-idioma.png` | com setas | Bandeiras embaixo do FAÇA SEU PEDIDO, no totem |
+| 8 | `08-totem-menu-idioma.png` | com setas | Seletor de idioma no menu do totem e setor traduzido × sem tradução |
+| 9 | `09-tablet-coca-traduzida.png` | com setas | Coca traduzida no tablet (*Cola US* / *The drink cola*) e bandeiras da lateral |
 
-## Pendente (não publicar ainda)
-
-As telas do **Cardápio Digital no Tablet** e do **Totem** vistas pelo cliente
-(bandeiras na tela, cardápio em inglês) serão enviadas pelo dono e entram na
-seção **Como o cliente vê**.
+As imagens 7 a 9 são telas de produção enviadas pelo dono (totem e tablet), com
+resolução menor que as do painel — publicar sem redimensionar para não perder
+nitidez.

@@ -6,7 +6,9 @@
 Última atualização: 2026-09-16 (**#100** Tradução do cardápio presencial — bandeiras
 Brasil/EUA/Espanha no cadastro de setor, produto, complemento e grupo de opções;
 só existem com **totem ou tablet contratado** (`temTraducaoContratada`); item sem
-tradução cai para o português; **Habilitar tradução** no totem; **sem** tradução em lote);
+tradução cai para o português; **Habilitar tradução** no totem; **sem** tradução em lote;
+telas do cliente no totem e no tablet, com o padrão de anotar **foto de tela enviada
+pelo dono**);
 2026-09-13 (**#99** Destaque na impressão — produto/complemento/lote; fundo escuro no Cupom Pedido, na Cozinha e no cupom do delivery; texto em tom de busca a partir da discussão *Destaque de bebida*);
 2026-09-11 (**#98** taxa de serviço opcional no cupom — rodapé do Cupom Pedido, Delivery ≠ Presencial);
 2026-09-10 (**#94/#95/#96** fechamento fiscal, autorizar contador e portal do contador; **#97** transferir item entre mesas/comandas);
@@ -183,6 +185,30 @@ elemento sem tapar nada. Vale também para campo de texto: apontar ao lado do r�
 `imagens-tratadas\`** — ele apagaria as setas na próxima execução. Que ele alimente só
 `imagens-puras\`, e que imprima no fim o lembrete de rodar o `annotate.py`. Foi o ajuste feito no
 `copiar-imagens.py` do #24 quando o manual deixou de ser só contexto.
+
+### Fotos de tela enviadas pelo dono (totem, tablet, PDV) — #100
+
+O totem e o tablet não abrem no Cloud Agent, então essas telas chegam como
+imagem pronta, em resolução menor que as capturas do painel (~1100–1300 px).
+O que funcionou:
+
+- Copiar para `imagens-puras/` com o nome numerado do manual e **anotar no
+  tamanho original** — reescalar para 2160 px só borra o texto.
+- Passar `r=15, w=3` no `annotate`: o cálculo automático (`W * 0,0125`) devolve
+  seta fina demais nesse tamanho.
+- **Coordenada lida em grade sobre a imagem original.** Medir "no olho" pela
+  miniatura do chat erra por um fator constante (a pré-visualização é de 1024 px
+  de largura); a grade tem de ser gerada sobre o arquivo, não sobre o preview.
+- Quando o alvo fica sobre foto ou banner (não há espaço vazio para o número),
+  acrescente uma **faixa branca no topo** (`pad_top`) e coloque o número nela,
+  em vez de jogar o badge sobre a imagem.
+- Recorte a moldura vazia do aparelho (`crop`), mas sem virar zoom: o elemento
+  precisa continuar visível no contexto da tela.
+
+Vale mais que a foto: telas assim costumam **provar o comportamento com dados
+reais**. No #100, a mesma foto do tablet mostrou um produto traduzido e outro
+sem tradução, lado a lado — confirmado nos endpoints de detalhe antes de
+escrever a legenda.
 
 ---
 
@@ -752,6 +778,14 @@ Captura: a aba do Cardápio **não tem campo de busca** e a lista é virtualizad
 em Produtos, clicar no setor antes de procurar o item. As listagens
 (`cardapio2/cardapio`, `produto2/cardapio/setores`) **não** devolvem `traducao`;
 só os endpoints de detalhe.
+
+Telas do cliente (fotos de produção do dono, 16/09/2026). Seletor de idioma:
+no **totem**, embaixo do botão *FAÇA SEU PEDIDO* e no **canto superior direito**
+do menu; no **tablet**, na coluna da esquerda, embaixo de *Avaliar*. Os textos do
+próprio aplicativo (*CANCEL ORDER*, *MY CART*, *MY BILL*, *Order*, *SEARCH*) já
+vêm traduzidos — o lojista cadastra só o cardápio. No tablet, o **cabeçalho da
+lista não troca de idioma**: com o inglês ativo a coluna de setores mostrou
+*Drinks* e a faixa continuou *Bebidas* (o `tituloWeb` do setor estava `null`).
 
 ---
 

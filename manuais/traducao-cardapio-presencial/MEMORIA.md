@@ -16,10 +16,9 @@ Como **traduzir** o cardápio presencial no painel. Cinco cadastros com
 bandeiras: setor, produto (nome + descrição), complemento (nome + descrição) e
 grupo de opções, mais o interruptor **Habilitar tradução** do totem.
 
-**Pendente:** as telas do **Cardápio Digital no Tablet** e do **Totem** vistas
-pelo cliente. O dono vai enviar as imagens; entram na seção 7 (*Como o cliente
-vê*), que hoje é só texto — nenhuma imagem inexistente é referenciada, para não
-quebrar o `validar-imagens.py`.
+As telas vistas pelo cliente entraram em 16/09/2026, com fotos de produção
+enviadas pelo dono: **totem** (tela inicial e menu) na seção 7 e **tablet** na
+seção 8.
 
 ## Fonte
 
@@ -51,7 +50,12 @@ commits `da3049d` (10/09) e `de63fe5` (13/09) — arquivo novo
 - Gravado de verdade (não é ensaio) e conferido pela API nos endpoints de
   detalhe: o português ficou intacto nos quatro itens.
 
-## Imagens (6, todas 2160×1350)
+## Imagens (9)
+
+As 6 primeiras são capturas do painel (2160×1350). As 7 a 9 são telas de
+produção enviadas pelo dono, em resolução menor (1055×475, 1186×799, 1280×800):
+foram anotadas no tamanho original, sem reescalar, com `r=15, w=3` para as setas
+ficarem no mesmo peso visual das outras.
 
 | Arquivo | Conteúdo |
 |---------|----------|
@@ -61,6 +65,9 @@ commits `da3049d` (10/09) e `de63fe5` (13/09) — arquivo novo
 | `04-complemento-ingles.png` | Complemento *Molho verde* → *Green sauce* |
 | `05-grupo-opcoes-ingles.png` | Grupo *Escolha um molho* → *Choose a sauce* |
 | `06-totem-idiomas.png` | Aplicativos → Totem → Configuração → Idiomas → Habilitar tradução |
+| `07-totem-iniciar-idioma.png` | Totem, tela de espera: bandeiras embaixo do **FAÇA SEU PEDIDO** (Brasil selecionado) |
+| `08-totem-menu-idioma.png` | Totem em inglês: seletor no canto superior direito, `DRINKS` traduzido e `MOLHOS ADICIONAIS` sem tradução |
+| `09-tablet-coca-traduzida.png` | Tablet em inglês: *Cola US* / *The drink cola*, a segunda Coca sem tradução e as bandeiras da coluna esquerda |
 
 Padrão das setas: cada uma sai de um espaço vazio e mira a **borda** do
 elemento (regra da MEMORIA-GERAL). Nas imagens do setor a bandeira fica na
@@ -89,6 +96,35 @@ branco à direita do rótulo.
   Produtos é preciso clicar no setor antes de achar o item.
 - `annotate.py` — setas/molduras em pixels.
 
+## Telas do cliente (16/09/2026)
+
+Confirmado na API antes de escrever (endpoints de detalhe, que são os únicos que
+devolvem `traducao`):
+
+| Item | ID | Português | Inglês |
+|------|----|-----------|--------|
+| Produto da foto do tablet | 2515399 | Coca Cola 350ml / *Coca Cola Lata 350ml* | Cola US / *The drink cola* |
+| Coca sem tradução (logo abaixo, na mesma foto) | 2515308 | Coca Cola 350ml / *Coca Cola Lata 350ml* | `traducao: null` |
+| Setor da foto | 213756 | Bebidas | Drinks |
+| Setores sem tradução da foto do totem | 213755, 213750, 213751 | Molhos adicionais, Combos…, Burgers Avulsos… | `traducao: null` |
+
+Ou seja: as duas fotos provam o fallback com dados reais — traduzido e não
+traduzido lado a lado, na mesma tela.
+
+Onde fica o seletor de idioma:
+
+- **Totem** — embaixo do botão **FAÇA SEU PEDIDO** (antes de iniciar) e no
+  **canto superior direito** do menu (durante o pedido).
+- **Tablet** — coluna da esquerda, embaixo de *Avaliar*.
+
+Dois detalhes anotados no manual:
+
+- No tablet, o **título da faixa** continuou *Bebidas* (Nome Público do setor é
+  `tituloWeb`, que estava `null`) enquanto a coluna de setores mostrou *Drinks*:
+  o cabeçalho da lista não acompanha o idioma. Virou linha em *Problemas comuns*.
+- Os textos do próprio aplicativo (*CANCEL ORDER*, *MY CART*, *MY BILL*,
+  *Order*, *SEARCH*) já vêm traduzidos — não são cadastro do lojista.
+
 ## Status
 
-Concluído (parte do painel) — aguardando as imagens do tablet e do totem.
+Concluído — painel (imagens 1 a 6) e telas do cliente (7 a 9).
