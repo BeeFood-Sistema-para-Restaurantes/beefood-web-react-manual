@@ -185,9 +185,11 @@ escala, e o corte passa a sensação de que a tela continua.
 
 #### Mockup 3D, só quando divide a faixa
 
-`.cena3d` no contêiner e `.g3d .g3d--direita` (ou `--esquerda`) no mockup põem o
-aparelho em perspectiva. O nome é pela borda que **recua**: objeto encostado na
-direita do slide usa `--direita`, e a quina de fora afunda.
+`.cena3d` no contêiner e `.g3d .g3d--na-direita` (ou `--na-esquerda`) no mockup
+põem o aparelho em perspectiva. O modificador é o **lado do slide em que o mockup
+está**, e o giro é sempre **para dentro**: a quina que aponta para o texto é a que
+afunda, e o aparelho parece entrar no slide. Ao contrário, ele parece cair para
+fora da arte.
 
 - **Só com conteúdo ao lado.** É a coluna de texto ao lado que dá licença para o
   mockup sair do centro e girar. Sozinho na faixa, ele vai centralizado, grande e

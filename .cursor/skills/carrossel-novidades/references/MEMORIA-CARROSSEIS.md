@@ -281,15 +281,27 @@ faz a imagem funcionar no feed.
 Três coisas que fazem o 3D ler como 3D:
 
 1. **Luz.** Face girada sem gradiente fica chapada. O `.g3d::after` joga um
-   clarão de cima à esquerda e escurece a quina que recua.
-2. **Sombra deslocada.** Sombra centrada continua parecendo adesivo.
+   clarão do lado da quina que está na frente e escurece a que recua.
+2. **Sombra deslocada**, e caindo para o lado oposto à luz. Sombra centrada
+   continua parecendo adesivo.
 3. **Giro pequeno.** 14° em Y, 5° em X e 2° em Z. Acima disso a borda de fora
    cresce e invade a margem, e o texto da tela começa a distorcer.
 
-O nome da classe é pela borda que **recua**: objeto encostado na direita do slide
-usa `.g3d--direita`, a borda de fora afunda e a de dentro (a que o texto aponta)
-vem para frente. Girado ao contrário, a quina de fora cresce e o papel parece
-estar caindo para fora do slide — foi o primeiro render desta rodada.
+**Sempre virado para dentro.** A quina que afunda é a **de dentro**, a que aponta
+para o texto: o aparelho parece entrar no slide. Girado ao contrário, a face abre
+para o texto, a quina de dentro vem para frente e o aparelho parece estar caindo
+para fora da arte — é o que estava no primeiro render do slide 6.
+
+O ganho é medível, não é só gosto: no slide 6, com a coluna de texto acabando em
+x 500, o vão mais estreito entre texto e aparelho passou de 51 para 71 px, e na
+altura do primeiro parágrafo, de 72 para 134 px. A quina que recua abre espaço
+exatamente onde o texto está.
+
+Por isso o nome da classe é **pelo lado do slide em que o mockup está**, não pelo
+eixo do `rotateY`: `.g3d--na-direita` e `.g3d--na-esquerda`. Nomear pela borda que
+recua (`--direita`/`--esquerda`, como estava) obriga a refazer a conta a cada
+slide, e a conta saiu errada na primeira vez. Cada variante leva a luz e a sombra
+espelhadas junto — luz do lado da quina da frente, sombra caindo para o outro.
 
 **Onde não usar:** no slide em que o leitor precisa ler rótulo de interface. A
 face que recua come contraste justo onde está a informação. Neste carrossel o

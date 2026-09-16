@@ -90,7 +90,7 @@ térmica não tem canto arredondado — os 24 px de fábrica do `.recorte` fazia
 papel parecer cartão.
 
 **E o papel fica centralizado, grande e reto.** A versão anterior encostava o
-cupom na direita e o inclinava em `.cena3d`/`.g3d--direita`: virava objeto
+cupom na direita e o inclinava em `.cena3d`/`.g3d`: virava objeto
 fotografado na bancada, mas deixava a metade esquerda do slide vazia **e** saía
 menor, porque a inclinação come altura. Centralizado em `.figura`, o mesmo
 recorte foi a 728 px — o máximo que cabe entre o subtítulo e o "Arraste" — e
@@ -113,6 +113,13 @@ na capa, em tamanho grande.
 412 px ao lado dele — é o texto ao lado que dá licença para o aparelho sair do
 centro e girar. Ali o texto da tela é grande e ninguém precisa ler rótulo de
 interface, então o giro só ajuda.
+
+**E ele gira para dentro** (`.g3d--na-direita`): a quina que afunda é a esquerda,
+a que aponta para o texto. O primeiro render girava ao contrário — a face abria
+para o texto, a quina de dentro vinha para frente e o aparelho parecia cair para
+fora da arte, além de apertar o vão entre a coluna de texto e o mockup. Medido na
+tinta do PNG, com a coluna de texto acabando em x 500: o vão mais estreito passou
+de 51 para 71 px, e na altura do primeiro parágrafo, de 72 para 134 px.
 
 No slide 4 o leitor tem que achar o interruptor: a face que recua come contraste
 justo onde está a informação, e o mockup fica reto. No slide 8 o celular está

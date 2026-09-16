@@ -19,7 +19,10 @@
      centro e girar; aparelho sozinho na faixa vai centralizado e reto
      (`mockup-celular.html`). Como a base da tela aparece, a barra de ação vai
      para lá com `flex: 1` no corpo e `margin-top: auto` no aviso — sem isso
-     sobra um vazio de 300 px e a tela parece render pela metade. -->
+     sobra um vazio de 300 px e a tela parece render pela metade.
+
+     O giro é sempre para dentro: `--na-direita` porque o aparelho está encostado
+     na direita, e aí a quina que afunda é a que aponta para o texto. -->
 <div class="slide slide--suave">
   <div class="topo">
     <span class="logo"></span>
@@ -41,7 +44,7 @@
   <span class="selo-ilustracao" style="left: 88px; top: 660px">Ilustração</span>
 
   <div class="sangria cena3d" style="top: 300px; right: 40px; width: 462px">
-    <div class="celular g3d g3d--direita">
+    <div class="celular g3d g3d--na-direita">
       <div class="celular__tela">
         <!-- Tela estreita: a tipografia da ilustração desce junto (22 px), senão
              cada aviso vira quatro linhas. -->
