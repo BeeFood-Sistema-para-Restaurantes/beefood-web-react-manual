@@ -335,6 +335,27 @@ def cap_excluir(page):
     shot(page, "15-apos-exclusao.png")
 
 
+def cap_pos_exclusao(page):
+    """A exclusão roda em segundo plano: espera o cartão voltar a ficar livre."""
+    s = abrir_modal(page)
+    for i in range(30):
+        texto = s.inner_text()
+        print(f"  [{i:02d}]", "removendo" if "Removendo" in texto else "livre")
+        if "Removendo" not in texto:
+            break
+        page.wait_for_timeout(15000)
+        page.reload(wait_until="domcontentloaded")
+        after_click(page, 6000)
+        limpar(page)
+        s = abrir_modal(page)
+    removidos = s.get_by_role("button", name="Domínios removidos anteriormente")
+    if removidos.count():
+        removidos.first.click()
+        after_click(page, 2000)
+    print(s.inner_text()[:1500])
+    shot(page, "15-apos-exclusao.png")
+
+
 def cap_sub(page):
     s = abrir_modal(page)
     escolher_cardapio(page, s)
@@ -369,6 +390,7 @@ ETAPAS = {
     "dns-editar": cap_dns_editar,
     "dns-hist": cap_dns_hist,
     "excluir": cap_excluir,
+    "pos-exclusao": cap_pos_exclusao,
     "sub": cap_sub,
     "sub-no-ar": cap_sub_no_ar,
 }

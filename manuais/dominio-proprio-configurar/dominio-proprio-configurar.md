@@ -299,18 +299,84 @@ quem acessar por ele não encontra mais o cardápio. Para confirmar, clique em
 | 1. | **Aviso da confirmação** | Leia: é o resumo do efeito. Quem estiver com o endereço salvo vai receber erro. |
 | 2. | **Excluir (ENTER)** | Confirma. O painel volta para a lista de cardápios e o endereço passa a aparecer em *Domínios removidos anteriormente*. |
 
+A remoção leva alguns minutos: o cartão fica em **Removendo** enquanto o BeeFood
+desfaz a publicação e apaga a zona. Quando termina, o cardápio volta a aparecer com o
+endereço do BeeFood (1) e o domínio excluído passa a ficar em **Domínios removidos
+anteriormente** (2) — é só histórico, não dá para reativar por ali.
+
+![Cardápio livre depois da exclusão](imagens-tratadas/15-apos-exclusao.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1. | **Cartão do cardápio** | Voltou para o `menu.beefood.com.br/...`. Clique nele para cadastrar outro domínio. |
+| 2. | **Domínios removidos anteriormente** | Lista o que já foi excluído. Serve de consulta. |
+
 Depois de excluir:
 
-- O domínio **volta a ser só seu**. Se ele estava usando os servidores DNS do
-  BeeFood, aponte-o para onde você quiser no painel do registrador — enquanto isso
-  não for feito, o endereço fica sem resposta.
 - O cardápio continua funcionando no endereço `menu.beefood.com.br/...`.
-- Você pode cadastrar outro domínio no mesmo cardápio, do zero. O endereço excluído
-  fica no histórico apenas como registro.
+- Se você tinha usado **domínio próprio**, os servidores DNS do domínio ainda apontam
+  para o BeeFood, e a zona não existe mais — o endereço fica **sem resposta** até
+  você voltar, no registrador, para os servidores DNS de onde quer hospedar. Se for
+  usar o domínio de novo aqui, é só cadastrar outro domínio e repetir a Parte 5.
+- Você pode cadastrar outro domínio no mesmo cardápio, do zero.
 
 > Trocar de endereço custa visita: link no Instagram, no Google Meu Negócio, no
 > WhatsApp e QR Code impresso apontam para o antigo. Atualize esses lugares no mesmo
 > dia da troca.
+
+---
+
+## 9. Parte 2 — subdomínio: digitar e conferir o endereço
+
+Aqui o caminho começa igual: **Aplicativos → Domínio Próprio**, escolha o cardápio e,
+no passo 2, o cartão **Subdomínio** (o segundo, `cardapio.seurestaurante.com.br`). A
+diferença aparece a partir de agora — e é uma diferença boa: **nada muda no seu site
+nem no seu e-mail**, porque o domínio continua sendo gerenciado onde já está.
+
+Digite o subdomínio inteiro (1). Vale qualquer prefixo: `cardapio`, `menu`, `pedido`,
+ou o nome da unidade (`centro`, `shopping`). A tela confere na hora e mostra o que vai
+responder por esse cardápio (2) — no subdomínio é só um endereço, sem o `www`. Em **O
+próximo passo será** (3) já aparece o registro CNAME que você vai criar. Confira e
+clique em **CADASTRAR DOMÍNIO** (4).
+
+![Passo 3 — endereço do subdomínio conferido](imagens-tratadas/16-subdominio-conferido.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1. | **Campo do endereço** | Digite o subdomínio completo, sem `https://`. O sinal verde à direita quer dizer que passou na conferência. |
+| 2. | **Vão responder por este cardápio** | O endereço que vai abrir o cardápio. |
+| 3. | **O próximo passo será** | Adianta o CNAME que a tela vai pedir. Serve para você já saber o que fazer no registrador. |
+| 4. | **CADASTRAR DOMÍNIO** | Grava o pedido. Só aqui algo é criado. |
+
+> Diferente do domínio próprio, o subdomínio **não pede aviso sobre e-mail**: os
+> servidores DNS ficam onde estão e nada do que existe hoje é tocado.
+
+---
+
+## 10. Parte 2 — subdomínio: criar o CNAME
+
+Cadastrado, a etiqueta fica em **Aguardando você** (1): falta a sua parte no
+registrador. A tela mostra o registro pronto, em três campos (2) — **Tipo**, **Nome**
+e **Valor** —, cada um com um botão de copiar do lado. Crie esse registro no painel
+onde você gerencia o DNS do domínio e, quando terminar, clique em **Já configurei,
+verificar agora** (3).
+
+![Instrução do CNAME](imagens-tratadas/17-instrucao-cname.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1. | **Endereço e situação** | **Aguardando você** = o BeeFood já fez a parte dele. |
+| 2. | **Tipo, Nome e Valor** | Os três dados do registro. Use os botões de copiar para não errar uma letra. |
+| 3. | **Já configurei, verificar agora** | Pede a conferência na hora, sem esperar a checagem automática. |
+
+Como criar no registrador: procure a área de **DNS** ou **Zona DNS**, clique em
+adicionar registro e preencha com o que está na tela. Muitos painéis pedem só o
+prefixo no campo *Nome* — nesse caso, digite `cardapio` em vez de
+`cardapio.seurestaurante.com.br`, porque o resto ele completa. O **Valor** vai
+inteiro, do jeito que está.
+
+> Se o campo *Nome* já vier com o domínio ao lado (do tipo `.seurestaurante.com.br`),
+> é sinal de que ele quer só o prefixo.
 
 ---
 

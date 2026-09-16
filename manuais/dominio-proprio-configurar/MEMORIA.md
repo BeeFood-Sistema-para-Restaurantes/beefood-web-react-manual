@@ -44,7 +44,9 @@ produção **só para a empresa 38311**, que por sorte é o sandbox dos manuais.
 | 1.1 cadastro do APEX + instrução NS | 16/09 14:30 | ✅ capturado (imagens 01–06) |
 | 1.1 domínio **No ar** | 16/09 14:54 | ✅ capturado (imagem 07) |
 | 1.2 aba **DNS** (zona) | — | ⛔ **bloqueado**: a API responde 503 *"O gerenciamento de DNS não está disponível neste ambiente"* |
-| 1.3 excluir domínio | — | 🟡 imagens 11 e 12 prontas (diálogo fotografado em ensaio `DRY=1`); falta o clique final e a imagem 13 |
+| 1.2 alterar zona DNS | 16/09 16:00 | ✅ registro MX criado, TTL alterado, propagação e histórico (imagens 08–12) |
+| 1.3 excluir domínio | 16/09 16:15 | ✅ excluído de verdade; remoção é assíncrona (*Removendo* por ~2 min) — imagens 13–15 |
+| 2.1 subdomínio | 16/09 16:17 | 🟡 `cardapio.cardapioteste.com.br` cadastrado, CNAME entregue ao dono; aguardando o apontamento |
 | 2.1 subdomínio + CNAME | depois de 1.3 | ⏸ aguardando |
 
 **Servidores DNS entregues ao dono em 16/09 14:31** (é o que ele precisa colocar no
@@ -69,7 +71,16 @@ ns-1648.awsdns-14.co.uk
 | `06-instrucao-ns.png` | setas 1–3 + moldura | os quatro servidores DNS e o **Já configurei, verificar agora** |
 | `07-dominio-no-ar.png` | setas 1–3 | domínio **No ar**, endereços e as cinco etapas concluídas |
 | `11-excluir-botao.png` | seta 1 | tira do rodapé do painel — **Excluir domínio** (recorte da mesma pura da 07) |
-| `12-confirmar-exclusao.png` | setas 1–2 | diálogo *Excluir o domínio?* (capturado com `DRY=1`, **sem** excluir) |
+| `08-aba-dns.png` | setas 1–3 + moldura | aba **DNS**, **Adicionar registro** e a zona com os cadeados |
+| `09-form-registro.png` | setas 1–5 | formulário do registro (MX do Google Workspace, dois valores, TTL) |
+| `10-registro-criado.png` | seta 1 + moldura | registro novo destacado e os botões lápis/lixeira |
+| `11-propagacao.png` | setas 1–2 | aviso de propagação depois de alterar o TTL |
+| `12-historico-dns.png` | setas 1–2 | **Histórico de alterações** aberto, com *Antes* e *Depois* |
+| `13-excluir-botao.png` | seta 1 | **Excluir domínio** no rodapé (painel inteiro, gerado da pura da 07) |
+| `14-confirmar-exclusao.png` | setas 1–2 | diálogo *Excluir o domínio?* |
+| `15-apos-exclusao.png` | setas 1–2 | cardápio livre e *Domínios removidos anteriormente* |
+| `16-subdominio-conferido.png` | setas 1–4 | endereço do subdomínio conferido, com o CNAME adiantado |
+| `17-instrucao-cname.png` | setas 1–3 + moldura | **Tipo/Nome/Valor** do CNAME e o botão de verificar |
 
 A imagem **03** ficou de **contexto** de propósito: a tela inteira são os dois
 cartões, cada um com título próprio, e o manual os compara numa tabela. Seta ali só
@@ -101,9 +112,16 @@ justamente o que precisa ser lido).
 - O diálogo de exclusão **não** fica dentro do painel: é um `ConfirmationDialog` no
   centro da tela. Recorte próprio (`crop` com `y0` também, por isso o `annotate.py`
   desloca x **e** y).
-- Numeração reservada: **08–10** para a aba DNS, **11–13** para a exclusão e
-  **14–16** para o subdomínio. A seção da zona DNS entra como **7** no `.md` e
-  empurra a exclusão para **8**.
+- Numeração final: **08–12** aba DNS, **13–15** exclusão, **16–18** subdomínio.
+- **Sem super zoom** (pedido do dono, 16/09): tira estreita de um botão confunde. A
+  imagem de um clique no rodapé é o **painel inteiro** com a seta no botão; diálogo
+  do centro entra com o painel atrás (`crop=(640, 100, 2160, 1280)`).
+- Diálogo do centro precisa de `crop` com `y0` → o `annotate.py` desloca **x e y**.
+- A exclusão é **assíncrona**: o cartão fica *Removendo* por ~2 min. Capturar a tela
+  final exige recarregar até sair (`pos-exclusao`).
+- A aba DNS voltou a responder em 16/09 15:56 (era falha de backend, não de ambiente).
+- Um conferidor curto compara os marcadores do `annotate.py` com os números citados
+  nas tabelas do `.md` — rodar sempre antes do commit.
 
 ## Bloqueio da parte 1.2 (16/09 15:0x)
 

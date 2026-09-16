@@ -199,4 +199,25 @@ annotate("14-confirmar-exclusao.png",
                   (2, 1358, 782, 1358, 872)],
          crop=(640, 100, 2160, 1280), **dialogo)
 
+# --- 15 Depois da exclusão: o cardápio livre de novo -----------------------
+painel("15-apos-exclusao.png",
+       markers=[(1, 1185, 270, 1065, 270),
+                (2, 1188, 354, 1065, 354)],
+       crop=ate(500))
+
+# --- 16 Parte 2: endereço do subdomínio conferido ---------------------------
+painel("16-subdominio-conferido.png",
+       markers=[(1, 1183, 294, 1065, 294),
+                (2, 1183, 412, 1065, 412),
+                (3, 1183, 580, 1065, 580),
+                (4, 1885, 755, 1885, 855)],
+       crop=ate(920))
+
+# --- 17 Parte 2: instrução do CNAME ----------------------------------------
+painel("17-instrucao-cname.png",
+       markers=[(1, 1178, 379, 1065, 379),
+                (2, 1205, 887, 1065, 887),
+                (3, 1205, 1012, 1065, 1012)],
+       ring=[(1195, 840, 2110, 935)])
+
 print("done")
