@@ -3,25 +3,33 @@
      e a imagem certa é o resultado da novidade (o papel impresso, a tela nova),
      nunca um ícone decorativo. O título fala do problema no salão, não do nome
      do campo no sistema.
-     Troque: pílula, título, subtítulo, data e a imagem da sangria.
-     Cuidado: a coluna de texto tem de parar antes da borda esquerda do mockup —
-     com `inclinado`, o papel avança ~15 px a mais do que a largura sugere. -->
+     Troque: pílula, título, subtítulo, data e a imagem da `.figura`.
+     Cuidado: o título é a frase mais curta do carrossel e leva UMA palavra em
+     `.destaque` vermelho, sem emoji junto — vermelho e emoji na mesma linha são
+     dois grifos brigando. O subtítulo é onde a frase respira, e pode ter duas
+     linhas; aperte a imagem antes de apertar ele. -->
 <div class="slide slide--capa">
   <div class="topo">
     <span class="logo"></span>
     <span class="data">15/09/2026</span>
   </div>
 
-  <div class="pilha g32" style="margin-top: 78px; max-width: 900px">
+  <div class="pilha g24" style="margin-top: 36px">
     <span class="pilula pilula--novidade">Novidade</span>
-    <h1 class="titulo">Toda loja tem uma <span class="destaque">gambiarra</span> para não esquecer a bebida</h1>
-    <p class="subtitulo" style="max-width: 400px">
-      Canetinha na lata. Durex na comanda. Agora o papel avisa sozinho.
+    <h1 class="titulo">Cansou de esquecer a <span class="destaque">bebida</span>?</h1>
+    <p class="subtitulo">
+      Sem canetinha na lata, sem grito na cozinha. O cupom marca sozinho.
     </p>
   </div>
 
-  <div class="sangria inclinado" style="top: 700px; right: 30px; width: 520px">
-    <div class="recorte recorte--topo" style="aspect-ratio: 600 / 1000">
+  <!-- Sozinha na faixa, a imagem vai centralizada e no maior tamanho que couber,
+       e reta: `.figura`. Encostar na borda e inclinar em 3D deixa metade do slide
+       vazia e ainda sai menor. Ajuste a largura até sobrar ~28 px para o rodapé.
+       Papel impresso leva `.rasgado` na base, para o corte virar papel destacado
+       em vez de erro de render, e canto de 5 px (bobina não tem canto redondo). -->
+  <div class="figura" style="margin-top: 24px; width: 728px">
+    <div class="recorte recorte--topo rasgado"
+         style="aspect-ratio: 680 / 554; border-radius: 5px">
       <img src="../imagens-puras/01-resultado.png" alt="Cupom com o item em destaque">
     </div>
   </div>

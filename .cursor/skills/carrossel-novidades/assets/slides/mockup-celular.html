@@ -1,13 +1,18 @@
-<!-- Modelo: MOCKUP DE CELULAR EM SANGRIA (o padrão).
-     Um aparelho só, com mais de meia largura do slide, saindo pela borda de
-     baixo. Dois celulares lado a lado couberam no 4:5 mas ninguém lê a tela
-     deles no feed — só use lado a lado quando a comparação for entre as duas
-     telas, e mesmo aí prefira dois slides.
+<!-- Modelo: MOCKUP DE CELULAR EM SANGRIA CENTRALIZADA (o padrão).
+     Um aparelho só, com o texto todo acima dele, saindo pela borda de baixo.
+     Como ele está sozinho na faixa, a sangria vai **centralizada** — recuo igual
+     dos dois lados — e na maior largura que a base aceita. Encostar num lado
+     deixa um vão do outro e o aparelho sai menor de graça; para inclinar em 3D,
+     use o modelo `ilustracao-app.html`, que põe texto ao lado.
+
+     Dois celulares lado a lado couberam no 4:5 mas ninguém lê a tela deles no
+     feed — só use lado a lado quando a comparação for entre as duas telas, e
+     mesmo aí prefira dois slides.
 
      A moldura é CSS: o print entra inteiro, sem perder nitidez. Capture com
      `--dispositivo celular` (390x844 @3x).
 
-     Orçamento de espaço: com o celular em `top: 530px`, o texto acima cabe em
+     Orçamento de espaço: com o celular em `top: 520px`, o texto acima cabe em
      chapéu + título de 2 linhas (`titulo--pequeno`) + 2 linhas de corpo. A
      terceira linha de corpo já cai atrás do aparelho. -->
 <div class="slide">
@@ -26,7 +31,7 @@
     </p>
   </div>
 
-  <div class="sangria sangria--celular" style="top: 530px">
+  <div class="sangria" style="top: 520px; right: 210px; width: 660px">
     <div class="celular">
       <div class="celular__tela">
         <img src="../imagens-puras/04-cardapio.png" alt="Cardápio digital no celular">
@@ -34,13 +39,6 @@
     </div>
   </div>
 
-  <div class="empurra"></div>
-
-  <div class="rodape">
-    <!-- Os pontos ficam à esquerda do aparelho (que começa em x=376). -->
-    <span class="pontos">
-      <span></span><span></span><span></span><span class="on"></span>
-      <span></span><span></span><span></span><span></span>
-    </span>
-  </div>
+  <!-- Sem rodapé: o aparelho centralizado cobre a base do slide, e ponto
+       desenhado por cima de print parece sujeira. O "4 de 8" do topo basta. -->
 </div>

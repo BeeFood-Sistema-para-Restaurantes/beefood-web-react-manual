@@ -386,12 +386,6 @@ body {
   box-shadow: 0 0 0 4px rgba(239, 66, 57, 0.18);
 }
 
-/* Papel na bancada: uma inclinação mínima faz o cupom parecer objeto, não
- * arquivo. Só na capa — em slide de conteúdo, atrapalha a leitura. */
-.inclinado {
-  transform: rotate(-3deg);
-}
-
 /* ------------------------------------------------------------------- 3D
  *
  * Mockup em perspectiva, para intercalar com os retos e dar ritmo ao carrossel.

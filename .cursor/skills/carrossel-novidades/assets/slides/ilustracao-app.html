@@ -10,7 +10,16 @@
      3. o slide leva o `.selo-ilustracao` — ilustração que passa por captura
         engana quem lê, e o repositório é público.
 
-     Registre no roteiro.md o print que você pediu ao dono, para trocar depois. -->
+     Registre no roteiro.md o print que você pediu ao dono, para trocar depois.
+
+     É o modelo com MOCKUP 3D, e por um motivo: a tela desenhada nunca tem
+     conteúdo para encher a altura de um celular, então aqui o aparelho termina
+     dentro do slide (não sangra pela base) e o corpo do texto desce para uma
+     coluna ao lado dele. É essa coluna que dá licença para o mockup sair do
+     centro e girar; aparelho sozinho na faixa vai centralizado e reto
+     (`mockup-celular.html`). Como a base da tela aparece, a barra de ação vai
+     para lá com `flex: 1` no corpo e `margin-top: auto` no aviso — sem isso
+     sobra um vazio de 300 px e a tela parece render pela metade. -->
 <div class="slide slide--suave">
   <div class="topo">
     <span class="logo"></span>
@@ -22,18 +31,21 @@
     <h2 class="titulo titulo--pequeno">
       O entregador <span class="destaque">confirma</span> antes de ir embora
     </h2>
-    <p class="corpo">
-      Duas linhas, largura cheia.
+    <!-- O corpo fica na coluna da esquerda, ao lado do aparelho. -->
+    <p class="corpo" style="max-width: 412px">
+      Quatro ou cinco linhas curtas, na coluna ao lado do celular.
     </p>
   </div>
 
-  <!-- O selo mora na coluna vazia à esquerda do aparelho. -->
-  <span class="selo-ilustracao" style="left: 88px; top: 580px">Ilustração</span>
+  <!-- O selo fecha a coluna de texto, logo abaixo do corpo. -->
+  <span class="selo-ilustracao" style="left: 88px; top: 660px">Ilustração</span>
 
-  <div class="sangria sangria--celular" style="top: 530px">
-    <div class="celular">
+  <div class="sangria cena3d" style="top: 300px; right: 40px; width: 462px">
+    <div class="celular g3d g3d--direita">
       <div class="celular__tela">
-        <div class="tela-app">
+        <!-- Tela estreita: a tipografia da ilustração desce junto (22 px), senão
+             cada aviso vira quatro linhas. -->
+        <div class="tela-app" style="font-size: 22px">
           <div class="tela-app__barra">
             <span>20:41</span>
             <span>Entregador</span>
@@ -42,17 +54,18 @@
             <div class="tela-app__titulo">Pedido #32</div>
             <div>Rua das Acácias, 120</div>
           </div>
-          <!-- Conteúdo empilhado a partir do topo: o terço de baixo do celular
-               está fora do slide, então nada importante vai para lá. -->
-          <div class="tela-app__corpo">
+          <!-- O aparelho termina dentro do slide, então a base da tela aparece
+               e o aviso vai para lá, como em app de verdade. -->
+          <div class="tela-app__corpo" style="flex: 1">
             <div class="tela-app__cartao">
               <div class="tela-app__linha"><span>1x Combo One Burger</span></div>
+              <div class="tela-app__linha"><span>&bull; 1x One Burger</span></div>
               <div class="tela-app__linha"><span>&bull; 1x Batata frita</span></div>
               <div class="tela-app__linha tela-app__linha--destaque">
                 <span>&bull; 1x Coca Cola 350ml</span>
               </div>
             </div>
-            <div class="tela-app__aviso">
+            <div class="tela-app__aviso" style="margin-top: auto">
               <div>Entregue <b>1x Coca Cola 350ml</b> junto com o pedido.</div>
               <div class="tela-app__botao">Confirmar entrega</div>
             </div>
