@@ -388,10 +388,27 @@ def cap_sub_verificar(page):
 
 
 def cap_sub_no_ar(page):
+    """Pede a verificação (se ainda faltar) e espera o subdomínio ficar No ar."""
     s = abrir_modal(page)
     escolher_cardapio(page, s, 7000)
-    print(s.inner_text()[:3000])
-    shot(page, "18-subdominio-no-ar.png")
+    botao = s.get_by_role("button", name="Já configurei, verificar agora")
+    if botao.count():
+        botao.first.scroll_into_view_if_needed()
+        botao.first.click()
+        after_click(page, 8000)
+        print("verificação pedida")
+    for i in range(40):
+        texto = s.inner_text()
+        no_ar = "https://cardapio.cardapioteste.com.br" in texto
+        print(f"  [{i:02d}]", "No ar" if no_ar else "aguardando")
+        if no_ar:
+            after_click(page, 4000)
+            print(texto[:2500])
+            shot(page, "18-subdominio-no-ar.png")
+            return
+        page.wait_for_timeout(20000)
+    print("ainda não subiu")
+    print(s.inner_text()[:2000])
 
 
 ETAPAS = {

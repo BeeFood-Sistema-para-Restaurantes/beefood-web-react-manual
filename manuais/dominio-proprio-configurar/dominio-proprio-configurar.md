@@ -23,11 +23,11 @@ o processo até o domínio ficar **No ar**.
 2. **Acesso ao painel do registrador**, aquele em que você comprou o domínio. É lá
    que você vai colar o que a tela mostrar.
 3. **Decidir o tipo**: usar o domínio principal (`seurestaurante.com.br`) ou criar um
-   endereço novo (`cardapio.seurestaurante.com.br`). A diferença está na Parte 2 —
-   ela muda o que você precisa fazer no registrador e, no caso do domínio principal,
-   mexe no e-mail.
+   endereço novo (`cardapio.seurestaurante.com.br`). A seção 3 compara os dois: a
+   escolha muda o que você faz no registrador e, no caso do domínio principal, mexe no
+   e-mail.
 4. Cada cardápio da conta aceita **um** domínio por vez. Para trocar, exclua o atual
-   (Parte 8) e cadastre outro.
+   (seção 8) e cadastre outro.
 
 ---
 
@@ -86,12 +86,12 @@ vai fazer no registrador.
 
 > **Se você usa e-mail nesse domínio** (`contato@seurestaurante.com.br`), pense duas
 > vezes antes de escolher **Domínio próprio**. Ao trocar os servidores DNS, o e-mail
-> deixa de receber mensagens até os registros serem recriados na aba **DNS** (Parte
-> 5). Quando o BeeFood detecta servidores de e-mail no domínio, a própria tela
+> deixa de receber mensagens até os registros serem recriados na aba **DNS** (seção
+> 7). Quando o BeeFood detecta servidores de e-mail no domínio, a própria tela
 > sugere o subdomínio.
 
-A Parte 4 segue com o **domínio próprio**. Se você escolheu **Subdomínio**, pule para
-a Parte 7.
+A seção 4 segue com o **domínio próprio**. Se você escolheu **Subdomínio**, pule para
+a seção 9.
 
 ---
 
@@ -104,7 +104,7 @@ você digita, o BeeFood confere o endereço e mostra o resultado logo abaixo.
 
 | Nº | Item | O que fazer |
 |----|------|-------------|
-| 1. | **Qual é o endereço?** * | Digite só o domínio: `cardapioteste.com.br`. O check verde à direita indica que ele foi aprovado. |
+| 1. | **Qual é o endereço?** | Digite só o domínio: `cardapioteste.com.br`. O check verde à direita indica que ele foi aprovado. |
 | 2. | **Vão responder por este cardápio** | Confira os endereços que vão abrir o cardápio — no domínio próprio são dois: com e sem `www`. |
 | 3. | **Aviso amarelo** | Recado, não erro. Aqui ele diz que o domínio ainda não foi encontrado no DNS. Confirme com o seu registrador que o domínio está ativo. |
 | 4. | **CADASTRAR DOMÍNIO** | Grava o pedido. Só habilita depois da conferência aprovar o endereço. |
@@ -194,8 +194,8 @@ passa a morar aqui** — inclusive o que não é cardápio. É por isso que exis
 **DNS**: sem ela, configurar o e-mail do domínio ou apontar outro serviço exigiria
 voltar ao registrador, onde o domínio já não é mais gerenciado.
 
-> Essa aba só aparece no **domínio próprio**. No subdomínio (Parte 9) a zona continua
-> no seu registrador, então quem manda lá é você.
+> Essa aba só aparece no **domínio próprio**. No subdomínio a zona continua no seu
+> registrador, então quem mexe nela é você, por lá.
 
 Com o domínio no ar, clique na aba **DNS** (1). A tela mostra a zona inteira: os
 registros que o BeeFood criou vêm com **cadeado** e não podem ser mexidos (3) — são
@@ -300,7 +300,7 @@ quem acessar por ele não encontra mais o cardápio. Para confirmar, clique em
 | 2. | **Excluir (ENTER)** | Confirma. O painel volta para a lista de cardápios e o endereço passa a aparecer em *Domínios removidos anteriormente*. |
 
 A remoção leva alguns minutos: o cartão fica em **Removendo** enquanto o BeeFood
-desfaz a publicação e apaga a zona. Quando termina, o cardápio volta a aparecer com o
+desfaz a publicação e limpa os registros do cardápio. Quando termina, o cardápio volta a aparecer com o
 endereço do BeeFood (1) e o domínio excluído passa a ficar em **Domínios removidos
 anteriormente** (2) — é só histórico, não dá para reativar por ali.
 
@@ -314,10 +314,11 @@ anteriormente** (2) — é só histórico, não dá para reativar por ali.
 Depois de excluir:
 
 - O cardápio continua funcionando no endereço `menu.beefood.com.br/...`.
-- Se você tinha usado **domínio próprio**, os servidores DNS do domínio ainda apontam
-  para o BeeFood, e a zona não existe mais — o endereço fica **sem resposta** até
-  você voltar, no registrador, para os servidores DNS de onde quer hospedar. Se for
-  usar o domínio de novo aqui, é só cadastrar outro domínio e repetir a Parte 5.
+- Se você tinha usado **domínio próprio**, os servidores DNS do domínio continuam
+  apontando para o BeeFood, mas os registros do cardápio já saíram — o endereço fica
+  **sem resposta** até você voltar, no painel do registrador, para os servidores DNS
+  de onde quer hospedar. Se for usar o domínio aqui de novo, basta cadastrá-lo outra
+  vez e repetir a seção 5.
 - Você pode cadastrar outro domínio no mesmo cardápio, do zero.
 
 > Trocar de endereço custa visita: link no Instagram, no Google Meu Negócio, no
@@ -380,12 +381,42 @@ inteiro, do jeito que está.
 
 ---
 
+## 11. Parte 2 — subdomínio: o subdomínio no ar
+
+Assim que o CNAME é visto, o BeeFood segue sozinho: certificado, publicação e
+liberação. A etiqueta muda para **No ar** (1) e o endereço fica clicável (2) — no
+subdomínio é um só, sem o `www`. As cinco etapas ficam verdes (3).
+
+No exemplo deste manual, o pedido foi registrado às 16:17, o CNAME apareceu no DNS às
+**18:43** e o subdomínio ficou no ar às **18:47**. As três linhas *Aguardando o
+apontamento do DNS* no histórico são as tentativas de conferência antes disso: enquanto
+o registro não estava publicado, a tela continuou esperando sem dar erro.
+
+![Subdomínio no ar](imagens-tratadas/18-subdominio-no-ar.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1. | **Endereço e situação** | **No ar** confirma que o subdomínio já responde. |
+| 2. | **Endereço do cardápio** | O link que você vai divulgar. O primeiro ícone abre numa aba nova, o segundo copia. |
+| 3. | **Etapas concluídas** | Pedido, DNS, certificado, publicação e no ar. |
+
+Abra o endereço no celular, fora do Wi-Fi da loja: tem que abrir o cardápio com o
+cadeado do `https`. O seu site principal e o e-mail continuam exatamente como estavam
+— o subdomínio não encostou neles.
+
+> Demorou mais do que você esperava? A conta não é do BeeFood: alguns provedores de
+> DNS só publicam a alteração da zona de tempo em tempo. Enquanto isso a tela fica em
+> **Aguardando você** e vai tentando sozinha.
+
+---
+
 ## Problemas comuns
 
 | Sintoma | O que está acontecendo | O que fazer |
 |---------|------------------------|-------------|
 | Cadastrei e a etiqueta ficou em **Aguardando você** | falta a sua parte: trocar os servidores DNS (domínio próprio) ou criar o CNAME (subdomínio) | faça no painel do registrador e clique em **Já configurei, verificar agora** |
 | Troquei os DNS e continua **Aguardando você** | a mudança ainda não propagou | espere; a troca de servidores DNS pode levar algumas horas. A tela se atualiza sozinha |
+| Criei o CNAME e a tela não acha | muitos provedores só publicam a zona de tempo em tempo — o registro existe no painel, mas ainda não está no DNS | confirme que a alteração foi **salva/enviada** no painel do seu provedor e espere. No exemplo deste manual levou cerca de duas horas |
 | O aviso amarelo diz que o domínio não foi encontrado no DNS | o domínio pode estar sem registro ativo, vencido ou recém-comprado | confirme com o registrador se ele está ativo e pago |
 | O navegador acusa **erro de certificado** | o certificado é emitido depois do apontamento; se o domínio ainda não está **No ar**, ele não existe | espere o **No ar**. Se persistir, use **Falar com o suporte** no próprio painel |
 | O e-mail do domínio parou depois da configuração | você usou **domínio próprio** e trocou os servidores DNS | recrie os registros do seu provedor de e-mail (MX e TXT) na aba **DNS** |
@@ -418,9 +449,18 @@ Não. O `menu.beefood.com.br/...` continua valendo, então QR Code impresso e li
 salvos não quebram.
 
 **Quanto tempo leva?**
-A parte do BeeFood leva minutos. O tempo total depende da propagação do DNS: no
-exemplo deste manual o domínio ficou no ar **4 minutos** depois de o DNS responder,
-mas a propagação em si pode levar horas.
+A parte do BeeFood leva minutos: nos dois exemplos deste manual, o cardápio ficou no ar
+**4 minutos** depois de o DNS responder. O que demora é a sua parte chegar ao DNS — a
+troca de servidores levou cerca de 20 minutos no domínio próprio e a publicação do
+CNAME levou cerca de duas horas no subdomínio, porque depende do seu provedor.
+
+**Dá para ter o domínio principal e um subdomínio no mesmo cardápio?**
+Não ao mesmo tempo: cada cardápio tem um endereço por vez. Se você tem mais de um
+cardápio na conta, aí sim — um endereço para cada.
+
+**Mudei de ideia: posso trocar de subdomínio para domínio próprio?**
+Pode. Exclua o atual (seção 8) e cadastre o novo. Só lembre de atualizar os links
+divulgados.
 
 **O `https` (cadeado) vem incluído?**
 Sim. O certificado é emitido automaticamente na etapa **Certificado de segurança** e
@@ -428,5 +468,8 @@ renovado sem que você precise fazer nada.
 
 ---
 
-*Manual em produção — a parte de alteração da zona DNS (aba **DNS**) e o fluxo do
-subdomínio entram na sequência.*
+## Manuais relacionados
+
+- **Domínio próprio (verificação na Meta)** — para provar a posse do domínio no
+  Facebook/Instagram depois que ele estiver no ar.
+- **Cardápio Digital** — configurações do cardápio que o domínio vai abrir.
