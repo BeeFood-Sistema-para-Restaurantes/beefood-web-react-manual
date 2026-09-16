@@ -8,7 +8,9 @@ Brasil/EUA/Espanha no cadastro de setor, produto, complemento e grupo de opçõe
 só existem com **totem ou tablet contratado** (`temTraducaoContratada`); item sem
 tradução cai para o português; **Habilitar tradução** no totem; **sem** tradução em lote;
 telas do cliente no totem e no tablet, com o padrão de anotar **foto de tela enviada
-pelo dono**);
+pelo dono**; **#101** domínio próprio e subdomínio pela tela — APEX troca os servidores
+DNS e ganha a aba **DNS** da zona, subdomínio é só um CNAME; exclusão é assíncrona;
+padrão de imagem do **painel lateral** e prova de CNAME ausente por **NSEC**);
 2026-09-13 (**#99** Destaque na impressão — produto/complemento/lote; fundo escuro no Cupom Pedido, na Cozinha e no cupom do delivery; texto em tom de busca a partir da discussão *Destaque de bebida*);
 2026-09-11 (**#98** taxa de serviço opcional no cupom — rodapé do Cupom Pedido, Delivery ≠ Presencial);
 2026-09-10 (**#94/#95/#96** fechamento fiscal, autorizar contador e portal do contador; **#97** transferir item entre mesas/comandas);
@@ -797,6 +799,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Taxa de serviço opcional no cupom | `manuais/cupom-taxa-servico-opcional/` | ✅ Concluído (#98) |
 | Destaque na impressão | `manuais/destaque-impressao/` | ✅ Concluído (#99) |
 | Tradução do cardápio presencial (tablet e totem) | `manuais/traducao-cardapio-presencial/` | ✅ Concluído (#100) |
+| Domínio próprio e subdomínio pela tela | `manuais/dominio-proprio-configurar/` | ✅ Concluído (#101) |
 | Pedidos pelo chat no WhatsApp | `manuais/whatsapp-pedidos-chat/` | ✅ Concluído (#86) |
 | Campanhas de WhatsApp | `manuais/campanhas-whatsapp/` | ✅ Concluído (#15) |
 | Notificações de cada etapa | `manuais/whatsapp-notificacoes/` | ✅ Concluído (#87) |
