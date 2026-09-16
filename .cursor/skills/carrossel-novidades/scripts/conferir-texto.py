@@ -26,6 +26,28 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from pauta import FEED, baixar, fichas  # noqa: E402
 
+# Nome de produto não é prosa do release: sai dos dois lados antes da comparação.
+#
+# "Totem de Autoatendimento e no Cardápio Digital no Tablet" tem nove palavras e
+# estourava a janela sozinho, só porque a novidade também precisa dizer em quais
+# aplicativos a coisa funciona. Exigir sinônimo aqui não deixa o texto mais
+# autoral, deixa errado — e a saída fácil seria a pior de todas: trocar por
+# "totem" e "tablet" e deixar o leitor adivinhar se o cardápio do celular também
+# mudou.
+#
+# Esta lista é só para nome que o dono do produto escolheu, nunca para frase que
+# você quer reaproveitar. Cada linha nova aqui é uma frase que o conferidor
+# deixa passar para sempre.
+NOMES_DE_PRODUTO = (
+    "Totem de Autoatendimento",
+    "Cardápio Digital no Tablet",
+    "Cardápio Digital",
+    "Cupom Pedido",
+    "Editar em Lote",
+    "Destaque na impressão",
+    "Salvar e Sair",
+)
+
 
 class SomenteTexto(HTMLParser):
     """Texto visível do fragmento. Comentário de HTML fica de fora — é nota de
@@ -42,9 +64,17 @@ class SomenteTexto(HTMLParser):
         return " ".join(self.pedacos)
 
 
-def palavras(texto: str) -> list[str]:
+def sem_acento(texto: str) -> str:
     texto = unicodedata.normalize("NFKD", texto.lower())
-    texto = "".join(c for c in texto if not unicodedata.combining(c))
+    return "".join(c for c in texto if not unicodedata.combining(c))
+
+
+def palavras(texto: str) -> list[str]:
+    texto = sem_acento(texto)
+    for nome in NOMES_DE_PRODUTO:
+        # Vira um token só: apagar juntaria as palavras da volta e inventaria
+        # sequências que ninguém escreveu.
+        texto = texto.replace(sem_acento(nome), " nomedeproduto ")
     return re.findall(r"[a-z0-9]+", texto)
 
 
@@ -86,7 +116,13 @@ def main() -> None:
     # mais fácil de encher com recorte do release, porque cabe texto longo.
     copy = pasta.parent / "copy-instagram.txt"
     if copy.is_file():
-        copiadas = sequencias(palavras(copy.read_text(encoding="utf-8")), args.janela) & fonte
+        texto = copy.read_text(encoding="utf-8")
+        # O cabeçalho do arquivo é nota de produção: ele diz qual novidade é,
+        # com o título dela, e nada disso vai para o Instagram. Conferir o
+        # cabeçalho só ensinava a escrever o cabeçalho errado.
+        if "====" in texto:
+            texto = texto[texto.index("===="):]
+        copiadas = sequencias(palavras(texto), args.janela) & fonte
         for seq in sorted(copiadas):
             print(f"COPIADO  {copy.name}: {' '.join(seq)}")
             achados += 1

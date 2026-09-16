@@ -8,8 +8,8 @@ do zip são os mesmos de fora, sem pasta intermediária, porque quem recebe
 costuma arrastar o conteúdo direto para o celular e a ordem de publicação é a
 ordem alfabética dos arquivos.
 
-A folha de contato fica de fora: ela é ferramenta de revisão, e no meio das oito
-imagens alguém acaba postando a nona por engano.
+A folha de contato fica de fora: ela é ferramenta de revisão, e no meio das
+imagens do carrossel alguém acaba postando uma imagem a mais por engano.
 """
 
 from __future__ import annotations
