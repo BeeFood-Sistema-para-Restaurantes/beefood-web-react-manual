@@ -153,6 +153,15 @@ O padrão:
 - Passar `r` e `w` **na mão** com os valores da captura inteira (27 e 4). O recorte
   não redimensiona nada, e o cálculo automático por largura encolheria a etiqueta.
 - A tela que **contém** o painel (o card que abre) entra inteira, como contexto.
+- **Recortar não é dar zoom.** Tira estreita com um botão só (o rodapé do painel, por
+  exemplo) tira a referência de onde aquilo fica e o cliente se perde — foi o segundo
+  recado do dono no #101: *"não devemos ter imagens com super zoom dentro da modal
+  lateral, senão o usuário se perde no entendimento"*. Para um clique no rodapé, a
+  imagem é o **painel inteiro** com a seta no botão.
+- **Diálogo no centro da tela** (`ConfirmationDialog`, formulários em `Dialog`) não
+  está dentro do painel: recorte próprio, com o painel visível atrás como contexto
+  (no #101, `crop=(640, 100, 2160, 1280)`). Como esse recorte tem `y0`, o
+  `annotate.py` desloca as coordenadas em **x e y**.
 
 Implementação de referência: `manuais/dominio-proprio-configurar/annotate.py`
 (`PAINEL`, `MARGEM`, `ate(y)` e o atalho `painel(...)`).
