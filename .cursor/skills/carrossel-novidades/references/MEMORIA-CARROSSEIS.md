@@ -4,14 +4,14 @@ Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
 continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
 entra o que é de carrossel.
 
-Última atualização: 2026-09-16 (6ª rodada: logo de fundo escuro passou a ser o
-negativo do arquivo, com a cor da marca, em vez de filtro que achata em branco).
+Última atualização: 2026-09-16 (7ª rodada: as duas artes oficiais do logo, uma
+por tipo de fundo, e a entrega em .zip com as imagens e a copy).
 
 ## Índice
 
 | Carrossel | Novidade | Pasta | Formato | Estado |
 |-----------|----------|-------|---------|--------|
-| Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ renderizado (5ª versão) |
+| Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ entregue — `entrega/destaque-impressao.zip` (8 PNG + copy) |
 
 ## Texto: publicação, não changelog
 
@@ -104,40 +104,39 @@ página, mas **não** no feed.
 - `Path.as_uri()` **estoura em caminho relativo** — resolva o caminho de entrada
   antes (`Path.resolve()`).
 - O logo entra por `--logo` e `--logo-escuro` no `:root`, não por `<img>`: assim
-  nenhum carrossel precisa de uma cópia dos arquivos.
+  nenhum carrossel precisa de uma cópia dos arquivos. O nome do arquivo diz
+  **para que fundo ele serve** (`-fundo-claro`, `-fundo-escuro`), não que cor ele
+  tem: "logo escuro" é ambíguo e foi o que levou a inventar um negativo.
 
-## Logo em fundo escuro: negativo, não filtro
+## Logo: duas artes oficiais, uma por tipo de fundo
 
-A marca é um selo de abelha — corpo e letras em preto, **asas em branco**, tarjas
-em amarelo, "food" em vermelho. Em fundo escuro o arquivo original não serve: o
-preto some e sobram duas asas brancas soltas no ar.
+A marca tem **duas versões prontas**, e a escolha é pelo fundo do slide:
 
-A primeira saída foi `filter: brightness(0) invert(1)` no `.slide--capa .logo`.
-Resolve a visibilidade e **mata a identidade**: achata os quatro tons em branco,
-e vão embora o amarelo da abelha e o vermelho do "food", que é justamente o que
-faz o logo parecer o logo. Foi o que o dono viu e reclamou.
+| Arquivo | Onde | O que muda |
+|---------|------|------------|
+| `logo-beefood-fundo-claro.png` | slide claro (`.slide`, `.slide--suave`) | "BEE" em **preto** |
+| `logo-beefood-fundo-escuro.png` | slide escuro (`.slide--capa`) | "BEE" em **branco**, e o selo ganha contorno branco |
 
-O certo é um arquivo negativo, gerado pelo `scripts/logo-negativo.py`:
+O resto é igual nas duas: asa **branca**, cabeça **preta**, tarja amarela, "food"
+vermelho. O selo não é o negativo dele mesmo — é o mesmo desenho com um contorno
+branco acrescentado para descolar do fundo preto.
 
-- pixel **sem cor** (preto, branco, cinza da borda serrilhada) vira tinta branca
-  com alfa proporcional ao quanto ele era escuro. Preto vira branco opaco; branco
-  vira transparente, e aí a asa mostra o fundo do slide como mostrava o papel; o
-  cinza do meio sai meio transparente, o que faz a borda casar com **qualquer**
-  fundo escuro, não só com um;
-- pixel **com cor** (croma acima de 40) passa intacto.
+Isso custou duas tentativas erradas, e as duas estão anotadas porque são
+tentadoras:
 
-Duas coisas que só aparecem fazendo:
+1. **`filter: brightness(0) invert(1)`** no logo do slide escuro. Resolve a
+   visibilidade e **mata a identidade**: achata todos os tons em branco, e vão
+   embora o amarelo da abelha e o vermelho do "food", que é o que faz o logo
+   parecer o logo.
+2. **Negativo gerado pixel a pixel** (preto→branco, branco→transparente). Mantém
+   a cor, mas inverte a asa e a cabeça junto: a asa some no fundo e a cabeça
+   acende. Fica um selo parecido, e errado.
 
-- **Filtro CSS não serve de jeito nenhum**, nem com `hue-rotate`: ele age na
-  imagem toda, e o que se quer é inverter só a tinta neutra. Por isso é arquivo
-  derivado, não filtro.
-- **Deixar transparente é melhor que pintar de escuro.** Pintar a asa com a cor
-  do fundo (#1e1e1e) funciona no slide chapado e falha na capa, que tem gradiente
-  — a asa apareceria como mancha.
-
-O vermelho do "food" fica no `#ef3f37` da marca, que dá 4,4:1 sobre o `#1e1e1e` —
-suficiente para grafismo desse tamanho. Não vale trocá-lo pelo `#ff5a50` do
-`.destaque`: ali é texto, aqui é logo, e mexer na cor do logo é mexer na marca.
+A regra que fecha o assunto: **arte de marca não se calcula, se pede.** Quando
+falta uma versão do logo, peça o arquivo ao dono em vez de derivar — foi o que
+aconteceu, e o arquivo existia desde o começo. O `marca.json` aponta os dois, o
+`renderizar.py` injeta os dois (`--logo` e `--logo-escuro`) e o `base.css` troca
+sozinho no `.slide--capa`.
 
 ## Legibilidade (o erro que mais se repete)
 
@@ -419,6 +418,40 @@ O slide pode apontar direto para o print do manual
 cupom do #99: é o mesmo cupom, e duplicar o arquivo criaria duas verdades.
 Prints **puros**, nunca os tratados — os tratados têm setas numeradas, que são
 linguagem de manual.
+
+## Entrega: imagem, legenda e zip
+
+PNG renderizado não é entrega. Quem publica precisa das **imagens uma por uma**,
+da **legenda pronta para colar** e de **um arquivo só para baixar** — e isso
+virou parte do fluxo (passo 7 da `SKILL.md`), não um favor no fim.
+
+O `copy-instagram.txt` leva quatro blocos, e os dois últimos são os que a gente
+esquecia:
+
+1. cabeçalho com a novidade, o formato e **a ordem de publicação** (o nome do
+   arquivo já ordena, mas escrever evita o carrossel postado fora de ordem);
+2. a legenda, hashtags no fim;
+3. um primeiro comentário com pergunta — opcional, é o que puxa resposta;
+4. **texto alternativo por imagem**. Slide é imagem: sem isso o post inteiro é
+   invisível para leitor de tela, e a informação já existe no `alt` dos slides.
+
+Duas decisões que a primeira entrega ensinou:
+
+- **A legenda não é a soma dos slides.** Ela é o mesmo assunto em prosa corrida,
+  para quem leu a capa e desceu sem arrastar. O gancho da capa pode repetir (é o
+  que amarra o post), o texto do release não — por isso o `conferir-texto.py`
+  passou a medir o `copy-instagram.txt` junto com os slides, na mesma janela de
+  seis palavras.
+- **A legenda saiu do `roteiro.md`.** Enquanto morava lá, era rascunho perdido no
+  meio das decisões de arte; quem publica abria o roteiro inteiro para achar o
+  texto. Roteiro é auditoria, copy é entrega.
+
+O `empacotar.py` monta `entrega/<slug>.zip` com os PNG e o `.txt` **soltos na
+raiz do zip**, sem pasta intermediária: quem recebe arrasta o conteúdo direto
+para o celular. A folha de contato fica fora de propósito — é ferramenta de
+revisão, e no meio das oito imagens alguém posta a nona por engano. E cada membro
+entra com data fixa, senão o zip muda de bytes a cada rodada só pela hora e o
+diff do commit fica ilegível.
 
 ## Cuidados
 

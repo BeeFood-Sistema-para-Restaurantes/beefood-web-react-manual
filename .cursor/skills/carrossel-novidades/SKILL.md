@@ -60,8 +60,9 @@ nova, escrita a partir do fato**:
    da novidade; se apareceu, foi copiada.
 
 Crie `carrosseis/<slug>/roteiro.md` com a tabela **fato → ângulo → o que o slide
-diz** (é o que permite auditar que nada foi inventado e nada foi copiado), a
-tabela de slides (arquivo, tipo, ideia única, imagem) e a legenda de publicação.
+diz** (é o que permite auditar que nada foi inventado e nada foi copiado) e a
+tabela de slides (arquivo, tipo, ideia única, imagem). A legenda não fica aqui:
+ela é peça de entrega e mora em `copy-instagram.txt` (passo 7).
 Método completo em [`references/roteiro-e-copy.md`](references/roteiro-e-copy.md).
 
 Roteiro aprovado primeiro; captura depois. Print tirado antes do roteiro quase
@@ -145,18 +146,18 @@ As classes disponíveis estão comentadas em
 ficam em [`assets/marca.json`](assets/marca.json) — mudar a marca é mudar esse
 arquivo, não os slides.
 
-O logo não é `<img>`: use `<span class="logo"></span>` e o renderizador injeta o
-arquivo da skill. **Em slide de fundo escuro ele troca sozinho** para
-`logo-beefood-escuro.png`, o negativo da marca: só o cinza inverte (preto vira
-branco, asa branca vira o fundo do slide), e o amarelo da abelha e o vermelho do
-"food" ficam. Nunca resolva isso com filtro — `brightness(0) invert(1)` deixa o
-logo visível achatando a marca em branco, sem cor nenhuma. Se o
-`logo-beefood.png` mudar, gere o negativo de novo:
+O logo não é `<img>`: use `<span class="logo"></span>`. A marca tem **duas artes
+oficiais** e o renderizador injeta as duas; o `base.css` escolhe pelo fundo do
+slide:
 
-```bash
-python .cursor/skills/carrossel-novidades/scripts/logo-negativo.py
-python .cursor/skills/carrossel-novidades/scripts/logo-negativo.py --conferir
-```
+| Arquivo | Onde | O que muda |
+|---|---|---|
+| `logo-beefood-fundo-claro.png` | `.slide`, `.slide--suave` | "BEE" em preto |
+| `logo-beefood-fundo-escuro.png` | `.slide--capa` | "BEE" em branco, e contorno branco no selo |
+
+Asa branca, cabeça preta, tarja amarela e "food" vermelho ficam iguais nas duas.
+**Nunca derive uma da outra**: filtro achata a marca em branco e negativo pixel a
+pixel inverte a asa e a cabeça. Falta uma versão? Peça o arquivo ao dono.
 
 #### Onde a imagem fica na faixa
 
@@ -268,21 +269,51 @@ fato → ângulo → slide.
    sozinha, ela vai centralizada e grande.
 4. Toda afirmação do slide está no manual ou na novidade? Se não está em nenhum
    dos dois, ou você confere no sistema, ou corta. Toda tela desenhada tem selo?
-5. Nos slides de fundo escuro, o logo do topo saiu **com a cor da marca** — tarja
-   amarela e "food" vermelho — e não achatado em branco?
+5. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE" em
+   branco, contorno branco no selo, tarja amarela e "food" vermelho?
 6. Registre o que aprendeu em
    [`references/MEMORIA-CARROSSEIS.md`](references/MEMORIA-CARROSSEIS.md).
-7. Commit e push, como manda a regra de commit por ação da `MEMORIA-GERAL.md`.
+
+### 7. Entrega
+
+Arte renderizada não é entrega. Quem publica precisa de **três coisas**: as
+imagens uma por uma, a legenda pronta para colar e um arquivo único para baixar.
+
+Escreva `carrosseis/<slug>/copy-instagram.txt` com, nesta ordem:
+
+1. **cabeçalho** — novidade, data, formato e a ordem de publicação;
+2. **legenda** — o texto que vai no campo de legenda, com as hashtags no fim;
+3. **primeiro comentário** — uma pergunta, opcional;
+4. **texto alternativo** — um por imagem, para o campo de acessibilidade.
+
+A legenda **não é a soma dos slides**: ela é o mesmo assunto em prosa corrida,
+para quem leu a capa e desceu. Vale o gancho repetido da capa (é o que amarra o
+post), mas nunca o texto do release — o `conferir-texto.py` mede a legenda na
+mesma régua dos slides.
+
+```bash
+python .cursor/skills/carrossel-novidades/scripts/empacotar.py <slug>
+```
+
+Gera `carrosseis/<slug>/entrega/<slug>.zip` com os oito PNG e o `.txt`, em nomes
+soltos na raiz do zip (quem recebe arrasta direto para o celular, e a ordem de
+publicação é a ordem alfabética). A folha de contato fica fora de propósito: é
+ferramenta de revisão, e no meio das imagens alguém posta a nona por engano.
+
+Feche com commit e push, como manda a regra de commit por ação da
+`MEMORIA-GERAL.md`.
 
 ## Estrutura da pasta de saída
 
 ```
 carrosseis/<slug>/
-├── roteiro.md            # fato→ângulo→slide, decisões e legenda de publicação
+├── roteiro.md            # fato→ângulo→slide e decisões de arte
+├── copy-instagram.txt    # legenda, primeiro comentário e texto alternativo
 ├── capturar-telas.py     # só quando a captura exige clique
 ├── imagens-puras/        # prints como saíram do navegador, nunca editados
 ├── slides/               # NN-nome.html (fragmentos de body)
 ├── png/                  # a arte final, 1080x1350
+├── entrega/<slug>.zip    # png + copy, o arquivo que vai para quem publica
 └── folha-de-contato.png  # todos os slides numa imagem
 ```
 

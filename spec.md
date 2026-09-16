@@ -23,10 +23,12 @@ manuais/<nome>/
 
 carrosseis/<slug>/
 ├── roteiro.md
+├── copy-instagram.txt  # legenda do post e texto alternativo
 ├── capturar-telas.py
 ├── imagens-puras/
-├── slides/            # fragmentos de body HTML
-└── png/               # arte final 1080x1350
+├── slides/             # fragmentos de body HTML
+├── png/                # arte final 1080x1350
+└── entrega/<slug>.zip  # png + copy, o que vai para quem publica
 ```
 
 ## Skills
