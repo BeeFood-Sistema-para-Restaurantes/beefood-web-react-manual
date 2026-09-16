@@ -157,5 +157,35 @@ além de esperar.
 
 ---
 
-*Manual em produção — as partes de domínio no ar, alteração da zona DNS, exclusão e
-subdomínio entram quando a troca de DNS do domínio de teste for concluída.*
+## 6. Parte 1 — domínio próprio: o domínio no ar
+
+Terminada a propagação, o BeeFood cuida do resto sozinho: emite o **certificado de
+segurança** (o cadeado do `https`), publica e libera o endereço. As cinco etapas
+ficam verdes e a etiqueta muda para **No ar** (1).
+
+No exemplo deste manual, o pedido foi registrado às 14:30, o apontamento do DNS foi
+reconhecido às 14:50 e o domínio ficou no ar às **14:54** — quatro minutos entre o
+DNS responder e o cardápio abrir no endereço novo.
+
+![Domínio no ar](imagens-tratadas/07-dominio-no-ar.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1. | **Endereço e situação** | A etiqueta **No ar** confirma que está tudo pronto. |
+| 2. | **Endereços do cardápio** | Os links que já funcionam. O primeiro ícone abre numa aba nova, o segundo copia — use para colar no Instagram, no Google e no QR Code. |
+| 3. | **Etapas concluídas** | Pedido, DNS, certificado, publicação e no ar. Serve para saber onde o processo está quando algo demora. |
+
+O **Histórico**, embaixo, guarda cada passo com data e hora, e cada linha abre em
+**ver detalhes** — é o que você mostra ao suporte se precisar de ajuda.
+
+Vale conferir do lado de fora: abra o seu endereço no navegador do celular, fora do
+Wi-Fi da loja. O cardápio tem que abrir com o cadeado do `https` e sem aviso de
+segurança.
+
+> O endereço antigo (`menu.beefood.com.br/...`) **continua funcionando**. Quem já
+> tinha o link salvo ou um QR Code impresso não fica na mão.
+
+---
+
+*Manual em produção — as partes de alteração da zona DNS, exclusão e subdomínio
+entram na sequência.*

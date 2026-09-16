@@ -7,6 +7,7 @@ sandbox (`dominioAcesso.ts` libera a 38311), então tudo é capturado em
 
     python3 capturar.py apex        # 1.1 até a instrução de DNS (cadastra de verdade)
     python3 capturar.py instrucao   # 1.1 recaptura a instrução de DNS inteira
+    python3 capturar.py verificar   # 1.1 pede a verificação e espera o No ar
     python3 capturar.py no-ar       # 1.1 final: domínio No ar
     python3 capturar.py dns         # 1.2 aba DNS (cria um registro de verdade)
     python3 capturar.py excluir     # 1.3 exclusão
@@ -179,6 +180,30 @@ def cap_instrucao(page):
     shot(page, "06-instrucao-ns.png")
 
 
+def cap_verificar(page):
+    """Clica em 'Já configurei, verificar agora' e acompanha até o domínio ficar No ar."""
+    s = abrir_modal(page)
+    escolher_cardapio(page, s, 7000)
+    botao = s.get_by_role("button", name="Já configurei, verificar agora")
+    if botao.count():
+        botao.first.scroll_into_view_if_needed()
+        botao.first.click()
+        after_click(page, 6000)
+        print("verificação pedida")
+    for i in range(60):  # a tela se atualiza sozinha (8 s / 30 s)
+        texto = s.inner_text()
+        estado = "No ar" if "https://cardapioteste.com.br" in texto else "aguardando"
+        print(f"  [{i:02d}] {estado}")
+        if estado == "No ar":
+            after_click(page, 4000)
+            print(texto[:2500])
+            shot(page, "07-dominio-no-ar.png")
+            return
+        page.wait_for_timeout(20000)
+    print("ainda não subiu; rode de novo mais tarde")
+    print(s.inner_text()[:2500])
+
+
 def cap_no_ar(page):
     s = abrir_modal(page)
     escolher_cardapio(page, s, 7000)
@@ -247,6 +272,7 @@ def cap_sub_no_ar(page):
 ETAPAS = {
     "apex": cap_apex,
     "instrucao": cap_instrucao,
+    "verificar": cap_verificar,
     "no-ar": cap_no_ar,
     "dns": cap_dns,
     "excluir": cap_excluir,

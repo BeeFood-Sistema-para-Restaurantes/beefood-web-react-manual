@@ -42,8 +42,8 @@ produção **só para a empresa 38311**, que por sorte é o sandbox dos manuais.
 | Etapa | Quando | Situação |
 |-------|--------|----------|
 | 1.1 cadastro do APEX + instrução NS | 16/09 14:30 | ✅ capturado (imagens 01–06) |
-| 1.1 domínio **No ar** | depende do dono trocar os NS | ⏸ aguardando |
-| 1.2 aba **DNS** (zona) | depois do domínio no ar | ⏸ aguardando |
+| 1.1 domínio **No ar** | 16/09 14:54 | ✅ capturado (imagem 07) |
+| 1.2 aba **DNS** (zona) | — | ⛔ **bloqueado**: a API responde 503 *"O gerenciamento de DNS não está disponível neste ambiente"* |
 | 1.3 excluir domínio | depois de 1.2 | ⏸ aguardando |
 | 2.1 subdomínio + CNAME | depois de 1.3 | ⏸ aguardando |
 
@@ -95,7 +95,32 @@ justamente o que precisa ser lido).
   clique que grava (regra da `MEMORIA-GERAL.md`, seção 7) — usado antes do cadastro
   e será usado antes da exclusão.
 
+## Bloqueio da parte 1.2 (16/09 15:0x)
+
+A aba **DNS** abre, mas fica vazia: `GET /api/dominio2/dns/38311/88711/14` devolve
+`{"resultado": false, "msg": "O gerenciamento de DNS não está disponível neste
+ambiente.", "status": 503}`, e a tela mostra o toast com essa mesma frase. Ou seja, o
+gerenciamento da zona **não está habilitado no ambiente de produção** — não é
+problema do domínio, que está `ativo` e com `dnsGerenciavel: true` no detalhe.
+
+Consequência na ordem do trabalho: **não dá para excluir o domínio (1.3) antes de
+capturar a 1.2**. O cardápio aceita um domínio por vez, então excluir para cadastrar
+o subdomínio (2.1) tira do ar o único domínio que serviria para fotografar a zona —
+e cadastrar de novo depois provavelmente devolveria **outros quatro servidores DNS**,
+obrigando o dono a trocar tudo no registrador outra vez.
+
+## Prova de que o domínio está no ar
+
+```
+$ dig +short NS cardapioteste.com.br @8.8.8.8
+ns-1150.awsdns-15.org. ns-1648.awsdns-14.co.uk. ns-991.awsdns-59.net. ns-62.awsdns-07.com.
+
+$ curl -sL https://cardapioteste.com.br
+302 → https://cardapioteste.com.br/beefood3/  (http 200, <title>Cardápio Digital BeeFood</title>)
+```
+
 ## Status
 
-Em andamento — parte 1.1 capturada até a entrega dos servidores DNS; o resto depende
-do retorno do dono.
+Em andamento — 1.1 completa (cadastro, instrução de DNS e domínio no ar). A 1.2
+depende de habilitar o gerenciamento de DNS no ambiente; 1.3 e 2.1 ficam atrás dela
+para não desperdiçar o domínio que já está no ar.
