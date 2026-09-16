@@ -49,8 +49,8 @@ lê na tela do tablet e do totem.
 
 ## 1. Onde ficam as bandeiras
 
-Abra qualquer cadastro do cardápio. Ao lado do rótulo **Nome** aparecem
-três bandeirinhas (1): Brasil, Estados Unidos e Espanha.
+Abra qualquer cadastro do cardápio. Na linha do **nome** aparecem três
+bandeirinhas (1): Brasil, Estados Unidos e Espanha.
 
 A bandeira com o **círculo em volta** é a que você está editando. Com o
 Brasil selecionado, você está no cadastro normal — o mesmo de sempre.
@@ -75,9 +75,9 @@ setor e escolha **Editar**. Neste exemplo, o setor **Acompanhamentos**.
 
 Clique na bandeira dos **Estados Unidos** (1) e escreva o nome em inglês
 no campo (2) — aqui, *Sides*. Três coisas mudam na tela: aparece a
-etiqueta **Inglês** ao lado do rótulo, o campo ganha **borda destacada**,
-e o texto em português vira apenas uma sugestão apagada dentro do campo
-(para você saber o que está traduzindo).
+etiqueta **Inglês** ao lado do rótulo, o campo ganha **borda destacada**
+e, enquanto ele está vazio, o nome em português aparece apagado dentro
+dele (para você saber o que está traduzindo).
 
 Repita na bandeira da **Espanha**, se quiser o espanhol, e grave com
 **SALVAR E SAIR (F2)**. Um único salvamento guarda o português e as duas
