@@ -669,7 +669,10 @@ body {
 .tablet {
   position: relative;
   width: 720px;
-  padding: 2.2%;
+  /* 4,4% é a moldura medida na foto do catálogo: o aparelho de 960 px tem
+   * ~45 px de preto de cada lado. Em 2,2% a moldura sumia e o conjunto voltava
+   * a ler como monitor — foi o defeito da rodada anterior. */
+  padding: 4.4%;
   border-radius: 38px;
   background: linear-gradient(102deg, #15161a, #2c2f35 42%, #101114);
   /* Fio de alumínio em volta da moldura preta, que é o que a foto mostra: a
@@ -730,87 +733,41 @@ body {
   object-fit: cover;
 }
 
-/* Suporte de mesa: uma aba de metal que sai de trás do aparelho e se abre até a
- * mesa. O trapézio invertido é o que a foto mostra, e é o que faz o conjunto
- * parecer apoiado em vez de flutuando.
+/* Suporte de mesa: uma chapa de alumínio escovado que sai de trás do aparelho,
+ * desce curvada e dobra para a frente até apoiar na mesa.
  *
- * O topo é largo (38%–62% da peça) porque o suporte **nasce colado** no
- * aparelho: com o topo estreito, a peça saía no render como um chapéu solto
- * embaixo do tablet. Os cantos de baixo são chanfrados e a peça tem um vinco
- * claro no meio — sem o vinco o metal fica chapado e lê como papel cinza. */
+ * Medidas tiradas da foto do catálogo, não estimadas: num aparelho de 960 px de
+ * largura a chapa ocupa ~445 px (46%) e ~155 px de altura (100/33 da própria
+ * largura). Nas rodadas anteriores a peça saiu com 42% de largura e um terço
+ * dessa altura, e o resultado era um pedestal — base de monitor.
+ *
+ * Vista de frente a chapa é um retângulo de cantos arredondados, não um
+ * trapézio: duas tentativas com `clip-path` de trapézio saíram lendo "chapéu
+ * chinês" embaixo do tablet. O que dá o volume é o gradiente — claro no rolo de
+ * cima, escuro na dobra — e o pé mais claro, que é a aba deitada na mesa. */
 .tablet__suporte {
   position: absolute;
   left: 50%;
   top: 100%;
   transform: translateX(-50%);
-  width: 42%;
-  aspect-ratio: 100 / 22;
-  /* A peça real é uma **chapa de alumínio curva** que sai de trás do aparelho,
-   * desce e dobra para a frente até a mesa. Vista de frente é quase um
-   * retângulo de cantos arredondados, não um trapézio: duas tentativas com
-   * `clip-path` de trapézio saíram lendo "chapéu chinês" embaixo do tablet.
-   *
-   * A curvatura vem do gradiente claro no meio e escuro nas duas beiradas; o
-   * `border-radius` assimétrico no pé é a dobra que apoia. */
-  border-radius: 12px 12px 44% 8% / 20px 20px 100% 64%;
-  background: linear-gradient(94deg, #7f858c 0%, #c4c9ce 14%, #eceef0 32%,
-              #dadee2 48%, #b2b8be 66%, #8d9399 84%, #767c83 100%);
-  box-shadow: 0 14px 22px -12px rgba(0, 0, 0, 0.6);
-}
-
-/* Moldura de tablet em suporte de mesa: tela deitada (16/10) e pé de metal.
- * É o Cardápio Digital no Tablet, que fica em pé na mesa — o suporte é o que
- * separa a leitura de "tablet na mesa" da de "tablet na mão". Haste e pé são
- * absolutos pelo mesmo motivo do totem. */
-/* O que separa "tablet" de "monitor de mesa" no desenho são três medidas, e as
- * três já saíram erradas aqui:
- *
- * - **moldura igual nos quatro lados e proporcional.** `padding` em % mede a
- *   própria largura do elemento, então a moldura acompanha o tamanho em que o
- *   mockup é usado. Moldura em px fina demais (11 px em 880) devolve a leitura
- *   de monitor, e moldura grossa demais devolve a de moldura de quadro.
- * - **canto bem arredondado.** 20 px em 880 de largura é canto de monitor;
- *   tablet tem canto grande. Fica em px e não em %, que daria elipse.
- * - **suporte pequeno.** Haste estreita e pé curto. Pé largo é base de monitor.
- *   Um berço à frente da moldura de baixo também foi tentado, e lê como
- *   borrão cinza — o suporte tem de ficar atrás. */
-.tablet {
-  position: relative;
-  width: 720px;
-  padding: 2.2%;
-  border-radius: 38px;
-  background: #22252b;
-  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.42);
-  flex: none;
-}
-
-/* Câmera na moldura da esquerda, que é onde ela fica no tablet deitado. Ponto de
- * 6 px, e é o que resolve a última dúvida entre tablet e monitor. O celular não
- * tem isso de propósito (ilha desenhada em cima de print tapa o cabeçalho da
- * tela), mas aqui o ponto cai na moldura, não na tela. */
-.tablet::before {
-  content: "";
-  position: absolute;
-  /* Metade do `padding` do `.tablet`: o ponto fica no meio da moldura em
-   * qualquer largura, em vez de encostar na borda de fora. */
-  left: 1.1%;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  margin-top: -3px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.22);
-}
-
-/* 16/10 é a proporção dos tablets Android que rodam o aplicativo. 4/3 foi
- * testado por parecer "mais tablet" e não é: encolhe a tela e inventa um
- * aparelho que o cliente não tem. */
-.tablet__tela {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 20px;
-  overflow: hidden;
-  background: #fff;
+  width: 46%;
+  aspect-ratio: 100 / 24;
+  border-radius: 3px 3px 14px 14px;
+  /* Abre 5% para cada lado de cima para baixo: é a chapa deitando na mesa. O
+   * pescoço estreito com base oval (duas peças) foi tentado três vezes e nas
+   * três leu como pedestal de monitor — em desenho frontal, "coluna + base" é
+   * monitor, e chapa única larga é suporte de tablet. */
+  clip-path: polygon(5% 0, 95% 0, 100% 100%, 0 100%);
+  background:
+    /* aba de baixo, deitada na mesa: mais clara que o resto da chapa */
+    linear-gradient(#0000 0 78%, rgba(255, 255, 255, 0.5) 78% 100%),
+    /* vinco onde a chapa dobra */
+    linear-gradient(#0000 0 76%, rgba(0, 0, 0, 0.14) 76% 78%, #0000 78%),
+    /* alumínio escovado, claro onde a chapa curva */
+    linear-gradient(96deg, #6f757d 0%, #aeb4bb 11%, #e4e6ea 27%,
+                    #f3f4f6 38%, #c7ccd2 56%, #a1a7ae 72%, #7e848c 88%,
+                    #676d75 100%);
+  box-shadow: 0 12px 20px -14px rgba(0, 0, 0, 0.5);
 }
 
 /* Bandeira redonda do seletor de idioma, como o sistema desenha: o emoji da
@@ -1157,7 +1114,10 @@ body {
  * nome fica pequeno — é assim na foto do aparelho, e é o preço de a grade de
  * produtos ficar legível. */
 .tela-totem__setores {
-  width: 21%;
+  /* 24% é a coluna do print (230 px de 1024) e é o mínimo que segura os nomes
+   * longos. Em 21% "COMBOS (BURGER + PORÇÃO + BEBIDA)" quebrava em seis linhas
+   * e a coluna virava uma pilha de fragmentos; em 24% cai para quatro. */
+  width: 24%;
   flex: none;
   display: flex;
   flex-direction: column;
@@ -1557,6 +1517,12 @@ body {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+/* Na capa a pílula escura desaparecia no fundo escuro e o selo saía como texto
+ * branco solto no meio do vão — parecia legenda perdida, não selo. */
+.slide--capa .selo-ilustracao {
+  background: rgba(255, 255, 255, 0.16);
 }
 
 /* --------------------------------------------------------------- rodapé */
