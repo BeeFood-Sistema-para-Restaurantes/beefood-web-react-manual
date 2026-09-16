@@ -189,38 +189,15 @@ Produto do exemplo: **Coca Cola 350ml** do setor **Bebidas** (BeeFood3 - Manual)
 O sandbox tem dois produtos com esse nome — o script clica pelo cartão do setor,
 não pelo nome solto.
 
-## Render
+## Render e entrega
 
 ```bash
 python .cursor/skills/carrossel-novidades/scripts/renderizar.py \
     carrosseis/destaque-impressao --contato
+python .cursor/skills/carrossel-novidades/scripts/conferir-texto.py destaque-impressao
+python .cursor/skills/carrossel-novidades/scripts/empacotar.py destaque-impressao
 ```
 
-## Legenda para publicar
-
-> Cansou de esquecer a bebida? 🥤
->
-> Você sabe como essa história termina: o cliente liga com a sacola já aberta na
-> mesa, alguém tem que sair de novo no meio do pico, e a nota cai sem ninguém
-> descobrir onde foi que falhou.
->
-> E não é falta de atenção. No cupom, toda linha tem o mesmo peso — a bebida
-> simplesmente desaparece dentro do combo.
->
-> Agora dá para avisar no papel. Abra o produto em **Cardápio → Produtos**, ligue
-> o **Destaque na impressão** (ele fica ali, abaixo de Descrição) e aquela linha
-> passa a sair com fundo preto e letra branca: no Cupom Pedido, na ficha da
-> cozinha, no salão e no delivery. 🖨️
->
-> Tem muita bebida? Filtre o setor e resolva o grupo todo pelo **Editar em Lote**.
->
-> Seu entregador também vê: o item salta no pedido dele e, na hora de entregar,
-> o app pergunta se aquilo foi junto. 🛵
->
-> Um cuidado só — não saia marcando tudo. O destaque vive de contraste, então
-> comece pelo que já ficou para trás alguma vez: bebida, molho, brinde e os
-> pedidos de retirada, do tipo "sem maionese".
->
-> O passo a passo está no manual **Destaque na impressão**, dentro do sistema.
->
-> #beefood #restaurante #delivery #gestaoderestaurante #pdv
+A legenda, o primeiro comentário e o texto alternativo de cada imagem estão em
+[`copy-instagram.txt`](copy-instagram.txt). O que vai para quem publica é
+`entrega/destaque-impressao.zip`: as oito imagens mais aquele `.txt`.

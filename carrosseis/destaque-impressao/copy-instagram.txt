@@ -1,0 +1,76 @@
+CARROSSEL — DESTAQUE NA IMPRESSÃO
+BeeFood · novidade de 15/09/2026 · beefood.app/novidades
+
+Publicar como carrossel de feed, 8 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-custo, 03-no-papel, 04-onde-ligar, 05-em-lote,
+06-na-rua, 07-limite, 08-cta.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+Cansou de esquecer a bebida? 🥤
+
+Você sabe como essa história termina: o cliente liga com a sacola já aberta na
+mesa, alguém tem que sair de novo no meio do pico, e a nota cai sem ninguém
+descobrir onde foi que falhou.
+
+E não é falta de atenção. No cupom, toda linha tem o mesmo peso — a bebida
+simplesmente desaparece dentro do combo.
+
+Agora dá para avisar no papel. Abra o produto em Cardápio → Produtos e ligue o
+Destaque na impressão, que fica logo abaixo de Descrição. Aquela linha passa a
+sair com fundo preto e letra branca: no Cupom Pedido, na ficha da cozinha, no
+salão e no delivery. 🖨️
+
+Tem muita bebida para marcar? Filtre o setor e resolva o grupo todo pelo Editar
+em Lote.
+
+Seu entregador também vê: o item salta no pedido dele e, na hora de entregar, o
+app pergunta se aquilo foi junto. 🛵
+
+Um cuidado só: não saia marcando tudo. O destaque vive de contraste, então
+comece pelo que já ficou para trás alguma vez — bebida, molho, brinde e os
+pedidos de retirada, do tipo "sem maionese".
+
+O passo a passo está em beefood.app/novidades, com o manual do lado.
+
+#beefood #restaurante #delivery #gestaoderestaurante #pdv #cardapiodigital
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Qual item mais escapa no seu balcão? Bebida, molho ou brinde? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com o título "Cansou de esquecer a bebida?" e um Cupom Pedido
+    impresso em que a linha "1x Coca Cola 350ml" sai com fundo preto e letra
+    branca.
+
+02  Lista de três consequências do item esquecido: o cliente liga com a sacola
+    aberta, alguém sai de novo no meio do pico e a nota cai sem explicação.
+
+03  Dois cupons lado a lado, "como era" e "como fica": no segundo, a linha da
+    Coca Cola aparece marcada em fundo preto.
+
+04  Cadastro do produto Coca Cola Lata 350ml no BeeFood, com a chave "Destaque
+    na impressão" ligada logo abaixo do campo Descrição.
+
+05  Três passos para marcar muitas bebidas de uma vez: filtrar o setor em
+    Cardápio → Produtos, abrir o Editar em Lote e ligar o Destaque na impressão.
+
+06  Celular do entregador mostrando o pedido #32 com a linha da Coca Cola
+    marcada e o aviso para entregá-la junto (tela ilustrativa).
+
+07  Aviso de que marcar tudo anula o efeito, com a lista do que vale destacar:
+    bebida, molho, brinde e pedidos de retirada.
+
+08  Página de novidades do BeeFood aberta no celular, com o convite para
+    acompanhar o que entra no sistema em beefood.app/novidades.
