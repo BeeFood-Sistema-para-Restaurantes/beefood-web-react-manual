@@ -508,6 +508,187 @@ body {
  * da própria tela que o slide quer mostrar. A moldura já basta para o leitor
  * entender que é celular. */
 
+/* Moldura de totem de autoatendimento: tela em pé sobre coluna e pé chato.
+ *
+ * A coluna é o que dá a escala. Sem ela, um retângulo preto em pé de 600 px
+ * parece celular gigante; com ela, mesmo cortada pela base do slide, a leitura é
+ * imediata.
+ *
+ * O elemento `.totem` é **só o corpo da tela**: coluna e pé são absolutos,
+ * pendurados embaixo. Parece detalhe e não é — em 3D, o `.g3d::after` (o brilho)
+ * cobre `inset: 0` do elemento girado, e com a coluna dentro da caixa o brilho
+ * pintava também o vão transparente dos lados dela, que saía no render como duas
+ * abas brancas. Sendo absolutos, os dois giram junto com o pai e ficam fora do
+ * retângulo que recebe o brilho. */
+.totem {
+  position: relative;
+  width: 420px;
+  padding: 16px;
+  border-radius: 28px;
+  background: #101010;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.45);
+  flex: none;
+}
+
+/* Modelo de carcaça clara, que existe no catálogo. Em slide de fundo escuro o
+ * totem preto desaparece no fundo — foi o que aconteceu na primeira capa. */
+.totem--claro {
+  background: #f2f2f4;
+  box-shadow: 0 30px 70px -18px rgba(0, 0, 0, 0.6);
+}
+
+.totem__tela {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.totem__tela img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.totem__coluna,
+.totem__pe {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #0a0a0a, #232323 42%, #0d0d0d);
+}
+
+.totem--claro .totem__coluna,
+.totem--claro .totem__pe {
+  background: linear-gradient(90deg, #b9bbc0, #eceef1 42%, #c2c4c9);
+}
+
+.totem__coluna {
+  top: 100%;
+  width: 30%;
+  height: 92px;
+}
+
+.totem__pe {
+  top: calc(100% + 92px);
+  width: 62%;
+  height: 16px;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Moldura de tablet em suporte de mesa: tela deitada (16/10) e pé de metal.
+ * É o Cardápio Digital no Tablet, que fica em pé na mesa — o suporte é o que
+ * separa a leitura de "tablet na mesa" da de "tablet na mão". Haste e pé são
+ * absolutos pelo mesmo motivo do totem. */
+/* O que separa "tablet" de "monitor de mesa" no desenho são três medidas, e as
+ * três já saíram erradas aqui:
+ *
+ * - **moldura igual nos quatro lados e proporcional.** `padding` em % mede a
+ *   própria largura do elemento, então a moldura acompanha o tamanho em que o
+ *   mockup é usado. Moldura em px fina demais (11 px em 880) devolve a leitura
+ *   de monitor, e moldura grossa demais devolve a de moldura de quadro.
+ * - **canto bem arredondado.** 20 px em 880 de largura é canto de monitor;
+ *   tablet tem canto grande. Fica em px e não em %, que daria elipse.
+ * - **suporte pequeno.** Haste estreita e pé curto. Pé largo é base de monitor.
+ *   Um berço à frente da moldura de baixo também foi tentado, e lê como
+ *   borrão cinza — o suporte tem de ficar atrás. */
+.tablet {
+  position: relative;
+  width: 720px;
+  padding: 2.2%;
+  border-radius: 38px;
+  background: #22252b;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.42);
+  flex: none;
+}
+
+/* Câmera na moldura da esquerda, que é onde ela fica no tablet deitado. Ponto de
+ * 6 px, e é o que resolve a última dúvida entre tablet e monitor. O celular não
+ * tem isso de propósito (ilha desenhada em cima de print tapa o cabeçalho da
+ * tela), mas aqui o ponto cai na moldura, não na tela. */
+.tablet::before {
+  content: "";
+  position: absolute;
+  /* Metade do `padding` do `.tablet`: o ponto fica no meio da moldura em
+   * qualquer largura, em vez de encostar na borda de fora. */
+  left: 1.1%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* 16/10 é a proporção dos tablets Android que rodam o aplicativo. 4/3 foi
+ * testado por parecer "mais tablet" e não é: encolhe a tela e inventa um
+ * aparelho que o cliente não tem. */
+.tablet__tela {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.tablet__haste,
+.tablet__pe {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #8d9299, #dfe2e6 42%, #93999f);
+}
+
+.tablet__haste {
+  top: 100%;
+  width: 5%;
+  height: 40px;
+}
+
+.tablet__pe {
+  top: calc(100% + 40px);
+  width: 15%;
+  height: 12px;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Bandeira redonda do seletor de idioma, como o sistema desenha: o emoji da
+ * bandeira recortado num círculo.
+ *
+ * Por que emoji e não SVG: o ambiente tem Noto Color Emoji, então 🇧🇷 sai
+ * colorido e igual em toda máquina, sem arquivo novo no repositório. O emoji é
+ * uma bandeira ondulada mais larga que alta, e por isso o `scale(1.5)` — é o
+ * que faz a tinta cobrir o círculo em vez de deixar vão branco nos cantos.
+ *
+ * `--anel` marca o idioma em uso, que é como o sistema mostra o idioma atual.
+ * A bolinha verde de "esse idioma já tem texto" não está aqui de propósito: ela
+ * só existe no cadastro, e do cadastro existe captura real. */
+.bandeira {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  flex: none;
+}
+
+.bandeira > span {
+  font-size: 1em;
+  line-height: 1;
+  transform: scale(1.5);
+}
+
+.bandeira--anel {
+  box-shadow: 0 0 0 0.09em var(--primaria);
+}
+
 /* Moldura de navegador: para print do painel (2160×1350 → 16:10). */
 .navegador {
   border-radius: 28px;
@@ -714,6 +895,269 @@ body {
   color: #fff;
   font-weight: 900;
   letter-spacing: 0.04em;
+}
+
+/* Tela de totem desenhada. Dois estados, os dois documentados no manual:
+ *
+ *   `.tela-totem--espera`  tela de espera, com o botão de começar e o seletor
+ *                          de idioma embaixo dele;
+ *   (padrão)               cardápio, com o seletor no topo direito.
+ *
+ * Mesma regra do `.tela-app`: o desenho só mostra o que o manual afirma, e
+ * **todo texto em inglês tem de ser texto documentado** (DRINKS, CANCEL ORDER,
+ * SEARCH, MY CART, MY BILL, Cola US). Inventar tradução no desenho é inventar
+ * comportamento.
+ *
+ * Tudo aqui é em `em`: a mesma tela entra em slides com larguras diferentes, e
+ * assim basta trocar o `font-size` da raiz da tela para ela escalar inteira.
+ * Foi o que faltou no `.tela-app` do carrossel anterior, que tem px no meio e
+ * por isso não acompanha a moldura. */
+.tela-totem {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--escuro);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+.tela-totem--espera {
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.4em;
+  padding: 0 1.5em 4.6em;
+  /* Sem foto de comida: o totem de verdade mostra vídeo, e imagem de banco
+   * seria a única coisa da arte que não veio do produto. O quente do gradiente
+   * dá o mesmo recado. */
+  background:
+    radial-gradient(120% 70% at 50% 4%, rgba(239, 66, 57, 0.5), transparent 60%),
+    linear-gradient(180deg, #2a1410, #161616 62%, #101010);
+}
+
+.tela-totem__marca {
+  position: absolute;
+  top: 2.4em;
+  font-size: 1.3em;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.tela-totem__botao {
+  align-self: stretch;
+  text-align: center;
+  padding: 0.85em 0.6em;
+  border-radius: 0.6em;
+  background: var(--primaria);
+  color: #fff;
+  font-size: 1.45em;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.tela-totem__idiomas {
+  display: flex;
+  gap: 0.5em;
+  font-size: 2.4em;
+}
+
+.tela-totem__topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 1.1em 1.2em;
+  background: #0c0c0c;
+}
+
+.tela-totem__acao {
+  font-size: 0.85em;
+  white-space: nowrap;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.tela-totem__idiomas--topo {
+  gap: 0.34em;
+  font-size: 1.5em;
+}
+
+.tela-totem__secao {
+  padding: 1.1em 1.2em 0.5em;
+  font-size: 1.3em;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+/* Setor sem tradução continua em português no meio de uma tela em inglês. É
+ * comportamento do produto, não descuido do desenho. */
+.tela-totem__secao--sem-traducao {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.tela-totem__lista {
+  padding: 0 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+
+.tela-totem__item {
+  background: #1d1d1f;
+  border: 0.08em solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.8em;
+  padding: 0.8em 0.9em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.tela-totem__item span {
+  font-weight: 700;
+}
+
+.tela-totem__item small {
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Preço não muda de idioma — é o que o manual diz, e é o detalhe que faz a tela
+ * desenhada parecer a tela do produto. */
+.tela-totem__item b {
+  margin-top: 0.2em;
+  font-size: 1.05em;
+  color: #fff;
+}
+
+/* Tela do Cardápio Digital no Tablet: coluna clara à esquerda, cardápio à
+ * direita. As bandeiras ficam no pé da coluna, embaixo de Avaliar.
+ *
+ * Sem título de faixa de propósito. No tablet o título da faixa **não** troca
+ * de idioma (o nome traduzido do setor aparece na coluna de setores), e um
+ * "Bebidas" em português no meio de uma tela em inglês pede uma explicação que
+ * o slide não vai dar. Os textos do app em inglês já provam a troca. */
+.tela-tablet {
+  height: 100%;
+  display: flex;
+  background: #fff;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.tela-tablet__coluna {
+  width: 6.2em;
+  flex: none;
+  background: #e9eaec;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.9em 0 1em;
+  gap: 0.8em;
+}
+
+.tela-tablet__aba {
+  width: 100%;
+  padding: 0.8em 0;
+  text-align: center;
+  font-size: 0.85em;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #4a4a4f;
+}
+
+.tela-tablet__aba--ativa {
+  background: var(--primaria);
+  color: #fff;
+}
+
+.tela-tablet__idiomas {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.34em;
+  font-size: 2em;
+}
+
+.tela-tablet__corpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.tela-tablet__barra {
+  display: flex;
+  align-items: center;
+  gap: 1.1em;
+  padding: 0.8em 1.2em;
+  background: var(--escuro);
+  color: #fff;
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.tela-tablet__barra b {
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Capa sem texto, como o espaço de destaque do cardápio do tablet. Ela existe
+ * para a tela não ficar com um terço vazio embaixo da barra; texto nenhum aqui,
+ * porque qualquer frase em inglês teria de ser documentada. */
+.tela-tablet__capa {
+  margin: 1.1em 1.2em 0;
+  height: 8.6em;
+  border-radius: 0.9em;
+  background:
+    radial-gradient(70% 120% at 18% 15%, rgba(255, 255, 255, 0.35), transparent 60%),
+    linear-gradient(135deg, #e8b98a, #c9713f 52%, #8f3f24);
+}
+
+.tela-tablet__grade {
+  padding: 1.2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9em;
+}
+
+.tela-tablet__item {
+  border: 0.1em solid var(--borda);
+  border-radius: 0.9em;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tela-tablet__foto {
+  height: 7.4em;
+  background: linear-gradient(135deg, #f3d9b0, #e7a86a 55%, #cf7f45);
+}
+
+.tela-tablet__foto--verde {
+  background: linear-gradient(135deg, #dfe9c8, #a8bf7d 55%, #7f9a55);
+}
+
+.tela-tablet__texto {
+  padding: 0.8em 0.9em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.tela-tablet__texto span {
+  font-weight: 900;
+  font-size: 1.05em;
+}
+
+.tela-tablet__texto small {
+  font-size: 0.85em;
+  color: var(--texto-suave);
 }
 
 .selo-ilustracao {

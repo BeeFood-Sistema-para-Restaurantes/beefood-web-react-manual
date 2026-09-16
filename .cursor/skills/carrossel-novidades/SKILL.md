@@ -137,6 +137,8 @@ Comece copiando um modelo de `assets/slides/`:
 | `texto.html` | o custo, o limite, o "vale lembrar" |
 | `mockup-computador.html` | tela do painel em janela de navegador, com realce |
 | `mockup-celular.html` | tela de celular (cardápio digital, app) |
+| `mockup-totem.html` | Totem de Autoatendimento: tela em pé sobre coluna |
+| `mockup-tablet.html` | Cardápio Digital no Tablet: tela deitada em suporte de mesa |
 | `ilustracao-app.html` | tela que não dá para capturar, desenhada e com selo |
 | `antes-depois.html` | comparação; traz um cupom térmico desenhado em CSS |
 | `cta.html` | último slide, um pedido só |
@@ -186,6 +188,23 @@ escala, e o corte passa a sensação de que a tela continua.
 - **Celular** (`.sangria .sangria--celular`) sangra pela **base**.
 - **Computador** (`.navegador .sangria .sangria--janela`) sangra pela
   **direita**, porque é deitado; é assim que ele passa de 1000 px de largura.
+- **Totem** (`.totem`) tem tela em pé, 830 px de altura total em 420 px de
+  largura. O que faz ler "totem" e não "celular gigante" é a **coluna** embaixo
+  da tela. Em slide escuro use `.totem--claro`: aparelho preto em fundo preto
+  vira silhueta invisível. Numa capa, deixe o **pé sair pela base** — a borda de
+  baixo lê como chão, e pé inteiro no meio do slide parece colado.
+- **Tablet** (`.tablet`) é deitado e cabe inteiro em 880 px (altura total
+  645 px), em `.figura`. O que separa "tablet no suporte" de "monitor de mesa"
+  são moldura proporcional e igual nos quatro lados (`padding` em `%`, nunca em
+  px), canto bem arredondado, suporte pequeno **atrás** e o ponto da câmera no
+  meio da moldura da esquerda. A tela é 16/10, do tablet Android: 4/3 parece
+  "mais tablet" e só inventa aparelho.
+- **Nos dois, a caixa do elemento é só o corpo da tela** e coluna, haste e pé são
+  absolutos pendurados embaixo. Isso não é estilo: o brilho do `.g3d` cobre
+  `inset: 0` do elemento girado, e com a coluna dentro da caixa ele pinta o vão
+  transparente dos lados dela — saem duas abas brancas no render.
+- **Seletor de idioma** é `.bandeira` (emoji de bandeira recortado em círculo) com
+  `.bandeira--anel` no idioma em uso.
 - **O texto mora todo acima do mockup.** A coluna que sobra ao lado tem 288 px,
   estreita demais para corpo de 38 px. Orçamento: com o celular em `top: 530px`
   cabem chapéu + título de 2 linhas + 2 linhas de corpo; com a janela em
@@ -222,11 +241,18 @@ fora da arte.
 
 Ordem de preferência: **captura real > print pedido ao dono > ilustração**.
 
-Só ilustre (`.tela-app`, modelo `ilustracao-app.html`) com as três condições:
-o comportamento desenhado está escrito na novidade ou no manual; o desenho usa o
-vocabulário do carrossel e **não** imita a interface real pixel a pixel; e o
-slide leva `.selo-ilustracao`. Registre no `roteiro.md` o print que você pediu ao
-dono, para trocar depois.
+Só ilustre (`.tela-app`, `.tela-totem`, `.tela-tablet`; modelos
+`ilustracao-app.html`, `mockup-totem.html`, `mockup-tablet.html`) com as três
+condições: o comportamento desenhado está escrito na novidade ou no manual; o
+desenho usa o vocabulário do carrossel e **não** imita a interface real pixel a
+pixel; e o slide leva `.selo-ilustracao`. Registre no `roteiro.md` o print que
+você pediu ao dono, para trocar depois.
+
+**Texto de tela em outro idioma só entra se estiver documentado.** Desenhar uma
+tela em inglês com tradução que você mesmo escreveu é inventar comportamento do
+produto. Falta item para encher a grade? Mostre menos itens, e deixe em português
+o que não tem tradução documentada. Para preencher sem afirmar nada: preço (não
+muda de idioma) e faixa de capa sem texto.
 
 Cupom desenhado em `.cupom` não precisa de selo: bobina térmica em monoespaçada é
 claramente desenho, e é a única forma de mostrar o "antes", que não existe como
@@ -297,10 +323,11 @@ mesma régua dos slides.
 python .cursor/skills/carrossel-novidades/scripts/empacotar.py <slug>
 ```
 
-Gera `carrosseis/<slug>/entrega/<slug>.zip` com os oito PNG e o `.txt`, em nomes
+Gera `carrosseis/<slug>/entrega/<slug>.zip` com os PNG e o `.txt`, em nomes
 soltos na raiz do zip (quem recebe arrasta direto para o celular, e a ordem de
 publicação é a ordem alfabética). A folha de contato fica fora de propósito: é
-ferramenta de revisão, e no meio das imagens alguém posta a nona por engano.
+ferramenta de revisão, e no meio das imagens alguém posta uma imagem a mais por
+engano.
 
 Feche com commit e push, como manda a regra de commit por ação da
 `MEMORIA-GERAL.md`.
@@ -321,14 +348,16 @@ carrosseis/<slug>/
 
 ## Regras de arte
 
-- **Nenhuma data na arte.** O topo direito leva só o `.contador` ("1 de 8"), na
+- **Nenhuma data na arte.** O topo direito leva só o `.contador` ("1 de 7"), na
   capa também. Carrossel aprovado entra na fila de conteúdo e é publicado dias
   depois: data na arte faz a novidade parecer velha e impede reaproveitar o post.
   Data **dentro de print de verdade** fica (a do cupom é do pedido, não do post),
   e a data da novidade mora no `roteiro.md` e no cabeçalho da copy.
 - **Uma ideia por slide.** Duas frases longas no mesmo slide são dois slides.
-- **Máximo 10 slides**, e quem lê no feed costuma parar no quinto: ponha o ganho
-  logo no começo, não no fim.
+- **Tantos slides quantos a novidade tiver de assunto**, entre 6 e 8 (o teto
+  técnico é 10). Oito não é meta: o carrossel da tradução fecha em 7 porque o
+  oitavo slide só existiria para chegar a oito. Quem lê no feed costuma parar no
+  quinto, então ponha o ganho no começo.
 - **O gancho fala do salão, não do sistema.** "Cansou de bebida esquecida na
   sacola?" prende; "Novo campo Destaque na impressão" não.
 - **Escreva como gente fala.** O vício que aparece sozinho é o aforismo — título
@@ -347,6 +376,12 @@ carrosseis/<slug>/
 - **A imagem da capa mostra um destaque só.** Cupom com duas linhas marcadas
   contradiz o slide que pede critério. Se a captura que existe não dá para
   recortar até sobrar um destaque, gere uma captura nova em que só ele apareça.
+- **Na capa, tela cheia ganha de tela icônica.** Tela cujo miolo é gradiente ou
+  foto (a de espera do totem, por exemplo) deixa um vão morto no meio da capa.
+  Prefira a tela que mostra o recurso funcionando e enche a área útil.
+- **Imagem em pé na capa custa uma linha de subtítulo.** Aparelho em pé come
+  ~830 px de altura: com título de 2 linhas cabe **1** linha de subtítulo, e o
+  resto do recado vai para a legenda.
 - **Metade dos slides, no mínimo, tem imagem.** Três slides de texto seguidos é
   sinal de que dois deveriam virar um.
 - **Mockup em sangria**, não aparelho inteiro pequeno no meio do slide. E se ele

@@ -1,0 +1,86 @@
+<!-- Modelo: totem de autoatendimento, tela em pé.
+
+     A caixa do `.totem` é **só o corpo da tela**; coluna e pé são absolutos,
+     pendurados embaixo. Não mexa nisso: em 3D o brilho do `.g3d` cobre `inset: 0`
+     do elemento girado, e com a coluna dentro da caixa ele pinta o vão
+     transparente dos lados dela — saem duas abas brancas no render.
+
+     Duas larguras que cabem, com o texto acima:
+
+       420 px  aparelho inteiro, sozinho na faixa, `top: 552px` e recuo igual dos
+               dois lados (altura total 830 px: tela 722 + coluna 92 + pé 16);
+       462 px  em 3D, com coluna de texto ao lado, `top: 296px right: 40px`.
+
+     Em slide de fundo escuro use `.totem--claro` (o modelo de carcaça branca do
+     catálogo): totem preto em fundo preto vira silhueta invisível.
+
+     A tela aqui é desenhada e por isso o slide leva `.selo-ilustracao`. Se
+     existir print real do aparelho, troque o conteúdo de `.totem__tela` por um
+     `<img>` e tire o selo. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">3 de 7</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 50px; max-width: 880px">
+    <span class="chapeu">No totem</span>
+    <h2 class="titulo titulo--pequeno">
+      Título de uma linha, com <span class="destaque">uma</span> palavra em vermelho
+    </h2>
+    <p class="corpo" style="max-width: 420px">
+      Quatro linhas curtas, no máximo, na coluna ao lado do aparelho.
+    </p>
+  </div>
+
+  <span class="selo-ilustracao" style="left: 88px; top: 706px">Ilustração</span>
+
+  <div class="sangria cena3d" style="top: 296px; right: 40px; width: 462px">
+    <div class="totem g3d g3d--na-direita" style="width: 462px">
+      <div class="totem__tela">
+        <!-- Tela de espera: marca no topo, botão de começar e o seletor de
+             idioma embaixo dele, que é onde o sistema põe. -->
+        <div class="tela-totem tela-totem--espera" style="font-size: 23px">
+          <div class="tela-totem__marca">Seu restaurante</div>
+          <div class="tela-totem__botao">FAÇA SEU PEDIDO</div>
+          <div class="tela-totem__idiomas" style="font-size: 2.9em">
+            <span class="bandeira bandeira--anel"><span>&#127463;&#127479;</span></span>
+            <span class="bandeira"><span>&#127482;&#127480;</span></span>
+            <span class="bandeira"><span>&#127466;&#127480;</span></span>
+          </div>
+        </div>
+
+        <!-- Cardápio, para quando o slide precisa mostrar a lista. Troque pelo
+             bloco de cima conforme o slide, não use os dois.
+
+        <div class="tela-totem" style="font-size: 25px">
+          <div class="tela-totem__topo">
+            <span class="tela-totem__acao">CANCEL ORDER</span>
+            <span class="tela-totem__idiomas tela-totem__idiomas--topo">
+              <span class="bandeira"><span>&#127463;&#127479;</span></span>
+              <span class="bandeira bandeira--anel"><span>&#127482;&#127480;</span></span>
+              <span class="bandeira"><span>&#127466;&#127480;</span></span>
+            </span>
+          </div>
+          <div class="tela-totem__secao">DRINKS</div>
+          <div class="tela-totem__lista">
+            <div class="tela-totem__item">
+              <span>Cola US</span><small>The drink cola</small><b>R$ 8,90</b>
+            </div>
+          </div>
+          <div class="tela-totem__secao tela-totem__secao--sem-traducao">
+            MOLHOS ADICIONAIS
+          </div>
+          <div class="tela-totem__lista">
+            <div class="tela-totem__item">
+              <span>Geleia de Pimenta</span><small>Pote 30 g</small><b>R$ 3,00</b>
+            </div>
+          </div>
+        </div>
+        -->
+      </div>
+      <div class="totem__coluna"></div>
+      <div class="totem__pe"></div>
+    </div>
+  </div>
+</div>
