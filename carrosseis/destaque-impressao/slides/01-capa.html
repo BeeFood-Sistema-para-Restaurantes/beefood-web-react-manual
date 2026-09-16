@@ -6,25 +6,36 @@
 
   <div class="pilha g32" style="margin-top: 60px">
     <span class="pilula pilula--novidade">Novidade</span>
-    <h1 class="titulo">Cansou de bebida esquecida na sacola? 🥤</h1>
-    <p class="subtitulo">
-      Sem canetinha na lata, sem grito na cozinha. O cupom marca sozinho.
-    </p>
+    <!-- A frase mais curta do carrossel, porque é a única que todo mundo lê. Uma
+         palavra em vermelho e mais nada de grifo: emoji aqui viria como segundo
+         destaque na mesma linha e tiraria força do primeiro. -->
+    <h1 class="titulo">Cansou de esquecer a <span class="destaque">bebida</span>?</h1>
+    <!-- Uma linha, e ela anuncia o que a imagem logo abaixo mostra. -->
+    <p class="subtitulo">Agora o cupom já sai com ela marcada.</p>
   </div>
 
-  <!-- A imagem da capa é o resultado da novidade: cupom real do manual #99,
-       recortado em UMA linha destacada (a bebida). O corte é declarado aqui no
-       aspect-ratio, e não num arquivo novo — 600x390 para no fim exato da linha
-       da Coca Cola, antes do "Sem Maionese Verde" que também sai marcado no
-       cupom de verdade. Capa com duas ou três linhas pretas dilui o assunto e
-       contradiz o slide 7. -->
-  <div class="sangria inclinado" style="top: 760px; right: 40px; width: 620px">
-    <!-- Cantos de baixo quase retos: o corte cai exatamente na faixa preta, e o
-         arredondamento de 24 px comia a ponta dela. -->
-    <div class="recorte recorte--topo"
-         style="aspect-ratio: 600 / 390; border-radius: 24px 24px 5px 5px">
-      <img src="../../../manuais/destaque-impressao/imagens-puras/05-cupom-pedido.png"
-           alt="Cupom Pedido com a linha da Coca Cola 350ml em fundo preto">
+  <!-- A imagem da capa é o resultado da novidade: impressão de verdade, com UMA
+       linha em preto. O cupom do manual #99 não servia aqui porque sai com duas
+       faixas (a bebida e o "Sem Maionese Verde"), e duas faixas dividem a
+       atenção e contradizem o slide 7. Daí o pedido #43, montado no sandbox sem
+       o complemento destacado — ver capturar-telas.py.
+
+       Corte declarado no aspect-ratio, sem arquivo editado: o PNG tem 680x2200
+       e o cupom só tem faixas brancas de ~20 px entre uma linha e outra: 680x554
+       é a última janela que cabe, entre o traço duplo que fecha o bloco de itens
+       (y 535) e o "Subtotal" (y 557). A serrilha come os 13 px finais e
+       transforma o corte em papel destacado. Cortar em 590, como tentei antes,
+       deixava "Subtotal" entrar e ser mordido pelos dentes.
+
+       Em perspectiva: papel reto sobre fundo escuro parece arquivo colado; na
+       cena 3D ele vira objeto fotografado na bancada. -->
+  <div class="sangria cena3d" style="top: 600px; right: 40px; width: 700px">
+    <!-- Canto quase reto: bobina térmica não tem canto arredondado, e os 24 px
+         que o .recorte traz de fábrica faziam o papel parecer cartão. -->
+    <div class="recorte recorte--topo rasgado g3d g3d--direita"
+         style="aspect-ratio: 680 / 554; border-radius: 5px">
+      <img src="../imagens-puras/01-cupom-bebida.png"
+           alt="Cupom Pedido do pedido 43 com a linha da Coca Cola 350ml em fundo preto">
     </div>
   </div>
 
