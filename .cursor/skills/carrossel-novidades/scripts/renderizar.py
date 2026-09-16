@@ -34,8 +34,12 @@ SKILL = Path(__file__).resolve().parent.parent
 MARCA = json.loads((SKILL / "assets" / "marca.json").read_text(encoding="utf-8"))
 BASE_CSS = SKILL / "assets" / "slides" / "base.css"
 FONTES = SKILL / "assets" / "fontes"
-LOGO = SKILL / "assets" / MARCA["logo"]
-LOGO_ESCURO = SKILL / "assets" / MARCA["logo_escuro"]
+# Duas artes oficiais da marca, uma por tipo de fundo: a de fundo claro tem
+# "BEE" em preto, a de fundo escuro tem "BEE" em branco e um contorno branco no
+# selo. Nunca derive uma da outra por filtro — o selo não é o negativo dele
+# mesmo (a asa continua branca e a cabeça continua preta nas duas).
+LOGO_CLARO = SKILL / "assets" / MARCA["logo_fundo_claro"]
+LOGO_ESCURO = SKILL / "assets" / MARCA["logo_fundo_escuro"]
 
 MAX_SLIDES = MARCA["max_slides"]
 
@@ -95,7 +99,7 @@ def documento(fragmento: str, largura: int, altura: int, pasta: Path,
 <base href="{pasta.as_uri()}/">
 <style>{face_das_fontes()}</style>
 <style>:root{{--largura:{largura}px;--altura:{altura}px;
---logo:url('{LOGO.as_uri()}');
+--logo:url('{LOGO_CLARO.as_uri()}');
 --logo-escuro:url('{LOGO_ESCURO.as_uri()}');}}</style>
 <style>{BASE_CSS.read_text(encoding="utf-8")}</style>
 <style>html,body{{width:{largura}px;height:{altura}px;overflow:hidden;}}{extra}</style>

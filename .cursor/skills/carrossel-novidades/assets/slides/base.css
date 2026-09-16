@@ -92,11 +92,13 @@ body {
   background: var(--logo) left center / contain no-repeat;
 }
 
-/* Fundo escuro pede a versão negativa do arquivo, não um filtro. O
- * `brightness(0) invert(1)` que estava aqui resolvia a visibilidade achatando a
- * marca em branco — iam embora o amarelo da abelha e o vermelho do "food", que é
- * o que faz o logo parecer o logo. O negativo inverte só o cinza e preserva a
- * cor; quem o gera é o `scripts/logo-negativo.py`. */
+/* Fundo escuro usa a OUTRA arte oficial da marca: "BEE" em branco e contorno
+ * branco no selo. Não é filtro nem negativo gerado — as duas versões existem
+ * como arquivo, e só o que muda entre elas é o que precisa mudar (a asa fica
+ * branca e a cabeça fica preta nas duas). Já tentei as duas saídas erradas aqui:
+ * `filter: brightness(0) invert(1)` achata a marca em branco e mata o amarelo da
+ * abelha e o vermelho do "food"; negativo pixel a pixel inverte a asa e a cabeça
+ * junto, e o selo deixa de ser o selo. */
 .slide--capa .logo {
   background-image: var(--logo-escuro);
 }

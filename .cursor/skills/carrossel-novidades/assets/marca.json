@@ -22,8 +22,8 @@
     "corpo": "Mulish",
     "pesos": [400, 700, 900]
   },
-  "logo": "logo-beefood.png",
-  "logo_escuro": "logo-beefood-escuro.png",
+  "logo_fundo_claro": "logo-beefood-fundo-claro.png",
+  "logo_fundo_escuro": "logo-beefood-fundo-escuro.png",
   "tom": [
     "português do Brasil, direto, sem jargão de TI",
     "fala com dono de restaurante: problema do salão antes da tela do sistema",
