@@ -1,14 +1,29 @@
-<!-- Modelo: Cardápio Digital no Tablet, tela deitada em suporte de mesa.
+<!-- Modelo: Cardápio Digital no Tablet, tela deitada no suporte de mesa.
 
      Sozinho na faixa, vai em `.figura`: centralizado, reto e no maior tamanho
-     que couber. Em 880 px de largura a altura total é 645 px (tela 593 + haste
-     40 + pé 12), e sobra chão com chapéu + título de 1 linha + 4 linhas de
-     corpo acima.
+     que couber. Em 880 px de largura a carcaça tem 565 px e o suporte mais
+     81 px, e sobra chão com chapéu + título de 1 linha + 3 linhas de corpo
+     acima. Dividindo a capa com outro aparelho, 640 px.
+
+     **Tablet nunca vai em 3D**: girado, o suporte sai torto e o aparelho perde
+     a escala. 3D é para celular e para janela de computador.
 
      O que faz ler "tablet" e não "monitor de mesa" mora no `base.css` e vale
-     não mexer: moldura proporcional e igual nos quatro lados, canto bem
-     arredondado, suporte pequeno atrás e o ponto da câmera no meio da moldura
-     da esquerda.
+     não mexer: aparelho **preto** com fio de alumínio em volta, moldura
+     proporcional e igual nos quatro lados, canto bem arredondado, ponto da
+     câmera na moldura da esquerda, dois botões na lateral direita e o suporte,
+     que é uma **chapa curva atrás** — trapézio sai como chapéu de papel.
+
+     A tela é **escura**, e isso não é escolha de arte: é o que o print de
+     produção mostra
+     (`manuais/traducao-cardapio-presencial/imagens-puras/09-tablet-coca-traduzida.png`).
+     Barra de topo com logo, `SEARCH` e as duas ações em vermelho; coluna de
+     atalhos com as bandeiras **retangulares** no pé; coluna de setores; e
+     cartões deitados com foto à esquerda, preço em amarelo e botão `Order`.
+
+     As fotos saem de um recorte do próprio print, feito por um
+     `preparar-telas.py` na pasta do carrossel — este modelo vai sem imagem
+     para renderizar sozinho.
 
      A tela é desenhada, então o slide leva `.selo-ilustracao`. O selo cai no
      canto de baixo à esquerda, fora da silhueta do aparelho. -->
@@ -24,53 +39,64 @@
       Título de uma linha&nbsp;&#127482;&#127480;
     </h2>
     <p class="corpo">
-      Até quatro linhas de corpo, largura cheia — o aparelho está embaixo, não
-      ao lado.
+      Até três linhas de corpo, largura cheia — o aparelho está embaixo, não ao
+      lado.
     </p>
   </div>
 
-  <span class="selo-ilustracao" style="left: 88px; top: 1246px">Ilustração</span>
+  <span class="selo-ilustracao" style="left: 88px; top: 1262px">Ilustração</span>
 
-  <div class="figura" style="margin-top: 44px; width: 880px">
+  <div class="figura" style="margin-top: 52px; width: 880px">
     <div class="tablet" style="width: 880px">
       <div class="tablet__tela">
-        <div class="tela-tablet" style="font-size: 23px">
-          <!-- Coluna clara à esquerda, com as bandeiras no pé dos atalhos. -->
-          <div class="tela-tablet__coluna">
-            <div class="tela-tablet__aba tela-tablet__aba--ativa">DESTAQUES</div>
-            <div class="tela-tablet__aba">CARDÁPIO</div>
-            <div class="tela-tablet__aba">AVALIE</div>
-            <div class="tela-tablet__idiomas">
-              <span class="bandeira"><span>&#127463;&#127479;</span></span>
-              <span class="bandeira bandeira--anel"><span>&#127482;&#127480;</span></span>
-              <span class="bandeira"><span>&#127466;&#127480;</span></span>
-            </div>
+        <div class="tela-tablet" style="font-size: 19px">
+          <div class="tela-tablet__topo">
+            <span class="tela-tablet__logo"></span>
+            <span class="tela-tablet__busca"><i class="lupa"></i>SEARCH</span>
+            <span class="tela-tablet__acao"><i></i>MY CART</span>
+            <span class="tela-tablet__acao"><i></i>MY BILL</span>
           </div>
-          <div class="tela-tablet__corpo">
-            <!-- Texto do app: só o que o manual documenta em inglês. -->
-            <div class="tela-tablet__barra">
-              <b>MESA 2</b><span>SEARCH</span><span>MY CART</span><span>MY BILL</span>
-            </div>
-            <div class="tela-tablet__capa"></div>
-            <div class="tela-tablet__grade">
-              <div class="tela-tablet__item">
-                <div class="tela-tablet__foto"></div>
-                <div class="tela-tablet__texto">
-                  <span>Cola US</span><small>The drink cola</small>
-                </div>
+          <div class="tela-tablet__miolo">
+            <div class="tela-tablet__atalhos">
+              <div class="tela-tablet__atalho"><i></i>HIGHLIGHTS</div>
+              <div class="tela-tablet__atalho tela-tablet__atalho--ativo">
+                <i class="talher"></i>MENU
               </div>
+              <div class="tela-tablet__atalho"><i class="sino"></i>RATE</div>
+              <div class="tela-tablet__idiomas">
+                <span class="bandeira bandeira--retangular"><span>&#127463;&#127479;</span></span>
+                <span class="bandeira bandeira--retangular bandeira--anel"><span>&#127482;&#127480;</span></span>
+                <span class="bandeira bandeira--retangular"><span>&#127466;&#127480;</span></span>
+              </div>
+            </div>
+            <div class="tela-tablet__setores">
+              <div class="tela-tablet__setor tela-tablet__setor--ativo">Drinks</div>
+              <div class="tela-tablet__setor">Molhos adicionais</div>
+            </div>
+            <div class="tela-tablet__corpo">
+              <!-- A faixa continua em português: o título vem do Nome Público
+                   do setor, e esse não troca de idioma. -->
+              <div class="tela-tablet__faixa">Bebidas</div>
+              <!-- Com foto:
               <div class="tela-tablet__item">
-                <div class="tela-tablet__foto tela-tablet__foto--verde"></div>
+                <img src="../imagens-puras/foto-bebida-1.png" alt="">
                 <div class="tela-tablet__texto">
-                  <span>Geleia de Pimenta</span><small>Pote 30 g</small>
+                  <span>Cola US</span><small>The drink cola</small><b>R$ 5,00</b>
                 </div>
+                <span class="tela-tablet__pedir">Order</span>
+              </div>
+              -->
+              <div class="tela-tablet__item">
+                <div class="tela-tablet__texto">
+                  <span>Cola US</span><small>The drink cola</small><b>R$ 5,00</b>
+                </div>
+                <span class="tela-tablet__pedir">Order</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="tablet__haste"></div>
-      <div class="tablet__pe"></div>
+      <div class="tablet__suporte"></div>
     </div>
   </div>
 </div>

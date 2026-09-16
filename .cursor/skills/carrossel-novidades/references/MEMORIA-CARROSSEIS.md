@@ -333,7 +333,7 @@ um cupom deitado (680×554). Na capa da tradução a imagem é um totem, em pé:
 aparelho come 830 px de altura, e com duas linhas de subtítulo ele começava
 dentro do texto. Ficou com uma linha, e o resto do recado foi para a legenda.
 Orçamento da capa com aparelho em pé: pílula + título de 2 linhas + **1** linha
-de subtítulo, e o mockup começando em 552 px.
+de subtítulo, e o mockup começando por volta de 520 px.
 
 **Na capa, tela cheia ganha de tela icônica.** A tela de espera do totem é a
 imagem-símbolo do recurso (botão vermelho grande e as três bandeiras embaixo), e
@@ -343,11 +343,25 @@ da capa. Trocada pelo **cardápio em inglês**, que enche a tela e ainda prova a
 frase da capa. A tela icônica foi para o slide 3, onde a coluna de texto ao lado
 equilibra o vão.
 
-**Aparelho escuro em slide escuro desaparece.** O totem preto na capa preta virou
-uma silhueta sem contorno: a tela lia, o aparelho não. `.totem--claro` (o modelo
-de carcaça branca, que existe no catálogo) resolve sem inventar produto. Vale a
-regra geral: **mockup tem de contrastar com o fundo do slide**, e se o produto só
-existe na cor do fundo, o jeito é o fundo claro (`.slide--suave`).
+**Aparelho escuro em slide escuro desaparece.** O totem foi desenhado preto e na
+capa preta virou uma silhueta sem contorno: a tela lia, o aparelho não. Na hora
+isso foi tratado como problema de contraste e resolvido com uma variante clara —
+depois a foto do catálogo mostrou que o totem **é branco**, e o `.totem` passou a
+ser branco por padrão. Fica a regra geral, que vale mesmo quando a cor certa
+resolve sozinha: **mockup tem de contrastar com o fundo do slide**; se o produto
+só existe na cor do fundo, o jeito é trocar o fundo (`.slide--suave`), não
+inventar um modelo que não existe. E o tablet, que **é** preto, ganhou o fio de
+alumínio da carcaça real em volta da moldura — detalhe verdadeiro que também
+resolve o contraste.
+
+**Duas capas quando os dois aparelhos importam.** A novidade da tradução vale
+para totem **e** tablet, e não dá para ter os dois grandes na mesma capa. Em vez
+de escolher no lugar de quem publica, saíram duas: `01-capa.html` com os dois
+(informa mais, cada tela menor) e `capa-alternativa/slides/01-capa-so-totem.html`
+com um só (tela legível no feed). A alternativa mora em **pasta separada** — o
+`renderizar.py` transforma em PNG todo `.html` de `slides/`, e duas capas na
+mesma pasta viram um carrossel de oito imagens com dois slides "1 de 7". O
+`empacotar.py` leva só o carrossel; a capa alternativa vai no recado.
 
 **Capa honesta vende mais que capa perfeita.** Na capa da tradução, o setor
 `MOLHOS ADICIONAIS` aparece em português ao lado do `DRINKS` traduzido, e isso
@@ -380,10 +394,17 @@ Oito slides com o mesmo mockup reto viram catálogo. `.cena3d` + `.g3d` põem o
 mockup em perspectiva: o pai dá o ponto de fuga e o filho gira. Sem o
 `perspective` no pai, `rotateY` sai como achatamento, não como profundidade.
 
-**A condição de entrada é a de cima:** o mockup precisa estar dividindo a faixa
-com alguma coisa. Imagem sozinha fica centralizada, grande e reta. Inclinar uma
-imagem que tem o slide todo para si troca tamanho por efeito, e tamanho é o que
-faz a imagem funcionar no feed.
+**São duas condições, e as duas têm de valer.**
+
+1. **O aparelho é celular ou janela de computador.** Só. Totem e tablet vão
+   sempre retos. O que o 3D valoriza é a espessura da peça girando; um totem é
+   um armário em pé e não tem espessura para mostrar — girado, ele lê como
+   armário tombando. O slide 3 do carrossel da tradução saiu assim na primeira
+   versão e o dono devolveu na hora. Tablet no suporte tem o mesmo problema, com
+   o agravante de o suporte sair torto.
+2. **O mockup está dividindo a faixa com alguma coisa.** Imagem sozinha fica
+   centralizada, grande e reta. Inclinar uma imagem que tem o slide todo para si
+   troca tamanho por efeito, e tamanho é o que faz a imagem funcionar no feed.
 
 Três coisas que fazem o 3D ler como 3D:
 
@@ -416,10 +437,11 @@ slide 4 (achar o interruptor) ficou reto e o slide 6 (ilustração do app, texto
 grande, com coluna de texto ao lado) ficou em 3D — um 3D a cada dois ou três
 mockups é o suficiente para dar ritmo.
 
-**O brilho do 3D cobre a caixa toda, não só a tela.** O `.g3d::after` usa
-`inset: 0`, então ele pinta tudo que está dentro da caixa do elemento girado. No
-primeiro render do totem em 3D saíram **duas abas brancas** embaixo, dos lados da
-coluna: a coluna ocupa 30% da largura, o resto da linha é transparente, e o
+**O brilho do 3D cobre a caixa toda, não só a tela.** (Vale para celular, que é
+onde o 3D é permitido; o caso abaixo é do totem porque foi ali que apareceu.) O
+`.g3d::after` usa `inset: 0`, então ele pinta tudo que está dentro da caixa do
+elemento girado. No primeiro render do totem em 3D saíram **duas abas brancas**
+embaixo, dos lados da coluna: a coluna ocupa 30% da largura, o resto da linha é transparente, e o
 brilho pintou o vão. A correção mudou a estrutura do mockup, não o gradiente: no
 `.totem` e no `.tablet` a caixa é **só o corpo da tela**, e coluna, haste e pé são
 `position: absolute` pendurados embaixo (`top: 100%`). Absolutos, giram junto com
@@ -470,21 +492,49 @@ Leia a medida do arquivo com Pillow antes de calcular porcentagem.
 ## Totem e tablet — mockup de equipamento
 
 Celular e navegador não cobrem tudo: a novidade da tradução acontece no **Totem
-de Autoatendimento** e no **Cardápio Digital no Tablet**, e nenhum dos dois tem
-print no repositório. Os dois mockups nasceram no `base.css` (`.totem`,
-`.tablet`), desenhados a partir das páginas de produto do site
-(`beefood.com.br/totem-de-autoatendimento` e `/cardapio-digital-tablet`), que
-foram capturadas com o próprio `capturar.py --publico` para servir de referência.
+de Autoatendimento** e no **Cardápio Digital no Tablet**. Os dois mockups vivem
+no `base.css` (`.totem`, `.tablet`).
 
-O que faz cada um **ler** como o que é:
+### Antes de desenhar, procure a referência — inclusive no `main`
+
+Esta seção começou errada e foi refeita. A primeira versão do totem e do tablet
+foi desenhada **de memória**, com "o que um totem parece": carcaça preta, tela
+escura, lista vertical de itens; e um tablet claro com grade de cartões. O dono
+devolveu como *"fora do layout"* e *"foge totalmente do padrão"*, e o problema
+não era CSS — era não ter procurado como o produto é de verdade.
+
+Existem duas fontes, e as duas são baratas:
+
+- **os prints de produção, dentro deste repositório.** O manual da mesma
+  novidade já os versionava em
+  `manuais/traducao-cardapio-presencial/imagens-puras/`. Eles não apareciam no
+  checkout porque o manual entrou **depois** do build do ambiente — o Cloud
+  Agent parte de um snapshot. Um `git fetch origin main` e um
+  `git ls-tree -r --name-only origin/main -- manuais/<slug>` resolvem. **Faça
+  isso sempre**: manual publicado é a referência mais forte que existe, e a mais
+  fácil de deixar passar.
+- **as páginas de produto do site**, para o corpo do aparelho:
+  `beefood.com.br/totem-de-autoatendimento` e `/cardapio-digital-tablet`.
+  Capture com `capturar.py --publico` e recorte a foto do aparelho.
+
+O que a referência corrigiu, e que nenhuma intuição acertaria:
+
+| | desenhado de memória | como é |
+|---|---|---|
+| totem, carcaça | preta, canto de 28 px | **branca**, canto quase reto |
+| totem, tela | escura, lista vertical | **clara**, coluna de setores em caixa alta, banner no topo, grade de produtos com foto, barra vermelha da sacola no pé |
+| tablet, tela | clara, grade de dois cartões | **escura**, cartões deitados com foto à esquerda, preço em **amarelo**, botão `Order` |
+| tablet, suporte | pedestal fino com pé chato | **chapa de alumínio curva** que sai de trás e dobra até a mesa |
+| bandeiras | redondas nos dois | redondas no totem, **retangulares** no tablet |
+
+### O que faz cada aparelho ler como o que é
 
 | Aparelho | O que dá a leitura | O que errei primeiro |
 |---|---|---|
-| totem | a **coluna** e o pé embaixo da tela em pé | sem coluna, uma tela 9/16 de 600 px é um celular gigante |
-| tablet | moldura **proporcional e igual nos quatro lados** (`padding: 2.2%`), canto **bem arredondado** (38 px), suporte pequeno (haste 5%, pé 15%) e o ponto de 6 px da câmera no meio da moldura da esquerda | moldura em px, canto de 20 px e pé de 23%: sai um iMac |
+| totem | carcaça **branca**, tela 9/16 com moldura preta fina, **painel** embaixo com leitor de aproximação, boca de impressora e **pinpad**, e coluna + base pretas mais estreitas que a carcaça | sem o painel, é um celular gigante numa coluna; o painel é o que diz "autoatendimento" |
+| tablet | moldura **proporcional e igual nos quatro lados** (`padding: 2.2%`), canto **bem arredondado** (38 px), fio de alumínio em volta, dois botões na lateral direita, ponto de câmera na moldura da esquerda e a **chapa curva** atrás | moldura em px, canto de 20 px e pedestal com pé: sai um iMac |
 
-O tablet custou três rodadas, e o que resolveu foi medir em vez de opinar —
-renderizei quatro variantes do mesmo slide e comparei:
+O tablet custou quatro rodadas, e o que resolveu foi medir em vez de opinar:
 
 - **moldura em px não escala.** O mockup nasceu com `padding: 11px`, que é 1,5%
   de uma largura de 720 e 1,2% de uma de 880: quanto maior o slide usa o
@@ -493,31 +543,49 @@ renderizei quatro variantes do mesmo slide e comparei:
 - **o canto é o sinal mais forte.** 20 px de raio em 880 de largura é canto de
   monitor; 38 px já é tablet. Em px e não em `%`, que daria elipse.
 - **4/3 pareceu "mais tablet" e não é.** Testei, encolhe a tela e inventa um
-  aparelho que o cliente não tem — o aplicativo roda em tablet Android, 16/10.
-- **berço na frente da moldura de baixo não funciona.** Uma barra segurando a
-  tela pela frente, que é como muito suporte de mesa é de verdade, sai como
-  borrão cinza em cima do aparelho. O suporte tem de ficar **atrás**.
+  aparelho que o cliente não tem — o aplicativo roda em tablet Android, 16/10,
+  que é também a proporção do print de produção (1280×800).
+- **o suporte não é um trapézio.** Duas tentativas com `clip-path` de trapézio
+  saíram lendo "chapéu chinês" embaixo do aparelho. A peça real é uma chapa
+  curva: vista de frente é quase um retângulo de cantos arredondados, com o
+  volume vindo do gradiente (claro no meio, escuro nas beiradas) e a dobra do
+  pé vindo de um `border-radius` assimétrico.
 
 Medidas que cabem no slide, com o texto acima:
 
-| Mockup | Largura | Altura total | Onde |
+| Mockup | Largura | Altura até a base da carcaça | Onde |
 |---|---|---|---|
-| totem inteiro (capa) | 420 px | 830 px (tela 722 + coluna 92 + pé 16) | `top: 552px`, recuo igual dos dois lados, pé sangrando pela base |
-| totem em 3D, com texto ao lado | 462 px | 901 px | `top: 296px`, `right: 40px` |
-| tablet inteiro | 880 px | 645 px (tela 593 + haste 40 + pé 12) | `.figura`, centralizado |
+| totem sozinho (capa) | 410 px | 802 px (tela 641 + painel 144 + topo 17) | `top: 522px`, centralizado, coluna sangrando pela base |
+| totem ao lado de texto | 396 px | 775 px | `top: 462px`, `right: 46px` |
+| totem pequeno, com outro aparelho | 322 px | 629 px | `top: 450px`, `right: 34px` |
+| tablet inteiro | 880 px | 565 px + 81 px de suporte | `.figura`, centralizado |
+| tablet ao lado de outro aparelho | 640 px | 410 px + 59 px de suporte | `top: 828px`, `left: 28px` |
 
 **Aparelho em pé na capa pode sair pela base**, e é melhor que caber inteiro: a
-borda de baixo do slide lê como chão. O totem da capa tem 830 px de altura e
-começa em 552, então o pé fica fora — de propósito. Aparelho com o pé inteiro
-visível no meio do slide parece recortado e colado.
+borda de baixo do slide lê como chão. O que **não** pode sair é o painel do
+pinpad, que é o que identifica o totem — corte a coluna, nunca o painel.
 
 **Bandeira do seletor é emoji recortado em círculo** (`.bandeira`), não SVG novo
 no repositório: o ambiente tem Noto Color Emoji, 🇧🇷 sai igual em toda máquina e
 o `scale(1.5)` dentro do círculo é o que faz a tinta cobrir os cantos (a bandeira
 emoji é ondulada e mais larga que alta). `.bandeira--anel` marca o idioma em uso,
-como o sistema faz. A **bolinha verde** de "esse idioma já tem texto" não entrou
-no desenho de propósito: ela só existe no cadastro, e do cadastro existe captura
-real.
+como o sistema faz. No **tablet** elas são retangulares (`.bandeira--retangular`)
+e empilhadas — dois aparelhos, dois desenhos. A **bolinha verde** de "esse idioma
+já tem texto" não entrou no desenho de propósito: ela só existe no cadastro, e do
+cadastro existe captura real.
+
+### Duas armadilhas de CSS que custaram render
+
+- **`.moldura img` pega as imagens de dentro da tela desenhada.** `.totem__tela
+  img { height: 100% }` foi escrito para o print que ocupa a tela inteira, mas
+  alcançava também as fotos dos cartões desenhados dentro dela — e o `height`
+  anula o `aspect-ratio` delas. As fotos esticavam e o texto do cartão sumia.
+  Regra de moldura é sempre **filho direto**: `.totem__tela > img`.
+- **`flex: none` numa `<img>` dentro de flex column lê a altura do arquivo.**
+  Com `flex-basis: auto`, o navegador usa a altura intrínseca da imagem e ignora
+  o `aspect-ratio`. Cartão de grade é melhor em **bloco**: em flex column, a
+  foto é a peça que cede quando a grade estica a linha, e duas fotos lado a lado
+  saem com alturas diferentes.
 
 ## Ilustração de tela (imagem "fake")
 
@@ -525,7 +593,27 @@ App Android (Garçom, Entregador, Tablet) não sobe no Cloud Agent, e o slide qu
 mostra o efeito na rua era justamente o que faltava. A saída é desenhar a tela em
 HTML/CSS (`.tela-app`, `.tela-totem` e `.tela-tablet` no `base.css`, modelos
 `ilustracao-app.html`, `mockup-totem.html` e `mockup-tablet.html`), com ordem de
-preferência clara: **captura real > print pedido ao dono > ilustração**.
+preferência clara: **captura real > print de produção que já está no repositório
+> print pedido ao dono > ilustração**. O segundo degrau é novo e é o mais
+esquecido: o manual da mesma novidade costuma ter o print, e ele pode estar só
+no `main` (veja *Antes de desenhar, procure a referência*).
+
+**Quando o print existe mas não encaixa, desenhe em cima dele.** O print do
+totem é paisagem e a tela do aparelho é retrato; e print de tela cheia reduzido
+para caber num slide fica com letra de 4 px no feed. Nos dois casos, colar o
+arquivo inteiro na moldura é pior que desenhar. O meio-termo que funcionou:
+
+- o CSS copia o **layout, a paleta e a hierarquia** do print, com a tipografia
+  ampliada e uma coluna a menos na grade quando o nome não sobrevive à redução;
+- as **fotos são as reais**, recortadas do print por um script na pasta do
+  carrossel (`preparar-telas.py`), com as coordenadas **medidas no arquivo** com
+  Pillow e comentadas no script. Foto de comida inventada é o que mais denuncia
+  tela desenhada;
+- pedaços que já vêm prontos entram inteiros. O banner do topo do totem é um
+  recorte só, e traz o `CANCEL ORDER` e a pílula de bandeiras de produção
+  dentro — é o pixel mais convincente do carrossel e não custou nada desenhar.
+
+O selo continua: a tela é desenhada.
 
 Três condições, todas obrigatórias:
 
@@ -553,9 +641,12 @@ Dois preenchimentos que salvam tela desenhada sem inventar nada:
 
 - **preço.** Ele não muda de idioma (o manual diz), então entra em todo cartão e
   enche o vazio com um detalhe verdadeiro.
-- **faixa de capa sem texto** (`.tela-tablet__capa`). O tablet tem área de
-  destaque; um retângulo com gradiente ocupa o terço que sobrava embaixo da barra
-  e não afirma nada.
+- **foto real recortada do print.** É o que enche tela sem afirmar nada e o que
+  mais separa desenho convincente de wireframe. Retângulo com gradiente no lugar
+  da foto (`.tela-tablet__capa`, que existia aqui) entrega o desenho na hora.
+- **lista cortada pela barra fixa do pé.** No aparelho a lista rola; no desenho,
+  um contêiner com `overflow: hidden` e a barra depois dele reproduz isso e
+  resolve o vão de 200 px que sobrava embaixo do último cartão.
 
 Cupom desenhado em CSS (`.cupom`) não precisa de selo: bobina térmica em
 monoespaçada é claramente desenho, e é a única forma de mostrar o "antes" — que
@@ -567,7 +658,7 @@ não existe como captura.
 |------|---------------|
 | painel web (`beefood.app`) | `capturar.py --rota /cardapio` |
 | cardápio digital público | `capturar.py --url <link> --publico --dispositivo celular` |
-| app Android (Garçom, Entregador, Tablet) | não roda aqui: peça o print ao dono (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) ou ilustre com selo |
+| app Android (Garçom, Entregador, Tablet, Totem) | não roda aqui. Nesta ordem: procure o print de produção no manual da mesma novidade (`git fetch origin main` antes de concluir que não existe); senão peça ao dono (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`); senão ilustre com selo |
 | coisa que não é tela (cupom, impressora) | print do manual, se existir; senão desenho em CSS |
 
 ## Reaproveitamento do manual

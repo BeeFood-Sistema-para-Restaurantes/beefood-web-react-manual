@@ -45,10 +45,11 @@ reclamação.
 
 | # | Arquivo | Tipo | Ideia única | Imagem |
 |---|---------|------|-------------|--------|
-| 1 | `01-capa.html` | capa com imagem | o cardápio passou a falar a língua do cliente | totem ilustrado com o cardápio em inglês, centralizado, com o pé saindo pela base |
+| 1 | `01-capa.html` | capa com imagem | o cardápio passou a falar a língua do cliente | totem e tablet lado a lado, os dois com o cardápio em inglês |
+| 1 | `capa-alternativa/slides/01-capa-so-totem.html` | capa com imagem | idem, versão alternativa | só o totem, centralizado e grande |
 | 2 | `02-cena.html` | texto | o turista não vai embora por preço | — |
-| 3 | `03-totem.html` | mockup 3D + texto ao lado | ele escolhe a bandeira antes de começar | totem ilustrado na tela de espera, com o seletor embaixo do botão |
-| 4 | `04-tablet.html` | mockup em sangria | na mesa as bandeiras já estão na lateral | tablet ilustrado com `Cola US` traduzido e o item de baixo em português |
+| 3 | `03-totem.html` | mockup reto + texto ao lado | ele escolhe a bandeira antes de começar | totem na tela de espera, com o seletor embaixo do botão |
+| 4 | `04-tablet.html` | mockup centralizado | na mesa as bandeiras já estão na lateral | tablet com `Cola US` traduzido e o item de baixo em português |
 | 5 | `05-mesmo-cadastro.html` | print real em janela | a tradução mora no mesmo produto | captura do cadastro da Coca Cola com as três bandeiras e as bolinhas verdes |
 | 6 | `06-aos-poucos.html` | texto com lista | dá para traduzir aos poucos | — |
 | 7 | `07-cta.html` | CTA com mockup | quem tem o equipamento já tem o recurso | página de novidades no celular, captura real |
@@ -89,33 +90,46 @@ celular, mímica, a porta. É o slide que faz o dono reconhecer o problema antes
 ouvir a solução, e o que segura a atenção até o terceiro. A caixa de fecho existe
 para nomear o custo: não foi o preço, foi o cardápio.
 
-**Totem ilustrado, e com selo.** Totem e tablet rodam em Android e não sobem no
-Cloud Agent (`MEMORIA-GERAL.md`, seção 6), então as duas telas são desenhadas em
-CSS (`.tela-totem`, `.tela-tablet`) e os dois slides levam `.selo-ilustracao`.
-O desenho só mostra o que está escrito no manual, e **usa só texto documentado**:
-`DRINKS` (o setor Bebidas traduzido), `MOLHOS ADICIONAIS` (setor sem tradução,
-que continua em português), `Cola US` / `The drink cola` (o produto do exemplo),
-`SEARCH`, `MY CART`, `MY BILL` e `CANCEL ORDER` (textos do próprio aplicativo).
-Nada de string inventada em inglês.
+**A primeira versão do totem e do tablet foi desenhada de memória, e saiu
+errada.** Totem escuro com lista vertical, tablet claro com grade de cartões —
+o dono devolveu como "fora do layout" e "foge totalmente do padrão", e tinha
+razão nos dois. O que faltou foi procurar a referência antes de desenhar.
 
-Duas coisas que o desenho ganhou no caminho, e que valem para o próximo
-aparelho desenhado:
+Ela existia em dois lugares:
 
-- **carcaça clara no slide escuro.** O totem preto em capa preta virou uma
-  silhueta invisível. `.totem--claro` é o modelo branco do catálogo, e resolve
-  sem inventar produto.
-- **o que faz ler "tablet" e não "monitor"** é moldura proporcional e igual nos
-  quatro lados (`padding: 2.2%`), canto de 38 px e suporte pequeno. Foram quatro
-  variantes do mesmo slide renderizadas e comparadas: moldura em px encolhe
-  quando o mockup cresce, canto de 20 px é canto de monitor, pé largo é base de
-  monitor, e um berço na frente da moldura de baixo sai como borrão. A tela
-  continua 16/10, que é a do tablet Android — 4/3 parece "mais tablet" e só
-  encolhe a tela inventando um aparelho que o cliente não tem.
+- **os prints de produção**, que o próprio manual versiona em
+  `manuais/traducao-cardapio-presencial/imagens-puras/` — tela de espera do
+  totem (`07`), cardápio do totem em inglês (`08`) e cardápio do tablet em
+  inglês (`09`). Não estavam no checkout local porque o manual entrou depois do
+  build do ambiente; um `git fetch origin main` resolveu.
+- **as fotos do catálogo**, em `beefood.com.br/totem-de-autoatendimento` e
+  `beefood.com.br/cardapio-digital-tablet`, que mostram os aparelhos.
 
-> **Pendente com o dono:** print real do Totem de Autoatendimento (tela de espera
-> com o seletor e cardápio em inglês) e do Cardápio Digital no Tablet (bandeiras
-> na coluna da esquerda). Quando chegarem, substituem os desenhos dos slides 1, 3
-> e 4 e os selos saem.
+O que os prints corrigiram, e que nenhuma memória substitui:
+
+| | desenhado de memória | como é |
+|---|---|---|
+| totem, carcaça | preta, canto de 28 px | **branca**, canto quase reto, painel com leitor, impressora e pinpad |
+| totem, tela | escura, lista vertical de itens | **clara**, coluna de setores em caixa alta, banner no topo e grade de produtos com foto |
+| tablet, tela | clara, grade de dois cartões | **escura**, cartões deitados, preço em amarelo, botão `Order` |
+| tablet, suporte | pedestal fino com pé chato | **chapa de alumínio curva** que dobra até a mesa |
+| bandeiras | redondas nos dois | redondas no totem, **retangulares** no tablet |
+
+**As telas continuam desenhadas, e continuam com selo.** Colar o print inteiro
+dentro da moldura não resolve: o do totem é paisagem (1186×699) e a tela do
+aparelho é retrato, e print de tela cheia reduzido para caber num slide fica com
+letra de 4 px no feed. Então o CSS copia o layout e a paleta, e as **fotos são
+as reais**, recortadas dos prints pelo `preparar-telas.py` — inclusive o banner
+do totem, que vem com o `CANCEL ORDER` e a pílula de bandeiras de produção
+dentro. O único desvio deliberado é a grade do totem, que vai em duas colunas em
+vez de três: em três, o nome do produto não sobrevive à redução.
+
+Texto em inglês continua tendo de ser **texto documentado**: `DRINKS`,
+`MOLHOS ADICIONAIS` (setor sem tradução, que fica em português), `Cola US` /
+`The drink cola`, `SEARCH`, `MY CART`, `MY BILL`, `HIGHLIGHTS`, `MENU`, `RATE`,
+`Order`, `CANCEL ORDER`. A barra da sacola do totem ficou só com ícone e
+contador justamente por isso: a frase dela ("Sua sacola está vazia") só existe
+documentada em português.
 
 **O único print real é o do cadastro, e é o slide mais importante dos apoios.**
 O slide 5 responde ao medo que mata a adoção — "vou ter que manter dois
@@ -123,10 +137,21 @@ cardápios" — e a resposta só convence vendo: é o mesmo modal da Coca Cola, 
 três bandeiras na linha do Nome e duas bolinhas verdes. Desenhar essa tela seria
 jogar fora o argumento; ela existe no sandbox e foi capturada.
 
-**O 3D só no slide 3.** É o único em que o aparelho divide a faixa com uma coluna
-de texto, que é a condição para girar (`MEMORIA-CARROSSEIS.md`, *Mockup 3D*). Na
-capa, no 4 e no 7 a imagem está sozinha na faixa: vai centralizada, reta e no
-maior tamanho que couber.
+**Nenhum slide em 3D.** O slide 3 chegou a sair girado — ele é o único em que o
+aparelho divide a faixa com uma coluna de texto, que era a condição para girar.
+Mas o aparelho ali é um **totem**, e totem girado lê como armário tombando: o
+que o 3D valoriza é a espessura da peça, e um armário em pé não tem espessura
+para mostrar. A regra ficou mais estreita e está na `MEMORIA-CARROSSEIS.md`: 3D
+só em **celular e em janela de computador**. Totem e tablet vão retos.
+
+**Duas capas, e a escolha é de quem publica.** `01-capa.html` traz o totem e o
+tablet juntos: a capa já diz "nos dois aparelhos" sem gastar linha de texto, e o
+preço é cada tela ficar menor. `capa-alternativa/slides/01-capa-so-totem.html`
+traz o totem sozinho, centralizado e grande, com a tela legível no feed —
+`DRINKS`, `Cola US` e `The drink cola` dá para ler. A alternativa mora em pasta
+separada porque o `renderizar.py` transforma em PNG todo `.html` de `slides/`, e
+duas capas na mesma pasta virariam um carrossel de oito imagens com dois
+slides "1 de 7".
 
 **A data no print do CTA fica.** O celular do slide 7 mostra a página de
 novidades, e nela aparece "16/09/2026" — data que o site publica, dentro de um
@@ -169,11 +194,33 @@ O sandbox **tem** o recurso: a empresa de teste tem Cardápio Digital no Tablet,
 então as bandeiras aparecem no cadastro. Se um dia desaparecerem, é contrato, não
 bug (o manual diz que sem Totem nem Tablet não há bandeira).
 
+### As telas do cliente vêm do manual, não do Cloud Agent
+
+Totem e tablet rodam em Android e não sobem aqui (`MEMORIA-GERAL.md`, seção 6),
+mas os prints de produção existem — o dono mandou e o manual versiona. Foram
+copiados para `imagens-puras/` com prefixo `manual-`, e o `preparar-telas.py`
+recorta deles as peças que entram nas telas desenhadas:
+
+```bash
+python carrosseis/traducao-cardapio-presencial/preparar-telas.py
+```
+
+- `manual-07-totem-espera.png`, `manual-08-totem-menu.png` e
+  `manual-09-tablet-cardapio.png` — os prints, sem edição;
+- `tela-totem-banner.png` — o banner do topo do totem, que já traz o
+  `CANCEL ORDER` e a pílula de bandeiras de produção;
+- `foto-bebida-1..5.png` — as fotos das bebidas do setor Drinks.
+
+As coordenadas do recorte foram **medidas no arquivo**, não estimadas, e estão
+comentadas no script.
+
 ## Render e entrega
 
 ```bash
 python .cursor/skills/carrossel-novidades/scripts/renderizar.py \
     carrosseis/traducao-cardapio-presencial --contato
+python .cursor/skills/carrossel-novidades/scripts/renderizar.py \
+    carrosseis/traducao-cardapio-presencial/capa-alternativa
 python .cursor/skills/carrossel-novidades/scripts/conferir-texto.py traducao-cardapio-presencial
 python .cursor/skills/carrossel-novidades/scripts/empacotar.py traducao-cardapio-presencial
 ```

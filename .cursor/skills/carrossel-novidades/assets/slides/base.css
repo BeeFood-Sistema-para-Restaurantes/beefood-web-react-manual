@@ -813,27 +813,6 @@ body {
   background: #fff;
 }
 
-.tablet__haste,
-.tablet__pe {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(90deg, #8d9299, #dfe2e6 42%, #93999f);
-}
-
-.tablet__haste {
-  top: 100%;
-  width: 5%;
-  height: 40px;
-}
-
-.tablet__pe {
-  top: calc(100% + 40px);
-  width: 15%;
-  height: 12px;
-  border-radius: 0 0 10px 10px;
-}
-
 /* Bandeira redonda do seletor de idioma, como o sistema desenha: o emoji da
  * bandeira recortado num círculo.
  *
@@ -1141,15 +1120,9 @@ body {
   background: #f2f2f3;
 }
 
-.tela-totem__marca {
-  position: absolute;
-  top: 2.2em;
-  font-size: 1.15em;
-  font-weight: 900;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #9a9a9e;
-}
+/* Sem nome de restaurante na tela de espera: o print mostra o botão e as
+ * bandeiras sobre o cinza, e nada mais. O `.tela-totem__marca` que existia aqui
+ * escrevia "Seu restaurante" e era invenção. */
 
 .tela-totem__botao {
   align-self: stretch;

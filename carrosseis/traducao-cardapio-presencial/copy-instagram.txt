@@ -7,9 +7,23 @@ Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
 nomes de arquivo: 01-capa, 02-cena, 03-totem, 04-tablet, 05-mesmo-cadastro,
 06-aos-poucos, 07-cta.
 
-Os slides 1, 3 e 4 usam mockup ilustrado de totem e de tablet, com selo
-"ILUSTRAÇÃO" na arte. Se chegarem os prints reais dos dois aparelhos, vale
-refazer esses três antes de publicar.
+Os slides 1, 3 e 4 usam mockup de totem e de tablet com a tela desenhada, e por
+isso levam o selo "ILUSTRAÇÃO" na arte. O layout e as fotos vêm dos prints de
+produção dos dois aparelhos (os mesmos que estão no manual); o que é desenho é a
+tela em si, redesenhada em retrato e com a letra maior, porque print de tela
+cheia reduzido para caber num slide fica ilegível no feed.
+
+A CAPA TEM DUAS VERSÕES — escolha uma antes de publicar:
+
+  png/01-capa.png
+      totem e tablet lado a lado. Diz "nos dois aparelhos" sem gastar texto, e
+      cada tela fica menor.
+
+  capa-alternativa/png/01-capa-so-totem.png
+      só o totem, centralizado e grande. A tela fica legível no feed.
+
+O .zip da entrega leva a primeira. Se preferir a outra, troque o arquivo 01 pelo
+da pasta capa-alternativa.
 
 
 ========================================================================
@@ -54,21 +68,28 @@ Você já perdeu pedido de gringo por causa do cardápio? Conta aí 👇
 TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
 ========================================================================
 
-01  Fundo escuro com o título "Seu cardápio já fala inglês?" e a ilustração de
-    um totem de autoatendimento mostrando o cardápio em inglês: o seletor de
-    bandeiras no topo, o setor DRINKS traduzido e, abaixo, o setor MOLHOS
-    ADICIONAIS ainda em português.
+01  Fundo escuro com o título "Seu cardápio já fala inglês?". À direita, um
+    totem de autoatendimento branco mostrando o cardápio em inglês, com o setor
+    DRINKS traduzido e o produto Cola US. À esquerda e mais abaixo, o Cardápio
+    Digital no Tablet com as mesmas bebidas, as bandeiras do Brasil, dos
+    Estados Unidos e da Espanha na coluna da esquerda e o botão Order.
+
+01  (versão alternativa, só com o totem) Fundo escuro com o título "Seu cardápio
+    já fala inglês?" e, embaixo, um totem de autoatendimento branco mostrando o
+    cardápio em inglês: o setor DRINKS traduzido, as bebidas Cola US, Coca Cola
+    350ml e Coca Zero 350ml, e o setor Molhos adicionais ainda em português.
 
 02  Lista do que o turista faz hoje diante de um cardápio que não entende: abre
     o tradutor no celular, pede ajuda por mímica ou escolhe o mais óbvio da
     tela. Uma caixa vermelha diz que não foi o preço que espantou ele.
 
-03  Ilustração da tela de espera do totem, com o nome do restaurante, o botão
-    FAÇA SEU PEDIDO e, logo embaixo dele, as bandeiras do Brasil, dos Estados
-    Unidos e da Espanha.
+03  Tela de espera do totem de autoatendimento, com o botão vermelho FAÇA SEU
+    PEDIDO e, logo embaixo dele, as bandeiras do Brasil, dos Estados Unidos e
+    da Espanha numa pílula branca.
 
-04  Ilustração do Cardápio Digital no Tablet, com as três bandeiras na coluna da
-    esquerda e o produto Cola US, descrito como The drink cola, no cardápio.
+04  Cardápio Digital no Tablet, de tela escura, com as três bandeiras na coluna
+    da esquerda e o produto Cola US, descrito como The drink cola, no cardápio.
+    Logo abaixo, duas bebidas ainda com nome e descrição em português.
 
 05  Cadastro do produto Coca Cola 350ml no BeeFood, com as bandeiras do Brasil,
     dos Estados Unidos e da Espanha na linha do Nome. As duas últimas têm uma

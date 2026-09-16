@@ -188,23 +188,27 @@ escala, e o corte passa a sensação de que a tela continua.
 - **Celular** (`.sangria .sangria--celular`) sangra pela **base**.
 - **Computador** (`.navegador .sangria .sangria--janela`) sangra pela
   **direita**, porque é deitado; é assim que ele passa de 1000 px de largura.
-- **Totem** (`.totem`) tem tela em pé, 830 px de altura total em 420 px de
-  largura. O que faz ler "totem" e não "celular gigante" é a **coluna** embaixo
-  da tela. Em slide escuro use `.totem--claro`: aparelho preto em fundo preto
-  vira silhueta invisível. Numa capa, deixe o **pé sair pela base** — a borda de
-  baixo lê como chão, e pé inteiro no meio do slide parece colado.
-- **Tablet** (`.tablet`) é deitado e cabe inteiro em 880 px (altura total
-  645 px), em `.figura`. O que separa "tablet no suporte" de "monitor de mesa"
-  são moldura proporcional e igual nos quatro lados (`padding` em `%`, nunca em
-  px), canto bem arredondado, suporte pequeno **atrás** e o ponto da câmera no
-  meio da moldura da esquerda. A tela é 16/10, do tablet Android: 4/3 parece
-  "mais tablet" e só inventa aparelho.
-- **Nos dois, a caixa do elemento é só o corpo da tela** e coluna, haste e pé são
-  absolutos pendurados embaixo. Isso não é estilo: o brilho do `.g3d` cobre
-  `inset: 0` do elemento girado, e com a coluna dentro da caixa ele pinta o vão
-  transparente dos lados dela — saem duas abas brancas no render.
-- **Seletor de idioma** é `.bandeira` (emoji de bandeira recortado em círculo) com
-  `.bandeira--anel` no idioma em uso.
+- **Totem** (`.totem`) é um armário **branco** de tela em pé (9/16), com um
+  painel embaixo dela (leitor de aproximação, boca de impressora e **pinpad**) e
+  coluna + base pretas. Em 410 px de largura, a carcaça tem ~800 px de altura.
+  O que faz ler "totem" e não "celular gigante" é o **painel**: numa capa deixe
+  a **coluna** sair pela base (a borda de baixo lê como chão), mas nunca corte o
+  painel.
+- **Tablet** (`.tablet`) é **preto**, deitado, e cabe inteiro em 880 px (565 px
+  de carcaça + 81 px de suporte), em `.figura`. O que separa "tablet no suporte"
+  de "monitor de mesa" são moldura proporcional e igual nos quatro lados
+  (`padding` em `%`, nunca em px), canto bem arredondado, fio de alumínio em
+  volta, ponto da câmera na moldura da esquerda e o suporte, que é uma **chapa
+  curva atrás** — trapézio sai como chapéu. A tela é 16/10, do tablet Android:
+  4/3 parece "mais tablet" e só inventa aparelho.
+- **Nos dois, a caixa do elemento é só o corpo da tela** e coluna, painel e
+  suporte são absolutos pendurados embaixo.
+- **Regra de moldura é sempre filho direto** (`.totem__tela > img`). `.moldura
+  img` alcança também as fotos de dentro de uma tela desenhada, e o `height:
+  100%` de lá anula o `aspect-ratio` delas.
+- **Seletor de idioma** é `.bandeira` (emoji de bandeira recortado em círculo)
+  com `.bandeira--anel` no idioma em uso. No tablet ele é retangular
+  (`.bandeira--retangular`) e empilhado.
 - **O texto mora todo acima do mockup.** A coluna que sobra ao lado tem 288 px,
   estreita demais para corpo de 38 px. Orçamento: com o celular em `top: 530px`
   cabem chapéu + título de 2 linhas + 2 linhas de corpo; com a janela em
@@ -221,6 +225,9 @@ está**, e o giro é sempre **para dentro**: a quina que aponta para o texto é 
 afunda, e o aparelho parece entrar no slide. Ao contrário, ele parece cair para
 fora da arte.
 
+- **Só em celular e em janela de computador.** Totem e tablet vão sempre retos:
+  o 3D valoriza a espessura da peça girando, e armário em pé não tem espessura —
+  girado, lê como armário tombando.
 - **Só com conteúdo ao lado.** É a coluna de texto ao lado que dá licença para o
   mockup sair do centro e girar. Sozinho na faixa, ele vai centralizado, grande e
   reto — inclinar ali troca tamanho por efeito.
@@ -239,7 +246,20 @@ fora da arte.
 
 #### Quando a tela não existe: ilustrar
 
-Ordem de preferência: **captura real > print pedido ao dono > ilustração**.
+Ordem de preferência: **captura real > print de produção que já está no
+repositório > print pedido ao dono > ilustração**.
+
+O segundo degrau é o mais esquecido: o **manual da mesma novidade** costuma ter
+o print do aparelho, e ele pode estar só no `main` (o Cloud Agent parte de um
+snapshot). Antes de concluir que não existe, rode `git fetch origin main` e
+`git ls-tree -r --name-only origin/main -- manuais/<slug>`.
+
+**Print que existe mas não encaixa não vira lixo.** Quando a proporção é outra
+(print de totem em paisagem, tela do aparelho em retrato) ou quando a tela
+cheia reduzida fica ilegível no feed, desenhe a tela em CSS copiando **layout,
+paleta e hierarquia** do print, e traga dele as **fotos reais** com um script de
+recorte na pasta do carrossel — coordenadas medidas no arquivo com Pillow, não
+estimadas. Foto de comida inventada é o que mais denuncia tela desenhada.
 
 Só ilustre (`.tela-app`, `.tela-totem`, `.tela-tablet`; modelos
 `ilustracao-app.html`, `mockup-totem.html`, `mockup-tablet.html`) com as três
