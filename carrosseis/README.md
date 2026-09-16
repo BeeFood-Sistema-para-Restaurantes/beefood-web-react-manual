@@ -16,6 +16,10 @@ material e não o altera.
 | Carrossel | Novidade | Formato | Slides | Entrega |
 |-----------|----------|---------|--------|---------|
 | [`destaque-impressao/`](destaque-impressao/roteiro.md) | [Destaque na impressão](https://beefood.app/novidades/destaque-impressao) — 15/09/2026 | 4:5 | 8 | [`.zip`](destaque-impressao/entrega/destaque-impressao.zip) · [copy](destaque-impressao/copy-instagram.txt) |
+| [`traducao-cardapio-presencial/`](traducao-cardapio-presencial/roteiro.md) | [Cardápio presencial em inglês e espanhol](https://beefood.app/novidades/traducao-cardapio-presencial) — 16/09/2026 | 4:5 | 7 | [`.zip`](traducao-cardapio-presencial/entrega/traducao-cardapio-presencial.zip) · [copy](traducao-cardapio-presencial/copy-instagram.txt) |
+
+O número de slides é o que a novidade tem de assunto, entre 6 e 8 — não é uma
+medida fixa.
 
 ## Estrutura de cada pasta
 

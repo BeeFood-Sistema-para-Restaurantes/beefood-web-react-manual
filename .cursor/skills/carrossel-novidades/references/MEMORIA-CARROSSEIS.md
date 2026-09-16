@@ -4,14 +4,22 @@ Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
 continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
 entra o que é de carrossel.
 
-Última atualização: 2026-09-16 (8ª rodada: fora a data da arte — o topo direito
-leva só o contador, porque carrossel é publicado depois de pronto).
+Última atualização: 2026-09-16 (9ª rodada: segundo carrossel, com mockup de
+totem e de tablet desenhados do zero — e sete slides, porque a novidade tinha
+sete slides de assunto).
 
 ## Índice
 
 | Carrossel | Novidade | Pasta | Formato | Estado |
 |-----------|----------|-------|---------|--------|
 | Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ entregue — `entrega/destaque-impressao.zip` (8 PNG + copy) |
+| Cardápio presencial em inglês e espanhol | [16/09/2026](https://beefood.app/novidades/traducao-cardapio-presencial) | `carrosseis/traducao-cardapio-presencial/` | 4:5, 7 slides | ✅ entregue — `entrega/traducao-cardapio-presencial.zip` (7 PNG + copy) |
+
+**Quantos slides:** os que a novidade tem de assunto, entre 6 e 8. O primeiro
+carrossel saiu com 8 e o segundo com 7, e os dois fecham — o de tradução tem uma
+ideia grande e três apoios, e o oitavo slide só existiria para chegar a oito.
+Nada no `base.css`, no `renderizar.py` nem no `empacotar.py` depende do número;
+o `.contador` diz "3 de 7" porque o slide escreve isso, não porque a skill conte.
 
 ## Texto: publicação, não changelog
 
@@ -74,6 +82,24 @@ e "logo abaixo de descrição", que **têm** de repetir. Rodando na 1ª versão 
 pega a capa (`a bebida não fica mais para trás`, que era o próprio título da
 novidade) e o slide *vale lembrar* (`a equipe volta a não saber o que conferir`);
 na 2ª versão passa limpo.
+
+No carrossel de tradução ele pegou duas frases que eu não tinha notado que eram
+cópia: "então dá para ver num relance o que falta" (a bolinha verde) e "atende
+todos os produtos que o usam" (o grupo de opções). **São as frases boas do
+release** — e é por serem boas que a mão as repete. O script não cansa.
+
+Duas coisas que ele precisou aprender na mesma rodada, e que valem como limite
+do método:
+
+- **nome de produto não é prosa de release.** "no Totem de Autoatendimento e no
+  Cardápio Digital no Tablet" tem nove palavras e estourava a janela sozinho, só
+  porque a novidade também precisa dizer em quais aplicativos a coisa funciona.
+  A lista `NOMES_DE_PRODUTO` no `conferir-texto.py` troca cada nome por um token
+  antes de comparar. Ela é **só para nome que o dono do produto escolheu** —
+  cada linha nova ali é uma frase que o conferidor libera para sempre.
+- **cabeçalho da copy é nota de produção.** As linhas antes do primeiro `====`
+  do `copy-instagram.txt` dizem qual novidade é, com o título dela, e não vão
+  para o Instagram. Conferir aquilo só ensinava a escrever cabeçalho ruim.
 
 ## Fonte da pauta
 
@@ -301,6 +327,34 @@ entre o subtítulo e o "Arraste"), inteiro dentro do slide, canto de 5 px (bobin
 direita e girada em 3D deixava a metade esquerda vazia e saía menor. A regra da
 sangria continua valendo para mockup de aparelho — não para recorte de papel.
 
+**Imagem em pé na capa custa uma linha de subtítulo.** A capa do *Destaque na
+impressão* tem título de 2 linhas **e** subtítulo de 2 linhas porque a imagem é
+um cupom deitado (680×554). Na capa da tradução a imagem é um totem, em pé: só o
+aparelho come 830 px de altura, e com duas linhas de subtítulo ele começava
+dentro do texto. Ficou com uma linha, e o resto do recado foi para a legenda.
+Orçamento da capa com aparelho em pé: pílula + título de 2 linhas + **1** linha
+de subtítulo, e o mockup começando em 552 px.
+
+**Na capa, tela cheia ganha de tela icônica.** A tela de espera do totem é a
+imagem-símbolo do recurso (botão vermelho grande e as três bandeiras embaixo), e
+foi a primeira capa. No render apareceu o problema: o miolo dela é um gradiente
+(no aparelho de verdade roda vídeo), e isso virou um vão morto de ~300 px no meio
+da capa. Trocada pelo **cardápio em inglês**, que enche a tela e ainda prova a
+frase da capa. A tela icônica foi para o slide 3, onde a coluna de texto ao lado
+equilibra o vão.
+
+**Aparelho escuro em slide escuro desaparece.** O totem preto na capa preta virou
+uma silhueta sem contorno: a tela lia, o aparelho não. `.totem--claro` (o modelo
+de carcaça branca, que existe no catálogo) resolve sem inventar produto. Vale a
+regra geral: **mockup tem de contrastar com o fundo do slide**, e se o produto só
+existe na cor do fundo, o jeito é o fundo claro (`.slide--suave`).
+
+**Capa honesta vende mais que capa perfeita.** Na capa da tradução, o setor
+`MOLHOS ADICIONAIS` aparece em português ao lado do `DRINKS` traduzido, e isso
+dilui um pouco o "fala inglês". Ficou: é o comportamento real do produto, é o que
+o slide 6 promete, e é o detalhe que faz um dono desconfiado acreditar no resto.
+Capa que promete mais do que o produto entrega volta como reclamação.
+
 **A faixa preta cai no terço de baixo, e está tudo bem.** Antes dela há 454 px de
 cabeçalho de cupom (PDV, empresa, número, data), ou seja ~40% da tira. Dá para
 subir a faixa cortando o topo por `object-position`, mas aí o topo também vira
@@ -362,6 +416,18 @@ slide 4 (achar o interruptor) ficou reto e o slide 6 (ilustração do app, texto
 grande, com coluna de texto ao lado) ficou em 3D — um 3D a cada dois ou três
 mockups é o suficiente para dar ritmo.
 
+**O brilho do 3D cobre a caixa toda, não só a tela.** O `.g3d::after` usa
+`inset: 0`, então ele pinta tudo que está dentro da caixa do elemento girado. No
+primeiro render do totem em 3D saíram **duas abas brancas** embaixo, dos lados da
+coluna: a coluna ocupa 30% da largura, o resto da linha é transparente, e o
+brilho pintou o vão. A correção mudou a estrutura do mockup, não o gradiente: no
+`.totem` e no `.tablet` a caixa é **só o corpo da tela**, e coluna, haste e pé são
+`position: absolute` pendurados embaixo (`top: 100%`). Absolutos, giram junto com
+o pai e ficam fora do retângulo que recebe o brilho.
+
+Regra para o próximo mockup: **a caixa do elemento que leva `.g3d` tem de ser a
+tela, e nada além dela.**
+
 **Efeito colateral útil:** aparelho que termina dentro do slide mostra a base da
 tela, e aí a barra de ação da ilustração tem de ir para lá (`flex: 1` no
 `.tela-app__corpo` e `margin-top: auto` no `.tela-app__aviso`). Sem isso a tela
@@ -401,11 +467,64 @@ Cuidado que custou uma rodada: a altura do recorte **não** é a fração que vo
 pediu no `--recorte` × 1350 — o viewport de captura é 1440×900, não 1440×1350.
 Leia a medida do arquivo com Pillow antes de calcular porcentagem.
 
+## Totem e tablet — mockup de equipamento
+
+Celular e navegador não cobrem tudo: a novidade da tradução acontece no **Totem
+de Autoatendimento** e no **Cardápio Digital no Tablet**, e nenhum dos dois tem
+print no repositório. Os dois mockups nasceram no `base.css` (`.totem`,
+`.tablet`), desenhados a partir das páginas de produto do site
+(`beefood.com.br/totem-de-autoatendimento` e `/cardapio-digital-tablet`), que
+foram capturadas com o próprio `capturar.py --publico` para servir de referência.
+
+O que faz cada um **ler** como o que é:
+
+| Aparelho | O que dá a leitura | O que errei primeiro |
+|---|---|---|
+| totem | a **coluna** e o pé embaixo da tela em pé | sem coluna, uma tela 9/16 de 600 px é um celular gigante |
+| tablet | moldura **proporcional e igual nos quatro lados** (`padding: 2.2%`), canto **bem arredondado** (38 px), suporte pequeno (haste 5%, pé 15%) e o ponto de 6 px da câmera no meio da moldura da esquerda | moldura em px, canto de 20 px e pé de 23%: sai um iMac |
+
+O tablet custou três rodadas, e o que resolveu foi medir em vez de opinar —
+renderizei quatro variantes do mesmo slide e comparei:
+
+- **moldura em px não escala.** O mockup nasceu com `padding: 11px`, que é 1,5%
+  de uma largura de 720 e 1,2% de uma de 880: quanto maior o slide usa o
+  aparelho, mais a moldura desaparece e mais ele vira monitor. Em `%` o `padding`
+  mede a própria largura do elemento e a moldura acompanha.
+- **o canto é o sinal mais forte.** 20 px de raio em 880 de largura é canto de
+  monitor; 38 px já é tablet. Em px e não em `%`, que daria elipse.
+- **4/3 pareceu "mais tablet" e não é.** Testei, encolhe a tela e inventa um
+  aparelho que o cliente não tem — o aplicativo roda em tablet Android, 16/10.
+- **berço na frente da moldura de baixo não funciona.** Uma barra segurando a
+  tela pela frente, que é como muito suporte de mesa é de verdade, sai como
+  borrão cinza em cima do aparelho. O suporte tem de ficar **atrás**.
+
+Medidas que cabem no slide, com o texto acima:
+
+| Mockup | Largura | Altura total | Onde |
+|---|---|---|---|
+| totem inteiro (capa) | 420 px | 830 px (tela 722 + coluna 92 + pé 16) | `top: 552px`, recuo igual dos dois lados, pé sangrando pela base |
+| totem em 3D, com texto ao lado | 462 px | 901 px | `top: 296px`, `right: 40px` |
+| tablet inteiro | 880 px | 645 px (tela 593 + haste 40 + pé 12) | `.figura`, centralizado |
+
+**Aparelho em pé na capa pode sair pela base**, e é melhor que caber inteiro: a
+borda de baixo do slide lê como chão. O totem da capa tem 830 px de altura e
+começa em 552, então o pé fica fora — de propósito. Aparelho com o pé inteiro
+visível no meio do slide parece recortado e colado.
+
+**Bandeira do seletor é emoji recortado em círculo** (`.bandeira`), não SVG novo
+no repositório: o ambiente tem Noto Color Emoji, 🇧🇷 sai igual em toda máquina e
+o `scale(1.5)` dentro do círculo é o que faz a tinta cobrir os cantos (a bandeira
+emoji é ondulada e mais larga que alta). `.bandeira--anel` marca o idioma em uso,
+como o sistema faz. A **bolinha verde** de "esse idioma já tem texto" não entrou
+no desenho de propósito: ela só existe no cadastro, e do cadastro existe captura
+real.
+
 ## Ilustração de tela (imagem "fake")
 
 App Android (Garçom, Entregador, Tablet) não sobe no Cloud Agent, e o slide que
 mostra o efeito na rua era justamente o que faltava. A saída é desenhar a tela em
-HTML/CSS (`.tela-app` no `base.css`, modelo `ilustracao-app.html`), com ordem de
+HTML/CSS (`.tela-app`, `.tela-totem` e `.tela-tablet` no `base.css`, modelos
+`ilustracao-app.html`, `mockup-totem.html` e `mockup-tablet.html`), com ordem de
 preferência clara: **captura real > print pedido ao dono > ilustração**.
 
 Três condições, todas obrigatórias:
@@ -418,6 +537,25 @@ Três condições, todas obrigatórias:
 
 O selo mora na coluna vazia à esquerda do celular em sangria (`left: 88px`).
 Colocado sobre o texto, ele foi lido como botão.
+
+**Texto de tela em outro idioma só entra se estiver documentado.** É a condição 1
+levada a sério no caso mais escorregadio. No carrossel da tradução, as telas
+desenhadas de totem e tablet usam só o inglês que o manual escreve: `DRINKS`
+(Bebidas traduzido), `Sides`, `Cola US`, `The drink cola`, `CANCEL ORDER`,
+`SEARCH`, `MY CART`, `MY BILL`. Faltou um segundo produto em inglês para encher a
+grade, e a tentação foi traduzir eu mesmo "Anéis de Cebola Empanada" — traduzir
+no desenho é **inventar comportamento do produto** e some a diferença entre o que
+o sistema entrega e o que eu achei bonito. A saída foi mostrar menos itens e
+deixar os nomes em português onde não havia tradução documentada, que por sorte é
+o comportamento real.
+
+Dois preenchimentos que salvam tela desenhada sem inventar nada:
+
+- **preço.** Ele não muda de idioma (o manual diz), então entra em todo cartão e
+  enche o vazio com um detalhe verdadeiro.
+- **faixa de capa sem texto** (`.tela-tablet__capa`). O tablet tem área de
+  destaque; um retângulo com gradiente ocupa o terço que sobrava embaixo da barra
+  e não afirma nada.
 
 Cupom desenhado em CSS (`.cupom`) não precisa de selo: bobina térmica em
 monoespaçada é claramente desenho, e é a única forma de mostrar o "antes" — que
