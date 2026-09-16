@@ -178,6 +178,61 @@ Botão **Excluir domínio** no rodapé da situação → `ConfirmationDialog` co
 passa a aparecer em **Domínios removidos anteriormente** (o `painel` devolve
 `removidos[]` com `removidoEm`).
 
+## Respostas reais de produção (16/09/2026)
+
+**Zona do `cardapioteste.com.br`** logo depois do domínio subir — oito registros,
+todos `protegido: true`, e `usados: 0`:
+
+```
+A     @                 ttl null   d18wmf86kj1rz1.cloudfront.net
+AAAA  @                 ttl null   d18wmf86kj1rz1.cloudfront.net
+NS    @                 172800     ns-991…, ns-62…, ns-1150…, ns-1648…
+SOA   @                 900        ns-991.awsdns-59.net. awsdns-hostmaster.amazon.com. …
+TXT   _cf-challenge     300        d18wmf86kj1rz1.cloudfront.net
+TXT   _cf-challenge.www 300        d18wmf86kj1rz1.cloudfront.net
+A     www               ttl null   d18wmf86kj1rz1.cloudfront.net
+AAAA  www               ttl null   d18wmf86kj1rz1.cloudfront.net
+```
+
+`tipos`: A, AAAA, CNAME, MX, TXT, SRV, CAA (cada um com `ajuda` e `exemplo`).
+`limites`: `ttlMinimo 60`, `ttlMaximo 86400`, `ttlPadrao 300`, `maxRegistros 50`,
+`maxValores 20`. O `motivoProtegido` do A/AAAA é *"Faz o seu cardápio abrir neste
+domínio."*
+
+**Criar e alterar:** o MX de teste (`1 aspmx.l.google.com` + `5 alt1.aspmx.l.google.com`,
+TTL 3600) voltou `acao: CRIAR` **sem** `propagacaoSegundos` (não havia valor anterior
+em cache). Ao mudar só o TTL para 300, veio `acao: ALTERAR` com
+`propagacaoSegundos: 3600` — ou seja, **o aviso de propagação usa o TTL antigo**, não
+o novo. O `historico[]` guarda `valorAntes`/`valorDepois` como JSON
+(`{"valores":[…],"ttl":3600}`), que o `HistoricoDns` imprime como
+`… (TTL 3600s)`.
+
+**Exclusão é assíncrona.** O `DELETE` responde na hora, mas o domínio fica em
+`status: REMOVENDO` (badge **Removendo**, com barra de progresso) por ~2 min antes de
+sair do cartão. Só depois o cardápio volta a exibir o `menu.beefood.com.br/...`.
+
+**Subdomínio.** `POST /verificar` com `tipo: SUBDOMINIO` devolve um único host e o
+`oQueVaiPrecisar` já com o alvo do CNAME. A instrução gravada foi:
+
+```
+tipo: CNAME
+registro: { tipo: CNAME, nome: cardapio.cardapioteste.com.br,
+            valor: d18wmf86kj1rz1.cloudfront.net }
+```
+
+O alvo é **o mesmo CloudFront** que servia o APEX antes — é o distribution do
+tenant, não um por domínio.
+
+**Cronologia medida** (útil para o texto do manual): APEX — cadastro 14:30, DNS
+reconhecido 14:50, no ar **14:54**. Subdomínio — cadastro 16:17, CNAME publicado pelo
+provedor 18:41, reconhecido 18:43, no ar **18:47**. Entre *DNS respondeu* e *no ar*,
+**4 minutos** nos dois casos; três eventos `Aguardando o apontamento do DNS` (16:17,
+16:52, 17:50) ficaram no histórico como tentativas de conferência.
+
+> A rota `GET /api/dominio2/dns/...` respondeu **503** (*"O gerenciamento de DNS não
+> está disponível neste ambiente"*) das 15:00 às 15:56 — falha de backend, corrigida
+> no mesmo dia. Se a aba DNS aparecer vazia com toast de erro, é essa rota.
+
 ## Armadilha do APEX (está no próprio texto da tela)
 
 `StepTipo.tsx` avisa que, ao trocar os servidores DNS do domínio principal, **o

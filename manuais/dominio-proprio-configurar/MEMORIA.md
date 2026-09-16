@@ -46,7 +46,7 @@ produção **só para a empresa 38311**, que por sorte é o sandbox dos manuais.
 | 1.2 aba **DNS** (zona) | — | ⛔ **bloqueado**: a API responde 503 *"O gerenciamento de DNS não está disponível neste ambiente"* |
 | 1.2 alterar zona DNS | 16/09 16:00 | ✅ registro MX criado, TTL alterado, propagação e histórico (imagens 08–12) |
 | 1.3 excluir domínio | 16/09 16:15 | ✅ excluído de verdade; remoção é assíncrona (*Removendo* por ~2 min) — imagens 13–15 |
-| 2.1 subdomínio | 16/09 16:17 | 🟡 `cardapio.cardapioteste.com.br` cadastrado, CNAME entregue ao dono; aguardando o apontamento |
+| 2.1 subdomínio | 16/09 18:47 | ✅ `cardapio.cardapioteste.com.br` no ar (imagens 16–18) |
 | 2.1 subdomínio + CNAME | depois de 1.3 | ⏸ aguardando |
 
 **Servidores DNS entregues ao dono em 16/09 14:31** (é o que ele precisa colocar no
@@ -81,6 +81,7 @@ ns-1648.awsdns-14.co.uk
 | `15-apos-exclusao.png` | setas 1–2 | cardápio livre e *Domínios removidos anteriormente* |
 | `16-subdominio-conferido.png` | setas 1–4 | endereço do subdomínio conferido, com o CNAME adiantado |
 | `17-instrucao-cname.png` | setas 1–3 + moldura | **Tipo/Nome/Valor** do CNAME e o botão de verificar |
+| `18-subdominio-no-ar.png` | setas 1–3 | subdomínio **No ar**, com o histórico das tentativas |
 
 A imagem **03** ficou de **contexto** de propósito: a tela inteira são os dois
 cartões, cada um com título próprio, e o manual os compara numa tabela. Seta ali só
@@ -122,6 +123,19 @@ justamente o que precisa ser lido).
 - A aba DNS voltou a responder em 16/09 15:56 (era falha de backend, não de ambiente).
 - Um conferidor curto compara os marcadores do `annotate.py` com os números citados
   nas tabelas do `.md` — rodar sempre antes do commit.
+- **Cronologia real, para o texto do manual:** domínio próprio — pedido 14:30, DNS
+  reconhecido 14:50, no ar **14:54**. Subdomínio — pedido 16:17, CNAME criado pelo
+  dono ~16:38, publicado pelo Registro.br só às **18:41** (~2 h de atraso do
+  provedor), DNS reconhecido 18:43, no ar **18:47**. Os dois casos levaram **4 min**
+  entre o DNS responder e o cardápio abrir: o que demora é sempre a parte do
+  provedor, e vale dizer isso no manual.
+- **Como provar que um registro não está na zona** (o subdomínio ficou 2 h parado e a
+  suspeita era o BeeFood): com a zona assinada (DNSSEC), a resposta negativa traz o
+  **NSEC**, que lista os nomes existentes. `dig nome @8.8.8.8 +dnssec +noall
+  +authority` mostrou `cardapioteste.com.br. NSEC cardapioteste.com.br. NS SOA MX TXT
+  RRSIG NSEC DNSKEY` — cadeia de um só nó, isto é, **só o apex** na zona. Também dá
+  para separar reassinatura de alteração: o serial subiu, mas a RRSIG tinha janela
+  nova (16:55→19:05), então foi só re-signing.
 
 ## Bloqueio da parte 1.2 (16/09 15:0x)
 

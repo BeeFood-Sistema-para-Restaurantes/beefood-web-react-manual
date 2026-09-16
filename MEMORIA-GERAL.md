@@ -163,6 +163,26 @@ O padrão:
   (no #101, `crop=(640, 100, 2160, 1280)`). Como esse recorte tem `y0`, o
   `annotate.py` desloca as coordenadas em **x e y**.
 
+### Manual que depende de DNS — como não culpar o produto errado
+
+No #101 o subdomínio ficou **duas horas** em *Aguardando você* depois de o dono criar
+o CNAME, e a suspeita natural caiu no BeeFood. O jeito de decidir sem chutar:
+
+- `dig +short CNAME nome @8.8.8.8` vazio não prova nada sozinho (pode ser cache
+  negativo). Peça a autoridade: `dig nome @8.8.8.8 +noall +authority` mostra o **SOA**
+  de quem respondeu.
+- Se a zona tem **DNSSEC** (`.com.br` do Registro.br tem), a negativa vem com um
+  registro **NSEC** que lista os nomes existentes. `cardapioteste.com.br. NSEC
+  cardapioteste.com.br. NS SOA MX TXT RRSIG NSEC DNSKEY` = cadeia de um só nó, ou
+  seja, **só o apex está publicado** — o registro do cliente não entrou. Isso é prova,
+  não suposição.
+- Serial do SOA subindo **não** quer dizer que a alteração entrou: comparar a janela
+  da `RRSIG` (início/fim) revela reassinatura periódica do DNSSEC.
+- Provedor pode demorar para publicar. Deixe um monitor em `tmux`
+  (`dig` a cada 60 s gravando em log) em vez de ficar consultando na mão, e avise o
+  dono com o que a evidência mostra — no #101 o CNAME apareceu às 18:41 e o cardápio
+  abriu às 18:47, sem que nada precisasse ser mexido no BeeFood.
+
 Implementação de referência: `manuais/dominio-proprio-configurar/annotate.py`
 (`PAINEL`, `MARGEM`, `ate(y)` e o atalho `painel(...)`).
 
