@@ -4,14 +4,15 @@
     <span class="data">15/09/2026</span>
   </div>
 
-  <div class="pilha g32" style="margin-top: 60px">
+  <div class="pilha g24" style="margin-top: 44px">
     <span class="pilula pilula--novidade">Novidade</span>
     <!-- A frase mais curta do carrossel, porque é a única que todo mundo lê. Uma
          palavra em vermelho e mais nada de grifo: emoji aqui viria como segundo
          destaque na mesma linha e tiraria força do primeiro. -->
     <h1 class="titulo">Cansou de esquecer a <span class="destaque">bebida</span>?</h1>
-    <!-- Uma linha, e ela anuncia o que a imagem logo abaixo mostra. -->
-    <p class="subtitulo">Agora o cupom já sai com ela marcada.</p>
+    <p class="subtitulo">
+      Sem canetinha na lata, sem grito na cozinha. O cupom marca sozinho.
+    </p>
   </div>
 
   <!-- A imagem da capa é o resultado da novidade: impressão de verdade, com UMA
@@ -27,12 +28,13 @@
        transforma o corte em papel destacado. Cortar em 590, como tentei antes,
        deixava "Subtotal" entrar e ser mordido pelos dentes.
 
-       Em perspectiva: papel reto sobre fundo escuro parece arquivo colado; na
-       cena 3D ele vira objeto fotografado na bancada. -->
-  <div class="sangria cena3d" style="top: 600px; right: 40px; width: 700px">
+       Sozinha na faixa, a imagem vai centralizada e no maior tamanho que cabe
+       (`.figura`), e reta. Encostada na direita e inclinada em 3D, como estava,
+       ela deixava a metade esquerda do slide vazia e ainda saía menor. -->
+  <div class="figura" style="width: 700px">
     <!-- Canto quase reto: bobina térmica não tem canto arredondado, e os 24 px
          que o .recorte traz de fábrica faziam o papel parecer cartão. -->
-    <div class="recorte recorte--topo rasgado g3d g3d--direita"
+    <div class="recorte recorte--topo rasgado"
          style="aspect-ratio: 680 / 554; border-radius: 5px">
       <img src="../imagens-puras/01-cupom-bebida.png"
            alt="Cupom Pedido do pedido 43 com a linha da Coca Cola 350ml em fundo preto">

@@ -328,6 +328,10 @@ body {
  *
  * Medidas vindas do esboço do dono: topo em 371 px, largura ~586 px, recuo de
  * 118 px na direita. Ajuste por estilo inline quando o conteúdo pedir.
+ *
+ * Sangrar não é o mesmo que ficar torto. Se o mockup está sozinho na faixa,
+ * **centralize a sangria** (recuo igual dos dois lados) e use a largura que a
+ * base aceitar; encostar num lado só se paga quando o outro lado tem conteúdo.
  */
 .sangria {
   position: absolute;
@@ -348,6 +352,19 @@ body {
   width: 1120px;
   right: -180px;
   top: 700px;
+}
+
+/* FIGURA — imagem que ocupa a faixa inteira, sem nada do lado.
+ *
+ * Aí ela vai **centralizada e no maior tamanho que couber**, e reta. Encostar
+ * numa borda e inclinar só se paga quando o mockup divide a faixa com alguma
+ * coisa; sozinho, deixa uma metade do slide vazia e a imagem menor do que
+ * podia. É a diferença entre `.figura` (fluxo, centralizada) e `.sangria`
+ * (absoluta, encostada numa borda).
+ */
+.figura {
+  align-self: center;
+  margin-top: 36px;
 }
 
 /* Texto e rodapé precisam ficar por cima da sangria, nunca por baixo. */
@@ -378,9 +395,14 @@ body {
 /* ------------------------------------------------------------------- 3D
  *
  * Mockup em perspectiva, para intercalar com os retos e dar ritmo ao carrossel.
- * Vale na capa e em slide de ilustração; NÃO vale no slide em que o leitor
- * precisa ler rótulo da interface, porque a face girada come contraste onde
- * ela recua.
+ *
+ * Só entra quando o mockup **divide a faixa com alguma coisa** — uma coluna de
+ * texto ao lado, tipicamente. Imagem sozinha na faixa vai centralizada, grande e
+ * reta (`.figura`): inclinada e encostada numa borda, ela deixa metade do slide
+ * vazia e ainda sai menor do que podia.
+ *
+ * E NÃO vale no slide em que o leitor precisa ler rótulo da interface, porque a
+ * face girada come contraste onde ela recua.
  *
  * A cena define o ponto de fuga e o filho gira dentro dela. Sem o `perspective`
  * no pai, `rotateY` sai como achatamento, não como profundidade.
@@ -645,8 +667,11 @@ body {
   font-weight: 700;
 }
 
-/* O aviso fica no fluxo, logo abaixo do cartão, e não colado na base da tela:
- * o terço de baixo do celular em sangria está fora do slide. */
+/* Por padrão o aviso fica no fluxo, logo abaixo do cartão: em celular que sangra
+ * pela base, o terço de baixo da tela está fora do slide, e aviso colado na base
+ * da tela sai junto. Quando o aparelho termina DENTRO do slide, a base da tela
+ * aparece e o aviso deve ir para lá — `flex: 1` no `__corpo` e
+ * `margin-top: auto` aqui, por estilo inline no slide. */
 .tela-app__aviso {
   background: var(--escuro);
   color: #fff;
