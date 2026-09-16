@@ -44,7 +44,7 @@ produção **só para a empresa 38311**, que por sorte é o sandbox dos manuais.
 | 1.1 cadastro do APEX + instrução NS | 16/09 14:30 | ✅ capturado (imagens 01–06) |
 | 1.1 domínio **No ar** | 16/09 14:54 | ✅ capturado (imagem 07) |
 | 1.2 aba **DNS** (zona) | — | ⛔ **bloqueado**: a API responde 503 *"O gerenciamento de DNS não está disponível neste ambiente"* |
-| 1.3 excluir domínio | depois de 1.2 | ⏸ aguardando |
+| 1.3 excluir domínio | — | 🟡 imagens 11 e 12 prontas (diálogo fotografado em ensaio `DRY=1`); falta o clique final e a imagem 13 |
 | 2.1 subdomínio + CNAME | depois de 1.3 | ⏸ aguardando |
 
 **Servidores DNS entregues ao dono em 16/09 14:31** (é o que ele precisa colocar no
@@ -67,6 +67,9 @@ ns-1648.awsdns-14.co.uk
 | `04-endereco-conferido.png` | setas 1–4 | passo 3: endereço conferido, aviso e **CADASTRAR DOMÍNIO** |
 | `05-cadastrado-preparando.png` | seta 1 | *Estamos preparando os dados do seu DNS* (~1 min) |
 | `06-instrucao-ns.png` | setas 1–3 + moldura | os quatro servidores DNS e o **Já configurei, verificar agora** |
+| `07-dominio-no-ar.png` | setas 1–3 | domínio **No ar**, endereços e as cinco etapas concluídas |
+| `11-excluir-botao.png` | seta 1 | tira do rodapé do painel — **Excluir domínio** (recorte da mesma pura da 07) |
+| `12-confirmar-exclusao.png` | setas 1–2 | diálogo *Excluir o domínio?* (capturado com `DRY=1`, **sem** excluir) |
 
 A imagem **03** ficou de **contexto** de propósito: a tela inteira são os dois
 cartões, cada um com título próprio, e o manual os compara numa tabela. Seta ali só
@@ -92,8 +95,15 @@ justamente o que precisa ser lido).
   — foi o que aconteceu na primeira tentativa. Etapa própria no script:
   `python3 capturar.py instrucao`.
 - O script grava de verdade. `DRY=1` percorre o caminho inteiro e para antes do
-  clique que grava (regra da `MEMORIA-GERAL.md`, seção 7) — usado antes do cadastro
-  e será usado antes da exclusão.
+  clique que grava (regra da `MEMORIA-GERAL.md`, seção 7) — foi assim antes do
+  cadastro e foi assim que o **diálogo de exclusão saiu sem excluir nada**: o ensaio
+  abre a confirmação, fotografa e fecha o navegador.
+- O diálogo de exclusão **não** fica dentro do painel: é um `ConfirmationDialog` no
+  centro da tela. Recorte próprio (`crop` com `y0` também, por isso o `annotate.py`
+  desloca x **e** y).
+- Numeração reservada: **08–10** para a aba DNS, **11–13** para a exclusão e
+  **14–16** para o subdomínio. A seção da zona DNS entra como **7** no `.md` e
+  empurra a exclusão para **8**.
 
 ## Bloqueio da parte 1.2 (16/09 15:0x)
 

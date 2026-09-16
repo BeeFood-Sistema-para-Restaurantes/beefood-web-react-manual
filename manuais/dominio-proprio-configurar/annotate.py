@@ -60,23 +60,23 @@ def badge(d, cx, cy, r, num, fnt):
 
 
 def preparar(name, crop, pad_left):
-    """Recorta e devolve a imagem já com a faixa branca, mais o deslocamento em x."""
+    """Recorta e devolve a imagem já com a faixa branca, mais o deslocamento (dx, dy)."""
     img = Image.open(os.path.join(SRC, name)).convert("RGBA")
-    dx = 0
+    dx = dy = 0
     if crop:
         img = img.crop(crop)
-        dx = -crop[0]
+        dx, dy = -crop[0], -crop[1]
     if pad_left:
         base = Image.new("RGBA", (img.width + pad_left, img.height), WHITE + (255,))
         base.paste(img, (pad_left, 0))
         img = base
         dx += pad_left
-    return img, dx
+    return img, dx, dy
 
 
 def annotate(name, markers=(), ring=(), crop=None, pad_left=0, out_name=None,
              r=None, w=None):
-    img, dx = preparar(name, crop, pad_left)
+    img, dx, dy = preparar(name, crop, pad_left)
     W, H = img.size
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(overlay)
@@ -84,10 +84,11 @@ def annotate(name, markers=(), ring=(), crop=None, pad_left=0, out_name=None,
     fnt = font(int(r * 1.25))
     w = w or max(2, int(W * 0.0022))
     for (x0, y0, x1, y1) in ring:
-        d.rounded_rectangle([x0 + dx, y0, x1 + dx, y1], radius=int(r * 0.6),
+        d.rounded_rectangle([x0 + dx, y0 + dy, x1 + dx, y1 + dy], radius=int(r * 0.6),
                             outline=GREEN + (A_LINE,), width=w)
     for (num, tx, ty, bx, by) in markers:
         tx, bx = tx + dx, bx + dx
+        ty, by = ty + dy, by + dy
         ang = math.atan2(ty - by, tx - bx)
         draw_arrow(d, bx + (r + 6) * math.cos(ang), by + (r + 6) * math.sin(ang),
                    tx, ty, w)
@@ -99,7 +100,7 @@ def annotate(name, markers=(), ring=(), crop=None, pad_left=0, out_name=None,
 
 def passthrough(name, crop=None):
     """Imagem de contexto: entra no manual sem seta (mas recortada igual às outras)."""
-    img, _ = preparar(name, crop, 0)
+    img, _, _ = preparar(name, crop, 0)
     img.convert("RGB").save(os.path.join(OUT, name))
     print("OK (contexto)", name, img.size[0], img.size[1])
 
@@ -154,5 +155,16 @@ painel("07-dominio-no-ar.png",
        markers=[(1, 1187, 270, 1065, 270),
                 (2, 1187, 395, 1065, 395),
                 (3, 1190, 600, 1065, 600)])
+
+# --- 11 Rodapé do painel: o botão de excluir (recorte da mesma captura do No ar) --
+annotate("07-dominio-no-ar.png", out_name="11-excluir-botao.png",
+         markers=[(1, 1900, 1310, 1660, 1310)],
+         crop=(1154, 1262, 2160, 1350), pad_left=0, r=RAIO, w=TRACO)
+
+# --- 12 Confirmação da exclusão (diálogo no centro da tela) -----------------
+annotate("12-confirmar-exclusao.png",
+         markers=[(1, 705, 593, 620, 593),
+                  (2, 1358, 782, 1358, 872)],
+         crop=(680, 470, 1500, 920), pad_left=MARGEM, r=RAIO, w=TRACO)
 
 print("done")

@@ -187,5 +187,94 @@ segurança.
 
 ---
 
-*Manual em produção — as partes de alteração da zona DNS, exclusão e subdomínio
-entram na sequência.*
+## 7. Parte 1 — domínio próprio: excluir o domínio
+
+Excluir serve para dois casos: você quer **trocar** o endereço (cadastrar outro no
+lugar) ou vai **devolver o domínio** ao seu site antigo. Não é a mesma coisa que
+desligar o cardápio: o cardápio continua no ar pelo endereço
+`menu.beefood.com.br/...`.
+
+No rodapé do painel, clique em **Excluir domínio** (1).
+
+![Rodapé do painel com o botão Excluir domínio](imagens-tratadas/11-excluir-botao.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1. | **Excluir domínio** | Abre a confirmação. Nada é apagado só com esse clique. |
+
+A confirmação (1) diz exatamente o que vai acontecer: o endereço para de funcionar e
+quem acessar por ele não encontra mais o cardápio. Para confirmar, clique em
+**Excluir (ENTER)** (2) — ou pressione **ENTER**. Para desistir, **Não (ESC)**.
+
+![Confirmação da exclusão do domínio](imagens-tratadas/12-confirmar-exclusao.png)
+
+| Nº | Item | O que fazer |
+|----|------|-------------|
+| 1. | **Aviso da confirmação** | Leia: é o resumo do efeito. Quem estiver com o endereço salvo vai receber erro. |
+| 2. | **Excluir (ENTER)** | Confirma. O painel volta para a lista de cardápios e o endereço passa a aparecer em *Domínios removidos anteriormente*. |
+
+Depois de excluir:
+
+- O domínio **volta a ser só seu**. Se ele estava usando os servidores DNS do
+  BeeFood, aponte-o para onde você quiser no painel do registrador — enquanto isso
+  não for feito, o endereço fica sem resposta.
+- O cardápio continua funcionando no endereço `menu.beefood.com.br/...`.
+- Você pode cadastrar outro domínio no mesmo cardápio, do zero. O endereço excluído
+  fica no histórico apenas como registro.
+
+> Trocar de endereço custa visita: link no Instagram, no Google Meu Negócio, no
+> WhatsApp e QR Code impresso apontam para o antigo. Atualize esses lugares no mesmo
+> dia da troca.
+
+---
+
+## Problemas comuns
+
+| Sintoma | O que está acontecendo | O que fazer |
+|---------|------------------------|-------------|
+| Cadastrei e a etiqueta ficou em **Aguardando você** | falta a sua parte: trocar os servidores DNS (domínio próprio) ou criar o CNAME (subdomínio) | faça no painel do registrador e clique em **Já configurei, verificar agora** |
+| Troquei os DNS e continua **Aguardando você** | a mudança ainda não propagou | espere; a troca de servidores DNS pode levar algumas horas. A tela se atualiza sozinha |
+| O aviso amarelo diz que o domínio não foi encontrado no DNS | o domínio pode estar sem registro ativo, vencido ou recém-comprado | confirme com o registrador se ele está ativo e pago |
+| O navegador acusa **erro de certificado** | o certificado é emitido depois do apontamento; se o domínio ainda não está **No ar**, ele não existe | espere o **No ar**. Se persistir, use **Falar com o suporte** no próprio painel |
+| O e-mail do domínio parou depois da configuração | você usou **domínio próprio** e trocou os servidores DNS | recrie os registros do seu provedor de e-mail (MX e TXT) na aba **DNS** |
+| A tela diz que **este cardápio já tem um domínio** | um cardápio aceita um endereço por vez | exclua o atual antes de cadastrar outro |
+| A etiqueta ficou em **Precisa de ajuda** | o processo travou num ponto que a tela não resolve sozinha | use **Falar com o suporte**; o **Histórico** com o **ver detalhes** é o que o time vai pedir |
+| Não acho o card **Domínio Próprio** | o card fica em *Aplicativos → Marketing e CRM* | se ao abrir aparecer o modal antigo, pedindo contato com o suporte, a tela nova ainda não foi liberada para a sua conta |
+
+---
+
+## Perguntas frequentes
+
+**O BeeFood vende ou registra domínio?**
+Não. Você compra o domínio onde preferir (Registro.br, GoDaddy, HostGator,
+Hostinger, Cloudflare…) e o BeeFood faz o apontamento para o seu cardápio.
+
+**Preciso pagar a mais pelo domínio próprio no BeeFood?**
+O que você paga é o domínio, no seu registrador. A configuração é feita nesta tela.
+
+**Posso usar o mesmo domínio em dois cardápios?**
+Não. Cada cardápio tem um endereço próprio. Com várias lojas, use um subdomínio para
+cada uma (`centro.seurestaurante.com.br`, `shopping.seurestaurante.com.br`).
+
+**Meu site fica no ar junto com o cardápio?**
+No **subdomínio**, sim: o site continua em `seurestaurante.com.br` e o cardápio
+responde em `cardapio.seurestaurante.com.br`. No **domínio próprio**, o endereço
+principal passa a abrir o cardápio.
+
+**O link antigo do BeeFood para de funcionar?**
+Não. O `menu.beefood.com.br/...` continua valendo, então QR Code impresso e links
+salvos não quebram.
+
+**Quanto tempo leva?**
+A parte do BeeFood leva minutos. O tempo total depende da propagação do DNS: no
+exemplo deste manual o domínio ficou no ar **4 minutos** depois de o DNS responder,
+mas a propagação em si pode levar horas.
+
+**O `https` (cadeado) vem incluído?**
+Sim. O certificado é emitido automaticamente na etapa **Certificado de segurança** e
+renovado sem que você precise fazer nada.
+
+---
+
+*Manual em produção — a parte de alteração da zona DNS (aba **DNS**) e o fluxo do
+subdomínio entram na sequência.*
