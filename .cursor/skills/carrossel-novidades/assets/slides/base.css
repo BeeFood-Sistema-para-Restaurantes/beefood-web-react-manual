@@ -84,16 +84,21 @@ body {
   gap: 24px;
 }
 
-/* O logo não é <img>: o renderizar.py injeta o arquivo da skill em --logo, e
- * assim nenhum carrossel precisa carregar uma cópia do arquivo. */
+/* O logo não é <img>: o renderizar.py injeta os arquivos da skill em --logo e
+ * --logo-escuro, e assim nenhum carrossel precisa carregar uma cópia deles. */
 .logo {
   width: 163px;
   height: 52px;
   background: var(--logo) left center / contain no-repeat;
 }
 
+/* Fundo escuro pede a versão negativa do arquivo, não um filtro. O
+ * `brightness(0) invert(1)` que estava aqui resolvia a visibilidade achatando a
+ * marca em branco — iam embora o amarelo da abelha e o vermelho do "food", que é
+ * o que faz o logo parecer o logo. O negativo inverte só o cinza e preserva a
+ * cor; quem o gera é o `scripts/logo-negativo.py`. */
 .slide--capa .logo {
-  filter: brightness(0) invert(1);
+  background-image: var(--logo-escuro);
 }
 
 .data {

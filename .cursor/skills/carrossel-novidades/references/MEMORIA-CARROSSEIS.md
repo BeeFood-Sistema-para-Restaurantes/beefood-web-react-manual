@@ -4,8 +4,8 @@ Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
 continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
 entra o que é de carrossel.
 
-Última atualização: 2026-09-16 (5ª rodada: imagem sozinha na faixa vai
-centralizada e grande, e o 3D passou a exigir conteúdo ao lado).
+Última atualização: 2026-09-16 (6ª rodada: logo de fundo escuro passou a ser o
+negativo do arquivo, com a cor da marca, em vez de filtro que achata em branco).
 
 ## Índice
 
@@ -103,8 +103,41 @@ página, mas **não** no feed.
   `../imagens-puras/x.png` e `../../../manuais/.../y.png` funcionam iguais.
 - `Path.as_uri()` **estoura em caminho relativo** — resolva o caminho de entrada
   antes (`Path.resolve()`).
-- O logo entra por `--logo` no `:root`, não por `<img>`: assim nenhum carrossel
-  precisa de uma cópia do arquivo.
+- O logo entra por `--logo` e `--logo-escuro` no `:root`, não por `<img>`: assim
+  nenhum carrossel precisa de uma cópia dos arquivos.
+
+## Logo em fundo escuro: negativo, não filtro
+
+A marca é um selo de abelha — corpo e letras em preto, **asas em branco**, tarjas
+em amarelo, "food" em vermelho. Em fundo escuro o arquivo original não serve: o
+preto some e sobram duas asas brancas soltas no ar.
+
+A primeira saída foi `filter: brightness(0) invert(1)` no `.slide--capa .logo`.
+Resolve a visibilidade e **mata a identidade**: achata os quatro tons em branco,
+e vão embora o amarelo da abelha e o vermelho do "food", que é justamente o que
+faz o logo parecer o logo. Foi o que o dono viu e reclamou.
+
+O certo é um arquivo negativo, gerado pelo `scripts/logo-negativo.py`:
+
+- pixel **sem cor** (preto, branco, cinza da borda serrilhada) vira tinta branca
+  com alfa proporcional ao quanto ele era escuro. Preto vira branco opaco; branco
+  vira transparente, e aí a asa mostra o fundo do slide como mostrava o papel; o
+  cinza do meio sai meio transparente, o que faz a borda casar com **qualquer**
+  fundo escuro, não só com um;
+- pixel **com cor** (croma acima de 40) passa intacto.
+
+Duas coisas que só aparecem fazendo:
+
+- **Filtro CSS não serve de jeito nenhum**, nem com `hue-rotate`: ele age na
+  imagem toda, e o que se quer é inverter só a tinta neutra. Por isso é arquivo
+  derivado, não filtro.
+- **Deixar transparente é melhor que pintar de escuro.** Pintar a asa com a cor
+  do fundo (#1e1e1e) funciona no slide chapado e falha na capa, que tem gradiente
+  — a asa apareceria como mancha.
+
+O vermelho do "food" fica no `#ef3f37` da marca, que dá 4,4:1 sobre o `#1e1e1e` —
+suficiente para grafismo desse tamanho. Não vale trocá-lo pelo `#ff5a50` do
+`.destaque`: ali é texto, aqui é logo, e mexer na cor do logo é mexer na marca.
 
 ## Legibilidade (o erro que mais se repete)
 

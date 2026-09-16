@@ -146,7 +146,17 @@ ficam em [`assets/marca.json`](assets/marca.json) — mudar a marca é mudar ess
 arquivo, não os slides.
 
 O logo não é `<img>`: use `<span class="logo"></span>` e o renderizador injeta o
-arquivo da skill.
+arquivo da skill. **Em slide de fundo escuro ele troca sozinho** para
+`logo-beefood-escuro.png`, o negativo da marca: só o cinza inverte (preto vira
+branco, asa branca vira o fundo do slide), e o amarelo da abelha e o vermelho do
+"food" ficam. Nunca resolva isso com filtro — `brightness(0) invert(1)` deixa o
+logo visível achatando a marca em branco, sem cor nenhuma. Se o
+`logo-beefood.png` mudar, gere o negativo de novo:
+
+```bash
+python .cursor/skills/carrossel-novidades/scripts/logo-negativo.py
+python .cursor/skills/carrossel-novidades/scripts/logo-negativo.py --conferir
+```
 
 #### Onde a imagem fica na faixa
 
@@ -258,9 +268,11 @@ fato → ângulo → slide.
    sozinha, ela vai centralizada e grande.
 4. Toda afirmação do slide está no manual ou na novidade? Se não está em nenhum
    dos dois, ou você confere no sistema, ou corta. Toda tela desenhada tem selo?
-5. Registre o que aprendeu em
+5. Nos slides de fundo escuro, o logo do topo saiu **com a cor da marca** — tarja
+   amarela e "food" vermelho — e não achatado em branco?
+6. Registre o que aprendeu em
    [`references/MEMORIA-CARROSSEIS.md`](references/MEMORIA-CARROSSEIS.md).
-6. Commit e push, como manda a regra de commit por ação da `MEMORIA-GERAL.md`.
+7. Commit e push, como manda a regra de commit por ação da `MEMORIA-GERAL.md`.
 
 ## Estrutura da pasta de saída
 
