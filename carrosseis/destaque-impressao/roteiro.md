@@ -13,7 +13,7 @@ inventado, e nenhuma frase copiada.
 
 | Fato (novidade + manual #99) | Ângulo | O que o slide diz | Slide |
 |---|---|---|---|
-| Campo novo **Destaque na impressão** no cadastro de produto e de complemento | a bebida esquecida na sacola é a dor que todo mundo já teve | "Cansou de bebida esquecida na sacola? 🥤" | 1 |
+| Campo novo **Destaque na impressão** no cadastro de produto e de complemento | a bebida esquecida na sacola é a dor que todo mundo já teve | "Cansou de esquecer a **bebida**?" | 1 |
 | A linha do item marcado sai com fundo escuro e letra clara | no cupom toda linha tem o mesmo peso, e a bebida desaparece dentro do combo | "Você sabe como essa história termina" + o custo em cena (o cliente liga, alguém sai de novo, a nota cai) | 2 |
 | Efeito no **Cupom Pedido** e na ficha da cozinha, no presencial e no delivery | é marca-texto impresso | "Olha o que muda no cupom 🖨️" | 3 |
 | O campo fica logo abaixo de **Descrição**, em produto e em complemento | é um interruptor, não um projeto | "É só um interruptor 👇" | 4 |
@@ -32,20 +32,26 @@ para de se esconder", "Todo recurso novo vira manual no mesmo dia". Oito
 aforismos seguidos soam placa de museu. O antes-e-depois dos oito virou tabela em
 [`roteiro-e-copy.md`](../../.cursor/skills/carrossel-novidades/references/roteiro-e-copy.md).
 
-Emoji em quatro dos oito slides, um em cada: 🥤 na capa, 🖨️ no papel, 👇
-apontando o mockup e 🛵 na rua. Os slides de custo, de lote, de limite e o CTA
-ficam sem — e é o vazio deles que faz os quatro funcionarem.
+A capa levou uma terceira volta. "Cansou de bebida esquecida na sacola? 🥤" está
+correta e tem seis palavras; "Cansou de esquecer a **bebida**?" tem cinco, diz o
+mesmo, e o que sobra vai para a imagem. O emoji saiu quando "bebida" ficou
+vermelha: vermelho e emoji na mesma linha são dois grifos brigando, e o vermelho
+é o que manda o olho para a palavra que carrega o assunto.
+
+Emoji em três dos oito slides, um em cada: 🖨️ no papel, 👇 apontando o mockup e
+🛵 na rua. A capa, o custo, o lote, o limite e o CTA ficam sem — e é o vazio
+deles que faz os três funcionarem.
 
 ## Slides
 
 | # | Arquivo | Tipo | Ideia única | Imagem |
 |---|---------|------|-------------|--------|
-| 1 | `01-capa.html` | capa com imagem | A bebida esquecida na sacola tem fim | cupom real recortado em **uma** linha destacada — `manuais/destaque-impressao/imagens-puras/05-cupom-pedido.png` |
+| 1 | `01-capa.html` | capa com imagem | A bebida esquecida na sacola tem fim | cupom real com **uma** linha destacada, em 3D e com a base serrilhada — `imagens-puras/01-cupom-bebida.png` |
 | 2 | `02-custo.html` | texto | Você já sabe como termina quando o item fica para trás | — |
 | 3 | `03-no-papel.html` | antes × depois | O contraste é o que faz a linha ser vista | cupom desenhado em CSS (o "antes" não existe como captura) |
 | 4 | `04-onde-ligar.html` | mockup de computador | Um interruptor abaixo de Descrição | `imagens-puras/03-modal-janela.png` em `.sangria--janela`, com `.realce` no campo |
 | 5 | `05-em-lote.html` | passos | Editar em Lote marca o setor inteiro | — |
-| 6 | `06-na-rua.html` | mockup de celular (ilustração) | O app do entregador pede confirmação | tela desenhada em `.tela-app`, com `.selo-ilustracao` |
+| 6 | `06-na-rua.html` | mockup de celular 3D (ilustração) | O app do entregador pede confirmação | tela desenhada em `.tela-app`, em `.g3d`, com `.selo-ilustracao` |
 | 7 | `07-limite.html` | texto | Marcar tudo anula o efeito | — |
 | 8 | `08-cta.html` | mockup de celular + CTA | Toda novidade fica registrada, com manual | `imagens-puras/04-novidades-celular.png` em sangria |
 
@@ -53,25 +59,49 @@ Cinco dos oito slides têm imagem, e a capa é um deles.
 
 ## Decisões de roteiro
 
-**A capa mostra o resultado, e mostra UM destaque.** O cupom real do manual #99
-tem três linhas em fundo preto (Coca Cola, Sem Maionese Verde, Molho verde). A
-capa com as três ficava bonita e dizia o contrário do slide 7 — "não saia
-marcando tudo" depois de uma foto com tudo marcado. O recorte fecha em
-`600 / 390`, que é o fim exato da linha da bebida (a faixa preta vai de y 341 a
-439 e tem duas linhas de 49 px), então sobra só ela. O corte é declarado no
-`aspect-ratio` do slide, sem gerar arquivo novo: duas cópias do mesmo cupom
-seriam duas verdades para manter.
+**A capa mostra o resultado, e mostra UM destaque — em impressão de verdade.**
+O cupom do manual #99 sai com duas linhas em fundo preto, a Coca Cola e o "Sem
+Maionese Verde", porque o manual precisava mostrar que complemento também
+destaca. Na capa, duas faixas dividem a atenção e dizem o contrário do slide 7
+("não saia marcando tudo" depois de uma foto com tudo marcado).
 
-Com o recorte deitado, a sangria pela base cortava justo a faixa preta. O papel
-passou a ser tratado como **objeto na bancada**: 620 px, inteiro dentro do slide,
-inclinado −3°, cantos de baixo quase retos porque o arredondamento comia a ponta
-da faixa. A sangria continua valendo para mockup de aparelho (slides 4, 6 e 8).
+Recortar não resolvia: as duas faixas são **coladas** no cupom, uma acaba em
+y 390 e a outra começa ali, então todo corte cai em cima de tinta. Tentei 390,
+400, 472 e 590 — nenhum fecha sem parecer erro de render.
+
+O que resolveu foi **gerar matéria-prima nova**: um pedido montado no sandbox com
+o combo sem o complemento destacado, cuja impressão sai com a linha preta só na
+bebida (pedido #43, `registrar_pedido` no `capturar-telas.py`). Continua sendo
+impressão do sistema, não desenho. A impressão é feita num viewport de 340 px
+para o papel ocupar a imagem inteira — em viewport largo a bobina fica
+centralizada com margem branca dos dois lados, e aí o recorte da arte teria que
+mexer no eixo X, que o `.recorte--topo` não faz.
+
+O corte fecha em `680 / 554`: é a última janela que cabe, entre o traço duplo que
+fecha o bloco de itens (y 535) e o "Subtotal" (y 557). `.rasgado` come os 13 px
+finais e transforma o corte em papel destacado. E `.cena3d` + `.g3d--direita`
+tiram o papel do plano: reto sobre fundo escuro ele parecia arquivo colado; em
+perspectiva, com luz de cima à esquerda, vira objeto fotografado na bancada. O
+canto é de 5 px porque bobina térmica não tem canto arredondado — os 24 px de
+fábrica do `.recorte` faziam o papel parecer cartão.
+
+A faixa preta cai no terço de baixo do papel, porque antes dela há 454 px de
+cabeçalho de cupom. Dá para subir cortando o topo também, mas aí o topo vira
+outro corte para disfarçar; não compensa, e o olho vai na faixa de qualquer jeito
+— é o único preto sobre a única forma branca do slide.
 
 **O "antes" é desenho, o "depois" é captura.** O slide 3 compara os dois cupons
 em `.cupom` (CSS) porque o cupom sem destaque não existe em `imagens-puras/`:
 seria preciso desmarcar o produto, imprimir, remarcar. Bobina térmica em
 monoespaçada é claramente desenho, então não engana — e o cupom real já apareceu
 na capa, em tamanho grande.
+
+**Um mockup 3D, não três.** O celular do slide 6 é o único em perspectiva. Ali o
+texto da tela é grande e ninguém precisa ler rótulo de interface, então o giro só
+ajuda. No slide 4 o leitor tem que achar o interruptor: a face que recua come
+contraste justo onde está a informação, e o mockup fica reto. No slide 8 também
+reto, para o 3D não virar efeito padrão. Um a cada dois ou três mockups é o que
+dá ritmo sem chamar atenção para si.
 
 **O mockup de computador sangra pela direita.** O recorte do modal tem 605 px
 lógicos e é exibido a 1120 px (1,85×): o rótulo *Destaque na impressão* sai com
@@ -105,10 +135,14 @@ python .cursor/skills/carrossel-novidades/scripts/capturar.py destaque-impressao
 
 # telas que exigem clique
 python carrosseis/destaque-impressao/capturar-telas.py
+
+# cupom da capa: 'venda' registra o pedido #43 (uma vez), 'cupom' reimprime
+python carrosseis/destaque-impressao/capturar-telas.py venda
+python carrosseis/destaque-impressao/capturar-telas.py cupom
 ```
 
-De `imagens-puras/`, os slides usam `03-modal-janela.png` e
-`04-novidades-celular.png`. As outras ficam como **fonte**: o
+De `imagens-puras/`, os slides usam `01-cupom-bebida.png`, `03-modal-janela.png`
+e `04-novidades-celular.png`. As outras ficam como **fonte**: o
 `03-modal-produto.png` é de onde os recortes saem, o `03-modal-recorte.png` é a
 faixa fechada do interruptor (sobrou depois que a janela em sangria passou a dar
 conta da legibilidade) e as duas primeiras são contexto da rodada de captura.
@@ -127,7 +161,7 @@ python .cursor/skills/carrossel-novidades/scripts/renderizar.py \
 
 ## Legenda para publicar
 
-> Cansou de bebida esquecida na sacola? 🥤
+> Cansou de esquecer a bebida? 🥤
 >
 > Você sabe como essa história termina: o cliente liga com a sacola já aberta na
 > mesa, alguém tem que sair de novo no meio do pico, e a nota cai sem ninguém

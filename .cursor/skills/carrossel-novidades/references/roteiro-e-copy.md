@@ -43,16 +43,28 @@ a imagem certa é o resultado da novidade (o papel impresso, a tela nova), não 
 
 | Em vez de | Escreva |
 |-----------|---------|
-| "Novo campo Destaque na impressão" | "Cansou de bebida esquecida na sacola?" |
+| "Novo campo Destaque na impressão" | "Cansou de esquecer a bebida?" |
 | "Nova etapa Pronto no Delivery" | "Quem está pronto já saiu, ou ainda não?" |
 | "DRE: controle Considerar Custo Vendas" | "Seu custo pode estar entrando duas vezes no DRE" |
 
 Teste rápido: leia só o slide 1 em voz alta. Se soa como changelog, reescreva.
 
+**É a frase mais curta do carrossel.** "Cansou de bebida esquecida na sacola?"
+tem seis palavras e está correta; "Cansou de esquecer a bebida?" tem cinco, diz o
+mesmo e sobra slide para a imagem. A capa é a única frase que todo mundo lê —
+cada palavra que sai dela é ganho, e é o único lugar onde cortar até o osso
+melhora o texto.
+
+**Uma palavra em vermelho, e só uma.** O `.destaque` na palavra que carrega o
+assunto ("a **bebida**") dá o ponto de entrada do olho. Duas palavras vermelhas
+na mesma frase não destacam nada, e emoji junto do vermelho é grifo em cima de
+grifo — escolha um.
+
 **A imagem da capa mostra UM destaque.** A primeira versão desta capa usava o
-cupom inteiro, com três linhas em fundo preto — e aí a imagem dizia o contrário
-do slide do limite ("não saia marcando tudo"). Recorte até sobrar a linha do
-assunto, só ela.
+cupom inteiro, com duas linhas em fundo preto — e aí a imagem dizia o contrário
+do slide do limite ("não saia marcando tudo"). Quando a captura que existe não dá
+para recortar até sobrar um destaque só, gere uma captura nova em que só ele
+aparece; desenhar o cupom é o último recurso.
 
 ## Estrutura que funciona (6 a 8 slides)
 
@@ -86,7 +98,7 @@ placa de museu.
 
 | Travado | Como alguém falaria |
 |---------|---------------------|
-| "Toda loja tem uma gambiarra para não esquecer a bebida" | "Cansou de bebida esquecida na sacola?" |
+| "Toda loja tem uma gambiarra para não esquecer a bebida" | "Cansou de esquecer a bebida?" |
 | "Um esquecido custa duas viagens" | "Você sabe como essa história termina" |
 | "A linha que importa para de se esconder" | "Olha o que muda no cupom" |
 | "É um interruptor no cadastro do item" | "É só um interruptor" |
@@ -139,6 +151,8 @@ Pouco e onde couber — é o que dá cara de conversa sem virar post de promoç�
   linha seguinte e parece acidente.
 - **Nada de emoji em slide de limite, erro ou cuidado.** Ali ele sai
   sarcástico — o slide que avisa "não saia marcando tudo" fica sério.
+- **Nada de emoji na frase que já tem palavra em vermelho.** Grifo em cima de
+  grifo; na capa, o vermelho ganha.
 - O ambiente tem a Noto Color Emoji instalada, então o emoji sai colorido no PNG
   sem configuração nenhuma.
 
@@ -158,6 +172,7 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 - [ ] Você leu os oito títulos em voz alta seguidos. Soa conversa, ou desfile de
       aforismo?
 - [ ] No máximo um emoji por slide, e não em todos.
+- [ ] A capa tem **uma** palavra em vermelho, e nenhum emoji junto dela.
 - [ ] O slide 1 tem imagem, e a imagem mostra **um** destaque só.
 - [ ] Cada slide tem **uma** ideia; o título do slide diz qual.
 - [ ] Toda afirmação está no texto da novidade ou no manual — ou foi conferida

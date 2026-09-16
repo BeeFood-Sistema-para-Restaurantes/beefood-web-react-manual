@@ -4,14 +4,14 @@ Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
 continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
 entra o que é de carrossel.
 
-Última atualização: 2026-09-15 (3ª rodada: linguagem falada em vez de aforismo,
-emoji, e capa recortada em um destaque só).
+Última atualização: 2026-09-15 (4ª rodada: cupom capturado só com a bebida
+destacada, serrilha de bobina, mockup 3D intercalado e vermelho legível na capa).
 
 ## Índice
 
 | Carrossel | Novidade | Pasta | Formato | Estado |
 |-----------|----------|-------|---------|--------|
-| Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ renderizado (3ª versão) |
+| Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ renderizado (4ª versão) |
 
 ## Texto: publicação, não changelog
 
@@ -61,6 +61,9 @@ Dois detalhes que custaram uma rodada:
   uma linha, ele manda o olho para o mockup logo abaixo.
 - **Slide de limite não leva emoji.** No slide "não saia marcando tudo" qualquer
   carinha soa sarcástica.
+- **Capa com palavra em vermelho não leva emoji.** São dois grifos na mesma
+  frase, e o segundo tira força do primeiro. A capa do *Destaque na impressão*
+  perdeu o 🥤 quando "bebida" ficou vermelha — e a frase melhorou.
 
 ### Cópia literal
 
@@ -154,37 +157,71 @@ sobra ao lado (288 px) é estreita demais para 38 px de corpo. Orçamento medido
 
 ### A imagem da capa
 
-Duas coisas se aprenderam refazendo a capa do *Destaque na impressão*:
+A capa do *Destaque na impressão* foi refeita três vezes. O que cada rodada
+ensinou, na ordem em que doeu:
 
-**A imagem da capa mostra UM destaque.** A versão anterior usava o cupom inteiro,
-que tem três linhas em fundo preto (Coca Cola, Sem Maionese Verde, Molho verde).
-A capa ficava bonita e dizia o contrário do slide do limite — "não saia marcando
-tudo" logo depois de uma foto com tudo marcado. Recortar até sobrar a linha do
-assunto resolve as duas coisas de uma vez: foco e coerência.
+**A imagem da capa mostra UM destaque.** A 1ª versão usava o cupom inteiro do
+manual #99, que sai com duas linhas em fundo preto (a Coca Cola e o "Sem
+Maionese Verde"). A capa ficava bonita e dizia o contrário do slide do limite —
+"não saia marcando tudo" logo depois de uma foto com tudo marcado.
 
-O corte **não gera arquivo novo**: `aspect-ratio` no `.recorte--topo` já corta o
-topo da imagem por `object-fit`. Onde cortar se acha pela tinta, não no olho —
-no `05-cupom-pedido.png` a faixa preta vai de y 341 a 439 e tem duas linhas de
-49 px, então `600 / 390` fecha no fim exato da linha da bebida:
+**Recortar para sobrar um destaque só nem sempre é possível.** As duas faixas do
+cupom do manual são **coladas**: uma acaba em y 390 e a outra começa ali. Não há
+branco entre elas, então todo corte cai em cima de tinta e parece erro de render.
+Gastei uma rodada tentando `aspect-ratio` em 390, 400, 472 e 590 — nenhum fecha.
+
+**Quando a matéria-prima não dá, gere matéria-prima nova — não desenho.** O jeito
+certo foi montar no sandbox um pedido em que só a bebida tem destaque (combo sem
+o complemento marcado) e imprimir o cupom dele. Continua sendo impressão de
+verdade, e a linha preta é uma só. Ver `registrar_pedido()` em
+`carrosseis/destaque-impressao/capturar-telas.py` e `salvar_cupom()` na skill.
+
+Duas consequências que valem para qualquer captura de cupom:
+
+- **Imprima estreito.** A página de impressão centraliza uma bobina de largura
+  fixa; num viewport largo sobra margem branca dos dois lados e o recorte da arte
+  teria que mexer no eixo X também, o que `.recorte--topo` não faz. Em 340 px o
+  papel é a imagem inteira e o slide só declara onde cortar em cima.
+- **Separe registrar de imprimir.** Registrar cria venda no sandbox; reimprimir
+  não cria nada. Duas etapas no script, e a arte pode ser refeita à vontade.
+
+**Onde cortar se acha pela tinta.** Mapeie as faixas de tinta do PNG e corte numa
+faixa branca larga o bastante para o dente da serrilha:
 
 ```python
-import numpy as np
 from PIL import Image
-a = np.asarray(Image.open('05-cupom-pedido.png').convert('L'))
-escuro = a[:, 500] < 80                        # coluna de fundo, sem letra
-# blocos invertidos → [(341, 439), (530, 579)]
+g = Image.open('01-cupom-bebida.png').convert('L')
+w, h = g.size
+for y in range(h):
+    tinta = any(g.getpixel((x, y)) < 120 for x in range(w))
+    ...            # faixas: 454-519 preta, 532-535 traço, 557-587 "Subtotal"
 ```
 
-**Papel inclinado não sangra bem.** Com o recorte deitado (600×390) e `inclinado`,
-a sangria pela base cortava justo a faixa preta, que é o assunto. O que funcionou
-foi tratar a capa como **objeto na bancada**: 620 px de largura, `top: 760px`,
-`right: 40px`, inteiro dentro do slide, com os cantos de baixo quase retos
-(`border-radius: 24px 24px 5px 5px`) porque o arredondamento comia a ponta da
-faixa. A regra da sangria continua valendo para mockup de aparelho — não para
-recorte de papel na capa.
+No `01-cupom-bebida.png` (680×2200) os intervalos brancos entre linhas têm ~20 px.
+`680 / 554` é a última janela que cabe: pega tudo até o traço duplo que fecha o
+bloco de itens e para antes do "Subtotal". Cortei em 590 primeiro, e o "Subtotal"
+entrou e foi mordido pelos dentes.
 
-Na capa a conta da coluna de texto também muda: o `.inclinado` (rotação de −3°)
-avança o canto do papel ~15 px além da largura declarada.
+**Corte reto em papel parece defeito; dente parece papel destacado.** É o que
+`.rasgado` faz (máscara na base do `.recorte`). Duas regras de uso:
+
+- vai no **mesmo elemento** do `.g3d`, porque a máscara recorta box-shadow e
+  pseudo-elemento junto — em elementos separados o dente aparece dentro de um
+  retângulo;
+- a máscara **come a sombra**. Em fundo escuro isso não custa nada (sombra escura
+  em fundo escuro não aparece); em slide claro, custa, e aí é melhor corte reto.
+
+**O papel é objeto na bancada, não elemento sangrado.** 700 px de largura,
+`top: 600px`, `right: 40px`, inteiro dentro do slide, canto de 5 px (bobina
+térmica não tem canto arredondado, e os 24 px que o `.recorte` traz de fábrica
+faziam o papel parecer cartão). A regra da sangria continua valendo para mockup
+de aparelho — não para recorte de papel na capa.
+
+**A faixa preta cai no terço de baixo, e está tudo bem.** Antes dela há 454 px de
+cabeçalho de cupom (PDV, empresa, número, data), ou seja ~40% da tira. Dá para
+subir a faixa cortando o topo por `object-position`, mas aí o topo também vira
+corte e precisa de serrilha; não compensa. O olho vai na faixa de qualquer jeito:
+é o único preto sobre a única forma branca do slide.
 
 - **Rodapé só onde sobra chão.** A janela cobre a base inteira; pontos desenhados
   por cima dela parecem sujeira, e o slide fica melhor sem rodapé (o "4 de 8" do
@@ -198,6 +235,31 @@ avança o canto do papel ~15 px além da largura declarada.
 - Captura de celular: `--dispositivo celular` (390×844, `device_scale_factor=3`).
   O 3× existe porque o print entra reduzido na moldura e o 2× já mostrava serra
   no texto pequeno.
+
+## Mockup 3D — para intercalar, não para tudo
+
+Oito slides com o mesmo mockup reto viram catálogo. `.cena3d` + `.g3d` põem o
+mockup em perspectiva: o pai dá o ponto de fuga e o filho gira. Sem o
+`perspective` no pai, `rotateY` sai como achatamento, não como profundidade.
+
+Três coisas que fazem o 3D ler como 3D:
+
+1. **Luz.** Face girada sem gradiente fica chapada. O `.g3d::after` joga um
+   clarão de cima à esquerda e escurece a quina que recua.
+2. **Sombra deslocada.** Sombra centrada continua parecendo adesivo.
+3. **Giro pequeno.** 14° em Y, 5° em X e 2° em Z. Acima disso a borda de fora
+   cresce e invade a margem, e o texto da tela começa a distorcer.
+
+O nome da classe é pela borda que **recua**: objeto encostado na direita do slide
+usa `.g3d--direita`, a borda de fora afunda e a de dentro (a que o texto aponta)
+vem para frente. Girado ao contrário, a quina de fora cresce e o papel parece
+estar caindo para fora do slide — foi o primeiro render desta rodada.
+
+**Onde não usar:** no slide em que o leitor precisa ler rótulo de interface. A
+face que recua come contraste justo onde está a informação. Neste carrossel o
+slide 4 (achar o interruptor) ficou reto e o slide 6 (ilustração do app, texto
+grande) ficou em 3D — um 3D a cada dois ou três mockups é o suficiente para dar
+ritmo.
 
 ## Mockup de computador
 

@@ -76,7 +76,16 @@ Primeiro decida **onde a tela mora** — é isso que define se existe captura:
 | painel web (`beefood.app`) | `capturar.py --rota /cardapio` |
 | cardápio digital público | `capturar.py --url <link> --publico --dispositivo celular` |
 | app Android (Garçom, Entregador, Tablet) | não roda no Cloud Agent: **peça o print ao dono** (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) e, enquanto ele não vem, ilustre com selo (passo 4) |
-| coisa que não é tela (cupom, impressora, balança) | print do manual, se existir; senão desenho em CSS |
+| cupom impresso | `ganchar_cupom` + `salvar_cupom`: o cupom nasce num iframe que vai para a impressora, então não dá para fotografar a tela |
+| coisa que não é tela (impressora, balança) | print do manual, se existir; senão desenho em CSS |
+
+**Print do manual que não serve, você refaz — não desenha.** O cupom do manual
+*Destaque na impressão* sai com duas linhas em preto porque o manual precisava
+mostrar que complemento também destaca; a capa do carrossel precisava de uma.
+A saída foi montar no sandbox um pedido com só a bebida marcada e imprimir o
+cupom dele (`registrar_pedido` no `capturar-telas.py` do carrossel). Continua
+sendo impressão de verdade. Separe **registrar** de **imprimir**: registrar cria
+venda no sandbox, reimprimir não cria nada, e a arte pode ser refeita à vontade.
 
 Tela que abre direto numa rota:
 
@@ -157,6 +166,21 @@ escala, e o corte passa a sensação de que a tela continua.
   `.navegador__tela` e **meça a posição no arquivo** — estimar na miniatura
   circula a linha errada, já aconteceu duas vezes.
 
+#### Mockup 3D, para intercalar
+
+`.cena3d` no contêiner e `.g3d .g3d--direita` (ou `--esquerda`) no mockup põem o
+aparelho em perspectiva. O nome é pela borda que **recua**: objeto encostado na
+direita do slide usa `--direita`, e a quina de fora afunda.
+
+- **Um a cada dois ou três mockups.** Serve para dar ritmo; em todos, vira efeito.
+- **Nunca no slide em que o leitor precisa ler rótulo da interface.** A face que
+  recua come contraste justo onde está a informação. Slide de "onde ligar" fica
+  reto; slide de ilustração ou de resultado aceita 3D.
+- **`.rasgado`** serrilha a base do recorte, para corte de papel não parecer erro
+  de render. Vai no **mesmo elemento** do `.g3d` (a máscara recorta box-shadow e
+  pseudo-elemento junto) e **come a sombra** — o que é irrelevante em fundo
+  escuro e custa caro em slide claro.
+
 #### Quando a tela não existe: ilustrar
 
 Ordem de preferência: **captura real > print pedido ao dono > ilustração**.
@@ -203,7 +227,8 @@ fato → ângulo → slide.
 2. Abra em **tamanho real** os slides com print. Miniatura esconde texto ilegível
    e esconde realce fora de lugar — os dois erros mais comuns.
 3. Confira que o mockup em sangria não cobriu nenhuma linha de texto nem os
-   pontos do rodapé.
+   pontos do rodapé, e que o mockup em 3D não caiu no slide que pede leitura de
+   rótulo.
 4. Toda afirmação do slide está no manual ou na novidade? Se não está em nenhum
    dos dois, ou você confere no sistema, ou corta. Toda tela desenhada tem selo?
 5. Registre o que aprendeu em
@@ -237,10 +262,14 @@ carrosseis/<slug>/
 - **Emoji: pouco e onde couber.** Até um por slide, e não em todos. Prefira os
   que a novidade usa (🖨️ 🛵) e os do assunto (🥤). Emoji que aponta (👇) vai
   encostado com `&nbsp;`, senão cai sozinho na linha. Slide de limite não leva.
+- **A capa é a frase mais curta do carrossel**, com **uma** palavra no `.destaque`
+  vermelho e nenhum emoji junto dela. Duas palavras vermelhas não destacam nada,
+  e emoji ao lado do vermelho é grifo em cima de grifo.
 - **A capa tem imagem**, e a imagem é o resultado da novidade (o papel impresso,
   a tela nova) — nunca um ícone decorativo. Capa só de texto perde no feed.
-- **A imagem da capa mostra um destaque só.** Cupom com três linhas marcadas
-  contradiz o slide que pede critério. Recorte até sobrar a linha do assunto.
+- **A imagem da capa mostra um destaque só.** Cupom com duas linhas marcadas
+  contradiz o slide que pede critério. Se a captura que existe não dá para
+  recortar até sobrar um destaque, gere uma captura nova em que só ele apareça.
 - **Metade dos slides, no mínimo, tem imagem.** Três slides de texto seguidos é
   sinal de que dois deveriam virar um.
 - **Mockup em sangria**, não aparelho inteiro no meio do slide.

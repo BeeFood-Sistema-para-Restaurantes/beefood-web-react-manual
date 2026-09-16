@@ -62,6 +62,13 @@ Por isso as capturas do carrossel vivem em `carrosseis/<slug>/imagens-puras/` e
 não em `manuais/`: são outro recorte, para outro fim. Quando o print do manual
 serve exatamente, o slide **referencia** o arquivo do manual em vez de copiar.
 
+E quando ele **quase** serve, o carrossel captura de novo em vez de desenhar. O
+cupom do manual *Destaque na impressão* destaca dois itens porque o manual
+precisava ensinar que complemento também destaca; a capa precisava de um. Montar
+no sandbox um pedido com só a bebida marcada e imprimir o cupom dele mantém a
+imagem sendo impressão de verdade — ver `ganchar_cupom`/`salvar_cupom` no
+`capturar.py` desta skill. O arquivo do manual segue intacto.
+
 ## Conhecimento próprio desta skill
 
 Fica em [`MEMORIA-CARROSSEIS.md`](MEMORIA-CARROSSEIS.md). Aprendizado de
