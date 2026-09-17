@@ -1129,6 +1129,15 @@ Duas coisas que só aparecem quando se tenta:
   nesse tempo o carrossel do cardápio troca de mídia sozinho várias vezes. No
   filme isso sai como banner piscando. Derrubar os `setTimeout` e `setInterval`
   pendentes congela o carrossel e não atrapalha o vídeo, que não depende deles.
+- **filme a 25 quadros por segundo, mesmo doendo no relógio.** A primeira versão
+  saiu a 12: o H.264 fecha em 25 fps de qualquer modo, e o FFmpeg completa
+  repetindo quadro — metade do filme é quadro parado, o zoom anda aos pares e
+  quem assiste descreve "trepidação" ou "salto", não avanço de lente. A 25 a
+  captura leva 2,5 min e os 150 quadros andam todos. Para conferir sem depender
+  de olho: `crop` na caixa da tela e diferença média entre quadros vizinhos
+  (em 12 fps, um a cada dois dá zero), ou empilhe uma linha de cada quadro num
+  slit-scan — movimento contínuo vira diagonal lisa, quadro repetido vira
+  degrau.
 
 ### A arte não pode desmentir a frase do slide
 

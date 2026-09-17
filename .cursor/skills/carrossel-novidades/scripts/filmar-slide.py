@@ -182,7 +182,9 @@ def main() -> int:
     ap.add_argument("--url", default=None)
     ap.add_argument("--saida", required=True, type=Path)
     ap.add_argument("--segundos", type=float, default=6.0)
-    ap.add_argument("--fps", type=int, default=15)
+    # 25, e não 12: o H.264 sai a 25 fps de qualquer jeito, e filmando abaixo
+    # disso o FFmpeg repete quadro — o zoom anda aos pares e lê como trepidação.
+    ap.add_argument("--fps", type=int, default=25)
     args = ap.parse_args()
 
     cd = modulo_cardapio()

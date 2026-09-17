@@ -389,6 +389,10 @@ Antes de filmar, **desligue os temporizadores da página** (o script faz isso):
 cada quadro custa quase um segundo de relógio real, e o carrossel do cardápio
 troca de mídia sozinho no meio da filmagem.
 
+Filme a `--fps 25`, mesmo custando 2,5 min de captura: abaixo disso o MP4 sai a
+25 fps com quadro repetido, o movimento anda aos pares e no feed parece
+trepidação, não avanço de lente.
+
 ### 6. Revisão
 
 ```bash

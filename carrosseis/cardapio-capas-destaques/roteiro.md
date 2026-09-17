@@ -140,8 +140,12 @@ python3 .cursor/skills/carrossel-novidades/scripts/filmar-slide.py \
   --tomada pc-capa-video \
   --conteudo carrosseis/cardapio-capas-destaques/midias.json \
   --saida carrosseis/cardapio-capas-destaques/video/01-capa.mp4 \
-  --segundos 6 --fps 12
+  --segundos 6 --fps 25
 ```
+
+A 12 quadros por segundo o arquivo sai a 25 fps com quadro repetido sim, quadro
+repetido não: o zoom anda aos pares e lido no feed parece trepidação. A 25 a
+captura leva 2,5 min de relógio e os 150 quadros andam todos.
 
 O script mede no DOM a caixa da tela do notebook (78,696 · 922x576), fotografa
 o cardápio quadro a quadro avançando o `currentTime` do vídeo na mão e costura
