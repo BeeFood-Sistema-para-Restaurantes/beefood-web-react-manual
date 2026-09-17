@@ -6,8 +6,8 @@ entra o que é de carrossel.
 
 Última atualização: 2026-09-17 (15ª rodada: capas e destaques em vídeo — dois
 mockups de computador, um **estúdio de mídia** para a novidade em que o recurso
-é o conteúdo que o lojista sobe, e a lição de que a arte não pode desmentir a
-frase do slide).
+é o conteúdo que o lojista sobe, o primeiro **slide em vídeo** e a lição de que
+a arte não pode desmentir a frase do slide).
 
 14ª rodada: o que o carrossel da tradução produziu de geral **subiu para a
 skill** — aparelhos fotografados num catálogo, fotos de produto numa biblioteca
@@ -27,7 +27,7 @@ na voz da marca e falando com você**.
 |-----------|----------|-------|---------|--------|
 | Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ entregue — `entrega/destaque-impressao.zip` (8 PNG + copy) |
 | Cardápio presencial em inglês e espanhol | [16/09/2026](https://beefood.app/novidades/traducao-cardapio-presencial) | `carrosseis/traducao-cardapio-presencial/` | 4:5, 7 slides | ✅ entregue — `entrega/traducao-cardapio-presencial.zip` (7 PNG + copy) |
-| Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + copy) |
+| Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + capa em vídeo + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -1094,6 +1094,28 @@ Duas lições que mudam o jeito de desenhar a arte:
   segura, o texto sobrevive aos dois cortes — e o texto fica na faixa de cima,
   porque embaixo o aplicativo desenha o logotipo da loja.
 
+### Slide em vídeo: quando a novidade é movimento, a capa parada custa caro
+
+O carrossel do Instagram aceita vídeo no lugar de uma imagem, e este foi o
+primeiro post em que isso valeu a pena: a novidade **é** a capa que se mexe, e
+um PNG do notebook pedia que o leitor acreditasse na palavra "vídeo".
+
+O `filmar-slide.py` não inventa um segundo slide: ele mede no DOM a caixa da
+tela do mockup, fotografa o cardápio quadro a quadro e costura o filme por cima
+do PNG que já foi aprovado. Arte e vídeo saem do mesmo arquivo, então revisar um
+é revisar o outro.
+
+Duas coisas que só aparecem quando se tenta:
+
+- **gravação de tela não serve.** Chromium headless grava com taxa irregular, e
+  o zoom lento do banner sai aos trancos. Quadro a quadro, com o `currentTime`
+  avançado na mão, cada quadro é determinístico.
+- **desligue os temporizadores da página antes de filmar.** Cada quadro custa
+  quase um segundo de relógio real: 6 s de filme levam mais de um minuto, e
+  nesse tempo o carrossel do cardápio troca de mídia sozinho várias vezes. No
+  filme isso sai como banner piscando. Derrubar os `setTimeout` e `setInterval`
+  pendentes congela o carrossel e não atrapalha o vídeo, que não depende deles.
+
 ### A arte não pode desmentir a frase do slide
 
 O slide 6 dizia "combo de quarta aparece só na quarta" e mostrava, logo abaixo,
@@ -1130,6 +1152,7 @@ um carrossel.** Depois de entregar, o material geral sobe para a skill.
 | o cardápio de exemplo dentro da tela desenhada | `assets/slides/mockup-{totem,tablet}.html` | o modelo agora abre pronto: troca-se o texto do slide, não o aparelho |
 | as artes de banner e cartaz, com os MP4 | `assets/midia/` | o próximo carrossel de cardápio digital já nasce com mídia de exemplo pronta |
 | `fazer-midia.py`, `capturar-cardapio.py` | `scripts/` | um faz a arte e o vídeo; o outro entrega tudo ao cardápio público e fotografa |
+| `filmar-slide.py` | `scripts/` | põe o filme dentro da tela do mockup, a partir do mesmo slide e do mesmo PNG |
 
 Ficou no carrossel o que é **prova dele**: modal do painel, cupom daquele pedido,
 tela do cadastro, recorte de cartão nos dois idiomas, e o `midias.json` que diz

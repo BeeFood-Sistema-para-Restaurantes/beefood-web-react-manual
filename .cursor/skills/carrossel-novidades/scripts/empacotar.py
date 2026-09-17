@@ -15,6 +15,10 @@ Se o carrossel tiver uma **capa alternativa** (`capa-alternativa/png/*.png`),
 ela entra numa subpasta de mesmo nome dentro do zip. Fica separada de propósito:
 quem arrasta o conteúdo para o celular leva só o carrossel, e quem quiser trocar
 a capa vai buscar na pasta.
+
+Slide em vídeo (`video/*.mp4`, do `filmar-slide.py`) entra do mesmo jeito, numa
+subpasta `video/`. O carrossel do Instagram aceita vídeo no lugar de uma
+imagem; quem publica decide na hora, e o PNG de mesmo número continua no zip.
 """
 
 from __future__ import annotations
@@ -46,6 +50,7 @@ def main() -> None:
         sys.exit(f"ERRO: falta {copy.name} — a entrega é imagem mais legenda")
 
     alternativas = sorted((pasta / "capa-alternativa" / "png").glob("*.png"))
+    videos = sorted((pasta / "video").glob("*.mp4"))
 
     destino = pasta / "entrega" / f"{args.slug}.zip"
     destino.parent.mkdir(exist_ok=True)
@@ -53,6 +58,7 @@ def main() -> None:
     membros = [(a.name, a) for a in imagens]
     membros.append((copy.name, copy))
     membros += [(f"capa-alternativa/{a.name}", a) for a in alternativas]
+    membros += [(f"video/{a.name}", a) for a in videos]
 
     # Data fixa no cabeçalho de cada membro: sem isso o zip muda de conteúdo a
     # cada rodada só pela hora, e o diff do commit fica ilegível.
@@ -65,6 +71,7 @@ def main() -> None:
 
     kb = destino.stat().st_size // 1024
     extra = f" + {len(alternativas)} capa(s) alternativa(s)" if alternativas else ""
+    extra += f" + {len(videos)} slide(s) em vídeo" if videos else ""
     print(f"OK  {destino.relative_to(RAIZ)}  {len(imagens)} imagens + "
           f"{copy.name}{extra}  {kb} KB")
 

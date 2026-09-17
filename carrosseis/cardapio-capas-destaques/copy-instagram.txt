@@ -8,6 +8,16 @@ Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
 nomes de arquivo: 01-capa, 02-parte-dificil, 03-antes-agora, 04-vitrine,
 05-avisos, 06-agenda, 07-cta.
 
+A CAPA TEM VERSÃO EM VÍDEO — vale muito a pena usar:
+
+  video/01-capa.mp4    6 s, mudo, 1080x1350
+
+  É o mesmo slide 1, com o vídeo rodando de verdade dentro do notebook. O
+  carrossel do Instagram aceita vídeo no lugar de uma imagem, e aqui a novidade
+  É movimento: a capa parada gasta o melhor argumento da peça. Suba o MP4 como
+  primeiro item e os outros seis PNG na sequência. Se preferir tudo parado,
+  use o png/01-capa.png e ignore a pasta video.
+
 Todas as telas do cardápio são captura do cardápio modelo da ONE STAND
 HAMBURGUERIA rodando de verdade, com a nossa mídia de exemplo entregue na
 resposta da API — os banners, os vídeos e os cartazes de aviso são arte nossa,

@@ -367,6 +367,28 @@ direito do slide leva só o `.contador`, nunca informação); no story (9:16)
 são faixas largas no topo e na base. A saída de `--guias` e de `--formato`
 diferente do padrão ganha sufixo no nome, para não sobrescrever a arte final.
 
+#### Slide em vídeo, quando a novidade é movimento
+
+O carrossel do Instagram aceita vídeo no lugar de uma imagem. Quando o recurso
+**é** movimento (capa em vídeo, vitrine em vídeo), a capa parada gasta o melhor
+argumento da peça:
+
+```bash
+python .cursor/skills/carrossel-novidades/scripts/filmar-slide.py \
+    carrosseis/<slug>/slides/01-capa.html --tomada pc-capa-video \
+    --conteudo carrosseis/<slug>/midias.json \
+    --saida carrosseis/<slug>/video/01-capa.mp4
+```
+
+O slide não muda: o script mede no DOM a caixa da tela do mockup, fotografa o
+cardápio quadro a quadro (avançando o `currentTime` do vídeo na mão) e costura
+o filme por cima do PNG. O `empacotar.py` leva o MP4 numa pasta `video/` do
+zip, e o PNG parado continua lá — quem publica escolhe.
+
+Antes de filmar, **desligue os temporizadores da página** (o script faz isso):
+cada quadro custa quase um segundo de relógio real, e o carrossel do cardápio
+troca de mídia sozinho no meio da filmagem.
+
 ### 6. Revisão
 
 ```bash
@@ -433,9 +455,10 @@ python .cursor/skills/carrossel-novidades/scripts/empacotar.py <slug>
 
 Gera `carrosseis/<slug>/entrega/<slug>.zip` com os PNG e o `.txt`, em nomes
 soltos na raiz do zip (quem recebe arrasta direto para o celular, e a ordem de
-publicação é a ordem alfabética). A folha de contato fica fora de propósito: é
-ferramenta de revisão, e no meio das imagens alguém posta uma imagem a mais por
-engano.
+publicação é a ordem alfabética). Capa alternativa e slide em vídeo entram em
+subpastas (`capa-alternativa/`, `video/`), separados de propósito — quem arrasta
+tudo leva só o carrossel. A folha de contato fica fora: é ferramenta de revisão,
+e no meio das imagens alguém posta uma imagem a mais por engano.
 
 Feche com commit e push, como manda a regra de commit por ação da
 `MEMORIA-GERAL.md`.
@@ -451,6 +474,7 @@ carrosseis/<slug>/
 ├── imagens-puras/        # prints como saíram do navegador, nunca editados
 ├── slides/               # NN-nome.html (fragmentos de body)
 ├── png/                  # a arte final, 1080x1350
+├── video/                # slide em vídeo, quando a novidade é movimento
 ├── entrega/<slug>.zip    # png + copy, o arquivo que vai para quem publica
 └── folha-de-contato.png  # todos os slides numa imagem
 ```
@@ -466,7 +490,7 @@ carrosseis/<slug>/
 ├── assets/midia/            # banner, cartaz de aviso e MP4 do cardápio digital
 ├── assets/catalogo/         # os aparelhos fotografados, e a folha com todos
 ├── scripts/capturar-totem.py, capturar-cardapio.py, fazer-midia.py,
-│          preparar-fundo.py, catalogo.py
+│          filmar-slide.py, preparar-fundo.py, catalogo.py
 └── references/mockups.md    # o índice da prateleira: o que já existe e a medida
 ```
 

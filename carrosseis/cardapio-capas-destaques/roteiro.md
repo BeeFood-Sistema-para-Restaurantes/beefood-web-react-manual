@@ -117,6 +117,29 @@ E a arte de capa joga o texto todo para a faixa de cima: embaixo, o próprio
 cardápio desenha o logotipo da loja (à esquerda no computador, no meio no
 celular) e o selo de avaliação fica no alto à direita.
 
+## A capa em vídeo
+
+O carrossel do Instagram aceita vídeo no lugar de uma imagem, e neste post a
+novidade **é** movimento: capa parada gasta o melhor argumento da peça. O
+`video/01-capa.mp4` é o mesmo slide 1, com o vídeo rodando dentro do notebook.
+
+```bash
+python3 .cursor/skills/carrossel-novidades/scripts/filmar-slide.py \
+  carrosseis/cardapio-capas-destaques/slides/01-capa.html \
+  --tomada pc-capa-video \
+  --conteudo carrosseis/cardapio-capas-destaques/midias.json \
+  --saida carrosseis/cardapio-capas-destaques/video/01-capa.mp4 \
+  --segundos 6 --fps 12
+```
+
+O script mede no DOM a caixa da tela do notebook (78,696 · 922x576), fotografa
+o cardápio quadro a quadro avançando o `currentTime` do vídeo na mão e costura
+tudo por cima do PNG do slide. Os temporizadores da página são desligados antes
+da filmagem: cada quadro custa quase um segundo de relógio real, e sem isso o
+carrossel do cardápio troca de mídia sozinho no meio do filme.
+
+O PNG parado continua entregue, para quem preferir publicar tudo em imagem.
+
 ## Legenda da publicação
 
 Está em `copy-instagram.txt`, junto com o primeiro comentário e os textos
