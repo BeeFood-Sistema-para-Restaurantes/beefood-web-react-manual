@@ -4,14 +4,15 @@ Fonte: novidade de 16/09/2026 em beefood.app/novidades/traducao-cardapio-presenc
 publicado a qualquer momento)
 
 Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
-nomes de arquivo: 01-capa, 02-cena, 03-totem, 04-tablet, 05-mesmo-cadastro,
-06-aos-poucos, 07-cta.
+nomes de arquivo: 01-capa, 02-vendedor, 03-totem, 04-tablet, 05-mesmo-cadastro,
+06-espanhol, 07-cta.
 
 As telas de totem são captura do totem de exemplo, com a tradução deste
 carrossel injetada e com a foto de fundo trocada pela nossa (a loja de exemplo
-anunciava um pudim ali). A tela do tablet é desenhada em cima do print de
-produção, com as fotos reais dos produtos: o aparelho roda em Android e não sobe
-no ambiente de captura.
+anunciava um pudim ali). Os dois recortes do slide 6 são captura do mesmo item
+nos dois idiomas, tirada do mesmo ponto da tela. A tela do tablet é desenhada em
+cima do print de produção, com as fotos reais dos produtos: o aparelho roda em
+Android e não sobe no ambiente de captura.
 
 A CAPA TEM DUAS VERSÕES — escolha uma antes de publicar:
 
@@ -33,9 +34,11 @@ LEGENDA — cole no campo de legenda
 
 Seu cardápio já fala inglês? 🌎
 
-Turista sentado na sua mesa, cardápio só em português: ele pede o mais simples
-da tela, sem combo, sem adicional, sem sobremesa. Não é falta de fome, é falta
-de informação — e a conta fecha bem abaixo do que podia.
+Seu cardápio é o seu melhor vendedor: mostra a foto, descreve o recheio, oferece
+o combo e o adicional na hora certa, em todas as mesas, o dia inteiro. Só tem um
+detalhe — ele só vende para quem lê português. Para o seu cliente estrangeiro, a
+mesma tela é uma lista de nomes que não dizem nada, e o pedido sai o mais simples
+possível: sem combo e sem sobremesa.
 
 Agora o seu cardápio também existe em inglês e em espanhol. Seu cliente toca na
 bandeira e pede sozinho, do primeiro toque até o pagamento: setor, produto,
@@ -47,12 +50,12 @@ E não é um segundo cardápio para você manter. Você abre o produto que já e
 toca na bandeira e escreve o nome do jeito que o turista entende. Mudou o preço,
 acabou o estoque? Você mexe num lugar só, e os três idiomas acompanham.
 
-Também não precisa estar tudo pronto para começar. O que você ainda não traduziu
-segue em português na tela, do jeito que está hoje. Comece pelos setores: são
-poucos e é o primeiro texto que seu cliente lê. 🇺🇸🇪🇸
+E não é só inglês: o espanhol está na mesma tela, a um toque de distância. O
+mesmo item, a mesma foto, o mesmo preço — muda só a língua de quem está pedindo.
+🇺🇸🇪🇸
 
-Tem totem ou tablet? Então dá para começar agora: abra os seus mais vendidos e
-traduza.
+Tem totem ou tablet? Comece pelos seus mais vendidos e veja o seu cardápio falar
+inglês hoje mesmo.
 
 O que mais entrou no sistema esta semana está em beefood.app/novidades 🐝❤️
 
@@ -83,11 +86,11 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     espera: o botão START YOUR ORDER em inglês e as bandeiras do Brasil, dos
     Estados Unidos e da Espanha embaixo dele.
 
-02  Pergunta em destaque: quanto seu salão perde por não falar inglês. Abaixo,
-    três linhas sobre o que acontece no salão — o cliente lendo o cardápio pelo
-    tradutor do celular, apontando a foto e pedindo o mais simples, e a equipe
-    parando no meio do movimento para explicar. Uma caixa vermelha diz que a
-    conta da mesa fecha bem abaixo do que podia.
+02  Título "Seu cardápio é o seu melhor vendedor", com a palavra vendedor em
+    vermelho, e uma linha dizendo que ele mostra a foto, descreve o recheio e
+    oferece combo e adicional em todas as mesas. Uma caixa rosa completa: ele só
+    vende para quem lê português, e em inglês e em espanhol esse vendedor volta
+    a trabalhar.
 
 03  Totem de autoatendimento com o cardápio aberto em inglês: o setor SIDES
     selecionado na coluna da esquerda e os produtos FRENCH FRIES, ONION RINGS,
@@ -101,8 +104,11 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     dos Estados Unidos e da Espanha. A dos Estados Unidos está selecionada, e o
     campo mostra CHEDDAR & BACON FRIES.
 
-06  Aviso de que não é preciso traduzir tudo de uma vez, com a ordem sugerida
-    para começar: setores, mais vendidos e o resto quando der.
+06  Título "Espanhol também, no mesmo cardápio" e, embaixo, dois recortes do
+    cardápio do totem lado a lado: o da esquerda marcado com a bandeira dos
+    Estados Unidos, o da direita com a da Espanha. Nos dois, a mesma foto de
+    batata frita e o mesmo R$ 11,00 — o nome muda de FRENCH FRIES para PAPAS
+    FRITAS.
 
 07  Página de novidades do BeeFood aberta no celular, com o convite para
     começar pelos produtos mais vendidos.

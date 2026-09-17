@@ -25,20 +25,21 @@ link; quem está no feed quer saber **o que muda no salão**.
 
 Um cuidado que isso obriga: o carrossel **nunca insinua tradução automática**.
 Ele não diz "você traduz sozinho" e também não diz "o sistema traduz". Mostra o
-cadastro onde a versão em inglês mora (slide 5) e trata o trabalho como coisa
-tranquila e parcial (slide 6). Promessa de tradução automática voltaria como
-reclamação.
+cadastro onde a versão em inglês mora (slide 5), com a mão do lojista implícita
+na tela, e não discute o assunto além disso. Promessa de tradução automática
+voltaria como reclamação — e aviso de que o sistema não traduz sozinho derruba a
+venda, que foi o erro do slide 6 antigo.
 
 ## Fato → ângulo → o que o slide diz
 
 | Fato (novidade/manual) | Ângulo | O que o slide diz | Slide |
 |---|---|---|---|
 | O cliente troca o idioma tocando numa bandeira, no Totem e no Cardápio Digital no Tablet; os idiomas são português, inglês e espanhol | o turista que entrou e não pediu é venda que já estava dentro da loja | "Seu cardápio já fala inglês?" | 1 |
-| O turista encontra o cardápio todo em português e desiste de pedir | sem entender o cardápio ninguém pede combo, adicional nem sobremesa: a conta da mesa fecha baixa | "Quanto seu salão **perde** por não falar inglês?" | 2 |
+| O cardápio digital vende: foto, descrição, combo e adicional na tela — e o turista não lê nada disso | o cardápio já é o melhor vendedor da casa, e só vende para quem lê português | "Seu cardápio é o seu melhor **vendedor**" | 2 |
 | A tradução vale para setor, nome, descrição e grupos de opções; o cliente troca de idioma no meio do pedido sem perder o que montou | não é meia tradução: o cliente vai do primeiro toque ao pagamento sem ajuda, e a fila anda | "Seu cliente toca na bandeira e pede **sozinho**" | 3 |
 | No tablet as bandeiras ficam na coluna da esquerda, sem configuração; os textos do app (SEARCH, MY CART, MY BILL) já vêm traduzidos | na mesa, quem resolve é o cliente — e a equipe atende mais mesas | "Na mesa, o tablet fala a língua do seu cliente" | 4 |
 | Três bandeiras na linha do Nome; um único SALVAR E SAIR guarda português e as duas traduções | o medo é manter dois cardápios; não é isso que acontece | "Você escreve uma vez, e **pronto**" | 5 |
-| Item sem tradução continua em português, nada fica em branco; a ordem sugerida começa pelos setores | o que travaria a adoção é achar que precisa traduzir tudo antes de ligar | "Não precisa traduzir tudo hoje" | 6 |
+| Os idiomas são português, inglês e **espanhol**, e o que muda é só o texto: foto e preço são os mesmos | a capa promete espanhol e o carrossel só mostrava inglês; e a prova cabe numa imagem | "Espanhol também, no **mesmo** cardápio" | 6 |
 | As bandeiras aparecem para lojas com Totem de Autoatendimento ou Cardápio Digital no Tablet | quem já tem o equipamento não precisa comprar nada, e dá para começar agora | "Seu cardápio pode falar inglês **hoje**" | 7 |
 
 ## Slides
@@ -47,14 +48,14 @@ reclamação.
 |---|---------|------|-------------|--------|
 | 1 | `01-capa.html` | capa com imagem | o cardápio passou a falar a língua do cliente | totem com a tela de espera em inglês (captura real) e o tablet com o cardápio traduzido |
 | 1 | `capa-alternativa/slides/01-capa-so-totem.html` | capa com imagem | idem, versão alternativa | só o totem, centralizado e grande, com a captura da tela de espera |
-| 2 | `02-cena.html` | texto | cardápio que o cliente não lê derruba a conta da mesa | — |
+| 2 | `02-vendedor.html` | texto | o cardápio é vendedor, e em português não vende para o turista | — |
 | 3 | `03-totem.html` | mockup reto + texto ao lado | o cardápio muda inteiro, não pela metade | cardápio do totem em inglês, com as porções e as fotos reais |
 | 4 | `04-tablet.html` | mockup centralizado | na mesa as bandeiras já estão na lateral | tablet com três hambúrgueres descritos em inglês |
 | 5 | `05-mesmo-cadastro.html` | print real em janela | a tradução mora no mesmo produto | captura da linha do Nome com a bandeira dos Estados Unidos escolhida e `CHEDDAR & BACON FRIES` no campo |
-| 6 | `06-aos-poucos.html` | texto com lista | dá para traduzir aos poucos | — |
+| 6 | `06-espanhol.html` | dois recortes lado a lado | inglês e espanhol são o mesmo cardápio | o mesmo item do totem em `FRENCH FRIES` e `PAPAS FRITAS`, captura real |
 | 7 | `07-cta.html` | CTA com mockup | quem tem o equipamento já tem o recurso | página de novidades no celular, captura real |
 
-Cinco dos sete slides têm imagem, e a capa é um deles.
+Seis dos sete slides têm imagem, e a capa é um deles.
 
 ## Decisões de roteiro
 
@@ -94,15 +95,49 @@ saindo pela borda de baixo, que lê como piso e mesa. O título perdeu largura
 **Um aparelho sobrepondo o outro é o que faz um grupo.** Enquanto as silhuetas
 não se tocavam, qualquer ajuste de posição só mudava o tamanho do vão.
 
-**O slide 2 não fala de sistema — e foi refeito por inteiro.** A primeira versão
-narrava o turista em terceira pessoa ("Ele queria pedir. Só não sabia o quê"),
-como legenda de fotografia: bonita, morna, e sobre um personagem que não é quem
-lê. Quem lê é o dono, então o slide agora pergunta pelo dinheiro dele ("Quanto
-seu salão **perde** por não falar inglês?"), lista o que acontece no salão dele
-(o cliente lendo pelo tradutor, apontando a foto, a equipe parando no meio do
-movimento) e fecha nomeando o custo: sem entender o cardápio ninguém pede combo,
-adicional nem sobremesa, e a conta da mesa fecha bem abaixo do que podia. Sem
-número — o BeeFood não publicou nenhum para isso.
+**O slide 2 teve três versões, e só a terceira elogia antes de cobrar.** A
+primeira narrava o turista em terceira pessoa ("Ele queria pedir. Só não sabia o
+quê"): legenda de fotografia, morna, e sobre um personagem que não é quem lê. A
+segunda corrigiu o sujeito e errou o tom — "Quanto seu salão **perde** por não
+falar inglês?", com três linhas do que dá errado no salão e o custo no pé. O dono
+devolveu de novo, e o diagnóstico é simples: aquilo é leitura de fatura, não de
+anúncio. Ninguém salva um post para ler a própria conta, e um slide 2 que cobra
+gasta no início a atenção que a peça ia precisar no fim.
+
+A terceira vira o argumento do avesso: **"Seu cardápio é o seu melhor
+vendedor"**. Começa elogiando o que o leitor já tem — e é verdade, porque foto,
+descrição, combo e adicional na tela são exatamente trabalho de vendedor. A
+virada vem depois, no cartão vermelho, junto com a solução na mesma frase: "ele
+só vende para quem lê português (…) em inglês e em espanhol, esse vendedor volta
+a trabalhar". O custo continua ali ("o pedido sai o mais simples possível, sem
+combo e sem sobremesa"), mas agora é consequência de uma premissa que o leitor
+aceitou, e não uma acusação na cara.
+
+Regra que ficou: **em peça de venda, o slide do problema elogia o leitor antes de
+mostrar o furo.** O dono não precisa ser convencido de que perde dinheiro; ele
+precisa querer continuar lendo.
+
+**O slide 6 trocou de assunto, porque o assunto antigo vendia contra a gente.**
+Ele dizia "Não precisa traduzir tudo **hoje**" e listava por onde começar. A
+intenção era tirar peso; o que chegou foi outra coisa — *"dá a entender que o
+sistema não traduz sozinho e que é inútil"*. E o dono tem razão duas vezes: o
+sistema de fato não traduz sozinho, e **não precisava tocar nisso**. Aliviar um
+trabalho é admitir que existe um trabalho, e fazer isso no penúltimo slide é
+plantar a objeção justo antes do CTA.
+
+O assunto novo estava sobrando na mesa: **o espanhol**. A capa promete "inglês e
+espanhol" e, até o slide 5, só o inglês aparecia. E ele não explica, ele prova —
+o mesmo item do cardápio, recortado do mesmo ponto da tela do totem, nos dois
+idiomas: mesma foto, mesmo `R$ 11,00`, e o nome saindo de `FRENCH FRIES` para
+`PAPAS FRITAS`. Um slide que era lista de tarefas virou prova visual.
+
+São dois recortes e não três. Em português o cartão sai 20 px mais alto, porque a
+altura da fileira é ditada pelo nome mais longo do setor (`MOZZA STICKS -
+PALITOS DE MUSSARELA`, em duas linhas): com três, ou os rótulos ficam
+desalinhados, ou o trio ganha um degrau embaixo — testei os dois. Com dois, cada
+recorte aparece 1,5x maior e o nome do produto dá para ler no feed. O português
+não precisa de prova aqui: ele está no slide 5, intacto, ao lado do campo em
+inglês.
 
 **A primeira versão do totem e do tablet foi desenhada de memória, e saiu
 errada.** Totem escuro com lista vertical, tablet claro com grade de cartões —
@@ -218,9 +253,10 @@ embaixo. O antes e depois dos títulos está na `MEMORIA-CARROSSEIS.md`.
 bolinha verde e a herança do grupo de opções — o dono devolveu como *"exatamente
 o tipo de explicação desnecessária, isso não agrega em nada"*, e tinha razão: é
 material de manual. No lugar entrou a consequência ("mudou o preço, acabou o
-estoque? você mexe num lugar só") e o alívio ("o resto, quando der"). Os
-diminutivos saíram junto: "bandeirinha" virou "bandeira". As duas regras estão
-na `MEMORIA-CARROSSEIS.md` e na `SKILL.md`.
+estoque? você mexe num lugar só"). Os diminutivos saíram junto: "bandeirinha"
+virou "bandeira". As duas regras estão na `MEMORIA-CARROSSEIS.md` e na
+`SKILL.md`. O slide 6 daquela rodada acabou inteiro na rodada seguinte, por um
+motivo maior: o assunto dele era o trabalho do lojista.
 
 **Nenhum slide em 3D.** O slide 3 chegou a sair girado — ele é o único em que o
 aparelho divide a faixa com uma coluna de texto, que era a condição para girar.
@@ -246,8 +282,10 @@ anterior.
 
 **Emoji em dois dos sete.** 🇺🇸 no slide 4 e 🌎 no 7, e a capa sem nenhum — ela já
 tem a palavra em vermelho. Os dois são o assunto do post, então informam em vez
-de enfeitar; nos slides de texto puro (2, 5 e 6) não entra nenhum, porque ali o
-emoji só apareceria para animar parágrafo. As bandeiras **dentro** dos mockups
+de enfeitar; nos slides de texto puro (2 e 5) não entra nenhum, porque ali o
+emoji só apareceria para animar parágrafo. O slide 6 fala de bandeira e também
+não leva emoji: as bandeiras dele estão nos rótulos dos recortes, onde cumprem
+função de legenda. As bandeiras **dentro** dos mockups
 não são emoji soltos: são o emoji recortado em círculo (`.bandeira`), do jeito
 que o sistema desenha o seletor.
 
@@ -301,6 +339,11 @@ finalizado.** Sai em `imagens-puras/`:
   idioma;
 - `totem-banner-en.png` — o banner do topo, que entra na tela desenhada do
   slide 3;
+- `cartao-batata-{pt,en,es}.png` — o primeiro cartão do setor Acompanhamentos,
+  recortado no mesmo ponto nos três idiomas. O recorte é medido no DOM, e não
+  fixo, porque é o que garante que os três caiam no mesmo lugar. Em escala 2,
+  porque na arte o cartão aparece 1,5x maior do que no aparelho. O `en` e o `es`
+  são o slide 6; o `pt` ficou de referência (ver a decisão do slide 6);
 - `foto-*.png` — as fotos dos produtos, baixadas do `s3Link` da API e convertidas
   de WEBP para PNG.
 
