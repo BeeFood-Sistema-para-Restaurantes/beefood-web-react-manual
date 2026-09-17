@@ -4,9 +4,14 @@ Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
 continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
 entra o que é de carrossel.
 
-Última atualização: 2026-09-17 (14ª rodada: o que o carrossel da tradução
-produziu de geral **subiu para a skill** — aparelhos fotografados num catálogo,
-fotos de produto numa biblioteca e os dois scripts de captura do totem).
+Última atualização: 2026-09-17 (15ª rodada: capas e destaques em vídeo — dois
+mockups de computador, um **estúdio de mídia** para a novidade em que o recurso
+é o conteúdo que o lojista sobe, e a lição de que a arte não pode desmentir a
+frase do slide).
+
+14ª rodada: o que o carrossel da tradução produziu de geral **subiu para a
+skill** — aparelhos fotografados num catálogo, fotos de produto numa biblioteca
+e os dois scripts de captura do totem.
 
 13ª rodada: dois slides refeitos por motivo de **argumento**, não de arte — peça
 de venda não avisa o limite do recurso, e o slide do problema elogia o leitor
@@ -22,6 +27,12 @@ na voz da marca e falando com você**.
 |-----------|----------|-------|---------|--------|
 | Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ entregue — `entrega/destaque-impressao.zip` (8 PNG + copy) |
 | Cardápio presencial em inglês e espanhol | [16/09/2026](https://beefood.app/novidades/traducao-cardapio-presencial) | `carrosseis/traducao-cardapio-presencial/` | 4:5, 7 slides | ✅ entregue — `entrega/traducao-cardapio-presencial.zip` (7 PNG + copy) |
+| Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + copy) |
+
+**Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
+palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
+`conferir-texto.py` recebe `--novidade <slug-publicado>` para achar a fonte no
+feed.
 
 **Quantos slides:** os que a novidade tem de assunto, entre 6 e 8. O primeiro
 carrossel saiu com 8 e o segundo com 7, e os dois fecham — o de tradução tem uma
@@ -659,6 +670,29 @@ Ou seja: a janela grande **não dispensa o recorte**, ela muda o limite. Antes o
 teto era ~440 px lógicos (faixa de um campo); com sangria, vai a ~620 px (meia
 tela), que é o que deixa a tela parecer tela em vez de tira.
 
+### Notebook e monitor: a janela mostra a página, o aparelho mostra a cena
+
+A 15ª rodada acrescentou `.notebook` e `.monitor`. A escolha entre os três não é
+de gosto:
+
+- **`.navegador`** mostra a **página**. É o mockup de "olhe este campo" — aceita
+  `.realce` e vive de recorte.
+- **`.notebook`** mostra a **cena**: alguém sentado, olhando aquilo. Numa capa
+  isso vale mais que 100 px a mais de tela. A capa deste carrossel é o caso: o
+  assunto era o cardápio virar vitrine, e vitrine se olha de longe.
+- **`.monitor`** é o lugar de trabalho do dono, em 16/9.
+
+O desenho de cada um, com as armadilhas de CSS, está em
+[`mockups.md`](mockups.md). Duas valem repetir porque já custaram render em
+outros aparelhos e voltaram aqui: peça de baixo (base, pescoço) **absoluta,
+pendurada fora da caixa** — senão o brilho do `.g3d::after` pinta o vão das
+quinas —, e `clip-path` **recorta os filhos**, então o afunilamento do pescoço
+não pode ficar no invólucro do pé.
+
+E uma nova: o `overflow: hidden` do `.slide` **come a base do notebook** quando
+ele encosta no limite de baixo. A correção é subir o mockup alguns pixels, não
+encolher.
+
 ### Realce, e por que medir
 
 `.realce` é o anel vermelho que diz "olhe aqui", posicionado em porcentagem
@@ -1036,6 +1070,46 @@ Ganho de graça: o slide do totem mostra `CHEDDAR & BACON FRIES` na tela do
 cliente e o slide do cadastro mostra o campo onde aquele texto foi escrito. O
 mesmo produto nos dois lados é o que faz o carrossel fechar.
 
+### Quando o recurso é a mídia que o lojista sobe
+
+Capas e destaques em vídeo é um caso novo: **não existe captura do recurso**. O
+cardápio modelo está vazio, e o cardápio de produção tem a campanha de um
+cliente — que, como já se aprendeu com o pudim do totem, vira o assunto da arte.
+
+A saída foi montar um **estúdio**: as artes são nossas (`assets/midia/artes/`,
+renderizadas pelo `fazer-midia.py`), os vídeos são MP4 gerados no FFmpeg, e o
+`capturar-cardapio.py` entrega tudo isso ao cardápio público na resposta do
+`validaDelivery`. Quem renderiza continua sendo o aplicativo de produção: o
+carrossel inteiro é captura, e o que veio de fora é só o conteúdo que o lojista
+subiria. O passo a passo está em [`mockups.md`](mockups.md).
+
+Duas lições que mudam o jeito de desenhar a arte:
+
+- **a arte é da loja, não da BeeFood.** O `arte.css` tem a paleta da
+  hamburgueria do cardápio modelo. Banner no vermelho da marca dentro do
+  cardápio de um cliente lê como anúncio nosso na casa dele.
+- **meça o vão antes de desenhar.** O cardápio corta com `object-fit: cover`:
+  ~4,1/1 no computador e ~2,6/1 no celular. A primeira rodada saiu em 16/9 e o
+  aplicativo comeu o selo e o preço. Em 1920×580 (3,3/1), com 14% de margem
+  segura, o texto sobrevive aos dois cortes — e o texto fica na faixa de cima,
+  porque embaixo o aplicativo desenha o logotipo da loja.
+
+### A arte não pode desmentir a frase do slide
+
+O slide 6 dizia "combo de quarta aparece só na quarta" e mostrava, logo abaixo,
+o recorte do painel do manual com **os sete dias acesos**. Nenhuma revisão de
+texto pega isso: a frase está certa, o print é de verdade, e mesmo assim a arte
+diz o contrário do título.
+
+Print de manual é print de manual: ele foi tirado para mostrar a tela, não para
+sustentar o seu argumento. Quando o slide afirma um estado da interface,
+**fotografe aquele estado**. No sandbox isso custou um script curto que abre o
+modal, apaga seis dias, fotografa a linha e **fecha descartando** — o sandbox
+fica como o manual deixou.
+
+Vale como pergunta de revisão: *a imagem deste slide prova o título, ou só
+ilustra o assunto dele?*
+
 ## A prateleira: o que nasce no carrossel e sobe para a skill
 
 O tablet custou cinco rodadas e o totem três. Nada disso era CSS difícil — era
@@ -1054,9 +1128,12 @@ um carrossel.** Depois de entregar, o material geral sobe para a skill.
 | as duas artes de fundo do totem | `assets/fundos/` | entram na captura, não no slide |
 | `capturar-totem.py`, `preparar-fundo.py` | `scripts/` | viraram genéricos por argumento (`--saida`, `--conteudo`, `--video`) |
 | o cardápio de exemplo dentro da tela desenhada | `assets/slides/mockup-{totem,tablet}.html` | o modelo agora abre pronto: troca-se o texto do slide, não o aparelho |
+| as artes de banner e cartaz, com os MP4 | `assets/midia/` | o próximo carrossel de cardápio digital já nasce com mídia de exemplo pronta |
+| `fazer-midia.py`, `capturar-cardapio.py` | `scripts/` | um faz a arte e o vídeo; o outro entrega tudo ao cardápio público e fotografa |
 
 Ficou no carrossel o que é **prova dele**: modal do painel, cupom daquele pedido,
-tela do cadastro, recorte de cartão nos dois idiomas.
+tela do cadastro, recorte de cartão nos dois idiomas, e o `midias.json` que diz
+qual arte entra em qual lugar.
 
 ### O prefixo `skill:`
 

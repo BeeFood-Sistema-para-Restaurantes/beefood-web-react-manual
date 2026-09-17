@@ -76,6 +76,7 @@ Primeiro decida **onde a tela mora** — é isso que define se existe captura:
 |------|-------------|
 | painel web (`beefood.app`) | `capturar.py --rota /cardapio` |
 | cardápio digital público | `capturar.py --url <link> --publico --dispositivo celular` |
+| cardápio digital com mídia nossa dentro | `capturar-cardapio.py --conteudo midias.json` (banner, vídeo e cartaz de aviso entregues na resposta da API) |
 | Totem de Autoatendimento | é **web**, e já tem script pronto: `capturar-totem.py` (telas, tradução injetada, fotos de produto). **Não finalize pedido** |
 | app Android (Garçom, Entregador, Tablet) | não roda no Cloud Agent: **peça o print ao dono** (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) e, enquanto ele não vem, desenhe a tela em CSS copiando o print de produção (passo 4) |
 | cupom impresso | `ganchar_cupom` + `salvar_cupom`: o cupom nasce num iframe que vai para a impressora, então não dá para fotografar a tela |
@@ -104,6 +105,16 @@ pasta, e o **aplicativo de produção renderiza**. O que veio de fora é só o t
 que o restaurante escreveria. O script está pronto e é de uso geral; as
 armadilhas (resolução, setor por índice, service worker, setor de combo) estão
 em [`references/mockups.md`](references/mockups.md).
+
+**Quando o recurso é a mídia que o lojista sobe, você faz a mídia.** Capa e
+vitrine em vídeo não têm captura: o cardápio modelo está vazio e o de produção
+tem a campanha de um cliente. O `fazer-midia.py` renderiza as artes de
+`assets/midia/artes/` e gera os MP4 (6 s, H.264, mudos); o `capturar-cardapio.py`
+entrega tudo ao cardápio público na resposta do `validaDelivery` e fotografa o
+aplicativo de verdade renderizando. A arte usa a **paleta da loja**, não a da
+BeeFood, e o formato é **1920×580** com 14% de margem segura — o cardápio corta
+com `object-fit: cover` (~4,1/1 no computador, ~2,6/1 no celular). Detalhes em
+[`references/mockups.md`](references/mockups.md).
 
 **A campanha da loja de exemplo não pode virar o assunto da arte.** O totem de
 exemplo anunciava "Pudim R$ 16,90" na tela de espera, e numa capa sobre cardápio
@@ -145,6 +156,13 @@ Capturas já existentes em `manuais/` podem ser **referenciadas** de dentro do
 slide (`../../../manuais/<manual>/imagens-puras/<arquivo>.png`). Não copie: o
 print do manual é o mesmo print, e duplicar cria duas verdades.
 
+**Mas print de manual não sustenta afirmação de slide.** Ele foi tirado para
+mostrar a tela, não o seu argumento: o slide "combo de quarta aparece só na
+quarta" saiu com o print do manual, que tem **os sete dias acesos**, e a arte
+desmentia o título. Quando o slide afirma um estado da interface, fotografe
+aquele estado — no sandbox, deixando a tela como estava (abra, ajuste, capture
+e **feche descartando**).
+
 **Antes de capturar, olhe a prateleira.** Fotos de produto, tela de espera do
 totem e faixa do cardápio já estão em `assets/fotos/`, e os aparelhos já estão
 desenhados — o índice é [`references/mockups.md`](references/mockups.md), com a
@@ -173,6 +191,7 @@ Comece copiando um modelo de `assets/slides/`:
 | `texto.html` | o custo, o limite, o "vale lembrar" |
 | `mockup-computador.html` | tela do painel em janela de navegador, com realce |
 | `mockup-celular.html` | tela de celular (cardápio digital, app) |
+| — (`.notebook`, `.monitor` no `base.css`) | página deitada vista como **cena**, não como página: capa e slide de resultado |
 | `mockup-totem.html` | Totem de Autoatendimento: tela em pé sobre coluna, com cardápio de exemplo |
 | `mockup-tablet.html` | Cardápio Digital no Tablet: tela deitada em suporte de mesa, com cardápio de exemplo |
 | `ilustracao-app.html` | tela que não dá para capturar, desenhada em CSS |
@@ -227,6 +246,9 @@ escala, e o corte passa a sensação de que a tela continua.
 - **Celular** (`.sangria .sangria--celular`) sangra pela **base**.
 - **Computador** (`.navegador .sangria .sangria--janela`) sangra pela
   **direita**, porque é deitado; é assim que ele passa de 1000 px de largura.
+- **Notebook** (`.notebook`) e **monitor** (`.monitor`) são a outra saída para
+  tela deitada: a janela mostra a **página**, e eles mostram a **cena** — alguém
+  sentado, olhando aquilo. Numa capa isso vale mais que 100 px a mais de tela.
 - **Totem** (`.totem`) e **tablet** (`.tablet`) já estão desenhados, com largura
   de uso e tela de exemplo — veja [`references/mockups.md`](references/mockups.md)
   e a folha `assets/catalogo/catalogo.png`. Mexer neles pede rodar o
@@ -349,6 +371,7 @@ diferente do padrão ganha sufixo no nome, para não sobrescrever a arte final.
 
 ```bash
 python .cursor/skills/carrossel-novidades/scripts/conferir-texto.py <slug>
+python ... <pasta> --novidade <slug-publicado>   # pasta com nome mais curto
 ```
 
 Acusa qualquer sequência de seis palavras que apareça igual no texto (ou no
@@ -366,7 +389,9 @@ fato → ângulo → slide.
    sozinha, ela vai centralizada e grande.
 4. Toda afirmação do slide está no manual ou na novidade? Se não está em nenhum
    dos dois, ou você confere no sistema, ou corta. O `roteiro.md` diz quais
-   telas são captura e quais são desenho?
+   telas são captura e quais são desenho? E a imagem de cada slide **prova o
+   título**, ou só ilustra o assunto dele? (Print emprestado do manual costuma
+   mostrar outro estado da tela — e aí a arte desmente a frase.)
 5. Alguma frase explica enfeite de tela ("a bolinha verde marca…")? Algum
    diminutivo? Algum "ele" que não é o leitor nem o cliente dele? Os três saem
    — e o que fica no lugar é a consequência para o negócio.
@@ -438,15 +463,17 @@ carrosseis/<slug>/
 ├── assets/slides/*.html     # modelos de slide, prontos para copiar
 ├── assets/fotos/            # biblioteca: fotos de produto e telas reusáveis
 ├── assets/fundos/           # arte de fundo que entra no totem na captura
+├── assets/midia/            # banner, cartaz de aviso e MP4 do cardápio digital
 ├── assets/catalogo/         # os aparelhos fotografados, e a folha com todos
-├── scripts/capturar-totem.py, preparar-fundo.py, catalogo.py
+├── scripts/capturar-totem.py, capturar-cardapio.py, fazer-midia.py,
+│          preparar-fundo.py, catalogo.py
 └── references/mockups.md    # o índice da prateleira: o que já existe e a medida
 ```
 
 Carrossel novo começa por aí, e não por CSS novo. O que virou geral **sai** da
 pasta do carrossel e vem para cá — foi o caso do capturador do totem, das fotos
-de produto e do fundo de comida, que nasceram todos dentro do carrossel da
-tradução.
+de produto e do fundo de comida, que nasceram dentro do carrossel da tradução, e
+do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
 
 ## Regras de arte
 

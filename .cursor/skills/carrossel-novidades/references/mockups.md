@@ -15,6 +15,8 @@ prova de que o aparelho continua lendo como aparelho.
 | Totem de Autoatendimento | `.totem` | 400 sozinho, 420 com texto ao lado, 384 dividindo a capa | captura ou `.tela-totem` |
 | Cardápio Digital no Tablet | `.tablet` | 880 sozinho, 660 dividindo a faixa | `.tela-tablet` |
 | Celular | `.celular` | 660 em sangria, 462 em 3D | captura ou `.tela-app` |
+| Notebook | `.notebook` | 900 sozinho, 940 numa capa, 760 dividindo a faixa | captura de página deitada |
+| Monitor de mesa | `.monitor` | 920 sozinho, 780 dividindo a faixa | captura de painel (16/9) |
 | Janela de navegador | `.navegador` | 1120, sangrando pela direita | captura recortada |
 | Cupom térmico | `.cupom` + `.rasgado` | até 460 | desenho, sempre |
 
@@ -53,6 +55,10 @@ cartaz de promoção rouba o assunto da peça (ver `assets/fundos/` abaixo).
 a captura: `fundo-totem-espera.png` (9/16, atrás do botão) e
 `fundo-totem-banner.png` (a faixa do cardápio). Saem de um vídeo de comida pelo
 `scripts/preparar-fundo.py`.
+
+`assets/midia/` é o estúdio: banners, cartazes de aviso e os MP4 que entram
+**dentro** do cardápio digital na hora da captura. Veja a seção
+[Estúdio de mídia](#estúdio-de-mídia-quando-a-novidade-é-a-mídia).
 
 ## Totem de Autoatendimento
 
@@ -150,6 +156,92 @@ três itens com o preço visível — preço cortado lê como bug.
 
 O aplicativo é Android e **não roda no Cloud Agent**: a tela é sempre desenhada
 em cima do print de produção que está em `manuais/`, com as fotos reais da API.
+
+## Notebook e monitor de mesa
+
+Página web deitada tem três mockups, e eles dizem coisas diferentes:
+
+| Peça | O que ela mostra | Quando |
+|---|---|---|
+| `.navegador` | a **página** | recorte de painel, com `.realce` em cima de um campo |
+| `.notebook` | a **cena**: alguém sentado, olhando aquilo | capa, e todo slide em que o assunto é o cliente vendo a tela |
+| `.monitor` | o lugar de trabalho do dono | painel visto de onde ele trabalha, em 16/9 |
+
+Numa capa o notebook vale mais que 100 px a mais de tela: a moldura conta que
+tem gente do outro lado. Foi o que a capa do carrossel de capas e destaques
+pediu — o assunto era o cardápio virar vitrine, e vitrine se olha de longe.
+
+O que faz o desenho ler como notebook, e não como monitor:
+
+- **tela 16/10.** 16/9 lê como televisão.
+- **moldura preta fina e igual** nos quatro lados, com o queixo um pouco maior.
+- **fio prateado** em volta da tampa: é a carcaça aparecendo.
+- **base mais larga que a tampa**, baixa, com a frente arredondada e o recorte
+  de abrir no meio. Sem a base é monitor sem pé; sem o recorte, a base lê como
+  barra de som.
+
+E o monitor é o contrário do tablet: aqui **pescoço mais pé é exatamente o que
+se quer**, com tela 16/9 e um queixo de 4% embaixo dela — sem o queixo vira
+televisão de parede.
+
+Os dois têm a peça de baixo (base, pescoço) **absoluta, pendurada fora da caixa
+do elemento**, como o totem e o tablet. Em 3D, o brilho do `.g3d::after` cobre
+`inset: 0` do elemento girado e pintaria o vão transparente das quinas.
+
+Duas armadilhas que custaram render:
+
+- **`clip-path` recorta os filhos.** O afunilamento do pescoço do monitor não
+  pode ficar no invólucro `.monitor__pe`, senão o pé sai com a largura do
+  pescoço. Pescoço no `::before`, pé no `::after`.
+- **`overflow: hidden` do slide come a base do notebook** quando ele fica no
+  limite de baixo. Suba o mockup alguns pixels em vez de encolher.
+
+O notebook **aceita 3D** (tampa tem espessura, e o giro valoriza). O monitor
+também, mas tem menos a ganhar: a peça é uma chapa.
+
+## Estúdio de mídia: quando a novidade é a mídia
+
+Tem novidade em que o recurso **é o conteúdo que o lojista sobe** — banner de
+capa, vitrine, cartaz de aviso. Aí não existe "captura do recurso": o cardápio
+de exemplo está vazio, e o de produção tem a campanha de um cliente. A saída é
+fazer a mídia e **entregar ela para o aplicativo de verdade renderizar**.
+
+```bash
+# 1. as artes: PNG/JPG e os MP4
+python .cursor/skills/carrossel-novidades/scripts/fazer-midia.py
+
+# 2. o cardápio modelo rodando com elas dentro
+python .cursor/skills/carrossel-novidades/scripts/capturar-cardapio.py \
+    --saida carrosseis/<slug>/imagens-puras \
+    --conteudo carrosseis/<slug>/midias.json
+```
+
+O `fazer-midia.py` renderiza fragmentos de `assets/midia/artes/*.html` com o
+`arte.css` e, para os que pedem vídeo, gera um MP4 com um movimento de zoom
+lento no FFmpeg (6 s, H.264, **mudo** — o cardápio toca `<video muted>`). O
+`capturar-cardapio.py` intercepta o `validaDelivery` do cardápio público,
+descompacta o JSON (base64 + zlib), escreve `bannersJson` e `avisosJson` com a
+nossa mídia e devolve. Os arquivos saem do disco por outra rota, com suporte a
+`Range` — sem isso o Chromium não toca o MP4.
+
+O que essa rodada ensinou:
+
+- **a arte é da loja, não da BeeFood.** O `arte.css` tem uma paleta própria (a
+  da hamburgueria do cardápio modelo). Banner com o vermelho da BeeFood dentro
+  do cardápio de um cliente lê como anúncio nosso no cardápio dele.
+- **meça o vão antes de desenhar.** O cardápio corta a mídia com
+  `object-fit: cover`: ~4,1/1 no computador e ~2,6/1 no celular. A primeira
+  rodada saiu em 16/9 e o aplicativo comeu o selo e o preço. Em **1920×580**
+  (3,3/1), com 14% de margem segura, o texto sobrevive aos dois cortes.
+- **desvie do que o aplicativo desenha por cima.** O logotipo da loja fica
+  embaixo à esquerda no computador e no meio no celular, e o selo de avaliação
+  no alto à direita: o texto do banner de capa mora na faixa de cima, à
+  esquerda.
+- **preço e nome saem da API do cardápio**, nunca da cabeça. Banner com preço
+  inventado é o tipo de detalhe que volta como reclamação.
+- **`service_workers="block"` e rota no contexto**, a mesma armadilha do totem.
+- **o cupom verde de cupons** ("Você tem 2 cupons!") tapa o topo do cardápio: o
+  `capturar-cardapio.py` fecha pelo `.promo-banner`, e não por texto.
 
 ## Celular, janela e cupom
 
