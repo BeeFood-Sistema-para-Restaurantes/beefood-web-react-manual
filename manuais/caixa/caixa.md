@@ -6,7 +6,7 @@ Este manual ensina, passo a passo, a:
 2. **Receber um pagamento** (que cai automaticamente no caixa)
 3. **Consultar o valor** no caixa que foi aberto
 
-> As imagens têm **setas com números** (①, ②, ③...). No texto, cada número indica
+> As imagens têm **setas com números** (1, 2, 3...). No texto, cada número indica
 > exatamente o campo ou botão correspondente na tela. Campos marcados com **\*** são **obrigatórios**.
 
 ---
@@ -28,10 +28,10 @@ Este manual ensina, passo a passo, a:
 
 | Nº | Campo | Obrigatório | O que fazer |
 |----|-------|:-----------:|-------------|
-| ① | **Saldo Inicial em Dinheiro \*** | **Sim** | Informe quanto há de dinheiro (troco) no início. Se não houver, clique em **Sem saldo** para usar R$ 0,00. |
-| ② | **Caixa \*** | **Sim** | Selecione o caixa/terminal que será aberto. |
-| ③ | **Tipos de Venda** | Não | Deixe ligado **Presencial** e/ou **Delivery** conforme o que esse caixa vai atender (ambos já vêm ligados). |
-| ④ | **ABRIR CAIXA** | — | Clique para concluir a abertura. |
+| 1 | **Saldo Inicial em Dinheiro \*** | **Sim** | Informe quanto há de dinheiro (troco) no início. Se não houver, clique em **Sem saldo** para usar R$ 0,00. |
+| 2 | **Caixa \*** | **Sim** | Selecione o caixa/terminal que será aberto. |
+| 3 | **Tipos de Venda** | Não | Deixe ligado **Presencial** e/ou **Delivery** conforme o que esse caixa vai atender (ambos já vêm ligados). |
+| 4 | **ABRIR CAIXA** | — | Clique para concluir a abertura. |
 
 > O campo **Observação (opcional)** pode ser usado para anotações sobre a abertura.
 
@@ -54,8 +54,8 @@ Este manual ensina, passo a passo, a:
 
 | Nº | Item | O que fazer |
 |----|------|-------------|
-| ① | **Dinheiro** | Clique para receber em dinheiro (essa forma é a que soma em **“Vendas em Dinheiro”** no caixa). As demais opções: Débito, Crédito, PIX Manual, Vale Alimentação, Vale Refeição, Fiado, PIX Bee. |
-| ② | **Valor a receber** | Confira o **Valor Total** e quanto ainda **Falta** receber. |
+| 1 | **Dinheiro** | Clique para receber em dinheiro (essa forma é a que soma em **“Vendas em Dinheiro”** no caixa). As demais opções: Débito, Crédito, PIX Manual, Vale Alimentação, Vale Refeição, Fiado, PIX Bee. |
+| 2 | **Valor a receber** | Confira o **Valor Total** e quanto ainda **Falta** receber. |
 
 5. Confirme o valor recebido:
 
@@ -63,8 +63,8 @@ Este manual ensina, passo a passo, a:
 
 | Nº | Campo | O que fazer |
 |----|-------|-------------|
-| ① | **Valor do pagamento** | Já vem preenchido com o valor da venda. Se o cliente pagar com nota maior, use **Calcular Troco**. |
-| ② | **CONFIRMAR (ENTER/F1)** | Clique para registrar o pagamento. |
+| 1 | **Valor do pagamento** | Já vem preenchido com o valor da venda. Se o cliente pagar com nota maior, use **Calcular Troco**. |
+| 2 | **CONFIRMAR (ENTER/F1)** | Clique para registrar o pagamento. |
 
 6. O pagamento aparece em **Pagamentos realizados** como **“Dinheiro — Pago”** e o sistema
    mostra **“Pagamento completo”**. A venda está finalizada e o valor já foi para o caixa aberto.
@@ -80,8 +80,8 @@ Este manual ensina, passo a passo, a:
 
 | Nº | Item | Descrição |
 |----|------|-----------|
-| ① | **Ver Caixa** (lupa azul) | Abre os detalhes e o resumo do caixa. |
-| ② | **Em aberto** | Confirma que este é o caixa atualmente aberto. |
+| 1 | **Ver Caixa** (lupa azul) | Abre os detalhes e o resumo do caixa. |
+| 2 | **Em aberto** | Confirma que este é o caixa atualmente aberto. |
 
 3. Na tela do caixa, confira as movimentações (à esquerda) e o **Resumo Dinheiro** (à direita):
 
@@ -89,9 +89,9 @@ Este manual ensina, passo a passo, a:
 
 | Nº | Item | Descrição |
 |----|------|-----------|
-| ① | **Operação da venda** | Cada pagamento aparece na lista. Ex.: **Venda Nº 571 — R$ 4,44 — Dinheiro**. |
-| ② | **VENDAS EM DINHEIRO** | Soma dos pagamentos recebidos em dinheiro (ex.: **R$ 4,44**). |
-| ③ | **VALOR EM CAIXA** | É o total em dinheiro no caixa: **Saldo Inicial + Vendas em Dinheiro − Sangrias**. No exemplo: R$ 50,00 + R$ 4,44 = **R$ 54,44**. |
+| 1 | **Operação da venda** | Cada pagamento aparece na lista. Ex.: **Venda Nº 571 — R$ 4,44 — Dinheiro**. |
+| 2 | **VENDAS EM DINHEIRO** | Soma dos pagamentos recebidos em dinheiro (ex.: **R$ 4,44**). |
+| 3 | **VALOR EM CAIXA** | É o total em dinheiro no caixa: **Saldo Inicial + Vendas em Dinheiro − Sangrias**. No exemplo: R$ 50,00 + R$ 4,44 = **R$ 54,44**. |
 
 > Resumindo o exemplo: abrimos o caixa com **R$ 50,00**, recebemos uma venda de **R$ 4,44**
 > em dinheiro e o **Valor em Caixa** passou a ser **R$ 54,44** — exatamente o esperado.
