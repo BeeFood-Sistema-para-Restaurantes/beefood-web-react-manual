@@ -86,6 +86,11 @@ aparece só na quarta — a arte desmentia o título. O `capturar-telas.py` abre
 modal no sandbox, apaga seis dias, fotografa a linha e **fecha descartando**, de
 modo que a agenda do sandbox continua como o manual deixou.
 
+O `novidades-celular.png` para no **título** do cartão, e não no começo dele: o
+cartão abre com as etiquetas e a data da publicação, e data que aparece na arte
+data o post. Rolando 12 px além do cabeçalho fixo, etiquetas e data ficam atrás
+dele e o print continua sendo print.
+
 O recorte é só dos dias da semana: a linha inteira da agenda tem 1276 px e,
 reduzida para os 904 px da margem do slide, a letra do painel some no feed.
 Horário e canal estão no texto do slide.
@@ -116,6 +121,12 @@ preço. Em 3,3/1 a perda fica em ~20% de cada lado e cabe na zona segura.
 E a arte de capa joga o texto todo para a faixa de cima: embaixo, o próprio
 cardápio desenha o logotipo da loja (à esquerda no computador, no meio no
 celular) e o selo de avaliação fica no alto à direita.
+
+## Um emoji no carrossel inteiro
+
+Os sete títulos têm palavra em vermelho, e emoji junto do grifo é grifo em cima
+de grifo. O 👇 do slide 4 e o 🎬 do slide 7 saíram; sobrou o 🎬 no rótulo do
+cartão do slide 2, que não disputa com vermelho nenhum.
 
 ## A capa em vídeo
 

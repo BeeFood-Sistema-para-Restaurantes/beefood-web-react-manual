@@ -300,6 +300,7 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 - [ ] Nenhum slide explica com cinco linhas o que dois recortes da tela provam.
 - [ ] Cada slide fecha no que muda para o negócio, não na descrição do recurso.
 - [ ] A capa tem **uma** palavra em vermelho, e nenhum emoji junto dela.
+- [ ] Nenhum título com palavra em vermelho leva emoji — em slide nenhum.
 - [ ] O slide 1 tem imagem, e a imagem mostra **um** destaque só.
 - [ ] Cada slide tem **uma** ideia; o título do slide diz qual.
 - [ ] Toda afirmação está no texto da novidade ou no manual — ou foi conferida
@@ -310,3 +311,5 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 - [ ] O CTA pede uma coisa só.
 - [ ] Os pontos do rodapé marcam a posição certa do slide.
 - [ ] Nenhum nome, telefone ou e-mail de cliente aparece em nenhum print.
+- [ ] Nenhum print mostra data de publicação — nem o print de página nossa, que
+      traz a data da novidade no alto do cartão.

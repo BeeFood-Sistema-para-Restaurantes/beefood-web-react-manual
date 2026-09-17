@@ -558,6 +558,9 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
 - **A capa é a frase mais curta do carrossel**, com **uma** palavra no `.destaque`
   vermelho e nenhum emoji junto dela. Duas palavras vermelhas não destacam nada,
   e emoji ao lado do vermelho é grifo em cima de grifo.
+- **Emoji nenhum na frase que tem vermelho** — em qualquer slide, não só na
+  capa. Se todos os títulos têm grifo, o emoji vai para o rótulo de um cartão,
+  ou fica de fora: carrossel sem emoji passa, emoji colado no grifo não.
 - **A capa tem imagem**, e a imagem é o resultado da novidade (o papel impresso,
   a tela nova) — nunca um ícone decorativo. Capa só de texto perde no feed.
 - **A imagem da capa mostra um destaque só.** Cupom com duas linhas marcadas

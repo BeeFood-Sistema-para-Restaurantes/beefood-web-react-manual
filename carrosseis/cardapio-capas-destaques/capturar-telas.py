@@ -13,8 +13,9 @@ mídia injetada na resposta da API) e do `capturar.py`.
 2. **A página de novidades no CTA** (`novidades-celular.png`). A lista é
    ordenada por data, e a desta publicação é de agosto: aberta na home, a tela
    mostra outra novidade, e o CTA acabava com um print falando de outro
-   assunto. O script filtra o aplicativo Cardápio Digital e rola até o cartão
-   desta novidade encostar no topo, logo abaixo do cabeçalho fixo.
+   assunto. O script filtra o aplicativo Cardápio Digital e rola até o
+   **título** desta novidade encostar no cabeçalho fixo — parando no cartão
+   inteiro, a data de publicação aparece na arte e data o post.
 
 Uso:
     python3 carrosseis/cardapio-capas-destaques/capturar-telas.py
@@ -113,14 +114,14 @@ def pagina_de_novidades() -> None:
               const titulo = [...document.querySelectorAll('h2, h3')]
                 .find(e => (e.textContent || '').includes(dados.titulo));
               if (!titulo) throw new Error('cartão da novidade não encontrado');
-              // O cartão inteiro, e não só o título: é ele que traz as etiquetas
-              // e a data, e é a caixa que precisa encostar no cabeçalho.
-              const cartao = titulo.closest('article, li, div[class*="rounded"]')
-                             || titulo;
-              const y = cartao.getBoundingClientRect().top + window.scrollY;
-              window.scrollTo(0, y - dados.cabecalho);
+              // A âncora é o título, não o cartão: encostando o cartão no
+              // cabeçalho, a data de publicação entra no print e **data o
+              // post** — carrossel aprovado sai da fila semanas depois. Parando
+              // no título, as etiquetas e a data ficam atrás do cabeçalho fixo.
+              const y = titulo.getBoundingClientRect().top + window.scrollY;
+              window.scrollTo(0, y - dados.cabecalho - dados.folga);
             }""",
-            {"titulo": TITULO, "cabecalho": CABECALHO})
+            {"titulo": TITULO, "cabecalho": CABECALHO, "folga": 12})
         pagina.wait_for_timeout(1500)
 
         arquivo = SAIDA / "novidades-celular.png"

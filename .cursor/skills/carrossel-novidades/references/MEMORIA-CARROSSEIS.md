@@ -216,6 +216,12 @@ Dois detalhes que custaram uma rodada:
 - **Capa com palavra em vermelho não leva emoji.** São dois grifos na mesma
   frase, e o segundo tira força do primeiro. A capa do *Destaque na impressão*
   perdeu o 🥤 quando "bebida" ficou vermelha — e a frase melhorou.
+- **A regra vale em todo slide, não só na capa, e sobra o rótulo de bloco.** Em
+  *Capas e destaques* os sete títulos têm palavra vermelha: o 👇 do slide da
+  vitrine e o 🎬 do CTA eram grifo em cima de grifo, e saíram. O único emoji do
+  carrossel foi para o rótulo do cartão ("🎬 O QUE ENTRA DE NOVO"), que não
+  disputa com vermelho nenhum. Carrossel com zero emoji também passa; o que não
+  passa é emoji colado no grifo.
 
 ### Microdetalhe de interface não é conteúdo
 
@@ -406,6 +412,14 @@ Onde a data **pode** ficar:
   data pareceria adulterado.
 - **no `roteiro.md` e no cabeçalho do `copy-instagram.txt`**, como referência de
   qual novidade é. É nota de produção, não sai na arte.
+
+E onde ela se esconde: **print da própria página de novidades**. O CTA de capas
+e destaques leva o celular na `beefood.app/novidades`, e o cartão da publicação
+começa com as etiquetas e o "13/08/2026". A data é legítima na página e mata o
+post do mesmo jeito. A correção é de rolagem, não de retoque: o
+`capturar-telas.py` encosta o **título** no cabeçalho fixo em vez do cartão
+inteiro, e etiquetas e data ficam atrás dele. Antes de fechar um CTA com print
+de página nossa, leia o que aparece na primeira linha do print.
 
 ## Zona segura — o que o Instagram realmente cobre
 
