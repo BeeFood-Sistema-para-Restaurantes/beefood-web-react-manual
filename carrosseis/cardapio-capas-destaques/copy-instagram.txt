@@ -8,16 +8,6 @@ Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
 nomes de arquivo: 01-capa, 02-parte-dificil, 03-antes-agora, 04-vitrine,
 05-avisos, 06-agenda, 07-cta.
 
-A CAPA TEM VERSÃO EM VÍDEO — vale muito a pena usar:
-
-  video/01-capa.mp4    6 s, mudo, 1080x1350
-
-  É o mesmo slide 1, com o vídeo rodando de verdade dentro do notebook. O
-  carrossel do Instagram aceita vídeo no lugar de uma imagem, e aqui a novidade
-  É movimento: a capa parada gasta o melhor argumento da peça. Suba o MP4 como
-  primeiro item e os outros seis PNG na sequência. Se preferir tudo parado,
-  use o png/01-capa.png e ignore a pasta video.
-
 Todas as telas do cardápio são captura do cardápio modelo da ONE STAND
 HAMBURGUERIA rodando de verdade, com a nossa mídia de exemplo entregue na
 resposta da API — os banners, os vídeos e os cartazes de aviso são arte nossa,
@@ -31,32 +21,28 @@ LEGENDA — cole no campo de legenda
 
 Sua capa agora é um carrossel 🎬
 
-Você já fez a parte mais difícil. Fotografou o lanche, escreveu a descrição,
-montou o combo, deixou o adicional no lugar certo. Seu cardápio está pronto para
-vender — faltava movimento.
+Você já fez a parte mais difícil: fotografou o lanche, escreveu a descrição,
+montou o combo, deixou o adicional no lugar certo. O cardápio está pronto para
+vender — o que faltava era movimento.
 
-No topo do cardápio cabia uma foto, e ela ficava parada. Agora entram até cinco
-mídias, e podem ser vídeo. A foto que você escolheu continua sendo a primeira
-coisa que o cliente vê, e depois dela o resto passa sozinho: a carne na chapa, o
-queijo derretendo, o copo enchendo. Quem abriu o link só para conferir o preço
-fica olhando a comida — e escolhe com fome.
+No topo, onde cabia uma foto parada, agora entram até cinco mídias, e podem ser
+vídeo. A foto que você escolheu continua sendo a primeira; depois dela, o resto
+passa sozinho.
 
-No meio do cardápio você ganhou uma vitrine. Combo do dia, sobremesa nova, milk
-shake batendo na hora: a mídia aparece entre as categorias, ali onde o cliente
-já está rolando o dedo. Cabem até cinco, imagem e vídeo na mesma fileira. É onde
-o pedido de um lanche vira pedido de combo com sobremesa.
+Apareceu um segundo lugar, no meio do cardápio, entre as categorias. Destaque
+ali o combo do dia, a sobremesa nova, o milk shake da casa — é o banner que faz
+pedido de lanche virar pedido de combo com sobremesa.
 
-E recado agora tem lugar próprio. Feriado, horário novo, salão fechado hoje:
-você sobe o cartaz, escreve o aviso e ele abre em tela cheia no celular do
-cliente. Some do cardápio aquele item de R$ 0,00 que só existia para avisar.
+Recado ganhou lugar próprio. Feriado, horário novo, salão fechado hoje: suba um
+cartaz e ele abre em tela cheia no celular do cliente. O item de R$ 0,00 que só
+existia para dar o recado pode sair do cardápio.
 
-O melhor vem na hora de programar. Você marca em que dias cada mídia aparece,
-de que horas a que horas, e se ela vale no delivery, no salão ou nos dois. O
-combo de quarta aparece só na quarta e sai do ar sozinho — você não precisa
-lembrar de desligar nada na quinta.
+E nada fica no ar mais do que deveria. Marque o dia e o horário de cada mídia, e
+se ela vale no delivery, no salão ou nos dois: o combo de quarta aparece só na
+quarta e sai sozinho, sem ninguém precisar lembrar na quinta.
 
-Sobe o primeiro vídeo hoje. Comece pelo que mais sai da sua cozinha, em Cardápio
-Digital → Configurações → Capas e Destaques.
+Suba o seu primeiro vídeo hoje, em Cardápio Digital → Configurações → Capas e
+Destaques. Comece pelo produto que mais sai da sua cozinha.
 
 O que mais entrou no sistema está em beefood.app/novidades 🐝❤️
 
@@ -76,25 +62,26 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
 ========================================================================
 
 01  Fundo escuro com o título "Sua capa agora é um carrossel", a palavra
-    carrossel em vermelho. Embaixo, um notebook aberto mostrando o cardápio digital
-    da ONE STAND HAMBURGUERIA: no topo, um banner em vídeo do SMASH 2.0 com o
-    hambúrguer e o preço a partir de R$ 44,90; no meio da página, o banner da
+    carrossel em vermelho. Embaixo, um notebook aberto mostrando o cardápio
+    digital da ONE STAND HAMBURGUERIA: no topo, um banner em vídeo do SMASH 2.0
+    com o hambúrguer e o preço de R$ 44,90; no meio da página, o banner da
     batata com cheddar e bacon.
 
 02  Título "Você já fez a parte mais difícil", com a palavra difícil em
     vermelho, e um texto dizendo que o cardápio já está pronto para vender e
-    que faltava movimento. Numa caixa rosa, a lista do que entra de novo: vídeo
-    e imagem no carrossel da capa, vídeo e imagem na vitrine e cartaz de recado
-    para feriado, horário e salão fechado.
+    que agora dá para mostrar os produtos em foto e vídeo. Numa caixa rosa, os
+    três lugares novos: o topo do cardápio, o meio entre as categorias e o
+    cartaz de recado.
 
-03  Título "Olha o que muda no topo do cardápio" e, embaixo, dois recortes do
-    mesmo cardápio no celular, lado a lado. À esquerda, marcado como Antes, o
-    topo com a foto de capa parada. À direita, marcado como Agora, o mesmo topo
-    com o vídeo do SMASH 2.0 rodando na capa.
+03  Título "Seu cliente vê a comida antes do preço", com a palavra comida em
+    vermelho, e dois recortes do mesmo cardápio no celular, lado a lado. À
+    esquerda, marcado como Antes, o topo com a foto de capa parada. À direita,
+    marcado como Agora, o mesmo topo com o vídeo do SMASH 2.0 rodando na capa.
 
-04  Título "No meio do cardápio, a sua vitrine" e um celular mostrando o
-    cardápio da ONE STAND HAMBURGUERIA com o banner em vídeo do MILK SHAKE DE
-    MORANGO entre o nome da loja e as categorias.
+04  Título "Um banner chamativo vende mais combo", com a palavra combo em
+    vermelho, e um celular mostrando o cardápio da ONE STAND HAMBURGUERIA com o
+    banner em vídeo do MILK SHAKE DE MORANGO entre o nome da loja e as
+    categorias.
 
 05  Título "Recado não é produto de R$ 0,00" e um celular inclinado com o aviso
     aberto em tela cheia: o cartaz FECHADOS NO FERIADO e, embaixo, o mesmo
@@ -104,6 +91,6 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     BeeFood com a linha Dias da semana: sete botões redondos, de domingo a
     sábado, e só o da quarta-feira aceso em vermelho.
 
-07  Fundo escuro com o convite "Sobe o primeiro vídeo hoje" e o caminho Cardápio
-    Digital, Configurações, Capas e Destaques. Embaixo, um celular com a página
-    de novidades do BeeFood aberta nesta publicação.
+07  Fundo escuro com o convite "Suba o seu primeiro vídeo hoje" e o caminho
+    Cardápio Digital, Configurações, Capas e Destaques. Embaixo, um celular com
+    a página de novidades do BeeFood aberta nesta publicação.

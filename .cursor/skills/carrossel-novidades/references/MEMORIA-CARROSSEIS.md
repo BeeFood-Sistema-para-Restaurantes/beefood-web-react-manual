@@ -14,7 +14,8 @@ mundo lê.
 
 15ª rodada: capas e destaques em vídeo — dois mockups de computador, um
 **estúdio de mídia** para a novidade em que o recurso é o conteúdo que o lojista
-sobe, o primeiro **slide em vídeo** e a lição de que a arte não pode desmentir a
+sobe, o **slide em vídeo** (filmado, e depois descartado por causa do corte que
+o zoom faz no texto da arte) e a lição de que a arte não pode desmentir a
 frase do slide.
 
 14ª rodada: o que o carrossel da tradução produziu de geral **subiu para a
@@ -35,7 +36,7 @@ na voz da marca e falando com você**.
 |-----------|----------|-------|---------|--------|
 | Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ entregue — `entrega/destaque-impressao.zip` (8 PNG + copy) |
 | Cardápio presencial em inglês e espanhol | [16/09/2026](https://beefood.app/novidades/traducao-cardapio-presencial) | `carrosseis/traducao-cardapio-presencial/` | 4:5, 7 slides | ✅ entregue — `entrega/traducao-cardapio-presencial.zip` (7 PNG + copy) |
-| Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + capa em vídeo + copy) |
+| Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -1239,6 +1240,18 @@ Duas coisas que só aparecem quando se tenta:
   (em 12 fps, um a cada dois dá zero), ou empilhe uma linha de cada quadro num
   slit-scan — movimento contínuo vira diagonal lisa, quadro repetido vira
   degrau.
+
+E a terceira, que só apareceu na revisão final e derrubou o filme: **zoom de
+capa não convive com texto encostado na margem.** O banner de capa deste
+carrossel tem o título e o preço a 14% da borda, e o cardápio já corta a faixa
+para caber no vão de 4,1/1. Somado o avanço da lente, a partir do quarto segundo
+faltava letra em "CHEGOU", "SMASH 2.0" e "R$ 44,90". Baixar o zoom resolve o
+corte e devolve o problema da primeira versão — filme que quase não anda.
+
+A capa em vídeo saiu da entrega por isso, e a entrega ficou em 7 PNG. A decisão
+é de peça, não de script: quando a mídia filmada é uma **arte com texto**, ou ela
+nasce com 22% de folga na margem, ou o slide é parado. Filmar compensa quando o
+que se mexe é foto, produto ou interface, e não letra.
 
 ### A arte não pode desmentir a frase do slide
 

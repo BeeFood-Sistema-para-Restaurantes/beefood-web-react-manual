@@ -393,6 +393,14 @@ Filme a `--fps 25`, mesmo custando 2,5 min de captura: abaixo disso o MP4 sai a
 25 fps com quadro repetido, o movimento anda aos pares e no feed parece
 trepidação, não avanço de lente.
 
+**Não filme arte com texto encostado na margem.** O zoom que dá vida ao banner é
+o mesmo que empurra o título contra a borda, e o aplicativo já cortou a faixa
+antes disso. Foi por aí que a capa em vídeo de *capas e destaques* saiu da
+entrega: do quarto segundo em diante faltava letra no selo e no preço, e baixar o
+zoom devolve o filme que não anda. Filmar compensa quando o que se mexe é foto,
+produto ou interface — para arte com letra, ou ela nasce com 22% de folga na
+margem, ou o slide é parado.
+
 ### 6. Revisão
 
 ```bash

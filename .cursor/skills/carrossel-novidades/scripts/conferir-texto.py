@@ -52,6 +52,7 @@ NOMES_DE_PRODUTO = (
     "Editar em Lote",
     "Destaque na impressão",
     "Salvar e Sair",
+    "Capas e Destaques",
 )
 
 

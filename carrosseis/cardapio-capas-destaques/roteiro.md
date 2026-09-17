@@ -20,17 +20,22 @@ recado sem cadastrar produto de R$ 0,00. Tudo com **agenda** por dia da semana,
 faixa de horário e canal (Delivery, Presencial). Fora da agenda, a mídia não
 aparece.
 
-## Fato → ângulo → o que o slide diz
+## Fato → ângulo → ideia de uso → o que o slide diz
 
-| Fato (novidade e manual) | Ângulo | O que o slide diz |
-|---|---|---|
-| O topo aceitava **uma** foto parada; agora a foto fixa é o primeiro slide de um carrossel de até 5 mídias, imagem ou vídeo, que passam sozinhas | cardápio digital é lista de preço; o que vende na rua é a vitrine que se move | "Sua capa agora é um **carrossel**" |
-| O dono já tem foto, descrição e combo montados; faltava movimento | ele fez a parte difícil e não sabe que o trabalho agora rende mais | "Você já fez a parte mais difícil" |
-| A capa fixa continua o primeiro slide; os destaques entram depois dela | ele tem medo de perder a capa que já escolheu | "Olha o que muda no topo do cardápio" (antes × agora) |
-| Destaques da sua loja: vitrine no meio da página, até 5 mídias | quem entra para pedir um lanche e sai com sobremesa | "No meio do cardápio, a sua vitrine" |
-| Aba Avisos: imagem quadrada, título e descrição, sem botão de pedir | a gambiarra de cadastrar produto de R$ 0,00 para dar recado | "Recado de feriado não é produto de R$ 0,00" |
-| Agenda por dia, hora e canal; fora do período a mídia sai do ar | a promoção de quarta que fica no ar até domingo | "Combo de quarta aparece só na quarta" |
-| Prévia ao vivo na aba Configurações; até 1 minuto para publicar | — | fora: é detalhe de tela de quem já está configurando |
+A coluna da **ideia de uso** é a que decide o texto. A pergunta na cabeça de
+quem lê é "isso serve pra quê na minha loja?", e cada slide responde uma. Sem
+essa coluna, o slide escorrega para um dos dois lados: ensina a mexer no sistema
+ou narra a cena do cliente em close.
+
+| Fato (novidade e manual) | Ângulo | Ideia de uso | O que o slide diz |
+|---|---|---|---|
+| O topo aceitava **uma** foto parada; agora a foto fixa é o primeiro slide de um carrossel de até 5 mídias, imagem ou vídeo, que passam sozinhas | cardápio digital é lista de preço; o que vende na rua é a vitrine que se move | mostrar até cinco fotos e vídeos onde cabia uma foto | "Sua capa agora é um **carrossel**" |
+| O dono já tem foto, descrição e combo montados; faltava movimento | ele fez a parte difícil e não sabe que o trabalho agora rende mais | mostrar os produtos dele em foto e vídeo | "Você já fez a parte mais **difícil**" |
+| A capa fixa continua o primeiro slide; os destaques entram depois dela | ele tem medo de perder a capa que já escolheu | pôr um vídeo do produto depois da capa que ele já escolheu | "Seu cliente vê a **comida** antes do preço" |
+| Destaques da sua loja: vitrine no meio da página, até 5 mídias | quem entra para pedir um lanche e sai com sobremesa | destacar combo do dia, sobremesa nova ou milk shake entre as categorias | "Um banner chamativo vende mais **combo**" |
+| Aba Avisos: imagem quadrada, título e descrição, sem botão de pedir | a gambiarra de cadastrar produto de R$ 0,00 para dar recado | subir um cartaz de recado e apagar o produto que fazia esse papel | "Recado não é produto de **R$ 0,00**" |
+| Agenda por dia, hora e canal; fora do período a mídia sai do ar | a promoção de quarta que fica no ar até domingo | programar a promoção para entrar e sair sozinha | "Combo de quarta aparece só na **quarta**" |
+| Prévia ao vivo na aba Configurações; até 1 minuto para publicar | — | — | fora: é detalhe de tela de quem já está configurando |
 
 ## Slides
 
@@ -42,12 +47,18 @@ aparece.
    combo) e traz o furo junto com a solução: faltava movimento.
 3. **Antes × agora** — o topo do mesmo cardápio, no celular, sem mídia e com o
    vídeo. A capa fixa continua lá; o vídeo entra depois dela.
-4. **A vitrine** — destaques da loja no meio da página, onde o cliente já está
-   rolando. Imagem e vídeo na mesma fileira.
+4. **O meio do cardápio** — o banner entre as categorias, e o ganho no título:
+   pedido de lanche que vira pedido de combo com sobremesa.
 5. **Avisos** — o cartaz de recado, aberto no celular do cliente, e o fim do
    produto de R$ 0,00.
 6. **Agenda** — dia, horário e canal, com a linha real do painel.
-7. **CTA** — um pedido só: suba a primeira mídia.
+7. **CTA** — um pedido só: subir a primeira mídia.
+
+Nenhum dos sete blocos abre igual a outro, e nenhum abre com "você pode": a
+abertura alterna entre o imperativo ("Destaque", "Suba", "Programe"), o ganho
+dito direto ("Combo de quarta aparece só na quarta") e o reconhecimento ("Você
+já fez a parte mais difícil"). Sete imperativos em fila seriam template do mesmo
+jeito que sete "você pode".
 
 ## Capturas
 
@@ -102,10 +113,28 @@ Horário e canal estão no texto do slide.
 ## A mídia de exemplo
 
 As artes são nossas, feitas no `fazer-midia.py`, com as fotos de produto e os
-preços reais do cardápio modelo (TASTY BACON a partir de R$ 41,90, SMASH 2.0 a
-partir de R$ 44,90 — números lidos da API pública do cardápio). Ficam em
-`assets/midia/` da skill, para o próximo carrossel de cardápio digital já nascer
-com elas.
+preços reais do cardápio modelo (TASTY BACON, R$ 41,90; SMASH 2.0, R$ 44,90 —
+números lidos da API pública do cardápio). Ficam em `assets/midia/` da skill,
+para o próximo carrossel de cardápio digital já nascer com elas.
+
+**Quem fala na arte não é a BeeFood, é a loja.** Este carrossel tem duas vozes,
+e confundi-las foi o erro da primeira rodada: nos slides fala a BeeFood com o
+dono, em tom claro e correto; nas artes fala o dono da ONE Stand, no cartaz
+dele, com alguém que está com fome. Por isso o selo dá ocasião ("Chegou", "Pede
+junto", "Pra fechar") e não categoria de produto, e a linha é o que o atendente
+diria no balcão ("Pede a grande. Confia.", "Pede junto com o lanche. Depois não
+cabe.").
+
+A versão anterior escrevia "a partir de R$ 44,90" e "Sai da fritadeira e vai
+direto pra mesa" — a primeira é a **string da interface** do cardápio, que
+aparece doze vezes na página do produto, e a segunda é legenda de catálogo.
+Nenhuma loja imprime cartaz com o texto do próprio software.
+
+No cartaz de aviso vale a mesma economia: o card do aviso já imprime título e
+descrição **embaixo** da imagem, então a linha dentro da arte diz outra coisa. A
+arte do feriado fala quando a loja volta ("Dia 8 a chapa volta a ligar"), e o
+card, o que a loja faz no dia ("Dia 7 a cozinha descansa. Voltamos dia 8, no
+horário de sempre").
 
 | Arte | Onde entra | Tipo |
 |---|---|---|
@@ -143,32 +172,21 @@ Os sete títulos têm palavra em vermelho, e emoji junto do grifo é grifo em ci
 de grifo. O 👇 do slide 4 e o 🎬 do slide 7 saíram; sobrou o 🎬 no rótulo do
 cartão do slide 2, que não disputa com vermelho nenhum.
 
-## A capa em vídeo
+## A capa em vídeo ficou fora
 
-O carrossel do Instagram aceita vídeo no lugar de uma imagem, e neste post a
-novidade **é** movimento: capa parada gasta o melhor argumento da peça. O
-`video/01-capa.mp4` é o mesmo slide 1, com o vídeo rodando dentro do notebook.
+A entrega são os **7 PNG**, e nada de MP4. A capa em vídeo foi filmada com o
+`filmar-slide.py` e descartada: o zoom que dá vida ao banner é o mesmo que come
+o texto dele. O cardápio já corta a faixa em cima e embaixo para caber no vão de
+4,1/1, e a partir do quarto segundo o avanço da lente empurra "CHEGOU", "SMASH
+2.0" e "R$ 44,90" contra a borda esquerda até faltar letra.
 
-```bash
-python3 .cursor/skills/carrossel-novidades/scripts/filmar-slide.py \
-  carrosseis/cardapio-capas-destaques/slides/01-capa.html \
-  --tomada pc-capa-video \
-  --conteudo carrosseis/cardapio-capas-destaques/midias.json \
-  --saida carrosseis/cardapio-capas-destaques/video/01-capa.mp4 \
-  --segundos 6 --fps 25
-```
+Dá para salvar baixando o zoom, e aí o filme quase não anda — foi exatamente
+essa a reclamação da primeira versão. Arte de banner com texto encostado na
+margem e zoom de capa não convivem no mesmo arquivo: ou a arte nasce com 22% de
+folga, ou o slide é parado.
 
-A 12 quadros por segundo o arquivo sai a 25 fps com quadro repetido sim, quadro
-repetido não: o zoom anda aos pares e lido no feed parece trepidação. A 25 a
-captura leva 2,5 min de relógio e os 150 quadros andam todos.
-
-O script mede no DOM a caixa da tela do notebook (78,696 · 922x576), fotografa
-o cardápio quadro a quadro avançando o `currentTime` do vídeo na mão e costura
-tudo por cima do PNG do slide. Os temporizadores da página são desligados antes
-da filmagem: cada quadro custa quase um segundo de relógio real, e sem isso o
-carrossel do cardápio troca de mídia sozinho no meio do filme.
-
-O PNG parado continua entregue, para quem preferir publicar tudo em imagem.
+O script continua na skill, para a próxima novidade em que o movimento não
+disputar espaço com a letra.
 
 ## Legenda da publicação
 
