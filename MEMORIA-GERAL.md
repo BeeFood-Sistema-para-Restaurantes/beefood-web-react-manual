@@ -955,15 +955,21 @@ próprio produto; não existe aba em complemento nem permissão nova de grupo.
 **O cardápio público filtra a sugestão** (`openUpsell` no bundle Nuxt): descarta o que
 já está na sacola, o inativo, o `disabled` e corta em 6 — se sobrar zero, a janela não
 abre. Foi o que explicou 4 configurados × 3 vistos no manual (o Brownie está oculto pela
-tabela do #68). O preço do card é **o do canal**, com desconto/preço programado
-(R$ 17,60 no delivery × R$ 19,20 no presencial no mesmo item).
+tabela do #68); por pedido do dono, isso é explicado no texto com o produto pelo nome,
+seção própria e pergunta na FAQ — *produto inativo ou oculto não aparece na sugestão*. O
+preço do card é **o do canal**, com desconto/preço programado (R$ 17,60 no delivery ×
+R$ 19,20 no presencial no mesmo item).
 
-**Relatório (`Desempenho → Delivery/Presencial → Sugestões`) só conta venda concluída.**
-Mesmo componente para os dois canais (`tipo` 1 e 2) e o **mesmo relatório das sugestões
-automáticas** — não separa uma coisa da outra. Medido: venda `FECHADO` já arquivada
-aparece; venda `RECEBIDO` de um caixa ainda aberto **não**. Ou seja, pedido de hoje só
-entra depois do fechamento — vale para qualquer manual que precise provar número em
-relatório.
+**Relatório (`Desempenho → Delivery/Presencial → Sugestões`) é processado uma vez por dia
+— até 24 h de atraso** (dono, 17/09/2026). Mesmo componente para os dois canais (`tipo` 1
+e 2) e o **mesmo relatório das sugestões automáticas** — não separa uma coisa da outra.
+
+> **Erro a não repetir:** a venda de hoje não aparecia e a explicação escrita foi
+> "o relatório só conta venda já concluída / fechada no caixa", deduzida da diferença
+> entre uma venda antiga (`FECHADO`, arquivada, aparece) e a de hoje (`RECEBIDO`, não
+> aparece). A causa real é o **processamento diário**. Antes de explicar relatório vazio
+> por estado de venda, considere a janela de processamento — e, em manual, prefira o
+> aviso de prazo a teorizar sobre a base.
 
 **Cache do cardápio público chegou a ~10 minutos** aqui (o normal é 1 minuto). Antes de
 suspeitar da configuração, espere.

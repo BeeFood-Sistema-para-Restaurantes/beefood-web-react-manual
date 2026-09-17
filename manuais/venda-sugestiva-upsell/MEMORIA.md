@@ -60,9 +60,15 @@ inativo e o `disabled`, corta em 6 e só abre a janela se sobrar alguém.
 Isso apareceu na prática: o **Combo One Burger** foi configurado com **quatro** produtos
 (Anéis de Cebola Empanada, Milk Shake de Morango, Brownie, Pudim - Leite Condensado) e o
 cliente vê **três** — o **Brownie** está oculto naquele cardápio pela tabela
-*Ocultar Brownie (manual)* do #68. Não foi bug: foi o filtro funcionando, e virou a
-seção *"O que o cliente não vê, mesmo estando marcado aqui"* + duas linhas de
-*Problemas comuns*.
+*Ocultar Brownie (manual)* do #68. Não foi bug: foi o filtro funcionando.
+
+A pedido do dono (17/09/2026), esse caso é **explicado com nome e sobrenome** no manual,
+em três lugares: a seção 5 virou *"Produto inativo ou oculto não aparece na sugestão"*
+(com a lista dos cinco motivos de descarte e o cruzamento das duas imagens — quatro chips
+na linha *Sugere:* da imagem 02, três cards na imagem 07); a seção 6 ganhou o item
+*"São três cards, e não quatro"*; e há uma pergunta própria na FAQ. O texto também diz
+que a configuração **não se perde**: quando o produto volta ao cardápio, volta a ser
+oferecido.
 
 Outro detalhe provado nas capturas: **o preço é o do canal**. O mesmo anel de cebola sai
 por **R$ 17,60** no delivery e **R$ 19,20** no presencial; o milk-shake aparece com
@@ -79,23 +85,30 @@ componente (`DigitalMenuSuggestions.tsx` do `beefood-reports-hub`), chamando
 `relatorioSugestao/{empresaID}/{inicio}/{fim}/{tipo}` com `tipo` 1 (delivery) e 2
 (presencial).
 
-**O relatório só conta venda já concluída.** Provado com dois pedidos:
+**O relatório é processado uma vez por dia e leva até 24 horas** — informação do dono, em
+17/09/2026, depois da primeira entrega do manual. É a explicação certa para o que a
+medição do dia mostrou:
 
-| Venda | Situação | Esteira | Aparece no relatório? |
-|-------|----------|---------|-----------------------|
-| 809 (13/08) | `FECHADO` | sim (`esteira=1`) | **sim** — é o R$ 44,00 / 4 sugestões da imagem 09 |
-| 1013 (17/09, feito para este manual, com o upsell aceito) | `RECEBIDO`, `valorPago 51,94` | não (`esteira=0`, caixa 983507 ainda aberto) | **não** |
+| Venda | Situação | Aparece no relatório? |
+|-------|----------|-----------------------|
+| 809 (13/08) | `FECHADO`, arquivada | **sim** — é o R$ 44,00 / 4 sugestões da imagem 09 |
+| 1013 (17/09, feita para este manual, com o upsell aceito) | `RECEBIDO`, `valorPago 51,94` | **não** — ainda não processada |
 
-Ou seja: a venda precisa sair do caixa aberto. O caixa do sandbox está aberto desde
-**01/09** e fechá-lo mexeria em 16 dias de vendas de outros manuais — **não foi
-fechado**. Consequência assumida: a imagem 09 mostra números de uma venda antiga
-(sugestão do carrinho) e a **10 (presencial) sai zerada** — `tipo=2` não tem **nenhuma**
-linha em 2026 inteiro (conferido pela API). O manual trata isso como o exemplo do
-relatório vazio e traz o aviso "o relatório trabalha com as vendas já concluídas".
+> **Erro que ficou registrado de propósito.** A primeira versão deste manual explicava a
+> ausência da 1013 pela **esteira** (a venda ainda estar no caixa aberto) e mandava o
+> lojista conferir "depois do fechamento do caixa". Era dedução minha a partir da
+> diferença entre as duas vendas, não regra do produto — a regra é o **processamento
+> diário**. Antes de explicar atraso de relatório por estado de venda, pergunte: quase
+> todo relatório do BeeFood tem janela de processamento.
 
-> Para quem retomar: com o caixa fechado, a venda **1013** deve aparecer no relatório de
+Consequência das capturas, que fica valendo: a imagem 09 mostra números de uma venda
+antiga e a **10 (presencial) sai zerada** — `tipo=2` não tem **nenhuma** linha em 2026
+inteiro (conferido pela API). O manual usa a 10 como exemplo do relatório vazio e avisa,
+nas duas seções, na FAQ e em *Problemas comuns*, que os números do dia levam até 24 h.
+
+> Para quem retomar: passadas 24 h, a venda **1013** deve aparecer no relatório de
 > delivery com o **Milk Shake de Morango** — o item aceito na janela da imagem 07. Vale
-> recapturar a imagem 09 depois de um fechamento de caixa normal do sandbox.
+> recapturar a imagem 09 então. Nada de fechar caixa: era conclusão errada.
 
 O `sugestao: true` que marca a linha é gravado item a item no `pedidoPOST.js` do backend;
 foi confirmado no payload do pedido 1013.

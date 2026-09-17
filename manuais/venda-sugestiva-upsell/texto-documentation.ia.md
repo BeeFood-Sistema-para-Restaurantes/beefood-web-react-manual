@@ -35,10 +35,17 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `capturar*.py`,
   entra no texto.
 - Avisar, no começo, que o recurso está **em liberação** e que a opção pode não
   aparecer (falar com o suporte). Não citar `empresaID`.
-- Repetir os quatro avisos operacionais: (a) o limite é **6 produtos** por produto;
+- Repetir os cinco avisos operacionais: (a) o limite é **6 produtos** por produto;
   (b) a **ordem** da faixa *Selecionados* é a ordem que o cliente vê; (c) a aba do
-  cadastro **salva sozinha** (as duas janelas exigem **SALVAR (F2)**); (d) produto
-  inativo, em falta, oculto naquele cardápio ou **já na sacola** não é oferecido.
+  cadastro **salva sozinha** (as duas janelas exigem **SALVAR (F2)**); (d) **produto
+  inativo ou oculto não aparece na sugestão** — junto com o em falta, o desativado
+  naquele canal e o que já está na sacola; (e) o relatório é **processado uma vez por dia
+  e leva até 24 horas**.
+- **Não enxugar os dois avisos que o dono pediu por escrito.** Manter inteiros: a seção 5
+  *Produto inativo ou oculto não aparece na sugestão* (com o exemplo do **Brownie**: quatro
+  produtos configurados, três vistos pelo cliente, e a configuração não se perde) e o
+  bloco de destaque da seção 7 sobre as **24 horas** de processamento do relatório, mais
+  as duas perguntas correspondentes da FAQ e as linhas de *Problemas comuns*.
 - Manter a seção **6.2** (tablet e totem) mesmo sem imagem: é onde o lojista descobre
   que a mesma lista vale para os aplicativos.
 - Manter as seções **8. O que vale a pena sugerir**, **Problemas comuns** e
@@ -56,7 +63,7 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `capturar*.py`,
   - 2.1 Escolher os produtos que serão sugeridos
 - 3. Caminho 2 — pelos três pontinhos do produto
 - 4. Caminho 3 — pela aba Venda Sugestiva do cadastro do produto
-- 5. As regras da lista (limite de 6, como desligar, o que o cliente não vê)
+- 5. As regras da lista (limite de 6, como desligar, produto inativo ou oculto não aparece)
 - 6. Como fica para o cliente — cardápio digital delivery
   - 6.1 Cardápio digital presencial (mesa e comanda)
   - 6.2 Cardápio no tablet e totem de autoatendimento
@@ -89,8 +96,8 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `capturar*.py`,
 
 - As imagens 9 e 10 são tiras de celular (cardápio público). Publicar cada uma como
   uma imagem só, sem cortar os aparelhos.
-- A imagem 13 (presencial) aparece com os cartões zerados de propósito: é o exemplo
-  sem sugestão aceita no período. O texto já explica.
+- A imagem 13 (presencial) aparece com os cartões zerados de propósito: é o exemplo do
+  relatório sem sugestão já processada no período. O texto já explica.
 - Linkar, quando existirem: **Cardápio — fundamentos**, **Exibir / Ocultar**,
   **Preço Programado**, **Cardápio digital presencial e QR Code** e **Cashback —
   configurar o programa**.

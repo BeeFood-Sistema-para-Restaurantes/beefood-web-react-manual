@@ -148,13 +148,19 @@ O tablet e o totem são aplicativos (APK), fora do alcance do Cloud Agent.
 O relatório **não separa** upsell de sugestão automática na tela: os dois entram
 juntos nos mesmos números.
 
-**Só entra venda concluída.** `relatorioSugestao` chama a proc
-`procRelatorio_BeeFood_Sugestao`, que lê a venda arquivada. Medido em 17/09/2026 com
-duas vendas do sandbox: a **809** (13/08, `situacao FECHADO`, `esteira=1`) aparece com
-as 4 linhas que somam os R$ 44,00 da imagem 09; a **1013** (17/09, feita para este
-manual, upsell aceito, `situacao RECEBIDO`, `valorPago 51,94`, `esteira=0`, caixa 983507
-ainda aberto) **não** aparece. `tipo=2` (presencial) devolve `null` para
-`2026-01-01..2026-12-31` — nunca houve sugestão aceita no presencial deste sandbox.
+**O relatório é processado uma vez por dia — até 24 horas de atraso** (informação do
+dono, 17/09/2026). `relatorioSugestao` chama a proc `procRelatorio_BeeFood_Sugestao`, que
+lê a base já processada, e não a venda ao vivo.
+
+Foi o que a medição do mesmo dia mostrou, com duas vendas do sandbox: a **809** (13/08,
+`situacao FECHADO`, `esteira=1`) aparece com as 4 linhas que somam os R$ 44,00 da imagem
+09; a **1013** (17/09, feita para este manual, upsell aceito, `situacao RECEBIDO`,
+`valorPago 51,94`, `esteira=0`) **não** aparece. O `tipo=2` (presencial) devolve `null`
+para `2026-01-01..2026-12-31` — nunca houve sugestão aceita no presencial deste sandbox.
+
+> Correção: a primeira leitura deste documento atribuía a ausência da 1013 ao **caixa
+> ainda aberto** (esteira). A causa é o **processamento diário**. Não há necessidade de
+> fechar caixa para conferir relatório — basta esperar o processamento.
 
 O item aceito é marcado no `pedidoPOST.js` do backend:
 `{ name: "sugestao", sqltype: sql.Bit, value: !!prod.sugestao ? true : null }`.

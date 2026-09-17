@@ -193,18 +193,33 @@ do que seis: a janela fica curta, o cliente lê tudo de uma vez e decide rápido
 Desmarque todos os produtos e salve. A lista fica vazia, o selo **Configurado**
 desaparece daquele item e o cliente deixa de ver a janela quando adiciona esse produto.
 
-### O que o cliente **não** vê, mesmo estando marcado aqui
+### Produto inativo ou oculto não aparece na sugestão
 
-O cardápio digital confere a lista antes de mostrar. Ele tira automaticamente:
+**Marcar o produto aqui não coloca ele no ar.** A venda sugestiva só oferece o que já
+está disponível no cardápio naquele momento. Antes de montar a janela, o cardápio
+digital confere a lista e tira automaticamente:
 
-- o produto que **já está na sacola** (não se oferece o que o cliente acabou de pegar);
-- produto **inativo**, **em falta** ou **desativado** naquele canal (delivery,
-  presencial ou totem);
-- produto **escondido** daquele cardápio (por *Exibir / Ocultar*, por exemplo).
+- produto **inativo** (desligado no cadastro);
+- produto marcado como **Em falta**;
+- produto **desativado naquele canal** — *Desativar Delivery*, *Desativar Presencial* ou
+  *Desativar Totem* no menu do produto;
+- produto **oculto** naquele cardápio por *Exibir / Ocultar* ou por tabela de preço;
+- o produto que **já está na sacola** (não se oferece o que o cliente acabou de pegar).
 
-Se sobrar zero item, a janela simplesmente não abre e o cliente segue o pedido sem
-interrupção. No exemplo deste manual foram configurados quatro produtos e o cliente vê
-três: o quarto está oculto naquele cardápio.
+**É exatamente o que acontece no exemplo deste manual.** O **Combo One Burger** foi
+configurado com **quatro** produtos — e a janela geral da seção 2 mostra os quatro na
+linha *Sugere:*: Anéis de Cebola Empanada, Milk Shake de Morango, **Brownie** e Pudim -
+Leite Condensado. Mas o cliente vê **três** (imagem da seção 6): o **Brownie** está
+oculto naquele cardápio, então ele é descartado da sugestão. Nada foi perdido — a
+configuração continua salva, e no dia em que o Brownie voltar ao cardápio ele volta a
+ser oferecido, sem você mexer em nada.
+
+Por isso, se um item não aparece para o cliente, o lugar de olhar é o **produto**, não a
+venda sugestiva: confira se ele está ativo, se não está em falta, se está ligado naquele
+canal e se não está oculto.
+
+Se todos os sugeridos forem descartados, a janela simplesmente **não abre** e o cliente
+segue o pedido sem interrupção.
 
 ---
 
@@ -223,7 +238,7 @@ mesma hora, por cima do cardápio, com o nome e a foto do que ele acabou de esco
 | 4. | **Item na sacola** | O sugerido fica na sacola como um produto normal: dá para mudar a quantidade e tirar. |
 | 5. | **Total do pedido** | O ticket sobe. No exemplo, R$ 39,55 do combo + R$ 15,12 do milk-shake = **R$ 54,67**. |
 
-Três coisas para reparar:
+Quatro coisas para reparar:
 
 - O título é **Que tal levar junto?**, e acima dele aparece *"Você adicionou &lt;nome do
   produto&gt;."* — o cliente entende na hora por que a janela abriu.
@@ -232,6 +247,9 @@ Três coisas para reparar:
   o cashback do item também é mostrado.
 - **A sugestão nunca adiciona sozinha.** Ela leva o cliente ao produto; quem confirma é
   ele, no **Adicionar**.
+- **São três cards, e não quatro.** O Combo One Burger tem quatro produtos configurados;
+  o **Brownie** está oculto nesse cardápio e por isso não entra na janela — é a regra da
+  seção 5. Produto inativo ou oculto nunca é oferecido.
 
 ### 6.1 Cardápio digital presencial (mesa e comanda)
 
@@ -265,6 +283,12 @@ menu do produto) não é oferecido ali, mesmo estando na lista.
 Tudo o que o cliente aceitou por sugestão é somado em **Desempenho → Sugestões**, uma
 tela para cada canal.
 
+> **O relatório é processado uma vez por dia — leve até 24 horas.** O que o cliente
+> aceitou hoje entra na conta no processamento seguinte. Então não estranhe se você
+> configurar a venda sugestiva, vender pela sugestão e o relatório ainda mostrar zero:
+> volte no dia seguinte. Para conferir a venda de hoje na hora, o caminho é o
+> **Histórico de Vendas** ou o detalhe do pedido, não este relatório.
+
 ![Relatório de Sugestões do Cardápio Digital - Delivery](imagens-tratadas/09-relatorio-delivery.png)
 
 | Nº | Item | O que fazer |
@@ -297,11 +321,10 @@ Presencial → Sugestões**. A tela é idêntica, só muda o canal analisado.
 | Nº | Item | O que fazer |
 |----|------|-------------|
 | 1. | **Presencial** | Grupo de relatórios do presencial. |
-| 2. | **Sugestões** | Abre *Sugestões do Cardápio Digital - Presencial*. Sem sugestão aceita no período, os cartões ficam em zero, como na imagem. |
+| 2. | **Sugestões** | Abre *Sugestões do Cardápio Digital - Presencial*. Sem sugestão já processada no período, os cartões ficam em zero, como na imagem. |
 
-> **O relatório trabalha com as vendas já concluídas.** Um pedido aceito agora, com a
-> venda ainda aberta no caixa do dia, pode não entrar na conta imediatamente — confira
-> depois do fechamento.
+Nos dois canais vale a mesma regra do processamento: os números do dia de hoje só ficam
+completos depois de até 24 horas.
 
 ---
 
@@ -333,14 +356,15 @@ Três regras práticas que funcionam bem:
 | Não encontro **Venda Sugestiva** no menu | o recurso está em liberação por conta | fale com o suporte; a opção fica nos três pontinhos da tela Cardápio, no menu do produto e na última aba do cadastro |
 | A janela não abre para o cliente | aquele produto não tem sugestão configurada | confira o selo **Configurado** na janela geral, ou use **Somente configurados** |
 | Configurei e o cliente ainda não vê | o cardápio público guarda a versão anterior por até um minuto | espere um instante e recarregue o cardápio |
-| Um dos produtos escolhidos não aparece na janela do cliente | ele está inativo, em falta, desativado naquele canal ou oculto naquele cardápio | reveja o produto em *Cardápio* e em *Exibir / Ocultar* |
+| Um dos produtos escolhidos não aparece na janela do cliente | ele está **inativo**, em falta, desativado naquele canal ou **oculto** naquele cardápio — produto fora do ar nunca é sugerido | reveja o produto em *Cardápio* e em *Exibir / Ocultar*; assim que ele voltar, a sugestão volta sozinha |
 | Nenhum produto aparece e a janela não abre | todos os sugeridos foram descartados (inativos, ocultos ou já na sacola) | escolha itens que estejam realmente no ar naquele cardápio |
 | Não consigo marcar o sétimo produto | o limite é 6 | remova um item da faixa *Selecionados* |
 | Configurei em um cardápio e o outro continua sem sugestão | a lista é por cardápio | troque o cardápio no seletor do topo e configure lá também |
 | Sumiu a lista que eu tinha montado | a janela foi fechada em **CANCELAR (ESC)** antes de salvar | monte de novo e use **SALVAR (F2)**; na aba do cadastro, o salvamento é automático |
 | Não acho a aba **Venda Sugestiva** no complemento | a venda sugestiva é do produto, não do complemento | configure no produto que o cliente escolhe |
 | A aba não deixa escolher nada | o produto ainda não foi salvo | salve o cadastro e volte na aba |
-| Aceitei uma sugestão e o relatório não mostra | o relatório conta as vendas já concluídas do período | confira o período no topo e confira de novo depois do fechamento do caixa |
+| Aceitei uma sugestão e o relatório continua zerado | o relatório é processado uma vez por dia: leva **até 24 horas** para a venda entrar | confira no dia seguinte; para ver a venda de hoje na hora, use o **Histórico de Vendas** |
+| O relatório mostra menos do que eu vendi hoje | as vendas do dia ainda estão em processamento | espere o processamento (até 24 horas) e confira o período no topo |
 | O preço da sugestão está diferente do que eu esperava | a janela mostra o preço daquele canal, já com desconto e preço programado | confira o preço do produto no canal (delivery/presencial) e as promoções ativas |
 
 ---
@@ -385,6 +409,13 @@ Desmarque todos os itens e salve. O produto volta a não mostrar nada ao cliente
 Pode marcar, mas o cliente não vai vê-lo: o cardápio esconde da sugestão o que está
 inativo, em falta ou oculto naquele canal.
 
+**Marquei o produto e ele não aparece para o cliente. Por quê?**
+Porque produto **inativo** ou **oculto** não é sugerido. A venda sugestiva só oferece o
+que está no ar naquele cardápio: confira se o produto está ativo, se não está em falta,
+se não foi desativado naquele canal e se não está oculto em *Exibir / Ocultar* ou em
+tabela de preço. A configuração fica guardada — quando o produto voltar ao cardápio, ele
+volta a ser oferecido.
+
 **Posso sugerir um complemento (por exemplo, bacon extra)?**
 A venda sugestiva oferece **produtos** do cardápio. Adicionais e opções continuam
 dentro do próprio produto, nos grupos de opções.
@@ -397,6 +428,11 @@ aplicados, igual à tela do produto.
 Em **Desempenho → Delivery → Sugestões** e **Desempenho → Presencial → Sugestões**:
 valor total, quantidade, valor médio, gráfico por dia e os rankings de mais sugeridos,
 com exportação para Excel.
+
+**Vendi pela sugestão agora e o relatório está zerado. Está errado?**
+Não. O relatório é processado uma vez por dia e leva **até 24 horas** para incluir a
+venda. Confira no dia seguinte; a venda em si você acompanha na hora pelo **Histórico de
+Vendas**.
 
 **Preciso de permissão especial?**
 Não. Quem já edita produto no Cardápio consegue configurar.
