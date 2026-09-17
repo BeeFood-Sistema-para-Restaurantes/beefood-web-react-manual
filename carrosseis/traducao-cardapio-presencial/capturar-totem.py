@@ -27,10 +27,15 @@ Então o script **intercepta a resposta da API** e injeta:
 O texto em inglês e em espanhol é o do `traducoes.json`, **escrito para este
 carrossel**. Não é tradução automática nem cópia do exemplo do manual.
 
-O que sai daqui é print do aplicativo de produção: layout, fotos, tipografia,
-cores e o seletor de idioma são os do totem. O que é nosso é o conteúdo do
-cardápio traduzido — exatamente o que o lojista vai cadastrar. Por isso estes
-prints **não levam selo de ilustração**: a tela é real.
+A mesma interceptação troca **a arte de fundo** do totem (tela de espera e faixa
+do cardápio) pela foto de batata frita do `preparar-fundo.py`. A loja de exemplo
+anuncia um pudim ali, e num carrossel sobre tradução o olho lê o preço do pudim
+em vez do cardápio em inglês.
+
+O que sai daqui é print do aplicativo de produção: layout, fotos de produto,
+tipografia, cores e o seletor de idioma são os do totem. O que é nosso é o
+conteúdo do cardápio traduzido — exatamente o que o lojista vai cadastrar — e a
+foto de fundo.
 
 Saída: `imagens-puras/totem-*.png`.
 """
@@ -43,7 +48,16 @@ from pathlib import Path
 
 PASTA = Path(__file__).resolve().parent
 PURAS = PASTA / "imagens-puras"
+MIDIA = PASTA / "midia"
 TRADUCOES = PASTA / "traducoes.json"
+
+# A loja de exemplo anuncia um pudim na tela de espera e na faixa do cardápio.
+# Num carrossel sobre tradução isso rouba a imagem: o olho lê "R$ 16,90" e não o
+# cardápio em inglês. As duas artes saem do `preparar-fundo.py`, e entram pela
+# mesma interceptação que injeta a tradução. Endereço de mentira: nada sai para
+# a internet, a rota `servir_fundo` responde com o arquivo local.
+FUNDO_BASE = "https://carrossel.beefood.local/"
+FUNDOS = {"AASLIDE": "fundo-totem-espera.png", "AACAPA": "fundo-totem-banner.png"}
 
 TOTEM = ("https://totem.beefood.app/?empresaID=350&filialID=380"
          "&token=669461A4-1729-4E31-9BD2-8446993BBE7C")
@@ -74,8 +88,8 @@ def anotar(item: dict, verbetes: dict, faltando: set[str], rotulo: str) -> None:
         faltando.add(f"{rotulo}: {nome}")
 
 
-def montar_rotas(pagina, traducoes: dict) -> tuple[set[str], dict[str, str]]:
-    """Liga a interceptação das três respostas que o totem usa para montar a tela.
+def montar_rotas(contexto, traducoes: dict) -> tuple[set[str], dict[str, str]]:
+    """Liga a interceptação das respostas que o totem usa para montar a tela.
 
     Devolve o que só dá para saber depois de a resposta passar: os nomes sem
     verbete de tradução e o catálogo de fotos (nome do produto → URL da imagem).
@@ -131,10 +145,46 @@ def montar_rotas(pagina, traducoes: dict) -> tuple[set[str], dict[str, str]]:
                     anotar(opcao, produtos, faltando, "opção")
         rota.fulfill(response=resposta, json=dados)
 
-    pagina.route("**/api/totem2/filial/**", filial)
-    pagina.route("**/api/totem2/setores/**", traduzir_setores)
-    pagina.route("**/api/totem2/produtos/**", traduzir_produtos)
+    def trocar_fundos(rota):
+        """Põe a nossa foto no lugar da arte promocional da loja de exemplo.
+
+        `imagens/slides` é o que passa na tela de espera e `imagens/empresa`
+        traz a capa do cardápio (`AACAPA`) e o logotipo da loja (`AALOGO`, que
+        continua o dela). O link vira um endereço que não existe e que a rota
+        abaixo atende com o arquivo da pasta `midia/`.
+        """
+        resposta = rota.fetch()
+        dados = resposta.json()
+        for item in dados:
+            arquivo = FUNDOS.get(item.get("tipo"))
+            if arquivo:
+                item["s3Link"] = f"{FUNDO_BASE}{arquivo}"
+        rota.fulfill(response=resposta, json=dados)
+
+    def servir_fundo(rota):
+        arquivo = MIDIA / rota.request.url.rsplit("/", 1)[-1]
+        rota.fulfill(status=200, content_type="image/png", body=arquivo.read_bytes())
+
+    # Rota no **contexto**, e não na página: o totem é PWA, e a foto de fundo é
+    # pedida pelo service worker dele. `page.route` não enxerga esse pedido, e
+    # a imagem chega quebrada — o contexto é criado com `service_workers`
+    # bloqueado (`abrir`) justamente por isso.
+    contexto.route("**/api/totem2/filial/**", filial)
+    contexto.route("**/api/totem2/setores/**", traduzir_setores)
+    contexto.route("**/api/totem2/produtos/**", traduzir_produtos)
+    contexto.route("**/api/totem2/imagens/**", trocar_fundos)
+    contexto.route(f"{FUNDO_BASE}**", servir_fundo)
     return faltando, catalogo
+
+
+def abrir(navegador, tela: dict, escala: int):
+    """Contexto do totem, com o service worker desligado.
+
+    Sem `service_workers="block"` o PWA serve as imagens pelo próprio worker, e
+    o que a interceptação devolve não chega até a página.
+    """
+    return navegador.new_context(viewport=tela, device_scale_factor=escala,
+                                 locale="pt-BR", service_workers="block")
 
 
 def main() -> None:
@@ -147,10 +197,9 @@ def main() -> None:
 
     with sync_playwright() as pw:
         navegador = pw.chromium.launch()
-        ctx = navegador.new_context(viewport=TELA, device_scale_factor=1,
-                                    locale="pt-BR")
+        ctx = abrir(navegador, TELA, 1)
         pagina = ctx.new_page()
-        faltando, catalogo = montar_rotas(pagina, traducoes)
+        faltando, catalogo = montar_rotas(ctx, traducoes)
         pagina.goto(TOTEM, wait_until="networkidle", timeout=120000)
         pagina.wait_for_timeout(ESPERA_CARGA)
 
@@ -198,10 +247,9 @@ def main() -> None:
         baixar_fotos(pagina, catalogo)
 
         # 6. A tela de espera de novo, num totem de 720p, para a capa.
-        ctx_menor = navegador.new_context(viewport=TELA_MENOR,
-                                          device_scale_factor=2, locale="pt-BR")
+        ctx_menor = abrir(navegador, TELA_MENOR, 2)
         menor = ctx_menor.new_page()
-        montar_rotas(menor, traducoes)
+        montar_rotas(ctx_menor, traducoes)
         menor.goto(TOTEM, wait_until="networkidle", timeout=120000)
         menor.wait_for_timeout(ESPERA_CARGA)
         salvar(menor, "totem-espera-idioma-720.png")
