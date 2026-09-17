@@ -133,6 +133,13 @@ O que tira do aforismo:
   dono.
 - **Pergunte.** Pergunta abre conversa e a pessoa responde de cabeça; declaração
   fecha o assunto antes de começar.
+- **Mas não pergunte na capa de todo carrossel.** "Cansou de esquecer a
+  bebida?", "Seu cardápio já fala inglês?", "Seu cardápio digital já tem
+  vídeo?": três capas seguidas na mesma fórmula, e quem segue o perfil vê
+  fórmula, não gancho. Antes de fechar a capa, leia as capas anteriores em
+  sequência. Se a forma repetir, troque: afirmação do fato novo ("Sua capa
+  agora é um **carrossel**") entrega a notícia na primeira linha, que é o que a
+  pergunta só insinua.
 - **Convide com o verbo.** "Olha o que muda", "Acompanhe", "Marque" — não
   "veja-se o que muda".
 - **Não corte até virar telegrama.** "Um esquecido custa duas viagens" economiza
@@ -301,6 +308,8 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 - [ ] Cada slide fecha no que muda para o negócio, não na descrição do recurso.
 - [ ] A capa tem **uma** palavra em vermelho, e nenhum emoji junto dela.
 - [ ] Nenhum título com palavra em vermelho leva emoji — em slide nenhum.
+- [ ] A capa não repete a forma da capa do carrossel anterior (duas perguntas
+      seguidas já é fórmula).
 - [ ] O slide 1 tem imagem, e a imagem mostra **um** destaque só.
 - [ ] Cada slide tem **uma** ideia; o título do slide diz qual.
 - [ ] Toda afirmação está no texto da novidade ou no manual — ou foi conferida

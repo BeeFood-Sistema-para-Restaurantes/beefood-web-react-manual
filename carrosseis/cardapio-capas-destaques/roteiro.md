@@ -12,8 +12,10 @@
 ## O fato, em três linhas
 
 A capa e a vitrine do cardápio digital passaram a aceitar **imagem e vídeo**
-(dois grupos de até 5 mídias, horizontal, MP4 H.264, tocando sozinho e sem som),
-e apareceu a aba **Avisos**, com cartaz quadrado, título e descrição, para dar
+(dois grupos de até 5 mídias, horizontal, MP4 H.264, tocando sozinho e sem som).
+No topo isso muda de figura: a foto de capa era uma só e ficava parada, e agora
+é o primeiro slide de um carrossel que roda sem o cliente tocar em nada. Também
+apareceu a aba **Avisos**, com cartaz quadrado, título e descrição, para dar
 recado sem cadastrar produto de R$ 0,00. Tudo com **agenda** por dia da semana,
 faixa de horário e canal (Delivery, Presencial). Fora da agenda, a mídia não
 aparece.
@@ -22,7 +24,7 @@ aparece.
 
 | Fato (novidade e manual) | Ângulo | O que o slide diz |
 |---|---|---|
-| Capa e destaques aceitam vídeo, e a mídia roda sozinha no cardápio | cardápio digital é lista de preço; o que vende na rua é a vitrine que se move | "Seu cardápio digital já tem **vídeo**?" |
+| O topo aceitava **uma** foto parada; agora a foto fixa é o primeiro slide de um carrossel de até 5 mídias, imagem ou vídeo, que passam sozinhas | cardápio digital é lista de preço; o que vende na rua é a vitrine que se move | "Sua capa agora é um **carrossel**" |
 | O dono já tem foto, descrição e combo montados; faltava movimento | ele fez a parte difícil e não sabe que o trabalho agora rende mais | "Você já fez a parte mais difícil" |
 | A capa fixa continua o primeiro slide; os destaques entram depois dela | ele tem medo de perder a capa que já escolheu | "Olha o que muda no topo do cardápio" (antes × agora) |
 | Destaques da sua loja: vitrine no meio da página, até 5 mídias | quem entra para pedir um lanche e sai com sobremesa | "No meio do cardápio, a sua vitrine" |
@@ -32,8 +34,10 @@ aparece.
 
 ## Slides
 
-1. **Capa** — "Seu cardápio digital já tem **vídeo**?" com o notebook
-   centralizado e grande, mostrando a capa em vídeo rodando no cardápio.
+1. **Capa** — "Sua capa agora é um **carrossel**" com o notebook centralizado e
+   grande, mostrando a capa em vídeo rodando no cardápio. Afirmação, e não
+   pergunta: os três carrosséis anteriores abriram perguntando, e o quarto
+   seguido faz da pergunta cacoete de marca, não gancho.
 2. **O reconhecimento** — elogia o trabalho que já está feito (foto, descrição,
    combo) e traz o furo junto com a solução: faltava movimento.
 3. **Antes × agora** — o topo do mesmo cardápio, no celular, sem mídia e com o

@@ -29,16 +29,17 @@ painel, com a quarta-feira marcada. Nada foi gravado em loja de cliente.
 LEGENDA — cole no campo de legenda
 ========================================================================
 
-Seu cardápio digital já tem vídeo? 🎬
+Sua capa agora é um carrossel 🎬
 
 Você já fez a parte mais difícil. Fotografou o lanche, escreveu a descrição,
 montou o combo, deixou o adicional no lugar certo. Seu cardápio está pronto para
 vender — faltava movimento.
 
-Agora a capa aceita vídeo. A foto que você escolheu continua sendo a primeira
-coisa que o cliente vê, e logo depois dela entra o seu vídeo, rodando sozinho:
-a carne na chapa, o queijo derretendo, o copo enchendo. Quem abriu o link só
-para conferir o preço fica olhando a comida — e escolhe com fome.
+No topo do cardápio cabia uma foto, e ela ficava parada. Agora entram até cinco
+mídias, e podem ser vídeo. A foto que você escolheu continua sendo a primeira
+coisa que o cliente vê, e depois dela o resto passa sozinho: a carne na chapa, o
+queijo derretendo, o copo enchendo. Quem abriu o link só para conferir o preço
+fica olhando a comida — e escolhe com fome.
 
 No meio do cardápio você ganhou uma vitrine. Combo do dia, sobremesa nova, milk
 shake batendo na hora: a mídia aparece entre as categorias, ali onde o cliente
@@ -74,8 +75,8 @@ Qual prato do seu cardápio merece o primeiro vídeo? Conta aí 👇
 TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
 ========================================================================
 
-01  Fundo escuro com o título "Seu cardápio digital já tem vídeo?", a palavra
-    vídeo em vermelho. Embaixo, um notebook aberto mostrando o cardápio digital
+01  Fundo escuro com o título "Sua capa agora é um carrossel", a palavra
+    carrossel em vermelho. Embaixo, um notebook aberto mostrando o cardápio digital
     da ONE STAND HAMBURGUERIA: no topo, um banner em vídeo do SMASH 2.0 com o
     hambúrguer e o preço a partir de R$ 44,90; no meio da página, o banner da
     batata com cheddar e bacon.

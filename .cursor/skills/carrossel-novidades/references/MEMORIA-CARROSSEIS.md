@@ -4,10 +4,14 @@ Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
 continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
 entra o que é de carrossel.
 
-Última atualização: 2026-09-17 (15ª rodada: capas e destaques em vídeo — dois
-mockups de computador, um **estúdio de mídia** para a novidade em que o recurso
-é o conteúdo que o lojista sobe, o primeiro **slide em vídeo** e a lição de que
-a arte não pode desmentir a frase do slide).
+Última atualização: 2026-09-17 (16ª rodada: a capa parou de **perguntar** — três
+carrosséis na mesma fórmula viram fórmula no perfil, e afirmar o fato entrega a
+notícia na linha que todo mundo lê).
+
+15ª rodada: capas e destaques em vídeo — dois mockups de computador, um
+**estúdio de mídia** para a novidade em que o recurso é o conteúdo que o lojista
+sobe, o primeiro **slide em vídeo** e a lição de que a arte não pode desmentir a
+frase do slide.
 
 14ª rodada: o que o carrossel da tradução produziu de geral **subiu para a
 skill** — aparelhos fotografados num catálogo, fotos de produto numa biblioteca
@@ -116,6 +120,29 @@ O conserto tem três movimentos, nesta ordem:
 | "No tablet é a mesma coisa." | "Na mesa, o tablet fala a língua do seu cliente." |
 | "A versão em inglês mora no mesmo produto." | "Você escreve uma vez, e **pronto**." |
 | "Então as bandeiras já estão aí." | "Seu cardápio pode falar inglês **hoje**." |
+
+### O quarto vício: a capa sempre em forma de pergunta
+
+Corrigir o registro deixou uma marca na mão: a capa saía perguntando. Três
+carrosséis, três perguntas — *"Cansou de esquecer a bebida?"*, *"Seu cardápio já
+fala inglês?"*, *"Seu cardápio digital já tem vídeo?"*. Cada uma funciona
+isolada, e foi assim que o vício passou: o problema não aparece na revisão de um
+carrossel, aparece no **perfil**, onde as capas ficam lado a lado. O dono viu no
+quarto: *"todo carrossel estamos começando com pergunta, precisamos mudar a hero
+line aqui"*.
+
+A troca não é estilística, é de conteúdo. Pergunta insinua a notícia e devolve a
+conversa para o leitor; afirmação **entrega a notícia** na linha que todo mundo
+lê. E entregar obriga a escolher o fato mais forte, que nem sempre é o que a
+novidade destaca: aqui o título falava de vídeo, mas a mudança que ninguém sabe
+é que o topo aceitava **uma** foto parada e agora é carrossel de até cinco
+mídias. Virou *"Sua capa agora é um **carrossel**"* — mesmo tamanho, mesma
+palavra em vermelho, e um fato no lugar de um convite.
+
+Regra para a próxima: antes de fechar a capa, leia as capas já entregues em
+sequência. Se a forma repetir, troque a forma — pergunta, afirmação do fato,
+ordem direta ("Sobe o primeiro vídeo hoje") e antes × agora são quatro moldes
+diferentes, e a pergunta é só um deles.
 
 ### A voz da marca está em beefood.com.br, e é de venda
 

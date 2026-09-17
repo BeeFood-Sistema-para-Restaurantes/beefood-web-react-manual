@@ -562,6 +562,12 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
 - **A capa é a frase mais curta do carrossel**, com **uma** palavra no `.destaque`
   vermelho e nenhum emoji junto dela. Duas palavras vermelhas não destacam nada,
   e emoji ao lado do vermelho é grifo em cima de grifo.
+- **A capa não repete a forma da capa anterior.** Três carrosséis seguidos
+  abriram com pergunta e, no perfil, isso lê como fórmula. Leia as capas já
+  entregues antes de fechar a sua e troque o molde: pergunta, afirmação do fato
+  novo, ordem direta ou antes × agora. Afirmação tem um bônus — ela entrega a
+  notícia na única linha que todo mundo lê, e obriga a escolher **qual** é o
+  fato ("Sua capa agora é um carrossel" no lugar de "já tem vídeo?").
 - **Emoji nenhum na frase que tem vermelho** — em qualquer slide, não só na
   capa. Se todos os títulos têm grifo, o emoji vai para o rótulo de um cartão,
   ou fica de fora: carrossel sem emoji passa, emoji colado no grifo não.
