@@ -43,7 +43,8 @@ quem está capturando para carrossel:
   guest nunca inicia. Captura de app vem de **aparelho real**, e o caminho
   confirmado para ela chegar aqui é **zip numa URL pública** — link do arquivo,
   não da pasta, com compartilhamento aberto (seção 6). Enquanto o print não vem,
-  o carrossel ilustra a tela com selo; o manual, não (ver abaixo).
+  o carrossel desenha a tela em CSS copiando o print de produção; o manual, não
+  (ver abaixo).
 
 ## O que esta skill acrescenta
 
@@ -56,7 +57,7 @@ O manual e o carrossel querem coisas diferentes da mesma tela:
 | Texto | passo a passo, tabela nº → campo | publicação escrita a partir do fato, uma ideia por slide |
 | Formato | `.md` + PNG anotado | PNG 1080×1350 |
 | Fonte da verdade | o código e a tela | o manual e a novidade publicada |
-| Tela sem captura | o manual **espera** o print real | o carrossel pode ilustrar, com selo, e registrar o print pendente |
+| Tela sem captura | o manual **espera** o print real | o carrossel desenha a tela em CSS, copiando layout e fotos do print, e registra no `roteiro.md` o que é desenho |
 
 Por isso as capturas do carrossel vivem em `carrosseis/<slug>/imagens-puras/` e
 não em `manuais/`: são outro recorte, para outro fim. Quando o print do manual
@@ -71,6 +72,11 @@ imagem sendo impressão de verdade — ver `ganchar_cupom`/`salvar_cupom` no
 
 ## Conhecimento próprio desta skill
 
-Fica em [`MEMORIA-CARROSSEIS.md`](MEMORIA-CARROSSEIS.md). Aprendizado de
-captura genérica continua indo para a `MEMORIA-GERAL.md` — mas quem escreve lá é
-quem está trabalhando no manual, não esta skill.
+- [`MEMORIA-CARROSSEIS.md`](MEMORIA-CARROSSEIS.md) — o histórico: o que foi
+  tentado, o que o dono devolveu e por que cada regra existe.
+- [`mockups.md`](mockups.md) — a prateleira: aparelhos desenhados, telas
+  disponíveis, fotos de produto prontas e as medidas de uso.
+- [`roteiro-e-copy.md`](roteiro-e-copy.md) — como o texto é escrito.
+
+Aprendizado de captura genérica continua indo para a `MEMORIA-GERAL.md` — mas
+quem escreve lá é quem está trabalhando no manual, não esta skill.

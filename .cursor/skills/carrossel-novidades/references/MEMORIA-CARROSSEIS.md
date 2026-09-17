@@ -4,9 +4,13 @@ Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
 continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
 entra o que é de carrossel.
 
-Última atualização: 2026-09-17 (13ª rodada: dois slides refeitos por motivo de
-**argumento**, não de arte — peça de venda não avisa o limite do recurso, e o
-slide do problema elogia o leitor antes de mostrar o furo).
+Última atualização: 2026-09-17 (14ª rodada: o que o carrossel da tradução
+produziu de geral **subiu para a skill** — aparelhos fotografados num catálogo,
+fotos de produto numa biblioteca e os dois scripts de captura do totem).
+
+13ª rodada: dois slides refeitos por motivo de **argumento**, não de arte — peça
+de venda não avisa o limite do recurso, e o slide do problema elogia o leitor
+antes de mostrar o furo.
 
 12ª rodada: o carimbo "ILUSTRAÇÃO" saiu da arte para sempre; a foto de fundo do
 totem de exemplo passou a ser nossa; e a régua de texto virou **texto que vende,
@@ -681,6 +685,11 @@ Celular e navegador não cobrem tudo: a novidade da tradução acontece no **Tot
 de Autoatendimento** e no **Cardápio Digital no Tablet**. Os dois mockups vivem
 no `base.css` (`.totem`, `.tablet`).
 
+> Esta seção é a **história**: o que se tentou, o que o dono devolveu e por que
+> cada peça existe. O **estado atual** — largura de uso, telas disponíveis,
+> fotos prontas — está em [`mockups.md`](mockups.md), com a folha do catálogo.
+> Para usar, leia o `mockups.md`; para mexer no aparelho, leia os dois.
+
 ### Antes de desenhar, procure a referência — inclusive no `main`
 
 Esta seção começou errada e foi refeita. A primeira versão do totem e do tablet
@@ -951,8 +960,8 @@ totem tem, e a diferença é um carrossel inteiro de credibilidade.
 **Quando o recurso não está ligado na loja de exemplo, ligue na resposta da
 API.** O totem de exemplo não tinha tradução cadastrada (`aaTraducao: null`,
 `traducao: null` em todos os produtos), e pedir cadastro na loja de um cliente
-não é opção. O `capturar-totem.py` do carrossel intercepta as rotas com
-`pagina.route` e devolve o mesmo JSON com o que falta:
+não é opção. O `capturar-totem.py` intercepta as rotas do totem e devolve o
+mesmo JSON com o que falta:
 
 | Rota | O que a interceptação faz |
 |---|---|
@@ -1026,6 +1035,68 @@ nele é mais barato que reescrever o carrossel em volta do print que existe.
 Ganho de graça: o slide do totem mostra `CHEDDAR & BACON FRIES` na tela do
 cliente e o slide do cadastro mostra o campo onde aquele texto foi escrito. O
 mesmo produto nos dois lados é o que faz o carrossel fechar.
+
+## A prateleira: o que nasce no carrossel e sobe para a skill
+
+O tablet custou cinco rodadas e o totem três. Nada disso era CSS difícil — era
+**referência que não tínhamos juntado ainda**. O risco, depois de entregue, é o
+carrossel seguinte começar do zero outra vez: as fotos de produto ficaram dentro
+de `carrosseis/traducao-cardapio-presencial/imagens-puras/`, o capturador do
+totem era um script daquela pasta, e o aparelho pronto só aparecia para quem
+abrisse os slides de lá.
+
+Então a regra virou: **o que serve para o próximo carrossel não mora dentro de
+um carrossel.** Depois de entregar, o material geral sobe para a skill.
+
+| Subiu | Para onde | Por que |
+|---|---|---|
+| 12 fotos de produto, tela de espera do totem (pt e en), banner do cardápio | `assets/fotos/` | conteúdo de cardápio serve a qualquer peça; capturar de novo custa dois minutos de Playwright e uma rodada de conferência |
+| as duas artes de fundo do totem | `assets/fundos/` | entram na captura, não no slide |
+| `capturar-totem.py`, `preparar-fundo.py` | `scripts/` | viraram genéricos por argumento (`--saida`, `--conteudo`, `--video`) |
+| o cardápio de exemplo dentro da tela desenhada | `assets/slides/mockup-{totem,tablet}.html` | o modelo agora abre pronto: troca-se o texto do slide, não o aparelho |
+
+Ficou no carrossel o que é **prova dele**: modal do painel, cupom daquele pedido,
+tela do cadastro, recorte de cartão nos dois idiomas.
+
+### O prefixo `skill:`
+
+Biblioteca compartilhada não combina com caminho relativo. O slide fica em
+`carrosseis/<slug>/slides/`, e apontar para `../../../.cursor/skills/...` é
+frágil e ilegível; copiar a foto para dentro de cada carrossel devolve o problema
+que a biblioteca resolve. Então o `renderizar.py` passou a trocar `skill:` pelo
+caminho de `assets/` da skill:
+
+```html
+<img src="skill:fotos/foto-batata.png" alt="">
+```
+
+São duas linhas de código e um efeito grande: os **modelos** de `assets/slides/`
+passaram a renderizar de qualquer pasta, porque as imagens deles não dependem
+mais de estar dentro de um carrossel com os arquivos de nome certo.
+
+A prova de que a mudança não mexeu na arte: mover as 15 imagens, reescrever os
+`src` e renderizar de novo deu PNG **byte a byte igual** ao entregue. Refatoração
+de arte sem essa conferência é aposta.
+
+### O catálogo de aparelhos, e por que ele é imagem e não texto
+
+O `base.css` sabe desenhar cinco aparelhos, cada um com largura certa e com duas
+ou três telas possíveis. Isso estava escrito — e escolher aparelho lendo texto
+custa uma rodada de render para descobrir que não era aquele.
+
+O `catalogo.py` fotografa cada peça em `assets/catalogo/` e monta uma folha com
+todas, e cada aparelho aparece em dois estados:
+
+- **só a carcaça**, com a tela listrada: é o que mostra se o desenho lê como
+  aparelho. O tablet leu como monitor de mesa em três rodadas, e é neste estado
+  que isso aparece na hora.
+- **com tela**, que é captura de verdade quando ela se lê reduzida
+  (`totem-com-captura`) e tela desenhada quando não (`totem-com-cardapio`,
+  `tablet-com-cardapio`).
+
+Rodar o script depois de mexer no `base.css` é obrigatório: a folha é o teste de
+regressão da arte. E ele revelou peça esquecida — a `.tela-totem--espera` existia
+no CSS e nenhum slide usava, então ninguém sabia que ela estava disponível.
 
 ## Reaproveitamento do manual
 

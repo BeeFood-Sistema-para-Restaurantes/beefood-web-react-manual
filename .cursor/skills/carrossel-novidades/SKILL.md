@@ -76,7 +76,7 @@ Primeiro decida **onde a tela mora** — é isso que define se existe captura:
 |------|-------------|
 | painel web (`beefood.app`) | `capturar.py --rota /cardapio` |
 | cardápio digital público | `capturar.py --url <link> --publico --dispositivo celular` |
-| Totem de Autoatendimento | é **web**: `totem.beefood.app/?empresaID=&filialID=&token=`. Abre no Playwright como qualquer página, então é captura de verdade e não ilustração. **Não finalize pedido** |
+| Totem de Autoatendimento | é **web**, e já tem script pronto: `capturar-totem.py` (telas, tradução injetada, fotos de produto). **Não finalize pedido** |
 | app Android (Garçom, Entregador, Tablet) | não roda no Cloud Agent: **peça o print ao dono** (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) e, enquanto ele não vem, ilustre com selo (passo 4) |
 | cupom impresso | `ganchar_cupom` + `salvar_cupom`: o cupom nasce num iframe que vai para a impressora, então não dá para fotografar a tela |
 | coisa que não é tela (impressora, balança) | print do manual, se existir; senão desenho em CSS |
@@ -98,24 +98,18 @@ exemplo de um cliente**, não: aí a saída é interceptar a resposta da API.
 
 **Recurso desligado na loja de exemplo se liga na resposta da API.** O totem de
 exemplo não tinha tradução cadastrada, então o `capturar-totem.py` intercepta
-`/api/totem2/filial|setores|produtos` com `pagina.route`, devolve o mesmo JSON
-com `aaTraducao: true` e com o campo `traducao` preenchido a partir de um
-`traducoes.json` da pasta, e o **aplicativo de produção renderiza**. O que veio
-de fora é só o texto que o restaurante escreveria. Três detalhes que custaram
-tempo: capture na resolução em que o mockup vai usar (o aplicativo desenha botão
-e bandeira em px fixo, e a captura de 1080p reduzida perde a pílula de
-bandeiras); clique setor por **índice**, porque o nome muda de idioma; e baixe a
-foto do produto do `s3Link` da própria API, convertendo o WEBP com Pillow.
+`/api/totem2/filial|setores|produtos`, devolve o mesmo JSON com `aaTraducao:
+true` e com o campo `traducao` preenchido a partir de um `traducoes.json` da
+pasta, e o **aplicativo de produção renderiza**. O que veio de fora é só o texto
+que o restaurante escreveria. O script está pronto e é de uso geral; as
+armadilhas (resolução, setor por índice, service worker, setor de combo) estão
+em [`references/mockups.md`](references/mockups.md).
 
 **A campanha da loja de exemplo não pode virar o assunto da arte.** O totem de
 exemplo anunciava "Pudim R$ 16,90" na tela de espera, e numa capa sobre cardápio
-em inglês o olho lia o preço do pudim. A mesma interceptação troca `AASLIDE` e
-`AACAPA` (`/api/totem2/imagens/**`) por uma foto nossa — o `preparar-fundo.py`
-do carrossel tira o quadro de um vídeo de comida, recorta em 9/16 e em faixa, e
-escurece a faixa do meio, que é onde o aplicativo desenha o botão vermelho.
-O logotipo da loja continua o dela. **Aplicativo com service worker precisa de
-`service_workers="block"` no contexto e de rota de contexto**, senão o worker
-serve a imagem antiga e a tela sai preta.
+em inglês o olho lia o preço do pudim. A mesma interceptação troca a arte de
+fundo por uma foto nossa, que o `preparar-fundo.py` tira de um vídeo de comida —
+as duas prontas estão em `assets/fundos/`. O logotipo da loja continua o dela.
 
 Tela que abre direto numa rota:
 
@@ -151,6 +145,19 @@ Capturas já existentes em `manuais/` podem ser **referenciadas** de dentro do
 slide (`../../../manuais/<manual>/imagens-puras/<arquivo>.png`). Não copie: o
 print do manual é o mesmo print, e duplicar cria duas verdades.
 
+**Antes de capturar, olhe a prateleira.** Fotos de produto, tela de espera do
+totem e faixa do cardápio já estão em `assets/fotos/`, e os aparelhos já estão
+desenhados — o índice é [`references/mockups.md`](references/mockups.md), com a
+folha do catálogo em `assets/catalogo/catalogo.png`. No slide, imagem da
+biblioteca vai com o prefixo `skill:`, que o renderizador resolve:
+
+```html
+<img src="skill:fotos/foto-batata.png" alt="">
+```
+
+O que é prova de um carrossel só continua em `imagens-puras/`, com caminho
+relativo. Regra: **se o próximo carrossel pode querer, entra na biblioteca.**
+
 ### 4. Slides
 
 Cada slide é um **fragmento de body** em `carrosseis/<slug>/slides/NN-nome.html`
@@ -166,11 +173,14 @@ Comece copiando um modelo de `assets/slides/`:
 | `texto.html` | o custo, o limite, o "vale lembrar" |
 | `mockup-computador.html` | tela do painel em janela de navegador, com realce |
 | `mockup-celular.html` | tela de celular (cardápio digital, app) |
-| `mockup-totem.html` | Totem de Autoatendimento: tela em pé sobre coluna |
-| `mockup-tablet.html` | Cardápio Digital no Tablet: tela deitada em suporte de mesa |
+| `mockup-totem.html` | Totem de Autoatendimento: tela em pé sobre coluna, com cardápio de exemplo |
+| `mockup-tablet.html` | Cardápio Digital no Tablet: tela deitada em suporte de mesa, com cardápio de exemplo |
 | `ilustracao-app.html` | tela que não dá para capturar, desenhada e com selo |
 | `antes-depois.html` | comparação; traz um cupom térmico desenhado em CSS |
 | `cta.html` | último slide, um pedido só |
+
+Os modelos de totem e de tablet saem **prontos**, com a tela e as fotos da
+biblioteca: troque o texto e os itens, não o aparelho.
 
 As classes disponíveis estão comentadas em
 [`assets/slides/base.css`](assets/slides/base.css). Cores, fontes e tom de voz
@@ -217,22 +227,11 @@ escala, e o corte passa a sensação de que a tela continua.
 - **Celular** (`.sangria .sangria--celular`) sangra pela **base**.
 - **Computador** (`.navegador .sangria .sangria--janela`) sangra pela
   **direita**, porque é deitado; é assim que ele passa de 1000 px de largura.
-- **Totem** (`.totem`) é um armário **branco** de tela em pé (9/16), com um
-  painel embaixo dela (leitor de aproximação, boca de impressora e **pinpad**) e
-  coluna + base pretas. Em 410 px de largura, a carcaça tem ~800 px de altura.
-  O que faz ler "totem" e não "celular gigante" é o **painel**: numa capa deixe
-  a **coluna** sair pela base (a borda de baixo lê como chão), mas nunca corte o
-  painel.
-- **Tablet** (`.tablet`) é **preto**, deitado, e cabe inteiro em 880 px (579 px
-  de carcaça + 128 px de chapa), em `.figura`. O que separa "tablet no suporte"
-  de "monitor de mesa" são moldura **grossa** (4,4% da largura, medido na foto
-  do catálogo) e igual nos quatro lados, em `%` e nunca em px; canto bem
-  arredondado; fio de alumínio em volta; ponto da câmera na moldura da esquerda;
-  e o suporte, que é **uma chapa só**, larga e rasa (58% da largura por
-  `100 / 25`; em 46% ele ainda lia como pé de monitor, de pequeno),
-  abrindo para os lados. Coluna estreita com base — ou trapézio
-  invertido — devolve pedestal de monitor. A tela é 16/10, do tablet Android:
-  4/3 parece "mais tablet" e só inventa aparelho.
+- **Totem** (`.totem`) e **tablet** (`.tablet`) já estão desenhados, com largura
+  de uso e tela de exemplo — veja [`references/mockups.md`](references/mockups.md)
+  e a folha `assets/catalogo/catalogo.png`. Mexer neles pede rodar o
+  `catalogo.py` de novo: as três primeiras tentativas do tablet leram como
+  monitor de mesa, e a folha é o que pega isso.
 - **Nos dois, a caixa do elemento é só o corpo da tela** e coluna, painel e
   suporte são absolutos pendurados embaixo.
 - **Regra de moldura é sempre filho direto** (`.totem__tela > img`). `.moldura
@@ -294,7 +293,8 @@ recorte na pasta do carrossel — coordenadas medidas no arquivo com Pillow, nã
 estimadas. Foto de comida inventada é o que mais denuncia tela desenhada.
 
 Só ilustre (`.tela-app`, `.tela-totem`, `.tela-tablet`; modelos
-`ilustracao-app.html`, `mockup-totem.html`, `mockup-tablet.html`) com as duas
+`ilustracao-app.html`, `mockup-totem.html`, `mockup-tablet.html`, catálogo em
+[`references/mockups.md`](references/mockups.md)) com as duas
 condições: o comportamento desenhado está escrito na novidade ou no manual; e o
 desenho usa o vocabulário do carrossel e **não** imita a interface real pixel a
 pixel. Registre no `roteiro.md` o que é captura, o que é desenho e o print que
@@ -378,8 +378,12 @@ fato → ângulo → slide.
    branco, contorno branco no selo, tarja amarela e "food" vermelho?
 8. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa
    inclusive. (Data impressa dentro de um print de verdade pode ficar.)
-9. Registre o que aprendeu em
-   [`references/MEMORIA-CARROSSEIS.md`](references/MEMORIA-CARROSSEIS.md).
+9. Saiu peça nova de uso geral (aparelho, tela desenhada, foto, script)? Ela
+   **sobe** para a skill: foto e tela em `assets/fotos/`, aparelho no
+   `base.css` + `catalogo.py`, script em `scripts/`. Atualize
+   [`references/mockups.md`](references/mockups.md) e rode o `catalogo.py`.
+10. Registre o que aprendeu em
+    [`references/MEMORIA-CARROSSEIS.md`](references/MEMORIA-CARROSSEIS.md).
 
 ### 7. Entrega
 
@@ -418,12 +422,31 @@ carrosseis/<slug>/
 ├── roteiro.md            # fato→ângulo→slide e decisões de arte
 ├── copy-instagram.txt    # legenda, primeiro comentário e texto alternativo
 ├── capturar-telas.py     # só quando a captura exige clique
+├── traducoes.json        # conteúdo injetado na captura, quando houver
 ├── imagens-puras/        # prints como saíram do navegador, nunca editados
 ├── slides/               # NN-nome.html (fragmentos de body)
 ├── png/                  # a arte final, 1080x1350
 ├── entrega/<slug>.zip    # png + copy, o arquivo que vai para quem publica
 └── folha-de-contato.png  # todos os slides numa imagem
 ```
+
+## O que a skill guarda de um carrossel para o outro
+
+```
+.cursor/skills/carrossel-novidades/
+├── assets/slides/base.css   # os aparelhos e as telas desenhadas
+├── assets/slides/*.html     # modelos de slide, prontos para copiar
+├── assets/fotos/            # biblioteca: fotos de produto e telas reusáveis
+├── assets/fundos/           # arte de fundo que entra no totem na captura
+├── assets/catalogo/         # os aparelhos fotografados, e a folha com todos
+├── scripts/capturar-totem.py, preparar-fundo.py, catalogo.py
+└── references/mockups.md    # o índice da prateleira: o que já existe e a medida
+```
+
+Carrossel novo começa por aí, e não por CSS novo. O que virou geral **sai** da
+pasta do carrossel e vem para cá — foi o caso do capturador do totem, das fotos
+de produto e do fundo de comida, que nasceram todos dentro do carrossel da
+tradução.
 
 ## Regras de arte
 
