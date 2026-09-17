@@ -38,3 +38,7 @@ mapeia o que ler em `references/conhecimento-compartilhado.md`.
   revisar, e só então repetir para valer).
 - `spec.md` tem a stack, as versões e o padrão de pastas. Leia antes de mexer na
   estrutura.
+- **A tabela de manuais do `README.md` é gerada**, não editada à mão: ela fica
+  entre os marcadores `INDICE-MANUAIS` e sai do
+  `.cursor/skills/manual-sistema/scripts/indice-manuais.py`. Era mantida à mão e
+  envelheceu para 63 linhas com 99 pastas.

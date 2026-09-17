@@ -146,6 +146,14 @@ Da raiz do repositório, rodar `python .cursor/skills/manual-sistema/scripts/val
 
 Órfão e divergência do prompt são **avisos**, não erram a saída.
 
+Na mesma passada, rodar
+`python .cursor/skills/manual-sistema/scripts/indice-manuais.py`: ele reescreve a
+tabela de manuais do `README.md` a partir das pastas, com o título lido do H1 de
+cada manual. A tabela era mantida à mão e chegou a **99 pastas com 63 linhas** —
+36 manuais prontos não apareciam para quem abre o repositório, e nada quebrava,
+porque tabela incompleta continua sendo tabela válida. O `--conferir` não
+escreve: sai com código 1 quando o README está atrasado.
+
 > Existe porque manual com imagem faltando **quebra em silêncio**: o markdown continua válido,
 > o texto continua legível, e só quem abre a página publicada descobre. Foi o que aconteceu no
 > #24, cujas capturas vivem em outro repositório. Auditoria de 20/08/2026: dos 14 manuais, 13
