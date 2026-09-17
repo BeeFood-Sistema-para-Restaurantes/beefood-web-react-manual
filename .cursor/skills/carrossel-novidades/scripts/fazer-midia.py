@@ -67,7 +67,7 @@ PECAS: dict[str, dict] = {
                          "nota": "capa · imagem · TASTY BACON"},
     "capa-chapa-smash": {"medida": BANNER, "saida": "banner-capa-chapa.jpg",
                          "video": {"arquivo": "banner-capa-chapa.mp4",
-                                   "segundos": 6, "zoom": 1.12},
+                                   "segundos": 6, "zoom": 1.22},
                          "nota": "capa · vídeo · SMASH 2.0 na chapa"},
     "vitrine-batata-cheddar": {"medida": BANNER,
                                "saida": "banner-vitrine-batata.jpg",
@@ -125,6 +125,17 @@ def filmar(quadro: Path, destino: Path, segundos: int, zoom: float) -> None:
     Avanço de lente (o "Ken Burns") em vez de animação de texto: é o que uma
     cozinha consegue fazer com a foto que ela já tem, e é o que o sistema espera
     receber — vídeo curto, horizontal e mudo.
+
+    Quanto de zoom: 12% em 6 s é o avanço discreto de vídeo institucional, e no
+    feed **não lê como movimento** — a peça inteira existe para dizer que o
+    cardápio se mexe. Em 1,22 o movimento aparece no primeiro segundo de
+    rolagem e ainda não vira efeito.
+
+    O teto é por arte, e quem manda é a margem: o zoom **come a margem segura**,
+    e o cardápio ainda corta a mídia por cima disso. A capa do SMASH aguenta
+    1,22; o cartaz do milk shake, de título mais largo, perde a primeira letra
+    já em 1,18 no corte do celular, e fica em 1,1. Subiu o zoom? Olhe a captura
+    do celular antes de fechar.
     """
     quadros = segundos * 25
     passo = (zoom - 1) / quadros
