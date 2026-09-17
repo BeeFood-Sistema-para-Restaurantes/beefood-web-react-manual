@@ -739,10 +739,10 @@ body {
 /* Suporte de mesa: uma chapa de alumínio escovado que sai de trás do aparelho,
  * desce curvada e dobra para a frente até apoiar na mesa.
  *
- * Medidas tiradas da foto do catálogo, não estimadas: num aparelho de 960 px de
- * largura a chapa ocupa ~445 px (46%) e ~155 px de altura (100/33 da própria
- * largura). Nas rodadas anteriores a peça saiu com 42% de largura e um terço
- * dessa altura, e o resultado era um pedestal — base de monitor.
+ * Medidas tiradas da foto do catálogo, não estimadas: a chapa ocupa 58% da
+ * largura do aparelho e um quarto dela de altura (`100 / 25`). Nas rodadas
+ * anteriores a peça saiu com 42%, e depois com 46%, e nas duas o resultado era
+ * um pedestal — base de monitor.
  *
  * Vista de frente a chapa é um retângulo de cantos arredondados, não um
  * trapézio: duas tentativas com `clip-path` de trapézio saíram lendo "chapéu
@@ -1030,7 +1030,7 @@ body {
 
 /* Telas do totem e do tablet, desenhadas a partir de captura do aplicativo de
  * verdade. A do totem saiu do totem de exemplo que o dono liberou
- * (`totem.beefood.app`, ver `capturar-totem.py` do carrossel da tradução); a do
+ * (`totem.beefood.app`, ver `scripts/capturar-totem.py`); a do
  * tablet, do print de produção que o manual versiona
  * (`manuais/traducao-cardapio-presencial/imagens-puras/09-tablet-coca-traduzida.png`).
  *

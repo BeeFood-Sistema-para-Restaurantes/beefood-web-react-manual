@@ -1,5 +1,9 @@
 <!-- Modelo: Cardápio Digital no Tablet, tela deitada no suporte de mesa.
 
+     Sai pronto: o aparelho, a tela escura de produção e o cardápio de exemplo
+     com as fotos da biblioteca (`skill:fotos/...`, resolvido pelo
+     `renderizar.py`). Troque o texto do slide e os itens; o aparelho não.
+
      Sozinho na faixa, vai em `.figura`: centralizado, reto e no maior tamanho
      que couber. Em 880 px de largura a carcaça tem 579 px e a chapa do suporte
      mais 128 px, e sobra chão com chapéu + título de 1 linha + 3 linhas de
@@ -23,10 +27,6 @@
      Barra de topo com logo, `SEARCH` e as duas ações em vermelho; coluna de
      atalhos com as bandeiras **retangulares** no pé; coluna de setores; e
      cartões deitados com foto à esquerda, preço em amarelo e botão `Order`.
-
-     As fotos são as reais: baixe do `s3Link` da API do totem (mesmo cardápio,
-     `capturar-totem.py`) ou recorte do print — este modelo vai sem imagem para
-     renderizar sozinho.
 
      O `font-size` da `.tela-tablet` decide quantos itens cabem inteiros: em
      880 px de largura, 16 px deixa três itens com o preço visível. Preço
@@ -77,27 +77,41 @@
               </div>
             </div>
             <div class="tela-tablet__setores">
-              <div class="tela-tablet__setor tela-tablet__setor--ativo">Drinks</div>
-              <div class="tela-tablet__setor">Molhos adicionais</div>
+              <div class="tela-tablet__setor tela-tablet__setor--ativo">Burgers</div>
+              <div class="tela-tablet__setor">Sides</div>
+              <div class="tela-tablet__setor">Desserts</div>
             </div>
             <div class="tela-tablet__corpo">
-              <!-- A faixa continua em português: o título vem do Nome Público
-                   do setor, e esse não troca de idioma. -->
-              <div class="tela-tablet__faixa">Bebidas</div>
-              <!-- Com foto:
+              <!-- A faixa continua em português: o título dela vem do Nome
+                   Público do setor, e esse não troca de idioma. -->
+              <div class="tela-tablet__faixa">Burgers avulsos</div>
               <div class="tela-tablet__item">
-                <img src="../imagens-puras/foto-melted.png" alt="">
+                <img src="skill:fotos/foto-melted.png" alt="">
                 <div class="tela-tablet__texto">
                   <span>MELTED</span>
-                  <small>Brioche bun, 100 g beef patty, melted cheddar cream</small>
+                  <small>Brioche bun, 100 g beef patty, melted cheddar cream and
+                    chopped bacon</small>
                   <b>R$ 34,00</b>
                 </div>
                 <span class="tela-tablet__pedir">Order</span>
               </div>
-              -->
               <div class="tela-tablet__item">
+                <img src="skill:fotos/foto-tasty-bacon.png" alt="">
                 <div class="tela-tablet__texto">
-                  <span>Cola US</span><small>The drink cola</small><b>R$ 5,00</b>
+                  <span>TASTY BACON</span>
+                  <small>Sesame brioche bun, cheddar cheese, smoked mayo and
+                    bacon slices</small>
+                  <b>R$ 30,00</b>
+                </div>
+                <span class="tela-tablet__pedir">Order</span>
+              </div>
+              <div class="tela-tablet__item">
+                <img src="skill:fotos/foto-one-classic.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>ONE CLASSIC</span>
+                  <small>Brioche bun, 100 g beef patty, lettuce, tomato, red
+                    onion and green mayo</small>
+                  <b>R$ 26,00</b>
                 </div>
                 <span class="tela-tablet__pedir">Order</span>
               </div>

@@ -1,5 +1,9 @@
 <!-- Modelo: Totem de Autoatendimento.
 
+     Sai pronto: o aparelho, a tela escura de produção e o cardápio de exemplo
+     com as fotos da biblioteca (`skill:fotos/...`, resolvido pelo
+     `renderizar.py`). Troque o texto do slide e os itens; o aparelho não.
+
      O aparelho é um armário **branco**: tela em pé (9/16) com moldura preta
      fina, um painel embaixo dela com leitor de aproximação, boca de impressora
      e pinpad, e coluna + base pretas mais estreitas que a carcaça. O painel é o
@@ -8,8 +12,10 @@
 
      **A tela pode ser captura de verdade.** O totem é web
      (`totem.beefood.app/?empresaID=&filialID=&token=`) e abre no Playwright —
-     veja `capturar-totem.py` no carrossel da tradução. Prefira a captura: ela
-     não tem como estar errada.
+     `scripts/capturar-totem.py`. Prefira a captura: ela não tem como estar
+     errada. A tela de espera já está na biblioteca, em inglês e em português:
+
+       <img src="skill:fotos/totem-espera-en-720.png" alt="Tela de espera">
 
      Desenhe a tela só quando a captura reduzida ficar ilegível no slide: em
      mockup de 400 px, a tela de espera (imagem e botão grandes) sobrevive, e o
@@ -33,7 +39,7 @@
      O `font-size` da `.tela-totem` é o que decide **onde a rolagem corta**
      (tudo lá dentro é `em`). Escolha o valor que deixa o último cartão inteiro,
      ou cortado dentro da foto: corte no meio do preço lê como falha de render.
-     No totem de 420 px deste carrossel deu 19 px, com quatro cartões em duas
+     No totem de 420 px deste modelo deu 19 px, com quatro cartões em duas
      linhas. -->
 
 <div class="slide slide--suave">
@@ -42,7 +48,7 @@
     <span class="contador">3 de 7</span>
   </div>
 
-  <div class="pilha g24" style="margin-top: 50px; max-width: 600px">
+  <div class="pilha g24" style="margin-top: 180px; max-width: 500px">
     <span class="chapeu">No totem</span>
     <h2 class="titulo titulo--pequeno">
       Título de duas linhas, com <span class="destaque">uma</span> palavra em vermelho
@@ -55,41 +61,53 @@
   <div class="sangria" style="top: 452px; right: 40px; width: 420px">
     <div class="totem" style="width: 420px; --coluna: 300px">
       <div class="totem__tela">
-        <!-- Melhor caso: a captura do totem inteira dentro da moldura.
-
-        <img src="../imagens-puras/totem-espera-en-720.png" alt="Tela de espera">
-        -->
-
         <!-- Cardápio desenhado, para quando a captura reduzida não se lê. A
              coluna de setores usa miniatura de foto, como o aplicativo. -->
         <div class="tela-totem" style="font-size: 19px">
           <div class="tela-totem__setores">
             <div class="tela-totem__marca-caixa"><span></span></div>
             <div class="tela-totem__setor tela-totem__setor--ativo">
-              <img src="../imagens-puras/foto-batata.png" alt="">
+              <img src="skill:fotos/foto-batata.png" alt="">
               <span>SIDES</span>
             </div>
             <div class="tela-totem__setor">
-              <img src="../imagens-puras/foto-smash.png" alt="">
+              <img src="skill:fotos/foto-smash.png" alt="">
               <span>BURGERS</span>
+            </div>
+            <div class="tela-totem__setor">
+              <img src="skill:fotos/foto-brownie.png" alt="">
+              <span>DESSERTS</span>
+            </div>
+            <div class="tela-totem__setor">
+              <img src="skill:fotos/foto-shake.png" alt="">
+              <span>MILKSHAKES</span>
             </div>
           </div>
           <div class="tela-totem__corpo">
             <!-- O banner é recorte da captura, e traz o CANCEL ORDER e a pílula
                  de bandeiras de produção dentro. -->
             <div class="tela-totem__banner">
-              <img src="../imagens-puras/totem-banner-en.png" alt="">
+              <img src="skill:fotos/totem-banner-en.png"
+                   alt="Banner do totem com o seletor de idioma no canto direito">
             </div>
             <div class="tela-totem__rolagem">
               <div class="tela-totem__secao">Sides</div>
               <div class="tela-totem__grade">
                 <div class="tela-totem__card">
-                  <img src="../imagens-puras/foto-batata.png" alt="">
+                  <img src="skill:fotos/foto-batata.png" alt="">
                   <div><span>FRENCH FRIES</span><b>R$ 11,00</b></div>
                 </div>
                 <div class="tela-totem__card">
-                  <img src="../imagens-puras/foto-cebola.png" alt="">
+                  <img src="skill:fotos/foto-cebola.png" alt="">
                   <div><span>ONION RINGS</span><b>R$ 12,00</b></div>
+                </div>
+                <div class="tela-totem__card">
+                  <img src="skill:fotos/foto-mozza.png" alt="">
+                  <div><span>MOZZA STICKS</span><b>R$ 32,00</b></div>
+                </div>
+                <div class="tela-totem__card">
+                  <img src="skill:fotos/foto-batata-cheddar.png" alt="">
+                  <div><span>CHEDDAR &amp; BACON FRIES</span><b>R$ 18,00</b></div>
                 </div>
               </div>
             </div>
