@@ -370,11 +370,15 @@ fato → ângulo → slide.
 5. Alguma frase explica enfeite de tela ("a bolinha verde marca…")? Algum
    diminutivo? Algum "ele" que não é o leitor nem o cliente dele? Os três saem
    — e o que fica no lugar é a consequência para o negócio.
-6. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE" em
+6. Algum slide alivia um trabalho ("não precisa traduzir tudo hoje", "aos
+   poucos")? Sai: é aviso de limite, e ele planta a objeção justo antes do CTA.
+   E o slide do problema — normalmente o 2 — elogia o leitor antes de mostrar o
+   furo, ou entrega uma fatura na cara dele?
+7. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE" em
    branco, contorno branco no selo, tarja amarela e "food" vermelho?
-7. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa
+8. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa
    inclusive. (Data impressa dentro de um print de verdade pode ficar.)
-8. Registre o que aprendeu em
+9. Registre o que aprendeu em
    [`references/MEMORIA-CARROSSEIS.md`](references/MEMORIA-CARROSSEIS.md).
 
 ### 7. Entrega
@@ -449,6 +453,22 @@ carrosseis/<slug>/
   concreta ("Menos necessidade de garçons extras") e o slide fecha no que muda
   para o negócio — fila que anda, mesa que fecha mais alta, equipe que rende
   mais. Descrever funcionamento sem consequência é documentação, não post.
+- **Nunca avise o limite do recurso.** "Não precisa traduzir tudo hoje", "aos
+  poucos", "com calma": parece gentileza e entrega o contrário — aliviar um
+  trabalho é admitir que existe um trabalho, e plantar essa objeção no slide
+  antes do CTA é derrubar a peça no fim. Quem precisa do limite abre o manual.
+  Honestidade se faz mostrando a tela certa (o cadastro onde o texto em inglês é
+  escrito), não com aviso.
+- **O slide do problema elogia antes de cobrar.** Slide 2 é onde o leitor decide
+  se arrasta: "Quanto seu salão **perde** por não falar inglês?" entrega uma
+  fatura, e ninguém salva post para ler a própria conta. Comece pelo que ele já
+  tem funcionando ("Seu cardápio é o seu melhor **vendedor**") e traga o furo
+  depois, na mesma frase que traz a solução.
+- **Se a tela prova, o slide é a tela.** Antes de escrever cinco linhas
+  explicando que o cardápio existe em outro idioma, veja se dois recortes da
+  mesma tela não dizem isso sozinhos — mesmo item, mesma foto, mesmo preço, nome
+  diferente. Recorte medido no DOM (mesma caixa nos dois idiomas) e capturado em
+  escala 2; o texto vira uma linha.
 - **Microdetalhe de interface não é conteúdo.** "A bolinha verde marca o idioma
   que já tem texto" é correto e não agrega nada a quem está no feed — é material
   de manual. Teste cada frase com "o que muda para ele se eu tirar isso?"; se a

@@ -4,10 +4,13 @@ Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
 continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
 entra o que é de carrossel.
 
-Última atualização: 2026-09-17 (12ª rodada: o carimbo "ILUSTRAÇÃO" saiu da arte
-para sempre; a foto de fundo do totem de exemplo passou a ser nossa; e a régua
-de texto virou **texto que vende, na voz da marca e falando com você** — a
-maior correção de linguagem até agora).
+Última atualização: 2026-09-17 (13ª rodada: dois slides refeitos por motivo de
+**argumento**, não de arte — peça de venda não avisa o limite do recurso, e o
+slide do problema elogia o leitor antes de mostrar o furo).
+
+12ª rodada: o carimbo "ILUSTRAÇÃO" saiu da arte para sempre; a foto de fundo do
+totem de exemplo passou a ser nossa; e a régua de texto virou **texto que vende,
+na voz da marca e falando com você**.
 
 ## Índice
 
@@ -85,12 +88,14 @@ O conserto tem três movimentos, nesta ordem:
    ele: fila que anda, mesa que fecha mais alta, equipe que atende mais mesa.
    Descrição de funcionamento sem consequência é documentação.
 3. **Venda.** É peça de Instagram de uma empresa que vende sistema, não verbete.
-   Pergunta sobre dinheiro (*"Quanto seu salão perde por não falar inglês?"*)
-   funciona melhor que constatação bonita.
+   Constatação bonita não vende; frase que nomeia um ganho, sim. E cuidado com a
+   tentação seguinte, que foi o erro da rodada 13: pergunta de cobrança
+   (*"Quanto seu salão perde por não falar inglês?"*) vende menos que elogio
+   seguido de virada — a seção logo abaixo conta por quê.
 
 | Terceira pessoa, morno | Falando com você, vendendo |
 |---|---|
-| "Ele queria pedir. Só não sabia o quê." | "Quanto seu salão **perde** por não falar inglês?" |
+| "Ele queria pedir. Só não sabia o quê." | "Seu cardápio é o seu melhor **vendedor**" (ver "o slide do problema elogia antes de cobrar") |
 | "Abre o tradutor no celular e vai lendo item por item." | "Seu cliente abre o tradutor no celular e vai lendo item por item." |
 | "Ele toca na bandeira e o cardápio inteiro muda." | "Seu cliente toca na bandeira e pede **sozinho**." |
 | "No tablet é a mesma coisa." | "Na mesa, o tablet fala a língua do seu cliente." |
@@ -119,7 +124,66 @@ Duas cautelas que o site cria e o carrossel tem de respeitar:
   promessa do site aqui viraria reclamação no comentário.
 - "aumento de até 40% do ticket médio" é número do site, para outro recurso. Não
   vale emprestar número de vizinho: no carrossel, o ganho aparece em cena
-  concreta ("a conta da mesa fecha bem abaixo do que podia").
+  concreta ("o pedido sai o mais simples possível, sem combo e sem sobremesa").
+
+### Aviso de limite não entra em peça de venda
+
+O slide 6 do carrossel da tradução dizia "Não precisa traduzir tudo **hoje**" e
+listava por onde começar: setores, mais vendidos, o resto quando der. A intenção
+era boa — tirar o peso de quem imagina uma tarde inteira de digitação. O que
+chegou do outro lado foi: *"dá a entender que o sistema não traduz sozinho e que
+é inútil; ele também não traduz sozinho, mas não precisa tocar nisso"*.
+
+O diagnóstico é preciso, e a parte que ensina é a segunda metade. **Aliviar um
+trabalho é admitir que existe um trabalho.** Num manual isso é serviço; num
+carrossel é uma objeção que o leitor ainda não tinha formulado, plantada no slide
+anterior ao CTA — o pior lugar possível.
+
+O que ficou:
+
+- **peça de venda não anuncia o limite do recurso.** Quem precisa do limite abre
+  o manual, que está a um clique de distância e é escrito para isso.
+- **cuidado com a família de frases que parece gentileza:** "não precisa fazer
+  tudo", "aos poucos", "com calma", "sem pressa", "comece pequeno". Todas
+  carregam o trabalho junto com o alívio.
+- **honestidade não é aviso.** O carrossel continua sem dizer "o sistema
+  traduz": ele mostra o cadastro onde a versão em inglês mora, com a mão do
+  lojista implícita na tela. O leitor entende sem que ninguém precise soletrar —
+  e o `roteiro.md` registra o que é captura e o que é desenho.
+- **se o slide ficar sem assunto, procure o que a peça prometeu e não mostrou.**
+  Foi o caso: a capa prometia "inglês e espanhol" e o espanhol não aparecia em
+  slide nenhum. O slide do alívio virou o slide do espanhol, com prova na
+  imagem.
+
+### O slide do problema elogia antes de cobrar
+
+O slide 2 do mesmo carrossel teve três versões, e as duas primeiras erraram por
+motivos diferentes: a primeira narrava o turista em terceira pessoa, a segunda
+perguntava *"Quanto seu salão **perde** por não falar inglês?"* e listava o que
+dá errado no salão. A segunda tem sujeito certo, tom de venda e fecha no custo —
+e o dono devolveu de novo.
+
+O que estava errado é o lugar da cobrança. **Slide 2 é onde o leitor decide se
+arrasta ou não**, e ali ele recebeu uma fatura: três linhas do que ele faz
+errado e um preço no pé. Ninguém salva um post para ler a própria conta.
+
+A terceira versão vira o argumento do avesso, e é o padrão que fica:
+
+1. **elogie o que ele já tem, e com verdade.** "Seu cardápio é o seu melhor
+   vendedor" — e é: foto, descrição, combo e adicional na tela são trabalho de
+   vendedor.
+2. **mostre o furo depois, e no mesmo movimento que a solução.** "Ele só vende
+   para quem lê português (…) em inglês e em espanhol, esse vendedor volta a
+   trabalhar." O custo continua ("o pedido sai o mais simples possível, sem combo
+   e sem sobremesa"), só que agora é consequência de uma premissa que o leitor
+   aceitou.
+3. **nunca em porcentagem.** Sem número que o BeeFood não publicou.
+
+| Slide de problema que afasta | Slide de problema que prende |
+|---|---|
+| "Quanto seu salão **perde** por não falar inglês?" | "Seu cardápio é o seu melhor **vendedor**" |
+| lista do que dá errado no salão dele | lista do que o cardápio dele já faz bem |
+| custo no fim, sozinho | furo e solução na mesma frase |
 
 ### Emoji
 
@@ -154,10 +218,37 @@ consequência, que é o que ele compra:
 | Microdetalhe | O que entrou no lugar |
 |---|---|
 | "A bolinha verde marca a bandeira que já recebeu tradução" | "Mudou o preço, acabou o estoque? Você mexe num lugar só, e os três idiomas acompanham" |
-| "Traduza um grupo de opções e ele vale em todo produto que usa aquele grupo" | "O resto, quando der" |
+| "Traduza um grupo de opções e ele vale em todo produto que usa aquele grupo" | (saiu, e o slide inteiro saiu na rodada seguinte — era sobre o trabalho do lojista) |
 
 Mesma régua para caminho de menu, nome de campo e regra de comportamento fina:
 entram quando **são** o assunto do slide, nunca como explicação de brinde.
+
+### Quando a prova cabe na imagem, a frase não precisa existir
+
+O slide que substituiu o do alívio tem uma linha de texto e duas imagens: o
+**mesmo** item do cardápio, recortado do **mesmo** ponto da tela do totem, um em
+inglês e um em espanhol. Mesma foto, mesmo `R$ 11,00`, e o nome saindo de
+`FRENCH FRIES` para `PAPAS FRITAS`. Nenhuma frase sobre "três idiomas" convence
+como esse par de recortes, e o leitor gasta dois segundos em vez de ler cinco
+linhas.
+
+Vale como pergunta de roteiro: **esse slide está explicando algo que a tela já
+mostra?** Se sim, o slide é um recorte com rótulo, e o texto vira uma linha só.
+
+Três coisas que a execução ensinou:
+
+- **o recorte tem de ser medido, não fixo.** O `capturar-totem.py` lê a caixa do
+  cartão no DOM antes de fotografar (`medir_primeiro_cartao`). É o que garante
+  que os dois idiomas caiam no mesmo pixel — e é o que faz o par ler como um
+  item só, em vez de duas fotos parecidas.
+- **capture em escala 2 o que vai aparecer ampliado.** O cartão tem 248 px no
+  aparelho e aparece com 372 na arte; em escala 1 a letra fica pastosa.
+- **fileira de grade não tem altura igual em todo idioma.** Em português aquele
+  cartão sai 20 px mais alto, porque a altura da fileira é ditada pelo nome mais
+  longo do setor (`MOZZA STICKS - PALITOS DE MUSSARELA`, em duas linhas). Com
+  três recortes lado a lado, ou os rótulos desalinham ou aparece um degrau
+  embaixo; com dois, cada um fica 1,5x maior e o nome dá para ler no feed. Duas
+  provas bastam — a terceira língua já está em outro slide.
 
 ### Nada de diminutivo
 
@@ -885,6 +976,10 @@ que o restaurante escreveria. Três cuidados:
   botões pela caixa (`r.left < 5 && r.width < 300 && r.height > 100`) e guarde o
   índice; e reclique o setor depois de cada troca de idioma, porque a troca
   volta a rolagem para o topo.
+- **recorte de pedaço de tela sai do `screenshot(clip=…)`, com a caixa medida no
+  DOM.** É como nasce o par `FRENCH FRIES` / `PAPAS FRITAS` do slide de espanhol:
+  mesma caixa nos dois idiomas, então o leitor compara o mesmo cartão em vez de
+  duas fotos parecidas. Detalhes em *quando a prova cabe na imagem*.
 
 As **fotos dos produtos** vêm do `s3Link` da própria API (`pagina.request.get`),
 em WEBP — converta com Pillow antes de usar no slide. Foto real na tela desenhada

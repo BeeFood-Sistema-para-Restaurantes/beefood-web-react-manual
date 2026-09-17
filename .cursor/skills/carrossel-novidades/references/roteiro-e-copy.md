@@ -80,16 +80,20 @@ paga quando tem conteúdo do outro lado.
 ## Estrutura que funciona (6 a 8 slides)
 
 1. **Capa** — o incômodo em no máximo oito palavras, com imagem.
-2. **O custo** — o que acontece quando o problema acontece. É aqui que o leitor
-   se reconhece. Custo em cena concreta ("alguém sai de novo no meio do pico"),
-   não em número inventado.
+2. **O reconhecimento** — é aqui que o leitor se vê. Elogie primeiro o que ele já
+   tem funcionando e mostre o furo depois, na mesma frase que traz a solução; o
+   custo aparece em cena concreta ("alguém sai de novo no meio do pico"), nunca
+   em número inventado. Slide 2 que cobra afasta — ver *o slide do problema
+   elogia antes de cobrar*.
 3. **A virada** — o que muda, mostrado. Antes × depois é o slide mais
    compartilhado do carrossel.
 4. **Onde ligar** — mockup de computador com o caminho de menu e o realce no
    campo.
 5. **O atalho** — como fazer em vários itens de uma vez, quando existir.
 6. **Até onde vai** — o efeito nas outras pontas (cozinha, entregador, cliente).
-7. **O limite** — o erro comum. Slide que gera confiança porque não vende.
+7. **O limite de uso** — o erro comum de quem usa ("não saia marcando tudo").
+   Gera confiança porque não vende. Não é a mesma coisa que avisar o que o
+   sistema não faz: isso derruba a peça — ver *nunca avise o limite do recurso*.
 8. **CTA** — um pedido só.
 
 Não é camisa de força. Melhoria pequena cabe em quatro slides, e forçar oito
@@ -166,6 +170,46 @@ Duas cautelas:
 - **vender não é adjetivar.** "Revolucionário", "poderoso" e "incrível"
   continuam fora. O que vende é a cena concreta e a consequência.
 
+### O slide do problema elogia antes de cobrar
+
+O slide 2 é onde o leitor decide se arrasta o carrossel. Duas versões do de
+tradução falharam ali: a primeira narrava o turista em terceira pessoa, e a
+segunda perguntou **"Quanto seu salão perde por não falar inglês?"**, com três
+linhas do que dá errado no salão e o custo no pé. Sujeito certo, tom de venda —
+e ainda assim devolvido, porque aquilo é leitura de fatura. Ninguém salva um post
+para ler a própria conta.
+
+O que funcionou é a mesma informação de trás para frente:
+
+1. **elogie o que ele já tem, com verdade.** "Seu cardápio é o seu melhor
+   **vendedor**" — e é: foto, descrição, combo e adicional na tela são trabalho
+   de vendedor.
+2. **traga o furo depois, junto com a solução.** "Ele só vende para quem lê
+   português (…) em inglês e em espanhol, esse vendedor volta a trabalhar."
+3. **o custo fica, em cena e sem porcentagem:** "o pedido sai o mais simples
+   possível, sem combo e sem sobremesa".
+
+### Nunca avise o limite do recurso
+
+"Não precisa traduzir tudo hoje." "Aos poucos." "Com calma." Parece gentileza, e
+é o oposto: **aliviar um trabalho é admitir que existe um trabalho.** Um slide
+desses no penúltimo lugar do carrossel foi lido como "o sistema não traduz
+sozinho e é inútil" — a objeção plantada justo antes do CTA.
+
+Quem precisa do limite abre o manual. A honestidade no carrossel se faz
+mostrando a tela certa (o cadastro onde o texto em inglês é escrito) e
+registrando no `roteiro.md` o que é captura e o que é desenho, não com aviso na
+arte.
+
+**Não confunda com o slide do limite de uso** ("não saia marcando tudo: marcar
+dez linhas é não marcar nenhuma"). Aquele ensina a usar melhor e gera confiança;
+este avisa o que o produto não faz e tira a venda.
+
+E quando um slide desses cai, o lugar dele não fica vazio: **procure o que a peça
+prometeu e não mostrou.** A capa prometia "inglês e espanhol" e o espanhol não
+aparecia em slide nenhum — o slide do alívio virou o slide do espanhol, com dois
+recortes da mesma tela provando o que antes era frase.
+
 ## Escrita
 
 - Frase curta. Ponto final em vez de vírgula.
@@ -196,10 +240,23 @@ consequência no lugar.
 | Microdetalhe | O que entrou no lugar |
 |---|---|
 | "A bolinha verde marca a bandeira que já recebeu tradução" | "Mudou o preço, acabou o estoque? Você mexe num lugar só, e os três idiomas acompanham" |
-| "Traduza um grupo de opções e ele vale em todo produto que usa aquele grupo" | "O resto, quando der" |
+| "Traduza um grupo de opções e ele vale em todo produto que usa aquele grupo" | (cortado — e o slide inteiro caiu depois, por ser sobre o trabalho do lojista) |
 
 Enfeite de tela, nome de campo e regra fina de comportamento entram quando
 **são** o assunto do slide, nunca como explicação de brinde.
+
+## Se a tela prova, o slide é a tela
+
+O slide que substituiu o do alívio tem uma linha de texto e duas imagens: o mesmo
+item do cardápio, recortado do mesmo ponto da tela, um em inglês e um em
+espanhol. Mesma foto, mesmo preço, e o nome saindo de `FRENCH FRIES` para
+`PAPAS FRITAS`. Nenhum parágrafo sobre "três idiomas" convence como esse par.
+
+Pergunta de roteiro: **esse slide explica algo que a tela já mostra?** Se sim,
+ele é um recorte com rótulo — e o texto vira uma linha. Para o recorte sair
+comparável, a caixa é medida no DOM e usada igual nos dois idiomas
+(`screenshot(clip=…)`), e a captura é em escala 2, porque na arte ela aparece
+ampliada.
 
 ## Emoji
 
@@ -237,6 +294,10 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 - [ ] No máximo um emoji por slide, e não em todos.
 - [ ] Nenhuma palavra no diminutivo, e nenhuma frase explicando enfeite de tela.
 - [ ] Nenhum slide narra um "ele" que não é o leitor nem o cliente dele.
+- [ ] Nenhum slide alivia um trabalho ("não precisa fazer tudo hoje", "aos
+      poucos") nem avisa o que o sistema não faz.
+- [ ] O slide do problema elogia o leitor antes de mostrar o furo.
+- [ ] Nenhum slide explica com cinco linhas o que dois recortes da tela provam.
 - [ ] Cada slide fecha no que muda para o negócio, não na descrição do recurso.
 - [ ] A capa tem **uma** palavra em vermelho, e nenhum emoji junto dela.
 - [ ] O slide 1 tem imagem, e a imagem mostra **um** destaque só.
