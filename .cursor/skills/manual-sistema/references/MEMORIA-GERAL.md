@@ -48,7 +48,8 @@ criar usuário/grupo — **usuário sem grupo enxerga quase tudo**;
 **#74** Entendendo a numeração dos pedidos — concluído: número da
 venda nunca reseta, número do pedido é do caixa, mesa nunca recebe **e não consome** número;
 virada 60→1 provada ao vivo; **cupom no navegador é IFRAME, não `window.open`**;
-**o `BITBUCKET_TOKEN` parou de autenticar** — backend não clona mais;
+**o `BITBUCKET_TOKEN` parou de autenticar** — mas o clone do backend
+sobrevive no snapshot do ambiente, em leitura congelada (seção 5);
 **#72** Ficha técnica — base de insumos zerada, opção repetida
 baixa em dobro, insumo sem controle de estoque não movimenta; **#73** Produto só com agendamento;
 **#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
@@ -794,6 +795,17 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 > voltar a ter o backend, gerar um token novo (Repository settings → Security → Access
 > tokens, escopo *Repositories: Read*) e regravar o secret no Cursor Dashboard;
 > **secret novo só entra em VM nova**.
+>
+> ✅ **Mas o backend está lá — conferido em 2026-09-17.** O clone existe em
+> `~/refs/beetech-server-node-2.0` (branch `beefood-web-react`, commit `4a419d2`, baixado em
+> 2026-09-10) e foi ele que explicou o `sugestao: true` do `pedidoPOST.js` e a proc do
+> `relatorioSugestao.js` no manual #103. A VM inicia de um **snapshot pronto do ambiente**,
+> que guarda o clone feito num build em que o token ainda valia. O token continua falhando
+> (as quatro combinações testadas de novo em 2026-09-17), então o backend é **leitura
+> congelada**: o código de setembro está em disco, mas não atualiza. `git fetch` dentro da
+> sessão também não resolve — o `install.sh` grava o remote **sem** o token de propósito,
+> para o clone não travar quando o token expira. Antes de concluir que o backend não existe,
+> **olhe a pasta**.
 >
 > Enquanto isso, a saída que funcionou no #74 é **provar a regra por dado real** em vez de
 > ler o código do servidor: um script curto que loga com Playwright e consulta a API
