@@ -237,6 +237,21 @@ PECAS: list[tuple[str, str, str, str]] = [
      "462 px, virado para dentro (.g3d--na-direita)",
      '<div class="cena3d"><div class="celular g3d g3d--na-direita" style="width: 462px">'
      f'<div class="celular__tela">{TELA_APP}</div></div></div>'),
+    ("notebook", "Notebook, só o aparelho",
+     "900 px sozinho; 760 dividindo a faixa",
+     '<div class="notebook" style="width: 900px">'
+     f'<div class="notebook__tela">{VAZIO}</div>'
+     '<div class="notebook__base"></div></div>'),
+    ("notebook-3d", "Notebook em 3D",
+     "760 px, virado para dentro (.g3d--na-direita)",
+     '<div class="cena3d"><div class="notebook g3d g3d--na-direita" style="width: 760px">'
+     f'<div class="notebook__tela">{VAZIO}</div>'
+     '<div class="notebook__base"></div></div></div>'),
+    ("monitor", "Monitor de mesa",
+     "920 px sozinho; tela 16/9",
+     '<div class="monitor" style="width: 920px">'
+     f'<div class="monitor__tela">{VAZIO}</div>'
+     '<div class="monitor__pe"></div></div>'),
     ("navegador", "Janela de navegador",
      "1120 px em sangria pela direita",
      '<div class="navegador" style="width: 1120px">'
@@ -269,11 +284,34 @@ def pagina(fragmento: str) -> str:
 <style>{R.BASE_CSS.read_text(encoding="utf-8")}</style>
 <style>
 html, body {{ margin: 0; background: #faf9f8; font-family: 'Mulish', sans-serif; }}
-/* Folga em volta para caber a sombra do aparelho, que sai da caixa dele. */
-#peca {{ display: inline-block; padding: 80px; }}
+/* Folga grande em volta, porque coluna, base e pé são absolutos e ficam FORA
+ * da caixa do aparelho — sem folga o `screenshot` da caixa corta o pé do
+ * monitor. O recorte justo é feito depois, no Pillho (`aparar`). */
+#peca {{ display: inline-block; padding: 220px; }}
 {VAZIA}
 </style>
 </head><body><div id="peca">{R.resolver_skill(fragmento)}</div></body></html>"""
+
+
+def aparar(png: Path, folga: int = 28) -> None:
+    """Recorta a moldura de fundo, deixando uma folga igual em volta.
+
+    O `screenshot` sai com a folga de 220 px que a página precisa para não
+    cortar peça absoluta. Aparar depois mantém cada peça no seu tamanho, o que
+    importa na folha: ali as peças são reduzidas para caber na célula, e
+    aparelho com 200 px de branco em volta sai menor que o vizinho sem motivo.
+    """
+    from PIL import Image, ImageChops
+
+    with Image.open(png) as im:
+        im = im.convert("RGB")
+        fundo = Image.new("RGB", im.size, im.getpixel((0, 0)))
+        caixa = ImageChops.difference(im, fundo).getbbox()
+        if not caixa:
+            return
+        x1, y1, x2, y2 = caixa
+        im.crop((max(x1 - folga, 0), max(y1 - folga, 0),
+                 min(x2 + folga, im.width), min(y2 + folga, im.height))).save(png)
 
 
 def fotografar() -> list[tuple[Path, str, str]]:
@@ -285,7 +323,7 @@ def fotografar() -> list[tuple[Path, str, str]]:
     try:
         with sync_playwright() as p:
             navegador = p.chromium.launch()
-            ctx = navegador.new_context(viewport={"width": 1400, "height": 1600},
+            ctx = navegador.new_context(viewport={"width": 1800, "height": 2000},
                                         device_scale_factor=1, locale="pt-BR")
             aba = ctx.new_page()
             for arquivo, rotulo, nota, fragmento in PECAS:
@@ -296,6 +334,7 @@ def fotografar() -> list[tuple[Path, str, str]]:
                 aba.wait_for_timeout(300)
                 png = CATALOGO / f"{arquivo}.png"
                 aba.locator("#peca").screenshot(path=str(png), type="png")
+                aparar(png)
                 feitas.append((png, rotulo, nota))
                 print(f"OK  {png.relative_to(SKILL)}")
             navegador.close()

@@ -865,6 +865,165 @@ body {
   height: auto;
 }
 
+/* Notebook, para print de página web deitada — cardápio digital, painel.
+ *
+ * `.navegador` mostra a **página**; o notebook mostra a **cena**: alguém
+ * sentado, olhando aquilo. Numa capa isso vale mais que mais 100 px de tela.
+ *
+ * Desenhado a partir da foto de catálogo de notebook prateado de tampa fina
+ * (a família que o dono de restaurante tem na mesa do escritório). O que faz
+ * ler "notebook" e não "monitor":
+ *
+ * - **tela 16/10**, que é a proporção de tampa de notebook. 16/9 lê como TV.
+ * - **moldura preta fina e igual** nos quatro lados, com o queixo um tiquinho
+ *   maior — é onde fica a marca.
+ * - **fio prateado** em volta da tampa, que é a carcaça aparecendo.
+ * - **base mais larga que a tampa**, baixa, com a frente arredondada e o
+ *   recorte de abrir no meio. Sem a base é um monitor sem pé; sem o recorte a
+ *   base lê como barra de som.
+ *
+ * A base é absoluta, pendurada embaixo: com ela no fluxo, o `.g3d::after` (o
+ * brilho do 3D) pintava o vão transparente das quinas dela. Mesma razão do
+ * totem e do tablet.
+ *
+ * Aceita 3D (`.cena3d` + `.g3d`): aparelho de tampa tem espessura, e o giro
+ * valoriza. Larguras: 900 px sozinho na faixa, 1000 px em sangria pela base,
+ * 760 px dividindo a faixa com texto. */
+.notebook {
+  position: relative;
+  width: 900px;
+  padding: 0.9%;
+  padding-bottom: 1.5%;
+  border-radius: 12px 12px 4px 4px;
+  background: linear-gradient(104deg, #d7dade, #f2f3f5 38%, #b9bdc3);
+  box-shadow: 0 0 0 1px #9aa0a6, 0 30px 60px -22px rgba(0, 0, 0, 0.42);
+  flex: none;
+}
+
+.notebook__tela {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0b0b0c;
+  box-shadow: 0 0 0 6px #17181a;
+}
+
+.notebook__tela > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* A base: chapa baixa, mais larga que a tampa, com a frente arredondada. O
+ * `clip-path` afina as pontas de baixo — é o que dá a sensação de a peça estar
+ * deitada na mesa em vez de ser um retângulo colado. */
+.notebook__base {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  width: 111%;
+  aspect-ratio: 100 / 4;
+  /* As pontas de baixo afinam: é a peça deitada na mesa, e não um retângulo
+   * colado embaixo da tampa. */
+  clip-path: polygon(0 0, 100% 0, 98.4% 58%, 96.4% 100%, 3.6% 100%, 1.6% 58%);
+  border-radius: 2px 2px 12px 12px;
+  /* Três faixas: o tampo visto de raspão, o vinco da quina e a frente, que
+   * fica na sombra. Sem as três a base sai chapada e lê como prateleira. */
+  background: linear-gradient(#f1f3f5 0 30%, #d9dde1 30% 40%,
+                              #c2c7cd 40% 72%, #9fa5ac 72% 100%);
+  box-shadow: 0 18px 28px -16px rgba(0, 0, 0, 0.55);
+}
+
+/* Recorte de abrir a tampa, no meio da frente. */
+.notebook__base::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 13%;
+  height: 52%;
+  border-radius: 999px 999px 0 0;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+/* Monitor de mesa, para o painel visto de onde o dono trabalha.
+ *
+ * Diferença do notebook: aqui a tela é **16/9** e existe pescoço. É o desenho
+ * que o tablet NÃO podia ter (lá, "coluna + base" virava monitor e estragava a
+ * peça); aqui é exatamente o que se quer.
+ *
+ * O queixo embaixo da tela é o que separa monitor de televisão de parede.
+ * Larguras: 920 px sozinho na faixa, 780 px dividindo com texto. */
+.monitor {
+  position: relative;
+  width: 920px;
+  /* Queixo de 4%: é o que separa monitor de televisão de parede. */
+  padding: 1.1% 1.1% 4%;
+  border-radius: 14px;
+  background: linear-gradient(104deg, #2b2e33, #3c4047 40%, #22252a);
+  box-shadow: 0 0 0 1px #14161a, 0 30px 60px -22px rgba(0, 0, 0, 0.45);
+  flex: none;
+}
+
+.monitor__tela {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0b0b0c;
+}
+
+.monitor__tela > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Pescoço e pé: um invólucro absoluto (fora do fluxo, como no totem, para o
+ * brilho do 3D não pintar o vão) com o pescoço no `::before` e o pé no
+ * `::after`. Cuidado que custou uma rodada: `clip-path` recorta os filhos
+ * também, então o afunilamento do pescoço não pode ficar no invólucro — senão
+ * o pé sai com a largura do pescoço. */
+.monitor__pe {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  width: 34%;
+  aspect-ratio: 100 / 26;
+}
+
+.monitor__pe::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 25%;
+  height: 84%;
+  clip-path: polygon(8% 0, 92% 0, 100% 100%, 0 100%);
+  background: linear-gradient(96deg, #34383e, #5b6068 45%, #2a2d32);
+}
+
+.monitor__pe::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 17%;
+  border-radius: 5px 5px 9px 9px;
+  background: linear-gradient(#4f545b 0 26%, #383c42 26% 64%, #23262b 64% 100%);
+  box-shadow: 0 16px 24px -14px rgba(0, 0, 0, 0.6);
+}
+
 /* Recorte de print sem moldura, para destacar um detalhe da tela. */
 .recorte {
   border-radius: 24px;
