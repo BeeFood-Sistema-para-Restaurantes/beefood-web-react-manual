@@ -37,7 +37,8 @@ tipografia, cores e o seletor de idioma são os do totem. O que é nosso é o
 conteúdo do cardápio traduzido — exatamente o que o lojista vai cadastrar — e a
 foto de fundo.
 
-Saída: `imagens-puras/totem-*.png`.
+Saída: `imagens-puras/totem-*.png` (telas inteiras) e `imagens-puras/cartao-*.png`
+(o mesmo item do cardápio recortado nos três idiomas).
 """
 
 from __future__ import annotations
@@ -260,6 +261,25 @@ def main() -> None:
         escolher_idioma(menor, "en-US")
         salvar(menor, "totem-espera-en-720.png")
 
+        # 7. O mesmo item do cardápio, recortado no cartão, nos três idiomas. É
+        #    a prova do slide de espanhol: muda o nome, e a foto e o preço
+        #    continuam os mesmos. Contexto próprio com escala 2 porque o cartão
+        #    tem 248 px de largura no aparelho e aparece com 288 na arte —
+        #    ampliar print de 1x deixa a letra pastosa.
+        ctx_nitido = abrir(navegador, TELA, 2)
+        nitido = ctx_nitido.new_page()
+        montar_rotas(ctx_nitido, traducoes)
+        nitido.goto(TOTEM, wait_until="networkidle", timeout=120000)
+        nitido.wait_for_timeout(ESPERA_CARGA)
+        nitido.click("button:has-text('FAÇA SEU PEDIDO')", force=True)
+        nitido.wait_for_timeout(ESPERA_CARGA + 2000)
+        for idioma, arquivo in (("pt-BR", "cartao-batata-pt.png"),
+                                ("en-US", "cartao-batata-en.png"),
+                                ("es-ES", "cartao-batata-es.png")):
+            escolher_idioma(nitido, idioma)
+            abrir_setor(nitido, SETOR_PORCOES)
+            salvar(nitido, arquivo, medir_primeiro_cartao(nitido))
+
         navegador.close()
 
     if faltando:
@@ -285,8 +305,9 @@ def escolher_idioma(pagina, idioma: str) -> None:
 
 # Os setores são escolhidos por posição, e não por nome, porque o nome muda com
 # o idioma — que é justamente o que o carrossel está mostrando. 0 é Promoções,
-# 1 é Combos Burger, 2 é Burgers Avulsos.
+# 1 é Combos Burger, 2 é Burgers Avulsos, 3 é Sobremesas, 4 é Acompanhamentos.
 SETOR_BURGERS = 2
+SETOR_PORCOES = 4
 
 
 def abrir_setor(pagina, indice: int) -> None:
@@ -310,6 +331,24 @@ def abrir_produto(pagina, nome: str) -> None:
     """Abre a ficha do produto. `exact` evita cair no combo de mesmo nome."""
     pagina.get_by_text(nome, exact=True).first.click(force=True)
     pagina.wait_for_timeout(3500)
+
+
+def medir_primeiro_cartao(pagina) -> dict:
+    """Caixa do primeiro cartão do setor aberto, para recortar só ele.
+
+    Abrir um setor rola a seção dele para o topo, então a grade que interessa é
+    a única `grid` larga encostada na borda de cima. Medir em vez de fixar a
+    caixa importa porque o recorte tem de cair **no mesmo lugar** nos três
+    idiomas: é isso que faz o trio de fotos se ler como um item só.
+    """
+    return pagina.evaluate("""() => {
+      const grade = [...document.querySelectorAll('div.grid')].find(g => {
+        const r = g.getBoundingClientRect();
+        return r.width > 500 && r.top > -20 && r.top < 240;
+      });
+      const r = grade.querySelector('button').getBoundingClientRect();
+      return {x: r.x, y: r.y, width: r.width, height: r.height};
+    }""")
 
 
 # Os produtos que entram nas telas desenhadas dos slides. Foram escolhidos
@@ -355,9 +394,9 @@ def baixar_fotos(pagina, catalogo: dict[str, str]) -> None:
         print(f"OK  {(PURAS / arquivo).relative_to(PASTA.parent.parent)}")
 
 
-def salvar(pagina, arquivo: str) -> None:
+def salvar(pagina, arquivo: str, recorte: dict | None = None) -> None:
     alvo = PURAS / arquivo
-    pagina.screenshot(path=str(alvo), type="png")
+    pagina.screenshot(path=str(alvo), type="png", clip=recorte)
     print(f"OK  {alvo.relative_to(PASTA.parent.parent)}")
 
 
