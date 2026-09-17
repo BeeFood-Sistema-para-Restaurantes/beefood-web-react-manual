@@ -941,8 +941,8 @@ body {
 /* Tela de aplicativo desenhada, para o caso em que a captura real não existe
  * (app Android não roda no Cloud Agent). Vocabulário de propósito diferente do
  * produto: cartão arredondado, tipografia do carrossel, sem imitar pixel a
- * pixel. Ilustração que parece captura engana o leitor — por isso o
- * `.selo-ilustracao` é obrigatório no slide que usa isto. */
+ * pixel. O que sustenta o desenho é só o comportamento estar escrito na
+ * novidade ou no manual — e estar registrado no `roteiro.md`. */
 .tela-app {
   height: 100%;
   background: var(--fundo-suave);
@@ -1541,24 +1541,12 @@ body {
   flex: none;
 }
 
-.selo-ilustracao {
-  position: absolute;
-  z-index: 4;
-  padding: 10px 22px;
-  border-radius: 999px;
-  background: rgba(30, 30, 30, 0.72);
-  color: #fff;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* Na capa a pílula escura desaparecia no fundo escuro e o selo saía como texto
- * branco solto no meio do vão — parecia legenda perdida, não selo. */
-.slide--capa .selo-ilustracao {
-  background: rgba(255, 255, 255, 0.16);
-}
+/* Aqui existia o `.selo-ilustracao`, uma pílula "ILUSTRAÇÃO" no canto do slide.
+ * Saiu, e não volta: numa peça de venda ela é a única palavra que o leitor não
+ * esperava, rouba o olho no feed e avisa "o que você está vendo não é o
+ * produto" — justo no slide que devia convencer. A honestidade continua, e é
+ * mais cara: a tela desenhada copia o layout, a paleta e as fotos reais do
+ * aparelho, e o `roteiro.md` registra o que é captura e o que é desenho. */
 
 /* --------------------------------------------------------------- rodapé */
 

@@ -57,7 +57,7 @@ deles que faz os três funcionarem.
 | 3 | `03-no-papel.html` | antes × depois | O contraste é o que faz a linha ser vista | cupom desenhado em CSS (o "antes" não existe como captura) |
 | 4 | `04-onde-ligar.html` | mockup de computador | Um interruptor abaixo de Descrição | `imagens-puras/03-modal-janela.png` em `.sangria--janela`, com `.realce` no campo |
 | 5 | `05-em-lote.html` | passos | Editar em Lote marca o setor inteiro | — |
-| 6 | `06-na-rua.html` | mockup de celular 3D, com texto ao lado (ilustração) | O app do entregador pede confirmação | tela desenhada em `.tela-app`, em `.g3d`, com `.selo-ilustracao` |
+| 6 | `06-na-rua.html` | mockup de celular 3D, com texto ao lado (**tela desenhada**) | O app do entregador pede confirmação | tela desenhada em `.tela-app`, em `.g3d` |
 | 7 | `07-limite.html` | texto | Marcar tudo anula o efeito | — |
 | 8 | `08-cta.html` | mockup de celular + CTA | Toda novidade fica registrada, com manual | `imagens-puras/04-novidades-celular.png` em sangria centralizada, 660 px |
 
@@ -145,16 +145,21 @@ O `.realce` foi posicionado por medida do arquivo (o interruptor verde está em
 y 0,70–0,77), não no olho — as duas primeiras tentativas circularam a linha
 *"Exibido nos aplicativos…"*, que é a de cima.
 
-**O app do Entregador entrou como ilustração, com selo.** Na primeira versão esse
+**O app do Entregador entrou como tela desenhada.** Na primeira versão esse
 slide ficou fora, e o carrossel perdia a ponta mais convincente da novidade: o
 item destacado chega até a rua. O emulador Android não sobe no Cloud Agent
 (`MEMORIA-GERAL.md`, seção 6), então a tela é desenhada em `.tela-app`, mostrando
-só o que a novidade afirma — item em evidência no pedido e confirmação na entrega
-— com `.selo-ilustracao` no slide.
+só o que a novidade afirma — item em evidência no pedido e confirmação na
+entrega.
+
+O slide teve por três rodadas uma pílula "ILUSTRAÇÃO" no canto. Ela saiu da
+skill inteira: numa peça de venda, avisar que a tela não é o produto é a única
+frase que o leitor não esperava ler, e rouba o slide. O registro do que é
+desenho é este roteiro.
 
 > **Pendente com o dono:** print real do app do Entregador na tela do pedido com
-> item destacado e na confirmação de entrega. Quando chegar, substitui a
-> ilustração do slide 6 e o selo sai.
+> item destacado e na confirmação de entrega. Quando chegar, substitui o desenho
+> do slide 6.
 
 **Sem data na arte.** A capa trazia "15/09/2026" no canto superior direito e
 agora traz "1 de 8", como os outros sete. O carrossel fica pronto antes de

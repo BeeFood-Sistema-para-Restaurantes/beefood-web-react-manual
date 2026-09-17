@@ -8,13 +8,13 @@
 
      **A tela pode ser captura de verdade.** O totem é web
      (`totem.beefood.app/?empresaID=&filialID=&token=`) e abre no Playwright —
-     veja `capturar-totem.py` no carrossel da tradução. Prefira a captura; ela
-     dispensa o `.selo-ilustracao` e não tem como estar errada.
+     veja `capturar-totem.py` no carrossel da tradução. Prefira a captura: ela
+     não tem como estar errada.
 
      Desenhe a tela só quando a captura reduzida ficar ilegível no slide: em
      mockup de 400 px, a tela de espera (imagem e botão grandes) sobrevive, e o
      cardápio inteiro não — letra de 5 px no feed. Aí o CSS copia o layout da
-     captura e usa as **fotos reais** que a API serve, e o slide leva o selo.
+     captura e usa as **fotos reais** que a API serve.
 
      **Totem nunca vai em 3D.** O giro valoriza a espessura da peça, e armário
      em pé não tem espessura — girado, ele lê como armário tombando. 3D é para
@@ -52,13 +52,10 @@
     </p>
   </div>
 
-  <span class="selo-ilustracao" style="left: 88px; top: 1196px">Ilustração</span>
-
   <div class="sangria" style="top: 452px; right: 40px; width: 420px">
     <div class="totem" style="width: 420px; --coluna: 300px">
       <div class="totem__tela">
-        <!-- Melhor caso: a captura do totem inteira dentro da moldura. Aqui o
-             slide não leva selo, e dá para apagar o `.selo-ilustracao` acima.
+        <!-- Melhor caso: a captura do totem inteira dentro da moldura.
 
         <img src="../imagens-puras/totem-espera-en-720.png" alt="Tela de espera">
         -->
