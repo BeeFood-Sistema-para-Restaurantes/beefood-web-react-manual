@@ -102,9 +102,9 @@ Na janela **Novo Cadastro Aiqfome V2**:
 
 | Nº | Campo | O que preencher |
 |----|-------|-----------------|
-| ① | **Filial** | Selecione a unidade do BeeFood que receberá os pedidos |
-| ② | **Store ID (Aiqfome)** | Cole o número anotado no Passo 2 (ex.: `142114`) |
-| ③ | **SALVAR (F2)** | Clique para gravar o cadastro |
+| 1 | **Filial** | Selecione a unidade do BeeFood que receberá os pedidos |
+| 2 | **Store ID (Aiqfome)** | Cole o número anotado no Passo 2 (ex.: `142114`) |
+| 3 | **SALVAR (F2)** | Clique para gravar o cadastro |
 
 O campo **Status** aparece como **Inativo** com a observação *"O status é gerenciado automaticamente
 pela integração"* — isso é normal **antes** de conectar; ele é atualizado sozinho após a autorização.

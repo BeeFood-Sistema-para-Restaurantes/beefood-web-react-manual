@@ -78,18 +78,27 @@ conferir o estado da funcionalidade no sistema antes de fotografar.
 ## Antes de dar por concluído
 
 ```bash
-python .cursor/skills/manual-sistema/scripts/validar-imagens.py
-python .cursor/skills/manual-sistema/scripts/validar-imagens.py <pasta-do-manual>
+SK=.cursor/skills/manual-sistema/scripts
+
+python $SK/validar-imagens.py                    # ou com <pasta-do-manual>
+python $SK/indice-manuais.py                     # reescreve o índice do README
+python $SK/indice-manuais.py --conferir          # só acusa, não escreve
 ```
 
-Confere, em todos os manuais, se toda imagem referenciada existe em
-`imagens-tratadas/`, se o prompt de publicação não lista imagem que o manual não
-usa, e se há órfão na pasta. **Sai com código 1 quando falta imagem**, porque
-manual com imagem faltando quebra em silêncio: o markdown continua válido, o
-texto continua legível, e só quem abre a página publicada descobre.
+O `validar-imagens.py` confere, em todos os manuais, se toda imagem referenciada
+existe em `imagens-tratadas/`, se o prompt de publicação não lista imagem que o
+manual não usa, e se há órfão na pasta. **Sai com código 1 quando falta imagem**,
+porque manual com imagem faltando quebra em silêncio: o markdown continua válido,
+o texto continua legível, e só quem abre a página publicada descobre.
 
-Fechado o manual, atualizar três lugares: a `MEMORIA.md` da pasta, o índice da
-seção 9 da `MEMORIA-GERAL.md` e a linha do `CHECKLIST-MANUAIS.md`.
+O `indice-manuais.py` reescreve a tabela do `README.md` a partir das pastas,
+lendo o título no H1 de cada manual. Ele existe porque a tabela era mantida à mão
+e chegou a 99 pastas com 63 linhas: trinta e seis manuais prontos não apareciam
+para quem abre o repositório, e nada quebrava.
+
+Fechado o manual, atualizar três lugares à mão: a `MEMORIA.md` da pasta, o índice
+da seção 9 da `MEMORIA-GERAL.md` e a linha do `CHECKLIST-MANUAIS.md`. O README
+sai do script.
 
 ## O que nunca fazer
 

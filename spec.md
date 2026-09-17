@@ -53,7 +53,9 @@ como porta de entrada, `references/` com a memória e os documentos longos,
 │   ├── MEMORIA-GERAL.md        # memória mestre dos manuais, 12 seções
 │   ├── CHECKLIST-MANUAIS.md    # fila, status e histórico (#NN)
 │   └── planos/PLANO-*.md       # estudo de um bloco antes de virar manual
-└── scripts/validar-imagens.py
+└── scripts/
+    ├── validar-imagens.py      # imagem referenciada existe? há órfão?
+    └── indice-manuais.py       # reescreve o índice de manuais do README
 ```
 
 A skill de carrossel **não acrescenta stack**: os slides são HTML renderizado a
@@ -168,6 +170,9 @@ são fonte; só a tira entra no `.md`. Detalhe na `MEMORIA-GERAL.md` (seção 3)
 ## Validação
 
 ```bash
-python validar-imagens.py
-python validar-imagens.py fiado
+SK=.cursor/skills/manual-sistema/scripts
+
+python $SK/validar-imagens.py          # imagem referenciada existe? há órfão?
+python $SK/validar-imagens.py fiado    # só um manual
+python $SK/indice-manuais.py           # reescreve o índice de manuais do README
 ```
