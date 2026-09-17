@@ -1,0 +1,40 @@
+<!-- Avisos. O ângulo é a gambiarra que todo mundo reconhece: cadastrar um produto
+     de R$ 0,00 chamado "FECHADO HOJE" para o cliente ver o recado. Agora tem
+     lugar próprio, e o cartaz abre em tela cheia no celular dele.
+
+     A captura é o aviso aberto (`cel-aviso-aberto`): é a tela que prova título e
+     descrição de uma vez. O aparelho fica na direita porque o texto divide a
+     faixa com ele — e, dividindo, o 3D se paga. Virado para dentro. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">5 de 7</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 30px; max-width: 490px">
+    <span class="chapeu">Aba nova: Avisos</span>
+    <h2 class="titulo titulo--pequeno">
+      Recado não é produto de <span class="destaque">R$ 0,00</span>
+    </h2>
+    <p class="corpo">
+      Feriado, horário novo, salão fechado hoje. Você sobe o cartaz, escreve o
+      recado e ele aparece no cardápio.
+    </p>
+    <p class="corpo">
+      O cliente toca e lê tudo. E ninguém mais precisa inventar um item de
+      R$ 0,00 só para dar aviso.
+    </p>
+  </div>
+
+  <!-- `sangria cena3d` no MESMO elemento: `perspective` cria bloco de contenção,
+       então cena por fora e sangria por dentro joga o aparelho para fora da
+       arte. O giro fica no filho. -->
+  <div class="sangria cena3d" style="top: 480px; right: 0; width: 540px">
+    <div class="celular g3d g3d--na-direita" style="width: 540px">
+      <div class="celular__tela">
+        <img src="../imagens-puras/cel-aviso-aberto.png"
+             alt="Aviso aberto no celular do cliente: cartaz Fechados no feriado com título e descrição">
+      </div>
+    </div>
+  </div>
+</div>
