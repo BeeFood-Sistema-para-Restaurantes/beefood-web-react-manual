@@ -1,0 +1,47 @@
+<!-- O acréscimo, provado pela imagem em vez de explicado. São dois recortes do
+     MESMO cartão de valores, do MESMO pedido de R$ 39,00, cortados na mesma
+     altura: um com o Pix escolhido (R$ 37,05) e outro com o vale (R$ 40,95).
+
+     Empilhados e não lado a lado: em duas colunas cada recorte cai para 440 px
+     e a linha do ajuste sai com 17 px na arte. Em 780 px ela sobe para 30 px, e
+     o leitor compara os dois totais sem apertar o olho. 780 e não 904 porque
+     dois cartões e três linhas de texto não cabem em 1350 na largura cheia — o
+     segundo total saía por baixo da borda.
+
+     O cartão do vale é 44 px mais alto na origem porque o nome da bandeira
+     quebra em duas linhas. Cada recorte fecha na borda do próprio cartão, então
+     a diferença lê como a tela é, não como corte torto. -->
+<div class="slide">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">4 de 7</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 30px; max-width: 920px">
+    <span class="chapeu">Nos dois sentidos</span>
+    <h2 class="titulo titulo--pequeno">
+      O mesmo pedido, <span class="destaque">dois</span> totais
+    </h2>
+    <p class="corpo">
+      Desconte no Pix e no dinheiro, acrescente no crédito e no vale. A conta
+      sai sobre o subtotal dos produtos.
+    </p>
+  </div>
+
+  <div class="pilha g16" style="margin-top: 32px; width: 780px; align-self: center">
+    <p style="font-size: 30px; font-weight: 800; color: var(--texto-suave)">
+      No Pix
+    </p>
+    <div class="recorte">
+      <img src="../imagens-puras/total-pix.png"
+           alt="Resumo de valores: total em produtos R$ 39,00, desconto de 5% no Pix de R$ 1,95 e total de R$ 37,05">
+    </div>
+    <p class="destaque" style="font-size: 30px; font-weight: 800; margin-top: 8px">
+      No vale
+    </p>
+    <div class="recorte">
+      <img src="../imagens-puras/total-vale.png"
+           alt="O mesmo resumo com o vale escolhido: acréscimo de 5% de R$ 1,95 e total de R$ 40,95">
+    </div>
+  </div>
+</div>
