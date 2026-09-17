@@ -61,13 +61,14 @@ VIDEO_FONTE = (2560, 774)
 VIDEO_SAIDA = (1280, 388)
 
 # Catálogo: peça → (arte, medida, saída, vídeo?).
-# `video` é (segundos, zoom final). Sem `video`, sai só imagem.
+# `video` é (segundos, zoom final, âncora do zoom). Sem `video`, sai só imagem.
 PECAS: dict[str, dict] = {
     "capa-combo-tasty": {"medida": BANNER, "saida": "banner-capa-combo.jpg",
                          "nota": "capa · imagem · TASTY BACON"},
     "capa-chapa-smash": {"medida": BANNER, "saida": "banner-capa-chapa.jpg",
                          "video": {"arquivo": "banner-capa-chapa.mp4",
-                                   "segundos": 6, "zoom": 1.22},
+                                   "segundos": 6, "zoom": 1.22,
+                                   "ancora": "topo"},
                          "nota": "capa · vídeo · SMASH 2.0 na chapa"},
     "vitrine-batata-cheddar": {"medida": BANNER,
                                "saida": "banner-vitrine-batata.jpg",
@@ -119,7 +120,8 @@ def desenhar(pagina, arte: Path, largura: int, altura: int, destino: Path,
         pagina.screenshot(path=str(destino), type="png")
 
 
-def filmar(quadro: Path, destino: Path, segundos: int, zoom: float) -> None:
+def filmar(quadro: Path, destino: Path, segundos: int, zoom: float,
+           ancora: str = "centro") -> None:
     """Monta o MP4 a partir de um quadro grande, com avanço lento de lente.
 
     Avanço de lente (o "Ken Burns") em vez de animação de texto: é o que uma
@@ -136,13 +138,20 @@ def filmar(quadro: Path, destino: Path, segundos: int, zoom: float) -> None:
     1,22; o cartaz do milk shake, de título mais largo, perde a primeira letra
     já em 1,18 no corte do celular, e fica em 1,1. Subiu o zoom? Olhe a captura
     do celular antes de fechar.
+
+    `ancora="topo"` prende a borda de cima e deixa a imagem crescer para baixo.
+    É o certo quando a arte tem o texto no alto (a de capa tem): com o zoom no
+    centro, o cardápio ainda corta a faixa em cima e embaixo, e no último
+    segundo o selo do topo aparece pela metade. Preso no topo, o texto só
+    afasta da borda.
     """
     quadros = segundos * 25
     passo = (zoom - 1) / quadros
     largura, altura = VIDEO_SAIDA
+    y = "0" if ancora == "topo" else "ih/2-(ih/zoom/2)"
     filtro = (
         f"zoompan=z='min(1+{passo:.6f}*on,{zoom})'"
-        f":x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+        f":x='iw/2-(iw/zoom/2)':y='{y}'"
         f":d=1:s={largura}x{altura}:fps=25,format=yuv420p"
     )
     comando = [
@@ -183,7 +192,8 @@ def fazer(pecas: list[str]) -> None:
                     grande = tmp / f"{nome}-grande.png"
                     desenhar(pagina, arte, *VIDEO_FONTE, grande, tmp)
                     mp4 = MIDIA / filme["arquivo"]
-                    filmar(grande, mp4, filme["segundos"], filme["zoom"])
+                    filmar(grande, mp4, filme["segundos"], filme["zoom"],
+                           filme.get("ancora", "centro"))
                     peso = mp4.stat().st_size / 1024
                     print(f"OK  {mp4.relative_to(SKILL)}  "
                           f"{VIDEO_SAIDA[0]}x{VIDEO_SAIDA[1]}  {peso:.0f} KB")

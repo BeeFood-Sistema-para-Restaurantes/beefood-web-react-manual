@@ -118,6 +118,17 @@ com `object-fit: cover`. Medido no aplicativo, o vão é ~4,1/1 no computador e
 ~2,6/1 no celular. A primeira rodada foi em 16:9 e o cardápio comeu o selo e o
 preço. Em 3,3/1 a perda fica em ~20% de cada lado e cabe na zona segura.
 
+O zoom do vídeo de capa é **ancorado no topo** (`"ancora": "topo"` no
+`fazer-midia.py`). Ancorado no centro, o cardápio corta a faixa em cima e
+embaixo e, no último segundo do filme, o selo "SAIU DA CHAPA" aparecia pela
+metade. Preso no topo, o texto só se afasta da borda.
+
+Na largura, o teto é outro: o corte do celular (~2,6/1) come 10% de cada lado, a
+margem segura da arte tem 14%, e em 1,22 o zoom leva o resto — rodando inteiro
+num celular, o título perde a primeira letra depois de uns 4 s. A captura de
+celular é feita no segundo 2,4, e é esse quadro que entra no slide 3. Arte feita
+para rodar inteira no celular pede zoom de 1,08, ou texto a 22% da borda.
+
 E a arte de capa joga o texto todo para a faixa de cima: embaixo, o próprio
 cardápio desenha o logotipo da loja (à esquerda no computador, no meio no
 celular) e o selo de avaliação fica no alto à direita.

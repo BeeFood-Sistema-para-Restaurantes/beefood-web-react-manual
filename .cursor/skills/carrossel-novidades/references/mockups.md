@@ -239,6 +239,13 @@ O que essa rodada ensinou:
   esquerda.
 - **preço e nome saem da API do cardápio**, nunca da cabeça. Banner com preço
   inventado é o tipo de detalhe que volta como reclamação.
+- **o zoom do vídeo come a margem segura, e por isso tem âncora.** No centro,
+  ele aperta os quatro lados e o corte do aplicativo termina o serviço: o selo
+  do alto sai pela metade no último segundo. `"ancora": "topo"` prende a borda
+  de cima, e a arte de capa — que já é toda na faixa de cima — só se afasta da
+  borda. Na largura não há âncora que salve: 10% de corte no celular mais 14%
+  de margem segura dão teto de ~1,08 para peça que vai **rodar inteira** no
+  celular. Acima disso, mire no computador e escolha o segundo da captura.
 - **`service_workers="block"` e rota no contexto**, a mesma armadilha do totem.
 - **o cupom verde de cupons** ("Você tem 2 cupons!") tapa o topo do cardápio: o
   `capturar-cardapio.py` fecha pelo `.promo-banner`, e não por texto.
