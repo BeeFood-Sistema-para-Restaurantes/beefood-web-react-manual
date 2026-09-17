@@ -4,9 +4,10 @@ Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
 continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
 entra o que é de carrossel.
 
-Última atualização: 2026-09-16 (11ª rodada: o totem é **web** e passou a entrar
-como captura de verdade, com a tradução do exemplo injetada na resposta da API;
-e duas regras novas de texto — sem microdetalhe de interface, sem diminutivo).
+Última atualização: 2026-09-17 (12ª rodada: o carimbo "ILUSTRAÇÃO" saiu da arte
+para sempre; a foto de fundo do totem de exemplo passou a ser nossa; e a régua
+de texto virou **texto que vende, na voz da marca e falando com você** — a
+maior correção de linguagem até agora).
 
 ## Índice
 
@@ -55,6 +56,70 @@ travado × falado está em [`roteiro-e-copy.md`](roteiro-e-copy.md), com o
 antes-e-depois dos oito slides deste carrossel.
 
 Máxima tem lugar, mas **uma por carrossel** — e o carrossel vive bem sem nenhuma.
+
+### O terceiro vício: narrar em terceira pessoa, com "cara de IA"
+
+Tirar o aforismo deixou o texto falado, e mesmo assim o dono devolveu o carrossel
+da tradução com o diagnóstico mais duro de todos: *"a linguagem está estranha
+demais, robótica, com cara de IA"*, *"parece que estamos falando na terceira
+pessoa"*, *"a copy não me agrada, precisamos vender"*. As duas frases que ele
+citou:
+
+- "Ele queria pedir. Só não sabia o quê."
+- "Ele toca na bandeira e o cardápio inteiro muda."
+
+Elas não têm erro de português e não são aforismo. O problema é **quem fala e
+com quem**. As duas narram um terceiro — um turista que não é quem lê — como
+legenda de fotografia. Quem está do outro lado é o dono do restaurante, e ele
+não abre o Instagram para acompanhar a jornada de um personagem: ele quer saber
+o que ganha. Texto que descreve cena em vez de falar com alguém é exatamente o
+que sai de um modelo que não sabe para quem escreve.
+
+O conserto tem três movimentos, nesta ordem:
+
+1. **Troque o sujeito.** O sujeito da frase é **você** (o dono) ou **seu
+   cliente** — nunca um "ele" solto. "Ele toca na bandeira e o cardápio inteiro
+   muda" vira "Seu cliente toca na bandeira e pede sozinho": mesmo fato, e agora
+   com dono.
+2. **Termine na consequência para o negócio.** Cada slide fecha no que muda para
+   ele: fila que anda, mesa que fecha mais alta, equipe que atende mais mesa.
+   Descrição de funcionamento sem consequência é documentação.
+3. **Venda.** É peça de Instagram de uma empresa que vende sistema, não verbete.
+   Pergunta sobre dinheiro (*"Quanto seu salão perde por não falar inglês?"*)
+   funciona melhor que constatação bonita.
+
+| Terceira pessoa, morno | Falando com você, vendendo |
+|---|---|
+| "Ele queria pedir. Só não sabia o quê." | "Quanto seu salão **perde** por não falar inglês?" |
+| "Abre o tradutor no celular e vai lendo item por item." | "Seu cliente abre o tradutor no celular e vai lendo item por item." |
+| "Ele toca na bandeira e o cardápio inteiro muda." | "Seu cliente toca na bandeira e pede **sozinho**." |
+| "No tablet é a mesma coisa." | "Na mesa, o tablet fala a língua do seu cliente." |
+| "A versão em inglês mora no mesmo produto." | "Você escreve uma vez, e **pronto**." |
+| "Então as bandeiras já estão aí." | "Seu cardápio pode falar inglês **hoje**." |
+
+### A voz da marca está em beefood.com.br, e é de venda
+
+O site é a régua, e dá para ler em cinco minutos. O padrão de lá, que o carrossel
+copia:
+
+- **manchete é ganho, não recurso**: "Aumente suas vendas com Cardápio Digital no
+  Tablet", "Mais pedidos, menos filas no seu restaurante", "Mais agilidade e mais
+  lucro no salão";
+- **fala com o dono o tempo todo**: "Seu cliente pede direto pelo celular", "Dê
+  mais autonomia ao seu cliente", "Atenda bem todos os públicos";
+- **linha de apoio concreta embaixo da manchete**, sem adjetivo de folheto:
+  "Menos necessidade de garçons extras", "Fechamento de contas simples e rápido";
+- **verbo no imperativo** convidando: "Comece", "Controle", "Acompanhe";
+- **emoji pontual** em título de bloco (🛵 📍 🍽️ 🌎), nunca em fileira.
+
+Duas cautelas que o site cria e o carrossel tem de respeitar:
+
+- a página do tablet diz que o cardápio "é traduzido automaticamente". O produto
+  que o carrossel mostra **não** traduz sozinho: quem escreve é o dono. Copiar a
+  promessa do site aqui viraria reclamação no comentário.
+- "aumento de até 40% do ticket médio" é número do site, para outro recurso. Não
+  vale emprestar número de vizinho: no carrossel, o ganho aparece em cena
+  concreta ("a conta da mesa fecha bem abaixo do que podia").
 
 ### Emoji
 
@@ -660,13 +725,12 @@ preço do último item tem de caber (16 px em 880 px de largura, três itens). D
 para medir sem olhar, comparando `rolagem.bottom` com `card.bottom`,
 `img.bottom` e `preco.bottom`.
 
-### Selo de ilustração em fundo escuro
+### Pílula escura em fundo escuro
 
-`.selo-ilustracao` é uma pílula `rgba(30,30,30,.72)`, e em cima do `--escuro` da
-capa ela simplesmente não existe: sobra o texto branco solto no vão, que lê como
-legenda perdida. `.slide--capa .selo-ilustracao` troca o fundo por
-`rgba(255,255,255,.16)`. Vale para qualquer peça de UI da arte: **toda pílula
-escura precisa da versão clara** antes de ser usada na capa.
+Aprendido com o antigo carimbo de ilustração, e vale para qualquer peça de
+interface da arte: pílula `rgba(30,30,30,.72)` em cima do `--escuro` da capa
+**não existe** — sobra o texto branco solto no vão, que lê como legenda perdida.
+**Toda pílula escura precisa da versão clara** antes de ser usada na capa.
 
 ### Três armadilhas de CSS que custaram render
 
@@ -715,18 +779,29 @@ arquivo inteiro na moldura é pior que desenhar. O meio-termo que funcionou:
   recorte só, e traz o `CANCEL ORDER` e a pílula de bandeiras de produção
   dentro — é o pixel mais convincente do carrossel e não custou nada desenhar.
 
-O selo continua: a tela é desenhada.
-
-Três condições, todas obrigatórias:
+Duas condições, as duas obrigatórias:
 
 1. o comportamento desenhado está escrito na novidade ou no manual;
 2. o desenho usa o vocabulário do carrossel (cartão arredondado, Mulish, cor da
-   marca) e **não** imita a interface real pixel a pixel;
-3. o slide leva `.selo-ilustracao` — ilustração que passa por captura engana quem
-   lê, e este repositório é público.
+   marca) e **não** imita a interface real pixel a pixel.
 
-O selo mora na coluna vazia à esquerda do celular em sangria (`left: 88px`).
-Colocado sobre o texto, ele foi lido como botão.
+### O carimbo "ILUSTRAÇÃO" saiu da arte, e não volta
+
+Existiu por três rodadas uma pílula `.selo-ilustracao` no canto do slide com
+tela desenhada. A intenção era honestidade. O efeito no feed é outro: numa peça
+de venda, "ILUSTRAÇÃO" é a única palavra que ninguém esperava ler, o olho vai
+nela antes de ir no título, e o que ela comunica é "o que você está vendo não é
+o produto" — justamente no slide que devia convencer. Nenhuma marca carimba a
+própria vitrine.
+
+O carimbo saiu do `base.css`, dos modelos e dos dois carrosséis já entregues.
+**A honestidade não saiu — ficou mais cara:**
+
+- a tela desenhada copia layout, paleta e hierarquia do print de produção, e usa
+  as **fotos reais** que a API serve;
+- o desenho só mostra comportamento escrito na novidade ou no manual;
+- o `roteiro.md` diz, slide por slide, o que é captura e o que é desenho. É lá
+  que a auditoria mora, não em cima da arte.
 
 **Texto de interface em outro idioma só entra se vier da tela.** `SEARCH`,
 `MY CART`, `MY BILL`, `CANCEL ORDER`, `Order`, `Your bag is empty`: isso é o
@@ -793,6 +868,7 @@ não é opção. O `capturar-totem.py` do carrossel intercepta as rotas com
 | `/api/totem2/filial/**` | liga `aaTraducao: true`, que é o que faz o seletor de bandeiras aparecer |
 | `/api/totem2/setores/**` | escreve o campo `traducao` de cada setor |
 | `/api/totem2/produtos/**` | escreve o `traducao` do produto e também dos `gruposList` e das `opc`, senão o detalhe do produto abre metade em português |
+| `/api/totem2/imagens/**` | troca a arte de fundo da loja (`AASLIDE`, `AACAPA`) pela nossa; o logotipo (`AALOGO`) continua o dela |
 
 O que sai disso **não é montagem**: é o aplicativo de produção renderizando, com
 a fonte, o layout, as fotos e as animações dele. O que veio de fora é só o texto
@@ -813,6 +889,35 @@ que o restaurante escreveria. Três cuidados:
 As **fotos dos produtos** vêm do `s3Link` da própria API (`pagina.request.get`),
 em WEBP — converta com Pillow antes de usar no slide. Foto real na tela desenhada
 é o detalhe que mais separa desenho convincente de wireframe.
+
+### A promoção da loja de exemplo não pode virar o assunto da arte
+
+O totem de exemplo é de um cliente de verdade, e a arte de espera dele era um
+cartaz de **"Pudim R$ 16,90"**. Nos primeiros renders isso passou batido, e o
+dono pegou na hora: a capa era sobre cardápio em inglês e a única coisa que se
+lia na tela era o preço de um pudim. Arte de campanha de uma loja específica
+**rouba o assunto** e ainda amarra o post àquela promoção.
+
+A saída é tratar o fundo como material de arte nosso: o `preparar-fundo.py` tira
+um quadro de um vídeo de comida (o dono mandou o link), recorta em 9/16 para a
+tela de espera e numa faixa larga para o banner do cardápio, e a mesma
+interceptação que injeta a tradução injeta as duas imagens. Duas medidas do
+ofício:
+
+- **o véu escuro não é estética, é contraste.** O aplicativo desenha o botão
+  vermelho e a pílula de bandeiras por cima da foto, e vermelho sobre batata
+  dourada some. A faixa do meio da imagem (onde o botão cai) é a que mais
+  escurece; o topo e a base ficam quase limpos, e a comida continua apetitosa.
+- **recorte de vídeo em pé para faixa larga precisa de foco alto.** Centralizado,
+  o corte sai no meio da massa de comida e vira mancha laranja; em 34% da altura
+  entra a ponta das batatas com a fumaça atrás, e a faixa lê como foto.
+
+**E a armadilha que custou uma captura inteira:** o totem é PWA, e as imagens
+passam pelo *service worker* dele. `page.route` não enxerga esse pedido — a
+interceptação "funciona", o JSON sai trocado e a imagem chega quebrada, preta na
+tela. O contexto tem de nascer com `service_workers="block"` e as rotas têm de
+ser do **contexto**, não da página. Vale para qualquer aplicativo BeeFood que
+instale worker.
 
 ### Print do produto certo: às vezes é mais rápido cadastrar
 

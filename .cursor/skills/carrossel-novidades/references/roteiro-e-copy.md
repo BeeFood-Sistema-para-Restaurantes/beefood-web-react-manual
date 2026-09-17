@@ -122,6 +122,11 @@ O que tira do aforismo:
 
 - **Chame a pessoa de você.** "Seu entregador também vê" tem dono; "o entregador
   confirma" é relatório.
+- **Não narre um "ele".** É o vício irmão, e é o que mais faz o texto parecer
+  saído de máquina: "Ele queria pedir. Só não sabia o quê." descreve um
+  personagem que não é quem lê. O sujeito é **você** (o dono) ou **seu
+  cliente**. "Seu cliente toca na bandeira e pede sozinho" diz o mesmo e tem
+  dono.
 - **Pergunte.** Pergunta abre conversa e a pessoa responde de cabeça; declaração
   fecha o assunto antes de começar.
 - **Convide com o verbo.** "Olha o que muda", "Acompanhe", "Marque" — não
@@ -134,6 +139,32 @@ O que tira do aforismo:
 
 Aforismo tem lugar, mas **um por carrossel, no máximo** — e o carrossel funciona
 bem sem nenhum.
+
+## O carrossel vende. A voz é a de beefood.com.br
+
+É post de uma empresa que vende sistema para restaurante, e quem lê está
+decidindo se aquilo resolve algo na loja dele. Texto correto e morno não faz
+esse trabalho. O site da marca é a régua, e cabe em quatro linhas:
+
+| O site faz assim | Exemplo de lá |
+|---|---|
+| manchete é **ganho**, não recurso | "Aumente suas vendas com Cardápio Digital no Tablet" |
+| fala com o dono | "Seu cliente pede direto pelo celular", "Dê mais autonomia ao seu cliente" |
+| apoio curto e concreto embaixo | "Menos necessidade de garçons extras" |
+| convida com verbo | "Comece", "Acompanhe", "Controle" |
+
+No carrossel isso vira uma regra de fechamento: **cada slide termina no que muda
+para o negócio** — fila que anda, mesa que fecha mais alta, equipe que atende
+mais gente. Slide que só descreve funcionamento é documentação.
+
+Duas cautelas:
+
+- **não empreste número nem promessa do site.** "Até 40% de ticket médio" é de
+  outro recurso, e a página do tablet fala em tradução "automática" — o recurso
+  do carrossel depende de o dono escrever o texto. Promessa errada volta como
+  comentário.
+- **vender não é adjetivar.** "Revolucionário", "poderoso" e "incrível"
+  continuam fora. O que vende é a cena concreta e a consequência.
 
 ## Escrita
 
@@ -205,13 +236,16 @@ Vai no fim do `roteiro.md`, pronta para copiar:
       aforismo?
 - [ ] No máximo um emoji por slide, e não em todos.
 - [ ] Nenhuma palavra no diminutivo, e nenhuma frase explicando enfeite de tela.
+- [ ] Nenhum slide narra um "ele" que não é o leitor nem o cliente dele.
+- [ ] Cada slide fecha no que muda para o negócio, não na descrição do recurso.
 - [ ] A capa tem **uma** palavra em vermelho, e nenhum emoji junto dela.
 - [ ] O slide 1 tem imagem, e a imagem mostra **um** destaque só.
 - [ ] Cada slide tem **uma** ideia; o título do slide diz qual.
 - [ ] Toda afirmação está no texto da novidade ou no manual — ou foi conferida
       na tela.
 - [ ] Nenhum número aparece sem fonte.
-- [ ] Todo slide com tela desenhada leva `.selo-ilustracao`.
+- [ ] O `roteiro.md` diz quais telas são captura e quais são desenho (na arte
+      não vai carimbo de ilustração).
 - [ ] O CTA pede uma coisa só.
 - [ ] Os pontos do rodapé marcam a posição certa do slide.
 - [ ] Nenhum nome, telefone ou e-mail de cliente aparece em nenhum print.

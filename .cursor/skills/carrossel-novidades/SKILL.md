@@ -107,6 +107,16 @@ e bandeira em px fixo, e a captura de 1080p reduzida perde a pílula de
 bandeiras); clique setor por **índice**, porque o nome muda de idioma; e baixe a
 foto do produto do `s3Link` da própria API, convertendo o WEBP com Pillow.
 
+**A campanha da loja de exemplo não pode virar o assunto da arte.** O totem de
+exemplo anunciava "Pudim R$ 16,90" na tela de espera, e numa capa sobre cardápio
+em inglês o olho lia o preço do pudim. A mesma interceptação troca `AASLIDE` e
+`AACAPA` (`/api/totem2/imagens/**`) por uma foto nossa — o `preparar-fundo.py`
+do carrossel tira o quadro de um vídeo de comida, recorta em 9/16 e em faixa, e
+escurece a faixa do meio, que é onde o aplicativo desenha o botão vermelho.
+O logotipo da loja continua o dela. **Aplicativo com service worker precisa de
+`service_workers="block"` no contexto e de rota de contexto**, senão o worker
+serve a imagem antiga e a tela sai preta.
+
 Tela que abre direto numa rota:
 
 ```bash
@@ -284,11 +294,17 @@ recorte na pasta do carrossel — coordenadas medidas no arquivo com Pillow, nã
 estimadas. Foto de comida inventada é o que mais denuncia tela desenhada.
 
 Só ilustre (`.tela-app`, `.tela-totem`, `.tela-tablet`; modelos
-`ilustracao-app.html`, `mockup-totem.html`, `mockup-tablet.html`) com as três
-condições: o comportamento desenhado está escrito na novidade ou no manual; o
+`ilustracao-app.html`, `mockup-totem.html`, `mockup-tablet.html`) com as duas
+condições: o comportamento desenhado está escrito na novidade ou no manual; e o
 desenho usa o vocabulário do carrossel e **não** imita a interface real pixel a
-pixel; e o slide leva `.selo-ilustracao`. Registre no `roteiro.md` o print que
+pixel. Registre no `roteiro.md` o que é captura, o que é desenho e o print que
 você pediu ao dono, para trocar depois.
+
+**Nada de carimbo "ILUSTRAÇÃO" na arte.** Existiu, e saiu: numa peça de venda é
+a única palavra que o leitor não esperava, rouba o olho no feed e avisa que o
+que ele está vendo não é o produto. A honestidade fica onde não atrapalha a
+peça — no desenho fiel (layout, paleta e **fotos reais** do aparelho) e no
+`roteiro.md`.
 
 **Texto de interface em outro idioma só entra se vier da tela.** `SEARCH`,
 `MY CART`, `Order`, `Your bag is empty` é o aplicativo falando: tire de print ou
@@ -306,13 +322,12 @@ tela é o que move o corte (tudo lá dentro é `em`): varra alguns valores e fiq
 com o que deixa o último cartão inteiro ou cortado **dentro da foto**. Corte em
 cima de `R$ 8,90` lê como falha de render.
 
-Na capa o slide é escuro, e aí o `.selo-ilustracao` precisa da pílula clara
-(`.slide--capa .selo-ilustracao`): a escura desaparece no fundo e sobra texto
-branco solto.
+Pílula escura na capa escura desaparece: se a arte tiver alguma peça de
+interface em `rgba(30,30,30,…)`, faça a versão clara antes de usá-la ali.
 
-Cupom desenhado em `.cupom` não precisa de selo: bobina térmica em monoespaçada é
-claramente desenho, e é a única forma de mostrar o "antes", que não existe como
-captura.
+Cupom desenhado em `.cupom` é o caso mais tranquilo: bobina térmica em
+monoespaçada é claramente desenho, e é a única forma de mostrar o "antes", que
+não existe como captura.
 
 ### 5. Render
 
@@ -350,9 +365,11 @@ fato → ângulo → slide.
    rótulo, e que nenhuma imagem sozinha na faixa ficou encostada numa borda —
    sozinha, ela vai centralizada e grande.
 4. Toda afirmação do slide está no manual ou na novidade? Se não está em nenhum
-   dos dois, ou você confere no sistema, ou corta. Toda tela desenhada tem selo?
+   dos dois, ou você confere no sistema, ou corta. O `roteiro.md` diz quais
+   telas são captura e quais são desenho?
 5. Alguma frase explica enfeite de tela ("a bolinha verde marca…")? Algum
-   diminutivo? Os dois saem — e o que fica no lugar é a consequência.
+   diminutivo? Algum "ele" que não é o leitor nem o cliente dele? Os três saem
+   — e o que fica no lugar é a consequência para o negócio.
 6. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE" em
    branco, contorno branco no selo, tarja amarela e "food" vermelho?
 7. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa
@@ -423,6 +440,15 @@ carrosseis/<slug>/
   dia"). Chame a pessoa de **você**, pergunte, e não corte a frase até virar
   telegrama. Teste: leia os títulos em voz alta, seguidos. A tabela
   travado × falado está em `references/roteiro-e-copy.md`.
+- **O sujeito é você ou seu cliente, nunca um "ele" solto.** "Ele toca na
+  bandeira e o cardápio muda" narra um personagem que não é quem lê, e é o que
+  dá ao texto a cara de máquina. "Seu cliente toca na bandeira e pede sozinho"
+  diz o mesmo fato e tem dono.
+- **É peça de venda, na voz do site.** `beefood.com.br` é a régua: manchete é
+  ganho ("Mais pedidos, menos filas no seu restaurante"), a linha de apoio é
+  concreta ("Menos necessidade de garçons extras") e o slide fecha no que muda
+  para o negócio — fila que anda, mesa que fecha mais alta, equipe que rende
+  mais. Descrever funcionamento sem consequência é documentação, não post.
 - **Microdetalhe de interface não é conteúdo.** "A bolinha verde marca o idioma
   que já tem texto" é correto e não agrega nada a quem está no feed — é material
   de manual. Teste cada frase com "o que muda para ele se eu tirar isso?"; se a
@@ -463,12 +489,16 @@ carrosseis/<slug>/
 
 ## O que nunca fazer
 
-- **Passar desenho por captura.** Ilustrar é permitido e às vezes é o único jeito
-  (app Android não sobe no Cloud Agent), mas só com as três condições do passo 4
-  — e a terceira é o `.selo-ilustracao` no slide. Sem selo, o leitor entende que
-  aquela é a tela real do produto.
-- **Ilustrar comportamento que ninguém conferiu.** O desenho pode mostrar o que
-  está escrito na novidade ou no manual, e nada além disso.
+- **Carimbar "ILUSTRAÇÃO" na arte.** A pílula existiu e foi removida da skill: é
+  a única palavra da peça que o leitor não esperava ler, e avisa que aquilo não
+  é o produto justo no slide que devia vender.
+- **Ilustrar comportamento que ninguém conferiu.** É o que o carimbo tentava
+  compensar, e não compensava. O desenho mostra o que está escrito na novidade
+  ou no manual, com layout, paleta e fotos reais do aparelho — e nada além
+  disso. O `roteiro.md` registra o que é captura e o que é desenho.
+- **Falar de um "ele" que não é quem lê.** Quem lê é o dono do restaurante: o
+  sujeito da frase é **você** ou **seu cliente**. Narrar a cena em terceira
+  pessoa é o que deixa o texto com cara de máquina.
 - **Recortar a novidade em slides.** O carrossel se escreve a partir do fato; o
   texto do release não vai para a arte.
 - **Publicar dado pessoal.** Este repositório é público; nome, telefone e e-mail
