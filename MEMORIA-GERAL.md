@@ -3,7 +3,12 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-17 (**#102** Gerar Cardápio em PDF — *Cardápio → Cardápio
+Última atualização: 2026-09-17 (**#103** Venda Sugestiva (UpSell) — três caminhos que
+gravam a mesma lista de até **6** produtos, a aba do cadastro **salva sozinha**, o
+cardápio público **filtra** a sugestão antes de mostrar (oculto/inativo/já na sacola) e o
+relatório de Sugestões **só conta venda concluída**; técnica nova para achar o ⋮ de um
+card em grade virtualizada e para rolar dentro do iframe de relatórios);
+2026-09-17 (**#102** Gerar Cardápio em PDF — *Cardápio → Cardápio
 em PDF*, editor de 4 etapas com prévia; **nada é salvo**; editar item vale só para o
 PDF; o **QR Code só é montado na etapa 3**; Clássico sai com foto por padrão; padrão
 novo de imagem: **página de PDF gerada** renderizada com PyMuPDF e montada lado a lado);
@@ -467,6 +472,17 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
   confirmação — o *Confirmar Vínculo* do #79 é um exemplo — vale um script que faz todo o
   caminho, imprime o que a janela devolveu e **para antes do último clique**. Foi o que evitou
   gravar o vínculo errado quando a janela mostrou dois produtos com o mesmo nome.
+- **Botão sem rótulo em grade virtualizada (o ⋮ do card do produto): ache pela geometria.**
+  Todos os cards têm o mesmo `svg.lucide-ellipsis-vertical`, e `nth(0)` abre o menu do
+  produto errado. O que funciona é localizar o **título** do produto, listar todos os
+  botões do ⋮ e escolher o que está **à direita e na mesma linha** (menor diferença de
+  `y`, com tolerância de ~40 px). Implementação: `abrir_menu_do_produto()` no
+  `manuais/venda-sugestiva-upsell/capturar.py`.
+- **Conteúdo dentro de iframe não rola com `window.scrollTo`.** O app de relatórios
+  (`relatorios.beefood.com.br`) tem rolagem própria: use `page.mouse.move()` sobre a área
+  do iframe + `page.mouse.wheel(0, 220)` em passos pequenos e, antes do print, **afaste o
+  ponteiro** (`page.mouse.move(80, 700)`) para não congelar um tooltip do gráfico na
+  imagem.
 - **Antes de escolher o exemplo do manual, cheque se o nome é único** nos dois lados (na lista e
   no cardápio). A base do sandbox tem **21 nomes de produto repetidos**; um exemplo com nome
   repetido rende imagem confusa. Um ensaio que imprime os botões da janela mostra isso em
@@ -834,6 +850,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Tradução do cardápio presencial (tablet e totem) | `manuais/traducao-cardapio-presencial/` | ✅ Concluído (#100) |
 | Domínio próprio e subdomínio pela tela | `manuais/dominio-proprio-configurar/` | ✅ Concluído (#101) |
 | Gerar Cardápio em PDF | `manuais/cardapio-pdf/` | ✅ Concluído (#102) |
+| Venda Sugestiva (UpSell) | `manuais/venda-sugestiva-upsell/` | ✅ Concluído (#103) |
 | Pedidos pelo chat no WhatsApp | `manuais/whatsapp-pedidos-chat/` | ✅ Concluído (#86) |
 | Campanhas de WhatsApp | `manuais/campanhas-whatsapp/` | ✅ Concluído (#15) |
 | Notificações de cada etapa | `manuais/whatsapp-notificacoes/` | ✅ Concluído (#87) |
@@ -915,6 +932,41 @@ Captura: a prévia é `pdf.js` em canvas e demora. Espere o
 *Montando a prévia...*. As imagens da coluna de ajustes (06 e 07) foram recortadas
 (`crop=(316,160,1250,1320)` + `pad_right=140`): os controles ocupam a coluna inteira e
 não sobra espaço vazio para os números.
+
+---
+
+### Venda Sugestiva (UpSell) — #103
+
+Até **6** produtos (`MAX_UPSELL`) sugeridos quando o cliente põe um item na sacola.
+Liberado por conta: `vendaSugestivaAcesso.ts` → `VENDA_SUGESTIVA_EMPRESAS = [107,
+38311]` (o sandbox está na lista, então captura em produção). Sem a liberação somem os
+**três** caminhos.
+
+Três telas, um endpoint (`useProdutoUpsell`, GET/POST em
+`produto2/cardapio/produto/upsell`): `ModalVendaSugestivaGeral` (três pontinhos da tela
+Cardápio, com selo **Configurado**, linha *Sugere:* e **Somente configurados**),
+`ModalVendaSugestiva` (três pontinhos do produto) e `ProdutoVendaSugestivaTab` (aba do
+cadastro, que **salva sozinha** — as janelas exigem **SALVAR (F2)**).
+
+O que vale saber: a lista é **por cardápio/filial**; a **ordem do array é a ordem que o
+cliente vê**; `produtos: []` **limpa** (não há DELETE); o POST tira duplicados e o
+próprio produto; não existe aba em complemento nem permissão nova de grupo.
+
+**O cardápio público filtra a sugestão** (`openUpsell` no bundle Nuxt): descarta o que
+já está na sacola, o inativo, o `disabled` e corta em 6 — se sobrar zero, a janela não
+abre. Foi o que explicou 4 configurados × 3 vistos no manual (o Brownie está oculto pela
+tabela do #68). O preço do card é **o do canal**, com desconto/preço programado
+(R$ 17,60 no delivery × R$ 19,20 no presencial no mesmo item).
+
+**Relatório (`Desempenho → Delivery/Presencial → Sugestões`) só conta venda concluída.**
+Mesmo componente para os dois canais (`tipo` 1 e 2) e o **mesmo relatório das sugestões
+automáticas** — não separa uma coisa da outra. Medido: venda `FECHADO` já arquivada
+aparece; venda `RECEBIDO` de um caixa ainda aberto **não**. Ou seja, pedido de hoje só
+entra depois do fechamento — vale para qualquer manual que precise provar número em
+relatório.
+
+**Cache do cardápio público chegou a ~10 minutos** aqui (o normal é 1 minuto). Antes de
+suspeitar da configuração, espere.
 
 ---
 

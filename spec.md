@@ -83,6 +83,7 @@ manuais/<nome>/
 | Tradução Cardápio Presencial | #100 (concluído 16/09/2026) | `manuais/traducao-cardapio-presencial/` |
 | Domínio próprio e subdomínio pela tela | #101 (concluído 16/09/2026) | `manuais/dominio-proprio-configurar/` |
 | Gerar Cardápio em PDF | #102 (concluído 17/09/2026) | `manuais/cardapio-pdf/` |
+| Venda Sugestiva (UpSell) | #103 (concluído 17/09/2026) | `manuais/venda-sugestiva-upsell/` |
 | Entrega Fácil iFood | #59 (concluído 28/08/2026) | `manuais/entrega-facil-ifood/` |
 | Let's Express | #60 (concluído 28/08/2026) | `manuais/integracao-lets-express/` |
 | Foody Delivery | #61 (concluído 28/08/2026) | `manuais/integracao-foody-delivery/` |
