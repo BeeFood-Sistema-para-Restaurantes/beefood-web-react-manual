@@ -1,0 +1,125 @@
+<!-- Modelo: Cardápio Digital no Tablet, tela deitada no suporte de mesa.
+
+     Sai pronto: o aparelho, a tela escura de produção e o cardápio de exemplo
+     com as fotos da biblioteca (`skill:fotos/...`, resolvido pelo
+     `renderizar.py`). Troque o texto do slide e os itens; o aparelho não.
+
+     Sozinho na faixa, vai em `.figura`: centralizado, reto e no maior tamanho
+     que couber. Em 880 px de largura a carcaça tem 579 px e a chapa do suporte
+     mais 128 px, e sobra chão com chapéu + título de 1 linha + 3 linhas de
+     corpo acima. Dividindo a capa com outro aparelho, 660 px.
+
+     **Tablet nunca vai em 3D**: girado, o suporte sai torto e o aparelho perde
+     a escala. 3D é para celular e para janela de computador.
+
+     O que faz ler "tablet" e não "monitor de mesa" mora no `base.css` e vale
+     não mexer: aparelho **preto** com fio de alumínio em volta, moldura grossa
+     (4,4% da largura) e igual nos quatro lados, canto bem arredondado, ponto da
+     câmera na moldura da esquerda, dois botões na lateral direita e o suporte,
+     que é **uma chapa só**, larga (58% da largura do aparelho) e rasa, abrindo
+     para os lados. Coluna estreita com base sai como pedestal de monitor, e
+     trapézio invertido sai como chapéu de papel — as duas já foram tentadas, e
+     chapa pequena (46%) também volta a ler como pé de monitor.
+
+     A tela é **escura**, e isso não é escolha de arte: é o que o print de
+     produção mostra
+     (`manuais/traducao-cardapio-presencial/imagens-puras/09-tablet-coca-traduzida.png`).
+     Barra de topo com logo, `SEARCH` e as duas ações em vermelho; coluna de
+     atalhos com as bandeiras **retangulares** no pé; coluna de setores; e
+     cartões deitados com foto à esquerda, preço em amarelo e botão `Order`.
+
+     O `font-size` da `.tela-tablet` decide quantos itens cabem inteiros: em
+     880 px de largura, 16 px deixa três itens com o preço visível. Preço
+     cortado lê como bug.
+
+     A tela é desenhada, e mesmo assim o slide **não** leva carimbo de
+     ilustração: o que sustenta o desenho é copiar o layout do print de
+     produção e usar as fotos reais da API, e o `roteiro.md` registrar o que é
+     captura e o que é desenho. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">4 de 7</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 50px; max-width: 900px">
+    <span class="chapeu">E na mesa também</span>
+    <h2 class="titulo titulo--pequeno">
+      Título de uma linha&nbsp;&#127482;&#127480;
+    </h2>
+    <p class="corpo">
+      Até três linhas de corpo, largura cheia — o aparelho está embaixo, não ao
+      lado.
+    </p>
+  </div>
+
+  <div class="figura" style="margin-top: 52px; width: 880px">
+    <div class="tablet" style="width: 880px">
+      <div class="tablet__tela">
+        <div class="tela-tablet" style="font-size: 16px">
+          <div class="tela-tablet__topo">
+            <span class="tela-tablet__logo"></span>
+            <span class="tela-tablet__busca"><i class="lupa"></i>SEARCH</span>
+            <span class="tela-tablet__acao"><i></i>MY CART</span>
+            <span class="tela-tablet__acao"><i></i>MY BILL</span>
+          </div>
+          <div class="tela-tablet__miolo">
+            <div class="tela-tablet__atalhos">
+              <div class="tela-tablet__atalho"><i></i>HIGHLIGHTS</div>
+              <div class="tela-tablet__atalho tela-tablet__atalho--ativo">
+                <i class="talher"></i>MENU
+              </div>
+              <div class="tela-tablet__atalho"><i class="sino"></i>RATE</div>
+              <div class="tela-tablet__idiomas">
+                <span class="bandeira bandeira--retangular"><span>&#127463;&#127479;</span></span>
+                <span class="bandeira bandeira--retangular bandeira--anel"><span>&#127482;&#127480;</span></span>
+                <span class="bandeira bandeira--retangular"><span>&#127466;&#127480;</span></span>
+              </div>
+            </div>
+            <div class="tela-tablet__setores">
+              <div class="tela-tablet__setor tela-tablet__setor--ativo">Burgers</div>
+              <div class="tela-tablet__setor">Sides</div>
+              <div class="tela-tablet__setor">Desserts</div>
+            </div>
+            <div class="tela-tablet__corpo">
+              <!-- A faixa continua em português: o título dela vem do Nome
+                   Público do setor, e esse não troca de idioma. -->
+              <div class="tela-tablet__faixa">Burgers avulsos</div>
+              <div class="tela-tablet__item">
+                <img src="skill:fotos/foto-melted.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>MELTED</span>
+                  <small>Brioche bun, 100 g beef patty, melted cheddar cream and
+                    chopped bacon</small>
+                  <b>R$ 34,00</b>
+                </div>
+                <span class="tela-tablet__pedir">Order</span>
+              </div>
+              <div class="tela-tablet__item">
+                <img src="skill:fotos/foto-tasty-bacon.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>TASTY BACON</span>
+                  <small>Sesame brioche bun, cheddar cheese, smoked mayo and
+                    bacon slices</small>
+                  <b>R$ 30,00</b>
+                </div>
+                <span class="tela-tablet__pedir">Order</span>
+              </div>
+              <div class="tela-tablet__item">
+                <img src="skill:fotos/foto-one-classic.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>ONE CLASSIC</span>
+                  <small>Brioche bun, 100 g beef patty, lettuce, tomato, red
+                    onion and green mayo</small>
+                  <b>R$ 26,00</b>
+                </div>
+                <span class="tela-tablet__pedir">Order</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tablet__suporte"></div>
+    </div>
+  </div>
+</div>

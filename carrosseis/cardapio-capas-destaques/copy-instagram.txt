@@ -1,0 +1,96 @@
+CARROSSEL — CAPAS, DESTAQUES E AVISOS COM IMAGEM E VÍDEO NO CARDÁPIO DIGITAL
+Fonte: novidade de 13/08/2026 em
+beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia
+(referência de produção; a arte não tem data, então este carrossel pode ser
+publicado a qualquer momento)
+
+Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-parte-dificil, 03-antes-agora, 04-vitrine,
+05-avisos, 06-agenda, 07-cta.
+
+Todas as telas do cardápio são captura do cardápio modelo da ONE STAND
+HAMBURGUERIA rodando de verdade, com a nossa mídia de exemplo entregue na
+resposta da API — os banners, os vídeos e os cartazes de aviso são arte nossa,
+com as fotos e os preços que o cardápio publica. A linha dos dias é captura do
+painel, com a quarta-feira marcada. Nada foi gravado em loja de cliente.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+Sua capa agora é um carrossel 🎬
+
+Você já fez a parte mais difícil: fotografou o lanche, escreveu a descrição,
+montou o combo, deixou o adicional no lugar certo. O cardápio está pronto para
+vender — o que faltava era movimento.
+
+No topo, onde cabia uma foto parada, agora entram até cinco mídias, e podem ser
+vídeo. A foto que você escolheu continua sendo a primeira; depois dela, o resto
+passa sozinho.
+
+Apareceu um segundo lugar, no meio do cardápio, entre as categorias. Destaque
+ali o combo do dia, a sobremesa nova, o milk shake da casa — é o banner que faz
+pedido de lanche virar pedido de combo com sobremesa.
+
+Recado ganhou lugar próprio. Feriado, horário novo, salão fechado hoje: suba um
+cartaz e ele abre em tela cheia no celular do cliente. O item de R$ 0,00 que só
+existia para dar o recado pode sair do cardápio.
+
+E nada fica no ar mais do que deveria. Marque o dia e o horário de cada mídia, e
+se ela vale no delivery, no salão ou nos dois: o combo de quarta aparece só na
+quarta e sai sozinho, sem ninguém precisar lembrar na quinta.
+
+Suba o seu primeiro vídeo hoje, em Cardápio Digital → Configurações → Capas e
+Destaques. Comece pelo produto que mais sai da sua cozinha.
+
+O que mais entrou no sistema está em beefood.app/novidades 🐝❤️
+
+#beefood #cardapiodigital #delivery #restaurante #hamburgueria #pedidoonline
+#marketingparadelivery #gestaoderestaurante
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Qual prato do seu cardápio merece o primeiro vídeo? Conta aí 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com o título "Sua capa agora é um carrossel", a palavra
+    carrossel em vermelho. Embaixo, um notebook aberto mostrando o cardápio
+    digital da ONE STAND HAMBURGUERIA: no topo, um banner em vídeo do SMASH 2.0
+    com o hambúrguer e o preço de R$ 44,90; no meio da página, o banner da
+    batata com cheddar e bacon.
+
+02  Título "Você já fez a parte mais difícil", com a palavra difícil em
+    vermelho, e um texto dizendo que o cardápio já está pronto para vender e
+    que agora dá para mostrar os produtos em foto e vídeo. Numa caixa rosa, os
+    três lugares novos: o topo do cardápio, o meio entre as categorias e o
+    cartaz de recado.
+
+03  Título "Seu cliente vê a comida antes do preço", com a palavra comida em
+    vermelho, e dois recortes do mesmo cardápio no celular, lado a lado. À
+    esquerda, marcado como Antes, o topo com a foto de capa parada. À direita,
+    marcado como Agora, o mesmo topo com o vídeo do SMASH 2.0 rodando na capa.
+
+04  Título "Um banner chamativo vende mais combo", com a palavra combo em
+    vermelho, e um celular mostrando o cardápio da ONE STAND HAMBURGUERIA com o
+    banner em vídeo do MILK SHAKE DE MORANGO entre o nome da loja e as
+    categorias.
+
+05  Título "Recado não é produto de R$ 0,00" e um celular inclinado com o aviso
+    aberto em tela cheia: o cartaz FECHADOS NO FERIADO e, embaixo, o mesmo
+    título com a descrição escrita pela loja.
+
+06  Título "Combo de quarta aparece só na quarta" e um recorte do painel do
+    BeeFood com a linha Dias da semana: sete botões redondos, de domingo a
+    sábado, e só o da quarta-feira aceso em vermelho.
+
+07  Fundo escuro com o convite "Suba o seu primeiro vídeo hoje" e o caminho
+    Cardápio Digital, Configurações, Capas e Destaques. Embaixo, um celular com
+    a página de novidades do BeeFood aberta nesta publicação.

@@ -20,7 +20,28 @@ manuais/<nome>/
 ├── annotate.py
 ├── imagens-puras/
 └── imagens-tratadas/
+
+carrosseis/<slug>/
+├── roteiro.md
+├── copy-instagram.txt  # legenda do post e texto alternativo
+├── capturar-telas.py
+├── imagens-puras/
+├── slides/             # fragmentos de body HTML
+├── png/                # arte final 1080x1350
+└── entrega/<slug>.zip  # png + copy, o que vai para quem publica
 ```
+
+## Skills
+
+| Skill | Escopo | Arquivo |
+|-------|--------|---------|
+| Manuais | passo a passo para o usuário final | `MEMORIA-GERAL.md` (lida no início de cada sessão) + `CHECKLIST-MANUAIS.md` |
+| `carrossel-novidades` | carrossel de Instagram sobre uma novidade do sistema | `.cursor/skills/carrossel-novidades/SKILL.md` |
+
+A skill de carrossel acrescenta ao stack acima **nada** além do que já existia:
+os slides são HTML renderizado a PNG pelo mesmo Playwright, e a folha de contato
+sai pelo mesmo Pillow. Ela lê a `MEMORIA-GERAL.md` e as pastas de `manuais/`, e
+escreve só em `carrosseis/`.
 
 ## Conta sandbox
 

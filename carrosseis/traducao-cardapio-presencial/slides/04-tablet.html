@@ -1,0 +1,100 @@
+<!-- O tablet da mesa, sozinho na faixa: centralizado, reto e no maior tamanho que
+     couber. Sem 3D, que aqui só tiraria escala.
+
+     A tela é desenhada em cima do print de produção (09) — fundo escuro, preço
+     em amarelo, botão `Order` — e recebe as fotos que a própria API do totem de
+     exemplo serve. O texto em inglês dos produtos é o do `traducoes.json`.
+
+     A faixa continua **Burgers avulsos**, em português, enquanto a coluna ao
+     lado já está em inglês. Não é descuido: o título da faixa vem do Nome
+     Público do setor, que não troca de idioma. Está no slide porque é verdade,
+     e não está na legenda porque ninguém precisa dessa aula para entender o
+     post. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">4 de 7</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 50px; max-width: 900px">
+    <span class="chapeu">E na mesa também</span>
+    <h2 class="titulo titulo--pequeno">
+      Na mesa, o tablet fala a língua do seu cliente&nbsp;&#127482;&#127480;
+    </h2>
+    <p class="corpo">
+      Toca na bandeira, escolhe, monta o pedido com os adicionais e manda para
+      a cozinha — sem esperar alguém que fale inglês. Você atende mais mesas
+      com a mesma equipe.
+    </p>
+  </div>
+
+  <div class="figura" style="margin-top: 52px; width: 880px">
+    <div class="tablet" style="width: 880px">
+      <div class="tablet__tela">
+        <!-- 18 px é o maior valor em que os três itens cabem inteiros. Em 18,5 o
+             terceiro perde o preço, e preço cortado lê como bug. -->
+        <div class="tela-tablet" style="font-size: 16px">
+          <div class="tela-tablet__topo">
+            <span class="tela-tablet__logo"></span>
+            <span class="tela-tablet__busca"><i class="lupa"></i>SEARCH</span>
+            <span class="tela-tablet__acao"><i></i>MY CART</span>
+            <span class="tela-tablet__acao"><i></i>MY BILL</span>
+          </div>
+          <div class="tela-tablet__miolo">
+            <div class="tela-tablet__atalhos">
+              <div class="tela-tablet__atalho"><i></i>HIGHLIGHTS</div>
+              <div class="tela-tablet__atalho tela-tablet__atalho--ativo">
+                <i class="talher"></i>MENU
+              </div>
+              <div class="tela-tablet__atalho"><i class="sino"></i>RATE</div>
+              <div class="tela-tablet__idiomas">
+                <span class="bandeira bandeira--retangular"><span>&#127463;&#127479;</span></span>
+                <span class="bandeira bandeira--retangular bandeira--anel"><span>&#127482;&#127480;</span></span>
+                <span class="bandeira bandeira--retangular"><span>&#127466;&#127480;</span></span>
+              </div>
+            </div>
+            <div class="tela-tablet__setores">
+              <div class="tela-tablet__setor tela-tablet__setor--ativo">Burgers</div>
+              <div class="tela-tablet__setor">Sides</div>
+              <div class="tela-tablet__setor">Desserts</div>
+            </div>
+            <div class="tela-tablet__corpo">
+              <div class="tela-tablet__faixa">Burgers avulsos</div>
+              <div class="tela-tablet__item">
+                <img src="skill:fotos/foto-melted.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>MELTED</span>
+                  <small>Brioche bun, 100 g beef patty, melted cheddar cream and
+                    chopped bacon</small>
+                  <b>R$ 34,00</b>
+                </div>
+                <span class="tela-tablet__pedir">Order</span>
+              </div>
+              <div class="tela-tablet__item">
+                <img src="skill:fotos/foto-tasty-bacon.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>TASTY BACON</span>
+                  <small>Sesame brioche bun, cheddar cheese, smoked mayo and
+                    bacon slices</small>
+                  <b>R$ 30,00</b>
+                </div>
+                <span class="tela-tablet__pedir">Order</span>
+              </div>
+              <div class="tela-tablet__item">
+                <img src="skill:fotos/foto-one-classic.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>ONE CLASSIC</span>
+                  <small>Brioche bun, 100 g beef patty, lettuce, tomato, red
+                    onion and green mayo</small>
+                  <b>R$ 26,00</b>
+                </div>
+                <span class="tela-tablet__pedir">Order</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tablet__suporte"></div>
+    </div>
+  </div>
+</div>

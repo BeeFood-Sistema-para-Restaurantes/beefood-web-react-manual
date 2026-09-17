@@ -1,0 +1,950 @@
+{
+  "_leia": [
+    "Tradução escrita para o carrossel, não exportada do sistema.",
+    "O estabelecimento de exemplo (ONE Stand, empresaID 350 / filialID 380) não tem",
+    "tradução cadastrada: `aaTraducao` vem null e os produtos vêm com `traducao` null.",
+    "Então o `capturar-totem.py` injeta este arquivo na resposta da API e o próprio",
+    "aplicativo do totem renderiza as telas em inglês e em espanhol, com o layout, as",
+    "fotos e a tipografia de produção.",
+    "Nome próprio de produto (ONE BURGER, SUPREME, SMASH 2.0, PISCININHA) não é",
+    "traduzido, que é o que um restaurante faz de verdade. O que traduz é o que o",
+    "cliente precisa entender: setor, nome descritivo e descritivo.",
+    "A chave `fotos` diz quais fotos de produto o capturar-totem.py baixa para a biblioteca da skill (assets/fotos). Foram escolhidos produtos cujo nome muda de idioma e cuja foto aguenta a redução do feed."
+  ],
+  "setores": {
+    "Promoçoes": {
+      "en": "Deals",
+      "es": "Promociones"
+    },
+    "Combos Burger": {
+      "en": "Burger Combos",
+      "es": "Combos de Hamburguesa"
+    },
+    "Burgers Avulsos (Só o lanche)": {
+      "en": "Burgers Only (Sandwich Only)",
+      "es": "Hamburguesas Solas (Solo el Sándwich)"
+    },
+    "Sobremesas": {
+      "en": "Desserts",
+      "es": "Postres"
+    },
+    "Acompanhamentos": {
+      "en": "Sides",
+      "es": "Acompañamientos"
+    },
+    "Milk Shakes": {
+      "en": "Milkshakes",
+      "es": "Malteadas"
+    },
+    "Bebidas": {
+      "en": "Drinks",
+      "es": "Bebidas"
+    },
+    "Molhos": {
+      "en": "Sauces",
+      "es": "Salsas"
+    }
+  },
+  "grupos": {
+    "BURGER": {
+      "en": "BURGER",
+      "es": "HAMBURGUESA"
+    },
+    "Burger": {
+      "en": "Burger",
+      "es": "Hamburguesa"
+    },
+    "ACOMPANHAMENTO": {
+      "en": "SIDE",
+      "es": "ACOMPAÑAMIENTO"
+    },
+    "BEBIDA": {
+      "en": "DRINK",
+      "es": "BEBIDA"
+    },
+    "ADICIONAIS": {
+      "en": "ADD-ONS",
+      "es": "ADICIONALES"
+    },
+    "REDUÇÃO": {
+      "en": "REMOVE",
+      "es": "QUITAR"
+    },
+    "QUER RETIRAR ALGUM INGREDIENTE?": {
+      "en": "WANT TO REMOVE ANY INGREDIENT?",
+      "es": "¿QUIERES QUITAR ALGÚN INGREDIENTE?"
+    },
+    "Deseja retirar algum ingrediente?": {
+      "en": "Want to remove any ingredient?",
+      "es": "¿Quieres quitar algún ingrediente?"
+    },
+    "Deseja retirar algum iten?": {
+      "en": "Want to remove anything?",
+      "es": "¿Quieres quitar algo?"
+    },
+    "QUER TURBINAR O SEU BURGER?": {
+      "en": "WANT TO UPGRADE YOUR BURGER?",
+      "es": "¿QUIERES MEJORAR TU HAMBURGUESA?"
+    },
+    "QUER TURBINAR SEU BURGER?": {
+      "en": "WANT TO UPGRADE YOUR BURGER?",
+      "es": "¿QUIERES MEJORAR TU HAMBURGUESA?"
+    },
+    "Deseja adicionais?": {
+      "en": "Want any add-ons?",
+      "es": "¿Quieres adicionales?"
+    },
+    "Selecione dois milk shakes.": {
+      "en": "Pick two milkshakes.",
+      "es": "Elige dos malteadas."
+    },
+    "Escolha um molho": {
+      "en": "Pick a sauce",
+      "es": "Elige una salsa"
+    },
+    "Escolha a porçao": {
+      "en": "Pick your side",
+      "es": "Elige el acompañamiento"
+    },
+    "Escolha a bebida": {
+      "en": "Pick your drink",
+      "es": "Elige la bebida"
+    },
+    "Escolha uma opçao": {
+      "en": "Pick one option",
+      "es": "Elige una opción"
+    },
+    "Com gelo ou sem": {
+      "en": "With or without ice",
+      "es": "Con hielo o sin hielo"
+    }
+  },
+  "produtos": {
+    "+++ADICIONAR BACON+++": {
+      "en": {
+        "descricao": "+++ADD BACON+++"
+      },
+      "es": {
+        "descricao": "+++AGREGAR TOCINO+++"
+      }
+    },
+    "+++ADICIONAR CARNE+++": {
+      "en": {
+        "descricao": "+++ADD A PATTY+++"
+      },
+      "es": {
+        "descricao": "+++AGREGAR CARNE+++"
+      }
+    },
+    "+++ADICIONAR CEBOLA CARAMELIZADA+++": {
+      "en": {
+        "descricao": "+++ADD CARAMELIZED ONION+++"
+      },
+      "es": {
+        "descricao": "+++AGREGAR CEBOLLA CARAMELIZADA+++"
+      }
+    },
+    "+++ADICIONAR FRANGO+++": {
+      "en": {
+        "descricao": "+++ADD CHICKEN+++"
+      },
+      "es": {
+        "descricao": "+++AGREGAR POLLO+++"
+      }
+    },
+    "+++ADICIONAR PICLES+++": {
+      "en": {
+        "descricao": "+++ADD PICKLES+++"
+      },
+      "es": {
+        "descricao": "+++AGREGAR PEPINILLOS+++"
+      }
+    },
+    "+++ADICIONAR QUEIJO CHEDDAR+++": {
+      "en": {
+        "descricao": "+++ADD CHEDDAR CHEESE+++"
+      },
+      "es": {
+        "descricao": "+++AGREGAR QUESO CHEDDAR+++"
+      }
+    },
+    "+++ADICIONAR QUEIJO PRATO+++": {
+      "en": {
+        "descricao": "+++ADD PRATO CHEESE+++"
+      },
+      "es": {
+        "descricao": "+++AGREGAR QUESO+++"
+      }
+    },
+    "+++SALADA (ALFACE, TOMATE E CEBOLA)+++": {
+      "en": {
+        "descricao": "+++SALAD (LETTUCE, TOMATO AND ONION)+++"
+      },
+      "es": {
+        "descricao": "+++ENSALADA (LECHUGA, TOMATE Y CEBOLLA)+++"
+      }
+    },
+    "- - -SEM ALFACE- - -": {
+      "en": {
+        "descricao": "- - -NO LETTUCE- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN LECHUGA- - -"
+      }
+    },
+    "- - -SEM BACON- - -": {
+      "en": {
+        "descricao": "- - -NO BACON- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN TOCINO- - -"
+      }
+    },
+    "- - -SEM BARBECUE- - -": {
+      "en": {
+        "descricao": "- - -NO BARBECUE- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN BARBACOA- - -"
+      }
+    },
+    "- - -SEM CEBOLA CARAMELIZADA- - -": {
+      "en": {
+        "descricao": "- - -NO CARAMELIZED ONION- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN CEBOLLA CARAMELIZADA- - -"
+      }
+    },
+    "- - -SEM CEBOLA ROXA- - -": {
+      "en": {
+        "descricao": "- - -NO RED ONION- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN CEBOLLA MORADA- - -"
+      }
+    },
+    "- - -SEM KETCHUP- - -": {
+      "en": {
+        "descricao": "- - -NO KETCHUP- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN KÉTCHUP- - -"
+      }
+    },
+    "- - -SEM MAIONESE GRILL- - -": {
+      "en": {
+        "descricao": "- - -NO GRILL MAYO- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN MAYONESA GRILL- - -"
+      }
+    },
+    "- - -SEM MAIONESE VERDE- - -": {
+      "en": {
+        "descricao": "- - -NO GREEN MAYO- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN MAYONESA VERDE- - -"
+      }
+    },
+    "- - -SEM MOLHO CAIPIRA- - -": {
+      "en": {
+        "descricao": "- - -NO CAIPIRA SAUCE- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN SALSA CAIPIRA- - -"
+      }
+    },
+    "- - -SEM MOLHO CHEDDAR- - -": {
+      "en": {
+        "descricao": "- - -NO CHEDDAR SAUCE- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN SALSA CHEDDAR- - -"
+      }
+    },
+    "- - -SEM MOSTARDA- - -": {
+      "en": {
+        "descricao": "- - -NO MUSTARD- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN MOSTAZA- - -"
+      }
+    },
+    "- - -SEM PICLES- - -": {
+      "en": {
+        "descricao": "- - -NO PICKLES- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN PEPINILLOS- - -"
+      }
+    },
+    "- - -SEM QUEIJO CHEDDAR- - -": {
+      "en": {
+        "descricao": "- - -NO CHEDDAR CHEESE- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN QUESO CHEDDAR- - -"
+      }
+    },
+    "- - -SEM QUEIJO PRATO- - -": {
+      "en": {
+        "descricao": "- - -NO PRATO CHEESE- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN QUESO- - -"
+      }
+    },
+    "- - -SEM QUEIJO- - -": {
+      "en": {
+        "descricao": "- - -NO CHEESE- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN QUESO- - -"
+      }
+    },
+    "- - -SEM TOMATE- - -": {
+      "en": {
+        "descricao": "- - -NO TOMATO- - -"
+      },
+      "es": {
+        "descricao": "- - -SIN TOMATE- - -"
+      }
+    },
+    "BATATA KIDS": {
+      "en": {
+        "descricao": "KIDS FRIES"
+      },
+      "es": {
+        "descricao": "PAPAS KIDS"
+      }
+    },
+    "BURGER KIDS": {
+      "en": {
+        "descricao": "KIDS BURGER"
+      },
+      "es": {
+        "descricao": "HAMBURGUESA KIDS"
+      }
+    },
+    "NUGGETS KIDS (06un)": {
+      "en": {
+        "descricao": "KIDS NUGGETS (6 pcs)"
+      },
+      "es": {
+        "descricao": "NUGGETS KIDS (6 u)"
+      }
+    },
+    "COM GÁS": {
+      "en": {
+        "descricao": "SPARKLING"
+      },
+      "es": {
+        "descricao": "CON GAS"
+      }
+    },
+    "SEM GÁS": {
+      "en": {
+        "descricao": "STILL"
+      },
+      "es": {
+        "descricao": "SIN GAS"
+      }
+    },
+    "GELADA": {
+      "en": {
+        "descricao": "COLD"
+      },
+      "es": {
+        "descricao": "FRÍA"
+      }
+    },
+    "NATURAL": {
+      "en": {
+        "descricao": "ROOM TEMPERATURE"
+      },
+      "es": {
+        "descricao": "AL TIEMPO"
+      }
+    },
+    "SHAKE EM DOBRO - PROMO QUARTA": {
+      "en": {
+        "descricao": "DOUBLE SHAKE - WEDNESDAY DEAL",
+        "descritivo": "Every Wednesday, buy one milkshake and get another one free when you order here."
+      },
+      "es": {
+        "descricao": "MALTEADA DOBLE - PROMO MIÉRCOLES",
+        "descritivo": "Todos los miércoles, pide una malteada y llévate otra gratis aquí en el local."
+      }
+    },
+    "ONE BURGER (COMBO)": {
+      "en": {
+        "descricao": "ONE BURGER (COMBO)",
+        "descritivo": "Brioche bun, cheddar cheese slices, 100 g beef patty and house green mayo + side + drink"
+      },
+      "es": {
+        "descricao": "ONE BURGER (COMBO)",
+        "descritivo": "Pan brioche, queso cheddar en rebanadas, carne de 100 g y mayonesa verde de la casa + acompañamiento + bebida"
+      }
+    },
+    "SUPREME (COMBO)": {
+      "en": {
+        "descricao": "SUPREME (COMBO)",
+        "descritivo": "Marbled sesame brioche bun, 100 g beef patty, cheddar cheese, lettuce, tomato, breaded mozzarella and green mayo + side + drink"
+      },
+      "es": {
+        "descricao": "SUPREME (COMBO)",
+        "descritivo": "Pan brioche con sésamo, carne de 100 g, queso cheddar, lechuga, tomate, mozzarella empanizada y mayonesa verde + acompañamiento + bebida"
+      }
+    },
+    "CHICKEN DELUXE (COMBO)": {
+      "en": {
+        "descricao": "CHICKEN DELUXE (COMBO)",
+        "descritivo": "Marbled sesame brioche bun, breaded chicken, sliced prato cheese, iceberg lettuce, tomato and grill mayo (tasty sauce) + side + drink"
+      },
+      "es": {
+        "descricao": "CHICKEN DELUXE (COMBO)",
+        "descritivo": "Pan brioche con sésamo, pollo empanizado, queso en rebanadas, lechuga americana, tomate y mayonesa grill (salsa tasty) + acompañamiento + bebida"
+      }
+    },
+    "CRISPY BBQ (COMBO)": {
+      "en": {
+        "descricao": "CRISPY BBQ (COMBO)",
+        "descritivo": "Black sesame bun, 100 g beef patty, cheddar cheese, barbecue sauce, bacon slices, breaded onion rings and grill mayo + side + drink"
+      },
+      "es": {
+        "descricao": "CRISPY BBQ (COMBO)",
+        "descritivo": "Pan negro con sésamo, carne de 100 g, queso cheddar, salsa barbacoa, tocino, aros de cebolla empanizados y mayonesa grill + acompañamiento + bebida"
+      }
+    },
+    "ORIGINAL BURGER (COMBO)": {
+      "en": {
+        "descricao": "ORIGINAL BURGER (COMBO)",
+        "descritivo": "Brioche bun, 100 g beef patty, ketchup, mustard, red onion, pickles and cheddar cheese + side + drink"
+      },
+      "es": {
+        "descricao": "ORIGINAL BURGER (COMBO)",
+        "descritivo": "Pan brioche, carne de 100 g, kétchup, mostaza, cebolla morada, pepinillos y queso cheddar + acompañamiento + bebida"
+      }
+    },
+    "ONE CHEDDAR (COMBO)": {
+      "en": {
+        "descricao": "ONE CHEDDAR (COMBO)",
+        "descritivo": "Black sesame bun, 100 g beef patty, creamy cheddar sauce and caramelized onion + side + drink"
+      },
+      "es": {
+        "descricao": "ONE CHEDDAR (COMBO)",
+        "descritivo": "Pan negro con sésamo, carne de 100 g, salsa cremosa de cheddar y cebolla caramelizada + acompañamiento + bebida"
+      }
+    },
+    "MELTED (COMBO)": {
+      "en": {
+        "descricao": "MELTED (COMBO)",
+        "descritivo": "Brioche bun, 100 g beef patty, cheddar cheese, melted cheddar cream and chopped bacon + side + drink"
+      },
+      "es": {
+        "descricao": "MELTED (COMBO)",
+        "descritivo": "Pan brioche, carne de 100 g, queso cheddar, crema de cheddar fundido y tocino picado + acompañamiento + bebida"
+      }
+    },
+    "ONE CLASSIC (COMBO)": {
+      "en": {
+        "descricao": "ONE CLASSIC (COMBO)",
+        "descritivo": "Brioche bun, 100 g beef patty, prato cheese, lettuce, tomato, red onion and green mayo + side + drink"
+      },
+      "es": {
+        "descricao": "ONE CLASSIC (COMBO)",
+        "descritivo": "Pan brioche, carne de 100 g, queso, lechuga, tomate, cebolla morada y mayonesa verde + acompañamiento + bebida"
+      }
+    },
+    "SMASH 2.0 (COMBO)": {
+      "en": {
+        "descricao": "SMASH 2.0 (COMBO)",
+        "descritivo": "Brioche bun, two 100 g beef patties, grill mayo, two cheddar cheese slices, red onion and caipira sauce + side + drink"
+      },
+      "es": {
+        "descricao": "SMASH 2.0 (COMBO)",
+        "descritivo": "Pan brioche, dos carnes de 100 g, mayonesa grill, dos rebanadas de queso cheddar, cebolla morada y salsa caipira + acompañamiento + bebida"
+      }
+    },
+    "TASTY BACON (COMBO)": {
+      "en": {
+        "descricao": "TASTY BACON (COMBO)",
+        "descritivo": "Marbled sesame brioche bun, 100 g beef patty, cheddar cheese, smoked mayo, red onion, iceberg lettuce, tomato and bacon slices + side + drink"
+      },
+      "es": {
+        "descricao": "TASTY BACON (COMBO)",
+        "descritivo": "Pan brioche con sésamo, carne de 100 g, queso cheddar, mayonesa ahumada, cebolla morada, lechuga americana, tomate y tocino + acompañamiento + bebida"
+      }
+    },
+    "PISCININHA (COMBO)": {
+      "en": {
+        "descricao": "PISCININHA (COMBO)",
+        "descritivo": "Brioche bun, 100 g beef patty, cheddar cheese, melted cheddar cream on the side and chopped bacon + side + drink"
+      },
+      "es": {
+        "descricao": "PISCININHA (COMBO)",
+        "descritivo": "Pan brioche, carne de 100 g, queso cheddar, crema de cheddar fundido aparte y tocino picado + acompañamiento + bebida"
+      }
+    },
+    "COMBO KIDS": {
+      "en": {
+        "descricao": "KIDS COMBO",
+        "descritivo": "Kids meal with bun, beef patty, cheese and ketchup, small fries and a Del Valle juice"
+      },
+      "es": {
+        "descricao": "COMBO INFANTIL",
+        "descritivo": "Menú infantil con pan, carne, queso y kétchup, papas fritas pequeñas y jugo Del Valle"
+      }
+    },
+    "ONE BURGER": {
+      "en": {
+        "descricao": "ONE BURGER",
+        "descritivo": "Brioche bun, 100 g beef patty, cheddar cheese slices and house seasoned green mayo"
+      },
+      "es": {
+        "descricao": "ONE BURGER",
+        "descritivo": "Pan brioche, carne de 100 g, queso cheddar en rebanadas y mayonesa verde de la casa"
+      }
+    },
+    "ONE CHEDDAR": {
+      "en": {
+        "descricao": "ONE CHEDDAR",
+        "descritivo": "Black sesame bun, 100 g beef patty, creamy cheddar sauce and caramelized onion"
+      },
+      "es": {
+        "descricao": "ONE CHEDDAR",
+        "descritivo": "Pan negro con sésamo, carne de 100 g, salsa cremosa de cheddar y cebolla caramelizada"
+      }
+    },
+    "ORIGINAL BURGER": {
+      "en": {
+        "descricao": "ORIGINAL BURGER",
+        "descritivo": "Brioche bun, 100 g beef patty, ketchup, mustard, red onion, house pickles and sliced cheddar cheese"
+      },
+      "es": {
+        "descricao": "ORIGINAL BURGER",
+        "descritivo": "Pan brioche, carne de 100 g, kétchup, mostaza, cebolla morada, pepinillos artesanales y queso cheddar en rebanadas"
+      }
+    },
+    "ONE CLASSIC": {
+      "en": {
+        "descricao": "ONE CLASSIC",
+        "descritivo": "Brioche bun, 100 g beef patty, sliced prato cheese, iceberg lettuce, tomato, red onion and house seasoned green mayo"
+      },
+      "es": {
+        "descricao": "ONE CLASSIC",
+        "descritivo": "Pan brioche, carne de 100 g, queso en rebanadas, lechuga americana, tomate, cebolla morada y mayonesa verde de la casa"
+      }
+    },
+    "TASTY BACON": {
+      "en": {
+        "descricao": "TASTY BACON",
+        "descritivo": "Marbled sesame brioche bun, 100 g beef patty, cheddar cheese, smoked mayo, red onion, iceberg lettuce, tomato and bacon slices"
+      },
+      "es": {
+        "descricao": "TASTY BACON",
+        "descritivo": "Pan brioche con sésamo, carne de 100 g, queso cheddar, mayonesa ahumada, cebolla morada, lechuga americana, tomate y tocino"
+      }
+    },
+    "SMASH 2.0": {
+      "en": {
+        "descricao": "SMASH 2.0",
+        "descritivo": "Brioche bun, two 100 g beef patties, grill mayo, two cheddar cheese slices, red onion and caipira sauce"
+      },
+      "es": {
+        "descricao": "SMASH 2.0",
+        "descritivo": "Pan brioche, dos carnes de 100 g, mayonesa grill, dos rebanadas de queso cheddar, cebolla morada y salsa caipira"
+      }
+    },
+    "SUPREME ": {
+      "en": {
+        "descricao": "SUPREME",
+        "descritivo": "Marbled sesame brioche bun, 100 g beef patty, cheddar cheese, lettuce, tomato, breaded mozzarella and green mayo"
+      },
+      "es": {
+        "descricao": "SUPREME",
+        "descritivo": "Pan brioche con sésamo, carne de 100 g, queso cheddar, lechuga, tomate, mozzarella empanizada y mayonesa verde"
+      }
+    },
+    "CHICKEN DELUXE": {
+      "en": {
+        "descricao": "CHICKEN DELUXE",
+        "descritivo": "Marbled sesame brioche bun, breaded chicken, sliced prato cheese, iceberg lettuce, tomato and grill mayo (tasty sauce)"
+      },
+      "es": {
+        "descricao": "CHICKEN DELUXE",
+        "descritivo": "Pan brioche con sésamo, pollo empanizado, queso en rebanadas, lechuga americana, tomate y mayonesa grill (salsa tasty)"
+      }
+    },
+    "MELTED": {
+      "en": {
+        "descricao": "MELTED",
+        "descritivo": "Brioche bun, 100 g beef patty, sliced cheddar cheese, melted cheddar cream and chopped bacon"
+      },
+      "es": {
+        "descricao": "MELTED",
+        "descritivo": "Pan brioche, carne de 100 g, queso cheddar en rebanadas, crema de cheddar fundido y tocino picado"
+      }
+    },
+    "PISCININHA ": {
+      "en": {
+        "descricao": "PISCININHA",
+        "descritivo": "Brioche bun, 100 g beef patty, sliced cheddar cheese, melted cheddar cream on the side and chopped bacon"
+      },
+      "es": {
+        "descricao": "PISCININHA",
+        "descritivo": "Pan brioche, carne de 100 g, queso cheddar en rebanadas, crema de cheddar fundido aparte y tocino picado"
+      }
+    },
+    "CRISPY BBQ": {
+      "en": {
+        "descricao": "CRISPY BBQ",
+        "descritivo": "Black sesame bun, 100 g beef patty, cheddar cheese, barbecue sauce, bacon slices, breaded onion rings and grill mayo"
+      },
+      "es": {
+        "descricao": "CRISPY BBQ",
+        "descritivo": "Pan negro con sésamo, carne de 100 g, queso cheddar, salsa barbacoa, tocino, aros de cebolla empanizados y mayonesa grill"
+      }
+    },
+    "BROWNIE": {
+      "en": {
+        "descricao": "BROWNIE",
+        "descritivo": "Classic chocolate brownie with a light crust and a dense, soft center (60 g)"
+      },
+      "es": {
+        "descricao": "BROWNIE",
+        "descritivo": "Brownie clásico de chocolate con corteza ligera y centro denso y suave (60 g)"
+      }
+    },
+    "PUDIM - BRIGADEIRO": {
+      "en": {
+        "descricao": "PUDDING - BRIGADEIRO",
+        "descritivo": "Brigadeiro pudding served in a 150 ml glass"
+      },
+      "es": {
+        "descricao": "FLAN - BRIGADEIRO",
+        "descritivo": "Flan de brigadeiro servido en vaso de 150 ml"
+      }
+    },
+    "PUDIM - LEITE CONDENSADO": {
+      "en": {
+        "descricao": "PUDDING - CONDENSED MILK",
+        "descritivo": "Classic condensed milk pudding in a 150 ml glass, from Fabrica do Pudim"
+      },
+      "es": {
+        "descricao": "FLAN - LECHE CONDENSADA",
+        "descritivo": "Flan tradicional de leche condensada en vaso de 150 ml, de Fabrica do Pudim"
+      }
+    },
+    "SCOOPY - Oreo® Mini": {
+      "en": {
+        "descricao": "SCOOPY - Oreo® Mini",
+        "descritivo": "Vanilla cream ice cream with chocolate syrup and Oreo® Mini Original pieces"
+      },
+      "es": {
+        "descricao": "SCOOPY - Oreo® Mini",
+        "descritivo": "Helado de crema de vainilla con salsa de chocolate y trozos de Oreo® Mini Original"
+      }
+    },
+    "BROWNIE COM SORVETE E MORANGO": {
+      "en": {
+        "descricao": "BROWNIE WITH ICE CREAM AND STRAWBERRY",
+        "descritivo": "Chocolate brownie with vanilla ice cream and strawberry syrup"
+      },
+      "es": {
+        "descricao": "BROWNIE CON HELADO Y FRESA",
+        "descritivo": "Brownie de chocolate con helado de vainilla y salsa de fresa"
+      }
+    },
+    "BATATA FRITA": {
+      "en": {
+        "descricao": "FRENCH FRIES",
+        "descritivo": "150 g portion of french fries"
+      },
+      "es": {
+        "descricao": "PAPAS FRITAS",
+        "descritivo": "Porción de 150 g de papas fritas"
+      }
+    },
+    "CEBOLA EMPANADA": {
+      "en": {
+        "descricao": "ONION RINGS",
+        "descritivo": "Portion with 8 breaded onion rings"
+      },
+      "es": {
+        "descricao": "AROS DE CEBOLLA",
+        "descritivo": "Porción con 8 aros de cebolla empanizados"
+      }
+    },
+    "MOZZA STICKS - PALITOS DE MUSSARELA": {
+      "en": {
+        "descricao": "MOZZA STICKS",
+        "descritivo": "Six breaded mozzarella sticks, with a special dipping sauce on the house"
+      },
+      "es": {
+        "descricao": "MOZZA STICKS",
+        "descritivo": "Seis palitos de mozzarella empanizados, con salsa especial para mojar de regalo"
+      }
+    },
+    "NUGGETS CHICKEN SUPREME (08 un)": {
+      "en": {
+        "descricao": "CHICKEN SUPREME NUGGETS (8 pcs)",
+        "descritivo": "Eight original chicken breast nuggets, breaded with a light and soft crust"
+      },
+      "es": {
+        "descricao": "NUGGETS CHICKEN SUPREME (8 u)",
+        "descritivo": "Ocho nuggets originales de pechuga de pollo, empanizados con corteza ligera y suave"
+      }
+    },
+    "COPO DE MOLHO CHEDDAR E BACON (PISCININHA)": {
+      "en": {
+        "descricao": "CHEDDAR AND BACON DIP CUP (PISCININHA)",
+        "descritivo": "100 g cup of cheddar sauce with chopped bacon for dipping"
+      },
+      "es": {
+        "descricao": "VASO DE SALSA CHEDDAR Y TOCINO (PISCININHA)",
+        "descritivo": "Vaso de 100 g de salsa de cheddar con tocino picado para mojar"
+      }
+    },
+    "BATATA FRITA COM CHEDDAR E BACON": {
+      "en": {
+        "descricao": "CHEDDAR & BACON FRIES",
+        "descritivo": "200 g portion of french fries with cheddar sauce and chopped bacon"
+      },
+      "es": {
+        "descricao": "PAPAS CON CHEDDAR Y TOCINO",
+        "descritivo": "Porción de 200 g de papas fritas con salsa de cheddar y tocino picado"
+      }
+    },
+    "GRANDE BATATA COM CHEDDAR E BACON ": {
+      "en": {
+        "descricao": "LARGE FRIES WITH CHEDDAR AND BACON",
+        "descritivo": "Serves 1 to 2. 300 g portion of french fries with cheddar sauce and chopped bacon"
+      },
+      "es": {
+        "descricao": "PAPAS GRANDES CON CHEDDAR Y TOCINO",
+        "descritivo": "Para 1 o 2 personas. Porción de 300 g de papas fritas con salsa de cheddar y tocino picado"
+      }
+    },
+    "MILK SHAKE MORANGO": {
+      "en": {
+        "descricao": "STRAWBERRY MILKSHAKE",
+        "descritivo": "Strawberry milkshake, 400 ml"
+      },
+      "es": {
+        "descricao": "MALTEADA DE FRESA",
+        "descritivo": "Malteada de fresa, 400 ml"
+      }
+    },
+    "MILK SHAKE OVOMALTINE": {
+      "en": {
+        "descricao": "OVOMALTINE MILKSHAKE",
+        "descritivo": "Ovomaltine® milkshake, 400 ml"
+      },
+      "es": {
+        "descricao": "MALTEADA DE OVOMALTINE",
+        "descritivo": "Malteada de Ovomaltine®, 400 ml"
+      }
+    },
+    "SODA ITALIANA - MAÇA VERDE": {
+      "en": {
+        "descricao": "ITALIAN SODA - GREEN APPLE",
+        "descritivo": "Refreshing green apple Italian soda"
+      },
+      "es": {
+        "descricao": "SODA ITALIANA - MANZANA VERDE",
+        "descritivo": "Refrescante soda italiana de manzana verde"
+      }
+    },
+    "SUCO MARACUJÁ DEL VALLE 290ML": {
+      "en": {
+        "descricao": "DEL VALLE PASSION FRUIT JUICE 290ML"
+      },
+      "es": {
+        "descricao": "JUGO DE MARACUYÁ DEL VALLE 290ML"
+      }
+    },
+    "DEL VALLE UVA 290ML": {
+      "en": {
+        "descricao": "DEL VALLE GRAPE JUICE 290ML"
+      },
+      "es": {
+        "descricao": "JUGO DE UVA DEL VALLE 290ML"
+      }
+    },
+    "DEL VALLE UVA 200ML CAIXINHA": {
+      "en": {
+        "descricao": "DEL VALLE GRAPE JUICE 200ML BOX"
+      },
+      "es": {
+        "descricao": "JUGO DE UVA DEL VALLE 200ML CAJITA"
+      }
+    },
+    "COCA-COLA 350ML ": {
+      "en": {
+        "descricao": "COCA-COLA 350ML CAN"
+      },
+      "es": {
+        "descricao": "COCA-COLA 350ML LATA"
+      }
+    },
+    "COCA-COLA ZERO 350ML": {
+      "en": {
+        "descricao": "COCA-COLA ZERO 350ML CAN"
+      },
+      "es": {
+        "descricao": "COCA-COLA ZERO 350ML LATA"
+      }
+    },
+    "FANTA LARANJA 350ML": {
+      "en": {
+        "descricao": "FANTA ORANGE 350ML CAN"
+      },
+      "es": {
+        "descricao": "FANTA NARANJA 350ML LATA"
+      }
+    },
+    "SPRITE ZERO 350ML ": {
+      "en": {
+        "descricao": "SPRITE ZERO 350ML CAN"
+      },
+      "es": {
+        "descricao": "SPRITE ZERO 350ML LATA"
+      }
+    },
+    "ÁGUA": {
+      "en": {
+        "descricao": "BOTTLED WATER"
+      },
+      "es": {
+        "descricao": "AGUA"
+      }
+    },
+    "KETCHUP DE GOIABADA  30ml [NOVIDADE]": {
+      "en": {
+        "descricao": "GUAVA KETCHUP 30ml [NEW]",
+        "descritivo": "Guava ketchup - 30 ml cup"
+      },
+      "es": {
+        "descricao": "KÉTCHUP DE GUAYABA 30ml [NUEVO]",
+        "descritivo": "Kétchup de guayaba - vaso de 30 ml"
+      }
+    },
+    "MAIONESE DIJON TRUFADA - 30ml [NOVIDADE]": {
+      "en": {
+        "descricao": "TRUFFLED DIJON MAYO - 30ml [NEW]",
+        "descritivo": "Truffled dijon mayo - 30 ml cup"
+      },
+      "es": {
+        "descricao": "MAYONESA DIJON TRUFADA - 30ml [NUEVO]",
+        "descritivo": "Mayonesa dijon trufada - vaso de 30 ml"
+      }
+    },
+    "GELEIA DE PIMENTA - 30ml": {
+      "en": {
+        "descricao": "CHILI JAM - 30ml",
+        "descritivo": "30 ml cup of chili jam"
+      },
+      "es": {
+        "descricao": "MERMELADA DE CHILE - 30ml",
+        "descritivo": "Vaso de 30 ml de mermelada de chile"
+      }
+    },
+    "MOLHO CAIPIRA - 30ml ": {
+      "en": {
+        "descricao": "CAIPIRA SAUCE - 30ml",
+        "descritivo": "30 ml cup of sauce"
+      },
+      "es": {
+        "descricao": "SALSA CAIPIRA - 30ml",
+        "descritivo": "Vaso de 30 ml de salsa"
+      }
+    },
+    "MOLHO KETCHUP DE GOIABADA - 30ml": {
+      "en": {
+        "descricao": "GUAVA KETCHUP SAUCE - 30ml",
+        "descritivo": "30 ml cup of sauce"
+      },
+      "es": {
+        "descricao": "SALSA KÉTCHUP DE GUAYABA - 30ml",
+        "descritivo": "Vaso de 30 ml de salsa"
+      }
+    },
+    "MOLHO BARBECUE - 30ml": {
+      "en": {
+        "descricao": "BARBECUE SAUCE - 30ml",
+        "descritivo": "30 ml cup of sauce"
+      },
+      "es": {
+        "descricao": "SALSA BARBACOA - 30ml",
+        "descritivo": "Vaso de 30 ml de salsa"
+      }
+    },
+    "MOLHO KETCHUP - 30ml": {
+      "en": {
+        "descricao": "KETCHUP - 30ml",
+        "descritivo": "30 ml cup of sauce"
+      },
+      "es": {
+        "descricao": "KÉTCHUP - 30ml",
+        "descritivo": "Vaso de 30 ml de salsa"
+      }
+    },
+    "MOLHO MOSTARDA - 30ml": {
+      "en": {
+        "descricao": "MUSTARD - 30ml",
+        "descritivo": "30 ml cup of sauce"
+      },
+      "es": {
+        "descricao": "MOSTAZA - 30ml",
+        "descritivo": "Vaso de 30 ml de salsa"
+      }
+    },
+    "MOLHO CHEDDAR - 30ml": {
+      "en": {
+        "descricao": "CHEDDAR SAUCE - 30ml",
+        "descritivo": "30 ml cup of cheddar sauce"
+      },
+      "es": {
+        "descricao": "SALSA CHEDDAR - 30ml",
+        "descritivo": "Vaso de 30 ml de salsa de cheddar"
+      }
+    },
+    "MAIONESE VERDE - 30ml": {
+      "en": {
+        "descricao": "GREEN MAYO - 30ml",
+        "descritivo": "30 ml cup of mayo"
+      },
+      "es": {
+        "descricao": "MAYONESA VERDE - 30ml",
+        "descritivo": "Vaso de 30 ml de mayonesa"
+      }
+    },
+    "MAIONESE GRILL - 30ml (MOLHO TASTY)": {
+      "en": {
+        "descricao": "GRILL MAYO - 30ml (TASTY SAUCE)",
+        "descritivo": "30 ml cup of sauce"
+      },
+      "es": {
+        "descricao": "MAYONESA GRILL - 30ml (SALSA TASTY)",
+        "descritivo": "Vaso de 30 ml de salsa"
+      }
+    }
+  },
+  "fotos": {
+    "BATATA FRITA": "foto-batata.png",
+    "CEBOLA EMPANADA": "foto-cebola.png",
+    "MOZZA STICKS - PALITOS DE MUSSARELA": "foto-mozza.png",
+    "BATATA FRITA COM CHEDDAR E BACON": "foto-batata-cheddar.png",
+    "MELTED": "foto-melted.png",
+    "TASTY BACON": "foto-tasty-bacon.png",
+    "ONE CLASSIC": "foto-one-classic.png",
+    "SMASH 2.0": "foto-smash.png",
+    "BROWNIE COM SORVETE E MORANGO": "foto-brownie.png",
+    "MILK SHAKE MORANGO": "foto-shake.png",
+    "COCA-COLA 350ML": "foto-refri.png",
+    "MOLHO CHEDDAR - 30ml": "foto-molho.png"
+  }
+}

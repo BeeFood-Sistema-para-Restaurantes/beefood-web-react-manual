@@ -14,15 +14,29 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 ├─ PLANO-NUMERACAO-PEDIDOS.md  # Estudo do #74 (número da venda × número do pedido)
 ├─ PLANO-RELATORIOS.md         # Fila #75–#96 (um manual por relatório do Desempenho)
 ├─ validar-imagens.py          # Confere se as imagens referenciadas pelos manuais existem
-└─ manuais/
-   └─ <nome-do-manual>/        # Uma pasta por manual
-      ├─ MEMORIA.md            # Memória detalhada do manual (fluxo, uso, decisões, estado)
-      ├─ <nome>.md             # O manual final (para o usuário)
-      ├─ fluxo-codigo.md       # Mapeamento técnico (a partir do código)
-      ├─ annotate.py           # Script de anotação (setas/números) — Python + Pillow
-      ├─ imagens-puras/        # Screenshots originais (backup, sem edição)
-      └─ imagens-tratadas/     # Screenshots com setas/números (usados no manual)
+├─ manuais/
+│  └─ <nome-do-manual>/        # Uma pasta por manual
+│     ├─ MEMORIA.md            # Memória detalhada do manual (fluxo, uso, decisões, estado)
+│     ├─ <nome>.md             # O manual final (para o usuário)
+│     ├─ fluxo-codigo.md       # Mapeamento técnico (a partir do código)
+│     ├─ annotate.py           # Script de anotação (setas/números) — Python + Pillow
+│     ├─ imagens-puras/        # Screenshots originais (backup, sem edição)
+│     └─ imagens-tratadas/     # Screenshots com setas/números (usados no manual)
+└─ carrosseis/                 # Carrosséis de novidades (arte para Instagram)
+   └─ <slug>/                  # Uma pasta por carrossel
 ```
+
+## Duas frentes, dois fluxos
+
+| Frente | O que produz | Onde está o fluxo |
+|--------|--------------|-------------------|
+| **Manuais** | passo a passo para o usuário final, com setas numeradas | [`MEMORIA-GERAL.md`](MEMORIA-GERAL.md) + [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md) |
+| **Carrosséis de novidades** | arte de Instagram (prints, mockups, PNG 1080×1350) | [`.cursor/skills/carrossel-novidades/SKILL.md`](.cursor/skills/carrossel-novidades/SKILL.md) |
+
+A skill de carrossel **lê** o material dos manuais (captura, contas, comportamento
+conferido no sistema) e não altera nada dentro de `manuais/`, da `MEMORIA-GERAL.md`
+nem do `CHECKLIST-MANUAIS.md`. O índice dos carrosséis fica em
+[`carrosseis/README.md`](carrosseis/README.md).
 
 ## Manuais disponíveis
 

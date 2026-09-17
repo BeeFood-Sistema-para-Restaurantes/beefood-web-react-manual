@@ -1,0 +1,120 @@
+<!-- Capa, versão com os DOIS aparelhos. A pergunta é retórica e quem responde é
+     a imagem: o totem está na tela de espera, com a pílula das três bandeiras
+     embaixo do botão, e o tablet mostra o cardápio já em inglês.
+
+     A tela do totem é **captura de verdade**, do totem de exemplo
+     (`capturar-totem.py`). Ela cabe aqui porque é quase toda imagem e botão:
+     reduzida para 350 px continua lendo. Foi por isso que ela trocou de lugar
+     com o cardápio, que foi para o slide 3 — cardápio reduzido vira letra de
+     5 px, e por isso ali a tela é desenhada.
+
+     Existe também `capa-alternativa/slides/01-capa-so-totem.html`, com o totem
+     sozinho e maior. As duas estão no repositório de propósito: com dois
+     aparelhos a capa informa mais e cada tela fica menor; com um, a tela fica
+     grande. Escolha uma na hora de publicar.
+
+     Composição: os dois aparelhos formam **um grupo**, e não duas ilhas. O
+     totem fica atrás, na direita; o tablet à frente, encostando na coluna dele.
+     A primeira versão tinha um em cada canto, com um vão no meio da base — era
+     o que deixava a capa desarrumada. Os dois saem pela borda de baixo, que lê
+     como piso e mesa. -->
+<div class="slide slide--capa">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">1 de 7</span>
+  </div>
+
+  <!-- `max-width` de 540: sem isso o título entra embaixo do totem. O texto
+       para onde o aparelho começa. -->
+  <div class="pilha g24" style="margin-top: 28px; max-width: 570px">
+    <span class="pilula pilula--novidade">Novidade</span>
+    <h1 class="titulo">Seu cardápio já fala <span class="destaque">inglês</span>?</h1>
+    <p class="subtitulo">Agora fala — e espanhol também.</p>
+  </div>
+
+  <!-- Totem: alto, atrás, na direita. -->
+  <div class="sangria" style="top: 366px; right: 48px; width: 384px">
+    <div class="totem" style="width: 384px; --coluna: 300px">
+      <div class="totem__tela">
+        <!-- A tela depois de tocar na bandeira dos Estados Unidos: o botão está
+             em START YOUR ORDER e a bandeira escolhida tem o anel vermelho. A
+             capa pergunta se o cardápio já fala inglês, e esta tela responde
+             sem gastar texto.
+
+             É a captura de 720p, e não a de 1080p: o aplicativo desenha botão e
+             bandeiras em px fixo, então na tela menor eles ocupam mais
+             proporção e sobrevivem à redução da capa. -->
+        <img src="skill:fotos/totem-espera-en-720.png"
+             alt="Tela de espera do totem em inglês, com o botão START YOUR ORDER e as bandeiras do Brasil, Estados Unidos e Espanha embaixo">
+      </div>
+      <div class="totem__painel">
+        <div class="totem__leitor"></div>
+        <div class="totem__impressora"></div>
+        <div class="totem__pinpad">
+          <div class="totem__tecla"><span></span><span></span><span></span></div>
+          <div class="totem__tecla"><span></span><span></span><span></span></div>
+          <div class="totem__tecla"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+      <div class="totem__coluna"></div>
+      <div class="totem__base"></div>
+    </div>
+  </div>
+
+  <!-- Tablet: baixo, à frente, encostado na coluna do totem. -->
+  <div class="sangria" style="top: 872px; left: 54px; width: 660px; z-index: 2">
+    <div class="tablet" style="width: 660px">
+      <div class="tablet__tela">
+        <div class="tela-tablet" style="font-size: 15px">
+          <div class="tela-tablet__topo">
+            <span class="tela-tablet__logo"></span>
+            <span class="tela-tablet__busca"><i class="lupa"></i>SEARCH</span>
+            <span class="tela-tablet__acao"><i></i>MY CART</span>
+            <span class="tela-tablet__acao"><i></i>MY BILL</span>
+          </div>
+          <div class="tela-tablet__miolo">
+            <div class="tela-tablet__atalhos">
+              <div class="tela-tablet__atalho"><i></i>HIGHLIGHTS</div>
+              <div class="tela-tablet__atalho tela-tablet__atalho--ativo">
+                <i class="talher"></i>MENU
+              </div>
+              <div class="tela-tablet__atalho"><i class="sino"></i>RATE</div>
+              <div class="tela-tablet__idiomas">
+                <span class="bandeira bandeira--retangular"><span>&#127463;&#127479;</span></span>
+                <span class="bandeira bandeira--retangular bandeira--anel"><span>&#127482;&#127480;</span></span>
+                <span class="bandeira bandeira--retangular"><span>&#127466;&#127480;</span></span>
+              </div>
+            </div>
+            <div class="tela-tablet__setores">
+              <div class="tela-tablet__setor tela-tablet__setor--ativo">Burgers</div>
+              <div class="tela-tablet__setor">Sides</div>
+              <div class="tela-tablet__setor">Desserts</div>
+            </div>
+            <div class="tela-tablet__corpo">
+              <div class="tela-tablet__faixa">Burgers avulsos</div>
+              <div class="tela-tablet__item">
+                <img src="skill:fotos/foto-melted.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>MELTED</span>
+                  <small>Brioche bun, 100 g beef patty, melted cheddar cream</small>
+                  <b>R$ 34,00</b>
+                </div>
+                <span class="tela-tablet__pedir">Order</span>
+              </div>
+              <div class="tela-tablet__item">
+                <img src="skill:fotos/foto-tasty-bacon.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>TASTY BACON</span>
+                  <small>Sesame brioche bun, smoked mayo, bacon slices</small>
+                  <b>R$ 30,00</b>
+                </div>
+                <span class="tela-tablet__pedir">Order</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tablet__suporte"></div>
+    </div>
+  </div>
+</div>

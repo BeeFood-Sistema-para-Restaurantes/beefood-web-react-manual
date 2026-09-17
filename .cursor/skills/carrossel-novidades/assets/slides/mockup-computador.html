@@ -1,0 +1,57 @@
+<!-- Modelo: MOCKUP DE COMPUTADOR EM SANGRIA.
+     Para tela do painel, que é onde o dono trabalha. Sendo deitada, a janela
+     sangra pela direita (e de raspão pela base), e é justamente por isso que ela
+     passa de 1000 px de largura — o que mantém o texto da tela legível.
+
+     Conta que decide se este slide funciona: o recorte capturado tem de ter no
+     máximo ~620 px de largura LÓGICA. Exibido a 1120 px, isso dá 1,8x, e o
+     rótulo de 13-15 px da interface sai com 24-27 px na arte. Recorte de painel
+     inteiro (1440 px lógicos) sai a 0,8x e não se lê.
+
+     O `.realce` circula o detalhe. Posicione em PORCENTAGEM do
+     `.navegador__tela` e MEÇA no arquivo — estimar no olho circula a linha
+     errada. Para medir, procure a cor do elemento:
+       python3 -c "from PIL import Image; im=Image.open('...').convert('RGB'); ..."
+
+     Orçamento de espaço: com a janela em `top: 700px`, cabem acima chapéu +
+     título de 2 linhas + 4 linhas de corpo. O rodapé sai fora: a janela cobre a
+     base inteira, e pontos desenhados por cima dela parecem sujeira.
+
+     A mesma `.navegador` serve inteira dentro da margem (sem `.sangria`) quando
+     o que importa é o desenho da página, não o texto dela — e aí ela vai em
+     `.figura`, centralizada.
+
+     Aqui a sangria é assimétrica de propósito: a janela é mais larga que o
+     slide, e o lado que fica de fora tem de ser o que não carrega a informação.
+     Se o campo que o slide quer mostrar está à direita do print, inverta o
+     `right` por um `left` negativo. -->
+<div class="slide">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">4 de 8</span>
+  </div>
+
+  <div class="pilha g32" style="margin-top: 62px; max-width: 880px">
+    <span class="chapeu">Leva dez segundos</span>
+    <h2 class="titulo titulo--medio">
+      É um <span class="destaque">interruptor</span> no cadastro do item
+    </h2>
+    <p class="corpo" style="max-width: 800px">
+      Em <span class="caminho">Cardápio &rarr; Produtos</span>, logo abaixo de
+      Descrição.
+    </p>
+  </div>
+
+  <div class="navegador sangria sangria--janela">
+    <div class="navegador__barra">
+      <span class="navegador__bolinha"></span>
+      <span class="navegador__bolinha"></span>
+      <span class="navegador__bolinha"></span>
+      <span class="navegador__url">beefood.app/cardapio/produtos</span>
+    </div>
+    <div class="navegador__tela">
+      <img src="../imagens-puras/03-recorte.png" alt="Campo novo no cadastro do produto">
+      <span class="realce" style="left: 11%; top: 67%; right: 22%; bottom: 16%"></span>
+    </div>
+  </div>
+</div>

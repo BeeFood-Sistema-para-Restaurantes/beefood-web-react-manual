@@ -1,0 +1,55 @@
+<!-- Capa, versão SÓ COM O TOTEM. Alternativa à `slides/01-capa.html`, que traz o
+     totem e o tablet juntos.
+
+     Qual usar é escolha de quem publica, e a troca é real:
+
+     - **só totem** — o aparelho vai centralizado e grande, e a tela respira:
+       dá para ler START YOUR ORDER e ver as três bandeiras no feed.
+     - **totem + tablet** — a capa já diz "nos dois aparelhos" sem gastar linha
+       de texto, e o preço é cada tela ficar menor.
+
+     Mora numa pasta separada de propósito: o `renderizar.py` transforma em PNG
+     todo `.html` de `slides/`, e duas capas na mesma pasta virariam um carrossel
+     de oito imagens com dois slides "1 de 7".
+
+     A imagem sobe dois níveis (`../../imagens-puras/`) porque é a mesma do
+     carrossel — captura não se duplica.
+
+     Aqui a tela é **captura de verdade** do totem de exemplo, depois de tocar
+     na bandeira dos Estados Unidos: a única coisa desenhada neste slide é a
+     carcaça do aparelho.
+
+     O totem cabe inteiro até o painel do pinpad; a coluna sai pela base, que é
+     o certo: a borda de baixo do slide lê como piso. -->
+<div class="slide slide--capa">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">1 de 7</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 28px">
+    <span class="pilula pilula--novidade">Novidade</span>
+    <h1 class="titulo">Seu cardápio já fala <span class="destaque">inglês</span>?</h1>
+    <p class="subtitulo">Agora fala — e espanhol também.</p>
+  </div>
+
+  <div class="sangria" style="top: 532px; left: 340px; width: 400px">
+    <div class="totem" style="width: 400px; --coluna: 300px">
+      <div class="totem__tela">
+        <img src="skill:fotos/totem-espera-en-720.png"
+             alt="Tela de espera do totem em inglês, com o botão START YOUR ORDER e as bandeiras do Brasil, Estados Unidos e Espanha embaixo">
+      </div>
+      <div class="totem__painel">
+        <div class="totem__leitor"></div>
+        <div class="totem__impressora"></div>
+        <div class="totem__pinpad">
+          <div class="totem__tecla"><span></span><span></span><span></span></div>
+          <div class="totem__tecla"><span></span><span></span><span></span></div>
+          <div class="totem__tecla"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+      <div class="totem__coluna"></div>
+      <div class="totem__base"></div>
+    </div>
+  </div>
+</div>

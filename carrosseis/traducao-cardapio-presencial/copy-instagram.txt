@@ -1,0 +1,113 @@
+CARROSSEL — CARDÁPIO PRESENCIAL EM INGLÊS E ESPANHOL
+Fonte: novidade de 16/09/2026 em beefood.app/novidades/traducao-cardapio-presencial
+(referência de produção; a arte não tem data, então este carrossel pode ser
+publicado a qualquer momento)
+
+Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-vendedor, 03-totem, 04-tablet, 05-mesmo-cadastro,
+06-espanhol, 07-cta.
+
+As telas de totem são captura do totem de exemplo, com a tradução deste
+carrossel injetada e com a foto de fundo trocada pela nossa (a loja de exemplo
+anunciava um pudim ali). Os dois recortes do slide 6 são captura do mesmo item
+nos dois idiomas, tirada do mesmo ponto da tela. A tela do tablet é desenhada em
+cima do print de produção, com as fotos reais dos produtos: o aparelho roda em
+Android e não sobe no ambiente de captura.
+
+A CAPA TEM DUAS VERSÕES — escolha uma antes de publicar:
+
+  png/01-capa.png
+      totem e tablet juntos. Diz "nos dois aparelhos" sem gastar texto, e cada
+      tela fica menor.
+
+  capa-alternativa/png/01-capa-so-totem.png
+      só o totem, centralizado e grande. A tela de espera fica bem legível no
+      feed, com o botão em inglês e as três bandeiras embaixo.
+
+O .zip da entrega leva a primeira. Se preferir a outra, troque o arquivo 01 pelo
+da pasta capa-alternativa.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+Seu cardápio já fala inglês? 🌎
+
+Seu cardápio é o seu melhor vendedor: mostra a foto, descreve o recheio, oferece
+o combo e o adicional na hora certa, em todas as mesas, o dia inteiro. Só tem um
+detalhe — ele só vende para quem lê português. Para o seu cliente estrangeiro, a
+mesma tela é uma lista de nomes que não dizem nada, e o pedido sai o mais simples
+possível: sem combo e sem sobremesa.
+
+Agora o seu cardápio também existe em inglês e em espanhol. Seu cliente toca na
+bandeira e pede sozinho, do primeiro toque até o pagamento: setor, produto,
+descrição e os adicionais que ele escolhe no caminho. Vale no Totem de
+Autoatendimento e no Cardápio Digital no Tablet, e dá para trocar de idioma no
+meio do pedido sem perder o que já montou.
+
+E não é um segundo cardápio para você manter. Você abre o produto que já existe,
+toca na bandeira e escreve o nome do jeito que o turista entende. Mudou o preço,
+acabou o estoque? Você mexe num lugar só, e os três idiomas acompanham.
+
+O espanhol está na mesma tela, a um toque de distância: o mesmo item, a mesma
+foto, o mesmo preço — muda só a língua de quem está pedindo. 🇺🇸🇪🇸
+
+Tem totem ou tablet? Comece pelos seus mais vendidos e veja o seu cardápio falar
+inglês hoje mesmo.
+
+O que mais entrou no sistema esta semana está em beefood.app/novidades 🐝❤️
+
+#beefood #restaurante #totem #autoatendimento #cardapiodigital #turismo
+#gestaoderestaurante #pdv
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Você já perdeu pedido de turista por causa do cardápio? Conta aí 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com o título "Seu cardápio já fala inglês?". À direita, um
+    totem de autoatendimento branco na tela de espera, com foto de batata frita
+    ao fundo, o botão vermelho START YOUR ORDER e as bandeiras do Brasil, dos
+    Estados Unidos e da Espanha logo abaixo dele. À esquerda e mais adiante, o
+    Cardápio Digital no Tablet mostrando os hambúrgueres MELTED e TASTY BACON
+    com nome e descrição em inglês e o botão Order.
+
+01  (versão alternativa, só com o totem) Fundo escuro com o título "Seu cardápio
+    já fala inglês?" e, embaixo, um totem de autoatendimento branco na tela de
+    espera: o botão START YOUR ORDER em inglês e as bandeiras do Brasil, dos
+    Estados Unidos e da Espanha embaixo dele.
+
+02  Título "Seu cardápio é o seu melhor vendedor", com a palavra vendedor em
+    vermelho, e uma linha dizendo que ele mostra a foto, descreve o recheio e
+    oferece combo e adicional em todas as mesas. Uma caixa rosa completa: ele só
+    vende para quem lê português, e em inglês e em espanhol esse vendedor volta
+    a trabalhar.
+
+03  Totem de autoatendimento com o cardápio aberto em inglês: o setor SIDES
+    selecionado na coluna da esquerda e os produtos FRENCH FRIES, ONION RINGS,
+    MOZZA STICKS e CHEDDAR & BACON FRIES com foto e preço.
+
+04  Cardápio Digital no Tablet, de tela escura, com as três bandeiras na coluna
+    da esquerda e os hambúrgueres MELTED, TASTY BACON e ONE CLASSIC descritos
+    em inglês, cada um com o botão Order.
+
+05  Linha do Nome no cadastro de produto do BeeFood, com as bandeiras do Brasil,
+    dos Estados Unidos e da Espanha. A dos Estados Unidos está selecionada, e o
+    campo mostra CHEDDAR & BACON FRIES.
+
+06  Título "Espanhol também, no mesmo cardápio" e, embaixo, dois recortes do
+    cardápio do totem lado a lado: o da esquerda marcado com a bandeira dos
+    Estados Unidos, o da direita com a da Espanha. Nos dois, a mesma foto de
+    batata frita e o mesmo R$ 11,00 — o nome muda de FRENCH FRIES para PAPAS
+    FRITAS.
+
+07  Página de novidades do BeeFood aberta no celular, com o convite para
+    começar pelos produtos mais vendidos.

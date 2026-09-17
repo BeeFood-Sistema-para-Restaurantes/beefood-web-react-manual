@@ -1,0 +1,42 @@
+<div class="slide">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">4 de 8</span>
+  </div>
+
+  <div class="pilha g32" style="margin-top: 62px; max-width: 880px">
+    <span class="chapeu">Leva dez segundos</span>
+    <!-- Título em uma linha de propósito: com "Você liga num interruptor" o 👇
+         sobrava sozinho na segunda linha e parecia acidente. O dedo só funciona
+         encostado no fim da frase, apontando a janela logo abaixo. -->
+    <h2 class="titulo titulo--medio">
+      É só um <span class="destaque">interruptor</span>&nbsp;👇
+    </h2>
+    <p class="corpo" style="max-width: 820px">
+      Abra o produto em <span class="caminho">Cardápio &rarr; Produtos</span> e
+      olhe abaixo de Descrição. O complemento tem o mesmo campo, e é ali que
+      você marca a bebida que vem no combo.
+    </p>
+  </div>
+
+  <!-- Janela em sangria: recorte de 605 px lógicos exibido a 1120 px, ou seja
+       1,85x. É o que mantém o rótulo do interruptor legível no feed. -->
+  <div class="navegador sangria sangria--janela">
+    <div class="navegador__barra">
+      <span class="navegador__bolinha"></span>
+      <span class="navegador__bolinha"></span>
+      <span class="navegador__bolinha"></span>
+      <span class="navegador__url">beefood.app/cardapio/produtos</span>
+    </div>
+    <div class="navegador__tela">
+      <img src="../imagens-puras/03-modal-janela.png"
+           alt="Cadastro do produto Coca Cola Lata 350ml com o campo Destaque na impressão ativo">
+      <!-- Porcentagens medidas no arquivo (interruptor verde em y 0,70-0,77),
+           não estimadas no olho: errar aqui circula a linha errada da tela. -->
+      <span class="realce" style="left: 11%; top: 67%; right: 22%; bottom: 16%"></span>
+    </div>
+  </div>
+
+  <!-- Sem rodapé: a janela em sangria ocupa a largura toda da base, e os pontos
+       desenhados por cima dela parecem sujeira. O "4 de 8" do topo basta. -->
+</div>

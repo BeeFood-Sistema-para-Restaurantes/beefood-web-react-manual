@@ -1,0 +1,49 @@
+<div class="slide slide--capa">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">1 de 8</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 36px">
+    <span class="pilula pilula--novidade">Novidade</span>
+    <!-- A frase mais curta do carrossel, porque é a única que todo mundo lê. Uma
+         palavra em vermelho e mais nada de grifo: emoji aqui viria como segundo
+         destaque na mesma linha e tiraria força do primeiro. -->
+    <h1 class="titulo">Cansou de esquecer a <span class="destaque">bebida</span>?</h1>
+    <p class="subtitulo">
+      Sem canetinha na lata, sem grito na cozinha. O cupom marca sozinho.
+    </p>
+  </div>
+
+  <!-- A imagem da capa é o resultado da novidade: impressão de verdade, com UMA
+       linha em preto. O cupom do manual #99 não servia aqui porque sai com duas
+       faixas (a bebida e o "Sem Maionese Verde"), e duas faixas dividem a
+       atenção e contradizem o slide 7. Daí o pedido #43, montado no sandbox sem
+       o complemento destacado — ver capturar-telas.py.
+
+       Corte declarado no aspect-ratio, sem arquivo editado: o PNG tem 680x2200
+       e o cupom só tem faixas brancas de ~20 px entre uma linha e outra: 680x554
+       é a última janela que cabe, entre o traço duplo que fecha o bloco de itens
+       (y 535) e o "Subtotal" (y 557). A serrilha come os 13 px finais e
+       transforma o corte em papel destacado. Cortar em 590, como tentei antes,
+       deixava "Subtotal" entrar e ser mordido pelos dentes.
+
+       Sozinha na faixa, a imagem vai centralizada e no maior tamanho que cabe
+       (`.figura`), e reta. Encostada na direita e inclinada em 3D, como estava,
+       ela deixava a metade esquerda do slide vazia e ainda saía menor. -->
+  <div class="figura" style="margin-top: 24px; width: 728px">
+    <!-- Canto quase reto: bobina térmica não tem canto arredondado, e os 24 px
+         que o .recorte traz de fábrica faziam o papel parecer cartão. -->
+    <div class="recorte recorte--topo rasgado"
+         style="aspect-ratio: 680 / 554; border-radius: 5px">
+      <img src="../imagens-puras/01-cupom-bebida.png"
+           alt="Cupom Pedido do pedido 43 com a linha da Coca Cola 350ml em fundo preto">
+    </div>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="arraste">Arraste &rarr;</span>
+  </div>
+</div>

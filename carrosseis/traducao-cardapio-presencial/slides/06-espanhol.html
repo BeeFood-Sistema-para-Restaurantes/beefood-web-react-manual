@@ -1,0 +1,78 @@
+<!-- O slide 6 mudou de assunto. Ele dizia "não precisa traduzir tudo hoje" e
+     listava por onde começar — e, lido de fora, aquilo virava um aviso de que o
+     sistema não traduz sozinho e de que sobra trabalho para o lojista. Numa peça
+     de venda isso derruba o carrossel inteiro no penúltimo slide.
+
+     O assunto agora é o que o carrossel ainda não tinha mostrado: **o espanhol**.
+     A capa promete "inglês e espanhol" e, até aqui, só o inglês aparecia.
+
+     E ele não explica, ele prova: o mesmo item, recortado do mesmo lugar da tela
+     do totem, nos dois idiomas. A foto é a mesma, o preço é o mesmo, o que muda é
+     a linha do nome. Os dois recortes são captura de verdade (`capturar-totem.py`
+     em escala 2, com a tradução do `traducoes.json` injetada).
+
+     Dois recortes, e não três: em português o cartão sai 20 px mais alto, porque a
+     altura da fileira é ditada pelo nome mais longo do setor (MOZZA STICKS -
+     PALITOS DE MUSSARELA, em duas linhas). Com três, ou o trio fica com degrau
+     embaixo, ou os rótulos ficam desalinhados — e, do jeito que ficou, cada
+     recorte é 1,5x maior e o nome dá para ler no feed. O português não precisa de
+     prova aqui: ele está no slide 5, intacto, ao lado do campo em inglês.
+
+     É o mesmo item que o totem do slide 3 mostra em inglês, de propósito: quem
+     leu FRENCH FRIES três telas atrás reconhece na hora. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">6 de 7</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 36px">
+    <span class="chapeu">Não é só inglês</span>
+    <h2 class="titulo titulo--pequeno">
+      Espanhol também, no <span class="destaque">mesmo</span> cardápio
+    </h2>
+    <!-- Não abre com "seu cliente toca na bandeira": é a frase do título do
+         slide 3, e repetida três telas depois soa como texto reciclado. -->
+    <p class="corpo">
+      Muda só a língua de quem está pedindo: a foto é a mesma, o preço é o mesmo,
+      a tela é a mesma. É o cardápio que já vende no seu salão, agora falando com
+      quem vem de fora.
+    </p>
+  </div>
+
+  <!-- 768 px de largura para os dois recortes: com os 904 da margem eles
+       encostavam no rodapé. O recorte de 248 px lógicos aparece a 372, 1,5x,
+       e o nome do produto sai com 24 px na arte. -->
+  <div class="par" style="max-width: 768px; gap: 24px; margin: 28px auto 0">
+    <div>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 32px;
+                  font-weight: 800; margin-bottom: 16px">
+        <span class="bandeira"><span>&#127482;&#127480;</span></span> English
+      </div>
+      <div class="recorte">
+        <img src="../imagens-puras/cartao-batata-en.png"
+             alt="Cartão do cardápio do totem com FRENCH FRIES e R$ 11,00">
+      </div>
+    </div>
+    <div>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 32px;
+                  font-weight: 800; margin-bottom: 16px">
+        <span class="bandeira"><span>&#127466;&#127480;</span></span> Español
+      </div>
+      <div class="recorte">
+        <img src="../imagens-puras/cartao-batata-es.png"
+             alt="O mesmo cartão, agora com PAPAS FRITAS e o mesmo R$ 11,00">
+      </div>
+    </div>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="pontos">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span class="on"></span><span></span>
+    </span>
+    <span class="arraste">beefood.app</span>
+  </div>
+</div>
