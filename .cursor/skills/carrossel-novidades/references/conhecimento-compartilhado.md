@@ -65,11 +65,17 @@ O manual e o carrossel querem coisas diferentes da mesma tela:
 | Tela sem captura | o manual **espera** o print real | o carrossel desenha a tela em CSS, copiando layout e fotos do print, e registra no `roteiro.md` o que é desenho |
 
 Por isso as capturas do carrossel vivem em `carrosseis/<slug>/imagens-puras/` e
-não em `manuais/`: são outro recorte, para outro fim. Quando o print do manual
-serve exatamente, o slide **referencia** o arquivo do manual em vez de copiar.
+não em `manuais/`: são outro recorte, para outro fim. **O print do manual entra
+como referência, e não como imagem do carrossel** — ele diz quais campos
+existem, que valores são reais e qual tela prova o quê, e com isso a captura
+própria fica barata. Colado na arte, ele traz o estado e o ruído de que o manual
+precisava (ver *o print do manual é referência* na `SKILL.md`).
 
-E quando ele **quase** serve, o carrossel captura de novo em vez de desenhar. O
-cupom do manual *Destaque na impressão* destaca dois itens porque o manual
+A única exceção é objeto **sem estado e sem moldura**: o cupom impresso é o mesmo
+cupom, e o slide pode apontar para o arquivo do manual.
+
+E quando o print **quase** serve, o carrossel captura de novo em vez de desenhar.
+O cupom do manual *Destaque na impressão* destaca dois itens porque o manual
 precisava ensinar que complemento também destaca; a capa precisava de um. Montar
 no sandbox um pedido com só a bebida marcada e imprimir o cupom dele mantém a
 imagem sendo impressão de verdade — ver `ganchar_cupom`/`salvar_cupom` no

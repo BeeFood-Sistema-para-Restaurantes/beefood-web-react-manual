@@ -5,9 +5,14 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-17 (18ª rodada: desconto por forma de pagamento — o
-primeiro carrossel em que **o manual da novidade já existia**, e por isso o
-primeiro feito quase todo de **recorte** em vez de captura).
+Última atualização: 2026-09-17 (19ª rodada: a peça de desconto por forma de
+pagamento **voltou inteira**, e as três falhas estavam autorizadas aqui dentro —
+ver *a 19ª rodada devolveu a peça inteira*. Mudou o que o slide pode afirmar, o
+que a capa não pode amputar e de onde vem a imagem).
+
+18ª rodada: desconto por forma de pagamento — o primeiro carrossel em que **o
+manual da novidade já existia**, e por isso o primeiro feito quase todo de
+recorte em vez de captura. Foi o erro da rodada seguinte.
 
 17ª rodada: o texto passou a ter **alvo** em vez de lista de proibições — o
 slide entrega uma **ideia de uso** com o verbo na frente, e não a permissão de
@@ -72,6 +77,79 @@ tabela **fato → ângulo → o que o slide diz**:
   à da novidade.
 
 Método detalhado em [`roteiro-e-copy.md`](roteiro-e-copy.md).
+
+### A 19ª rodada devolveu a peça inteira, e a culpa era desta memória
+
+O carrossel de *desconto por forma de pagamento* voltou com três correções, e a
+pergunta que veio com elas é a que importa: **onde esta memória deixou isso
+passar?** Em todos os três casos havia uma linha aqui autorizando — e em um
+deles eu tinha acabado de escrever a linha, na rodada anterior, registrando o
+erro como virtude. Por isso este trecho nomeia a linha culpada, e não só a
+correção.
+
+**1. A capa entregou um quarto do recurso.** Saiu *"Dê 5% de desconto no Pix"*.
+A novidade se chama *Desconto **ou acréscimo** por forma de pagamento*, e o "ou"
+é a notícia: nos dois sentidos, em % **ou** em R$. Pior, aquela frase é o
+**exemplo** do release ("Exemplos: 5% de desconto no Pix, R$ 3,00 de desconto no
+dinheiro ou 2% de acréscimo no crédito") promovido a manchete.
+
+*O que autorizou:* três regras de concisão empurrando na mesma direção — "a capa
+é a frase mais curta do carrossel", "cortar até o osso melhora o texto", "**uma**
+palavra em vermelho — duas não destacam nada" — e nenhuma dizendo onde parar de
+cortar. Some-se o *"o ângulo é o que o leitor já viveu, **não o recurso**"* da
+`roteiro-e-copy.md`, que manda empurrar o recurso para fora do quadro. E o golpe
+final foi meu: na 18ª rodada escrevi aqui que a ordem direta "exige um verbo que
+o dono faz numa tarde" e dei *"Dê 5% no Pix"* como o exemplo bom.
+
+*O que ficou:* **concisão corta palavra, não corta eixo.** Eixo é o que tem um
+"ou" no título da novidade e muda **quem** se interessa pelo post. Escreva o
+fato com todos os eixos e só então corte palavra. Regra e tabela em
+*o fato inteiro, e o exemplo não é o fato*, na `roteiro-e-copy.md`.
+
+**2. As imagens eram do manual.** Cinco das seis vinham recortadas dos prints de
+produção dos manuais #64 e #82. O resultado: a capa com "R$ 5,00 de cashback
+disponível!" e "Que tal usar um cupom? 8 disponíveis" ocupando o terço de cima
+do celular, e a peça publicando **dois jogos de número** para o mesmo recurso —
+5% nos slides do cardápio, −1,00%/+3,00%/+R$ 5,00 nos do caixa, porque os dois
+manuais tinham configurações diferentes.
+
+*O que autorizou:* a regra existia em três arquivos. `SKILL.md`: "Capturas já
+existentes em `manuais/` podem ser **referenciadas** de dentro do slide. Não
+copie: o print do manual é o mesmo print". `conhecimento-compartilhado.md`:
+"Quando o print do manual serve exatamente, o slide **referencia** o arquivo do
+manual". E uma seção inteira aqui, *Reaproveitamento do manual*, que na 18ª
+rodada ganhou um subtítulo celebrando a economia: "o carrossel é quase todo
+recorte", "foi o mais barato até agora". Existia uma contra-regra — "print de
+manual não sustenta afirmação de slide" — mas ela estava limitada a *"quando o
+slide afirma um estado da interface"*, e como cada recorte mostrava o estado
+certo, a exceção engoliu a regra.
+
+*O que ficou:* **o print do manual é referência, não imagem.** Ele diz quais
+campos existem, que valores são reais e qual tela prova o quê; a arte usa
+captura feita para o carrossel, com o exemplo do carrossel montado no sandbox.
+Sobra um caso só — objeto sem estado e sem moldura, como o cupom impresso do
+#99. Detalhe em *o manual é referência, não acervo de imagem*.
+
+**3. O slide 2 inventou a rotina do leitor.** *"Você já faz isso no balcão. No
+caixa você propõe na hora: no Pix eu tiro 5%."* Nada na novidade nem no manual
+diz que o dono negocia forma de pagamento no balcão. É cenário inventado,
+afirmado como fato, no slide em que o leitor decide se arrasta.
+
+*O que autorizou:* o *elogie o que ele já tem* da `roteiro-e-copy.md`, sem dizer
+que o elogio é a uma coisa **do produto**; e o molde do "reconhecimento do que
+ele já fez", que traz "Você já fez a parte mais difícil" como exemplo bom. A
+checagem tinha a linha certa ("toda afirmação está na novidade ou no manual") e
+eu a li como afirmação sobre **o sistema**.
+
+*O que ficou:* uma pergunta na revisão — **quem poderia desmentir esta frase?**
+Se o leitor pode responder "não, eu não faço isso", é invenção. "Seu cardápio é
+o seu melhor vendedor" descreve o cardápio e fica; "você já faz isso no balcão"
+descreve ele e sai. Em *tudo o que o slide afirma é do produto*.
+
+O que as três têm em comum: **nenhuma é erro de tom.** O texto estava claro,
+falava com o dono, tinha verbo na frente e passava no `conferir-texto.py`. As
+regras de registro estão maduras; o que faltava era regra de **origem** — de
+onde vem o que o slide afirma, e de onde vem o que o slide mostra.
 
 ### O segundo vício: aforismo
 
@@ -155,14 +233,20 @@ sequência. Se a forma repetir, troque a forma — pergunta, afirmação do fato
 ordem direta ("Suba o seu primeiro vídeo hoje") e antes × agora são quatro moldes
 diferentes, e a pergunta é só um deles.
 
-A quarta capa gastou o terceiro molde: *"Dê 5% de desconto no **Pix**"* é ordem
-direta. Placar dos moldes até aqui — pergunta 2, afirmação 1, ordem direta 1,
-antes × agora 0. A próxima capa tem um molde intacto e é o mais concreto dos
-quatro, então não há desculpa para voltar à pergunta.
+A quarta capa tentou a ordem direta e **não passou**: *"Dê 5% de desconto no
+Pix"* cabia no molde e amputava o recurso, porque ordem direta precisa de um
+objeto único e a novidade tinha quatro combinações. Refeita como afirmação —
+*"Cada forma de pagamento com o seu **preço**"*. Placar dos moldes: pergunta 2,
+afirmação 2, ordem direta 0, antes × agora 0.
 
-E a ordem direta tem uma exigência que a afirmação não tem: **o verbo precisa
-ser uma coisa que o dono faz numa tarde**. "Dê 5% no Pix" é uma decisão de
-margem e cabe num campo; "Melhore o seu cardápio" não é ordem, é conselho.
+Daí uma condição de uso que faltava: **ordem direta só quando o recurso tem um
+objeto só.** O verbo obriga a escolher o que se manda fazer, e se o recurso vai
+nos dois sentidos, escolher um sentido é jogar metade fora — o molde e o fato
+brigam. "Suba o seu primeiro vídeo hoje" funciona porque vídeo é uma coisa; "Dê
+5% no Pix" não, porque o ajuste também é acréscimo e também é em reais.
+
+A outra exigência da ordem direta continua: **o verbo é uma coisa que o dono faz
+numa tarde.** "Melhore o seu cardápio" não é ordem, é conselho.
 
 ### O quinto vício: proibição não produz texto
 
@@ -1373,43 +1457,34 @@ Rodar o script depois de mexer no `base.css` é obrigatório: a folha é o teste
 regressão da arte. E ele revelou peça esquecida — a `.tela-totem--espera` existia
 no CSS e nenhum slide usava, então ninguém sabia que ela estava disponível.
 
-## Reaproveitamento do manual
+## O manual é referência, não acervo de imagem
 
-O slide pode apontar direto para o print do manual
-(`../../../manuais/<manual>/imagens-puras/<arquivo>.png`). Foi assim com o
-cupom do #99: é o mesmo cupom, e duplicar o arquivo criaria duas verdades.
-Prints **puros**, nunca os tratados — os tratados têm setas numeradas, que são
+O slide **não** aponta para o print do manual. Isso era regra até a 18ª rodada,
+está invertido desde a 19ª, e a história está em *a 19ª rodada devolveu a peça
+inteira*, abaixo. O print do manual serve para **ler**: quais campos existem, que
+valores são reais, qual tela prova o quê. Depois disso a captura própria é barata,
+e ela é a que entra na arte.
+
+Sobra um caso, e só um: objeto **sem estado e sem moldura**. O cupom impresso do
+#99 é o mesmo cupom fotografado do papel — não tem banner por cima, não tem
+configuração para escolher, e o slide pode apontar para o arquivo do manual.
+Prints **puros**, nunca os tratados: os tratados têm setas numeradas, que são
 linguagem de manual.
 
-### Quando o manual da novidade já existe, o carrossel é quase todo recorte
+Uma coisa da 18ª rodada continua valendo, porque é sobre **achar** o manual:
+**`pauta.py` pode dizer "nenhum manual relacionado" e existir manual.** Ele casa
+por slug, e o slug da novidade (`desconto-acrescimo-forma-pagamento`) não é o do
+manual (`cardapio-digital-desconto-formas`). Antes de acreditar no "nenhum",
+liste `manuais/` pelas palavras do assunto — aqui, `*desconto*`, `*pagamento*` e
+`*recebimento*` devolviam cinco pastas, três delas úteis. O manual achado vira
+leitura obrigatória; a imagem dele, não.
 
-O carrossel de *desconto por forma de pagamento* foi o mais barato até agora, e
-a razão não é mérito: os manuais #64 e #82 já tinham **nove** prints de produção
-da novidade, incluindo a sacola do cliente com o desconto aplicado, os dois
-totais do mesmo pedido e a tela de recebimento do salão com o ajuste impresso
-embaixo do nome de cada forma. Sobraram uma captura nova (a página de novidades
-do CTA) e cinco recortes.
+### Onde medir a borda de um recorte
 
-Duas consequências práticas:
-
-- **`pauta.py` pode dizer "nenhum manual relacionado" e existir manual.** Ele
-  casa por slug, e o slug da novidade
-  (`desconto-acrescimo-forma-pagamento`) não é o do manual
-  (`cardapio-digital-desconto-formas`). Antes de acreditar no "nenhum", liste
-  `manuais/` pelas palavras do assunto — aqui, `*desconto*`, `*pagamento*` e
-  `*recebimento*` devolviam cinco pastas, três delas úteis.
-- **recorte em dois eixos precisa de arquivo; em um eixo, não.** `.recorte--topo`
-  com `object-position` corta a altura sem tocar no arquivo, e é o que resolve
-  print de celular. Recorte de painel quase sempre é nos dois eixos (uma janela
-  de modal no meio de 1440 px de tela), e aí o jeito é um `recortar.py` na pasta
-  do carrossel, com as coordenadas **medidas** e o motivo de cada caixa
-  comentado. O script é a nota de proveniência: sem ele, um PNG cortado dentro
-  de `imagens-puras/` parece captura e ninguém sabe de onde veio.
-
-### Onde medir a borda de um recorte, por tipo de print
-
-Cortar dentro de um cartão ou no meio de uma palavra parece falha de render, e
-em duas rodadas foi o que mais custou refazer. As duas medidas que resolveram:
+Recortar continua sendo necessário — em captura própria, porque tela de painel
+inteira reduzida para a largura do slide fica ilegível. Cortar dentro de um
+cartão ou no meio de uma palavra parece falha de render, e em duas rodadas foi o
+que mais custou refazer. As duas medidas que resolveram:
 
 - **print de celular do cardápio:** o fundo da página é cinza (#f7f7f8) e os
   cartões são brancos puros, então a borda de cada cartão é a linha em que mais
@@ -1422,7 +1497,23 @@ em duas rodadas foi o que mais custou refazer. As duas medidas que resolveram:
   seguinte. Cortei em 1288, no meio dele, e a borda esquerda da arte saiu com
   dois borrões. Recontando abaixo de 250, aquelas mesmas colunas tinham de 31 a
   61 pixels — a **sombra** da pílula, que o limiar duro não via e o olho vê. A
-  borda que serve é a do cartão, em 1293, e é onde o recorte ficou.
+  borda que serve é a do cartão, em 1293.
+
+Melhor ainda é **não precisar da medida**: em captura própria dá para fotografar
+o elemento (`locator.screenshot()`) em vez de a página, e aí a borda é a do
+componente. Medida em pixel é o preço de moldura emprestada.
+
+### Devolva o sandbox como estava
+
+Captura própria quase sempre pede configurar o sandbox — e o sandbox é o mesmo
+que os manuais usam para os prints deles. Mudar `Dinheiro` de 5% para R$ 3,00 e
+deixar assim significa que o print do manual #64 não é mais reproduzível.
+
+Então o script de captura tem duas partes, e a segunda não é opcional: **anote a
+configuração encontrada, capture, restaure.** Se o script morrer no meio, a
+anotação impressa no terminal é o que permite devolver na mão. O carrossel de
+desconto guardou isso no topo do `capturar-telas.py`, em comentário, junto do
+valor original de cada forma.
 
 ## Entrega: imagem, legenda e zip
 

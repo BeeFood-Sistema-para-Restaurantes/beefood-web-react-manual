@@ -152,16 +152,41 @@ parece defeito. O viewport de captura é **1440×900 com DPR 2**, então a fraç
 que você passa em `--recorte` vira pixels sobre 900 de altura, não sobre 1350:
 confira a medida do arquivo com Pillow antes de calcular porcentagem de realce.
 
-Capturas já existentes em `manuais/` podem ser **referenciadas** de dentro do
-slide (`../../../manuais/<manual>/imagens-puras/<arquivo>.png`). Não copie: o
-print do manual é o mesmo print, e duplicar cria duas verdades.
+**O print do manual é referência, não imagem do carrossel.** Ele existe para
+ensinar um caminho: traz a tela inteira, o estado que o manual precisava e o
+ruído do momento. Leia-o para saber quais campos existem, que valores são reais
+e qual tela prova o quê — e então **capture a sua**, com o exemplo do carrossel
+montado. A ordem de preferência é:
 
-**Mas print de manual não sustenta afirmação de slide.** Ele foi tirado para
-mostrar a tela, não o seu argumento: o slide "combo de quarta aparece só na
-quarta" saiu com o print do manual, que tem **os sete dias acesos**, e a arte
-desmentia o título. Quando o slide afirma um estado da interface, fotografe
-aquele estado — no sandbox, deixando a tela como estava (abra, ajuste, capture
-e **feche descartando**).
+> **captura feita para o carrossel > print de produção do manual > print pedido
+> ao dono > desenho em CSS.**
+
+Duas coisas acontecem quando o carrossel se serve do print do manual, e as duas
+aconteceram na peça de *desconto por forma de pagamento*:
+
+- **o ruído do print vem junto.** A capa saiu com "R$ 5,00 de cashback
+  disponível!" e "Que tal usar um cupom? 8 disponíveis" ocupando o terço de cima
+  do celular — dois avisos de outros recursos na imagem que precisava vender
+  este. O manual conviveu com eles porque estava ensinando; o próprio texto dele
+  manda cancelar o cashback antes de ler o total.
+- **o exemplo continua sendo o do manual.** Manual mostra **um** caminho, e o
+  desse usou 5% em tudo. Para mostrar a amplitude (% e R$, desconto e acréscimo)
+  a peça pegou um segundo print de outro manual, com outra configuração — e
+  publicou dois jogos de número para o mesmo recurso.
+
+Some-se a isso que **moldura emprestada se recorta, não se muda**: todo problema
+de arte vira problema de recorte, e o trabalho vai para medir borda de cartão e
+sombra de pílula em vez de escolher o que aparece na tela.
+
+Reaproveitar continua certo quando o objeto **não tem estado nem moldura** — o
+cupom impresso do #99 é o mesmo cupom, fotografado do papel. Fora disso, o
+print do manual paga o seu valor sendo lido, não colado.
+
+**E print de manual nunca sustenta afirmação de slide.** O slide "combo de
+quarta aparece só na quarta" saiu com o print do manual, que tem **os sete dias
+acesos**, e a arte desmentia o título. Quando o slide afirma um estado da
+interface, fotografe aquele estado — no sandbox, deixando a tela como estava
+(abra, ajuste, capture e **devolva a configuração anterior**).
 
 **Antes de capturar, olhe a prateleira.** Fotos de produto, tela de espera do
 totem e faixa do cardápio já estão em `assets/fotos/`, e os aparelhos já estão
@@ -302,9 +327,15 @@ fora da arte.
 Ordem de preferência: **captura real > print de produção que já está no
 repositório > print pedido ao dono > ilustração**.
 
-O segundo degrau é o mais esquecido: o **manual da mesma novidade** costuma ter
-o print do aparelho, e ele pode estar só no `main` (o Cloud Agent parte de um
-snapshot). Antes de concluir que não existe, rode `git fetch origin main` e
+Os degraus 2 a 4 são para tela que **esta skill não consegue capturar** — app
+Android, impressora, balança. Tela que roda no navegador o carrossel captura
+sozinho, e aí o print do manual é referência, não imagem (acima, em *o print do
+manual é referência*).
+
+Para o que não se captura, o segundo degrau é o mais esquecido: o **manual da
+mesma novidade** costuma ter o print do aparelho, e ele pode estar só no `main`
+(o Cloud Agent parte de um snapshot). Antes de concluir que não existe, rode
+`git fetch origin main` e
 `git ls-tree -r --name-only origin/main -- manuais/<slug>`.
 
 **Print que existe mas não encaixa não vira lixo.** Quando a proporção é outra
@@ -421,27 +452,33 @@ fato → ângulo → slide.
    pontos do rodapé, que o mockup em 3D não caiu no slide que pede leitura de
    rótulo, e que nenhuma imagem sozinha na faixa ficou encostada numa borda —
    sozinha, ela vai centralizada e grande.
-4. Toda afirmação do slide está no manual ou na novidade? Se não está em nenhum
-   dos dois, ou você confere no sistema, ou corta. O `roteiro.md` diz quais
-   telas são captura e quais são desenho? E a imagem de cada slide **prova o
-   título**, ou só ilustra o assunto dele? (Print emprestado do manual costuma
-   mostrar outro estado da tela — e aí a arte desmente a frase.)
-5. Alguma frase explica enfeite de tela ("a bolinha verde marca…")? Algum
+4. Toda afirmação do slide está no manual ou na novidade? Vale também para o que
+   a frase afirma **sobre o leitor**: pergunte *quem poderia desmentir isto?* Se
+   ele pode responder "não, eu não faço isso", é invenção e sai. O `roteiro.md`
+   diz quais telas são captura e quais são desenho? E a imagem de cada slide
+   **prova o título**, ou só ilustra o assunto dele?
+5. A capa diz o fato **inteiro**? Nenhum eixo da novidade (o "ou" e o "e" do
+   título) ficou de fora, e nenhum **exemplo** do release virou manchete. E o
+   carrossel tem **um** jogo de números, o mesmo em todos os slides.
+6. Alguma imagem da arte veio de `manuais/`? Sai: print de manual é referência,
+   e a arte usa captura feita para o carrossel. E o sandbox voltou à
+   configuração em que você o encontrou?
+7. Alguma frase explica enfeite de tela ("a bolinha verde marca…")? Algum
    diminutivo? Algum "ele" que não é o leitor nem o cliente dele? Os três saem
    — e o que fica no lugar é a consequência para o negócio.
-6. Algum slide alivia um trabalho ("não precisa traduzir tudo hoje", "aos
+8. Algum slide alivia um trabalho ("não precisa traduzir tudo hoje", "aos
    poucos")? Sai: é aviso de limite, e ele planta a objeção justo antes do CTA.
    E o slide do problema — normalmente o 2 — elogia o leitor antes de mostrar o
    furo, ou entrega uma fatura na cara dele?
-7. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE" em
+9. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE" em
    branco, contorno branco no selo, tarja amarela e "food" vermelho?
-8. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa
-   inclusive. (Data impressa dentro de um print de verdade pode ficar.)
-9. Saiu peça nova de uso geral (aparelho, tela desenhada, foto, script)? Ela
-   **sobe** para a skill: foto e tela em `assets/fotos/`, aparelho no
-   `base.css` + `catalogo.py`, script em `scripts/`. Atualize
-   [`references/mockups.md`](references/mockups.md) e rode o `catalogo.py`.
-10. Registre o que aprendeu em
+10. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa
+    inclusive. (Data impressa dentro de um print de verdade pode ficar.)
+11. Saiu peça nova de uso geral (aparelho, tela desenhada, foto, script)? Ela
+    **sobe** para a skill: foto e tela em `assets/fotos/`, aparelho no
+    `base.css` + `catalogo.py`, script em `scripts/`. Atualize
+    [`references/mockups.md`](references/mockups.md) e rode o `catalogo.py`.
+12. Registre o que aprendeu em
     [`references/MEMORIA-CARROSSEIS.md`](references/MEMORIA-CARROSSEIS.md).
 
 ### 7. Entrega
@@ -610,6 +647,25 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   lados.
 - **Número só se ele existir** na novidade ou no manual. "Reduz 30% dos erros"
   é invenção, e invenção em post de produto volta como reclamação.
+- **Um jogo de números por carrossel.** A peça de desconto por forma de pagamento
+  saiu com 5% nos slides do cardápio e −1,00%/+3,00%/+R$ 5,00 nos do caixa,
+  porque cada print vinha de um manual com outra configuração. Lê como duas
+  versões do produto. Monte **um** exemplo no sandbox e capture todas as telas
+  com ele.
+- **A capa diz o fato inteiro.** Antes de cortar, escreva o fato com todos os
+  eixos — o "ou" e o "e" do título da novidade. "Desconto **ou** acréscimo, em %
+  **ou** em R$" tem três eixos, e "Dê 5% de desconto no Pix" entregou um quarto
+  do recurso. Concisão corta palavra, nunca eixo; e **exemplo do release não é
+  manchete** ("Exemplos: 5% de desconto no Pix…" está lá para mostrar a
+  amplitude). A imagem da capa também carrega os eixos: a lista de formas com um
+  selo de desconto numa e um de acréscimo na outra mostra o par numa imagem só.
+- **Ordem direta só quando o recurso tem um objeto só.** O verbo obriga a
+  escolher o que se manda fazer; se o recurso vai nos dois sentidos, escolher um
+  é jogar metade fora. Aí a capa é afirmação.
+- **Toda afirmação é sobre o produto.** Inclusive o elogio do slide 2: "Seu
+  cardápio é o seu melhor vendedor" descreve o cardápio e fica; "você já faz isso
+  no balcão" descreve o leitor, não está em lugar nenhum e sai. Teste: **quem
+  poderia desmentir esta frase?**
 - **Números normais** (`1.`, `2.`, `3.`) — nunca ①②③. Mesma regra dos manuais.
 - **Sem seta e sem número dentro da imagem.** Anotação assada no arquivo é
   linguagem de manual. Para dirigir o olhar no carrossel: recorte mais fechado e,
@@ -635,6 +691,15 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   isso em voz alta.
 - **Recortar a novidade em slides.** O carrossel se escreve a partir do fato; o
   texto do release não vai para a arte.
+- **Afirmar o que o leitor faz, tem ou sente.** "Você já faz isso no balcão", "no
+  caixa você propõe na hora", "isso te incomoda desde que você abriu a loja":
+  não está na novidade, não está no manual e não está na tela. Nomeie o custo
+  (ele é do produto) e pare aí.
+- **Servir-se do print do manual para a arte.** Ele vem com o estado e o ruído de
+  que o manual precisava — cashback, cupom, a tela inteira — e com o exemplo do
+  manual, não o seu. Leia o print, capture a sua tela.
+- **Deixar o sandbox configurado do seu jeito.** Os manuais capturam no mesmo
+  sandbox. Anote o que encontrou, capture, restaure.
 - **Publicar dado pessoal.** Este repositório é público; nome, telefone e e-mail
   de cliente saem na imagem **pura**, não só na arte.
 - **Editar `manuais/`, `MEMORIA-GERAL.md` ou `CHECKLIST-MANUAIS.md`.**
