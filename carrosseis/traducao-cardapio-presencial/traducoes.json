@@ -8,7 +8,8 @@
     "fotos e a tipografia de produção.",
     "Nome próprio de produto (ONE BURGER, SUPREME, SMASH 2.0, PISCININHA) não é",
     "traduzido, que é o que um restaurante faz de verdade. O que traduz é o que o",
-    "cliente precisa entender: setor, nome descritivo e descritivo."
+    "cliente precisa entender: setor, nome descritivo e descritivo.",
+    "A chave `fotos` diz quais fotos de produto o capturar-totem.py baixa para a biblioteca da skill (assets/fotos). Foram escolhidos produtos cujo nome muda de idioma e cuja foto aguenta a redução do feed."
   ],
   "setores": {
     "Promoçoes": {
@@ -931,5 +932,19 @@
         "descritivo": "Vaso de 30 ml de salsa"
       }
     }
+  },
+  "fotos": {
+    "BATATA FRITA": "foto-batata.png",
+    "CEBOLA EMPANADA": "foto-cebola.png",
+    "MOZZA STICKS - PALITOS DE MUSSARELA": "foto-mozza.png",
+    "BATATA FRITA COM CHEDDAR E BACON": "foto-batata-cheddar.png",
+    "MELTED": "foto-melted.png",
+    "TASTY BACON": "foto-tasty-bacon.png",
+    "ONE CLASSIC": "foto-one-classic.png",
+    "SMASH 2.0": "foto-smash.png",
+    "BROWNIE COM SORVETE E MORANGO": "foto-brownie.png",
+    "MILK SHAKE MORANGO": "foto-shake.png",
+    "COCA-COLA 350ML": "foto-refri.png",
+    "MOLHO CHEDDAR - 30ml": "foto-molho.png"
   }
 }

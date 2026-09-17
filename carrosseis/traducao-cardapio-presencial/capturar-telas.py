@@ -8,8 +8,8 @@ O que sai em imagens-puras/:
     05-cadastro-ingles.png     a linha do Nome com o inglês escrito, para o slide 5
     07-novidades-celular.png   a página de novidades no celular (CTA)
 
-As telas do totem saem do `capturar-totem.py`, que roda no totem de exemplo.
-O tablet continua desenhado em CSS, com `.selo-ilustracao`.
+As telas do totem saem do `capturar-totem.py` da skill, que roda no totem de
+exemplo. O tablet continua desenhado em CSS (`.tela-tablet`).
 """
 
 import sys

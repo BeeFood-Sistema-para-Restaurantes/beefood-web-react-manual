@@ -319,33 +319,48 @@ bug (o manual diz que sem Totem nem Tablet não há bandeira).
 
 ### As telas do cliente: o totem é web
 
+Os dois scripts nasceram nesta pasta e, depois da entrega, **subiram para a
+skill**: são de uso geral, e o próximo carrossel de totem não precisa reescrever
+nenhum dos dois.
+
 ```bash
-python carrosseis/traducao-cardapio-presencial/preparar-fundo.py
-python carrosseis/traducao-cardapio-presencial/capturar-totem.py
+python .cursor/skills/carrossel-novidades/scripts/preparar-fundo.py
+python .cursor/skills/carrossel-novidades/scripts/capturar-totem.py \
+    --saida carrosseis/traducao-cardapio-presencial/imagens-puras \
+    --conteudo carrosseis/traducao-cardapio-presencial/traducoes.json \
+    --cartao cartao-batata
 ```
 
-O primeiro monta em `midia/` as duas fotos de fundo do totem, a partir do vídeo
-de batata frita. O segundo abre o totem de exemplo (`totem.beefood.app`, ONE
-Stand, empresaID 350 / filialID 380), liga a tradução na resposta da API, injeta
-o `traducoes.json` e as fotos de fundo, e captura. **Nenhum pedido é
-finalizado.** Sai em `imagens-puras/`:
+O primeiro monta as duas fotos de fundo do totem a partir do vídeo de batata
+frita, e as guarda em `assets/fundos/` da skill. O segundo abre o totem de
+exemplo (`totem.beefood.app`, ONE Stand, empresaID 350 / filialID 380), liga a
+tradução na resposta da API, injeta o `traducoes.json` e as fotos de fundo, e
+captura. **Nenhum pedido é finalizado.**
+
+Fica em `imagens-puras/` o que é prova deste carrossel:
+
+- `totem-espera-idioma.png`, `totem-menu-pt|en|es.png`, `totem-produto-en.png` —
+  as telas em resolução cheia, para conferência do que o aplicativo faz com cada
+  idioma;
+- `cartao-batata-{pt,en,es}.png` — o primeiro cartão do setor Acompanhamentos,
+  recortado no mesmo ponto nos três idiomas. O recorte é medido no DOM, e não
+  fixo, porque é o que garante que os três caiam no mesmo lugar. Em escala 2,
+  porque na arte o cartão aparece 1,5x maior do que no aparelho. O `en` e o `es`
+  são o slide 6; o `pt` ficou de referência (ver a decisão do slide 6).
+
+E vai para a biblioteca da skill (`assets/fotos/`) o que serve ao próximo
+carrossel, alcançado nos slides pelo prefixo `skill:`:
 
 - `totem-espera-en-720.png` — a tela de espera em inglês, com `START YOUR ORDER`
   e as três bandeiras. É a tela das duas capas. Em 720×1280 e não em 1080p de
   propósito: o aplicativo desenha botão e bandeira em px fixo, e na captura
   grande reduzida para o mockup a pílula de bandeiras virava um risco;
-- `totem-espera-idioma.png`, `totem-menu-pt|en|es.png`, `totem-produto-en.png` —
-  as telas em resolução cheia, para conferência do que o aplicativo faz com cada
-  idioma;
+- `totem-espera-idioma-720.png` — a mesma tela em português;
 - `totem-banner-en.png` — o banner do topo, que entra na tela desenhada do
   slide 3;
-- `cartao-batata-{pt,en,es}.png` — o primeiro cartão do setor Acompanhamentos,
-  recortado no mesmo ponto nos três idiomas. O recorte é medido no DOM, e não
-  fixo, porque é o que garante que os três caiam no mesmo lugar. Em escala 2,
-  porque na arte o cartão aparece 1,5x maior do que no aparelho. O `en` e o `es`
-  são o slide 6; o `pt` ficou de referência (ver a decisão do slide 6);
 - `foto-*.png` — as fotos dos produtos, baixadas do `s3Link` da API e convertidas
-  de WEBP para PNG.
+  de WEBP para PNG. Quais produtos entram está na chave `fotos` do
+  `traducoes.json`.
 
 O totem é PWA, e foi isso que quase derrubou a troca de fundo: as imagens são
 servidas pelo *service worker* dele, que `page.route` não enxerga. O contexto

@@ -9,11 +9,6 @@ ehthumbs.db
 Desktop.ini
 .DS_Store
 
-# Material bruto de arte: o vídeo de origem e o quadro cru dele são baixados de
-# novo pelo `preparar-fundo.py`. O que fica versionado é a imagem pronta.
-carrosseis/*/midia/video-*.mp4
-carrosseis/*/midia/quadro-video.png
-
 # Credenciais locais (NUNCA versionar)
 credenciais.local.md
 *.secret
