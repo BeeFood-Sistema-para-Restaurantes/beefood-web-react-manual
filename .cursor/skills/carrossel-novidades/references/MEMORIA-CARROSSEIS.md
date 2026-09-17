@@ -4,9 +4,13 @@ Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
 continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
 entra o que é de carrossel.
 
-Última atualização: 2026-09-17 (16ª rodada: a capa parou de **perguntar** — três
-carrosséis na mesma fórmula viram fórmula no perfil, e afirmar o fato entrega a
-notícia na linha que todo mundo lê).
+Última atualização: 2026-09-17 (17ª rodada: o texto passou a ter **alvo** em vez
+de lista de proibições — o slide entrega uma **ideia de uso** com o verbo na
+frente, e não a permissão de usar o recurso).
+
+16ª rodada: a capa parou de **perguntar** — três carrosséis na mesma fórmula
+viram fórmula no perfil, e afirmar o fato entrega a notícia na linha que todo
+mundo lê.
 
 15ª rodada: capas e destaques em vídeo — dois mockups de computador, um
 **estúdio de mídia** para a novidade em que o recurso é o conteúdo que o lojista
@@ -141,8 +145,78 @@ palavra em vermelho, e um fato no lugar de um convite.
 
 Regra para a próxima: antes de fechar a capa, leia as capas já entregues em
 sequência. Se a forma repetir, troque a forma — pergunta, afirmação do fato,
-ordem direta ("Sobe o primeiro vídeo hoje") e antes × agora são quatro moldes
+ordem direta ("Suba o seu primeiro vídeo hoje") e antes × agora são quatro moldes
 diferentes, e a pergunta é só um deles.
+
+### O quinto vício: proibição não produz texto
+
+Aqui a lição não é sobre uma frase, é sobre **este documento**. A parte de texto
+do `roteiro-e-copy.md` tinha 324 linhas e 33 caixas de conferência, quase todas
+proibições — e já dizia, com essas palavras, "chame a pessoa de você" e "não
+narre um ele". Obedecemos as duas, e o carrossel de capas e destaques saiu com
+quatro dos seis chapéus batizados com nome de campo do sistema ("Destaques da
+capa", "Aba nova: Avisos", "Agendamento") e com o recurso agindo sozinho em oito
+frases. O dono devolveu: *"não estou entendendo a dificuldade de criar uma copy
+sem ser em terceira pessoa"*.
+
+A causa não foi falta de regra. **Quem escreve olhando uma lista de "não faça"
+escreve defensivamente, e texto defensivo sai correto e morto.** Uma 34ª
+proibição não mudaria nada.
+
+O que mudou foi dar **alvo** em vez de cerca: a pergunta que o dono faz é "isso
+serve pra quê na minha loja?", e cada slide entrega uma ideia de uso. E a
+mentalidade **deriva** boa parte das proibições, então o documento não cresceu de
+um lado sem encolher do outro: "Agendamento" como chapéu deixa de precisar de
+regra, porque ninguém diz "agendamento" em voz alta antes de uma frase.
+
+A prova de que a origem era essa está numa arte, não num slide: *"a partir de
+R$ 44,90"* não foi escolha de redação nossa — é a **string da interface** do
+cardápio, que aparece doze vezes na página do produto. Nós copiamos o texto que
+o próprio software escreve para dentro do cartaz da hamburgueria. **Sem declarar
+quem fala, quem fala é o sistema**, porque o sistema é o que está na tela
+enquanto a gente escreve.
+
+### O sexto vício: as duas valas, e o molde que nasce ao fugir de uma
+
+Fugindo da vala do manual, a rodada seguinte caiu na oposta, que é mais difícil
+de ver porque parece boa escrita: **narrar a cena do cliente em close**. "Seu
+cliente rola o dedo e acha o combo." "Depois dela você põe a carne na chapa, o
+queijo derretendo." O dono cortou na hora: *"que estranho isso"*. As duas valas
+soam artificiais — uma é técnica demais, a outra é teatral demais.
+
+E a correção seguinte mostrou a armadilha que fecha o ciclo. O alvo virou a
+utilidade escrita no molde `Você pode ___ para ___`, e o molde **virou cacoete em
+cinco dos sete slides**, com dois parágrafos abrindo literalmente com "Você
+pode". Era o gabarito antigo com roupa nova. E tem um problema de conteúdo junto:
+"você pode" avisa que o recurso existe e **pede licença**; "Destaque o combo do
+dia no meio do cardápio" entrega a ideia pronta.
+
+O que ficou, e vale para a próxima novidade:
+
+- **o verbo na frente, mirando nele** — destaque, mostre, programe, suba, apague,
+  comece;
+- **nenhuma abertura se repete**, porque sete imperativos em fila seriam template
+  igual. A regra é sobre o conjunto, não sobre a frase;
+- **"você" não é cota nem palavra proibida**: "Você já fez a parte mais difícil"
+  é a linha que faz o dono se reconhecer e ela fica;
+- **clareza antes de piada.** "Combo de quarta aparece só na quarta" venceu "Na
+  quinta você nem lembra", que é mais engraçada e não diz o que o recurso faz. A
+  piada entra quando ela também é clara, como "Recado não é produto de R$ 0,00";
+- **clareza antes de cota de sujeito.** Se a frase mais clara tem o recurso como
+  sujeito, ela fica. O problema nunca foi a gramática, foi a frase não dizer para
+  que serve.
+
+### O registro muda com a voz, e um carrossel pode ter duas
+
+O mesmo imperativo curto que é a marca do cartaz da loja é o erro do slide.
+"Pede a grande. Confia." funciona na arte da hamburgueria, porque ali quem fala é
+o dono para alguém com fome. "Sobe o primeiro vídeo hoje" soou estranho no slide,
+porque ali quem fala é a BeeFood com um cliente dela — virou "Suba o seu primeiro
+vídeo hoje".
+
+Quando a novidade é sobre a mídia que o lojista sobe, declare **duas** vozes
+antes de escrever: a dos slides e a das artes. Foi a segunda que nunca existiu, e
+foi por isso que os banners saíram com texto de ficha técnica.
 
 ### A voz da marca está em beefood.com.br, e é de venda
 

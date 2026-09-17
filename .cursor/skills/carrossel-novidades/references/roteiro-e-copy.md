@@ -34,6 +34,104 @@ nada foi inventado, e vê que nada foi copiado.
 | A linha sai com fundo escuro e letra clara | o cupom trata todas as linhas igual, e por isso a bebida some no combo | "Um esquecido custa duas viagens" |
 | Usar com critério; marcar tudo anula o efeito | destaque funciona por contraste | "Se tudo é destaque, nada é" |
 
+## O alvo de cada slide: a utilidade
+
+Leia isto antes de escrever a primeira palavra. Tudo o que vem depois neste
+documento é consequência daqui.
+
+A pergunta na cabeça de quem lê é uma só:
+
+> **"Isso serve pra quê na minha loja?"**
+
+Não é "onde eu clico" — isso é o manual. E não é "como é a cena do meu cliente
+comendo" — isso é comercial de agência. O slide entrega **uma ideia de uso e o
+que ele ganha com ela**.
+
+A frase-régua, para calibrar o ouvido:
+
+> "Destaque o combo do dia no meio do cardápio."
+
+Ela entrega uma coisa que vale a pena fazer, e o dono já se vê fazendo. Ela não
+tem: nome de campo, passo a passo, cena em close, adjetivo de venda.
+
+### As duas valas
+
+O texto cai sempre para um dos dois lados da estrada, e a segunda vala é a mais
+difícil de ver, porque parece boa escrita.
+
+| Vala | Como soa | O que já escrevemos assim |
+|---|---|---|
+| **Manual** — ensina a mexer | nome de campo, ordem de tela, enumeração de opção | chapéu "Agendamento"; "Você marca em que dias a mídia aparece, de que horas a que horas, e se ela vale no delivery, no salão ou nos dois" |
+| **Cinema** — narra a cena em close | dedo, boca, chapa, queijo derretendo; o cliente como personagem de filme | "Aí quem abriu o link só para ver o preço fica olhando a carne na chapa"; "Seu cliente rola o dedo e acha o combo" |
+
+A vala do cinema aparece justamente quando a gente tenta fugir da do manual.
+Fugir de uma não é cair na outra: as duas soam artificiais, uma por ser técnica
+demais e a outra por ser teatral demais.
+
+### Entregue a ideia, não a permissão
+
+"Você pode pôr um banner no meio do cardápio" avisa que o recurso existe e pede
+licença. "Destaque o combo do dia no meio do cardápio" entrega a ideia pronta. É
+a mesma informação, e só a segunda faz o dono pensar no cardápio dele.
+
+Por isso **o verbo vem na frente e mira nele**: destaque, mostre, programe, suba,
+apague, comece.
+
+E isto **não é molde**. "Você pode ___ para ___" foi uma tentativa intermediária
+e virou cacoete em cinco dos sete slides, uniforme do mesmo jeito que o gabarito
+que ela vinha substituir. Sete imperativos em fila seriam template igual.
+
+A regra que sobra é sobre o conjunto, e não sobre a frase: **nenhuma abertura se
+repete.** Se dois blocos começam do mesmo jeito, é cacoete, mesmo que a abertura
+seja boa. Varie entre o imperativo, o ganho dito direto ("Combo de quarta aparece
+só na quarta") e o reconhecimento do que ele já fez ("Você já fez a parte mais
+difícil").
+
+"Você" não está proibido, e não é cota a cumprir: a linha que faz o dono se
+reconhecer tem "você" e fica. O que não serve é a moldura da permissão e a
+abertura repetida.
+
+### Clareza vem antes de tudo
+
+Ordem de prioridade quando duas versões competem. Ela decide sozinha quase toda
+dúvida de escrita.
+
+1. **Antes da piada.** "Combo de quarta aparece só na quarta" venceu "Na quinta
+   você nem lembra": a segunda é mais engraçada e não diz o que o recurso faz.
+   Piada entra quando ela **também** é clara — "Recado não é produto de R$ 0,00"
+   diz, na mesma frase, a gambiarra de hoje e o que mudou.
+2. **Antes de qualquer cota de sujeito.** Se a frase mais clara tem o recurso
+   como sujeito, ela fica. O problema nunca foi a gramática: foi a frase não
+   dizer para que serve.
+3. **Antes da originalidade.** Frase simples e direta vence frase interessante.
+
+### O registro muda com a voz
+
+Um carrossel sobre mídia tem **duas vozes**, e o que serve para uma soa errado na
+outra:
+
+| | Quem fala | Com quem | Registro |
+|---|---|---|---|
+| **slides** | a BeeFood | o dono do restaurante | claro, amigável e correto: "Suba o seu primeiro vídeo hoje" |
+| **artes de mídia** | o dono da loja, no cartaz dele | alguém com fome | cartaz de rua, imperativo curto: "Pede a grande. Confia." |
+
+O imperativo truncado é a marca do cartaz e o erro do slide: "Pede a grande"
+funciona na arte da hamburgueria, e "Sobe o primeiro vídeo" soa estranho vindo da
+BeeFood, porque ali quem fala é uma empresa conversando com um cliente dela.
+
+### Palavra do dono, palavra do sistema
+
+Não é lista para consultar, é a pergunta: **essa palavra está na boca de quem
+fala?** O dono diz foto, vídeo, banner, cartaz, aviso, combo, preço, cardápio.
+Ele não diz mídia, destaques, agendamento, carrossel da capa. Quando o termo do
+sistema for inevitável, porque é onde ele vai clicar depois, escreva com a
+palavra dele e deixe o nome do campo para o slide do caminho de menu.
+
+O caso mais caro disso foi uma arte: "a partir de R$ 44,90" não foi escolha de
+redação, é a **string da interface** do cardápio, que aparece doze vezes na
+página. Sem declarar quem fala, quem fala é o sistema — ele é o que está na tela
+enquanto a gente escreve.
+
 ## A regra do primeiro segundo
 
 O slide 1 não anuncia a funcionalidade — ele nomeia **um incômodo que a pessoa
@@ -124,13 +222,13 @@ placa de museu.
 
 O que tira do aforismo:
 
-- **Chame a pessoa de você.** "Seu entregador também vê" tem dono; "o entregador
-  confirma" é relatório.
+- **Dirija a frase a ele.** "Seu entregador também vê" tem dono; "o entregador
+  confirma" é relatório. Mas dirigir não é abrir com "você pode" — ver *entregue
+  a ideia, não a permissão*.
 - **Não narre um "ele".** É o vício irmão, e é o que mais faz o texto parecer
   saído de máquina: "Ele queria pedir. Só não sabia o quê." descreve um
-  personagem que não é quem lê. O sujeito é **você** (o dono) ou **seu
-  cliente**. "Seu cliente toca na bandeira e pede sozinho" diz o mesmo e tem
-  dono.
+  personagem que não é quem lê. Corrigir isso narrando o cliente em close é cair
+  na vala do cinema — ver *as duas valas*.
 - **Pergunte.** Pergunta abre conversa e a pessoa responde de cabeça; declaração
   fecha o assunto antes de começar.
 - **Mas não pergunte na capa de todo carrossel.** "Cansou de esquecer a
@@ -295,9 +393,15 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 ## Checagem antes de renderizar
 
 - [ ] Existe a tabela **fato → ângulo → slide** no `roteiro.md`.
+- [ ] Existe, no `roteiro.md`, a **ideia de uso** de cada slide — e cada slide
+      entrega a dele.
 - [ ] Nenhuma frase do carrossel aparece igual no texto da novidade.
-- [ ] Você leu os oito títulos em voz alta seguidos. Soa conversa, ou desfile de
-      aforismo?
+- [ ] Nenhum slide entrega **permissão** ("você pode") em vez de ideia.
+- [ ] Nenhum slide narra a cena do cliente em **close** (dedo, boca, chapa).
+- [ ] Nenhum chapéu é nome de **campo, aba ou menu**.
+- [ ] Três leituras de fora, em sequência: só os títulos, só as primeiras
+      palavras de cada parágrafo, só os textos das artes. Se alguma das três soa
+      como a mesma frase repetida, a peça volta.
 - [ ] No máximo um emoji por slide, e não em todos.
 - [ ] Nenhuma palavra no diminutivo, e nenhuma frase explicando enfeite de tela.
 - [ ] Nenhum slide narra um "ele" que não é o leitor nem o cliente dele.

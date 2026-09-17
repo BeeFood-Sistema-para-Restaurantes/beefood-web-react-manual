@@ -517,15 +517,28 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   quinto, então ponha o ganho no começo.
 - **O gancho fala do salão, não do sistema.** "Cansou de bebida esquecida na
   sacola?" prende; "Novo campo Destaque na impressão" não.
-- **Escreva como gente fala.** O vício que aparece sozinho é o aforismo — título
-  curto, impessoal, fechado em si mesmo ("Todo recurso novo vira manual no mesmo
-  dia"). Chame a pessoa de **você**, pergunte, e não corte a frase até virar
-  telegrama. Teste: leia os títulos em voz alta, seguidos. A tabela
-  travado × falado está em `references/roteiro-e-copy.md`.
-- **O sujeito é você ou seu cliente, nunca um "ele" solto.** "Ele toca na
-  bandeira e o cardápio muda" narra um personagem que não é quem lê, e é o que
-  dá ao texto a cara de máquina. "Seu cliente toca na bandeira e pede sozinho"
-  diz o mesmo fato e tem dono.
+- **Cada slide entrega uma ideia de uso, com o verbo na frente.** A pergunta na
+  cabeça de quem lê é "isso serve pra quê na minha loja?". "Destaque o combo do
+  dia no meio do cardápio" entrega a ideia; "Você pode pôr um banner no meio do
+  cardápio" só avisa que o recurso existe e pede licença. Destaque, mostre,
+  programe, suba, apague, comece.
+- **Nenhuma abertura se repete.** Sete imperativos em fila são template do mesmo
+  jeito que sete "você pode" — a regra é sobre o conjunto, não sobre a frase.
+  Varie entre o imperativo, o ganho dito direto e o reconhecimento do que ele já
+  fez. "Você" não é cota nem palavra proibida.
+- **As duas valas: o manual e o cinema.** Nomear campo e ensinar a mexer é uma
+  ("Você marca em que dias a mídia aparece, de que horas a que horas"); narrar a
+  cena do cliente em close é a outra ("Seu cliente rola o dedo e acha o combo").
+  Fugir de uma não é cair na outra. Detalhe e antes-e-depois em
+  `references/roteiro-e-copy.md`.
+- **Clareza antes de piada, e antes de qualquer cota de sujeito.** "Combo de
+  quarta aparece só na quarta" venceu "Na quinta você nem lembra", que é mais
+  engraçada e não diz o que o recurso faz. Se a frase mais clara tem o recurso
+  como sujeito, ela fica.
+- **O registro muda com a voz.** Nos slides fala a BeeFood com o dono, em tom
+  claro e correto ("Suba o seu primeiro vídeo hoje"). Nas artes de mídia fala o
+  dono da loja no cartaz dele, em imperativo de rua ("Pede a grande. Confia.").
+  O truncado que é marca do cartaz é erro no slide.
 - **É peça de venda, na voz do site.** `beefood.com.br` é a régua: manchete é
   ganho ("Mais pedidos, menos filas no seu restaurante"), a linha de apoio é
   concreta ("Menos necessidade de garçons extras") e o slide fecha no que muda
@@ -603,9 +616,15 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   compensar, e não compensava. O desenho mostra o que está escrito na novidade
   ou no manual, com layout, paleta e fotos reais do aparelho — e nada além
   disso. O `roteiro.md` registra o que é captura e o que é desenho.
-- **Falar de um "ele" que não é quem lê.** Quem lê é o dono do restaurante: o
-  sujeito da frase é **você** ou **seu cliente**. Narrar a cena em terceira
-  pessoa é o que deixa o texto com cara de máquina.
+- **Falar de um "ele" que não é quem lê.** Quem lê é o dono do restaurante, e a
+  frase é dirigida a ele. Mas corrigir isso narrando o cliente em close é a vala
+  do lado oposto: "seu cliente rola o dedo e acha o combo" tem o dono na frase e
+  soa igualmente estranho.
+- **Entregar permissão em vez de ideia.** "Você pode ___" avisa que o recurso
+  existe; o slide precisa dizer o que vale a pena fazer com ele.
+- **Batizar o chapéu com o nome do campo.** "Destaques da capa", "Aba nova:
+  Avisos", "Agendamento": o chapéu é o que se diz antes da frase, e ninguém diz
+  isso em voz alta.
 - **Recortar a novidade em slides.** O carrossel se escreve a partir do fato; o
   texto do release não vai para a arte.
 - **Publicar dado pessoal.** Este repositório é público; nome, telefone e e-mail
