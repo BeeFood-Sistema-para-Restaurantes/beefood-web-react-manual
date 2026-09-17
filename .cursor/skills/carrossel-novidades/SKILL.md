@@ -76,6 +76,7 @@ Primeiro decida **onde a tela mora** — é isso que define se existe captura:
 |------|-------------|
 | painel web (`beefood.app`) | `capturar.py --rota /cardapio` |
 | cardápio digital público | `capturar.py --url <link> --publico --dispositivo celular` |
+| Totem de Autoatendimento | é **web**: `totem.beefood.app/?empresaID=&filialID=&token=`. Abre no Playwright como qualquer página, então é captura de verdade e não ilustração. **Não finalize pedido** |
 | app Android (Garçom, Entregador, Tablet) | não roda no Cloud Agent: **peça o print ao dono** (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) e, enquanto ele não vem, ilustre com selo (passo 4) |
 | cupom impresso | `ganchar_cupom` + `salvar_cupom`: o cupom nasce num iframe que vai para a impressora, então não dá para fotografar a tela |
 | coisa que não é tela (impressora, balança) | print do manual, se existir; senão desenho em CSS |
@@ -87,6 +88,24 @@ A saída foi montar no sandbox um pedido com só a bebida marcada e imprimir o
 cupom dele (`registrar_pedido` no `capturar-telas.py` do carrossel). Continua
 sendo impressão de verdade. Separe **registrar** de **imprimir**: registrar cria
 venda no sandbox, reimprimir não cria nada, e a arte pode ser refeita à vontade.
+
+**Sandbox sem o dado que o slide precisa: cadastre o dado.** O único produto com
+tradução no sandbox era um refrigerante, e o carrossel mostrava hambúrguer e
+porção — fotografar o produto errado sai mais caro que escrever a tradução no
+produto certo (`gravar_traducao` no `capturar-telas.py` do carrossel da
+tradução). Vale para o que o slide mostra; para **ligar recurso na loja de
+exemplo de um cliente**, não: aí a saída é interceptar a resposta da API.
+
+**Recurso desligado na loja de exemplo se liga na resposta da API.** O totem de
+exemplo não tinha tradução cadastrada, então o `capturar-totem.py` intercepta
+`/api/totem2/filial|setores|produtos` com `pagina.route`, devolve o mesmo JSON
+com `aaTraducao: true` e com o campo `traducao` preenchido a partir de um
+`traducoes.json` da pasta, e o **aplicativo de produção renderiza**. O que veio
+de fora é só o texto que o restaurante escreveria. Três detalhes que custaram
+tempo: capture na resolução em que o mockup vai usar (o aplicativo desenha botão
+e bandeira em px fixo, e a captura de 1080p reduzida perde a pílula de
+bandeiras); clique setor por **índice**, porque o nome muda de idioma; e baixe a
+foto do produto do `s3Link` da própria API, convertendo o WEBP com Pillow.
 
 Tela que abre direto numa rota:
 
@@ -195,12 +214,13 @@ escala, e o corte passa a sensação de que a tela continua.
   a **coluna** sair pela base (a borda de baixo lê como chão), mas nunca corte o
   painel.
 - **Tablet** (`.tablet`) é **preto**, deitado, e cabe inteiro em 880 px (579 px
-  de carcaça + 97 px de chapa), em `.figura`. O que separa "tablet no suporte"
+  de carcaça + 128 px de chapa), em `.figura`. O que separa "tablet no suporte"
   de "monitor de mesa" são moldura **grossa** (4,4% da largura, medido na foto
   do catálogo) e igual nos quatro lados, em `%` e nunca em px; canto bem
   arredondado; fio de alumínio em volta; ponto da câmera na moldura da esquerda;
-  e o suporte, que é **uma chapa só**, larga e rasa (46% da largura por
-  `100 / 24`), abrindo para os lados. Coluna estreita com base — ou trapézio
+  e o suporte, que é **uma chapa só**, larga e rasa (58% da largura por
+  `100 / 25`; em 46% ele ainda lia como pé de monitor, de pequeno),
+  abrindo para os lados. Coluna estreita com base — ou trapézio
   invertido — devolve pedestal de monitor. A tela é 16/10, do tablet Android:
   4/3 parece "mais tablet" e só inventa aparelho.
 - **Nos dois, a caixa do elemento é só o corpo da tela** e coluna, painel e
@@ -270,11 +290,14 @@ desenho usa o vocabulário do carrossel e **não** imita a interface real pixel 
 pixel; e o slide leva `.selo-ilustracao`. Registre no `roteiro.md` o print que
 você pediu ao dono, para trocar depois.
 
-**Texto de tela em outro idioma só entra se estiver documentado.** Desenhar uma
-tela em inglês com tradução que você mesmo escreveu é inventar comportamento do
-produto. Falta item para encher a grade? Mostre menos itens, e deixe em português
-o que não tem tradução documentada. Para preencher sem afirmar nada: preço (não
-muda de idioma) e faixa de capa sem texto.
+**Texto de interface em outro idioma só entra se vier da tela.** `SEARCH`,
+`MY CART`, `Order`, `Your bag is empty` é o aplicativo falando: tire de print ou
+de captura, nunca do seu inglês. **Nome e descrição de produto são o contrário**:
+quem escreve a versão em inglês do cardápio é o dono da loja, então traduzir
+`BATATA FRITA COM CHEDDAR E BACON` para o exemplo não afirma nada sobre o
+produto — desde que o carrossel não insinue tradução automática. Guarde essa
+tradução num `traducoes.json` na pasta do carrossel e use **a mesma** na tela, no
+print do cadastro e na legenda.
 
 **Tela desenhada que é cortada tem de ser cortada num lugar limpo.** A
 `.tela-totem__rolagem` corta o conteúdo que não cabe, com a barra da sacola fixa
@@ -328,11 +351,13 @@ fato → ângulo → slide.
    sozinha, ela vai centralizada e grande.
 4. Toda afirmação do slide está no manual ou na novidade? Se não está em nenhum
    dos dois, ou você confere no sistema, ou corta. Toda tela desenhada tem selo?
-5. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE" em
+5. Alguma frase explica enfeite de tela ("a bolinha verde marca…")? Algum
+   diminutivo? Os dois saem — e o que fica no lugar é a consequência.
+6. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE" em
    branco, contorno branco no selo, tarja amarela e "food" vermelho?
-6. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa
+7. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa
    inclusive. (Data impressa dentro de um print de verdade pode ficar.)
-7. Registre o que aprendeu em
+8. Registre o que aprendeu em
    [`references/MEMORIA-CARROSSEIS.md`](references/MEMORIA-CARROSSEIS.md).
 
 ### 7. Entrega
@@ -398,6 +423,15 @@ carrosseis/<slug>/
   dia"). Chame a pessoa de **você**, pergunte, e não corte a frase até virar
   telegrama. Teste: leia os títulos em voz alta, seguidos. A tabela
   travado × falado está em `references/roteiro-e-copy.md`.
+- **Microdetalhe de interface não é conteúdo.** "A bolinha verde marca o idioma
+  que já tem texto" é correto e não agrega nada a quem está no feed — é material
+  de manual. Teste cada frase com "o que muda para ele se eu tirar isso?"; se a
+  resposta é "ele sabe menos um detalhe da tela", corta e ponha a consequência
+  no lugar. Enfeite de tela, nome de campo e regra fina de comportamento entram
+  quando **são** o assunto do slide, nunca como explicação de brinde.
+- **Nada de diminutivo.** "Bandeirinha", "bolinha", "telinha": aparece quando a
+  gente tenta soar simpático e faz o recurso parecer pequeno. Escreva
+  "bandeira", "sinal", "tela". Exceção só para nome próprio de produto.
 - **Emoji: pouco e onde couber.** Até um por slide, e não em todos. Prefira os
   que a novidade usa (🖨️ 🛵) e os do assunto (🥤). Emoji que aponta (👇) vai
   encostado com `&nbsp;`, senão cai sozinho na linha. Slide de limite não leva.

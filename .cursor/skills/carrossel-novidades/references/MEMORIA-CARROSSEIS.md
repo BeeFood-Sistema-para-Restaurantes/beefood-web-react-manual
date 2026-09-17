@@ -4,9 +4,9 @@ Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
 continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
 entra o que é de carrossel.
 
-Última atualização: 2026-09-16 (9ª rodada: segundo carrossel, com mockup de
-totem e de tablet desenhados do zero — e sete slides, porque a novidade tinha
-sete slides de assunto).
+Última atualização: 2026-09-16 (11ª rodada: o totem é **web** e passou a entrar
+como captura de verdade, com a tradução do exemplo injetada na resposta da API;
+e duas regras novas de texto — sem microdetalhe de interface, sem diminutivo).
 
 ## Índice
 
@@ -72,6 +72,36 @@ Dois detalhes que custaram uma rodada:
 - **Capa com palavra em vermelho não leva emoji.** São dois grifos na mesma
   frase, e o segundo tira força do primeiro. A capa do *Destaque na impressão*
   perdeu o 🥤 quando "bebida" ficou vermelha — e a frase melhorou.
+
+### Microdetalhe de interface não é conteúdo
+
+A terceira rodada do carrossel da tradução voltou com um recado curto: *"bolinha
+verde é exatamente o tipo de explicação desnecessária, isso não agrega em nada"*.
+Dois slides gastavam metade do texto ensinando um enfeite da tela — que a
+bandeira ganha um sinal verde quando o idioma já tem texto, que o grupo de opções
+traduzido atende todos os produtos que o usam. Nada ali é falso. Tudo ali é
+**material de manual**, e no feed rouba o lugar do que o dono quer saber.
+
+O teste é uma pergunta: **o que muda para ele se eu tirar essa frase?** Se a
+resposta é "nada, ele só sabe menos um detalhe da tela", corta. No lugar entra a
+consequência, que é o que ele compra:
+
+| Microdetalhe | O que entrou no lugar |
+|---|---|
+| "A bolinha verde marca a bandeira que já recebeu tradução" | "Mudou o preço, acabou o estoque? Você mexe num lugar só, e os três idiomas acompanham" |
+| "Traduza um grupo de opções e ele vale em todo produto que usa aquele grupo" | "O resto, quando der" |
+
+Mesma régua para caminho de menu, nome de campo e regra de comportamento fina:
+entram quando **são** o assunto do slide, nunca como explicação de brinde.
+
+### Nada de diminutivo
+
+"Bandeirinha", "bolinha", "telinha", "combinho". O diminutivo aparece sozinho
+quando a gente tenta soar simpático, e faz o contrário: soa infantil e faz o
+recurso parecer pequeno. O cliente lê "bandeira", "sinal", "tela".
+
+A exceção é nome próprio: o produto `PISCININHA` do cardápio de exemplo se chama
+assim, e nome de produto não se corrige.
 
 ### Cópia literal
 
@@ -522,7 +552,7 @@ O que a referência corrigiu, e que nenhuma intuição acertaria:
 | | desenhado de memória | como é |
 |---|---|---|
 | totem, carcaça | preta, canto de 28 px | **branca**, canto quase reto |
-| totem, tela | escura, lista vertical | **clara**, coluna de setores em caixa alta, banner no topo, grade de produtos com foto, barra vermelha da sacola no pé |
+| totem, tela | escura, lista vertical | banner no topo, coluna de setores em **miniatura de foto**, grade de produtos com foto e barra vermelha da sacola no pé. O tema é do estabelecimento: o print do manual é claro, o totem de exemplo é escuro |
 | tablet, tela | clara, grade de dois cartões | **escura**, cartões deitados com foto à esquerda, preço em **amarelo**, botão `Order` |
 | tablet, suporte | pedestal fino com pé chato | **chapa de alumínio** larga que sai de trás e dobra até a mesa |
 | bandeiras | redondas nos dois | redondas no totem, **retangulares** no tablet |
@@ -554,9 +584,16 @@ O tablet custou cinco rodadas, e o que resolveu foi medir em vez de opinar:
   embaixo do aparelho. Depois vieram três tentativas de rolo estreito com aba
   oval na mesa, imitando a perspectiva da foto — e as três leram como **pedestal
   de monitor**, porque em desenho frontal "coluna + base" é monitor, ponto. O
-  que funcionou foi **uma chapa só**, larga e rasa: 46% da largura do aparelho
-  por `100 / 24` de altura, abrindo 5% para cada lado de cima para baixo
-  (`clip-path`), com o vinco da dobra a 76% e a aba de baixo mais clara.
+  que funcionou foi **uma chapa só**, larga e rasa, abrindo 5% para cada lado de
+  cima para baixo (`clip-path`), com o vinco da dobra a 76% e a aba de baixo mais
+  clara.
+- **e a chapa tem de ser grande.** Ela entrou com 46% da largura do aparelho por
+  `100 / 24`, e ainda lia como pé de monitor: pequena demais para ser suporte.
+  Medindo a foto do catálogo, a chapa ocupa **66% da largura** do aparelho e 23%
+  da altura dele — e ali a foto está em perspectiva, que alarga. Frontal,
+  **58% por `100 / 25`** é o que ficou parecido. Regra que serve para qualquer
+  peça acessória: se ela lê como acessório de outro objeto, quase sempre está
+  pequena, não malfeita.
 
   A lição geral: a foto do catálogo está em perspectiva e o mockup é frontal.
   **Copie a peça, não a pose.** Reproduzir o que a perspectiva revela (o lado do
@@ -566,11 +603,11 @@ Medidas que cabem no slide, com o texto acima:
 
 | Mockup | Largura | Altura até a base da carcaça | Onde |
 |---|---|---|---|
-| totem sozinho (capa) | 410 px | 802 px (tela 641 + painel 144 + topo 17) | `top: 522px`, centralizado, coluna sangrando pela base |
-| totem ao lado de texto | 396 px | 775 px | `top: 462px`, `right: 46px` |
-| totem pequeno, com outro aparelho | 322 px | 630 px | `top: 450px`, `right: 34px` |
-| tablet inteiro | 880 px | 579 px + 97 px de chapa | `.figura`, centralizado |
-| tablet ao lado de outro aparelho | 640 px | 421 px + 71 px de chapa | `top: 828px`, `left: 28px` |
+| totem sozinho (capa) | 400 px | 782 px (tela 626 + painel 141 + topo 16) | `top: 532px`, centralizado, coluna sangrando pela base |
+| totem ao lado de texto | 420 px | 821 px | `top: 452px`, `right: 40px` |
+| totem com outro aparelho (capa) | 384 px | 751 px | `top: 366px`, `right: 48px` |
+| tablet inteiro | 880 px | 579 px + 128 px de chapa | `.figura`, centralizado |
+| tablet com outro aparelho (capa) | 660 px | 434 px + 96 px de chapa | `top: 872px`, `left: 54px`, sangrando pela base |
 
 **Aparelho em pé na capa pode sair pela base**, e é melhor que caber inteiro: a
 borda de baixo do slide lê como chão. O que **não** pode sair é o painel do
@@ -581,9 +618,10 @@ no repositório: o ambiente tem Noto Color Emoji, 🇧🇷 sai igual em toda má
 o `scale(1.5)` dentro do círculo é o que faz a tinta cobrir os cantos (a bandeira
 emoji é ondulada e mais larga que alta). `.bandeira--anel` marca o idioma em uso,
 como o sistema faz. No **tablet** elas são retangulares (`.bandeira--retangular`)
-e empilhadas — dois aparelhos, dois desenhos. A **bolinha verde** de "esse idioma
-já tem texto" não entrou no desenho de propósito: ela só existe no cadastro, e do
-cadastro existe captura real.
+e empilhadas — dois aparelhos, dois desenhos. O sinal verde de "esse idioma já
+tem texto" não entrou no desenho: ele só existe no cadastro, de onde existe
+captura real, e nem lá o carrossel explica o que ele é (veja *Microdetalhe de
+interface não é conteúdo*).
 
 ### A coluna de setores, e por que 24%
 
@@ -616,9 +654,11 @@ dígitos de `R$ 8,90` lê como falha de render, não como tela rolada.
 
 O parâmetro que move o corte é o `font-size` da `.tela-totem`, porque tudo lá
 dentro é `em`. Vale varrer alguns valores e escolher o que deixa o último cartão
-**inteiro** (ou cortado dentro da foto): 13 px na capa com dois aparelhos, 17 px
-na capa só com o totem. Dá para medir sem olhar, comparando `rolagem.bottom` com
-`card.bottom` e `img.bottom`.
+**inteiro** (ou cortado dentro da foto): 19 px no totem de 420 px do slide 3, com
+quatro cartões em duas linhas. No tablet a conta é a mesma com outro alvo — o
+preço do último item tem de caber (16 px em 880 px de largura, três itens). Dá
+para medir sem olhar, comparando `rolagem.bottom` com `card.bottom`,
+`img.bottom` e `preco.bottom`.
 
 ### Selo de ilustração em fundo escuro
 
@@ -667,10 +707,10 @@ arquivo inteiro na moldura é pior que desenhar. O meio-termo que funcionou:
 
 - o CSS copia o **layout, a paleta e a hierarquia** do print, com a tipografia
   ampliada e uma coluna a menos na grade quando o nome não sobrevive à redução;
-- as **fotos são as reais**, recortadas do print por um script na pasta do
-  carrossel (`preparar-telas.py`), com as coordenadas **medidas no arquivo** com
-  Pillow e comentadas no script. Foto de comida inventada é o que mais denuncia
-  tela desenhada;
+- as **fotos são as reais**. Melhor caso: baixe do `s3Link` da API do próprio
+  aplicativo (veja *O totem é web*). Sem API, recorte do print com um script na
+  pasta do carrossel, coordenadas **medidas no arquivo** com Pillow e comentadas
+  no script. Foto de comida inventada é o que mais denuncia tela desenhada;
 - pedaços que já vêm prontos entram inteiros. O banner do topo do totem é um
   recorte só, e traz o `CANCEL ORDER` e a pílula de bandeiras de produção
   dentro — é o pixel mais convincente do carrossel e não custou nada desenhar.
@@ -688,16 +728,20 @@ Três condições, todas obrigatórias:
 O selo mora na coluna vazia à esquerda do celular em sangria (`left: 88px`).
 Colocado sobre o texto, ele foi lido como botão.
 
-**Texto de tela em outro idioma só entra se estiver documentado.** É a condição 1
-levada a sério no caso mais escorregadio. No carrossel da tradução, as telas
-desenhadas de totem e tablet usam só o inglês que o manual escreve: `DRINKS`
-(Bebidas traduzido), `Sides`, `Cola US`, `The drink cola`, `CANCEL ORDER`,
-`SEARCH`, `MY CART`, `MY BILL`. Faltou um segundo produto em inglês para encher a
-grade, e a tentação foi traduzir eu mesmo "Anéis de Cebola Empanada" — traduzir
-no desenho é **inventar comportamento do produto** e some a diferença entre o que
-o sistema entrega e o que eu achei bonito. A saída foi mostrar menos itens e
-deixar os nomes em português onde não havia tradução documentada, que por sorte é
-o comportamento real.
+**Texto de interface em outro idioma só entra se vier da tela.** `SEARCH`,
+`MY CART`, `MY BILL`, `CANCEL ORDER`, `Order`, `Your bag is empty`: isso é o
+aplicativo falando, e inventar uma tradução dessas é inventar comportamento do
+produto. Todas as que estão nos slides saíram de print ou de captura.
+
+**Nome e descrição de produto são outra coisa: são texto do restaurante.** Quem
+escreve a versão em inglês de `BATATA FRITA COM CHEDDAR E BACON` é o dono da
+loja, não o sistema — então escrever `CHEDDAR & BACON FRIES` para o exemplo não
+inventa nada sobre o produto, desde que o carrossel não insinue tradução
+automática. A primeira versão deste carrossel errou pelo excesso de zelo: ficou
+com o cardápio meio em português para não "inventar tradução", e a arte ficou
+pobre justamente no slide que vendia o recurso. A tradução do exemplo mora em
+`traducoes.json`, na pasta do carrossel, e é a **mesma** em toda a peça — tela,
+print do cadastro e legenda.
 
 Dois preenchimentos que salvam tela desenhada sem inventar nada:
 
@@ -720,8 +764,68 @@ não existe como captura.
 |------|---------------|
 | painel web (`beefood.app`) | `capturar.py --rota /cardapio` |
 | cardápio digital público | `capturar.py --url <link> --publico --dispositivo celular` |
-| app Android (Garçom, Entregador, Tablet, Totem) | não roda aqui. Nesta ordem: procure o print de produção no manual da mesma novidade (`git fetch origin main` antes de concluir que não existe); senão peça ao dono (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`); senão ilustre com selo |
+| **totem de autoatendimento** | é **web**: `totem.beefood.app/?empresaID=&filialID=&token=`. Roda aqui, e é captura de verdade. Veja *O totem é web* |
+| app Android (Garçom, Entregador, Tablet) | não roda aqui. Nesta ordem: procure o print de produção no manual da mesma novidade (`git fetch origin main` antes de concluir que não existe); senão peça ao dono (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`); senão ilustre com selo |
 | coisa que não é tela (cupom, impressora) | print do manual, se existir; senão desenho em CSS |
+
+### O totem é web, e a tela do cliente pode ser captura
+
+Este é o erro mais caro desta memória, e ficou aqui escrito por duas rodadas: eu
+tratei o totem como app Android e desenhei a tela dele em CSS. O Totem de
+Autoatendimento é uma **página web**, com URL de sessão:
+
+```
+https://totem.beefood.app/?empresaID=<id>&filialID=<id>&token=<uuid>
+```
+
+Ela abre no Playwright como qualquer outra. Antes de desenhar tela de aplicativo,
+**pergunte ao dono se aquele aplicativo tem URL** — o de tablet não tem, o de
+totem tem, e a diferença é um carrossel inteiro de credibilidade.
+
+**Quando o recurso não está ligado na loja de exemplo, ligue na resposta da
+API.** O totem de exemplo não tinha tradução cadastrada (`aaTraducao: null`,
+`traducao: null` em todos os produtos), e pedir cadastro na loja de um cliente
+não é opção. O `capturar-totem.py` do carrossel intercepta as rotas com
+`pagina.route` e devolve o mesmo JSON com o que falta:
+
+| Rota | O que a interceptação faz |
+|---|---|
+| `/api/totem2/filial/**` | liga `aaTraducao: true`, que é o que faz o seletor de bandeiras aparecer |
+| `/api/totem2/setores/**` | escreve o campo `traducao` de cada setor |
+| `/api/totem2/produtos/**` | escreve o `traducao` do produto e também dos `gruposList` e das `opc`, senão o detalhe do produto abre metade em português |
+
+O que sai disso **não é montagem**: é o aplicativo de produção renderizando, com
+a fonte, o layout, as fotos e as animações dele. O que veio de fora é só o texto
+que o restaurante escreveria. Três cuidados:
+
+- **não finalize pedido.** Navegar e fotografar não gera venda; concluir gera. O
+  dono avisou, e o script para no cardápio e no detalhe do produto.
+- **capture na resolução em que o mockup vai usar.** O aplicativo desenha botão e
+  bandeiras em px fixo: na captura de 1080×1920 reduzida para 384 px de mockup, a
+  pílula de bandeiras vira um risco. A mesma tela capturada em 720×1280 tem os
+  mesmos elementos proporcionalmente maiores e sobrevive à redução. Captura
+  grande não é sempre melhor.
+- **clique setor por índice, não por texto.** O nome muda com o idioma. Filtre os
+  botões pela caixa (`r.left < 5 && r.width < 300 && r.height > 100`) e guarde o
+  índice; e reclique o setor depois de cada troca de idioma, porque a troca
+  volta a rolagem para o topo.
+
+As **fotos dos produtos** vêm do `s3Link` da própria API (`pagina.request.get`),
+em WEBP — converta com Pillow antes de usar no slide. Foto real na tela desenhada
+é o detalhe que mais separa desenho convincente de wireframe.
+
+### Print do produto certo: às vezes é mais rápido cadastrar
+
+O slide do cadastro mostrava a Coca Cola, o único produto do sandbox com
+tradução — e o resto do carrossel mostrava hambúrguer e porção. O dono pediu
+*"outros produtos que fazem mais sentido do que uma coca cola"*, e a saída não
+foi mudar o print: foi **cadastrar a tradução no produto certo** (a mesma que
+está no `traducoes.json`) e fotografar aquele. Sandbox é para isso, e escrever
+nele é mais barato que reescrever o carrossel em volta do print que existe.
+
+Ganho de graça: o slide do totem mostra `CHEDDAR & BACON FRIES` na tela do
+cliente e o slide do cadastro mostra o campo onde aquele texto foi escrito. O
+mesmo produto nos dois lados é o que faz o carrossel fechar.
 
 ## Reaproveitamento do manual
 

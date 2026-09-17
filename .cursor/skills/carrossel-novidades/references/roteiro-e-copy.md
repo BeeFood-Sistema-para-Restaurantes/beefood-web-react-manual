@@ -148,6 +148,27 @@ bem sem nenhum.
   mais: "a equipe vê de longe o que conferir".
 - **Número só se ele existir.** "Reduz 30% dos erros" não está na novidade nem no
   manual: é invenção, e invenção em post de produto volta como reclamação.
+- **Sem diminutivo.** "Bandeirinha", "bolinha", "telinha" — soa infantil e faz o
+  recurso parecer pequeno. Exceção só para nome próprio de produto.
+
+## Microdetalhe de interface não entra
+
+O carrossel da tradução gastou dois slides explicando um enfeite de tela: que a
+bandeira ganha um sinal verde quando o idioma já tem texto, e que um grupo de
+opções traduzido vale em todos os produtos que o usam. Correto, e inútil no
+feed — é material de manual, e roubou o lugar do que o dono quer saber.
+
+O teste é uma pergunta: **o que muda para ele se eu tirar essa frase?** Se a
+resposta é "nada, ele só sabe menos um detalhe da tela", corte e ponha a
+consequência no lugar.
+
+| Microdetalhe | O que entrou no lugar |
+|---|---|
+| "A bolinha verde marca a bandeira que já recebeu tradução" | "Mudou o preço, acabou o estoque? Você mexe num lugar só, e os três idiomas acompanham" |
+| "Traduza um grupo de opções e ele vale em todo produto que usa aquele grupo" | "O resto, quando der" |
+
+Enfeite de tela, nome de campo e regra fina de comportamento entram quando
+**são** o assunto do slide, nunca como explicação de brinde.
 
 ## Emoji
 
@@ -183,6 +204,7 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 - [ ] Você leu os oito títulos em voz alta seguidos. Soa conversa, ou desfile de
       aforismo?
 - [ ] No máximo um emoji por slide, e não em todos.
+- [ ] Nenhuma palavra no diminutivo, e nenhuma frase explicando enfeite de tela.
 - [ ] A capa tem **uma** palavra em vermelho, e nenhum emoji junto dela.
 - [ ] O slide 1 tem imagem, e a imagem mostra **um** destaque só.
 - [ ] Cada slide tem **uma** ideia; o título do slide diz qual.

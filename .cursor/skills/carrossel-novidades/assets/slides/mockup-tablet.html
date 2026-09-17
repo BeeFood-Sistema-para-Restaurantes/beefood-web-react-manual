@@ -2,8 +2,8 @@
 
      Sozinho na faixa, vai em `.figura`: centralizado, reto e no maior tamanho
      que couber. Em 880 px de largura a carcaça tem 579 px e a chapa do suporte
-     mais 97 px, e sobra chão com chapéu + título de 1 linha + 3 linhas de corpo
-     acima. Dividindo a capa com outro aparelho, 640 px.
+     mais 128 px, e sobra chão com chapéu + título de 1 linha + 3 linhas de
+     corpo acima. Dividindo a capa com outro aparelho, 660 px.
 
      **Tablet nunca vai em 3D**: girado, o suporte sai torto e o aparelho perde
      a escala. 3D é para celular e para janela de computador.
@@ -12,9 +12,10 @@
      não mexer: aparelho **preto** com fio de alumínio em volta, moldura grossa
      (4,4% da largura) e igual nos quatro lados, canto bem arredondado, ponto da
      câmera na moldura da esquerda, dois botões na lateral direita e o suporte,
-     que é **uma chapa só**, larga e rasa, abrindo para os lados. Coluna
-     estreita com base sai como pedestal de monitor, e trapézio invertido sai
-     como chapéu de papel — as duas já foram tentadas.
+     que é **uma chapa só**, larga (58% da largura do aparelho) e rasa, abrindo
+     para os lados. Coluna estreita com base sai como pedestal de monitor, e
+     trapézio invertido sai como chapéu de papel — as duas já foram tentadas, e
+     chapa pequena (46%) também volta a ler como pé de monitor.
 
      A tela é **escura**, e isso não é escolha de arte: é o que o print de
      produção mostra
@@ -23,9 +24,13 @@
      atalhos com as bandeiras **retangulares** no pé; coluna de setores; e
      cartões deitados com foto à esquerda, preço em amarelo e botão `Order`.
 
-     As fotos saem de um recorte do próprio print, feito por um
-     `preparar-telas.py` na pasta do carrossel — este modelo vai sem imagem
-     para renderizar sozinho.
+     As fotos são as reais: baixe do `s3Link` da API do totem (mesmo cardápio,
+     `capturar-totem.py`) ou recorte do print — este modelo vai sem imagem para
+     renderizar sozinho.
+
+     O `font-size` da `.tela-tablet` decide quantos itens cabem inteiros: em
+     880 px de largura, 16 px deixa três itens com o preço visível. Preço
+     cortado lê como bug.
 
      A tela é desenhada, então o slide leva `.selo-ilustracao`. O selo cai no
      canto de baixo à esquerda, fora da silhueta do aparelho. -->
@@ -51,7 +56,7 @@
   <div class="figura" style="margin-top: 52px; width: 880px">
     <div class="tablet" style="width: 880px">
       <div class="tablet__tela">
-        <div class="tela-tablet" style="font-size: 19px">
+        <div class="tela-tablet" style="font-size: 16px">
           <div class="tela-tablet__topo">
             <span class="tela-tablet__logo"></span>
             <span class="tela-tablet__busca"><i class="lupa"></i>SEARCH</span>
@@ -81,9 +86,11 @@
               <div class="tela-tablet__faixa">Bebidas</div>
               <!-- Com foto:
               <div class="tela-tablet__item">
-                <img src="../imagens-puras/foto-bebida-1.png" alt="">
+                <img src="../imagens-puras/foto-melted.png" alt="">
                 <div class="tela-tablet__texto">
-                  <span>Cola US</span><small>The drink cola</small><b>R$ 5,00</b>
+                  <span>MELTED</span>
+                  <small>Brioche bun, 100 g beef patty, melted cheddar cream</small>
+                  <b>R$ 34,00</b>
                 </div>
                 <span class="tela-tablet__pedir">Order</span>
               </div>

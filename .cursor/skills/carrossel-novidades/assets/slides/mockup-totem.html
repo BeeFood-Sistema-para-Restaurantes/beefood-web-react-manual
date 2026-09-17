@@ -6,36 +6,35 @@
      que faz ler "autoatendimento"; sem ele sobra um celular gigante numa
      coluna.
 
+     **A tela pode ser captura de verdade.** O totem é web
+     (`totem.beefood.app/?empresaID=&filialID=&token=`) e abre no Playwright —
+     veja `capturar-totem.py` no carrossel da tradução. Prefira a captura; ela
+     dispensa o `.selo-ilustracao` e não tem como estar errada.
+
+     Desenhe a tela só quando a captura reduzida ficar ilegível no slide: em
+     mockup de 400 px, a tela de espera (imagem e botão grandes) sobrevive, e o
+     cardápio inteiro não — letra de 5 px no feed. Aí o CSS copia o layout da
+     captura e usa as **fotos reais** que a API serve, e o slide leva o selo.
+
      **Totem nunca vai em 3D.** O giro valoriza a espessura da peça, e armário
      em pé não tem espessura — girado, ele lê como armário tombando. 3D é para
      celular e para janela de computador.
 
      Larguras que cabem, com o texto acima:
 
-       410 px  sozinho na faixa, centralizado, `top: 522px`
-               (carcaça 802 px: topo 17 + tela 641 + painel 144);
-       396 px  com coluna de texto ao lado, `top: 462px right: 46px`;
-       322 px  pequeno, dividindo a capa com outro aparelho.
+       400 px  sozinho na faixa, centralizado, `top: 532px`
+               (carcaça 782 px: topo 16 + tela 626 + painel 141);
+       420 px  com coluna de texto ao lado, `top: 452px right: 40px`;
+       384 px  dividindo a capa com outro aparelho, `top: 366px right: 48px`.
 
      A coluna pode sair pela base do slide — a borda de baixo lê como chão. O
      **painel, não**: ele é o que identifica o aparelho.
 
-     A tela aqui é desenhada e por isso o slide leva `.selo-ilustracao`. Ela
-     copia o layout do print de produção do manual
-     (`manuais/traducao-cardapio-presencial/imagens-puras/08-totem-menu-idioma.png`):
-     coluna de setores em caixa alta com o ativo sublinhado de vermelho, banner
-     no topo, grade de produtos com foto e a barra da sacola no pé.
-
-     As fotos dos produtos e o banner saem de um recorte do próprio print, feito
-     por um `preparar-telas.py` na pasta do carrossel — este modelo vai sem
-     imagem para renderizar sozinho. Troque os `<div class="tela-totem__card">`
-     por `<img src="../imagens-puras/…">` + o bloco de texto.
-
      O `font-size` da `.tela-totem` é o que decide **onde a rolagem corta**
      (tudo lá dentro é `em`). Escolha o valor que deixa o último cartão inteiro,
      ou cortado dentro da foto: corte no meio do preço lê como falha de render.
-     Nas capas deste carrossel deu 13 px (com o tablet ao lado) e 17 px
-     (sozinho). -->
+     No totem de 420 px deste carrossel deu 19 px, com quatro cartões em duas
+     linhas. -->
 
 <div class="slide slide--suave">
   <div class="topo">
@@ -53,54 +52,53 @@
     </p>
   </div>
 
-  <span class="selo-ilustracao" style="left: 88px; top: 796px">Ilustração</span>
+  <span class="selo-ilustracao" style="left: 88px; top: 1196px">Ilustração</span>
 
-  <div class="sangria" style="top: 462px; right: 46px; width: 396px">
-    <div class="totem" style="width: 396px; --coluna: 300px">
+  <div class="sangria" style="top: 452px; right: 40px; width: 420px">
+    <div class="totem" style="width: 420px; --coluna: 300px">
       <div class="totem__tela">
-        <!-- Tela de espera: o botão de começar e o seletor de idioma embaixo
-             dele, que é onde o sistema põe. Fundo cinza claro, como no print. -->
-        <div class="tela-totem tela-totem--espera" style="font-size: 22px">
-          <div class="tela-totem__botao">FAÇA SEU PEDIDO</div>
-          <div class="tela-totem__idiomas">
-            <span class="bandeira bandeira--anel"><span>&#127463;&#127479;</span></span>
-            <span class="bandeira"><span>&#127482;&#127480;</span></span>
-            <span class="bandeira"><span>&#127466;&#127480;</span></span>
-          </div>
-        </div>
+        <!-- Melhor caso: a captura do totem inteira dentro da moldura. Aqui o
+             slide não leva selo, e dá para apagar o `.selo-ilustracao` acima.
 
-        <!-- Cardápio, para quando o slide precisa mostrar a lista. Troque pelo
-             bloco de cima conforme o slide, não use os dois.
+        <img src="../imagens-puras/totem-espera-en-720.png" alt="Tela de espera">
+        -->
 
+        <!-- Cardápio desenhado, para quando a captura reduzida não se lê. A
+             coluna de setores usa miniatura de foto, como o aplicativo. -->
         <div class="tela-totem" style="font-size: 19px">
           <div class="tela-totem__setores">
             <div class="tela-totem__marca-caixa"><span></span></div>
-            <div class="tela-totem__setor tela-totem__setor--ativo">DRINKS</div>
-            <div class="tela-totem__setor">MOLHOS ADICIONAIS</div>
-            <div class="tela-totem__setor">SIDES</div>
+            <div class="tela-totem__setor tela-totem__setor--ativo">
+              <img src="../imagens-puras/foto-batata.png" alt="">
+              <span>SIDES</span>
+            </div>
+            <div class="tela-totem__setor">
+              <img src="../imagens-puras/foto-smash.png" alt="">
+              <span>BURGERS</span>
+            </div>
           </div>
           <div class="tela-totem__corpo">
+            <!-- O banner é recorte da captura, e traz o CANCEL ORDER e a pílula
+                 de bandeiras de produção dentro. -->
             <div class="tela-totem__banner">
-              <img src="../imagens-puras/tela-totem-banner.png" alt="">
+              <img src="../imagens-puras/totem-banner-en.png" alt="">
             </div>
             <div class="tela-totem__rolagem">
-              <div class="tela-totem__secao">Drinks</div>
+              <div class="tela-totem__secao">Sides</div>
               <div class="tela-totem__grade">
                 <div class="tela-totem__card">
-                  <img src="../imagens-puras/foto-bebida-1.png" alt="">
-                  <div>
-                    <span>Cola US</span><small>The drink cola</small><b>R$ 5,00</b>
-                  </div>
+                  <img src="../imagens-puras/foto-batata.png" alt="">
+                  <div><span>FRENCH FRIES</span><b>R$ 11,00</b></div>
+                </div>
+                <div class="tela-totem__card">
+                  <img src="../imagens-puras/foto-cebola.png" alt="">
+                  <div><span>ONION RINGS</span><b>R$ 12,00</b></div>
                 </div>
               </div>
-              <div class="tela-totem__secao tela-totem__secao--sem-traducao">
-                Molhos adicionais
-              </div>
             </div>
-            <div class="tela-totem__sacola"><i></i><span>0</span></div>
+            <div class="tela-totem__sacola"><i></i><span>Your bag is empty</span></div>
           </div>
         </div>
-        -->
       </div>
       <div class="totem__painel">
         <div class="totem__leitor"></div>
