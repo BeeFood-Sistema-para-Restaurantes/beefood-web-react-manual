@@ -1,0 +1,246 @@
+/* Sistema das ARTES DE MÍDIA — o que o restaurante sobe no cardápio digital.
+ *
+ * Não confundir com `slides/base.css`: lá é a arte do carrossel do Instagram
+ * (marca BeeFood); aqui é a arte do CLIENTE, o banner e o cartaz que entram na
+ * capa, na vitrine e nos avisos do cardápio dele. A marca que manda nestas
+ * peças é a do restaurante do exemplo, não a nossa.
+ *
+ * Duas medidas:
+ *
+ * - **banner 1920x580** (capa e vitrine). O sistema só exige "mais largo do
+ *   que alto", mas o cardápio mostra o banner numa faixa, com `object-fit:
+ *   cover`: medido no cardápio de produção, o vão é ~4,1/1 no computador e
+ *   ~2,6/1 no celular. Arte em 16/9 perde 45% da altura no computador — foi
+ *   assim que a primeira rodada cortou o selo e o preço. Em 3,3/1 (a média
+ *   geométrica dos dois vãos) a perda cai para ~20% de cada lado, e tudo o que
+ *   precisa ser lido cabe na ZONA SEGURA (`--seguro`, 11% de folga em volta).
+ * - **aviso 1080x1080**. Aí o quadrado é exato: o cartão do aviso mostra a
+ *   imagem num quadrado e põe título e descrição embaixo.
+ *
+ * Tudo em `em` sobre um `font-size` derivado da largura, então a mesma arte
+ * sai igual em 1280, 1920 ou 2560 px. É o que permite renderizar o dobro do
+ * tamanho para o vídeo e o tamanho normal para a imagem.
+ *
+ * Regra que vem do manual e vale para as duas: **texto grande**. Foto bonita
+ * sem frase desaparece no celular do cliente.
+ */
+
+:root {
+  /* Paleta do restaurante do exemplo (ONE Stand), lida da configuração pública
+   * do cardápio: corPrimaria #C52E1D e o amarelo das fotos de estúdio. */
+  --loja-escuro: #121212;
+  --loja-escuro-2: #1d1c1a;
+  --loja-vermelho: #c52e1d;
+  --loja-amarelo: #f5dd00;
+  --loja-creme: #f4f1ea;
+
+  /* Folga que o recorte do cardápio pode comer sem levar texto junto. No
+   * celular o vão é o mais estreito (2,6/1) e o corte tira ~11% de cada lado —
+   * 14% deixa a frase respirando em vez de encostar na borda. */
+  --seguro: 14%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Mulish, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.arte {
+  position: relative;
+  width: var(--largura);
+  height: var(--altura);
+  overflow: hidden;
+  background: var(--loja-escuro);
+  color: #fff;
+  display: flex;
+  /* Tipografia amarrada na largura: 1920 px → 30 px de base. */
+  font-size: calc(var(--largura) / 64);
+}
+
+/* --------------------------------------------------------- banner em faixa */
+
+/* Texto à esquerda, foto à direita com um corte diagonal. A diagonal existe
+ * para a foto não virar "meia tela colada": ela entra na arte.
+ *
+ * O texto vive todo dentro da zona segura, porque no celular o recorte come
+ * largura pela esquerda, e é ali que está a frase. */
+.arte__texto {
+  flex: 1;
+  padding: 7% 1.4em 7% var(--seguro);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45em;
+  z-index: 2;
+}
+
+.arte__selo {
+  align-self: flex-start;
+  background: var(--loja-amarelo);
+  color: #121212;
+  font-weight: 900;
+  font-size: 1.15em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.4em 1em;
+  border-radius: 999px;
+}
+
+.arte__selo--vermelho {
+  background: var(--loja-vermelho);
+  color: #fff;
+}
+
+.arte__titulo {
+  font-weight: 900;
+  font-size: 3.1em;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.arte__titulo em {
+  font-style: normal;
+  color: var(--loja-amarelo);
+}
+
+.arte__linha {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #cfcbc4;
+}
+
+.arte__preco {
+  font-size: 2.1em;
+  font-weight: 900;
+  color: var(--loja-amarelo);
+}
+
+/* Preço na mesma linha da descrição: é o jeito de caber na faixa de cima da
+ * capa, onde não dá para empilhar mais um bloco. */
+.arte__linha strong {
+  color: var(--loja-amarelo);
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.arte__preco small {
+  font-size: 0.5em;
+  font-weight: 700;
+  color: #cfcbc4;
+  display: block;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* A foto entra com `cover`, então o vão dela decide o que se perde. As fotos de
+ * estúdio são quadradas, com o produto no meio e sobra de fundo nas laterais:
+ * vão estreito corta os lados (sobra), vão largo corta o topo e a base (pão e
+ * copo). Por isso 36% e não metade da arte. */
+.arte__foto {
+  position: relative;
+  width: 36%;
+  /* A diagonal precisa sobrar para a esquerda, senão o corte deixa um triângulo
+   * do fundo aparecendo entre a foto e o texto. */
+  margin-left: -5%;
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.arte__foto > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fio da cor da loja no vinco da diagonal. */
+.arte__foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(18% 0, 19.1% 0, 1.1% 100%, 0 100%);
+  background: var(--loja-amarelo);
+}
+
+/* BANNER DE CAPA — o vão do topo do cardápio tem dois cantos ocupados pelo
+ * próprio cardápio: o **logotipo da loja** entra por baixo (à esquerda no
+ * computador, no meio no celular) e o **selo de avaliação** fica no alto à
+ * direita. Então a arte de capa joga tudo para a faixa de cima e não usa
+ * rodapé — embaixo do logotipo, assinatura nenhuma seria lida. */
+.arte--capa .arte__texto {
+  justify-content: flex-start;
+  padding-top: 7%;
+  padding-bottom: 0;
+}
+
+.arte--capa .arte__rodape {
+  display: none;
+}
+
+/* Na capa a descrição e o preço vivem numa linha só, e essa linha não quebra:
+ * quebrada, a segunda linha cai justamente na altura do logotipo da loja. Se
+ * a frase não couber, é a frase que encurta. */
+.arte--capa .arte__linha {
+  font-size: 1.28em;
+  white-space: nowrap;
+}
+
+.arte__rodape {
+  position: absolute;
+  left: var(--seguro);
+  bottom: 6%;
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8d8a84;
+  z-index: 2;
+}
+
+/* -------------------------------------------------------------- aviso 1/1 */
+
+/* Cartaz de recado: sem foto de produto, porque aviso não vende — avisa. O que
+ * o cliente precisa ler de longe é a frase. */
+.arte--aviso {
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.2em 2.6em;
+  background:
+    radial-gradient(120% 90% at 100% 0%, #2b2926 0%, transparent 60%),
+    var(--loja-escuro);
+  font-size: calc(var(--largura) / 34);
+}
+
+.arte--aviso .arte__selo {
+  font-size: 1em;
+}
+
+.arte--aviso .arte__titulo {
+  font-size: 3.5em;
+  margin-top: 0.5em;
+}
+
+.arte--aviso .arte__linha {
+  font-size: 1.3em;
+  margin-top: 0.7em;
+  max-width: 24em;
+}
+
+.arte__risco {
+  width: 3.4em;
+  height: 0.16em;
+  background: var(--loja-vermelho);
+  margin-top: 1.1em;
+}
+
+.arte--aviso .arte__rodape {
+  left: 2.6em;
+  bottom: 2em;
+  font-size: 0.68em;
+}
