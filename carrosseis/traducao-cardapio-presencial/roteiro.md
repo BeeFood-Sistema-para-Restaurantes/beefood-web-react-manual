@@ -34,12 +34,12 @@ reclamação.
 | Fato (novidade/manual) | Ângulo | O que o slide diz | Slide |
 |---|---|---|---|
 | O cliente troca o idioma tocando numa bandeira, no Totem e no Cardápio Digital no Tablet; os idiomas são português, inglês e espanhol | o turista que entrou e não pediu é venda que já estava dentro da loja | "Seu cardápio já fala inglês?" | 1 |
-| O turista encontra o cardápio todo em português e desiste de pedir | ninguém vai embora por causa do preço nessa cena; vai embora porque não entendeu | o que ele faz hoje: tradutor no celular, mímica, ou a porta | 2 |
-| A tradução vale para setor, nome, descrição e grupos de opções; o cliente troca de idioma no meio do pedido sem perder o que montou | não é meia tradução: o cardápio muda inteiro, até o fim do pedido | "Ele toca na bandeira e o cardápio inteiro muda" | 3 |
-| No tablet as bandeiras ficam na coluna da esquerda, sem configuração; os textos do app (SEARCH, MY CART, MY BILL) já vêm traduzidos | na mesa, quem resolve é o cliente — sem chamar ninguém | "No tablet é a mesma coisa" | 4 |
-| Três bandeiras na linha do Nome; um único SALVAR E SAIR guarda português e as duas traduções | o medo é manter dois cardápios; não é isso que acontece | "A versão em inglês mora no mesmo produto" | 5 |
+| O turista encontra o cardápio todo em português e desiste de pedir | sem entender o cardápio ninguém pede combo, adicional nem sobremesa: a conta da mesa fecha baixa | "Quanto seu salão **perde** por não falar inglês?" | 2 |
+| A tradução vale para setor, nome, descrição e grupos de opções; o cliente troca de idioma no meio do pedido sem perder o que montou | não é meia tradução: o cliente vai do primeiro toque ao pagamento sem ajuda, e a fila anda | "Seu cliente toca na bandeira e pede **sozinho**" | 3 |
+| No tablet as bandeiras ficam na coluna da esquerda, sem configuração; os textos do app (SEARCH, MY CART, MY BILL) já vêm traduzidos | na mesa, quem resolve é o cliente — e a equipe atende mais mesas | "Na mesa, o tablet fala a língua do seu cliente" | 4 |
+| Três bandeiras na linha do Nome; um único SALVAR E SAIR guarda português e as duas traduções | o medo é manter dois cardápios; não é isso que acontece | "Você escreve uma vez, e **pronto**" | 5 |
 | Item sem tradução continua em português, nada fica em branco; a ordem sugerida começa pelos setores | o que travaria a adoção é achar que precisa traduzir tudo antes de ligar | "Não precisa traduzir tudo hoje" | 6 |
-| As bandeiras aparecem para lojas com Totem de Autoatendimento ou Cardápio Digital no Tablet | quem já tem o equipamento não precisa comprar nada | "Tem totem ou tablet? Então as bandeiras já estão aí" | 7 |
+| As bandeiras aparecem para lojas com Totem de Autoatendimento ou Cardápio Digital no Tablet | quem já tem o equipamento não precisa comprar nada, e dá para começar agora | "Seu cardápio pode falar inglês **hoje**" | 7 |
 
 ## Slides
 
@@ -47,7 +47,7 @@ reclamação.
 |---|---------|------|-------------|--------|
 | 1 | `01-capa.html` | capa com imagem | o cardápio passou a falar a língua do cliente | totem com a tela de espera em inglês (captura real) e o tablet com o cardápio traduzido |
 | 1 | `capa-alternativa/slides/01-capa-so-totem.html` | capa com imagem | idem, versão alternativa | só o totem, centralizado e grande, com a captura da tela de espera |
-| 2 | `02-cena.html` | texto | o turista não vai embora por preço | — |
+| 2 | `02-cena.html` | texto | cardápio que o cliente não lê derruba a conta da mesa | — |
 | 3 | `03-totem.html` | mockup reto + texto ao lado | o cardápio muda inteiro, não pela metade | cardápio do totem em inglês, com as porções e as fotos reais |
 | 4 | `04-tablet.html` | mockup centralizado | na mesa as bandeiras já estão na lateral | tablet com três hambúrgueres descritos em inglês |
 | 5 | `05-mesmo-cadastro.html` | print real em janela | a tradução mora no mesmo produto | captura da linha do Nome com a bandeira dos Estados Unidos escolhida e `CHEDDAR & BACON FRIES` no campo |
@@ -94,10 +94,15 @@ saindo pela borda de baixo, que lê como piso e mesa. O título perdeu largura
 **Um aparelho sobrepondo o outro é o que faz um grupo.** Enquanto as silhuetas
 não se tocavam, qualquer ajuste de posição só mudava o tamanho do vão.
 
-**O slide 2 não fala de sistema.** É a cena do salão inteira — tradutor no
-celular, mímica, a porta. É o slide que faz o dono reconhecer o problema antes de
-ouvir a solução, e o que segura a atenção até o terceiro. A caixa de fecho existe
-para nomear o custo: não foi o preço, foi o cardápio.
+**O slide 2 não fala de sistema — e foi refeito por inteiro.** A primeira versão
+narrava o turista em terceira pessoa ("Ele queria pedir. Só não sabia o quê"),
+como legenda de fotografia: bonita, morna, e sobre um personagem que não é quem
+lê. Quem lê é o dono, então o slide agora pergunta pelo dinheiro dele ("Quanto
+seu salão **perde** por não falar inglês?"), lista o que acontece no salão dele
+(o cliente lendo pelo tradutor, apontando a foto, a equipe parando no meio do
+movimento) e fecha nomeando o custo: sem entender o cardápio ninguém pede combo,
+adicional nem sobremesa, e a conta da mesa fecha bem abaixo do que podia. Sem
+número — o BeeFood não publicou nenhum para isso.
 
 **A primeira versão do totem e do tablet foi desenhada de memória, e saiu
 errada.** Totem escuro com lista vertical, tablet claro com grade de cartões —
@@ -146,7 +151,7 @@ interface (`SEARCH`, `MY CART`, `Order`, `Your bag is empty`) — esse veio da
 própria tela. E `PISCININHA`, `SMASH 2.0`, `ONE BURGER` ficaram como estão: nome
 próprio de produto não se traduz, e é o que um restaurante faz de verdade.
 
-**A tela do slide 3 continua desenhada, e continua com selo.** O cardápio do
+**A tela do slide 3 continua desenhada.** O cardápio do
 totem tem cartão pequeno e preço miúdo: a captura reduzida para 420 px de mockup
 fica com letra de 5 px no feed. Então o CSS copia o layout e a paleta da captura,
 com a letra ampliada e a grade em duas colunas em vez de três, e usa as **fotos
@@ -181,6 +186,33 @@ no produto certo** (`gravar_traducao` no `capturar-telas.py`) — a mesma que es
 no `traducoes.json`. Assim o slide 3 mostra `CHEDDAR & BACON FRIES` na tela do
 cliente e o slide 5 mostra o campo onde aquele texto foi escrito. Sandbox é para
 isso.
+
+**A foto de fundo do totem é nossa.** A loja de exemplo é de um cliente de
+verdade, e a arte de espera dela anunciava "Pudim R$ 16,90". Na capa, a única
+coisa que se lia na tela do totem era o preço do pudim — num carrossel sobre
+cardápio em inglês. O `preparar-fundo.py` tira um quadro do vídeo de batata
+frita que o dono mandou, recorta em 9/16 para a tela de espera e em faixa larga
+para o banner do cardápio, e o `capturar-totem.py` injeta as duas na mesma
+interceptação que injeta a tradução. O logotipo da loja continua o dela.
+
+O véu escuro das imagens não é estética: o aplicativo desenha o botão vermelho e
+a pílula de bandeiras **por cima** da foto, e vermelho sobre batata dourada
+some. A faixa do meio (onde o botão cai) é a que mais escurece.
+
+**A arte não leva mais o carimbo "ILUSTRAÇÃO".** Três slides tinham a pílula, e
+ela saiu da skill inteira: numa peça de venda é a única palavra que o leitor não
+esperava ler, e avisa "isto não é o produto" justo onde a peça devia convencer.
+O que garante a honestidade continua — a tela desenhada do tablet copia o print
+de produção e usa as fotos reais, e esta tabela de slides diz o que é captura e
+o que é desenho.
+
+**O carrossel inteiro passou a falar com o dono, e a vender.** A terceira
+devolução foi sobre linguagem: *"robótica, com cara de IA"*, *"parece que
+estamos falando na terceira pessoa"*, *"a copy não me agrada, precisamos
+vender"*. A correção foi trocar o sujeito de todas as frases (de "ele" para
+**você** e **seu cliente**) e fazer cada slide fechar no que muda para o
+negócio, no tom de `beefood.com.br` — manchete que é ganho, apoio concreto
+embaixo. O antes e depois dos títulos está na `MEMORIA-CARROSSEIS.md`.
 
 **O que saiu da copy: microdetalhe e diminutivo.** Os slides 5 e 6 explicavam a
 bolinha verde e a herança do grupo de opções — o dono devolveu como *"exatamente
@@ -250,12 +282,15 @@ bug (o manual diz que sem Totem nem Tablet não há bandeira).
 ### As telas do cliente: o totem é web
 
 ```bash
+python carrosseis/traducao-cardapio-presencial/preparar-fundo.py
 python carrosseis/traducao-cardapio-presencial/capturar-totem.py
 ```
 
-Abre o totem de exemplo (`totem.beefood.app`, ONE Stand, empresaID 350 /
-filialID 380), liga a tradução na resposta da API, injeta o `traducoes.json` e
-captura. **Nenhum pedido é finalizado.** Sai em `imagens-puras/`:
+O primeiro monta em `midia/` as duas fotos de fundo do totem, a partir do vídeo
+de batata frita. O segundo abre o totem de exemplo (`totem.beefood.app`, ONE
+Stand, empresaID 350 / filialID 380), liga a tradução na resposta da API, injeta
+o `traducoes.json` e as fotos de fundo, e captura. **Nenhum pedido é
+finalizado.** Sai em `imagens-puras/`:
 
 - `totem-espera-en-720.png` — a tela de espera em inglês, com `START YOUR ORDER`
   e as três bandeiras. É a tela das duas capas. Em 720×1280 e não em 1080p de
@@ -268,6 +303,11 @@ captura. **Nenhum pedido é finalizado.** Sai em `imagens-puras/`:
   slide 3;
 - `foto-*.png` — as fotos dos produtos, baixadas do `s3Link` da API e convertidas
   de WEBP para PNG.
+
+O totem é PWA, e foi isso que quase derrubou a troca de fundo: as imagens são
+servidas pelo *service worker* dele, que `page.route` não enxerga. O contexto
+nasce com `service_workers="block"` e todas as rotas são do **contexto** — sem
+isso a interceptação "funciona", o JSON sai trocado e a tela chega preta.
 
 Os prints `manual-07|08|09` continuam na pasta: foram a referência do redesenho
 do totem e do tablet, e o `09` ainda é a referência da tela do tablet, que não
