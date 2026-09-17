@@ -77,7 +77,7 @@ Primeiro decida **onde a tela mora** — é isso que define se existe captura:
 | painel web (`beefood.app`) | `capturar.py --rota /cardapio` |
 | cardápio digital público | `capturar.py --url <link> --publico --dispositivo celular` |
 | Totem de Autoatendimento | é **web**, e já tem script pronto: `capturar-totem.py` (telas, tradução injetada, fotos de produto). **Não finalize pedido** |
-| app Android (Garçom, Entregador, Tablet) | não roda no Cloud Agent: **peça o print ao dono** (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) e, enquanto ele não vem, ilustre com selo (passo 4) |
+| app Android (Garçom, Entregador, Tablet) | não roda no Cloud Agent: **peça o print ao dono** (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) e, enquanto ele não vem, desenhe a tela em CSS copiando o print de produção (passo 4) |
 | cupom impresso | `ganchar_cupom` + `salvar_cupom`: o cupom nasce num iframe que vai para a impressora, então não dá para fotografar a tela |
 | coisa que não é tela (impressora, balança) | print do manual, se existir; senão desenho em CSS |
 
@@ -175,7 +175,7 @@ Comece copiando um modelo de `assets/slides/`:
 | `mockup-celular.html` | tela de celular (cardápio digital, app) |
 | `mockup-totem.html` | Totem de Autoatendimento: tela em pé sobre coluna, com cardápio de exemplo |
 | `mockup-tablet.html` | Cardápio Digital no Tablet: tela deitada em suporte de mesa, com cardápio de exemplo |
-| `ilustracao-app.html` | tela que não dá para capturar, desenhada e com selo |
+| `ilustracao-app.html` | tela que não dá para capturar, desenhada em CSS |
 | `antes-depois.html` | comparação; traz um cupom térmico desenhado em CSS |
 | `cta.html` | último slide, um pedido só |
 
