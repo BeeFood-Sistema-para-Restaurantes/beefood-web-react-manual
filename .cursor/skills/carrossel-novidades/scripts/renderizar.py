@@ -19,6 +19,15 @@ Uso:
 
 Entrada : <pasta>/slides/*.html   (ordem alfabética — nomeie 01-, 02-, ...)
 Saída   : <pasta>/png/*.png       (+ <pasta>/folha-de-contato.png com --contato)
+
+## Duas formas de apontar para uma imagem
+
+- **relativa**, como em qualquer HTML: `../imagens-puras/05-cadastro.png`. É o
+  print que só existe naquele carrossel.
+- **`skill:`**, que este script troca pelo caminho de `assets/` da skill:
+  `skill:fotos/foto-batata.png`. É a biblioteca compartilhada — foto de produto,
+  banner do totem, tela de espera. Assim um modelo de `assets/slides/` abre em
+  qualquer pasta, e dois carrosséis usam a mesma foto sem copiar arquivo.
 """
 
 from __future__ import annotations
@@ -86,9 +95,24 @@ GUIAS_STORY = MARCA_GUIA + """
 """
 
 
+ASSETS = SKILL / "assets"
+
+
+def resolver_skill(fragmento: str) -> str:
+    """Troca `skill:` pelo caminho de `assets/` da skill.
+
+    `src="skill:fotos/foto-batata.png"` vira um `file://` absoluto. Existe para a
+    biblioteca compartilhada: sem isso, ou cada carrossel copia as fotos de
+    produto para dentro dele, ou os modelos de `assets/slides/` só abrem quando
+    estão dentro de um carrossel que tenha os arquivos com o nome certo.
+    """
+    return fragmento.replace("skill:", f"{ASSETS.as_uri()}/")
+
+
 def documento(fragmento: str, largura: int, altura: int, pasta: Path,
               guias: bool, formato: str) -> str:
     """Embrulha o fragmento. `pasta` vira o <base> para as imagens relativas."""
+    fragmento = resolver_skill(fragmento)
     extra = ""
     if guias:
         extra = GUIAS_STORY if formato == "9:16" else GUIAS_FEED
