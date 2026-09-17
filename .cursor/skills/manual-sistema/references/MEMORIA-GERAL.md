@@ -1,9 +1,14 @@
 # MEMÓRIA GERAL — Boas práticas para criação de manuais BeeFood
 
-> Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
-> Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
+> Memória mestre da skill `manual-sistema`. **Ler SEMPRE no início de cada sessão.**
+> A porta de entrada, com o fluxo resumido, é o [`SKILL.md`](../SKILL.md) — este
+> arquivo é o conteúdo. Cada manual tem ainda sua própria `MEMORIA.md` na pasta dele.
 
-Última atualização: 2026-09-17 (**#103** Venda Sugestiva (UpSell) — três caminhos que
+Última atualização: 2026-09-17 (o repositório virou **duas skills**, `manual-sistema`
+e `carrossel-novidades`: o processo de manual saiu da raiz e passou a morar em
+`.cursor/skills/manual-sistema/`, com esta memória, o checklist, os planos e o
+`validar-imagens.py` dentro dela — ver seção 2);
+2026-09-17 (**#103** Venda Sugestiva (UpSell) — três caminhos que
 gravam a mesma lista de até **6** produtos, a aba do cadastro **salva sozinha**, o
 cardápio público **filtra** a sugestão antes de mostrar (oculto/inativo/já na sacola) e o
 relatório de Sugestões **só conta venda concluída**; técnica nova para achar o ⋮ de um
@@ -75,22 +80,36 @@ Saída: arquivos **`.md`** + imagens anotadas.
 
 ## 2. Estrutura de pastas (PADRÃO — seguir sempre)
 
+Desde 17/09/2026 o repositório está organizado em **duas skills**, e o processo de
+manual mora inteiro dentro da `manual-sistema`. A raiz guarda só a saída
+(`manuais/`, `carrosseis/`) e os arquivos de orientação (`AGENTS.md`, `README.md`,
+`spec.md`).
+
 ```
-C:\beefood-web-react-manual\
-├─ MEMORIA-GERAL.md            <- esta memória (boas práticas, contas, ferramentas)
-└─ manuais\
-   └─ <nome-do-manual>\        <- UMA PASTA POR MANUAL (ex.: caixa, delivery, pdv...)
+beefood-web-react-manual/
+├─ AGENTS.md                         <- qual skill atende qual pedido
+├─ .cursor/skills/manual-sistema/    <- ESTA skill
+│  ├─ SKILL.md                       <- porta de entrada: o fluxo em sete passos
+│  ├─ references/
+│  │  ├─ MEMORIA-GERAL.md            <- esta memória (boas práticas, contas, ferramentas)
+│  │  ├─ CHECKLIST-MANUAIS.md        <- fila, status e histórico
+│  │  └─ planos/PLANO-*.md           <- estudo de bloco antes de virar manual
+│  └─ scripts/validar-imagens.py
+├─ .cursor/skills/carrossel-novidades/   <- a outra skill; lê isto e não escreve aqui
+└─ manuais/
+   └─ <nome-do-manual>/        <- UMA PASTA POR MANUAL (ex.: caixa, delivery, pdv...)
       ├─ MEMORIA.md                 <- memória detalhada do manual (fluxo, uso, decisões, estado)
       ├─ <nome>.md                  <- o manual final (para o usuário)
       ├─ fluxo-codigo.md            <- mapeamento técnico (a partir do código)
       ├─ texto-documentation.ia.md  <- PROMPT pronto p/ criar o manual no app (ver seção 12)
       ├─ annotate.py                <- script de anotação (setas/números) deste manual
-      ├─ imagens-puras\             <- screenshots ORIGINAIS (BACKUP, nunca referenciado)
-      └─ imagens-tratadas\          <- TODAS as imagens do manual (com setas + contexto). Única pasta referenciada
+      ├─ imagens-puras/             <- screenshots ORIGINAIS (BACKUP, nunca referenciado)
+      └─ imagens-tratadas/          <- TODAS as imagens do manual (com setas + contexto). Única pasta referenciada
 ```
 
-**Regra de ouro:** ao iniciar um manual novo, criar uma pasta nova em `manuais\<nome>\`
-com TODAS as subpastas/arquivos acima.
+**Regra de ouro:** ao iniciar um manual novo, criar uma pasta nova em
+`manuais/<nome>/` com TODAS as subpastas/arquivos acima. O que é **processo** vai
+para a skill; o que é **manual pronto** vai para `manuais/`.
 
 ---
 
@@ -117,8 +136,8 @@ com TODAS as subpastas/arquivos acima.
 
 ### Antes de dar um manual por concluído: `validar-imagens.py`
 
-Na raiz do repositório, rodar `python validar-imagens.py` (ou
-`python validar-imagens.py <pasta-do-manual>` para um só). Ele confere, em todos os manuais:
+Da raiz do repositório, rodar `python .cursor/skills/manual-sistema/scripts/validar-imagens.py`
+(ou com `<pasta-do-manual>` no fim, para um só). Ele confere, em todos os manuais:
 
 - se **toda imagem referenciada existe** em `imagens-tratadas/` — sai com **código 1** quando
   falta alguma, porque manual com imagem faltando não pode ser publicado;
@@ -1116,7 +1135,7 @@ exige **CONFIRMAR SELEÇÃO (F1 / ENTER)** — clicar na linha só seleciona e o
 de **mesa** exige o **Novo Pedido (F1)** da tela de Mesas, e clicar numa mesa
 livre não abre nada.
 
-Detalhe em [`PLANO-NUMERACAO-PEDIDOS.md`](PLANO-NUMERACAO-PEDIDOS.md) e em
+Detalhe em [`PLANO-NUMERACAO-PEDIDOS.md`](planos/PLANO-NUMERACAO-PEDIDOS.md) e em
 `manuais/numeracao-pedidos/` (`MEMORIA.md` e `fluxo-codigo.md`).
 
 ---

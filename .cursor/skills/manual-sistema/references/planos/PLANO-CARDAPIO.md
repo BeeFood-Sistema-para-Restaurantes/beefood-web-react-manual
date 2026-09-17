@@ -165,7 +165,7 @@ manuais/<nome>/
 └── imagens-tratadas/
 ```
 
-Validação: `python validar-imagens.py <pasta>`
+Validação: `python .cursor/skills/manual-sistema/scripts/validar-imagens.py <pasta>`
 
 ---
 
@@ -368,7 +368,7 @@ Repetir para #27, #29, #28, #30, #31:
 - [ ] `annotate.py` → `imagens-tratadas/`
 - [ ] Escrever `<nome>.md`, `texto-documentation.ia.md`, `MEMORIA.md`
 - [ ] Teste PDV end-to-end
-- [ ] `python validar-imagens.py <pasta>`
+- [ ] `python .cursor/skills/manual-sistema/scripts/validar-imagens.py <pasta>`
 - [ ] Commit, push, PR draft
 - [ ] Atualizar `CHECKLIST-MANUAIS.md`
 

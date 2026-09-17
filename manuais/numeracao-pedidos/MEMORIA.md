@@ -1,7 +1,7 @@
 # MEMÓRIA — Entendendo a numeração dos pedidos (#74)
 
 Manual **conceitual**: explica os dois números da venda, não ensina um cadastro.
-Estudo que o originou: [`PLANO-NUMERACAO-PEDIDOS.md`](../../PLANO-NUMERACAO-PEDIDOS.md).
+Estudo que o originou: [`PLANO-NUMERACAO-PEDIDOS.md`](../../.cursor/skills/manual-sistema/references/planos/PLANO-NUMERACAO-PEDIDOS.md).
 
 Estado: ✅ **Concluído** em 01/09/2026. 6 imagens, 13 setas + 1 moldura.
 
