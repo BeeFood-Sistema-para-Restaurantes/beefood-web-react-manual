@@ -23,11 +23,10 @@ agora e o que ele ganha com isso**.
 
 A frase-régua, para calibrar o ouvido:
 
-> "Você pode chamar a atenção do seu cliente mostrando foto e vídeo do seu
-> produto de verdade."
+> "Destaque o combo do dia no meio do cardápio."
 
-Ela tem: você, uma coisa que você faz, e o ganho. Ela não tem: nome de campo,
-passo a passo, cena em close, adjetivo de venda.
+Ela entrega uma coisa que vale a pena fazer, e o dono já se vê fazendo. Ela não
+tem: nome de campo, passo a passo, cena em close, adjetivo de venda.
 
 ## As duas valas
 
@@ -48,16 +47,40 @@ A vala do cinema aparece justamente quando a gente tenta fugir da vala do
 manual. Fugir de uma não é cair na outra: as duas soam artificiais, só que por
 motivos diferentes — uma é técnica demais, a outra é teatral demais.
 
+## Entregue a ideia, não a permissão
+
+"Você pode pôr um banner no meio do cardápio" avisa que o recurso existe e pede
+licença. "Destaque o combo do dia no meio do cardápio" entrega a ideia pronta. É
+a mesma informação, e só a segunda faz o dono pensar no cardápio dele.
+
+Por isso o verbo vem na frente e mira nele: destaque, mostre, programe, suba,
+apague, comece.
+
+**E isto não é um molde novo.** "Você pode ___ para ___" foi a tentativa
+anterior, e virou cacoete em cinco dos sete slides — uniforme do mesmo jeito que
+o gabarito que ele veio substituir. Sete imperativos em fila seriam igualmente
+template.
+
+A regra que sobra é sobre o conjunto, não sobre a frase: **nenhuma abertura se
+repete.** Se dois blocos começam do mesmo jeito, é cacoete, mesmo que a abertura
+seja boa. Varie: o imperativo, o ganho dito direto ("Combo de quarta aparece só
+na quarta"), o reconhecimento do que ele já fez ("Você já fez a parte mais
+difícil").
+
+E "você" não está proibido — a melhor linha da peça tem "você". O que não serve
+é a moldura da permissão e a abertura repetida.
+
 ## Procedimento
 
-**1. Uma frase de utilidade por slide, antes do slide.** No molde nu:
-`Você pode ___ para ___.` Essa frase é esqueleto e **não vai para a arte** —
-ela existe para você saber o que o slide precisa dizer. Registre a lista delas
-no `roteiro.md`: é o que permite conferir depois se o slide cumpriu.
+**1. Antes de escrever o slide, responda: que ideia de uso ele entrega?** Uma
+frase, do jeito que sair. É rascunho de pensamento, **não vai para a arte**, e
+não tem forma fixa — se você se pegar preenchendo lacuna, o texto vai sair
+uniforme. Registre a lista no `roteiro.md`, que é o que permite conferir depois
+se o slide cumpriu.
 
-**2. Escreva o slide a partir dela.** O título carrega o ganho; o corpo diz o
-que ele pode fazer, em palavra simples. Se o slide não nasceu de uma frase de
-utilidade, ele está descrevendo o sistema ou contando um filme.
+**2. Escreva o slide a partir dela.** O título carrega o ganho; o corpo entrega
+a ideia, em palavra simples. Se o slide não nasceu de uma ideia de uso, ele está
+descrevendo o sistema ou contando um filme.
 
 **3. O chapéu é o que se diz antes da frase.** "No meio do cardápio", "Recado de
 última hora", "Você marca o dia e a hora". Nunca o nome do campo, da aba ou do
@@ -103,15 +126,16 @@ palavra dele e deixe o nome do campo para o slide do caminho de menu.
 
 Três perguntas por slide. Se qualquer uma falhar, o slide volta.
 
-1. **Serve pra quê?** A frase diz uma coisa que ele pode fazer e o que ele
-   ganha? Se diz só o que o sistema faz, é a vala do manual. Se descreve uma
-   cena, é a vala do cinema.
+1. **Serve pra quê?** A frase entrega uma ideia de uso e o que ele ganha? Se diz
+   só o que o sistema faz, é a vala do manual. Se descreve uma cena, é a vala do
+   cinema. Se avisa que ele tem permissão, falta o verbo na frente.
 2. **Um dono entende lendo uma vez, no meio do serviço?**
 3. **Eu diria isso no balcão sem soar nem técnico nem teatral?**
 
 E a leitura de fora, uma vez, no fim: leia **só os títulos** em sequência, depois
-**só os textos das artes** em sequência. Se alguma das duas listas soa como a
-mesma frase repetida com palavras trocadas, a peça volta.
+**só as primeiras palavras de cada parágrafo**, depois **só os textos das artes**.
+Se qualquer uma das três listas soa como a mesma frase repetida com palavras
+trocadas, a peça volta.
 
 ## O que continua valendo da skill em uso
 
