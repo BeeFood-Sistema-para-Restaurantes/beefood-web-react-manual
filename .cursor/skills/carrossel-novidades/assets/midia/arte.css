@@ -175,8 +175,12 @@ body {
  * rodapé — embaixo do logotipo, assinatura nenhuma seria lida. */
 .arte--capa .arte__texto {
   justify-content: flex-start;
-  padding-top: 7%;
+  /* Faixa de cima bem colada no topo: no celular o logotipo da loja é um disco
+   * no meio da capa e o alto dele chega perto da metade da altura. Com 7% de
+   * folga a última linha da arte passava por trás do disco. */
+  padding-top: 3.5%;
   padding-bottom: 0;
+  gap: 0.3em;
 }
 
 .arte--capa .arte__rodape {
