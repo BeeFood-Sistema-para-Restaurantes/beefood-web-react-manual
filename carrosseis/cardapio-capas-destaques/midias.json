@@ -1,0 +1,28 @@
+{
+  "_leia": "A mídia que o capturar-cardapio.py injeta no cardápio modelo (ONE Stand). Os arquivos vivem em assets/midia/ da skill e nascem do fazer-midia.py. Ordem importa: 'capas' é o carrossel do topo (a capa fixa da loja continua sendo o primeiro slide) e 'lojas' é a vitrine no meio da página. Extensão .mp4 entra como vídeo; o resto, como imagem.",
+  "capas": [
+    { "arquivo": "banner-capa-combo.jpg" },
+    { "arquivo": "banner-capa-chapa.mp4" }
+  ],
+  "lojas": [
+    { "arquivo": "banner-vitrine-shake.mp4" },
+    { "arquivo": "banner-vitrine-batata.jpg" }
+  ],
+  "avisos": [
+    {
+      "arquivo": "aviso-feriado.png",
+      "titulo": "Fechados no feriado",
+      "descricao": "Dia 7 a cozinha descansa. Voltamos dia 8, no horário de sempre."
+    },
+    {
+      "arquivo": "aviso-horario.png",
+      "titulo": "Novo horário",
+      "descricao": "Agora abrimos das 18h às 23h, de segunda a sábado. Último pedido até 22h40."
+    },
+    {
+      "arquivo": "aviso-so-delivery.png",
+      "titulo": "Hoje só delivery",
+      "descricao": "O salão está fechado hoje. Entrega e retirada funcionando no horário normal."
+    }
+  ]
+}
