@@ -90,6 +90,7 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 | Destaque na impressão — destacar bebidas e produtos no cupom | [`manuais/destaque-impressao/`](manuais/destaque-impressao/destaque-impressao.md) | ✅ Concluído |
 | Tradução do cardápio presencial — tablet e totem em inglês e espanhol | [`manuais/traducao-cardapio-presencial/`](manuais/traducao-cardapio-presencial/traducao-cardapio-presencial.md) | ✅ Concluído |
 | Domínio próprio e subdomínio pela tela — configurar, alterar a zona DNS e excluir | [`manuais/dominio-proprio-configurar/`](manuais/dominio-proprio-configurar/dominio-proprio-configurar.md) | ✅ Concluído |
+| Cardápio em PDF — gerar o cardápio impresso (A4/A5, com foto, QR Code e capa) | [`manuais/cardapio-pdf/`](manuais/cardapio-pdf/cardapio-pdf.md) | ✅ Concluído |
 
 ## Padrão visual das anotações
 

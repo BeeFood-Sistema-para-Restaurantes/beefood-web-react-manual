@@ -3,7 +3,11 @@
 > Memória mestre do projeto de manuais. **Ler SEMPRE no início de cada sessão.**
 > Cada manual tem ainda sua própria `MEMORIA.md` dentro da sua pasta.
 
-Última atualização: 2026-09-16 (**#100** Tradução do cardápio presencial — bandeiras
+Última atualização: 2026-09-17 (**#102** Gerar Cardápio em PDF — *Cardápio → Cardápio
+em PDF*, editor de 4 etapas com prévia; **nada é salvo**; editar item vale só para o
+PDF; o **QR Code só é montado na etapa 3**; Clássico sai com foto por padrão; padrão
+novo de imagem: **página de PDF gerada** renderizada com PyMuPDF e montada lado a lado);
+2026-09-16 (**#100** Tradução do cardápio presencial — bandeiras
 Brasil/EUA/Espanha no cadastro de setor, produto, complemento e grupo de opções;
 só existem com **totem ou tablet contratado** (`temTraducaoContratada`); item sem
 tradução cai para o português; **Habilitar tradução** no totem; **sem** tradução em lote;
@@ -242,6 +246,35 @@ elemento sem tapar nada. Vale também para campo de texto: apontar ao lado do r�
 `imagens-tratadas\`** — ele apagaria as setas na próxima execução. Que ele alimente só
 `imagens-puras\`, e que imprima no fim o lembrete de rodar o `annotate.py`. Foi o ajuste feito no
 `copiar-imagens.py` do #24 quando o manual deixou de ser só contexto.
+
+### Padrão oficial — páginas de PDF gerado (montagem) — #102
+
+Manual de recurso que **produz um arquivo** (o gerador de Cardápio em PDF) precisa
+mostrar o arquivo, não só a tela que o monta. Print da prévia não serve: é imagem de
+JPEG dentro de canvas, com o cromo do sistema em volta.
+
+O caminho que funcionou no #102:
+
+1. **Baixar o PDF de verdade** pelo próprio botão da tela, com
+   `page.expect_download()` (contexto com `accept_downloads=True`) → `/tmp/*.pdf`.
+2. **Renderizar as páginas** com **PyMuPDF** (`pip install pymupdf`) em **110 dpi**
+   (`doc[i].get_pixmap(dpi=110)` → A4 vira 910×1287, nítido e leve). O `poppler-utils`
+   **não** existe no VM, então nada de `pdftoppm`.
+3. Gravar as páginas em `imagens-puras/pdf-*.png` — elas são a **fonte**, e é o que
+   mantém o `annotate.py` reproduzível depois que o `/tmp` some.
+4. `montar()` no `annotate.py` põe as páginas lado a lado em fundo cinza
+   `(238,238,240)`, com borda de 2 px e legenda em cima ("Capa (página 1)"). Duas
+   páginas em 100% para detalhar; três em `escala=0.62` para comparar modelos.
+5. Anotar a montagem normalmente. Vantagem: os números podem ficar **fora da página**,
+   no fundo cinza, quando a borda do papel não tem margem sobrando.
+
+Para achar o alvo das setas **dentro do PDF**, não meça no PNG: use
+`page.search_for("texto")` e `page.get_image_info()` do PyMuPDF (devolvem pontos) e
+multiplique por `110/72`. Foi assim que saíram as sete setas da imagem 11 (cabeçalho,
+título do setor, item, rodapé, logo, contato e QR Code).
+
+Números medidos que valem como argumento no texto: o mesmo cardápio (68 itens)
+saiu com **4,4 MB em 5 páginas** com fotos e **57 KB em 4 páginas** só com texto.
 
 ### Fotos de tela enviadas pelo dono (totem, tablet, PDV) — #100
 
@@ -800,6 +833,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Destaque na impressão | `manuais/destaque-impressao/` | ✅ Concluído (#99) |
 | Tradução do cardápio presencial (tablet e totem) | `manuais/traducao-cardapio-presencial/` | ✅ Concluído (#100) |
 | Domínio próprio e subdomínio pela tela | `manuais/dominio-proprio-configurar/` | ✅ Concluído (#101) |
+| Gerar Cardápio em PDF | `manuais/cardapio-pdf/` | ✅ Concluído (#102) |
 | Pedidos pelo chat no WhatsApp | `manuais/whatsapp-pedidos-chat/` | ✅ Concluído (#86) |
 | Campanhas de WhatsApp | `manuais/campanhas-whatsapp/` | ✅ Concluído (#15) |
 | Notificações de cada etapa | `manuais/whatsapp-notificacoes/` | ✅ Concluído (#87) |
@@ -844,6 +878,43 @@ próprio aplicativo (*CANCEL ORDER*, *MY CART*, *MY BILL*, *Order*, *SEARCH*) j�
 vêm traduzidos — o lojista cadastra só o cardápio. No tablet, o **cabeçalho da
 lista não troca de idioma**: com o inglês ativo a coluna de setores mostrou
 *Drinks* e a faixa continuou *Bebidas* (o `tituloWeb` do setor estava `null`).
+
+---
+
+### Gerar Cardápio em PDF — #102
+
+*Cardápio → Cardápio em PDF* (`/cardapio-pdf`) e atalho **Gerar cardápio em PDF** no
+menu de ações da tela Cardápio (no celular, só por esse atalho). Liberado por conta:
+`cardapioPdfAcesso.ts` → `CARDAPIO_PDF_EMPRESAS = [38311]` (o sandbox é a empresa
+liberada, então dá para capturar em produção). Rota protegida pela permissão de
+**Produtos**. Editor e `@react-pdf/renderer` entram por `lazy()`.
+
+Quatro achados que mudaram o texto do manual:
+
+- **Nada é salvo.** `useCardapioPdfProjeto` é `useState` puro — fechar o gerador zera
+  itens, layout e marca. Monte e baixe na mesma sessão.
+- **Editar item na etapa 1 não toca no cadastro** (`overrides` só valem no PDF). Serve
+  para limpar do papel texto interno da descrição (no sandbox as descrições traziam
+  linhas *"Tags / X-salada…"*, que apareciam no PDF).
+- **O QR Code só é montado na etapa 3.** O canvas do `qrcode.react` vive escondido
+  dentro do `StepMarca`; quem vai da etapa 1 direto ao download (ou aperta **F2**)
+  baixa a capa sem o quadradinho. A prévia da etapa 1 sai sem QR e a da etapa 3 com —
+  as duas capturas provam. Nas capturas, passe pela etapa 3 antes de baixar.
+- **Clássico sai com foto**, apesar de a descrição dizer "só texto":
+  `projetoPadrao()` liga `mostrarFotos`. Só o Fotográfico obriga (switch travado). Para
+  comparar modelos, desligue a foto no Clássico — senão Clássico e Fotográfico saem
+  quase iguais.
+
+Preço do impresso: presencial (padrão), delivery, venda padrão ou tabela de preço
+(produto fora da tabela cai no presencial). Só produto **ativo** entra; seção sem item
+desaparece. Telefone, endereço, redes e logo já vêm do cadastro — a logo é achatada na
+cor de fundo (PNG transparente sairia preto no PDF).
+
+Captura: a prévia é `pdf.js` em canvas e demora. Espere o
+`img[alt="Página 1 do cardápio"]` antes do screenshot, senão sai o skeleton
+*Montando a prévia...*. As imagens da coluna de ajustes (06 e 07) foram recortadas
+(`crop=(316,160,1250,1320)` + `pad_right=140`): os controles ocupam a coluna inteira e
+não sobra espaço vazio para os números.
 
 ---
 
