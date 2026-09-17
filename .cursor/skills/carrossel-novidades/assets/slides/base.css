@@ -228,6 +228,21 @@ body {
   white-space: nowrap;
 }
 
+/* O caminho costuma ir dentro de um parágrafo, e aí herda o corpo do texto. Solto
+ * na `.pilha` ele vira item de flex: `inline-block` não segura nada, a pílula
+ * estica de margem a margem e o texto cai nos 16 px do body. */
+.pilha > .caminho {
+  align-self: flex-start;
+  font-size: 30px;
+}
+
+/* No fundo escuro o rosa vira um bloco aceso e compete com o título; a mesma
+ * pílula em branco translúcido continua lendo como caminho de menu. */
+.slide--capa .caminho {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
 /* ---------------------------------------------------------------- listas */
 
 .marcadores {
@@ -411,6 +426,11 @@ body {
  *
  * A cena define o ponto de fuga e o filho gira dentro dela. Sem o `perspective`
  * no pai, `rotateY` sai como achatamento, não como profundidade.
+ *
+ * Use `class="sangria cena3d"` no MESMO elemento, com o `g3d` no filho.
+ * `perspective` cria bloco de contenção: com a cena por fora e a sangria por
+ * dentro, o `top` passa a contar da cena (altura zero, no meio do fluxo) e o
+ * aparelho desaparece para fora do slide.
  */
 .cena3d {
   perspective: 2200px;
