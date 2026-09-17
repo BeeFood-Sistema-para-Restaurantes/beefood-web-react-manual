@@ -70,13 +70,15 @@ RECORTES: dict[str, tuple[Path, tuple[int, int, int, int], str]] = {
     # Tres das quatro colunas de botoes. A primeira coluna nao tem ajuste em
     # nenhuma das duas linhas, e cortada antes dela a grade sobe de 1,8x para
     # 2,4x — que e a diferenca entre ler e adivinhar o "+R$ 5,00".
-    # O corte comeca em 1288, no meio do vao limpo entre a pilula CTRL+1 (que
-    # acaba em 1283) e o cartao da segunda coluna (que comeca em 1293), e em 312,
-    # abaixo do titulo da secao. A direita para em 1845: de 1846 em diante
-    # comeca a borda do modal.
+    # O corte comeca em 1292, rente a borda do cartao da segunda coluna (que
+    # comeca em 1293). Entre a pilula CTRL+1 e esse cartao parece haver um vao
+    # limpo a partir de 1284 — mas so na conta de pixels escuros; ali ainda cai
+    # a sombra das pilulas CTRL+1 e CTRL+5, e cortar no meio dela deixa dois
+    # borroes na borda esquerda da arte. Em cima comeca em 312, abaixo do titulo
+    # da secao; a direita para em 1845, porque em 1846 comeca a borda do modal.
     "caixa-formas.png": (
         MANUAL_FORMAS / "08-pagamento-presencial.png",
-        (1288, 312, 1845, 558),
+        (1292, 312, 1845, 558),
         "dinheiro -1,00%, credito +3,00% e vale alimentacao +R$ 5,00",
     ),
 }

@@ -1,0 +1,97 @@
+CARROSSEL — DESCONTO OU ACRÉSCIMO POR FORMA DE PAGAMENTO
+Fonte: novidade de 17/08/2026 em
+beefood.app/novidades/desconto-acrescimo-forma-pagamento
+(referência de produção; a arte não tem data, então este carrossel pode ser
+publicado a qualquer momento)
+
+Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-balcao, 03-na-sacola, 04-dois-totais,
+05-um-campo, 06-no-caixa, 07-cta.
+
+Todas as telas são captura de produção, tiradas do sandbox: a sacola do cliente
+com o desconto do Pix, a lista de formas com o selo de cada uma, os dois totais
+do mesmo pedido, o campo de ajuste com a lista aberta e a tela de recebimento do
+salão. Os números são os do exemplo (5% no cardápio; −1%, +3% e +R$ 5,00 no
+caixa), e nenhum deles é promessa de resultado.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+Dê 5% de desconto no Pix
+
+No balcão você já faz isso: cliente na frente, você propõe na hora e quase
+sempre sai no Pix. No cardápio digital não tem essa conversa — o pedido fecha no
+cartão e a taxa vai embora com um pedaço da sua margem, pedido depois de pedido.
+
+Agora cada forma de pagamento carrega o seu próprio ajuste. Na hora de fechar a
+sacola, o cliente vê o selo do lado do nome e escolhe sozinho: quem quer
+economizar vai no Pix, e a taxa do cartão fica fora da sua conta.
+
+Funciona nos dois sentidos. Desconte no Pix e no dinheiro, acrescente no crédito
+e no vale, e a conta sai sobre o subtotal dos produtos. O mesmo pedido de
+R$ 39,00 fecha em R$ 37,05 ou em R$ 40,95, dependendo de como o cliente paga.
+
+A régua é sua. R$ 3,00 fixos chamam mais atenção no pedido pequeno; 5% pesam
+mais no combo de família. Escolha forma por forma, em reais ou em porcentagem, e
+o que você marcar passa a valer em todo pedido.
+
+E não é só no delivery. No caixa o valor aparece impresso embaixo do nome da
+forma: escolheu dinheiro, o desconto entra; escolheu crédito, o acréscimo entra,
+e o operador confere antes de fechar. Mesma regra no PDV, na mesa, na comanda,
+no totem e no pedido pelo WhatsApp.
+
+Escolha uma forma e dê o primeiro desconto, em Cardápio Digital → Formas
+Recebimento. Comece pela que mais aparece nos seus pedidos.
+
+O que mais entrou no sistema está em beefood.app/novidades 🐝❤️
+
+#beefood #cardapiodigital #delivery #restaurante #pix #pedidoonline
+#gestaoderestaurante #pdv
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Qual forma de pagamento você queria ver mais nos seus pedidos? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com o título "Dê 5% de desconto no Pix", a palavra Pix em
+    vermelho. Embaixo, um celular com a sacola do cardápio digital: total em
+    produtos de R$ 39,00, a linha "Desconto 5% (Pix)" de menos R$ 1,95 e total
+    de R$ 37,05, com o Pix Online escolhido e o selo de 5% de desconto.
+
+02  Título "Você já faz isso no balcão", com a palavra balcão em vermelho, e um
+    texto dizendo que no caixa dá para propor o desconto do Pix na hora, que no
+    cardápio digital não existe essa conversa e que a taxa do cartão leva um
+    pedaço da margem em cada pedido.
+
+03  Título "Seu cliente vê o desconto e escolhe sozinho", com a palavra sozinho
+    em vermelho, e um recorte da lista de formas de pagamento do cardápio: em
+    Pague online, o PIX com o selo verde de 5% de desconto; em Pague na
+    retirada, o Dinheiro com o mesmo selo.
+
+04  Título "O mesmo pedido, dois totais", com a palavra dois em vermelho, e dois
+    recortes do resumo de valores do mesmo pedido de R$ 39,00. Em cima, marcado
+    como No Pix, o desconto de 5% de R$ 1,95 e o total de R$ 37,05. Embaixo,
+    marcado como No vale, o acréscimo de 5% de R$ 1,95 e o total de R$ 40,95.
+
+05  Título "Ajuste em reais ou em porcentagem", com a palavra reais em vermelho,
+    e um recorte do painel com o campo Ajuste no pagamento e a lista aberta:
+    sem ajuste, desconto em porcentagem, desconto em reais, acréscimo em
+    porcentagem e acréscimo em reais.
+
+06  Título "No caixa o ajuste já vem na tela", com a palavra já em vermelho, e um
+    recorte da tela de recebimento do BeeFood com os botões das formas de
+    pagamento: Dinheiro com menos 1,00%, Crédito com mais 3,00% e Vale
+    Alimentação com mais R$ 5,00.
+
+07  Fundo escuro com o convite "Escolha uma forma e dê o primeiro desconto" e o
+    caminho Cardápio Digital, Formas Recebimento. Embaixo, um celular com a
+    página de novidades do BeeFood aberta nesta publicação.

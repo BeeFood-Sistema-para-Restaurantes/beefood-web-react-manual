@@ -5,9 +5,13 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-17 (17ª rodada: o texto passou a ter **alvo** em vez
-de lista de proibições — o slide entrega uma **ideia de uso** com o verbo na
-frente, e não a permissão de usar o recurso).
+Última atualização: 2026-09-17 (18ª rodada: desconto por forma de pagamento — o
+primeiro carrossel em que **o manual da novidade já existia**, e por isso o
+primeiro feito quase todo de **recorte** em vez de captura).
+
+17ª rodada: o texto passou a ter **alvo** em vez de lista de proibições — o
+slide entrega uma **ideia de uso** com o verbo na frente, e não a permissão de
+usar o recurso.
 
 16ª rodada: a capa parou de **perguntar** — três carrosséis na mesma fórmula
 viram fórmula no perfil, e afirmar o fato entrega a notícia na linha que todo
@@ -38,6 +42,7 @@ na voz da marca e falando com você**.
 | Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ entregue — `entrega/destaque-impressao.zip` (8 PNG + copy) |
 | Cardápio presencial em inglês e espanhol | [16/09/2026](https://beefood.app/novidades/traducao-cardapio-presencial) | `carrosseis/traducao-cardapio-presencial/` | 4:5, 7 slides | ✅ entregue — `entrega/traducao-cardapio-presencial.zip` (7 PNG + copy) |
 | Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + copy) |
+| Desconto ou acréscimo por forma de pagamento | [17/08/2026](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) | `carrosseis/desconto-forma-pagamento/` | 4:5, 7 slides | ✅ entregue — `entrega/desconto-forma-pagamento.zip` (7 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -149,6 +154,15 @@ Regra para a próxima: antes de fechar a capa, leia as capas já entregues em
 sequência. Se a forma repetir, troque a forma — pergunta, afirmação do fato,
 ordem direta ("Suba o seu primeiro vídeo hoje") e antes × agora são quatro moldes
 diferentes, e a pergunta é só um deles.
+
+A quarta capa gastou o terceiro molde: *"Dê 5% de desconto no **Pix**"* é ordem
+direta. Placar dos moldes até aqui — pergunta 2, afirmação 1, ordem direta 1,
+antes × agora 0. A próxima capa tem um molde intacto e é o mais concreto dos
+quatro, então não há desculpa para voltar à pergunta.
+
+E a ordem direta tem uma exigência que a afirmação não tem: **o verbo precisa
+ser uma coisa que o dono faz numa tarde**. "Dê 5% no Pix" é uma decisão de
+margem e cabe num campo; "Melhore o seu cardápio" não é ordem, é conselho.
 
 ### O quinto vício: proibição não produz texto
 
@@ -494,6 +508,29 @@ borda direita em área vazia, porque corte no meio de uma palavra parece defeito
 A tabela vale para mockup **dentro da margem**, onde a largura útil é 904 px. Em
 sangria a largura de exibição vai a 1120 px, o que empurra o teto de ~440 px para
 ~620 px lógicos — a conta refeita está em *Mockup de computador*, abaixo.
+
+### Moldura de aparelho ou recorte: quando o selo é a prova, o recorte ganha
+
+Print de celular tem 390 px lógicos de largura. Dentro de uma moldura de
+celular de 540 px ele sai a **1,38×**; recortado e exibido nos 904 px da margem,
+a **2,32×**. A diferença decide slides:
+
+| O que o slide precisa que se leia | Escolha |
+|---|---|
+| "esta é a tela do meu cliente" | moldura, e o texto miúdo não importa |
+| um selo de 11 px, um valor, um rótulo | recorte, e some com a moldura |
+
+No carrossel de desconto por forma de pagamento o selo `5% de desconto` tem 11 px
+lógicos: 15 px dentro da moldura (ilegível no feed) e 25 px no recorte. Três dos
+sete slides trocaram o aparelho pelo recorte por causa disso, e o celular ficou
+só onde o assunto é a cena — a capa e o CTA.
+
+**E recorte empilhado paga imposto de altura.** Dois cartões de valores
+empilhados a 904 px, com chapéu, título e três linhas de corpo acima, estouram
+os 1350: o segundo total saía por baixo da borda. A 780 px os dois cabem com
+90 px de folga, e a linha do ajuste ainda sai a 30 px. Quando o slide tem duas
+imagens, a largura não é a máxima que cabe na margem — é a que sobra depois do
+texto.
 
 ## Nada de data na arte
 
@@ -1343,6 +1380,49 @@ O slide pode apontar direto para o print do manual
 cupom do #99: é o mesmo cupom, e duplicar o arquivo criaria duas verdades.
 Prints **puros**, nunca os tratados — os tratados têm setas numeradas, que são
 linguagem de manual.
+
+### Quando o manual da novidade já existe, o carrossel é quase todo recorte
+
+O carrossel de *desconto por forma de pagamento* foi o mais barato até agora, e
+a razão não é mérito: os manuais #64 e #82 já tinham **nove** prints de produção
+da novidade, incluindo a sacola do cliente com o desconto aplicado, os dois
+totais do mesmo pedido e a tela de recebimento do salão com o ajuste impresso
+embaixo do nome de cada forma. Sobraram uma captura nova (a página de novidades
+do CTA) e cinco recortes.
+
+Duas consequências práticas:
+
+- **`pauta.py` pode dizer "nenhum manual relacionado" e existir manual.** Ele
+  casa por slug, e o slug da novidade
+  (`desconto-acrescimo-forma-pagamento`) não é o do manual
+  (`cardapio-digital-desconto-formas`). Antes de acreditar no "nenhum", liste
+  `manuais/` pelas palavras do assunto — aqui, `*desconto*`, `*pagamento*` e
+  `*recebimento*` devolviam cinco pastas, três delas úteis.
+- **recorte em dois eixos precisa de arquivo; em um eixo, não.** `.recorte--topo`
+  com `object-position` corta a altura sem tocar no arquivo, e é o que resolve
+  print de celular. Recorte de painel quase sempre é nos dois eixos (uma janela
+  de modal no meio de 1440 px de tela), e aí o jeito é um `recortar.py` na pasta
+  do carrossel, com as coordenadas **medidas** e o motivo de cada caixa
+  comentado. O script é a nota de proveniência: sem ele, um PNG cortado dentro
+  de `imagens-puras/` parece captura e ninguém sabe de onde veio.
+
+### Onde medir a borda de um recorte, por tipo de print
+
+Cortar dentro de um cartão ou no meio de uma palavra parece falha de render, e
+em duas rodadas foi o que mais custou refazer. As duas medidas que resolveram:
+
+- **print de celular do cardápio:** o fundo da página é cinza (#f7f7f8) e os
+  cartões são brancos puros, então a borda de cada cartão é a linha em que mais
+  de 90% dos pixels ficam entre 200 e 250 de luminância. Uma varredura de dez
+  linhas devolve a caixa exata de cada cartão;
+- **print de painel:** varra **colunas** contando pixels com tinta numa faixa de
+  altura, e varra **duas vezes**, com limiar duro e com limiar frouxo. Na tela de
+  recebimento, contando só pixels abaixo de 235 de luminância, as colunas 1284 a
+  1292 davam zero: um vão limpo de nove pixels entre a pílula `CTRL+1` e o cartão
+  seguinte. Cortei em 1288, no meio dele, e a borda esquerda da arte saiu com
+  dois borrões. Recontando abaixo de 250, aquelas mesmas colunas tinham de 31 a
+  61 pixels — a **sombra** da pílula, que o limiar duro não via e o olho vê. A
+  borda que serve é a do cartão, em 1293, e é onde o recorte ficou.
 
 ## Entrega: imagem, legenda e zip
 
