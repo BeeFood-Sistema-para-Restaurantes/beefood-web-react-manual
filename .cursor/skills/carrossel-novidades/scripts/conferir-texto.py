@@ -3,6 +3,12 @@
 
     python .cursor/skills/carrossel-novidades/scripts/conferir-texto.py <slug>
     python ... <slug> --janela 6
+    python ... <pasta> --novidade <slug-da-novidade>
+
+A pasta do carrossel costuma ter o mesmo nome da novidade. Quando o slug
+publicado é comprido demais para virar nome de pasta
+(`cardapio-digital-avisos-banners-capas-midia`), `--novidade` diz qual entrada
+do feed é a fonte.
 
 Compara o texto visível dos slides com o texto publicado em
 beefood.app/novidades e acusa qualquer sequência de N palavras que apareça igual
@@ -84,7 +90,9 @@ def sequencias(lista: list[str], n: int) -> set[tuple[str, ...]]:
 
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("slug", help="pasta em carrosseis/ e slug da novidade")
+    p.add_argument("slug", help="pasta em carrosseis/")
+    p.add_argument("--novidade",
+                   help="slug da novidade no feed, quando difere do da pasta")
     p.add_argument("--janela", type=int, default=6,
                    help="tamanho da sequência considerada cópia (padrão 6)")
     args = p.parse_args()
@@ -93,9 +101,10 @@ def main() -> None:
     if not pasta.is_dir():
         sys.exit(f"ERRO: não achei {pasta}")
 
-    ficha = next((f for f in fichas(baixar(FEED)) if f["slug"] == args.slug), None)
+    alvo = args.novidade or args.slug
+    ficha = next((f for f in fichas(baixar(FEED)) if f["slug"] == alvo), None)
     if ficha is None:
-        sys.exit(f"ERRO: nenhuma novidade com slug {args.slug} no feed")
+        sys.exit(f"ERRO: nenhuma novidade com slug {alvo} no feed")
 
     # O título entra junto: copiar o título da novidade na capa é justamente o
     # erro mais comum, e foi o da primeira versão do destaque-impressao.
