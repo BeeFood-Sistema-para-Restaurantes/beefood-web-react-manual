@@ -753,8 +753,8 @@ body {
   left: 50%;
   top: 100%;
   transform: translateX(-50%);
-  width: 46%;
-  aspect-ratio: 100 / 24;
+  width: 58%;
+  aspect-ratio: 100 / 25;
   border-radius: 3px 3px 14px 14px;
   /* Abre 5% para cada lado de cima para baixo: é a chapa deitando na mesa. O
    * pescoço estreito com base oval (duas peças) foi tentado três vezes e nas
@@ -1028,34 +1028,34 @@ body {
   letter-spacing: 0.04em;
 }
 
-/* Telas do totem e do tablet, desenhadas a partir dos prints de produção que o
- * dono mandou e que o manual versiona
- * (`manuais/traducao-cardapio-presencial/imagens-puras/`):
+/* Telas do totem e do tablet, desenhadas a partir de captura do aplicativo de
+ * verdade. A do totem saiu do totem de exemplo que o dono liberou
+ * (`totem.beefood.app`, ver `capturar-totem.py` do carrossel da tradução); a do
+ * tablet, do print de produção que o manual versiona
+ * (`manuais/traducao-cardapio-presencial/imagens-puras/09-tablet-coca-traduzida.png`).
  *
- *   07-totem-iniciar-idioma.png   tela de espera do totem
- *   08-totem-menu-idioma.png      cardápio do totem em inglês
- *   09-tablet-coca-traduzida.png  cardápio do tablet em inglês
- *
- * **Por que desenhar em vez de colar o print inteiro na moldura.** O print do
- * totem é paisagem (1186×699) e a tela do aparelho é retrato — colar um no
- * outro é inventar aparelho. E print de tela cheia reduzido para caber num
- * slide fica com letra de 4 px no feed. O desenho copia o layout e a paleta, e
- * usa **as fotos reais** recortadas do print (`preparar-telas.py` do carrossel)
- * onde o produto mostra foto. Muda só a escala do texto e o número de colunas
- * da grade.
+ * **Por que desenhar em vez de colar o print inteiro na moldura.** A tela do
+ * totem tem 1080×1920; dentro de um slide ela entra com 300 a 500 px de
+ * largura, e aí o nome do produto vira letra de 5 px. O desenho copia o layout
+ * e a paleta, aumenta só a tipografia, e usa **as fotos reais** que a própria
+ * API serve — inclusive o banner do topo, que entra como captura, com o
+ * `CANCEL ORDER` e a pílula de bandeiras de produção dentro.
  *
  * Duas regras que valem para qualquer tela desenhada:
  *
- * 1. **Todo texto em inglês tem de ser texto documentado** — DRINKS, CANCEL
- *    ORDER, SEARCH, MY CART, MY BILL, RATE, HIGHLIGHTS, MENU, Order, Cola US,
- *    The drink cola. Inventar tradução no desenho é inventar comportamento.
+ * 1. **Todo texto em outro idioma tem de vir de algum lugar** — ou é string do
+ *    aplicativo que você viu na captura (CANCEL ORDER, Your bag is empty,
+ *    SEARCH, MY CART, MY BILL, Order), ou é conteúdo de cardápio que você
+ *    escreveu e versionou (o `traducoes.json` do carrossel). Inventar na hora
+ *    de montar o slide é como o texto sai errado.
  * 2. **Tudo em `em`.** A mesma tela entra em slides de larguras diferentes;
  *    trocar o `font-size` da raiz da tela escala ela inteira.
  *
- * As cores não são escolha de arte, são leitura do print: o **totem é claro**
- * (fundo branco, texto quase preto) e o **tablet é escuro** (fundo #1b1b1d,
- * texto branco, preço em amarelo). A primeira versão daqui tinha os dois
- * invertidos, e era o erro mais visível do carrossel. */
+ * As cores não são escolha de arte, são leitura da captura. Os dois aparelhos
+ * têm tema claro e tema escuro, e quem manda é a configuração da loja: o totem
+ * de exemplo roda **escuro** (`aaBlack`), com coluna de setores em miniatura de
+ * foto e barra de sacola vermelha no pé. A tela de espera clara
+ * (`.tela-totem--espera`) é a da loja que **não** usa imagem de fundo. */
 
 /* ---------------------------------------------------------------- totem */
 
@@ -1063,8 +1063,8 @@ body {
   position: relative;
   height: 100%;
   display: flex;
-  background: #fff;
-  color: #17181a;
+  background: #252524;
+  color: #fff;
   font-size: 22px;
   line-height: 1.22;
 }
@@ -1112,48 +1112,76 @@ body {
   font-size: 1.9em;
 }
 
-/* Coluna de setores, à esquerda. No print o setor ativo leva uma linha vermelha
- * embaixo, e os nomes vão em caixa alta. Em retrato a coluna é estreita e o
- * nome fica pequeno — é assim na foto do aparelho, e é o preço de a grade de
- * produtos ficar legível. */
+/* Coluna de setores, à esquerda. No aparelho cada setor é uma **miniatura de
+ * foto** com o nome em caixa alta embaixo, e o setor aberto ganha um contorno
+ * vermelho na foto. A coluna é estreita (239 px de 1080 na captura) porque a
+ * grade de produtos é quem precisa de espaço. */
 .tela-totem__setores {
-  /* 24% é a coluna do print (230 px de 1024) e é o mínimo que segura os nomes
-   * longos. Em 21% "COMBOS (BURGER + PORÇÃO + BEBIDA)" quebrava em seis linhas
-   * e a coluna virava uma pilha de fragmentos; em 24% cai para quatro. */
-  width: 24%;
+  width: 22%;
   flex: none;
   display: flex;
   flex-direction: column;
-  border-right: 0.05em solid #ececee;
+  align-items: center;
+  padding: 0.55em 0;
+  gap: 0.45em;
+  overflow: hidden;
 }
 
+/* Primeiro quadrado da coluna: a marca da loja. Aqui entra o logo da BeeFood
+ * em versão de fundo escuro, e não a marca do restaurante da captura — a arte
+ * é nossa, e marca de cliente em peça de divulgação vira endosso que ninguém
+ * combinou. */
 .tela-totem__marca-caixa {
-  margin: 0.7em;
-  padding: 0.7em 0.3em;
-  border: 0.05em solid #ececee;
-  border-radius: 0.3em;
+  width: 66%;
+  aspect-ratio: 1;
+  flex: none;
+  border-radius: 0.55em;
+  background: #111;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
-/* O logo entra como imagem da marca, o mesmo arquivo de fundo claro que o
- * `.logo` do slide usa. */
 .tela-totem__marca-caixa span {
-  width: 80%;
+  width: 74%;
   aspect-ratio: 260 / 96;
-  background: var(--logo) center / contain no-repeat;
+  background: var(--logo-escuro) center / contain no-repeat;
 }
 
 .tela-totem__setor {
-  padding: 0.85em 0.7em;
-  font-size: 0.62em;
+  width: 100%;
+  flex: none;
+  padding: 0.3em 0.25em 0.45em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35em;
+}
+
+.tela-totem__setor img {
+  width: 66%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 0.55em;
+}
+
+.tela-totem__setor span {
+  font-size: 0.5em;
   font-weight: 900;
-  letter-spacing: 0.03em;
-  color: #17181a;
+  letter-spacing: 0.02em;
+  line-height: 1.16;
+  text-align: center;
 }
 
 .tela-totem__setor--ativo {
-  border-bottom: 0.12em solid var(--primaria);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Contorno, e não borda: borda mudaria o tamanho da foto e desalinharia a
+ * coluna inteira. */
+.tela-totem__setor--ativo img {
+  outline: 0.14em solid var(--primaria);
+  outline-offset: -0.07em;
 }
 
 .tela-totem__corpo {
@@ -1173,11 +1201,12 @@ body {
   overflow: hidden;
 }
 
-/* Banner do topo. É o recorte do print, então traz o CANCEL ORDER e a pílula
- * de bandeiras de produção — a prova da novidade em pixel real. */
+/* Banner do topo. É a captura do aparelho, então traz o CANCEL ORDER e a
+ * pílula de bandeiras de produção — a prova da novidade em pixel real. */
 .tela-totem__banner {
-  width: 100%;
-  aspect-ratio: 870 / 350;
+  margin: 0.55em 0.6em 0;
+  border-radius: 0.5em;
+  aspect-ratio: 800 / 350;
   overflow: hidden;
   flex: none;
 }
@@ -1203,12 +1232,12 @@ body {
 
 /* Duas colunas, e não as três do aparelho: em três, o nome do produto some na
  * redução do feed. É o único desvio de layout, e é o mesmo motivo que manda
- * recortar print em vez de encolher. */
+ * desenhar a tela em vez de encolher a captura. */
 .tela-totem__grade {
-  padding: 0 0.7em;
+  padding: 0 0.6em;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.6em;
+  gap: 0.55em;
 }
 
 /* Card em bloco, não em flex. O card é item de grid e a grade estica a linha
@@ -1217,10 +1246,9 @@ body {
  * `flex-basis: auto` passa a ler a altura **intrínseca** do arquivo e o
  * `aspect-ratio` é ignorado, então a foto esticava e o texto sumia embaixo. */
 .tela-totem__card {
-  border: 0.05em solid #ececed;
-  border-radius: 0.35em;
+  border-radius: 0.5em;
   overflow: hidden;
-  background: #fff;
+  background: #1b1b1b;
 }
 
 .tela-totem__card img {
@@ -1232,41 +1260,38 @@ body {
 }
 
 .tela-totem__card div {
-  padding: 0.5em 0.55em 0.6em;
+  padding: 0.5em 0.6em 0.65em;
   display: flex;
   flex-direction: column;
-  gap: 0.12em;
+  gap: 0.3em;
 }
 
 .tela-totem__card span {
-  font-size: 0.85em;
+  font-size: 0.72em;
   font-weight: 900;
-}
-
-.tela-totem__card small {
-  font-size: 0.7em;
-  color: #8a8a8e;
+  letter-spacing: 0.01em;
 }
 
 /* Preço não muda de idioma — é o que o manual diz, e é o detalhe que faz a tela
  * desenhada parecer a tela do produto. */
 .tela-totem__card b {
-  margin-top: 0.15em;
-  font-size: 0.85em;
+  font-size: 0.82em;
+  font-weight: 900;
 }
 
-/* Barra da sacola, no pé. Vermelha e sem frase: a do aparelho diz "Sua sacola
- * está vazia" em português, e a versão em inglês não está documentada em lugar
- * nenhum. Ícone e contador dizem a mesma coisa sem inventar string. */
+/* Barra da sacola, no pé: retângulo vermelho de canto arredondado com o
+ * carrinho e a frase. "Your bag is empty" é string do aplicativo, lida na
+ * captura em inglês — não é tradução inventada aqui. */
 .tela-totem__sacola {
-  margin-top: auto;
-  padding: 0.7em 0.9em;
-  background: var(--primaria);
+  margin: 0.55em 0.6em;
+  padding: 0.75em 0.9em;
+  border-radius: 0.5em;
+  background: #ff0000;
   color: #fff;
   display: flex;
   align-items: center;
-  gap: 0.5em;
-  font-size: 0.9em;
+  gap: 0.6em;
+  font-size: 0.78em;
   font-weight: 900;
 }
 
@@ -1456,10 +1481,17 @@ body {
   font-weight: 900;
 }
 
+/* `flex: none` não é detalhe: a lista é uma coluna flex, e sem isso os itens
+ * encolhem para caber na altura da tela — o preço some cortado dentro do
+ * próprio cartão, que lê como bug. Com `flex: none` o excesso é cortado pela
+ * borda da tela, que é o que a lista rolando faz de verdade. Escolha o
+ * `font-size` da tela de modo que o corte caia **dentro da foto** do último
+ * item, e não em cima de texto. */
 .tela-tablet__item {
   display: flex;
   align-items: stretch;
   gap: 0.9em;
+  flex: none;
   background: #26262a;
   border-radius: 0.3em;
   overflow: hidden;

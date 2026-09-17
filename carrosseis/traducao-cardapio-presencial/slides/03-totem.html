@@ -1,16 +1,20 @@
-<!-- A escolha do idioma na tela de espera do totem: é onde o seletor aparece. A
-     capa já mostrou o resultado (o cardápio em inglês); aqui é o gesto.
+<!-- O cardápio do totem em inglês. A capa mostrou a bandeira; aqui é o que
+     acontece depois de tocar nela.
 
      Totem **reto**, sem 3D. O giro funciona em celular e em computador, que são
      aparelhos que a gente vê de todos os ângulos; um totem é um armário em pé,
      e girado ele lê como armário tombando. A regra virou linha na
      MEMORIA-CARROSSEIS.md: 3D só em celular e em janela de computador.
 
-     A tela é a de espera, copiada do print de produção (07): fundo cinza claro,
-     o botão vermelho no meio com o fio branco em volta, e a pílula branca com
-     as três bandeiras logo embaixo. Brasil marcado, que é o estado antes de o
-     cliente escolher. Nada mais está escrito ali porque nada mais está escrito
-     no aparelho.
+     A tela é desenhada em cima da captura do totem de exemplo (tema escuro,
+     coluna de setores em miniatura de foto, barra da sacola no pé). O banner do
+     topo é a captura, com o CANCEL ORDER e a pílula de bandeiras de produção
+     dentro. As fotos são as que a própria API serve, e os nomes em inglês são
+     os do `traducoes.json`.
+
+     `Sides` e `French fries` no mesmo quadro é o ponto do slide: são nomes que
+     **mudam** de idioma. Uma grade de hambúrguer não provaria nada — ONE BURGER
+     se escreve igual nas três línguas.
 
      O texto fica na esquerda, em coluna estreita, e o totem sobe até a faixa do
      título: aparelho em pé pede altura, e a coluna sai pela base. -->
@@ -20,28 +24,75 @@
     <span class="contador">3 de 7</span>
   </div>
 
-  <div class="pilha g24" style="margin-top: 50px; max-width: 600px">
+  <div class="pilha g24" style="margin-top: 50px; max-width: 500px">
     <span class="chapeu">No totem</span>
     <h2 class="titulo titulo--pequeno">
-      Ele escolhe o idioma <span class="destaque">antes</span> de pedir
+      Ele toca na bandeira e o cardápio <span class="destaque">inteiro</span>
+      muda
     </h2>
     <p class="corpo">
-      As bandeiras ficam embaixo do botão de começar. E dá para trocar no meio
-      do pedido também.
+      Setor, nome do produto, descrição, os adicionais que ele escolhe no
+      caminho. Tudo na língua dele, até fechar o pedido.
     </p>
   </div>
 
-  <span class="selo-ilustracao" style="left: 88px; top: 796px">Ilustração</span>
+  <!-- O selo desce até a base: sozinho embaixo do texto ele ainda equilibra a
+       coluna vazia que o totem deixa na esquerda. -->
+  <span class="selo-ilustracao" style="left: 88px; top: 1196px">Ilustração</span>
 
-  <div class="sangria" style="top: 462px; right: 46px; width: 396px">
-    <div class="totem" style="width: 396px; --coluna: 300px">
+  <div class="sangria" style="top: 452px; right: 40px; width: 420px">
+    <div class="totem" style="width: 420px; --coluna: 300px">
       <div class="totem__tela">
-        <div class="tela-totem tela-totem--espera" style="font-size: 22px">
-          <div class="tela-totem__botao">FAÇA SEU PEDIDO</div>
-          <div class="tela-totem__idiomas">
-            <span class="bandeira bandeira--anel"><span>&#127463;&#127479;</span></span>
-            <span class="bandeira"><span>&#127482;&#127480;</span></span>
-            <span class="bandeira"><span>&#127466;&#127480;</span></span>
+        <!-- 19 px é o maior valor em que as quatro fotos cabem inteiras antes
+             da barra da sacola. Em 20 px a rolagem cortava no meio do preço, e
+             corte em cima de número lê como falha de render. -->
+        <div class="tela-totem" style="font-size: 19px">
+          <div class="tela-totem__setores">
+            <div class="tela-totem__marca-caixa"><span></span></div>
+            <div class="tela-totem__setor tela-totem__setor--ativo">
+              <img src="../imagens-puras/foto-batata.png" alt="">
+              <span>SIDES</span>
+            </div>
+            <div class="tela-totem__setor">
+              <img src="../imagens-puras/foto-smash.png" alt="">
+              <span>BURGERS</span>
+            </div>
+            <div class="tela-totem__setor">
+              <img src="../imagens-puras/foto-brownie.png" alt="">
+              <span>DESSERTS</span>
+            </div>
+            <div class="tela-totem__setor">
+              <img src="../imagens-puras/foto-shake.png" alt="">
+              <span>MILKSHAKES</span>
+            </div>
+          </div>
+          <div class="tela-totem__corpo">
+            <div class="tela-totem__banner">
+              <img src="../imagens-puras/totem-banner-en.png"
+                   alt="Banner do totem com o seletor de idioma no canto direito">
+            </div>
+            <div class="tela-totem__rolagem">
+              <div class="tela-totem__secao">Sides</div>
+              <div class="tela-totem__grade">
+                <div class="tela-totem__card">
+                  <img src="../imagens-puras/foto-batata.png" alt="">
+                  <div><span>FRENCH FRIES</span><b>R$ 11,00</b></div>
+                </div>
+                <div class="tela-totem__card">
+                  <img src="../imagens-puras/foto-cebola.png" alt="">
+                  <div><span>ONION RINGS</span><b>R$ 12,00</b></div>
+                </div>
+                <div class="tela-totem__card">
+                  <img src="../imagens-puras/foto-mozza.png" alt="">
+                  <div><span>MOZZA STICKS</span><b>R$ 32,00</b></div>
+                </div>
+                <div class="tela-totem__card">
+                  <img src="../imagens-puras/foto-batata-cheddar.png" alt="">
+                  <div><span>CHEDDAR &amp; BACON FRIES</span><b>R$ 18,00</b></div>
+                </div>
+              </div>
+            </div>
+            <div class="tela-totem__sacola"><i></i><span>Your bag is empty</span></div>
           </div>
         </div>
       </div>
