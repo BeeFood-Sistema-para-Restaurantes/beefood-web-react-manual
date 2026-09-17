@@ -1,8 +1,9 @@
 # Memória dos carrosséis
 
 Memória própria desta skill. Aprendizado de **captura genérica** do BeeFood
-continua na `MEMORIA-GERAL.md`, escrita por quem trabalha nos manuais — aqui só
-entra o que é de carrossel.
+continua na
+[`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
+`manual-sistema` — aqui só entra o que é de carrossel.
 
 Última atualização: 2026-09-17 (17ª rodada: o texto passou a ter **alvo** em vez
 de lista de proibições — o slide entrega uma **ideia de uso** com o verbo na

@@ -13,9 +13,9 @@ O que verifica, para cada pasta em manuais/:
 3. Nao ha arquivo orfao em imagens-tratadas/ -- presente na pasta, mas que
    nenhum manual referencia.
 
-Uso:
-    python validar-imagens.py            # todos os manuais
-    python validar-imagens.py caixa      # so um manual (nome da pasta)
+Uso, de qualquer pasta:
+    python .cursor/skills/manual-sistema/scripts/validar-imagens.py
+    python .cursor/skills/manual-sistema/scripts/validar-imagens.py caixa
 
 Codigo de saida: 0 se tudo certo, 1 se houver imagem faltando.
 Orfao nao derruba a saida: e aviso, nao erro.
@@ -27,7 +27,8 @@ import re
 import sys
 from pathlib import Path
 
-RAIZ = Path(__file__).resolve().parent
+# .cursor/skills/manual-sistema/scripts/ -> raiz do repositorio
+RAIZ = Path(__file__).resolve().parents[4]
 MANUAIS = RAIZ / "manuais"
 
 # Imagem em markdown: ![alt](caminho)

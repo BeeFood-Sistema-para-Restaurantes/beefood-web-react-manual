@@ -1,19 +1,36 @@
-# BeeFood — Manuais de Funcionalidades
+# BeeFood — Manuais e carrosséis
 
-Repositório de **manuais de uso (usuário final)** do sistema BeeFood (`https://beefood.app`),
-construídos a partir do código do projeto `beefood-web-react` e de capturas de tela reais em produção.
+Conteúdo sobre o sistema BeeFood (`https://beefood.app`), produzido a partir do código
+do projeto `beefood-web-react` e de capturas de tela reais em produção.
+
+São **duas skills**, cada uma com o seu fluxo, e duas pastas de saída.
+
+| Skill | O que produz | Escreve em |
+|-------|--------------|------------|
+| [`manual-sistema`](.cursor/skills/manual-sistema/SKILL.md) | manual de uso para o usuário final: passo a passo com setas verdes numeradas | `manuais/` |
+| [`carrossel-novidades`](.cursor/skills/carrossel-novidades/SKILL.md) | carrossel de Instagram sobre uma novidade: prints, mockups, PNG 1080×1350 | `carrosseis/` |
+
+A de carrossel **lê** o material da de manual — captura, contas, comportamento já
+conferido no sistema — e não escreve nada dentro dela. Cada skill tem a sua memória:
+[`MEMORIA-GERAL.md`](.cursor/skills/manual-sistema/references/MEMORIA-GERAL.md) e
+[`MEMORIA-CARROSSEIS.md`](.cursor/skills/carrossel-novidades/references/MEMORIA-CARROSSEIS.md).
 
 ## Estrutura
 
 ```
 .
-├─ MEMORIA-GERAL.md            # Boas práticas, padrões, contas e ferramentas (ler primeiro)
-├─ CHECKLIST-MANUAIS.md        # O que já foi feito, o que está na fila e o histórico
-├─ PLANO-CARDAPIO.md           # Plano aprovado dos manuais #27–#31 (cardápio por segmento)
-├─ PLANO-MIGRACAO-AJUDA.md     # Fila #49–#56 (migração do ajuda.beefood.com.br)
-├─ PLANO-NUMERACAO-PEDIDOS.md  # Estudo do #74 (número da venda × número do pedido)
-├─ PLANO-RELATORIOS.md         # Fila #75–#96 (um manual por relatório do Desempenho)
-├─ validar-imagens.py          # Confere se as imagens referenciadas pelos manuais existem
+├─ AGENTS.md                   # Qual skill atende qual pedido
+├─ spec.md                     # Stack, versões e padrão de pastas
+├─ .cursor/skills/
+│  ├─ manual-sistema/          # Skill: fazer manual
+│  │  ├─ SKILL.md              # O fluxo, em sete passos
+│  │  ├─ references/           # MEMORIA-GERAL.md, CHECKLIST-MANUAIS.md e planos/
+│  │  └─ scripts/              # validar-imagens.py
+│  └─ carrossel-novidades/     # Skill: fazer carrossel
+│     ├─ SKILL.md
+│     ├─ references/           # MEMORIA-CARROSSEIS.md, mockups, roteiro e copy
+│     ├─ scripts/              # pauta, captura, render, empacotamento
+│     └─ assets/               # base.css, fotos de produto, mídia de exemplo
 ├─ manuais/
 │  └─ <nome-do-manual>/        # Uma pasta por manual
 │     ├─ MEMORIA.md            # Memória detalhada do manual (fluxo, uso, decisões, estado)
@@ -22,21 +39,9 @@ construídos a partir do código do projeto `beefood-web-react` e de capturas de
 │     ├─ annotate.py           # Script de anotação (setas/números) — Python + Pillow
 │     ├─ imagens-puras/        # Screenshots originais (backup, sem edição)
 │     └─ imagens-tratadas/     # Screenshots com setas/números (usados no manual)
-└─ carrosseis/                 # Carrosséis de novidades (arte para Instagram)
-   └─ <slug>/                  # Uma pasta por carrossel
+└─ carrosseis/
+   └─ <slug>/                  # Uma pasta por carrossel — índice em carrosseis/README.md
 ```
-
-## Duas frentes, dois fluxos
-
-| Frente | O que produz | Onde está o fluxo |
-|--------|--------------|-------------------|
-| **Manuais** | passo a passo para o usuário final, com setas numeradas | [`MEMORIA-GERAL.md`](MEMORIA-GERAL.md) + [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md) |
-| **Carrosséis de novidades** | arte de Instagram (prints, mockups, PNG 1080×1350) | [`.cursor/skills/carrossel-novidades/SKILL.md`](.cursor/skills/carrossel-novidades/SKILL.md) |
-
-A skill de carrossel **lê** o material dos manuais (captura, contas, comportamento
-conferido no sistema) e não altera nada dentro de `manuais/`, da `MEMORIA-GERAL.md`
-nem do `CHECKLIST-MANUAIS.md`. O índice dos carrosséis fica em
-[`carrosseis/README.md`](carrosseis/README.md).
 
 ## Manuais disponíveis
 
@@ -115,8 +120,8 @@ nem do `CHECKLIST-MANUAIS.md`. O índice dos carrosséis fica em
 ## Antes de publicar um manual
 
 ```bash
-python validar-imagens.py            # todos os manuais
-python validar-imagens.py caixa      # só um
+python .cursor/skills/manual-sistema/scripts/validar-imagens.py         # todos os manuais
+python .cursor/skills/manual-sistema/scripts/validar-imagens.py caixa   # só um
 ```
 
 Falha (código 1) se algum manual referenciar imagem que não existe. Avisa também sobre imagem

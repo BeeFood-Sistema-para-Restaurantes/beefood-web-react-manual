@@ -246,7 +246,8 @@ def main() -> int:
 
         print("\nTudo copiado. Agora desenhe as setas, confira e suba:")
         print("  python annotate.py")
-        print("  python ../../validar-imagens.py cardapio-digital-tablet-modo-kiosk")
+        print("  python ../../.cursor/skills/manual-sistema/scripts/validar-imagens.py"
+              " cardapio-digital-tablet-modo-kiosk")
         print("  git add manuais/cardapio-digital-tablet-modo-kiosk/imagens-*")
         print('  git commit -m "docs(modo-kiosk): adiciona as capturas do manual"')
         print("  git push")

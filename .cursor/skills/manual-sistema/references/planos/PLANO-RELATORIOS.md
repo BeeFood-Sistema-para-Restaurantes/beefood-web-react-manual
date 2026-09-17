@@ -258,7 +258,7 @@ Repetir para cada um dos 22, um por vez, com conversa antes de começar:
 - [ ] Tratar as imagens no `annotate.py` e conferir uma a uma em tamanho real
 - [ ] Escrever o `.md` no roteiro da seção 8
 - [ ] `fluxo-codigo.md`, `MEMORIA.md` e `texto-documentation.ia.md`
-- [ ] `python validar-imagens.py <pasta>`
+- [ ] `python .cursor/skills/manual-sistema/scripts/validar-imagens.py <pasta>`
 - [ ] Commit + push + PR, e registrar no `CHECKLIST-MANUAIS.md`
 
 > **Atenção especial ao dado pessoal neste bloco.** Diferente dos manuais anteriores, aqui

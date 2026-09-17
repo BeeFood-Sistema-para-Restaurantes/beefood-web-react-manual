@@ -5,9 +5,14 @@ lista de problemas que o carrossel encontraria de novo do zero. Este arquivo é 
 **mapa** desse conhecimento: ele diz o que abrir e por quê, e não repete o
 conteúdo — memória duplicada envelhece em dois lugares e um deles fica errado.
 
-A fronteira é simples: **a skill de manual continua dona de tudo isso.** Esta
-skill lê `MEMORIA-GERAL.md`, `CHECKLIST-MANUAIS.md` e as pastas de `manuais/`,
-e **não escreve** em nenhum deles.
+A fronteira é simples: **a skill de manual continua dona de tudo isso.** Ela é a
+`manual-sistema`, e os dois arquivos citados aqui moram nela:
+
+- [`.cursor/skills/manual-sistema/references/MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md)
+- [`.cursor/skills/manual-sistema/references/CHECKLIST-MANUAIS.md`](../../manual-sistema/references/CHECKLIST-MANUAIS.md)
+
+Esta skill lê os dois e as pastas de `manuais/`, e **não escreve** em nenhum
+deles.
 
 ## O que ler na `MEMORIA-GERAL.md`, por assunto
 

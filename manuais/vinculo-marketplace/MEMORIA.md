@@ -2,7 +2,7 @@
 
 Manual **de operação**: ensina a traduzir o nome que o marketplace manda para o produto do
 cardápio. Estudo que o originou:
-[`PLANO-VINCULO-MARKETPLACE.md`](../../PLANO-VINCULO-MARKETPLACE.md).
+[`PLANO-VINCULO-MARKETPLACE.md`](../../.cursor/skills/manual-sistema/references/planos/PLANO-VINCULO-MARKETPLACE.md).
 
 Estado: ✅ **Concluído** em 02/09/2026. 14 imagens, 39 setas + 2 molduras.
 

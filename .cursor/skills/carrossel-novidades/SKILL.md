@@ -1,6 +1,6 @@
 ---
 name: carrossel-novidades
-description: Produz carrossel de Instagram (prints reais, mockups e slides em PNG 1080x1350) sobre uma novidade publicada em beefood.app/novidades ou sobre um tema do sistema BeeFood. Use quando o pedido falar de carrossel, post, arte, slides, divulgação ou comunicação de novidade. Não use para escrever manual de usuário — manual tem fluxo próprio na MEMORIA-GERAL.md.
+description: Produz carrossel de Instagram (prints reais, mockups e slides em PNG 1080x1350) sobre uma novidade publicada em beefood.app/novidades ou sobre um tema do sistema BeeFood. Use quando o pedido falar de carrossel, post, arte, slides, divulgação ou comunicação de novidade. Não use para escrever manual de usuário — isso é a skill manual-sistema.
 ---
 
 # Carrossel de novidades do BeeFood
@@ -14,13 +14,13 @@ mockup de celular e de computador, e slides exportados no tamanho exato do feed.
 | Pedido | Onde ele é atendido |
 |--------|---------------------|
 | "faz um carrossel da novidade X", "post sobre o KDS", "arte para o Instagram" | **aqui** |
-| "cria o manual de X", "documenta a tela Y", "atualiza o manual Z" | `MEMORIA-GERAL.md` + `manuais/` — **não é esta skill** |
+| "cria o manual de X", "documenta a tela Y", "atualiza o manual Z" | skill `manual-sistema` — **não é esta** |
 | "carrossel do tema X" (sem novidade publicada) | aqui; a pauta vem do manual ou do tema, não do feed |
 
-Esta skill **não altera** `MEMORIA-GERAL.md`, `CHECKLIST-MANUAIS.md` nem nada
-dentro de `manuais/`. Ela lê esse material e escreve só em `carrosseis/` e na
-própria pasta da skill. O manual continua com o foco dele: passo a passo com
-setas numeradas para o usuário final.
+Esta skill **não altera** nada da `manual-sistema`: nem a `MEMORIA-GERAL.md`,
+nem o `CHECKLIST-MANUAIS.md`, nem `manuais/`. Ela lê esse material e escreve só
+em `carrosseis/` e na própria pasta. O manual continua com o foco dele: passo a
+passo com setas numeradas para o usuário final.
 
 ## Conhecimento que vem do manual (leia antes de capturar)
 

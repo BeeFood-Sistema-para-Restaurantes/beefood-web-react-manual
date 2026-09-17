@@ -1,6 +1,8 @@
-# BeeFood — Manuais (spec)
+# BeeFood — Manuais e carrosséis (spec)
 
-Repositório de manuais de usuário final do BeeFood (`https://beefood.app`).
+Repositório de conteúdo sobre o BeeFood (`https://beefood.app`), organizado em
+**duas skills**: uma faz manual de usuário, a outra faz carrossel de novidade.
+Elas dividem stack e sandbox, e cada uma escreve na sua pasta de saída.
 
 ## Stack
 
@@ -33,15 +35,30 @@ carrosseis/<slug>/
 
 ## Skills
 
-| Skill | Escopo | Arquivo |
-|-------|--------|---------|
-| Manuais | passo a passo para o usuário final | `MEMORIA-GERAL.md` (lida no início de cada sessão) + `CHECKLIST-MANUAIS.md` |
-| `carrossel-novidades` | carrossel de Instagram sobre uma novidade do sistema | `.cursor/skills/carrossel-novidades/SKILL.md` |
+Tudo que é processo mora em `.cursor/skills/<skill>/`, no mesmo formato: `SKILL.md`
+como porta de entrada, `references/` com a memória e os documentos longos,
+`scripts/` com o que se executa. A raiz do repositório guarda só a **saída**
+(`manuais/`, `carrosseis/`) e os três arquivos de orientação (`AGENTS.md`,
+`README.md`, `spec.md`).
 
-A skill de carrossel acrescenta ao stack acima **nada** além do que já existia:
-os slides são HTML renderizado a PNG pelo mesmo Playwright, e a folha de contato
-sai pelo mesmo Pillow. Ela lê a `MEMORIA-GERAL.md` e as pastas de `manuais/`, e
-escreve só em `carrosseis/`.
+| Skill | Escopo | Saída | Memória |
+|-------|--------|-------|---------|
+| `manual-sistema` | passo a passo para o usuário final | `manuais/` | `references/MEMORIA-GERAL.md` (ler no início da sessão) + `references/CHECKLIST-MANUAIS.md` |
+| `carrossel-novidades` | carrossel de Instagram sobre uma novidade do sistema | `carrosseis/` | `references/MEMORIA-CARROSSEIS.md` |
+
+```
+.cursor/skills/manual-sistema/
+├── SKILL.md
+├── references/
+│   ├── MEMORIA-GERAL.md        # memória mestre dos manuais, 12 seções
+│   ├── CHECKLIST-MANUAIS.md    # fila, status e histórico (#NN)
+│   └── planos/PLANO-*.md       # estudo de um bloco antes de virar manual
+└── scripts/validar-imagens.py
+```
+
+A skill de carrossel **não acrescenta stack**: os slides são HTML renderizado a
+PNG pelo mesmo Playwright, e a folha de contato sai pelo mesmo Pillow. Ela lê a
+`MEMORIA-GERAL.md` e as pastas de `manuais/`, e escreve só em `carrosseis/`.
 
 ## Conta sandbox
 
@@ -51,12 +68,12 @@ escreve só em `carrosseis/`.
 
 | Plano | Manuais | Documento |
 |-------|---------|-----------|
-| Cardápio por segmento | #27–#31 (concluídos) | [`PLANO-CARDAPIO.md`](PLANO-CARDAPIO.md) |
+| Cardápio por segmento | #27–#31 (concluídos) | [`PLANO-CARDAPIO.md`](.cursor/skills/manual-sistema/references/planos/PLANO-CARDAPIO.md) |
 | Avisos do cardápio digital | #47 (concluído) | `manuais/cardapio-digital-avisos/` |
 | Capas e Destaques | #48 (concluído) | `manuais/cardapio-digital-capas-destaques/` |
 | Área de entrega | #34–#38 (refação 21/08/2026) | `manuais/endereco-restaurante/` + `manuais/area-entrega-*` |
-| Parâmetros (Configuração) | #39–#46 concluídos (Opção B — 8 manuais) | [`PLANO-PARAMETROS.md`](PLANO-PARAMETROS.md) |
-| Migração do ajuda.beefood | #49–#56 (concluídos 22/08/2026) | [`PLANO-MIGRACAO-AJUDA.md`](PLANO-MIGRACAO-AJUDA.md) |
+| Parâmetros (Configuração) | #39–#46 concluídos (Opção B — 8 manuais) | [`PLANO-PARAMETROS.md`](.cursor/skills/manual-sistema/references/planos/PLANO-PARAMETROS.md) |
+| Migração do ajuda.beefood | #49–#56 (concluídos 22/08/2026) | [`PLANO-MIGRACAO-AJUDA.md`](.cursor/skills/manual-sistema/references/planos/PLANO-MIGRACAO-AJUDA.md) |
 | BeeFood Entregador (app motoboy) | #57 (concluído 26/08/2026) | `manuais/app-entregadores/` |
 | IA ChatGPT no WhatsApp | #58 (concluído 28/08/2026) | `manuais/ia-chatgpt-whatsapp/` |
 | Campanhas SMS | #18 (concluído 28/08/2026) | `manuais/campanhas-sms/` |
@@ -72,18 +89,18 @@ escreve só em `carrosseis/`.
 | Agendamento do cardápio digital | #70 (concluído 30/08/2026) | `manuais/cardapio-digital-agendamento/` |
 | Produto só com agendamento (encomenda) | #73 (concluído 31/08/2026) | `manuais/cardapio-digital-agendamento-produto/` |
 | Aparência e layout do cardápio digital | #71 (concluído 30/08/2026) | `manuais/cardapio-digital-aparencia-layout/` |
-| Ficha técnica (hambúrguer) | #72 (concluído 01/09/2026) | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md) + `manuais/ficha-tecnica/` |
-| Numeração dos pedidos | #74 (concluído 01/09/2026) | [`PLANO-NUMERACAO-PEDIDOS.md`](PLANO-NUMERACAO-PEDIDOS.md) + `manuais/numeracao-pedidos/` |
+| Ficha técnica (hambúrguer) | #72 (concluído 01/09/2026) | [`PLANO-FICHA-TECNICA.md`](.cursor/skills/manual-sistema/references/planos/PLANO-FICHA-TECNICA.md) + `manuais/ficha-tecnica/` |
+| Numeração dos pedidos | #74 (concluído 01/09/2026) | [`PLANO-NUMERACAO-PEDIDOS.md`](.cursor/skills/manual-sistema/references/planos/PLANO-NUMERACAO-PEDIDOS.md) + `manuais/numeracao-pedidos/` |
 | BeeFood Pixel Analytics | #17 (concluído 02/09/2026; campanhas pagas no mesmo dia) | `manuais/pixel-analytics/` |
 | Grupos de acesso (estudo completo das 93 permissões) | #75 (concluído 01/09/2026) | `manuais/grupos-acesso/` |
 | Criar usuário e montar grupo de acesso | #76 (concluído 01/09/2026) | `manuais/usuarios-criar/` |
 | Cardápio digital presencial e QR Code | #77 (concluído 02/09/2026) | `manuais/cardapio-digital-presencial-qrcode/` |
 | Classificação RFV | #78 (concluído 02/09/2026) | `manuais/classificacao-rfv/` |
-| Vínculo Marketplace | #79 (concluído 02/09/2026) | [`PLANO-VINCULO-MARKETPLACE.md`](PLANO-VINCULO-MARKETPLACE.md) + `manuais/vinculo-marketplace/` |
+| Vínculo Marketplace | #79 (concluído 02/09/2026) | [`PLANO-VINCULO-MARKETPLACE.md`](.cursor/skills/manual-sistema/references/planos/PLANO-VINCULO-MARKETPLACE.md) + `manuais/vinculo-marketplace/` |
 | Cadastro de mesas e QR Code | #80 (concluído 03/09/2026) | `manuais/cadastro-mesas/` |
 | Cadastro de comandas e QR Code | #81 (concluído 03/09/2026) | `manuais/cadastro-comandas/` |
 | Formas de recebimento (Delivery, Presencial e PDV) | #82 (concluído 03/09/2026) | `manuais/formas-recebimento/` |
-| Comissão do garçom: cadastrar e lançar | #83 (concluído 06/09/2026) | [`PLANO-GARCOM.md`](PLANO-GARCOM.md) + `manuais/comissao-garcom-cadastrar/` |
+| Comissão do garçom: cadastrar e lançar | #83 (concluído 06/09/2026) | [`PLANO-GARCOM.md`](.cursor/skills/manual-sistema/references/planos/PLANO-GARCOM.md) + `manuais/comissao-garcom-cadastrar/` |
 | Relatório de comissão do garçom | #84 (concluído 06/09/2026) | `manuais/relatorio-comissao-garcom/` |
 | Relatório de taxa de serviço | #85 (concluído 06/09/2026) | `manuais/relatorio-taxa-servico/` |
 | Pedidos pelo chat no WhatsApp | #86 (concluído 06/09/2026) | `manuais/whatsapp-pedidos-chat/` |
@@ -115,8 +132,8 @@ escreve só em `carrosseis/`.
 
 | Estudo | Situação | Documento |
 |--------|----------|-----------|
-| **Bloco do Entregador** (estudo; números originais #83–#85 já usados pelo garçom) | ⏳ entregue em 05/09/2026, aguarda aprovação. Valida o pedido do dono: o manual da taxa por área **já existe** (#35–#38) e precisa de escopo novo; a **diária não tem tela de lançamento**; a **Gestão de Entregas** é o maior buraco | [`PLANO-ENTREGADOR.md`](PLANO-ENTREGADOR.md) |
-| Ficha técnica da **pizza** | ⏸️ em espera: aguarda a correção da pizza. O manual #72 já respondeu a dúvida técnica (opção repetida baixa em dobro) | [`PLANO-FICHA-TECNICA.md`](PLANO-FICHA-TECNICA.md), seção 9 |
+| **Bloco do Entregador** (estudo; números originais #83–#85 já usados pelo garçom) | ⏳ entregue em 05/09/2026, aguarda aprovação. Valida o pedido do dono: o manual da taxa por área **já existe** (#35–#38) e precisa de escopo novo; a **diária não tem tela de lançamento**; a **Gestão de Entregas** é o maior buraco | [`PLANO-ENTREGADOR.md`](.cursor/skills/manual-sistema/references/planos/PLANO-ENTREGADOR.md) |
+| Ficha técnica da **pizza** | ⏸️ em espera: aguarda a correção da pizza. O manual #72 já respondeu a dúvida técnica (opção repetida baixa em dobro) | [`PLANO-FICHA-TECNICA.md`](.cursor/skills/manual-sistema/references/planos/PLANO-FICHA-TECNICA.md), seção 9 |
 
 Endereço da loja no sandbox (BeeFood3): **R. Caramuru, 108 — Vila Leão, Sorocaba – SP,
 18040-370**. Endereço de entrega de teste nos quatro tipos: **R. Arthur Gomes, 13 — Centro,

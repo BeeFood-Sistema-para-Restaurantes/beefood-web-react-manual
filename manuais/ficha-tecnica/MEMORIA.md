@@ -1,7 +1,7 @@
 # MEMÓRIA — #72 Ficha Técnica
 
 Status: ✅ Concluído em 01/09/2026. **15 imagens**, 41 setas.
-Estudo que originou: [`PLANO-FICHA-TECNICA.md`](../../PLANO-FICHA-TECNICA.md).
+Estudo que originou: [`PLANO-FICHA-TECNICA.md`](../../.cursor/skills/manual-sistema/references/planos/PLANO-FICHA-TECNICA.md).
 
 ## Como o manual nasceu
 
