@@ -27,6 +27,7 @@ carrosseis/<slug>/
 ├── roteiro.md
 ├── copy-instagram.txt  # legenda do post e texto alternativo
 ├── capturar-telas.py
+├── telas/              # tela desenhada (HTML), quando o sandbox não tem o cenário
 ├── imagens-puras/
 ├── slides/             # fragmentos de body HTML
 ├── png/                # arte final 1080x1350
@@ -44,7 +45,7 @@ como porta de entrada, `references/` com a memória e os documentos longos,
 | Skill | Escopo | Saída | Memória |
 |-------|--------|-------|---------|
 | `manual-sistema` | passo a passo para o usuário final | `manuais/` | `references/MEMORIA-GERAL.md` (ler no início da sessão) + `references/CHECKLIST-MANUAIS.md` |
-| `carrossel` | carrossel de Instagram sobre uma novidade do sistema | `carrosseis/` | `references/MEMORIA-CARROSSEIS.md` |
+| `carrossel` | carrossel de Instagram, em dois gêneros: **novidade** (release em `beefood.app/novidades`) e **função do sistema** (página de `beefood.com.br`, tema, segmento) | `carrosseis/` | `references/MEMORIA-CARROSSEIS.md` |
 
 ```
 .cursor/skills/manual-sistema/
@@ -61,6 +62,10 @@ como porta de entrada, `references/` com a memória e os documentos longos,
 A skill de carrossel **não acrescenta stack**: os slides são HTML renderizado a
 PNG pelo mesmo Playwright, e a folha de contato sai pelo mesmo Pillow. Ela lê a
 `MEMORIA-GERAL.md` e as pastas de `manuais/`, e escreve só em `carrosseis/`.
+Quando o sandbox não tem o cenário que a peça precisa (uma segunda marca, um
+pedido de marketplace chegando), a tela do sistema é **desenhada** em HTML com
+`assets/telas/painel.css` e renderizada pelo `desenhar-telas.py` — mesmo
+Playwright, sem dependência nova.
 
 ## Conta sandbox
 

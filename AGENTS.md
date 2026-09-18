@@ -7,11 +7,14 @@ dela até o fim.
 | O pedido fala de… | Skill | Leia |
 |---|---|---|
 | manual, documentar tela, ajuda, passo a passo, "como usar" | `manual-sistema` | [`.cursor/skills/manual-sistema/SKILL.md`](.cursor/skills/manual-sistema/SKILL.md) |
-| carrossel, post, arte, slides, divulgar novidade | `carrossel` | [`.cursor/skills/carrossel/SKILL.md`](.cursor/skills/carrossel/SKILL.md) |
+| carrossel, post, arte, slides, divulgar novidade **ou função do sistema** | `carrossel` | [`.cursor/skills/carrossel/SKILL.md`](.cursor/skills/carrossel/SKILL.md) |
 
 As duas dividem o mesmo sandbox e as mesmas técnicas de captura de tela. O que
 muda é o produto: uma ensina quem já usa o sistema, a outra vende o recurso para
-quem ainda não conhece.
+quem ainda não conhece. A de carrossel tem **dois gêneros** — novidade
+publicada e função do sistema (uma página de `beefood.com.br`, um tema, um
+segmento) — e o que muda entre eles é o leitor: na novidade ele já é cliente, na
+função ele pode estar escolhendo sistema.
 
 **A fronteira não se atravessa.** A skill de carrossel lê o material da de
 manual, e não escreve nada dentro dele. Cada uma tem a sua memória, e o

@@ -33,11 +33,14 @@ A peça é a mesma máquina — capa nomeia, slide 2 explica, slide 3 mostra —
 | O que não cabe | — | "novidade", "agora", "acabou de sair": o recurso pode ter anos |
 
 **A página de vendas é pauta, não fato.** Ela já é copy, escrita para busca e
-conversão, e recortá-la dá o pior changelog possível. Dela saem os eixos e o
-público; o que o slide afirma continua vindo do manual e da tela. E **número
-institucional não entra na arte** ("+100 mil negócios", "melhor avaliação",
-"melhor suporte"): é claim de marca, não afirmação do produto, e não passa no
-teste *quem poderia desmentir isto?*. Detalhe em
+conversão, e recortá-la dá o pior changelog possível. Da página vêm os eixos e o
+público, e dá para afirmar o que ela diz do **funcionamento** do produto ("cada
+marca tem cardápio, canais e relatórios próprios") — mas **não** o que ela diz da
+empresa: "+100 mil negócios", "melhor avaliação no Google", "melhor suporte do
+Brasil" são claim institucional e não entram na arte.
+
+E **afirmar não é provar**: a prova visual sai do manual, da tela capturada ou da
+tela **desenhada** (passo 3), nunca da ilustração da própria página. Detalhe em
 [`references/roteiro-e-copy.md`](references/roteiro-e-copy.md), seção *o gênero
 muda o leitor*.
 

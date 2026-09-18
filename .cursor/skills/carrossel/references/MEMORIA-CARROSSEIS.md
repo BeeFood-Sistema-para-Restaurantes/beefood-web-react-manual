@@ -391,11 +391,13 @@ que nenhuma regra anterior cobria:
 *A página de vendas é pauta, não fato.* Ela é matéria-prima **pior** que o
 release, porque já é copy — inclusive com a manchete-conceito pronta ("Tudo que
 sua Dark Kitchen precisa para vender mais", que é exatamente o vício da 20ª
-rodada). Dela saem os eixos e o público; o que o slide afirma continua vindo do
-manual e da tela. E o número institucional da página (*+100 mil negócios
-impactados*, *melhor avaliação no Google*, *melhor suporte do Brasil*) **não
-entra na arte**: é claim de marca, o leitor não tem como verificar e o teste
-*quem poderia desmentir isto?* derruba os três. Decisão do dono nesta rodada.
+rodada). Dela saem os eixos e o público. E ela se divide em dois tipos de frase:
+**afirmação funcional** ("cada marca tem seu próprio cardápio, canais e
+relatórios") é a empresa descrevendo o próprio produto e dá para afirmar;
+**claim institucional** (*+100 mil negócios impactados*, *melhor avaliação no
+Google*, *melhor suporte do Brasil*) **não entra na arte** — o leitor não tem
+como verificar e o teste *quem poderia desmentir isto?* derruba os três. Decisão
+do dono nesta rodada. Afirmar, porém, não é provar: a prova é sempre tela.
 
 *E quando não existe manual, o fato é a tela.* Multicardápio, KDS e link
 multilojas não têm manual — o multilojas está no `CHECKLIST-MANUAIS.md` como

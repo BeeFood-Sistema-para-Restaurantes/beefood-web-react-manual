@@ -34,14 +34,25 @@ afirmação é do produto e nenhuma frase sobrevive igual à da fonte.
 A página do site é matéria-prima pior que o release, porque ela **já é copy** —
 escrita para busca e conversão, com a manchete-conceito pronta ("Tudo que sua
 Dark Kitchen precisa para vender mais"). Dela saem duas coisas: os **eixos** (o
-que a operação precisa) e o **público**. O que o slide afirma continua vindo do
-manual e da tela.
+que a operação precisa) e o **público**.
 
-E dela **não** sai número institucional. "+100 mil negócios impactados", "melhor
-avaliação no Google", "melhor suporte do Brasil" são claim de marca: o leitor
-não tem como verificar, e o teste *quem poderia desmentir isto?* derruba os três.
-Peça que precisa de número de instituição para convencer é peça que não achou o
-que mostrar na tela.
+Separe o que a página tem de dois tipos:
+
+| **Afirmação funcional** — serve | **Claim institucional** — não serve |
+|---|---|
+| "cada marca tem seu próprio cardápio, canais e relatórios" | "+100 mil negócios impactados" |
+| "os pedidos dos marketplaces chegam numa tela só" | "sistema com melhor avaliação no Google" |
+| "o estoque pode ser compartilhado entre as marcas" | "melhor suporte do Brasil" |
+
+A coluna da esquerda é a empresa descrevendo o próprio produto: dá para afirmar,
+e o `roteiro.md` anota que a fonte é a página. A da direita o leitor não tem como
+verificar, e o teste *quem poderia desmentir isto?* derruba as três. Peça que
+precisa de número de instituição para convencer é peça que não achou o que
+mostrar na tela.
+
+E **afirmar não é provar**: a prova visual continua vindo do manual, da tela
+capturada ou da tela desenhada — nunca da arte da própria página, que é ilustração
+de marketing.
 
 ### Quando não existe manual, o fato é a tela
 
@@ -56,6 +67,18 @@ que o produto realmente mostra — as capturas dos manuais, as imagens da págin
 o layout real do painel. Desenho não é licença para inventar comportamento: o
 que ele desenha é o que o sistema faz, e o `roteiro.md` diz, tela por tela, o que
 é captura e o que é desenho.
+
+Três regras do desenho, para ele não virar mentira bonita:
+
+- **rótulo é o do sistema.** As colunas se chamam `Aguardando`, `Preparo`,
+  `Pronto/Entrega`, `Entregue`, `Cancelado` porque é assim na tela — inventar
+  nome de coluna é inventar produto;
+- **número é exemplo, e é um jogo só na peça inteira.** Nem o do release, nem o
+  da arte do site (`R$ 298.921,66` é ilustração de marketing, e na nossa arte
+  viraria promessa de resultado);
+- **a arte da página não entra recortada.** Ela é referência de layout, como o
+  print do manual: leia, e desenhe a sua. Ver *o manual é referência, não acervo
+  de imagem*, que vale igual para o site.
 
 ## A novidade é matéria-prima, não roteiro
 
