@@ -3,6 +3,60 @@
 Quem lê é dono ou gerente de restaurante, no celular, entre dois pedidos. Ele não
 procurou esse conteúdo: ele tropeçou nele. Isso define tudo abaixo.
 
+## O gênero muda o leitor
+
+Duas coisas viram carrossel aqui, e a diferença entre elas não é o assunto, é
+**com quem se fala**:
+
+- **novidade** — um fato datado, publicado em `beefood.app/novidades`. Quem lê
+  **já é cliente**: ele pode ligar o recurso hoje, e é por isso que o CTA é um
+  caminho de menu.
+- **função do sistema** — uma capacidade que já existe, quase sempre puxada de
+  uma página de `beefood.com.br` (um segmento, um módulo, um tema). Quem lê
+  **pode não ter conta**: está escolhendo sistema, comparando com o que usa
+  hoje. Caminho de menu não serve de pedido para quem não tem painel.
+
+O que muda na prática:
+
+| | Novidade | Função |
+|---|---|---|
+| pílula da capa | `Novidade` | o tema (`Dark Kitchen`, `PDV`, `Fiscal`) |
+| palavra proibida | — | "novidade", "agora", "acabou de sair" — o recurso pode ter anos |
+| fato ancorado em | release + manual | manual quando existe; **senão, a tela** |
+| CTA | `Cardápio Digital → Formas de Recebimento` | a página do site, ou criar conta |
+| slide do limite | o erro de quem usa | o mesmo, e ele vale ouro aqui: quem está escolhendo sistema desconfia de peça sem limite |
+
+O que **não** muda: a capa nomeia, o slide 2 explica, o slide 3 mostra, toda
+afirmação é do produto e nenhuma frase sobrevive igual à da fonte.
+
+### Página de vendas é pauta, não fato
+
+A página do site é matéria-prima pior que o release, porque ela **já é copy** —
+escrita para busca e conversão, com a manchete-conceito pronta ("Tudo que sua
+Dark Kitchen precisa para vender mais"). Dela saem duas coisas: os **eixos** (o
+que a operação precisa) e o **público**. O que o slide afirma continua vindo do
+manual e da tela.
+
+E dela **não** sai número institucional. "+100 mil negócios impactados", "melhor
+avaliação no Google", "melhor suporte do Brasil" são claim de marca: o leitor
+não tem como verificar, e o teste *quem poderia desmentir isto?* derruba os três.
+Peça que precisa de número de instituição para convencer é peça que não achou o
+que mostrar na tela.
+
+### Quando não existe manual, o fato é a tela
+
+Boa parte das funções mais vendidas não tem manual (multicardápio e KDS não
+têm). A ordem de ancoragem passa a ser:
+
+> **manual > tela do sistema, capturada ou reconstruída > código de referência.**
+
+"Reconstruída" é o caso novo: quando o sandbox não tem o cenário (uma segunda
+marca, um pedido de marketplace), a tela se **desenha em HTML/CSS** a partir do
+que o produto realmente mostra — as capturas dos manuais, as imagens da página e
+o layout real do painel. Desenho não é licença para inventar comportamento: o
+que ele desenha é o que o sistema faz, e o `roteiro.md` diz, tela por tela, o que
+é captura e o que é desenho.
+
 ## A novidade é matéria-prima, não roteiro
 
 O texto publicado em `beefood.app/novidades` é registro de release: descreve o
@@ -544,6 +598,9 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 
 - [ ] **A capa diz o nome do recurso?** Quem lê só ela sabe o que entrou no
       sistema — e o nome é o que o recurso faz, não o nome do campo.
+- [ ] **O gênero está certo do começo ao fim?** Em peça de função: nenhuma
+      pílula `Novidade`, nenhum "agora", CTA que serve para quem ainda não tem
+      painel, e nenhum número institucional na arte.
 - [ ] **O slide 2 explica o recurso?** Não conta história, não cobra, e não
       ensina onde clicar.
 - [ ] **Alguma frase trocou a palavra concreta por metáfora?** "Preço" no lugar

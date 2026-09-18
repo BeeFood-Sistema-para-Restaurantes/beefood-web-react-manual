@@ -1,21 +1,45 @@
 ---
-name: carrossel-novidades
-description: Produz carrossel de Instagram (prints reais, mockups e slides em PNG 1080x1350) sobre uma novidade publicada em beefood.app/novidades ou sobre um tema do sistema BeeFood. Use quando o pedido falar de carrossel, post, arte, slides, divulgação ou comunicação de novidade. Não use para escrever manual de usuário — isso é a skill manual-sistema.
+name: carrossel
+description: Produz carrossel de Instagram (prints reais, mockups e slides em PNG 1080x1350) sobre uma novidade publicada em beefood.app/novidades ou sobre uma função do sistema BeeFood (páginas de beefood.com.br, temas, segmentos como dark kitchen). Use quando o pedido falar de carrossel, post, arte, slides, divulgação ou comunicação de novidade ou de funcionalidade. Não use para escrever manual de usuário — isso é a skill manual-sistema.
 ---
 
-# Carrossel de novidades do BeeFood
+# Carrossel do BeeFood
 
-Transforma uma novidade do sistema em **publicação** para o Instagram: texto
-escrito a partir do fato (não recortado do release), prints reais do produto em
-mockup de celular e de computador, e slides exportados no tamanho exato do feed.
+Transforma um fato do sistema em **publicação** para o Instagram: texto escrito a
+partir do fato (não recortado do release nem da página de vendas), telas reais do
+produto em mockup de celular e de computador, e slides exportados no tamanho
+exato do feed.
 
 ## Quando usar, e quando não
 
 | Pedido | Onde ele é atendido |
 |--------|---------------------|
 | "faz um carrossel da novidade X", "post sobre o KDS", "arte para o Instagram" | **aqui** |
+| "carrossel da função X", "post sobre dark kitchen", "carrossel desta página do site" | **aqui**, no gênero *função* — ver abaixo |
 | "cria o manual de X", "documenta a tela Y", "atualiza o manual Z" | skill `manual-sistema` — **não é esta** |
-| "carrossel do tema X" (sem novidade publicada) | aqui; a pauta vem do manual ou do tema, não do feed |
+
+## Dois gêneros, e a diferença é o leitor
+
+A peça é a mesma máquina — capa nomeia, slide 2 explica, slide 3 mostra — mas
+**quem lê muda**, e com ele mudam a pauta, a pílula da capa e o pedido do fim:
+
+| | **Novidade** | **Função do sistema** |
+|---|---|---|
+| Pauta | release em `beefood.app/novidades` (`pauta.py`) | página de `beefood.com.br`, tema ou segmento (`pauta.py --pagina`) |
+| Leitor | **já é cliente** e vai ligar o recurso hoje | pode **não ter conta**; está escolhendo sistema |
+| Capa | pílula `Novidade` | pílula do tema (`Dark Kitchen`, `PDV`), nunca `Novidade` |
+| Onde mora o fato | novidade + manual | manual quando existe; **senão, a tela do sistema** |
+| CTA | caminho de menu, "já está no ar" | a página do site ou criar conta — caminho de menu não serve para quem não tem painel |
+| O que não cabe | — | "novidade", "agora", "acabou de sair": o recurso pode ter anos |
+
+**A página de vendas é pauta, não fato.** Ela já é copy, escrita para busca e
+conversão, e recortá-la dá o pior changelog possível. Dela saem os eixos e o
+público; o que o slide afirma continua vindo do manual e da tela. E **número
+institucional não entra na arte** ("+100 mil negócios", "melhor avaliação",
+"melhor suporte"): é claim de marca, não afirmação do produto, e não passa no
+teste *quem poderia desmentir isto?*. Detalhe em
+[`references/roteiro-e-copy.md`](references/roteiro-e-copy.md), seção *o gênero
+muda o leitor*.
 
 Esta skill **não altera** nada da `manual-sistema`: nem a `MEMORIA-GERAL.md`,
 nem o `CHECKLIST-MANUAIS.md`, nem `manuais/`. Ela lê esse material e escreve só
@@ -38,31 +62,42 @@ foi conferido no sistema. O `pauta.py` aponta o manual correspondente sozinho.
 ### 1. Pauta
 
 ```bash
-python .cursor/skills/carrossel-novidades/scripts/pauta.py
-python .cursor/skills/carrossel-novidades/scripts/pauta.py --slug <slug>
+python .cursor/skills/carrossel/scripts/pauta.py
+python .cursor/skills/carrossel/scripts/pauta.py --slug <slug>
+python .cursor/skills/carrossel/scripts/pauta.py --pagina https://beefood.com.br/sistema-dark-kitchen/
 ```
 
-Lê o RSS de `beefood.app/novidades` (título, data, tipo, áreas, texto completo)
-e indica o manual relacionado, com a contagem de capturas que já existem lá.
+Sem argumento, lê o RSS de `beefood.app/novidades` (título, data, tipo, áreas,
+texto completo) e indica o manual relacionado, com a contagem de capturas que já
+existem lá.
+
+Com `--pagina`, lê uma página de `beefood.com.br` e devolve a mesma coisa para o
+gênero *função*: os blocos da página, a lista de funcionalidades, o FAQ — e o
+cruzamento com `manuais/`, que é o que separa **o que tem manual** (fato
+conferido) do que vai precisar de tela. Ele também lista o que **não** pode
+virar slide: os números institucionais da página.
 
 ### 2. Roteiro — antes de qualquer imagem
 
-**O texto da novidade é matéria-prima, não roteiro.** Ele é registro de release:
-descreve o campo, a tela e o efeito na ordem em que o produto foi construído.
-Recortar aquele parágrafo em oito pedaços e centralizar cada pedaço num slide
-produz um changelog paginado, que ninguém arrasta. O carrossel é uma **publicação
+**O texto da fonte é matéria-prima, não roteiro.** A novidade é registro de
+release: descreve o campo, a tela e o efeito na ordem em que o produto foi
+construído. A página do site é pior: já é copy. Recortar um dos dois em oito
+pedaços e centralizar cada pedaço num slide produz changelog paginado ou anúncio
+paginado, e ninguém arrasta nenhum dos dois. O carrossel é uma **publicação
 nova, escrita a partir do fato**:
 
-1. **fato** — o que mudou, onde fica, o que passa a acontecer, qual o limite;
-   em três linhas, sem adjetivo, tirado da novidade e do manual;
+1. **fato** — o que o recurso faz, onde fica, o que passa a acontecer, qual o
+   limite; em três linhas, sem adjetivo. Em novidade sai do release + manual; em
+   função sai do manual e, quando ele não existe, **da tela do sistema**;
 2. **ângulo** — qual cena reconhecível do restaurante esse fato toca;
 3. **texto** — escrito da cena para a tela. Nenhuma frase pode aparecer igual à
-   da novidade; se apareceu, foi copiada.
+   da fonte; se apareceu, foi copiada (`conferir-texto.py`, com `--fonte` quando
+   a origem é uma página do site).
 
-A ordem dos três primeiros slides é fixa e vale para qualquer novidade: a capa
-**nomeia** o recurso, o slide 2 **explica** o recurso e o slide 3 **mostra** o
-recurso na tela. Conceito na capa e história no slide 2 são os dois jeitos de
-perder o leitor antes da prova.
+A ordem dos três primeiros slides é fixa nos dois gêneros: a capa **nomeia** o
+recurso, o slide 2 **explica** o recurso e o slide 3 **mostra** o recurso na
+tela. Conceito na capa e história no slide 2 são os dois jeitos de perder o
+leitor antes da prova.
 
 Crie `carrosseis/<slug>/roteiro.md` com a tabela **fato → ângulo → o que o slide
 diz** (é o que permite auditar que nada foi inventado e nada foi copiado) e a
@@ -130,11 +165,11 @@ as duas prontas estão em `assets/fundos/`. O logotipo da loja continua o dela.
 Tela que abre direto numa rota:
 
 ```bash
-python .cursor/skills/carrossel-novidades/scripts/capturar.py <slug> \
+python .cursor/skills/carrossel/scripts/capturar.py <slug> \
     --rota /cardapio --nome 02-produtos
-python .cursor/skills/carrossel-novidades/scripts/capturar.py <slug> \
+python .cursor/skills/carrossel/scripts/capturar.py <slug> \
     --url https://beefood.app/novidades --nome 01-pagina --publico
-python .cursor/skills/carrossel-novidades/scripts/capturar.py <slug> \
+python .cursor/skills/carrossel/scripts/capturar.py <slug> \
     --rota /cardapio-digital --nome 04-menu --dispositivo celular
 ```
 
@@ -390,7 +425,7 @@ não existe como captura.
 ### 5. Render
 
 ```bash
-python .cursor/skills/carrossel-novidades/scripts/renderizar.py \
+python .cursor/skills/carrossel/scripts/renderizar.py \
     carrosseis/<slug> --contato
 ```
 
@@ -410,7 +445,7 @@ O carrossel do Instagram aceita vídeo no lugar de uma imagem. Quando o recurso
 argumento da peça:
 
 ```bash
-python .cursor/skills/carrossel-novidades/scripts/filmar-slide.py \
+python .cursor/skills/carrossel/scripts/filmar-slide.py \
     carrosseis/<slug>/slides/01-capa.html --tomada pc-capa-video \
     --conteudo carrosseis/<slug>/midias.json \
     --saida carrosseis/<slug>/video/01-capa.mp4
@@ -440,7 +475,7 @@ margem, ou o slide é parado.
 ### 6. Revisão
 
 ```bash
-python .cursor/skills/carrossel-novidades/scripts/conferir-texto.py <slug>
+python .cursor/skills/carrossel/scripts/conferir-texto.py <slug>
 python ... <pasta> --novidade <slug-publicado>   # pasta com nome mais curto
 ```
 
@@ -507,7 +542,7 @@ post), mas nunca o texto do release — o `conferir-texto.py` mede a legenda na
 mesma régua dos slides.
 
 ```bash
-python .cursor/skills/carrossel-novidades/scripts/empacotar.py <slug>
+python .cursor/skills/carrossel/scripts/empacotar.py <slug>
 ```
 
 Gera `carrosseis/<slug>/entrega/<slug>.zip` com os PNG e o `.txt`, em nomes
@@ -539,7 +574,7 @@ carrosseis/<slug>/
 ## O que a skill guarda de um carrossel para o outro
 
 ```
-.cursor/skills/carrossel-novidades/
+.cursor/skills/carrossel/
 ├── assets/slides/base.css   # os aparelhos e as telas desenhadas
 ├── assets/slides/*.html     # modelos de slide, prontos para copiar
 ├── assets/fotos/            # biblioteca: fotos de produto e telas reusáveis

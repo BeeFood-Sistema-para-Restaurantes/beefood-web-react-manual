@@ -4,7 +4,7 @@ Arte publicável sobre as novidades do BeeFood: prints reais do sistema, mockups
 e slides exportados no tamanho do Instagram.
 
 O **como fazer** está na skill, não aqui:
-[`.cursor/skills/carrossel-novidades/SKILL.md`](../.cursor/skills/carrossel-novidades/SKILL.md).
+[`.cursor/skills/carrossel/SKILL.md`](../.cursor/skills/carrossel/SKILL.md).
 Esta pasta guarda só o que foi produzido.
 
 Os manuais seguem em [`manuais/`](../manuais/), com o foco deles — passo a passo
@@ -42,7 +42,7 @@ medida fixa.
 ## Comandos
 
 ```bash
-SKILL=.cursor/skills/carrossel-novidades/scripts
+SKILL=.cursor/skills/carrossel/scripts
 
 python $SKILL/pauta.py                          # o que há para contar
 python $SKILL/pauta.py --slug <slug>            # material bruto de um item

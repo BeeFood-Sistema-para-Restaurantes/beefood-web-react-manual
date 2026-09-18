@@ -95,7 +95,7 @@ do produto some na largura do mockup.
 ### Capturar o totem, com tradução e com fundo nosso
 
 ```bash
-python .cursor/skills/carrossel-novidades/scripts/capturar-totem.py \
+python .cursor/skills/carrossel/scripts/capturar-totem.py \
     --saida carrosseis/<slug>/imagens-puras \
     --conteudo carrosseis/<slug>/traducoes.json
 ```
@@ -208,10 +208,10 @@ fazer a mídia e **entregar ela para o aplicativo de verdade renderizar**.
 
 ```bash
 # 1. as artes: PNG/JPG e os MP4
-python .cursor/skills/carrossel-novidades/scripts/fazer-midia.py
+python .cursor/skills/carrossel/scripts/fazer-midia.py
 
 # 2. o cardápio modelo rodando com elas dentro
-python .cursor/skills/carrossel-novidades/scripts/capturar-cardapio.py \
+python .cursor/skills/carrossel/scripts/capturar-cardapio.py \
     --saida carrosseis/<slug>/imagens-puras \
     --conteudo carrosseis/<slug>/midias.json
 ```

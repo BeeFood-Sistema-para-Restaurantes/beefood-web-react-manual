@@ -5,10 +5,13 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-18 (20ª rodada: a capa **nomeia o recurso**, o slide
-2 **explica** o recurso e palavra concreta ganha de metáfora — ver *o sétimo
-vício: a manchete-conceito*. A regra que mandava a capa não anunciar a
-funcionalidade saiu).
+Última atualização: 2026-09-18 (21ª rodada: a skill saiu de `carrossel-novidades`
+para **`carrossel`** e passou a ter **dois gêneros** — novidade e função do
+sistema. Ver *o segundo gênero: função do sistema*).
+
+20ª rodada: a capa **nomeia o recurso**, o slide 2 **explica** o recurso e
+palavra concreta ganha de metáfora — ver *o sétimo vício: a manchete-conceito*.
+A regra que mandava a capa não anunciar a funcionalidade saiu.
 
 19ª rodada: a peça de desconto por forma de pagamento **voltou inteira**, e as
 três falhas estavam autorizadas aqui dentro — ver *a 19ª rodada devolveu a peça
@@ -363,6 +366,48 @@ outro assunto, e o assunto que sobra é enredo.
 
 E o *teste da capa*, que é o que pega isto antes do render: **quem leu só a capa
 sabe dizer o que entrou no sistema?**
+
+### O segundo gênero: função do sistema
+
+Até a 20ª rodada, tudo aqui pressupunha um **release**: o `pauta.py` só lia o RSS
+de novidades, o `conferir-texto.py` só comparava com o feed, a capa levava pílula
+`Novidade` e o CTA mandava abrir um caminho de menu. A 21ª rodada abriu o pedido
+que não cabia nisso: *"trazer funções do sistema exploradas em carrossel"*, a
+partir de `beefood.com.br/sistema-dark-kitchen`.
+
+A descoberta é que o gênero novo **não muda o assunto, muda o leitor**. Em
+novidade, quem lê já é cliente e pode ligar o recurso hoje; em função, ele pode
+estar escolhendo sistema e não ter painel nenhum. Daí saem quatro consequências
+que nenhuma regra anterior cobria:
+
+- **a pílula `Novidade` some** e entra o tema (`Dark Kitchen`), porque chamar de
+  novidade um recurso de três anos queima a peça com quem já é cliente;
+- **"agora", "acabou de sair", "já está no ar" saem do vocabulário** — a peça de
+  função é perene e vai ser republicada;
+- **o CTA muda de alvo:** caminho de menu não serve para quem não tem conta;
+- **o slide do limite fica mais valioso**, não menos: quem está comparando
+  sistema desconfia de peça sem limite.
+
+*A página de vendas é pauta, não fato.* Ela é matéria-prima **pior** que o
+release, porque já é copy — inclusive com a manchete-conceito pronta ("Tudo que
+sua Dark Kitchen precisa para vender mais", que é exatamente o vício da 20ª
+rodada). Dela saem os eixos e o público; o que o slide afirma continua vindo do
+manual e da tela. E o número institucional da página (*+100 mil negócios
+impactados*, *melhor avaliação no Google*, *melhor suporte do Brasil*) **não
+entra na arte**: é claim de marca, o leitor não tem como verificar e o teste
+*quem poderia desmentir isto?* derruba os três. Decisão do dono nesta rodada.
+
+*E quando não existe manual, o fato é a tela.* Multicardápio, KDS e link
+multilojas não têm manual — o multilojas está no `CHECKLIST-MANUAIS.md` como
+ideia. A ordem de ancoragem virou **manual > tela capturada > tela
+reconstruída > código de referência**, e o degrau novo é o da reconstrução:
+quando o sandbox não tem o cenário (uma segunda marca, um pedido de iFood
+chegando), a tela se desenha em HTML/CSS a partir do que o produto mostra de
+verdade. Desenhar não é inventar comportamento, e o `roteiro.md` passa a dizer,
+tela por tela, o que é captura e o que é desenho.
+
+A skill foi renomeada de `carrossel-novidades` para **`carrossel`** na mesma
+rodada: o nome antigo passaria a mentir sobre o escopo.
 
 ### O registro muda com a voz, e um carrossel pode ter duas
 

@@ -44,7 +44,7 @@ como porta de entrada, `references/` com a memória e os documentos longos,
 | Skill | Escopo | Saída | Memória |
 |-------|--------|-------|---------|
 | `manual-sistema` | passo a passo para o usuário final | `manuais/` | `references/MEMORIA-GERAL.md` (ler no início da sessão) + `references/CHECKLIST-MANUAIS.md` |
-| `carrossel-novidades` | carrossel de Instagram sobre uma novidade do sistema | `carrosseis/` | `references/MEMORIA-CARROSSEIS.md` |
+| `carrossel` | carrossel de Instagram sobre uma novidade do sistema | `carrosseis/` | `references/MEMORIA-CARROSSEIS.md` |
 
 ```
 .cursor/skills/manual-sistema/

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Confere que o texto dos slides foi reescrito, e não recortado da novidade.
 
-    python .cursor/skills/carrossel-novidades/scripts/conferir-texto.py <slug>
+    python .cursor/skills/carrossel/scripts/conferir-texto.py <slug>
     python ... <slug> --janela 6
     python ... <pasta> --novidade <slug-da-novidade>
 

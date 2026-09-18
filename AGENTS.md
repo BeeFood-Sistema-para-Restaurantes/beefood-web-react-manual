@@ -7,7 +7,7 @@ dela até o fim.
 | O pedido fala de… | Skill | Leia |
 |---|---|---|
 | manual, documentar tela, ajuda, passo a passo, "como usar" | `manual-sistema` | [`.cursor/skills/manual-sistema/SKILL.md`](.cursor/skills/manual-sistema/SKILL.md) |
-| carrossel, post, arte, slides, divulgar novidade | `carrossel-novidades` | [`.cursor/skills/carrossel-novidades/SKILL.md`](.cursor/skills/carrossel-novidades/SKILL.md) |
+| carrossel, post, arte, slides, divulgar novidade | `carrossel` | [`.cursor/skills/carrossel/SKILL.md`](.cursor/skills/carrossel/SKILL.md) |
 
 As duas dividem o mesmo sandbox e as mesmas técnicas de captura de tela. O que
 muda é o produto: uma ensina quem já usa o sistema, a outra vende o recurso para
@@ -20,7 +20,7 @@ aprendizado vai para a memória da skill que o descobriu:
 | Skill | Memória | Saída |
 |---|---|---|
 | `manual-sistema` | `references/MEMORIA-GERAL.md` — **ler sempre no início da sessão** | `manuais/` |
-| `carrossel-novidades` | `references/MEMORIA-CARROSSEIS.md` | `carrosseis/` |
+| `carrossel` | `references/MEMORIA-CARROSSEIS.md` | `carrosseis/` |
 
 Aprendizado de captura que serve para as duas (espera de spinner, conta de
 teste, comportamento de tela) mora na `MEMORIA-GERAL.md`, e a skill de carrossel

@@ -68,10 +68,10 @@ da API (`--conteudo midias.json`). Nada foi gravado em loja de cliente.
 
 ```bash
 # 1. a mídia de exemplo (banner 1920x580, cartaz 1080x1080, MP4 mudo)
-python3 .cursor/skills/carrossel-novidades/scripts/fazer-midia.py
+python3 .cursor/skills/carrossel/scripts/fazer-midia.py
 
 # 2. o cardápio modelo com a mídia dentro dele
-python3 .cursor/skills/carrossel-novidades/scripts/capturar-cardapio.py \
+python3 .cursor/skills/carrossel/scripts/capturar-cardapio.py \
   --saida carrosseis/cardapio-capas-destaques/imagens-puras \
   --conteudo carrosseis/cardapio-capas-destaques/midias.json
 

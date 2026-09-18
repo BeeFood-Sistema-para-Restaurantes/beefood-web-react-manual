@@ -20,7 +20,7 @@ import sys
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parents[2]
-sys.path.append(str(RAIZ / ".cursor" / "skills" / "carrossel-novidades" / "scripts"))
+sys.path.append(str(RAIZ / ".cursor" / "skills" / "carrossel" / "scripts"))
 
 from capturar import esperar, ganchar_cupom, limpar, salvar_cupom, sessao  # noqa: E402
 
