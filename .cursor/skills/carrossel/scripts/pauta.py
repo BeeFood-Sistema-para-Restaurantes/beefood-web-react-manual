@@ -119,6 +119,20 @@ def manual_de(ficha: dict) -> Path | None:
 # vezes (variante de desktop e de celular) e vem embalado em dezenas de divs.
 # Não há por que dirigir navegador: o que interessa é a hierarquia de títulos e
 # o texto solto embaixo de cada um, e isso o parser da biblioteca-padrão lê.
+#
+# Só que parte das páginas do site **não está no WordPress**. O endereço público
+# devolve uma casca — um `<div class="super-loader">` com "Carregando…" — e o
+# conteúdo é montado por um app externo. Quem lê só o HTML de `beefood.com.br`
+# conclui que a página está vazia, e foi exatamente o que aconteceu na pauta do
+# totem: o carrossel inteiro foi escrito sem os fatos da página, que tinha
+# seção de fidelidade, demonstração do aparelho e FAQ.
+#
+# O endereço do app está no próprio HTML da casca. O app entrega HTML pronto
+# (pré-renderizado), então continua não sendo preciso navegador — só é preciso
+# **perceber a casca e seguir o endereço**.
+CASCA = re.compile(r"super-loader|Carregando…|Carregando\.\.\.")
+APP_EXTERNO = re.compile(r"https://[a-z0-9.-]+\.lovable\.app(?:/[a-z0-9\-/]*)?", re.I)
+
 IGNORAR = {"script", "style", "noscript", "svg", "path", "template", "head"}
 TITULOS = {"h1", "h2", "h3", "h4", "h5", "h6"}
 TEXTOS = {"p", "li", "figcaption", "blockquote", "summary", "a", "span"}
@@ -176,9 +190,31 @@ class LeitorPagina(HTMLParser):
         super().close()
 
 
+def fonte_real(html: str) -> str | None:
+    """De onde o conteúdo vem, quando o endereço público é só uma casca.
+
+    Devolve `None` quando a página se serve sozinha, que é o caso comum.
+    """
+    if not CASCA.search(html):
+        return None
+    achados = {u.rstrip("/") for u in APP_EXTERNO.findall(html)}
+    com_caminho = [u for u in achados if urllib.parse.urlparse(u).path.strip("/")]
+    if not com_caminho:
+        return None
+    # A casca cita a raiz do app e a rota da página; a rota é a mais comprida.
+    return max(com_caminho, key=len)
+
+
 def ler_pagina(url: str) -> dict:
+    bruto = baixar(url).decode("utf-8", "replace")
+    origem = url
+    real = fonte_real(bruto)
+    if real:
+        bruto = baixar(real).decode("utf-8", "replace")
+        origem = real
+
     leitor = LeitorPagina()
-    leitor.feed(baixar(url).decode("utf-8", "replace"))
+    leitor.feed(bruto)
     leitor.close()
 
     # Elementor repete o mesmo texto em variantes de layout: a segunda cópia não
@@ -221,6 +257,7 @@ def ler_pagina(url: str) -> dict:
     titulo = next((t for tag, t in limpos if tag == "h1"), "")
     return {
         "url": url,
+        "servida_por": origem if origem != url else None,
         "titulo": titulo or (secoes[1]["titulo"] if len(secoes) > 1 else url),
         "secoes": [s for s in secoes if s["linhas"] or s["nivel"] in ("h1", "h2")],
         "faq": faq,
@@ -248,6 +285,8 @@ def imprimir_pagina(ficha: dict) -> None:
     print(f"# {ficha['titulo']}\n")
     print(f"- Gênero: função do sistema (a capa NÃO leva pílula Novidade)")
     print(f"- Fonte: {ficha['url']}")
+    if ficha.get("servida_por"):
+        print(f"- O endereço público é uma casca; o conteúdo veio de {ficha['servida_por']}")
     print("- A página é pauta, não fato: o que o slide afirma sai do manual ou da tela\n")
 
     print("## Blocos da página\n")
