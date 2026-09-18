@@ -27,7 +27,7 @@ A peça é a mesma máquina — capa nomeia, slide 2 explica, slide 3 mostra —
 |---|---|---|
 | Pauta | release em `beefood.app/novidades` (`pauta.py`) | página de `beefood.com.br`, tema ou segmento (`pauta.py --pagina`) |
 | Leitor | **já é cliente** e vai ligar o recurso hoje | pode **não ter conta**; está escolhendo sistema |
-| Capa | pílula `Novidade` | pílula do tema (`Dark Kitchen`, `PDV`), nunca `Novidade` |
+| Capa | pílula `Novidade`; o título nomeia o recurso | pílula do tema (`Dark Kitchen`, `PDV`), nunca `Novidade`; o título nomeia o recurso **e o segmento** |
 | Onde mora o fato | novidade + manual | manual quando existe; **senão, a tela do sistema** |
 | CTA | caminho de menu, "já está no ar" | a página do site ou criar conta — caminho de menu não serve para quem não tem painel |
 | O que não cabe | — | "novidade", "agora", "acabou de sair": o recurso pode ter anos |
@@ -38,6 +38,18 @@ público, e dá para afirmar o que ela diz do **funcionamento** do produto ("cad
 marca tem cardápio, canais e relatórios próprios") — mas **não** o que ela diz da
 empresa: "+100 mil negócios", "melhor avaliação no Google", "melhor suporte do
 Brasil" são claim institucional e não entram na arte.
+
+**O tema entra no título, e a pílula não basta.** *"Várias marcas num painel só"*
+descreve o arranjo e não diz para quem serve — multimarca acontece em franquia,
+em praça de alimentação, em food hall. Quem rola o feed lê o título, não a
+pílula. Virou *"A dark kitchen de várias marcas num painel só"*.
+
+**Capa de assunto que converge é cena, não recorte.** Quando o título promete
+várias coisas *chegando* num lugar só, recorte de tela mostra o fim do caminho e
+nunca o caminho — e a capa sai pobre mesmo com a prova certa. Aí a capa monta
+uma cena com `.origem` + `.fio` + `.selo-ok` (ver `references/mockups.md`), e a
+tela ganha uma versão própria, de tipo maior: na capa ela é **lida**, e não
+atmosfera.
 
 E **afirmar não é provar**: a prova visual sai do manual, da tela capturada ou da
 tela **desenhada** (passo 3), nunca da ilustração da própria página. Detalhe em
@@ -332,6 +344,12 @@ escala, e o corte passa a sensação de que a tela continua.
 - **Celular** (`.sangria .sangria--celular`) sangra pela **base**.
 - **Computador** (`.navegador .sangria .sangria--janela`) sangra pela
   **direita**, porque é deitado; é assim que ele passa de 1000 px de largura.
+- **Pela base à vontade; pela lateral, só o que não tem texto.** É a diferença
+  entre sangria e corte: base cortada lê "a tela continua", e palavra cortada no
+  meio lê erro de render. O notebook da capa de dark kitchen desceu de 940 para
+  930 px por causa de uma pílula que virava `Mar`. Vale também para aparelho por
+  cima de aparelho: sobreposição em cima de coisa decorativa (o menu lateral do
+  painel) vira profundidade; em cima de rótulo, vira defeito.
 - **Notebook** (`.notebook`) e **monitor** (`.monitor`) são a outra saída para
   tela deitada: a janela mostra a **página**, e eles mostram a **cena** — alguém
   sentado, olhando aquilo. Numa capa isso vale mais que 100 px a mais de tela.

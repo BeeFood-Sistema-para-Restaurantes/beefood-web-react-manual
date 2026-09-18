@@ -412,6 +412,109 @@ body {
   box-shadow: 0 0 0 4px rgba(239, 66, 57, 0.18);
 }
 
+/* ------------------------------------------------------------------ fluxo
+ *
+ * O caminho de várias coisas até uma tela só: três marcas entrando no mesmo
+ * painel, quatro canais caindo na mesma fila. Nasceu na capa de dark kitchen,
+ * onde o assunto **é** a convergência — e recorte de tela não mostra
+ * convergência, mostra o fim dela.
+ *
+ * São três peças, e o slide é quem posiciona, como no `.realce`: `.origem` é de
+ * onde o caminho sai, `.fio` é o tracejado, `.selo-ok` é o visto no meio do
+ * caminho. A cor de cada trio vem de `--cor`, para o fio sair da cor da marca
+ * que ele carrega — é a cor que diz qual bolinha virou qual linha no painel.
+ *
+ * O fio é feito de **borda**: `border-left` + `border-bottom` com raio na quina
+ * de baixo desenha a curva em L de uma vez, sem SVG e sem imagem. Por isso ele
+ * é uma caixa vazia, e são a largura e a altura dela que dizem para onde a
+ * curva vai. Curva de descer-e-virar usa uma caixa; descer, virar e descer de
+ * novo usa duas, e a segunda vira pelo `--fio--vira-baixo`.
+ *
+ * O fio **termina atrás do aparelho**, nunca encostado nele: linha que para na
+ * borda da tampa lê como risco; linha que some atrás dela lê como entrando.
+ */
+.origem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.origem__disco {
+  width: 130px;
+  height: 130px;
+  border-radius: 999px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 66px;
+  line-height: 1;
+  box-shadow: 0 0 0 5px var(--cor, var(--primaria)),
+              0 18px 34px -14px rgba(0, 0, 0, 0.5);
+}
+
+.origem__nome {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: var(--cor, var(--primaria));
+}
+
+.fio {
+  position: absolute;
+  border: 0 dashed var(--cor, var(--primaria));
+}
+
+/* Desce reto. Caixa de largura zero: o que aparece é a borda. */
+.fio--desce { border-left-width: 5px; }
+
+/* Desce e vira para a direita (ou para a esquerda). */
+.fio--vira-direita {
+  border-left-width: 5px;
+  border-bottom-width: 5px;
+  border-bottom-left-radius: 44px;
+}
+
+.fio--vira-esquerda {
+  border-right-width: 5px;
+  border-bottom-width: 5px;
+  border-bottom-right-radius: 44px;
+}
+
+/* Vem na horizontal e desce: é a segunda quina do caminho em S. */
+.fio--desce-direita {
+  border-top-width: 5px;
+  border-right-width: 5px;
+  border-top-right-radius: 44px;
+}
+
+.fio--desce-esquerda {
+  border-top-width: 5px;
+  border-left-width: 5px;
+  border-top-left-radius: 44px;
+}
+
+/* O visto no meio do caminho. O anel é da cor do fundo do slide, e é ele que
+ * abre o buraco no tracejado — sem o anel o selo lê como bolinha pousada em
+ * cima da linha. */
+.selo-ok {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  background: var(--cor, var(--primaria));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+  font-weight: 900;
+  box-shadow: 0 0 0 9px var(--escuro);
+}
+
+.slide--suave .selo-ok { box-shadow: 0 0 0 9px var(--fundo-suave); }
+
 /* ------------------------------------------------------------------- 3D
  *
  * Mockup em perspectiva, para intercalar com os retos e dar ritmo ao carrossel.

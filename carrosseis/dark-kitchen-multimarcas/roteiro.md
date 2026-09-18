@@ -10,7 +10,7 @@
   [`ficha-tecnica`](../../manuais/ficha-tecnica/ficha-tecnica.md) e
   [`formas-recebimento`](../../manuais/formas-recebimento/formas-recebimento.md)
 - **Formato:** 4:5 (1080×1350), 7 slides
-- **Imagens:** 6 telas **desenhadas** (`telas/*.html` → `desenhar-telas.py`).
+- **Imagens:** 8 telas **desenhadas** (`telas/*.html` → `desenhar-telas.py`).
   Nenhuma captura: o sandbox é uma loja só, e o assunto da peça é uma operação
   com três marcas
 
@@ -69,7 +69,7 @@ desmentir isto?* aplicado slide por slide.
 
 | Fato (da página, funcional) | Ângulo | O que o slide diz |
 |---|---|---|
-| cada marca com cardápio, canais e relatórios próprios, numa operação centralizada | o nome do recurso é o próprio arranjo: várias marcas, um painel | capa: "Várias marcas num painel **só**" |
+| cada marca com cardápio, canais e relatórios próprios, numa operação centralizada | o assunto é o segmento, e não só o arranjo: dark kitchen com várias marcas | capa: "A dark kitchen de várias marcas num painel **só**" |
 | sem abrir outro sistema, sem novo login | o que é por marca e o que é compartilhado | slide 2: "Cada marca tem o seu **cardápio**" |
 | pedidos de marketplaces, cardápio próprio e WhatsApp num painel; filtro por marca | a tela é a prova, e ela mostra canal e marca em cada pedido | slide 3: "Os pedidos chegam todos na mesma **tela**" |
 | o mesmo produto em vários cardápios, com preço e disponibilidade próprios | cadastrar uma vez e escolher onde aparece | slide 4: "Um produto, um preço por **marca**" |
@@ -81,7 +81,7 @@ desmentir isto?* aplicado slide por slide.
 
 | # | Arquivo | Ideia única | Imagem |
 |---|---------|-------------|--------|
-| 1 | `01-capa.html` | várias marcas, um painel — e o nome das três na mesma tela | `vendas-por-cardapio` em recorte, sem moldura |
+| 1 | `01-capa.html` | dark kitchen de várias marcas, num painel só | cena: as três marcas em disco, fios tracejados descendo, `painel-capa` em notebook e `painel-celular` em celular |
 | 2 | `02-como-funciona.html` | o que é por marca, o que é compartilhado | — (o slide 3 é a prova) |
 | 3 | `03-pedidos.html` | canais diferentes, marcas diferentes, uma tela | `pedidos-tres-marcas` em janela de navegador |
 | 4 | `04-produto.html` | um cadastro, preço por cardápio | `produto-em-cardapios` em recorte |
@@ -97,15 +97,42 @@ site porque quem lê pode não ter painel nenhum.
 
 ## Decisões de arte
 
-**A capa não leva mockup.** A tela da capa é um recorte do painel, sem moldura de
-aparelho, porque o que ela tem de provar são **os três nomes de marca no mesmo
-cartão** — e nome de marca dentro de notebook em 620 px de largura não se lê. O
-notebook (mockup novo no acervo) foi para o slide 7, onde a tela é atmosfera e
-não prova.
+**A capa é uma cena, e não um recorte.** A primeira versão era o cartão de vendas
+recortado, sem moldura: prova limpa, capa pobre. O assunto é várias marcas
+**chegando** num painel só, e chegada é caminho — recorte mostra o fim do
+caminho, nunca o caminho. Então a capa passou a ter as três marcas em disco,
+três fios tracejados descendo com um visto no meio, e embaixo o painel
+recebendo tudo, em notebook e em celular.
 
-**Um mockup por slide, e nenhum repetido:** recorte (1), navegador (3), recorte
-(4), tablet (5), celular sangrando (6), notebook (7). O tablet no KDS não é
-enfeite: é onde o monitor de cozinha fica.
+A composição é lida da ilustração do alto de `beefood.com.br/
+sistema-dark-kitchen`, e **nada dela foi recortado** — a página é referência de
+layout, como print de manual. O que mudou no caminho: na página as bolinhas são
+os canais (iFood, 99Food, WhatsApp) e aqui são as **marcas**, porque marca é o
+assunto desta peça; e a cor de cada fio é a cor com que aquela marca aparece no
+painel embaixo, que é o que liga o desenho ao dado.
+
+Daqui saíram `.origem`, `.fio` e `.selo-ok` no `base.css` — a peça precisou, e
+convergência é assunto que volta.
+
+**A tela da capa é própria.** `painel-capa` não é o `painel-inicio` do slide 7:
+no 7 a tela é atmosfera, e aqui ela é lida. Dentro de um notebook, 1280 px
+reduzem a 0,72, e o corpo de 15 px do painel cairia para 11 — o nome da marca
+sumiria justo na peça que promete mostrá-lo. O tipo do `painel-capa` é ~1,3x, e
+o conteúdo é menor.
+
+**930 px de notebook, e não 940.** Em 940 a tampa saía pela direita do slide e
+as pílulas de marca do topo do painel viravam `Hamburgueria Pizzaria Mar`.
+Sangrar pela base tudo bem; pela lateral, só o que não tem texto.
+
+**O celular vai à esquerda.** À direita ele cortava `Ticket Médio` e `Cardápios
+ativos` no meio da palavra. À esquerda cobre o menu lateral, que na capa não
+informa nada, e aí a sobreposição vira profundidade. Ele mostra o mesmo
+`R$ 38.740,00` do notebook de propósito: é o mesmo painel, e dark kitchen é
+operação de quem não fica sentado.
+
+**Um mockup por slide, e nenhum repetido:** notebook + celular na cena da capa,
+navegador (3), recorte (4), tablet (5), celular sangrando (6), notebook (7). O
+tablet no KDS não é enfeite: é onde o monitor de cozinha fica.
 
 **Três cores, sempre as mesmas:** Hamburgueria em vermelho, Pizzaria em azul,
 Marmitaria em verde. Elas repetem nos pontinhos do painel, nas etiquetas do
