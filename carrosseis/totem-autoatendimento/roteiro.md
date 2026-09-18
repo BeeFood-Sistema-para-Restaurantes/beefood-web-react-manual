@@ -160,7 +160,7 @@ promete que o cliente volta: nada disso está na tela nem no manual.
 | `Insira seu telefone e ganhe 5% de cashback` | o autoatendimento não é anônimo: ele cadastra e credita | "Quem deixa o telefone ganha cashback" (6) |
 | `Para viagem` ou `Comer aqui`, `Total` e `Ir para pagamento` | o cliente sai do totem com o pedido pago | "Comer aqui ou levar, e o pagamento termina ali" (7) |
 | A pílula de três bandeiras, e o mesmo item em `FRENCH FRIES` e `PAPAS FRITAS` | quem não fala português também pede sem ninguém do outro lado | "E o mesmo cardápio fala a língua de quem chega" (8) |
-| A página roda o pedido inteiro no aparelho, com pausa e setas | quem lê pode não ter conta, e pode olhar sem falar com ninguém | "Passe pelo pedido inteiro, tela por tela" (9) |
+| A página tem a seção de plataforma inteira — PDV, KDS, fiscal, estoque, fidelidade | quem lê pode não ter conta, e o totem é uma porta para o resto | "Conheça todas as funcionalidades" (9) |
 
 ## Os slides
 
@@ -174,7 +174,7 @@ promete que o cliente volta: nada disso está na tela nem no manual.
 | 6 | `06-cashback.html` | recorte largo | o totem cadastra e credita | `Insira seu telefone e ganhe 5% de cashback` |
 | 7 | `07-pagamento.html` | dois recortes | o pagamento termina no aparelho | `Como será o pedido?` e `Ir para pagamento` |
 | 8 | `08-idiomas.html` | dois recortes lado a lado | o aparelho atende quem não fala português | o mesmo cartão em `FRENCH FRIES` e `PAPAS FRITAS` |
-| 9 | `09-cta.html` | capa + mockup | a demonstração que roda na página | o totem parado, na tela de espera — que é onde a demonstração começa |
+| 9 | `09-cta.html` | capa + mockup | a página do sistema, que tem mais do que o carrossel mostrou | o totem parado, na tela de espera |
 
 ## Decisões de arte
 
@@ -256,11 +256,16 @@ ganha**, que é o que um selo de capa tem de dizer. E ela cabe: a nota é
 outro e os dois param de ler como par — quando não coube, quem encurta é o
 texto.
 
-**E o subtítulo trocou de assunto.** Era *"E o programa de fidelidade entra no
-pedido"*, que descreve onde o recurso fica. Virou *"E cada venda já sai puxando
-a próxima"*, que é o ângulo da própria página — *mais recorrência para o seu
-restaurante* — dito com as nossas palavras. O que os dois selos anunciam passa
-a ter um porquê em cima deles.
+**E o subtítulo levou duas voltas antes de acertar.** A primeira versão era
+*"E o programa de fidelidade entra no pedido"*, que descreve **onde o recurso
+fica** — informação de menu, não de capa. A segunda foi *"E cada venda já sai
+puxando a próxima"*, uma metáfora nossa que não estava em lugar nenhum e soava
+forçada.
+
+A terceira veio da página, que tem a linha exata para este par no cartão de
+fidelidade: *"Aumente a recorrência com cashback e cupons."* Virou **"Mais
+recorrência, com cashback e cupom."** — o benefício primeiro, os dois meios
+depois. Palavra da casa, e não invenção de quem está escrevendo o slide.
 
 **Do slide 3 ao 7 o print vai sem aparelho em volta.** É a escolha contrária à
 da capa, e pelo mesmo motivo: ali a tela precisa ser **lida**. A tela do totem é
@@ -292,17 +297,26 @@ carteira, em que ele mostra o saldo. A primeira serve melhor porque é o que o
 cliente sem saldo vê — e porque o recorte da segunda traria o nome e o telefone
 de teste que o roteiro de captura digita.
 
-**No CTA, "conheça" não era pedido nenhum.** *"Conheça o totem por dentro"*
-prometia duas coisas que a peça não tem: "por dentro" sugere hardware, e o que
-existe lá dentro — as telas — o leitor acabou de ver em oito slides. Convite
-que repete o carrossel não é convite.
+**O CTA errou duas vezes para o mesmo lado: o de querer ser esperto.**
 
-O que ficou no lugar é a única coisa que **só existe na página** (fato 14): ela
-roda um pedido inteiro no aparelho, com barra de progresso, pausa e setas. O
-verbo saiu daí e não do que soaria melhor — *"teste"* prometeria pedir de
-verdade, *"veja"* jogaria fora a pausa e as setas, e *"passe pelo pedido, tela
-por tela"* é exatamente o que o visitante faz. A tela de espera no mockup ganha
-uma segunda leitura de brinde: é onde a demonstração começa.
+*"Conheça o totem por dentro"* foi a primeira, e "por dentro" sugere hardware —
+o que existe lá dentro são as telas que o leitor acabou de ver em oito slides.
+
+*"Passe pelo pedido inteiro, tela por tela"* foi a segunda, e é a mais
+instrutiva porque **o fato era verdadeiro**: a página roda um pedido no
+aparelho, com pausa e setas (fato 14). O slide ainda assim ficou pior. De
+dentro do feed ninguém sabe que existe uma demonstração do outro lado, então a
+frase virou instrução para uma coisa que o leitor não viu — e CTA que precisa
+de contexto não é CTA.
+
+Ficou a **convenção**: *"Conheça todas as funcionalidades"* e o endereço. Ela
+funciona por dois motivos. O leitor já sabe o que fazer com ela, sem
+explicação. E ela promete **mais do que o carrossel mostrou** — a página tem
+uma seção inteira de plataforma (PDV, KDS, fiscal, financeiro, estoque,
+fidelidade), então a frase é verdadeira e é a única razão de sair do feed.
+
+Com o título curto, o texto cabe em três linhas e o aparelho sobe: a sangria
+volta de `490` para `430` e o mockup cresce de 400 para 430 px.
 
 **O slide de idioma é o mesmo do carrossel da tradução, e no penúltimo lugar.**
 A prova já existia e não precisava ser reinventada: o mesmo item, recortado do

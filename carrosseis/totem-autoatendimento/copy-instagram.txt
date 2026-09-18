@@ -59,9 +59,9 @@ tela troca o aparelho para inglês ou espanhol, e com ele o setor, o nome e a
 descrição de cada item. A foto e o preço não mudam, e o cadastro continua sendo
 um só.
 
-Dá para passar por um pedido inteiro no aparelho antes de falar com qualquer
-pessoa: a página roda a coisa toda, do primeiro toque ao pagamento, com pausa e
-setas para andar tela a tela. Em beefood.com.br/totem-de-autoatendimento 🐝❤️
+O totem é uma porta de entrada: na mesma plataforma estão o PDV, o monitor de
+cozinha, o fiscal, o estoque e o financeiro. Conheça todas as funcionalidades
+em beefood.com.br/totem-de-autoatendimento 🐝❤️
 
 #beefood #totemdeautoatendimento #autoatendimento #fastfood #hamburgueria
 #gestaoderestaurante #cashback #cupomdedesconto
@@ -79,8 +79,8 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
 ========================================================================
 
 01  Fundo escuro com a pílula "Totem de Autoatendimento", o título "O cliente
-    pede e paga sozinho no totem", com "e paga" em vermelho, e a linha "E cada
-    venda já sai puxando a próxima". Embaixo, um totem branco de pé, com
+    pede e paga sozinho no totem", com "e paga" em vermelho, e a linha "Mais
+    recorrência, com cashback e cupom". Embaixo, um totem branco de pé, com
     leitor, boca de impressora e pinpad no painel, mostrando o cardápio na
     tela. Dois selos grandes saem de trás do aparelho: à esquerda um vermelho
     com o desenho de um bilhete picotado e os dizeres "Cupom, de desconto"; à
@@ -138,8 +138,8 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     R$ 11,00; à direita, sob a bandeira da Espanha e a palavra Español, a mesma
     foto com PAPAS FRITAS e o mesmo R$ 11,00.
 
-09  Fundo escuro com o chapéu "Totem", o pedido "Passe pelo pedido inteiro,
-    tela por tela", com "tela por tela" em vermelho, e a linha "Com pausa e
-    avanço, em beefood.com.br/totem-de-autoatendimento". Embaixo, o mesmo totem
-    branco, agora parado na tela de espera: a foto de uma porção de batata
-    frita em tela cheia e o botão vermelho "Faça seu pedido".
+09  Fundo escuro com o chapéu "Totem", o pedido "Conheça todas as
+    funcionalidades", com "funcionalidades" em vermelho, e o endereço
+    beefood.com.br/totem-de-autoatendimento. Embaixo, o mesmo totem branco,
+    agora parado na tela de espera: a foto de uma porção de batata frita em
+    tela cheia e o botão vermelho "Faça seu pedido".

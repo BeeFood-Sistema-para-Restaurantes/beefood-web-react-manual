@@ -432,26 +432,49 @@ paga quando tem conteúdo do outro lado.
 Não é camisa de força. Melhoria pequena cabe em quatro slides, e forçar oito
 produz slide vazio — que é pior do que carrossel curto.
 
-### O CTA pede uma coisa que só existe no destino
+### O CTA promete o que ainda não foi mostrado, com a frase mais comum possível
 
 O último slide falha de um jeito específico e fácil de não ver: ele convida
 para o que o carrossel **acabou de mostrar**. *"Conheça o totem por dentro"*,
 depois de oito slides de telas do totem, é a mesma coisa de novo — agora sem
-imagem. Verbo genérico ("conheça", "saiba mais", "descubra") é o sintoma; a
-causa é não ter procurado o que há de diferente lá.
+imagem.
 
-Então procure, antes de escrever: uma demonstração que roda, uma calculadora,
-uma comparação de planos, um FAQ, um formulário que chama alguém. A página do
-totem roda um pedido inteiro no aparelho, com pausa e setas — e o CTA virou
-*"passe pelo pedido inteiro, tela por tela"*.
+O conserto é achar o que há de **a mais** no destino, e prometer isso. A página
+do totem tem a plataforma inteira ao lado — PDV, KDS, fiscal, estoque,
+fidelidade — e o CTA virou *"Conheça todas as funcionalidades"*. O plural é o
+que faz o trabalho: é mais do que o carrossel entregou.
 
-**E o verbo sai do controle que o destino tem**, não do que soaria melhor:
-*"teste"* prometeria pedir de verdade, *"veja"* jogaria fora a pausa e as
-setas. CTA mentiroso não é descoberto na hora de ler — é descoberto na hora de
-chegar.
+**Mas não descreva o mecanismo do destino.** Essa é a armadilha da rodada
+seguinte, e ela é convincente: a mesma página roda uma demonstração do pedido,
+com pausa e setas, então *"passe pelo pedido inteiro, tela por tela"* parecia
+ótimo — fato verificado, verbo preciso. Ficou pior. **Do feed, ninguém sabe que
+existe uma demonstração do outro lado**, e a frase virou instrução para uma
+coisa que o leitor não viu.
 
-> Pergunta antes do último slide: **o que a pessoa consegue fazer lá que ela
-> não acabou de fazer aqui?** Sem resposta, o problema não é o texto do CTA.
+| o que existe só lá | serve para |
+|---|---|
+| a demonstração, a calculadora, o comparador | **escolher o destino** e conferir que vale a viagem |
+| descrever isso no texto do CTA | nada: o leitor não tem contexto |
+
+> O CTA é o único slide em que **ser convencional é vantagem**. O leitor
+> precisa saber o que fazer com a frase sem explicação, e frase convencional é
+> justamente a que ele já sabe ler. Gaste a criatividade na capa.
+
+### Frase de venda se procura no site antes de inventar
+
+A página de vendas já foi escrita para vender aquilo, por quem decide como a
+empresa fala. Antes de inventar manchete, subtítulo ou fecho, **leia a
+página** e veja se ela já tem a frase.
+
+O subtítulo da capa do totem precisava dizer por que cupom e cashback estão ali.
+Saíram duas invenções — *"E o programa de fidelidade entra no pedido"*
+(descreve onde o recurso mora) e *"E cada venda já sai puxando a próxima"*
+(metáfora forçada) — antes de alguém abrir a página e achar, no cartão de
+fidelidade: *"Aumente a recorrência com cashback e cupons."* Virou **"Mais
+recorrência, com cashback e cupom."**
+
+A régua de cópia não muda: a linha do site é **ponto de partida**, não texto
+pronto. Reescreva com as nossas palavras e passe o `conferir-texto.py`.
 
 ## Ritmo de imagem
 
@@ -719,8 +742,11 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 - [ ] Nenhum número aparece sem fonte.
 - [ ] O `roteiro.md` diz quais telas são captura e quais são desenho (na arte
       não vai carimbo de ilustração).
-- [ ] O CTA pede uma coisa só, e é uma coisa que **só existe no destino** — não
-      o que os slides anteriores acabaram de mostrar.
+- [ ] O CTA pede uma coisa só, promete o que o carrossel **ainda não mostrou**
+      e faz isso com a frase mais comum possível — sem descrever o mecanismo da
+      página de destino.
+- [ ] Toda frase de venda foi procurada **na página** antes de ser inventada, e
+      reescrita com as nossas palavras depois de achada.
 - [ ] Os pontos do rodapé marcam a posição certa do slide.
 - [ ] Nenhum nome, telefone ou e-mail de cliente aparece em nenhum print.
 - [ ] Nenhum print mostra data de publicação — nem o print de página nossa, que

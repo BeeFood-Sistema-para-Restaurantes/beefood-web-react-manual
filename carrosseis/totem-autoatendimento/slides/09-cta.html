@@ -2,25 +2,23 @@
      nenhum, e "abra Aplicativos" nao serve de pedido para quem esta escolhendo
      sistema. O endereco e a pagina do totem no site.
 
-     "Conheca o totem por dentro" era o pedido anterior, e ele nao tinha o que
-     prometer: "por dentro" sugere peca, hardware, coisa que a peca nao mostra
-     — e o que ela mostra, as telas, o leitor ja acabou de ver em oito slides.
-     Convite que repete o que o carrossel entregou nao e convite.
+     O texto levou duas tentativas erradas antes desta, e as duas erraram para
+     o mesmo lado — o de querer ser esperto no slide que menos pede isso.
 
-     O pedido agora e uma coisa que SO existe la: a pagina roda um pedido
-     inteiro no aparelho, do primeiro toque ao pagamento, e traz barra de
-     progresso, botao de pausa e setas para andar tela a tela. Isso e motivo
-     para sair do feed; "conheca" nao e.
+     A primeira foi "Conheca o totem por dentro": "por dentro" sugere hardware,
+     e o que existe la dentro sao as telas que o leitor acabou de ver.
 
-     O verbo saiu do controle que a pagina tem, e nao do que seria mais bonito
-     dizer. "Teste" prometeria pedir de verdade; "veja" jogaria fora a pausa e
-     as setas. "Passe pelo pedido, tela por tela" e exatamente o que o visitante
-     faz la.
+     A segunda foi "Passe pelo pedido inteiro, tela por tela", que descrevia a
+     demonstracao que a pagina roda, com pausa e setas. O fato e verdadeiro, e
+     o slide ficou pior: de dentro do feed, ninguem sabe que existe um player
+     do outro lado, e a frase virou instrucao para uma coisa que o leitor nao
+     viu. CTA que precisa de contexto nao e CTA.
 
-     Isso so foi descoberto na segunda leitura da pagina, e a primeira falhou
-     por um motivo de ferramenta: `beefood.com.br/totem-de-autoatendimento`
-     devolve uma casca com "Carregando…" e monta o conteudo a partir de um app
-     externo. O `pauta.py` agora percebe a casca e segue o endereco.
+     O que ficou e a convencao, e ela funciona porque o leitor ja sabe o que
+     fazer com ela: "Conheca todas as funcionalidades", e o endereco. A pagina
+     tem uma secao inteira de plataforma — PDV, KDS, fiscal, financeiro,
+     estoque, fidelidade — entao a frase e verdadeira e generosa: promete mais
+     do que o carrossel mostrou, que e a unica razao de sair do feed.
 
      A peca continua nao dizendo como se poe um totem na loja — se e
      equipamento comprado, alugado ou aparelho do lojista. Isso nao esta em
@@ -33,8 +31,11 @@
      O aparelho volta, e agora com a TELA DE ESPERA: a capa mostra o cardapio,
      porque la a tela precisa dizer "aqui se compra", e o fecho mostra o
      aparelho parado, esperando o proximo cliente. Repetir a mesma tela nas
-     duas pontas seria repetir a imagem, nao fechar o arco. E aqui ela ganha
-     uma segunda leitura: e a tela em que a demonstracao da pagina comeca.
+     duas pontas seria repetir a imagem, nao fechar o arco.
+
+     Com o titulo curto, o texto cabe em tres linhas e o aparelho sobe: o
+     `top` da sangria volta de 490 para 430, e o mockup cresce de 400 para 430
+     px de largura.
 
      A imagem e a captura INTEIRA de 720p, e nao um recorte: a moldura do totem
      e 9/16 e o `object-fit: cover` recorta o que nao tem essa proporcao. -->
@@ -47,17 +48,16 @@
   <div class="pilha g24" style="margin-top: 40px; max-width: 900px">
     <span class="chapeu">Totem</span>
     <h2 class="titulo titulo--pequeno">
-      Passe pelo pedido inteiro,<br><span class="destaque">tela por tela</span>
+      Conheça todas as <span class="destaque">funcionalidades</span>
     </h2>
     <p class="subtitulo">
-      Com pausa e avanço, em
-      <b>beefood.com.br/totem-de-autoatendimento</b>.
+      <b>beefood.com.br/totem-de-autoatendimento</b>
     </p>
   </div>
 
-  <div class="sangria" style="top: 490px; right: auto; left: 50%;
+  <div class="sangria" style="top: 430px; right: auto; left: 50%;
                               transform: translateX(-50%)">
-    <div class="totem" style="width: 400px; --coluna: 200px">
+    <div class="totem" style="width: 430px; --coluna: 200px">
       <div class="totem__tela">
         <img src="../imagens-puras/espera-720.png"
              alt="O mesmo totem, agora parado na tela de espera, com o botão Faça seu pedido">

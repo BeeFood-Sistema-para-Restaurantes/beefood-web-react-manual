@@ -5,11 +5,15 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-18 (25ª rodada: a página do totem **não estava
+Última atualização: 2026-09-18 (26ª rodada: o CTA do totem foi recusado pela
+**terceira** vez, e a versão que caiu era a que tinha o melhor fato — ver *CTA
+é convenção, e o fato bom não salva a frase esperta*. Junto, a regra de que
+frase de venda **se procura no site antes de inventar**).
+
+25ª rodada: a página do totem **não estava
 vazia** — o endereço público é uma casca e o conteúdo vem de um app externo. A
 peça foi escrita sem a página inteira, e o conserto foi no `pauta.py`. Ver
-*"Carregando…" não é página vazia*, *o ícone é o que sobrevive à miniatura* e
-*CTA: peça uma coisa que só existe no destino*).
+*"Carregando…" não é página vazia* e *o ícone é o que sobrevive à miniatura*.
 
 24ª rodada: o selo da capa do totem parou de
 ser adesivo e virou **cena** — ver *o selo não se integra com efeito: integra
@@ -560,31 +564,77 @@ par**. A saída é `white-space: nowrap` no bloco de texto e encurtar a frase �
 nota antiga contava *como se entra* no recurso e a nova conta *o que se ganha*,
 que é o que um selo de capa tem de dizer.
 
-### CTA: peça uma coisa que só existe no destino
+### CTA é convenção, e o fato bom não salva a frase esperta
 
-*"Conheça o totem por dentro"* foi o CTA por duas rodadas, e a volta foi
-*"ficou estranho"*. Estava mesmo, por dois motivos que se somam:
+O último slide do totem foi recusado **três vezes**, e a terceira é a que
+ensina, porque nela o fato estava certo e o slide ficou pior.
 
-- **"por dentro" promete o que a peça não tem.** Sugere hardware, peça,
-  máquina aberta — e o que existe lá dentro são telas;
-- **e as telas o leitor acabou de ver.** Oito slides mostraram o cardápio, o
-  adicional, o cupom, o cashback, o pagamento e o idioma. Convite que repete o
-  carrossel não é convite: é a mesma coisa, de novo, agora sem imagem.
+**Primeira:** *"Conheça o totem por dentro"*. "Por dentro" sugere hardware, e o
+que existe lá dentro são as telas que o leitor acabou de ver em oito slides.
+Volta: *"ficou estranho"*.
 
-O conserto não veio de escrever melhor, veio de **achar o que só existe lá**. A
-página roda um pedido inteiro no aparelho, do primeiro toque ao pagamento, com
-barra de progresso, botão de pausa e setas para andar tela a tela. Isso é
-motivo para sair do feed.
+**Segunda:** *"Passe pelo pedido inteiro, tela por tela"*. Essa veio de um
+raciocínio que parecia impecável — procurar **o que só existe no destino** e
+pedir aquilo. E o destino tem: a página roda um pedido inteiro no aparelho, com
+barra de progresso, pausa e setas. Fato conferido, verbo escolhido a dedo
+(*"teste"* prometeria pedir de verdade, *"veja"* jogaria fora a pausa). Volta:
+*"tá muito estranho o que você está tentando fazer aqui"*.
 
-E o verbo saiu do **controle que o destino tem**, não do que soaria melhor:
-*"teste"* prometeria pedir de verdade, *"veja"* jogaria fora a pausa e as
-setas, e *"passe pelo pedido, tela por tela"* é literalmente o que o visitante
-faz. CTA mentiroso não é descoberto na hora de ler — é descoberto na hora de
+E estava. De dentro do feed, **ninguém sabe que existe uma demonstração do
+outro lado**. A frase descrevia o mecanismo de uma página que o leitor não viu,
+então virou instrução sem objeto. O fato era verdadeiro e irrelevante: era
+informação que só faz sentido *depois* de chegar, usada para convencer alguém a
 chegar.
 
-> Antes de escrever o último slide, pergunte: **o que a pessoa consegue fazer
-> lá que ela não acabou de fazer aqui?** Se não houver resposta, o problema não
-> é o texto do CTA.
+**Terceira, e a que ficou:** *"Conheça todas as funcionalidades"* e o endereço.
+
+O pedido do dono foi literalmente *"apenas crie uma frase do tipo 'Conheça
+todas as funcionalidades'"*, e a lição está no **apenas**:
+
+> O CTA é o slide em que ser convencional é uma vantagem. O leitor tem de saber
+> o que fazer com a frase **sem precisar de explicação**, e frase convencional
+> é exatamente aquela que ele já sabe ler.
+
+O que o raciocínio da segunda tentativa acertou e errou vale separado, porque a
+parte certa continua valendo:
+
+| o raciocínio | serve para |
+|---|---|
+| procurar o que só existe no destino | **escolher para onde mandar**, e conferir que vale a viagem |
+| descrever esse achado na frase | nada: o leitor não tem contexto para ele |
+
+A página do totem tem uma seção de plataforma inteira — PDV, KDS, fiscal,
+financeiro, estoque, fidelidade. É isso que faz *"conheça todas as
+funcionalidades"* ser verdadeiro **e** generoso: promete mais do que o
+carrossel mostrou, que é a única razão honesta de sair do feed. A objeção
+original ("convite que repete o carrossel não é convite") segue de pé, e
+"funcionalidades" no plural é o que a derruba — não uma frase mais criativa.
+
+### Frase de venda se procura no site antes de inventar
+
+O subtítulo da capa do totem também levou três versões, e o padrão é o mesmo:
+
+| versão | o que estava errado |
+|---|---|
+| *"E o programa de fidelidade entra no pedido"* | descreve **onde o recurso fica** — informação de menu, não de capa |
+| *"E cada venda já sai puxando a próxima"* | metáfora nossa, que não estava em lugar nenhum e soa forçada |
+| **"Mais recorrência, com cashback e cupom"** | benefício primeiro, meios depois |
+
+A terceira não foi escrita: foi **encontrada**. O cartão de fidelidade da
+página diz *"Aumente a recorrência com cashback e cupons"* — a frase exata para
+o par que os selos anunciam, no vocabulário da casa.
+
+E o retorno que pediu a troca dizia, entre parênteses, *"(procurar no site)"*.
+Isso é regra:
+
+> Antes de inventar frase de venda, **leia a página**. Ela já foi escrita para
+> vender isso, por gente que decide como a empresa fala. Reescrever com as
+> nossas palavras é obrigatório; **partir do zero é desperdício**.
+
+O que não muda é a régua de cópia: a linha da página é ponto de partida, não
+texto pronto. *"Aumente a recorrência com cashback e cupons"* virou *"Mais
+recorrência, com cashback e cupom"* — mesma ideia, nossa construção, e o
+`conferir-texto.py` continua passando.
 
 ### O fluxo inteiro é captura, não só a primeira tela
 
