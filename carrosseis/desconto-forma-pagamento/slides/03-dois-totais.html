@@ -1,0 +1,47 @@
+<!-- A prova, e ela e a tela: o MESMO pedido (R$ 39,55 em produtos) fechando em
+     dois totais diferentes. As duas capturas sao do cartao `Resumo de valores`
+     do cardapio publico, fotografadas como elemento — mesma caixa, mesma
+     largura, so a forma escolhida muda.
+
+     Empilhadas e nao lado a lado: o cartao e deitado (2,6/1), e em duas colunas
+     o `R$ 36,55` e o `R$ 40,34` cairiam para 24 px no feed. Empilhado, cada um
+     sai 1,7x maior.
+
+     Os dois sentidos no mesmo slide e o que a primeira versao nao tinha: la o
+     desconto aparecia em tres slides e o acrescimo em nenhum. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">3 de 7</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 900px">
+    <span class="chapeu">Na hora de fechar o pedido</span>
+    <h2 class="titulo titulo--pequeno">
+      Mesmo pedido, <span class="destaque">dois</span> totais
+    </h2>
+    <p class="corpo">
+      O ajuste incide sobre o total em produtos e aparece com o nome da forma. O
+      cliente vê a conta antes de confirmar.
+    </p>
+  </div>
+
+  <div class="pilha g24" style="margin: 44px auto 0; width: 880px">
+    <div>
+      <p style="font-size: 30px; font-weight: 800; color: var(--texto-suave);
+                margin-bottom: 14px">Pagando em dinheiro</p>
+      <div class="recorte">
+        <img src="../imagens-puras/total-dinheiro.png"
+             alt="Resumo de valores do pedido: total em produtos de R$ 39,55, desconto de R$ 3,00 no dinheiro e total de R$ 36,55">
+      </div>
+    </div>
+    <div>
+      <p style="font-size: 30px; font-weight: 800; color: var(--texto-suave);
+                margin-bottom: 14px">Pagando no crédito</p>
+      <div class="recorte">
+        <img src="../imagens-puras/total-credito.png"
+             alt="O mesmo pedido de R$ 39,55 com acréscimo de 2% no cartão de crédito, R$ 0,79, e total de R$ 40,34">
+      </div>
+    </div>
+  </div>
+</div>

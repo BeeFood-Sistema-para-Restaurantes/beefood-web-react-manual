@@ -5,9 +5,23 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-17 (17ª rodada: o texto passou a ter **alvo** em vez
-de lista de proibições — o slide entrega uma **ideia de uso** com o verbo na
-frente, e não a permissão de usar o recurso).
+Última atualização: 2026-09-18 (20ª rodada: a capa **nomeia o recurso**, o slide
+2 **explica** o recurso e palavra concreta ganha de metáfora — ver *o sétimo
+vício: a manchete-conceito*. A regra que mandava a capa não anunciar a
+funcionalidade saiu).
+
+19ª rodada: a peça de desconto por forma de pagamento **voltou inteira**, e as
+três falhas estavam autorizadas aqui dentro — ver *a 19ª rodada devolveu a peça
+inteira*. Mudou o que o slide pode afirmar, o que a capa não pode amputar e de
+onde vem a imagem.
+
+18ª rodada: desconto por forma de pagamento — o primeiro carrossel em que **o
+manual da novidade já existia**, e por isso o primeiro feito quase todo de
+recorte em vez de captura. Foi o erro da rodada seguinte.
+
+17ª rodada: o texto passou a ter **alvo** em vez de lista de proibições — o
+slide entrega uma **ideia de uso** com o verbo na frente, e não a permissão de
+usar o recurso.
 
 16ª rodada: a capa parou de **perguntar** — três carrosséis na mesma fórmula
 viram fórmula no perfil, e afirmar o fato entrega a notícia na linha que todo
@@ -38,6 +52,7 @@ na voz da marca e falando com você**.
 | Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ entregue — `entrega/destaque-impressao.zip` (8 PNG + copy) |
 | Cardápio presencial em inglês e espanhol | [16/09/2026](https://beefood.app/novidades/traducao-cardapio-presencial) | `carrosseis/traducao-cardapio-presencial/` | 4:5, 7 slides | ✅ entregue — `entrega/traducao-cardapio-presencial.zip` (7 PNG + copy) |
 | Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + copy) |
+| Desconto ou acréscimo por forma de pagamento | [17/08/2026](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) | `carrosseis/desconto-forma-pagamento/` | 4:5, 7 slides | ✅ entregue — `entrega/desconto-forma-pagamento.zip` (7 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -67,6 +82,86 @@ tabela **fato → ângulo → o que o slide diz**:
   à da novidade.
 
 Método detalhado em [`roteiro-e-copy.md`](roteiro-e-copy.md).
+
+### A 19ª rodada devolveu a peça inteira, e a culpa era desta memória
+
+O carrossel de *desconto por forma de pagamento* voltou com três correções, e a
+pergunta que veio com elas é a que importa: **onde esta memória deixou isso
+passar?** Em todos os três casos havia uma linha aqui autorizando — e em um
+deles eu tinha acabado de escrever a linha, na rodada anterior, registrando o
+erro como virtude. Por isso este trecho nomeia a linha culpada, e não só a
+correção.
+
+**1. A capa entregou um quarto do recurso.** Saiu *"Dê 5% de desconto no Pix"*.
+A novidade se chama *Desconto **ou acréscimo** por forma de pagamento*, e o "ou"
+é a notícia: nos dois sentidos, em % **ou** em R$. Pior, aquela frase é o
+**exemplo** do release ("Exemplos: 5% de desconto no Pix, R$ 3,00 de desconto no
+dinheiro ou 2% de acréscimo no crédito") promovido a manchete.
+
+*O que autorizou:* três regras de concisão empurrando na mesma direção — "a capa
+é a frase mais curta do carrossel", "cortar até o osso melhora o texto", "**uma**
+palavra em vermelho — duas não destacam nada" — e nenhuma dizendo onde parar de
+cortar. Some-se o *"o ângulo é o que o leitor já viveu, **não o recurso**"* da
+`roteiro-e-copy.md`, que manda empurrar o recurso para fora do quadro. E o golpe
+final foi meu: na 18ª rodada escrevi aqui que a ordem direta "exige um verbo que
+o dono faz numa tarde" e dei *"Dê 5% no Pix"* como o exemplo bom.
+
+*O que ficou:* **concisão corta palavra, não corta eixo.** Eixo é o que tem um
+"ou" no título da novidade e muda **quem** se interessa pelo post. Escreva o
+fato com todos os eixos e só então corte palavra. Regra e tabela em
+*o fato inteiro, e o exemplo não é o fato*, na `roteiro-e-copy.md`.
+
+**2. As imagens eram do manual.** Cinco das seis vinham recortadas dos prints de
+produção dos manuais #64 e #82. O resultado: a capa com "R$ 5,00 de cashback
+disponível!" e "Que tal usar um cupom? 8 disponíveis" ocupando o terço de cima
+do celular, e a peça publicando **dois jogos de número** para o mesmo recurso —
+5% nos slides do cardápio, −1,00%/+3,00%/+R$ 5,00 nos do caixa, porque os dois
+manuais tinham configurações diferentes.
+
+*O que autorizou:* a regra existia em três arquivos. `SKILL.md`: "Capturas já
+existentes em `manuais/` podem ser **referenciadas** de dentro do slide. Não
+copie: o print do manual é o mesmo print". `conhecimento-compartilhado.md`:
+"Quando o print do manual serve exatamente, o slide **referencia** o arquivo do
+manual". E uma seção inteira aqui, *Reaproveitamento do manual*, que na 18ª
+rodada ganhou um subtítulo celebrando a economia: "o carrossel é quase todo
+recorte", "foi o mais barato até agora". Existia uma contra-regra — "print de
+manual não sustenta afirmação de slide" — mas ela estava limitada a *"quando o
+slide afirma um estado da interface"*, e como cada recorte mostrava o estado
+certo, a exceção engoliu a regra.
+
+*O que ficou:* **o print do manual é referência, não imagem.** Ele diz quais
+campos existem, que valores são reais e qual tela prova o quê; a arte usa
+captura feita para o carrossel, com o exemplo do carrossel montado no sandbox.
+Sobra um caso só — objeto sem estado e sem moldura, como o cupom impresso do
+#99. Detalhe em *o manual é referência, não acervo de imagem*.
+
+**3. O slide 2 inventou a rotina do leitor.** *"Você já faz isso no balcão. No
+caixa você propõe na hora: no Pix eu tiro 5%."* Nada na novidade nem no manual
+diz que o dono negocia forma de pagamento no balcão. É cenário inventado,
+afirmado como fato, no slide em que o leitor decide se arrasta.
+
+*O que autorizou:* o *elogie o que ele já tem* da `roteiro-e-copy.md`, sem dizer
+que o elogio é a uma coisa **do produto**; e o molde do "reconhecimento do que
+ele já fez", que traz "Você já fez a parte mais difícil" como exemplo bom. A
+checagem tinha a linha certa ("toda afirmação está na novidade ou no manual") e
+eu a li como afirmação sobre **o sistema**.
+
+*O que ficou:* uma pergunta na revisão — **quem poderia desmentir esta frase?**
+Se o leitor pode responder "não, eu não faço isso", é invenção. "Seu cardápio é
+o seu melhor vendedor" descreve o cardápio e fica; "você já faz isso no balcão"
+descreve ele e sai. Em *tudo o que o slide afirma é do produto*.
+
+*O que a segunda versão entregou:* capa com os três eixos no texto e na imagem
+(sobre a gaveta de formas, com selo verde numa e vermelho na outra); cinco
+capturas feitas para o carrossel, com **um** exemplo montado no sandbox e
+devolvido depois; e o mesmo pedido de R$ 39,55 fechando em R$ 36,55 e em
+R$ 40,34 no slide da prova. O texto da capa e do slide 2 ainda voltaria uma vez
+— por não nomear o recurso, ver *o sétimo vício*.
+
+O que as três têm em comum: **nenhuma é erro de tom.** O texto estava claro,
+falava com o dono, tinha verbo na frente e passava no `conferir-texto.py`. As
+regras de registro estão maduras; o que faltava era regra de **origem** — de
+onde vem o que o slide afirma, e de onde vem o que o slide mostra.
 
 ### O segundo vício: aforismo
 
@@ -150,6 +245,28 @@ sequência. Se a forma repetir, troque a forma — pergunta, afirmação do fato
 ordem direta ("Suba o seu primeiro vídeo hoje") e antes × agora são quatro moldes
 diferentes, e a pergunta é só um deles.
 
+A quarta capa tentou a ordem direta e **não passou**: *"Dê 5% de desconto no
+Pix"* cabia no molde e amputava o recurso, porque ordem direta precisa de um
+objeto único e a novidade tinha quatro combinações. Refeita como afirmação, saiu
+*"Cada forma de pagamento com o seu **preço**"* — e **também voltou**, agora por
+não dizer o nome do recurso (ver *o sétimo vício*). A terceira tentativa é o
+quinto molde, e é o mais simples de todos: **o nome do recurso**, dito como
+ganho — *"Acréscimo e desconto por **forma** de pagamento"*. Placar dos moldes:
+pergunta 2, afirmação 1, nome do recurso 1, ordem direta 0, antes × agora 0.
+
+O molde novo tem preferência quando a novidade **cria uma capacidade** que ainda
+não existia no sistema: aí a notícia é o nome dela, e qualquer outra coisa na
+primeira linha é rodeio.
+
+Daí uma condição de uso que faltava: **ordem direta só quando o recurso tem um
+objeto só.** O verbo obriga a escolher o que se manda fazer, e se o recurso vai
+nos dois sentidos, escolher um sentido é jogar metade fora — o molde e o fato
+brigam. "Suba o seu primeiro vídeo hoje" funciona porque vídeo é uma coisa; "Dê
+5% no Pix" não, porque o ajuste também é acréscimo e também é em reais.
+
+A outra exigência da ordem direta continua: **o verbo é uma coisa que o dono faz
+numa tarde.** "Melhore o seu cardápio" não é ordem, é conselho.
+
 ### O quinto vício: proibição não produz texto
 
 Aqui a lição não é sobre uma frase, é sobre **este documento**. A parte de texto
@@ -207,6 +324,45 @@ O que ficou, e vale para a próxima novidade:
 - **clareza antes de cota de sujeito.** Se a frase mais clara tem o recurso como
   sujeito, ela fica. O problema nunca foi a gramática, foi a frase não dizer para
   que serve.
+
+### O sétimo vício: a manchete-conceito, que não diz o nome do recurso
+
+A 20ª rodada devolveu três slides da **mesma** peça de desconto por forma de
+pagamento, e o diagnóstico foi curto: *"a hero ficou estranha, isso foge da
+funcionalidade"*, *"aqui basta a gente explicar a funcionalidade, não contar
+história"*, *"'forma que mais entra' tá estranho"*.
+
+As três frases devolvidas:
+
+| Devolvido | O que tinha de errado | O que foi |
+|---|---|---|
+| capa: "Cada forma de pagamento com o seu **preço**" | conceito: tem os três eixos e não diz o nome de nada | "Acréscimo e desconto por **forma** de pagamento" |
+| slide 2: "O pedido tinha um preço **só**" | história do antes, no lugar da explicação | "O ajuste fica no cadastro da **forma**" |
+| CTA: "Comece pela forma que mais **entra**" | metáfora ("entra") no lugar da ação | "Ligue o primeiro **ajuste** hoje" |
+
+*O que autorizou:* a primeira linha da *regra do primeiro segundo* — "**o slide 1
+não anuncia a funcionalidade**, ele nomeia um incômodo que a pessoa já teve" —
+somada à correção da rodada anterior, "concisão corta palavra, não corta eixo".
+Uma manda não dizer o nome; a outra manda caber todos os eixos. A saída que
+sobra é subir um degrau de abstração, e abstração que cabe em todos os casos é
+conceito. O resto veio junto: se a capa não pode nomear, o slide 2 precisa de
+outro assunto, e o assunto que sobra é enredo.
+
+*O que ficou:*
+
+- **a capa diz o nome do recurso**, e nome é o que ele **faz**, não onde mora.
+  "Aba nova: Ajuste no pagamento" é changelog; "Acréscimo e desconto por forma de
+  pagamento" é a notícia. Fugir do changelog nunca foi esconder o nome — é não
+  recortar o release nos oito slides;
+- **o slide 2 é a introdução:** explica o que se marca, sobre o que a conta
+  incide e onde o cliente vê. Não é o slide do problema, e explicar não é ensinar
+  a mexer (caminho de menu só no CTA);
+- **palavra concreta ganha de metáfora, sempre.** "Preço" no lugar de desconto e
+  acréscimo, "o que mais entra" no lugar da forma de pagamento: em todos os casos
+  existia a palavra que o recurso usa, e ela é mais curta que a imagem poética.
+
+E o *teste da capa*, que é o que pega isto antes do render: **quem leu só a capa
+sabe dizer o que entrou no sistema?**
 
 ### O registro muda com a voz, e um carrossel pode ter duas
 
@@ -275,7 +431,11 @@ O que ficou:
 
 ### O slide do problema elogia antes de cobrar
 
-O slide 2 do mesmo carrossel teve três versões, e as duas primeiras erraram por
+Isto vale para a peça que **abre pelo incômodo**. Quando a capa nomeia o recurso,
+o slide 2 é a introdução dele (ver *o sétimo vício*) — o que está abaixo continua
+sendo o que evita transformar o slide 2 em fatura, em qualquer um dos dois casos.
+
+O slide 2 do carrossel da tradução teve três versões, e as duas primeiras erraram por
 motivos diferentes: a primeira narrava o turista em terceira pessoa, a segunda
 perguntava *"Quanto seu salão **perde** por não falar inglês?"* e listava o que
 dá errado no salão. A segunda tem sujeito certo, tom de venda e fecha no custo —
@@ -495,6 +655,29 @@ A tabela vale para mockup **dentro da margem**, onde a largura útil é 904 px. 
 sangria a largura de exibição vai a 1120 px, o que empurra o teto de ~440 px para
 ~620 px lógicos — a conta refeita está em *Mockup de computador*, abaixo.
 
+### Moldura de aparelho ou recorte: quando o selo é a prova, o recorte ganha
+
+Print de celular tem 390 px lógicos de largura. Dentro de uma moldura de
+celular de 540 px ele sai a **1,38×**; recortado e exibido nos 904 px da margem,
+a **2,32×**. A diferença decide slides:
+
+| O que o slide precisa que se leia | Escolha |
+|---|---|
+| "esta é a tela do meu cliente" | moldura, e o texto miúdo não importa |
+| um selo de 11 px, um valor, um rótulo | recorte, e some com a moldura |
+
+No carrossel de desconto por forma de pagamento o selo `5% de desconto` tem 11 px
+lógicos: 15 px dentro da moldura (ilegível no feed) e 25 px no recorte. Três dos
+sete slides trocaram o aparelho pelo recorte por causa disso, e o celular ficou
+só onde o assunto é a cena — a capa e o CTA.
+
+**E recorte empilhado paga imposto de altura.** Dois cartões de valores
+empilhados a 904 px, com chapéu, título e três linhas de corpo acima, estouram
+os 1350: o segundo total saía por baixo da borda. A 780 px os dois cabem com
+90 px de folga, e a linha do ajuste ainda sai a 30 px. Quando o slide tem duas
+imagens, a largura não é a máxima que cabe na margem — é a que sobra depois do
+texto.
+
 ## Nada de data na arte
 
 A capa saía com a data da novidade no canto superior direito, que parecia
@@ -652,6 +835,16 @@ aparelho come 830 px de altura, e com duas linhas de subtítulo ele começava
 dentro do texto. Ficou com uma linha, e o resto do recado foi para a legenda.
 Orçamento da capa com aparelho em pé: pílula + título de 2 linhas + **1** linha
 de subtítulo, e o mockup começando por volta de 520 px.
+
+**Título de 3 linhas ainda cabe — o preço é a largura do aparelho.** Na capa de
+*desconto por forma de pagamento* o título não podia encurtar (cortar palavra ali
+era cortar eixo do recurso), e com o celular em 620 px e `top: 560px` ele
+cobriu o subtítulo. O que a medida diz: o que aparece de uma captura de celular
+é `top + 16 + 1,22 × (largura − 32)`, e isso tem de ser ≤ 1350 para a última
+linha que interessa entrar. Em 550 px de largura o aparelho pode descer para
+672 px e o selo de acréscimo do crédito continua dentro do slide. Aparelho mais
+estreito compra linha de texto; aparelho mais largo compra legibilidade de tela.
+Escolha pela linha que precisa aparecer, e meça antes de renderizar.
 
 **Na capa, tela cheia ganha de tela icônica.** A tela de espera do totem é a
 imagem-símbolo do recurso (botão vermelho grande e as três bandeiras embaixo), e
@@ -1336,13 +1529,88 @@ Rodar o script depois de mexer no `base.css` é obrigatório: a folha é o teste
 regressão da arte. E ele revelou peça esquecida — a `.tela-totem--espera` existia
 no CSS e nenhum slide usava, então ninguém sabia que ela estava disponível.
 
-## Reaproveitamento do manual
+## O manual é referência, não acervo de imagem
 
-O slide pode apontar direto para o print do manual
-(`../../../manuais/<manual>/imagens-puras/<arquivo>.png`). Foi assim com o
-cupom do #99: é o mesmo cupom, e duplicar o arquivo criaria duas verdades.
-Prints **puros**, nunca os tratados — os tratados têm setas numeradas, que são
+O slide **não** aponta para o print do manual. Isso era regra até a 18ª rodada,
+está invertido desde a 19ª, e a história está em *a 19ª rodada devolveu a peça
+inteira*, abaixo. O print do manual serve para **ler**: quais campos existem, que
+valores são reais, qual tela prova o quê. Depois disso a captura própria é barata,
+e ela é a que entra na arte.
+
+Sobra um caso, e só um: objeto **sem estado e sem moldura**. O cupom impresso do
+#99 é o mesmo cupom fotografado do papel — não tem banner por cima, não tem
+configuração para escolher, e o slide pode apontar para o arquivo do manual.
+Prints **puros**, nunca os tratados: os tratados têm setas numeradas, que são
 linguagem de manual.
+
+Uma coisa da 18ª rodada continua valendo, porque é sobre **achar** o manual:
+**`pauta.py` pode dizer "nenhum manual relacionado" e existir manual.** Ele casa
+por slug, e o slug da novidade (`desconto-acrescimo-forma-pagamento`) não é o do
+manual (`cardapio-digital-desconto-formas`). Antes de acreditar no "nenhum",
+liste `manuais/` pelas palavras do assunto — aqui, `*desconto*`, `*pagamento*` e
+`*recebimento*` devolviam cinco pastas, três delas úteis. O manual achado vira
+leitura obrigatória; a imagem dele, não.
+
+### Onde medir a borda de um recorte
+
+Recortar continua sendo necessário — em captura própria, porque tela de painel
+inteira reduzida para a largura do slide fica ilegível. Cortar dentro de um
+cartão ou no meio de uma palavra parece falha de render, e em duas rodadas foi o
+que mais custou refazer. As duas medidas que resolveram:
+
+- **print de celular do cardápio:** o fundo da página é cinza (#f7f7f8) e os
+  cartões são brancos puros, então a borda de cada cartão é a linha em que mais
+  de 90% dos pixels ficam entre 200 e 250 de luminância. Uma varredura de dez
+  linhas devolve a caixa exata de cada cartão;
+- **print de painel:** varra **colunas** contando pixels com tinta numa faixa de
+  altura, e varra **duas vezes**, com limiar duro e com limiar frouxo. Na tela de
+  recebimento, contando só pixels abaixo de 235 de luminância, as colunas 1284 a
+  1292 davam zero: um vão limpo de nove pixels entre a pílula `CTRL+1` e o cartão
+  seguinte. Cortei em 1288, no meio dele, e a borda esquerda da arte saiu com
+  dois borrões. Recontando abaixo de 250, aquelas mesmas colunas tinham de 31 a
+  61 pixels — a **sombra** da pílula, que o limiar duro não via e o olho vê. A
+  borda que serve é a do cartão, em 1293.
+
+Melhor ainda é **não precisar da medida**: em captura própria dá para fotografar
+o elemento (`locator.screenshot()`) em vez de a página, e aí a borda é a do
+componente. Medida em pixel é o preço de moldura emprestada.
+
+### Onde a captura termina é decisão do slide, não do arquivo
+
+Nem toda tela tem elemento para fotografar. As duas telas de painel do carrossel
+de desconto saíram por `clip` medido no DOM, e nas duas o recorte que serve à
+tela não é o que serve à arte: o campo de ajuste trazia 26 px do rótulo
+`DISPONIBILIDADE` embaixo, e a lista de formas trazia uma faixa do quarto
+cartão. Rótulo cortado no meio lê como falha de render.
+
+Isso **não** se resolve editando a imagem pura nem recapturando: o arquivo puro
+vai inteiro para `imagens-puras/` e o **slide** escolhe onde ele acaba, com
+`aspect-ratio` no contêiner e `object-fit: cover` na imagem.
+
+```html
+<!-- 520 px de 556: a borda do terceiro cartão fecha em 509 -->
+<div class="recorte recorte--topo" style="aspect-ratio: 808 / 520">
+  <img src="../imagens-puras/painel-lista.png" alt="…">
+</div>
+```
+
+O `.recorte--topo` já faz isso; em `.navegador__tela` é o mesmo par de
+declarações por estilo inline. Duas consequências práticas: a captura pode ser
+generosa (sobra é barata, falta é recaptura) e o corte fica versionado ao lado
+do motivo, em comentário no slide, em vez de assado num PNG que ninguém sabe de
+onde veio.
+
+### Devolva o sandbox como estava
+
+Captura própria quase sempre pede configurar o sandbox — e o sandbox é o mesmo
+que os manuais usam para os prints deles. Mudar `Dinheiro` de 5% para R$ 3,00 e
+deixar assim significa que o print do manual #64 não é mais reproduzível.
+
+Então o script de captura tem duas partes, e a segunda não é opcional: **anote a
+configuração encontrada, capture, restaure.** Se o script morrer no meio, a
+anotação impressa no terminal é o que permite devolver na mão. O carrossel de
+desconto guardou isso no topo do `capturar-telas.py`, em comentário, junto do
+valor original de cada forma.
 
 ## Entrega: imagem, legenda e zip
 

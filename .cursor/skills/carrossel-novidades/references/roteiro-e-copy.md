@@ -12,11 +12,16 @@ cada pedaço num slide produz um changelog paginado, que ninguém arrasta.
 
 O carrossel é uma **publicação nova, escrita a partir do fato**. Método:
 
-1. **Extraia o fato.** Em três linhas, sem adjetivo: o que mudou, onde fica, o
-   que passa a acontecer, e qual o limite. Isso vem da novidade e do manual.
-2. **Ache o ângulo.** Qual cena reconhecível do restaurante esse fato toca? A
-   bebida que fica na geladeira. A comanda que ninguém sabe se saiu. O custo que
-   entra duas vezes no DRE. O ângulo é o que o leitor já viveu — não o recurso.
+1. **Extraia o fato, inteiro.** Em três linhas, sem adjetivo: o que mudou, onde
+   fica, o que passa a acontecer, e qual o limite. Isso vem da novidade e do
+   manual. Inteiro é a palavra que faz trabalho aqui — ver *o fato inteiro, e o
+   exemplo não é o fato*.
+2. **Ache o ângulo dentro do fato.** Qual custo ou situação do restaurante esse
+   fato **resolve**? A bebida que fica na geladeira. A comanda que ninguém sabe
+   se saiu. O custo que entra duas vezes no DRE. O ângulo se escreve no
+   vocabulário do salão, e não no do sistema — mas ele sai do que o recurso faz,
+   nunca de um hábito que a gente supõe que o leitor tem. Ver *tudo o que o
+   slide afirma é do produto*.
 3. **Escreva da cena para a tela**, nunca o contrário. O nome do campo aparece
    quando o leitor já quer saber onde fica: slide 4, não slide 1.
 4. **Nenhuma frase sobrevive igual.** Se uma frase do carrossel também está no
@@ -33,6 +38,114 @@ nada foi inventado, e vê que nada foi copiado.
 | Campo novo "Destaque na impressão" no cadastro de produto e complemento | todo mundo tem uma gambiarra caseira para não esquecer a bebida | "Toda loja tem uma gambiarra para não esquecer a bebida" |
 | A linha sai com fundo escuro e letra clara | o cupom trata todas as linhas igual, e por isso a bebida some no combo | "Um esquecido custa duas viagens" |
 | Usar com critério; marcar tudo anula o efeito | destaque funciona por contraste | "Se tudo é destaque, nada é" |
+
+## Tudo o que o slide afirma é do produto
+
+A frase que derrubou o carrossel de *desconto por forma de pagamento* foi o
+slide 2: **"Você já faz isso no balcão. No caixa você propõe na hora: no Pix eu
+tiro 5%."** Está em português claro, fala com o leitor, elogia antes de cobrar e
+cumpre todas as regras de tom deste documento. E é invenção: nem a novidade nem
+o manual dizem que o dono negocia forma de pagamento no balcão. Eu escrevi um
+cenário e o afirmei como fato, no slide em que o leitor decide se arrasta.
+
+A checagem já tinha a linha certa — *toda afirmação está na novidade ou no
+manual* — e ela passou, porque eu li "afirmação" como afirmação **sobre o
+sistema**. Não é. A regra vale para tudo, e o que mais escapa é a afirmação
+sobre **o leitor**.
+
+> Teste de uma pergunta: **quem poderia desmentir esta frase?**
+>
+> Se o leitor pode responder "não, eu não faço isso", a frase é invenção — e sai
+> caro, porque ela vem justamente no slide em que ele decide continuar. Frase
+> sobre o produto ninguém desmente: está na tela.
+
+A fronteira é o sujeito da frase, e ela é fina:
+
+| Sobrevive | Não sobrevive |
+|---|---|
+| "Seu cardápio é o seu melhor **vendedor**" — descreve o cardápio: foto, descrição, combo e adicional estão na tela | "Você já faz isso no balcão" — descreve **ele**, e nada na tela sustenta |
+| "O mesmo pedido fecha em dois totais" — está no cardápio, conferido | "Você negocia na boca do caixa" — pode ser verdade em uma loja e ofensa em outra |
+| "A taxa do crédito sai do subtotal" — é a conta que o sistema faz | "Isso te incomoda desde que você abriu a loja" — biografia |
+
+Por isso o *elogie antes de cobrar* tem um limite que faltava: **elogie uma coisa
+do produto que ele já usa**, não um hábito que a gente imaginou. E o molde do
+"reconhecimento do que ele já fez" ("Você já fez a parte mais difícil") só serve
+quando o que ele fez está no sistema — cadastrou o produto, subiu a foto, ligou
+o cardápio. Fora disso é ficção com a cara de empatia.
+
+Isto **não** proíbe falar do salão. O ângulo continua sendo o custo reconhecível,
+e ele se escreve com as palavras do dono. O que muda é que a frase nomeia o
+custo sem afirmar o que ele faz com ele: "a taxa do crédito sai da sua margem em
+todo pedido" é o custo, é verdade e é do produto; "você já tentou resolver isso
+na boca do caixa" é a história que eu inventei em volta.
+
+## O fato inteiro, e o exemplo não é o fato
+
+A capa do mesmo carrossel saiu **"Dê 5% de desconto no Pix"**. A novidade se
+chama *Desconto **ou acréscimo** por forma de pagamento*, e o "ou" é a notícia:
+o ajuste vai nos dois sentidos, em porcentagem **ou** em reais. A capa entregou
+um quarto do recurso e, pior, entregou a frase que estava no release como
+**exemplo** — "Exemplos: 5% de desconto no Pix, R$ 3,00 de desconto no dinheiro
+ou 2% de acréscimo no crédito".
+
+Duas regras saem disso.
+
+**Exemplo da novidade não é fato da novidade.** A lista de exemplos existe para
+mostrar a **amplitude**; promover um deles a manchete transforma a amplitude num
+caso único. Quem lê "5% no Pix" entende "deu para dar desconto no Pix", e o que
+entrou no sistema foi bem maior. Exemplo serve para a imagem e para o corpo do
+slide, nunca para a capa.
+
+**Concisão corta palavra, não corta eixo.** Três regras deste documento empurram
+a capa para o osso — ela é a frase mais curta, tem uma palavra em vermelho, cada
+palavra que sai é ganho — e nenhuma delas dizia onde parar. Agora diz: antes de
+cortar, escreva o fato em uma linha **com todos os eixos**, e depois corte só
+palavra.
+
+Eixo é o que tem um "ou" (ou um "e") no título da novidade e muda **quem** se
+interessa pelo post:
+
+- *desconto ou acréscimo* — quem quer repassar a taxa do crédito não tem
+  interesse nenhum num post sobre desconto;
+- *em % ou em R$* — R$ 3,00 fixos são a régua de quem tem ticket baixo;
+- *no cardápio, no totem, no caixa e no chat* — quem não tem delivery para de
+  ler na primeira linha se a capa disser "cardápio digital".
+
+E o corte não é só de texto: **a imagem da capa também carrega os eixos.** Um
+total com desconto mostra um sentido; a lista de formas com um selo de desconto
+numa e um de acréscimo na outra mostra o par inteiro, na mesma imagem e sem
+palavra a mais.
+
+| Amputado | Inteiro, e do mesmo tamanho |
+|---|---|
+| "Dê 5% de desconto no Pix" | "Acréscimo e desconto por **forma** de pagamento" |
+| capa com o total abatido no Pix | capa com a lista de formas, desconto numa e acréscimo na outra |
+
+## Nomear o recurso é o começo de vender
+
+A correção acima foi feita uma vez pelo caminho errado, e a capa saiu **"Cada
+forma de pagamento com o seu preço"**. Tem os três eixos, não copia o release,
+não inventa nada sobre o leitor — e não diz o nome de coisa nenhuma. O dono leu
+e devolveu: *"isso foge da funcionalidade"*.
+
+É o que acontece quando *concisão corta palavra, não corta eixo* encontra *a capa
+não anuncia a funcionalidade*: para caber todo mundo sem dizer o nome de
+ninguém, a frase sobe um degrau de abstração e vira conceito. Conceito é bonito,
+é verdadeiro, e o leitor não sabe o que o sistema passou a fazer.
+
+> **Fugir do changelog nunca foi esconder o nome do recurso.** Changelog é
+> recortar o texto do release nos oito slides. Dizer na capa o que o recurso faz
+> é o contrário disso: é a notícia.
+
+| Conceito (a peça devolvida) | Nome (a peça que foi) |
+|---|---|
+| "Cada forma de pagamento com o seu preço" | "Acréscimo e desconto por **forma** de pagamento" |
+| "O pedido tinha um preço só" | "O ajuste fica no cadastro da **forma**" |
+| "Comece pela forma que mais entra" | "Ligue o primeiro **ajuste** hoje" |
+
+Os três pecados são o mesmo: metáfora ("preço", "o que mais entra") no lugar da
+palavra que o recurso usa ("desconto", "acréscimo", "ajuste"). Quando existir
+uma palavra concreta para a coisa, ela ganha da imagem poética — **sempre**.
 
 ## O alvo de cada slide: a utilidade
 
@@ -134,18 +247,30 @@ enquanto a gente escreve.
 
 ## A regra do primeiro segundo
 
-O slide 1 não anuncia a funcionalidade — ele nomeia **um incômodo que a pessoa
-já teve** — e leva **uma imagem**. Capa só de texto perde para capa com imagem, e
-a imagem certa é o resultado da novidade (o papel impresso, a tela nova), não um
-ícone decorativo.
+O slide 1 **diz o nome do recurso** e leva **uma imagem**. Capa só de texto perde
+para capa com imagem, e a imagem certa é o resultado da novidade (o papel
+impresso, a tela nova), não um ícone decorativo.
 
-| Em vez de | Escreva |
-|-----------|---------|
-| "Novo campo Destaque na impressão" | "Cansou de esquecer a bebida?" |
-| "Nova etapa Pronto no Delivery" | "Quem está pronto já saiu, ou ainda não?" |
-| "DRE: controle Considerar Custo Vendas" | "Seu custo pode estar entrando duas vezes no DRE" |
+Nome do recurso é o que ele **faz**, não onde ele mora:
 
-Teste rápido: leia só o slide 1 em voz alta. Se soa como changelog, reescreva.
+| Nome do campo (changelog) | Nome do recurso (capa) |
+|---|---|
+| "Novo campo Destaque na impressão" | "Destaque a bebida no cupom da cozinha" |
+| "Nova etapa Pronto no Delivery" | "Saiba quem já saiu para entregar" |
+| "Aba nova: Ajuste no pagamento" | "Acréscimo e desconto por forma de pagamento" |
+
+A coluna da esquerda nomeia a tela: o leitor teria que já usar o sistema para
+entender. A da direita nomeia a capacidade, com as palavras do dono — e é o que
+vende.
+
+**A capa pode abrir pelo incômodo, mas o nome tem de estar nela.** "Cansou de
+esquecer a bebida?" prende, e prende porque o subtítulo logo abaixo diz o que o
+sistema passou a fazer. O incômodo é a porta; o nome é o que o leitor leva se
+não arrastar.
+
+**Teste da capa:** quem leu **só** a capa sabe dizer o que entrou no sistema? Se
+a resposta depende de arrastar, a capa é conceito, não notícia. E leia em voz
+alta: se soa como changelog ("Novo campo X na tela Y"), reescreva.
 
 **É a frase mais curta do carrossel.** "Cansou de bebida esquecida na sacola?"
 tem seis palavras e está correta; "Cansou de esquecer a bebida?" tem cinco, diz o
@@ -177,12 +302,12 @@ paga quando tem conteúdo do outro lado.
 
 ## Estrutura que funciona (6 a 8 slides)
 
-1. **Capa** — o incômodo em no máximo oito palavras, com imagem.
-2. **O reconhecimento** — é aqui que o leitor se vê. Elogie primeiro o que ele já
-   tem funcionando e mostre o furo depois, na mesma frase que traz a solução; o
-   custo aparece em cena concreta ("alguém sai de novo no meio do pico"), nunca
-   em número inventado. Slide 2 que cobra afasta — ver *o slide do problema
-   elogia antes de cobrar*.
+1. **Capa** — o nome do recurso em no máximo oito palavras, com imagem.
+2. **A introdução** — explique o recurso que a capa nomeou: o que se marca,
+   sobre o que a conta incide, onde o cliente vê. Duas ou três frases, e acabou.
+   Não é o slide da história ("você já faz isso no balcão"), e explicar **não é
+   ensinar a mexer**: nome de campo, ordem de tela e passo a passo continuam no
+   manual — ver *explicar o recurso não é ensinar a mexer*.
 3. **A virada** — o que muda, mostrado. Antes × depois é o slide mais
    compartilhado do carrossel.
 4. **Onde ligar** — mockup de computador com o caminho de menu e o realce no
@@ -275,9 +400,32 @@ Duas cautelas:
 - **vender não é adjetivar.** "Revolucionário", "poderoso" e "incrível"
   continuam fora. O que vende é a cena concreta e a consequência.
 
+### Explicar o recurso não é ensinar a mexer
+
+O slide 2 explica, e a vala do manual fica logo ao lado. A fronteira é o tipo de
+frase:
+
+| Explicação (slide 2) | Manual (não entra) |
+|---|---|
+| "Em cada forma de pagamento você marca desconto, acréscimo ou nenhum dos dois" | "Abra **Cadastros → Formas de Recebimento**, clique na forma e role até **Ajuste no pagamento**" |
+| "A conta incide sobre o total em produtos" | "O campo **Valor (R$)** aceita até duas casas decimais" |
+| "O cliente vê o valor ao escolher como paga" | "O selo aparece à direita do nome, em verde ou vermelho" |
+
+A esquerda diz **o que o recurso faz**; a direita diz **onde clicar** e como a
+tela se comporta. O caminho de menu existe uma vez no carrossel, no CTA, quando
+o leitor já quer saber onde fica.
+
+E explicação não é enredo. "Você já faz isso no balcão", "no caixa você propõe
+na hora" é história, e história no slide 2 gasta o lugar de quem ainda não
+entendeu o recurso que a capa acabou de anunciar.
+
 ### O slide do problema elogia antes de cobrar
 
-O slide 2 é onde o leitor decide se arrasta o carrossel. Duas versões do de
+Vale para a peça que **abre pelo incômodo** — e, quando a capa nomeia o recurso,
+o slide 2 é a introdução, não o problema. O erro que esta seção evita continua
+sendo o mesmo: transformar o slide 2 em fatura.
+
+Duas versões do carrossel de
 tradução falharam ali: a primeira narrava o turista em terceira pessoa, e a
 segunda perguntou **"Quanto seu salão perde por não falar inglês?"**, com três
 linhas do que dá errado no salão e o custo no pé. Sujeito certo, tom de venda —
@@ -288,7 +436,9 @@ O que funcionou é a mesma informação de trás para frente:
 
 1. **elogie o que ele já tem, com verdade.** "Seu cardápio é o seu melhor
    **vendedor**" — e é: foto, descrição, combo e adicional na tela são trabalho
-   de vendedor.
+   de vendedor. **O elogio é a uma coisa do produto**, nunca a um hábito
+   suposto: "você já faz isso no balcão" tem o mesmo tom e é invenção (ver *tudo
+   o que o slide afirma é do produto*).
 2. **traga o furo depois, junto com a solução.** "Ele só vende para quem lê
    português (…) em inglês e em espanhol, esse vendedor volta a trabalhar."
 3. **o custo fica, em cena e sem porcentagem:** "o pedido sai o mais simples
@@ -392,9 +542,23 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 
 ## Checagem antes de renderizar
 
+- [ ] **A capa diz o nome do recurso?** Quem lê só ela sabe o que entrou no
+      sistema — e o nome é o que o recurso faz, não o nome do campo.
+- [ ] **O slide 2 explica o recurso?** Não conta história, não cobra, e não
+      ensina onde clicar.
+- [ ] **Alguma frase trocou a palavra concreta por metáfora?** "Preço" no lugar
+      de desconto e acréscimo, "o que mais entra" no lugar da forma de
+      pagamento. A palavra do recurso ganha da imagem poética.
 - [ ] Existe a tabela **fato → ângulo → slide** no `roteiro.md`.
 - [ ] Existe, no `roteiro.md`, a **ideia de uso** de cada slide — e cada slide
       entrega a dele.
+- [ ] **Quem poderia desmentir cada frase?** Nenhuma afirma o que o leitor faz,
+      tem ou sente — só o que o produto faz.
+- [ ] A capa diz o fato **inteiro**: nenhum eixo da novidade (o "ou", o "e" do
+      título) ficou fora, e nenhum **exemplo** do release virou manchete.
+- [ ] A imagem da capa mostra os eixos, e não um lado só.
+- [ ] **Um exemplo numérico, o mesmo em todos os slides.** Dois jogos de número
+      para o mesmo recurso lêem como duas versões do produto.
 - [ ] Nenhuma frase do carrossel aparece igual no texto da novidade.
 - [ ] Nenhum slide entrega **permissão** ("você pode") em vez de ideia.
 - [ ] Nenhum slide narra a cena do cliente em **close** (dedo, boca, chapa).
