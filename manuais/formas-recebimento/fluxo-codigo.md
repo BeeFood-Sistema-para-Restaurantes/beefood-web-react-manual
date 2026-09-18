@@ -9,7 +9,7 @@ Levantado em 03/09/2026 em `~/refs/beefood-web-react` (leitura) e no sandbox.
 
 | Tela | Rota | Entidade | Papel |
 |------|------|----------|-------|
-    10|| **Cadastros → Formas Recebimento** | `/formas-recebimento` | `formaPagamento` | Formas das **vendas**; flags `delivery` e `presencial` |
+| **Cadastros → Formas Recebimento** | `/formas-recebimento` | `formaPagamento` | Formas das **vendas**; flags `delivery` e `presencial` |
 | **Cardápio Digital → Formas Recebimento** | `/cardapio-digital?tab=formasRecebimento` | `deliveryRecebimento` (por filial) | O que o **cliente** vê na sacola; flags `delivery` e `retirada`; vínculo opcional `formaPagamentoID` |
 | **Financeiro → Formas Pagamento** | `/formas-pagamento` | formas financeiras | Contas a pagar/receber + espelho **read-only** das formas de venda com taxas |
 
@@ -18,7 +18,7 @@ Arquivos: `src/pages/Cadastros.tsx` +
 `src/components/ModalEditarFormaRecebimento.tsx` (o modal das três abas);
 `src/components/cardapio-digital/FormasRecebimentoTab.tsx` +
 `ModalAdicionarRecebimento.tsx`; `src/pages/FormasPagamento.tsx`.
-    20|Permissões independentes: `cadastros.formasRecebimento`, `cardapioDigital.formasRecebimento`,
+Permissões independentes: `cadastros.formasRecebimento`, `cardapioDigital.formasRecebimento`,
 `financeiro.formasPagamento`.
 
 ---
@@ -29,7 +29,7 @@ Arquivos: `src/pages/Cadastros.tsx` +
 
 ```
 tipo === 'DELIVERY' ? fp.delivery === true : fp.presencial === true
-    30|&& (fp.usuarioID === usuarioLogado || fp.usuarioID === null)
+&& (fp.usuarioID === usuarioLogado || fp.usuarioID === null)
 && fp.beetech !== true && fp.mercadoPago !== true
 ```
 
@@ -39,7 +39,7 @@ Ou seja:
 - Forma com `usuarioID` só aparece para aquele usuário.
 - Formas de integração (`beetech`, `mercadoPago`) são **ocultadas** do operador e ficam
   read-only na listagem (badges **BeeFood** / **Mercado Pago**).
-    40|- A **intenção de pagamento** do delivery exclui `Fiado` e `PIX Beetech` da sugestão.
+- A **intenção de pagamento** do delivery exclui `Fiado` e `PIX Beetech` da sugestão.
 
 ---
 
@@ -50,7 +50,7 @@ Ou seja:
 `Aplicativo Garçom Stone`, `Ajuste no pagamento` (+ `Percentual (%)` / `Valor (R$)`), `Ordem`,
 `Usuário Vinculado`.
 
-    50|Os `id` dos radios de tipo são `tipo-<valor>` (ex.: `#tipo-Vale Refeição`) — foi assim que a
+Os `id` dos radios de tipo são `tipo-<valor>` (ex.: `#tipo-Vale Refeição`) — foi assim que a
 captura selecionou o tipo; clicar no texto do rótulo **não** marca o radio.
 
 **Tipos** (`tiposForma`): `Dinheiro`, `Cartão de Crédito`, `Cartão de Débito`, `Crédito Loja`,
@@ -60,7 +60,7 @@ captura selecionou o tipo; clicar no texto do rótulo **não** marca o radio.
 **Aba Taxas e Bandeiras:** desabilitada para `Dinheiro`, `Fiado` e `PIX Beetech`
 (`title="Não disponível para este tipo de pagamento"`). Tem `Taxa (%)`,
 `Desconto Fixo (R$)` (mutuamente exclusivos), `Dias para Recebimento`, `Conta Bancária` e a grade
-    60|de bandeiras (`Ativo`, `Taxa (%)`, `Desc. Fixo`, `Dias Receb.` por bandeira). No sandbox a grade
+de bandeiras (`Ativo`, `Taxa (%)`, `Desc. Fixo`, `Dias Receb.` por bandeira). No sandbox a grade
 tem 20+ bandeiras, incluindo *Sodexo*, *Alelo* e *VR*.
 
 **Aba TEF (Stone/PayGo):** `Provedor Padrão` (texto) e a lista `TEF Vinculada`. Vincular exige a
@@ -82,7 +82,7 @@ preencher as taxas.
 | Salvar | POST | `/api/empresa2/formaRecebimento` |
 | Flags/ordem (switches da lista) | POST | `/api/empresa2/formaRecebimentos/atualizaFlags` |
 | Taxas e bandeiras | GET/POST | `/api/empresa2/formaRecebimento/config[...]` |
-    80|| Vincular TEF | POST | `/api/empresa2/formaRecebimento/tef` |
+| Vincular TEF | POST | `/api/empresa2/formaRecebimento/tef` |
 | Lista usada na venda | GET | `/datasnap/rest/empresa2/formaPagamento/{empresaID}/{usuarioID}` |
 | Cardápio digital | GET/POST/DELETE | `/datasnap/rest/empresaDelivery2/cardapioDigital/recebimento[...]` |
 | Financeiro | GET/POST/DELETE | `/api/financeiro2/formaRecebimento[s][...]` |
@@ -92,7 +92,7 @@ cardápio digital.
 
 ---
 
-    90|## 5. Medições no sandbox (03/09/2026, empresa 38311 / filial 39202)
+## 5. Medições no sandbox (03/09/2026, empresa 38311 / filial 39202)
 
 - Antes: **20 formas** no cadastro de vendas e **18** no cardápio digital.
 - Criada a forma **Vale Refeição Sodexo** (tipo `Vale Refeição`, `delivery` e `presencial`
@@ -102,7 +102,7 @@ cardápio digital.
 - Descobertas de tela que viraram texto:
   - a aba **Taxas e Bandeiras** nasce **desabilitada** porque o tipo padrão é `Dinheiro`;
   - `Taxa (%)` e `Desconto Fixo (R$)` se bloqueiam mutuamente;
-   100|  - as formas com ajuste mostram o valor **na tela de recebimento**, embaixo do nome
+  - as formas com ajuste mostram o valor **na tela de recebimento**, embaixo do nome
     (`-1,00%` no Dinheiro, `+3,00%` no Crédito, `+R$ 5,00` no Vale Alimentação).
 - **Nada foi recebido**: a tela de pagamento da mesa 2 foi aberta apenas para fotografar a lista e
   fechada sem confirmar.

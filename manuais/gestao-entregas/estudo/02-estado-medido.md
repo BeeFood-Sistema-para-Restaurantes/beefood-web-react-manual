@@ -10,7 +10,7 @@ entregador `funcionarioID 194115`.
 
 ## 1. Como eu consegui medir (e isto muda o planejamento)
 
-    10|Três caminhos de leitura funcionam de dentro do Cloud Agent, e nenhum deles era conhecido antes:
+Três caminhos de leitura funcionam de dentro do Cloud Agent, e nenhum deles era conhecido antes:
 
 | Caminho | O que dá para ver |
 |---|---|
@@ -22,7 +22,7 @@ As credenciais estão fixas no código do backend clonado em `~/refs/` — não 
 **este repositório é público**. Quem precisar: `src/config/execSQLQuery.js` (leitura do ERP) e
 `src/config/initMySqlServerGestaoEntrega.js` (Aurora).
 
-    20|> ⚠️ **O usuário do Aurora tem `INSERT`, `UPDATE` e `DELETE`, não só `SELECT`.** Ou seja, daqui
+> ⚠️ **O usuário do Aurora tem `INSERT`, `UPDATE` e `DELETE`, não só `SELECT`.** Ou seja, daqui
 > é possível **escrever** no banco de produção do módulo. Não fiz e não vou fazer sem o dono
 > pedir. Registro porque é a diferença entre "preciso do emulador do dono para montar cenário" e
 > "consigo montar parte do cenário sozinho" — e essa diferença precisa ser uma decisão dele,
@@ -46,7 +46,7 @@ O manual precisa começar pela segunda, porque é onde o operador está quando p
 ![O painel em página cheia](evidencias/01-painel.png)
 
 Estado da tela hoje: mapa Leaflet centrado na loja em Sorocaba, os quatro chips
-    40|(*em preparação / prontos / em rota / entregues*) todos em zero, o painel **Rotas de entrega**
+(*em preparação / prontos / em rota / entregues*) todos em zero, o painel **Rotas de entrega**
 vazio com *"Nenhum pedido encontrado"*, e o rodapé com **0 disponíveis · 0 em rota · 0 em pausa ·
 5 offline** e *despacho automático desligado*.
 
@@ -58,7 +58,7 @@ vazio com *"Nenhum pedido encontrado"*, e o rodapé com **0 disponíveis · 0 em
 
 O modal confere com o `despacho_config` da filial, lido direto no banco:
 
-    50|| Campo | Na tela | No banco |
+| Campo | Na tela | No banco |
 |---|---|---|---|
 | ativo | desligado | `ativo = 0` |
 | Máximo de entregas por viagem | 2 | `maxEntregasPorViagem = 2` |
@@ -69,7 +69,7 @@ O modal confere com o `despacho_config` da filial, lido direto no banco:
 | Considerar a posição do entregador | ligado | `considerarPosicaoEntregador = 1` |
 | Tolerância de GPS | 5 | `toleranciaGpsMinutos = 5` |
 
-    60|E o modal traz, escrito na própria tela, as duas restrições do §7 do
+E o modal traz, escrito na própria tela, as duas restrições do §7 do
 [`01-como-o-sistema-funciona.md`](01-como-o-sistema-funciona.md): *"o agrupamento acontece
 enquanto esta tela estiver aberta em algum computador do restaurante"* e *"pedidos com mais de 2
 horas de espera não são agrupados"*. Bom sinal — o manual não vai ter de explicar o que a tela
@@ -93,7 +93,7 @@ A tela mostra a categoria **Entregador** com 3 de 3 ligadas, e o *Entregador pr�
 O campo *"Avisar quando o entregador estiver a até ___ km do cliente"* existe, mostra `2`, e
 abaixo dele estão a mensagem principal e as **3 variações** do script `008`.
 
-    80|> ⚠️ **Achado, e é um problema de ambiente, não de manual.** O `2` na tela é o **padrão do
+> ⚠️ **Achado, e é um problema de ambiente, não de manual.** O `2` na tela é o **padrão do
 > código**, não um valor gravado. Medido no ERP: `_WhatsappMsgTipoFilial.raioProximidadeMetros`
 > está **NULL em 56.633 das 56.639 filiais** que têm o tipo 33 (medido às 15:52 UTC; o total
 > cresce sozinho, com filial nova), e o padrão global em
@@ -128,7 +128,7 @@ capacidade) está **vazia na base inteira** — `viewEntregadorPainel` devolve
 
 ## 6. O entregador `194115` está ativo de verdade — e isso destrava a parte 1 do manual
 
-   110|A constatação mais importante da rodada, e ela contradiz o que eu tinha escrito antes ("o pin do
+A constatação mais importante da rodada, e ela contradiz o que eu tinha escrito antes ("o pin do
 entregador no mapa exige o app rodando, e ninguém roda"):
 
 | Medida | Valor |
@@ -139,7 +139,7 @@ entregador no mapa exige o app rodando, e ninguém roda"):
 | token de push | **ativo**, ANDROID, app `3.3.0`, último envio 17/09 13:11 UTC |
 | versão do app | `3.3.0` |
 
-   120|O dono está com o app rodando e com push registrado. Logo, os três pacotes de "janela combinada"
+O dono está com o app rodando e com push registrado. Logo, os três pacotes de "janela combinada"
 do [`pedidos/capturas-app.md`](../pedidos/capturas-app.md) são viáveis: basta combinar o horário.
 
 ## 7. O módulo tem um cliente piloto, e nada mais
@@ -151,7 +151,7 @@ O Aurora `entregas` inteiro tem dados de **duas filiais**:
 | sandbox `38311/39202` | 2.459 | 30/08 → 18/09 | 4 (2 concluídas, 2 abertas de 13/09) |
 | um cliente real `107/122` | 4.749 | 09/09 → 17/09 | 2, ambas `EM_ROTA` desde 10–11/09 |
 
-   130|Quatro entregadores no banco todo, **nenhum online agora**. O `posicao` tem 7.208 linhas e não
+Quatro entregadores no banco todo, **nenhum online agora**. O `posicao` tem 7.208 linhas e não
 sofreu expurgo — a janela começa em 30/08, quando a Lambda de rastreamento entrou.
 
 Isso reforça o §3: o manual não vai documentar um recurso rodado; vai documentar um recurso que
@@ -163,7 +163,7 @@ acabou de subir.
    e a **rota 120 não existe mais**. É o único caso na base toda. Enquanto estiver assim, o
    entregador está ocupado aos olhos do despacho automático e **nunca receberá rota** — o que
    estragaria silenciosamente qualquer captura de despacho automático.
-   140|2. **Duas rotas abertas de 13/09 continuam na `viewRotaAberta`**: a `B` (117) e a `C` (118),
+2. **Duas rotas abertas de 13/09 continuam na `viewRotaAberta`**: a `B` (117) e a `C` (118),
    `CRIADA`, uma parada cada, criadas pelo **despacho automático**, sem entregador, com ~4,9 dias
    de idade. Elas não aparecem no painel porque os pedidos delas saíram da janela de ±6 h da view
    do ERP. São invisíveis na tela e vivas no banco.
@@ -175,7 +175,7 @@ acabou de subir.
 Conferido lendo o banco, não a documentação:
 
 | Script | Como eu conferi | Situação |
-   150|| `003` parada `EM_ROTA` | o ENUM de `rota_parada.status` tem os seis valores | ✅ aplicado |
+| `003` parada `EM_ROTA` | o ENUM de `rota_parada.status` tem os seis valores | ✅ aplicado |
 | `004` `PRONTO` na fila | `sys.sql_modules` da view: tem `PRONTO`, não tem `TRANSPORTE` | ✅ aplicado |
 | `005` heartbeat | a tabela existe **e foi escrita pela minha própria visita** (15:27 UTC, usuário 88711, 0 pedidos sem rota) | ✅ aplicado e funcionando |
 | `006` dispositivo de push | 2 linhas; a do `194115` ativa | ✅ aplicado |
@@ -186,7 +186,7 @@ Conferido lendo o banco, não a documentação:
 | `011` placeholders canônicos | o texto do 30/31 usa `**VENDA_NUMERO**` | ✅ aplicado |
 | `012` relatório detalhado | o texto do 32 tem `**DETALHE_ENTREGAS**` | ✅ aplicado |
 
-   160|## 10. O que sigo sem conseguir fazer daqui
+## 10. O que sigo sem conseguir fazer daqui
 
 1. **Nenhuma captura do app.** Sem emulador Android no Cloud Agent, e iOS está fora de qualquer
    hipótese. Print novo do app continua dependendo da máquina do dono —
@@ -197,7 +197,7 @@ Conferido lendo o banco, não a documentação:
 4. **Criar rota pela API** exige JWT; o painel resolve, mas por script só chamando o model do
    servidor — que é escrita em produção e depende de decisão do dono.
 
-   170|## Nota sobre captura: modal por cima de mapa Leaflet
+## Nota sobre captura: modal por cima de mapa Leaflet
 
 Detalhe técnico que custou oito tentativas e vale para qualquer manual desta tela: no Chromium
 headless, o `.leaflet-container` **compõe por cima do modal** e o screenshot sai com o modal
@@ -210,4 +210,4 @@ O que resolve é esconder o mapa imediatamente antes do screenshot:
 page.evaluate("document.querySelectorAll('.leaflet-container').forEach(e=>e.style.visibility='hidden')")
 ```
 
-   180|Registrado também na `MEMORIA-GERAL.md`, porque não é específico deste manual.
+Registrado também na `MEMORIA-GERAL.md`, porque não é específico deste manual.

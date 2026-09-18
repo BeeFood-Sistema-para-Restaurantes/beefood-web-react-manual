@@ -41,7 +41,7 @@ as diferenças abaixo.
 
 | Aspecto | Mesas | Comandas |
 |---------|-------|----------|
-    40|| Campo de ID no payload | `mesaID` | **`id`** |
+| Campo de ID no payload | `mesaID` | **`id`** |
 | Descrição padrão | `Mesa N` | `Comanda N` |
 | QR do cardápio | `?tipo=p&mesa={codigo}` | **`?tipo=p&comanda={codigo}`** |
 | QR interno | `{empresaID}_{codigo}` | **`{empresaID}_c{codigo}`** |
@@ -51,7 +51,7 @@ as diferenças abaixo.
 
 O deep link é o destino do botão **QUERO GERAR DE COMANDA** do gate exibido no cadastro de mesas.
 
-    50|No sandbox, o EAN-13 da Comanda 1 saiu **`2 103831 100012`** (tipo 1, empresa 38311, código
+No sandbox, o EAN-13 da Comanda 1 saiu **`2 103831 100012`** (tipo 1, empresa 38311, código
 0001) — contra `2 003831 100015` da Mesa 1. É a prova de que o sistema distingue mesa de comanda
 pelo próprio código lido.
 
@@ -61,7 +61,7 @@ pelo próprio código lido.
 
 - Antes: **25 comandas** (códigos 1 a 25), todas ativas.
 - Criada a **Comanda 26** pelo modal individual e as **27 a 30** pelo lote → **30 comandas**.
-    60|- Diálogo de exclusão fotografado na Comanda 26 e **cancelado**.
+- Diálogo de exclusão fotografado na Comanda 26 e **cancelado**.
 - QR Codes gerados na faixa **1 a 4** nos três tipos; folha de impressão capturada pelo iframe
   oculto (mesmo truque descrito no `MEMORIA.md` do #80).
 - Mapa do salão: aba **Comandas** com 30 cards (27 livres, 3 ocupados no momento da captura).

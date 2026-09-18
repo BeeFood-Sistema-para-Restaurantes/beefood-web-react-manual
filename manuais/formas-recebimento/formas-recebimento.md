@@ -9,7 +9,7 @@ todo mundo, e termina com um exemplo completo: cadastrar um vale novo e vê-lo a
 receber.
 
 > As imagens têm **setas numeradas** (1, 2, 3…). Cada número indica o campo correspondente
-    10|> na tela.
+> na tela.
 
 ---
 
@@ -20,7 +20,7 @@ tempo:
 
 | Tela | Onde fica | Para que serve |
 |------|-----------|----------------|
-    20|| **Formas de Recebimento** | **Cadastros → Formas Recebimento** | **É esta que este manual explica.** Define as formas usadas nas **vendas**: PDV, mesa, comanda e Delivery |
+| **Formas de Recebimento** | **Cadastros → Formas Recebimento** | **É esta que este manual explica.** Define as formas usadas nas **vendas**: PDV, mesa, comanda e Delivery |
 | **Formas Recebimento** do cardápio | **Cardápio Digital → Formas Recebimento** | Define o que o **cliente vê na sacola** do cardápio digital. É uma lista separada, que pode apontar para a forma do cadastro |
 | **Formas Pagamento** do financeiro | **Financeiro → Formas Pagamento** | Formas usadas para **lançar contas a pagar e a receber** (boleto do fornecedor, por exemplo). Não muda nada na venda |
 
@@ -31,7 +31,7 @@ conta é o financeiro.**
 
 ## Onde fica
 
-    30|No menu lateral, clique em **Cadastros** e depois em **Formas Recebimento** (1).
+No menu lateral, clique em **Cadastros** e depois em **Formas Recebimento** (1).
 
 ![Submenu Cadastros](imagens-tratadas/01-menu-cadastros.png)
 
@@ -42,7 +42,7 @@ conta é o financeiro.**
 Cada forma é uma linha, e a linha já traz os interruptores que decidem onde ela aparece. Não é
 preciso abrir o cadastro para ligar ou desligar um canal.
 
-    40|![Listagem de formas de recebimento](imagens-tratadas/02-listagem.png)
+![Listagem de formas de recebimento](imagens-tratadas/02-listagem.png)
 
 | Nº | Item | O que faz |
 |----|------|-----------|
@@ -53,7 +53,7 @@ preciso abrir o cadastro para ligar ou desligar um canal.
 | 5 | **Presencial** | Ligado, a forma aparece no **PDV**, na **mesa** e na **comanda**. |
 | 6 | Etiqueta de ajuste | Quando a forma tem desconto ou acréscimo, o valor aparece aqui (ex.: `1,00%` de desconto no dinheiro). |
 
-    50|**Não existe um interruptor "PDV" separado.** PDV, mesa e comanda são o mesmo canal para o
+**Não existe um interruptor "PDV" separado.** PDV, mesa e comanda são o mesmo canal para o
 sistema: o switch **Presencial** cobre os três.
 
 | Onde você quer receber | Switch que precisa estar ligado |
@@ -64,7 +64,7 @@ sistema: o switch **Presencial** cobre os três.
 | Sacola do cardápio digital (o cliente escolhendo) | Cadastro na tela **Cardápio Digital → Formas Recebimento** |
 
 Cada linha tem ainda o **lápis** (abre o cadastro) e, à esquerda, a **alça de arrastar**, que
-    60|muda a ordem em que as formas aparecem na hora de receber.
+muda a ordem em que as formas aparecem na hora de receber.
 
 > Algumas formas vêm com a etiqueta **BeeFood** ou **Mercado Pago** e não podem ser editadas: são
 > as formas das integrações (PIX Online, pagamento online do marketplace). O sistema cuida delas.
@@ -75,7 +75,7 @@ Cada linha tem ainda o **lápis** (abre o cadastro) e, à esquerda, a **alça de
 
 Clique em **Nova Forma (F1)**. O cadastro tem **três abas**, e a primeira já resolve o essencial.
 
-    70|![Modal de cadastro, aba Configuração](imagens-tratadas/03-nova-forma.png)
+![Modal de cadastro, aba Configuração](imagens-tratadas/03-nova-forma.png)
 
 | Nº | Campo | O que fazer |
 |----|-------|-------------|
@@ -86,7 +86,7 @@ Clique em **Nova Forma (F1)**. O cadastro tem **três abas**, e a primeira já r
 | 5 | As três abas | **Configuração**, **Taxas e Bandeiras** e **TEF (Stone/PayGo)**. Trocar de aba já **salva** o que você preencheu. |
 | 6 | **SALVAR E SAIR (F2)** | Grava e fecha. O **FECHAR (ESC)**, ao lado, sai sem gravar o que ainda não foi salvo. |
 
-    80|Na mesma aba ficam mais quatro campos:
+Na mesma aba ficam mais quatro campos:
 
 | Campo | Para que serve |
 |-------|----------------|
@@ -97,7 +97,7 @@ Clique em **Nova Forma (F1)**. O cadastro tem **três abas**, e a primeira já r
 
 ### Os tipos disponíveis
 
-    90|| Tipo | Quando usar | Tem aba de taxas? |
+| Tipo | Quando usar | Tem aba de taxas? |
 |------|-------------|-------------------|
 | **Dinheiro** | Espécie | Não |
 | **Cartão de Crédito** | Crédito na maquininha | Sim |
@@ -107,7 +107,7 @@ Clique em **Nova Forma (F1)**. O cadastro tem **três abas**, e a primeira já r
 | **Vale Refeição** | VR | Sim |
 | **Carteira Digital (PIX)** | PIX na maquininha, PicPay, carteira | Sim |
 | **PIX Online** | O PIX integrado do BeeFood (não se cria à mão) | Não |
-   100|| **Fiado** | Venda a prazo, para o controle de dívidas | Não |
+| **Fiado** | Venda a prazo, para o controle de dívidas | Não |
 | **Outros** | O que não se encaixa acima | Sim |
 
 O tipo **muda o formulário**: em Dinheiro, Fiado e PIX Online a aba **Taxas e Bandeiras** aparece
@@ -129,7 +129,7 @@ crédito".
 O ajuste **incide sobre o subtotal dos produtos** e, na hora de receber, o operador confirma se
 aplica ou não. O valor escolhido vira a etiqueta que aparece na listagem.
 
-   120|---
+---
 
 ## Aba Taxas e Bandeiras
 
@@ -140,7 +140,7 @@ quantos dias o dinheiro cai**. Isso não muda o que o cliente paga — muda o qu
 
 | Nº | Campo | O que fazer |
 |----|-------|-------------|
-   130|| 1 | A aba **Taxas e Bandeiras** | Fica apagada para Dinheiro, Fiado e PIX Online. |
+| 1 | A aba **Taxas e Bandeiras** | Fica apagada para Dinheiro, Fiado e PIX Online. |
 | 2 | **Taxa (%)** | O percentual que a adquirente desconta. Ex.: `4.5` para 4,5%. |
 | 3 | **Desconto Fixo (R$)** | Alternativa à taxa: um valor fixo por venda. Preencher um **desabilita** o outro — é um ou outro. |
 | 4 | **Dias para Recebimento** | Em quantos dias o valor cai na conta. `0` = no mesmo dia; `30` = em 30 dias. |
@@ -150,7 +150,7 @@ Abaixo ainda existem:
 - **Conta Bancária** — amarra a forma a uma conta cadastrada, para o financeiro saber onde o
   dinheiro entra.
 - **Bandeiras de Cartão** — uma linha por bandeira (Visa, Mastercard, Elo, Sodexo, Alelo…), cada
-   140|  uma com **Ativo**, **Taxa (%)**, **Desc. Fixo** e **Dias Receb.** próprios. Use quando o
+  uma com **Ativo**, **Taxa (%)**, **Desc. Fixo** e **Dias Receb.** próprios. Use quando o
   contrato cobra diferente por bandeira; o que está em **Configuração Geral** vale para as
   bandeiras que você não configurar.
 
@@ -161,7 +161,7 @@ Abaixo ainda existem:
 
 ## Aba TEF (Stone/PayGo)
 
-   150|Só interessa a quem usa maquininha integrada (TEF). Aqui você amarra a forma a uma TEF cadastrada
+Só interessa a quem usa maquininha integrada (TEF). Aqui você amarra a forma a uma TEF cadastrada
 na loja.
 
 ![Aba TEF](imagens-tratadas/06-aba-tef.png)
@@ -182,7 +182,7 @@ Salva, a forma entra na listagem com o tipo embaixo do título e os canais ligad
 ![A forma nova na listagem](imagens-tratadas/07-forma-criada.png)
 
 | Nº | Item | O que conferir |
-   170||----|------|----------------|
+|----|------|----------------|
 | 1 | A forma nova | Título e tipo. Use a busca para achar rápido. |
 | 2 | Os dois canais | **Delivery** e **Presencial** ligados: a forma vale para o painel de delivery e para PDV/mesa/comanda. |
 
@@ -192,7 +192,7 @@ E, na hora de receber uma mesa, uma comanda ou uma venda no PDV, ela já aparece
 ![A forma na tela de recebimento](imagens-tratadas/08-pagamento-presencial.png)
 
 | Nº | Item | O que observar |
-   180||----|------|----------------|
+|----|------|----------------|
 | 1 | **Vale Refeição Sodexo** | A forma nova, na primeira posição porque a **Ordem** dela é 1. Cada forma ganha um atalho (**CTRL+1**, **CTRL+2**…) na ordem em que aparece. |
 
 Repare que as formas com ajuste mostram o valor embaixo do nome (`-1,00%` no dinheiro,
@@ -203,7 +203,7 @@ Repare que as formas com ajuste mostram o valor embaixo do nome (`-1,00%` no din
 ## Para o cliente ver na sacola: a outra tela
 
 O que o **cliente** escolhe no cardápio digital vem de **outra lista**, em
-   190|**Cardápio Digital → Formas Recebimento**. Uma forma cadastrada só em Cadastros **não** aparece
+**Cardápio Digital → Formas Recebimento**. Uma forma cadastrada só em Cadastros **não** aparece
 para o cliente.
 
 ![Cardápio Digital, aba Formas Recebimento](imagens-tratadas/09-cardapio-digital-formas.png)
@@ -214,7 +214,7 @@ para o cliente.
 | 2 | **Adicionar** | Cadastra uma forma para o cardápio. |
 | 3 | **Delivery** e **Retirada** | Aqui os canais são outros: o cliente pagando em **entrega** e em **retirada no balcão**. |
 
-   200|O modal é parecido, com dois campos que só existem aqui:
+O modal é parecido, com dois campos que só existem aqui:
 
 ![Modal do cardápio digital](imagens-tratadas/10-cardapio-adicionar.png)
 
@@ -224,7 +224,7 @@ para o cliente.
 | 2 | **Vincular à Forma de Pagamento** | Aponta para a forma do **cadastro** (a do começo deste manual). É isso que amarra o que o cliente escolheu ao que entra no seu caixa. Formas de integração não aparecem nesta lista. |
 | 3 | **ADICIONAR (F2)** | Grava. |
 
-   210|Ainda no mesmo modal: **Instruções para o Cliente** (e, em forma de PIX, a **Chave PIX** e o
+Ainda no mesmo modal: **Instruções para o Cliente** (e, em forma de PIX, a **Chave PIX** e o
 favorecido), **Ajuste no pagamento** — que aqui **aparece para o cliente** —, **Ordem de
 Exibição** e os três switches **Ativo**, **Disponível para Delivery** e **Disponível para
 Retirada**.
@@ -234,7 +234,7 @@ Retirada**.
 
 ### E a terceira tela?
 
-   220|**Financeiro → Formas Pagamento** tem duas seções: em cima, as formas de **contas a pagar e a
+**Financeiro → Formas Pagamento** tem duas seções: em cima, as formas de **contas a pagar e a
 receber** (boleto, transferência…); embaixo, uma lista **somente leitura** das formas de venda,
 com as taxas e os dias — útil para conferir tudo de uma vez.
 
@@ -255,7 +255,7 @@ salão e para o delivery.
 3. Deixe **Ativo**, **Delivery/Retirada** e **Presencial** ligados. Sem ajuste de preço — o vale
    não dá desconto nem cobra a mais do cliente.
 4. Clique na aba **Taxas e Bandeiras** e preencha **Taxa (%)** = `4.5` e
-   240|   **Dias para Recebimento** = `30`. Se o contrato tiver taxa diferente por bandeira, ligue a
+   **Dias para Recebimento** = `30`. Se o contrato tiver taxa diferente por bandeira, ligue a
    bandeira **Sodexo** na grade e coloque o número dela ali.
 5. **SALVAR E SAIR (F2)**.
 6. **Confira na listagem:** a forma aparece com o tipo *Vale Refeição* e os switches **Delivery** e
@@ -265,7 +265,7 @@ salão e para o delivery.
 8. **Para o cliente pagar com ele no cardápio digital**, vá em
    **Cardápio Digital → Formas Recebimento → Adicionar**, dê o nome que o cliente lê
    (`Vale Sodexo`), **vincule** à forma que você acabou de criar e ligue **Disponível para
-   250|   Delivery** e **Disponível para Retirada**.
+   Delivery** e **Disponível para Retirada**.
 
 Pronto: o operador recebe pelo vale no salão, o cliente escolhe o vale no cardápio, e o
 financeiro sabe que aquele dinheiro entra em 30 dias com 4,5% de taxa.
@@ -275,7 +275,7 @@ financeiro sabe que aquele dinheiro entra em 30 dias com 4,5% de taxa.
 ## Resumo
 
 1. **Cadastros → Formas Recebimento** é o cadastro que vale para as **vendas**.
-   260|2. **Presencial** = PDV + mesa + comanda. **Delivery** = painel de delivery. Não existe switch de PDV.
+2. **Presencial** = PDV + mesa + comanda. **Delivery** = painel de delivery. Não existe switch de PDV.
 3. O **Tipo** decide se existe aba de taxas — Dinheiro, Fiado e PIX Online não têm.
 4. **Taxa** e **Dias para Recebimento** são o seu contrato com a adquirente, não o preço do cliente.
 5. **Ajuste no pagamento** é o desconto/acréscimo por forma, sobre o subtotal.
@@ -285,7 +285,7 @@ financeiro sabe que aquele dinheiro entra em 30 dias com 4,5% de taxa.
 
 ---
 
-   270|## Perguntas frequentes
+## Perguntas frequentes
 
 **Cadastrei a forma e ela não aparece no PDV.**
 Confira três coisas, nesta ordem: o switch **Ativo**, o switch **Presencial** e o campo **Usuário
@@ -296,7 +296,7 @@ São listas diferentes. O switch **Delivery** do cadastro serve para **você** r
 delivery no painel. Para o **cliente escolher**, cadastre em **Cardápio Digital → Formas
 Recebimento**.
 
-   280|**Qual a diferença entre Delivery/Retirada do cadastro e Disponível para Delivery/Retirada do
+**Qual a diferença entre Delivery/Retirada do cadastro e Disponível para Delivery/Retirada do
 cardápio?**
 O primeiro é um switch só, do canal delivery inteiro, na tela do operador. O segundo são dois
 switches, na tela do cliente, que separam **entrega** de **retirada no balcão**.
@@ -307,7 +307,7 @@ O tipo da forma não tem taxa: Dinheiro, Fiado e PIX Online. Mude o tipo se for 
 **Preenchi Taxa (%) e o Desconto Fixo ficou bloqueado.**
 É proposital: são alternativas. Zere um para liberar o outro.
 
-   290|**Como faço 5% de desconto no PIX?**
+**Como faço 5% de desconto no PIX?**
 No cadastro da forma, **Ajuste no pagamento** = *Desconto em %* e valor `5`. Para o cliente ver
 esse desconto na sacola, repita o ajuste na forma correspondente do **Cardápio Digital**.
 

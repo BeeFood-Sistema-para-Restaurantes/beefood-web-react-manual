@@ -8,7 +8,7 @@ Este manual percorre a tela inteira — cadastro individual, criação em lote, 
 **três tipos de QR Code** — e termina com um exemplo completo, do cadastro à comanda impressa.
 
 > As imagens têm **setas numeradas** (1, 2, 3…). Cada número indica o campo correspondente
-    10|> na tela.
+> na tela.
 
 ---
 
@@ -18,7 +18,7 @@ No menu lateral, clique em **Cadastros** e depois em **Comandas** (1).
 
 ![Submenu Cadastros](imagens-tratadas/01-menu-cadastros.png)
 
-    20|| Nº | Item | O que é |
+| Nº | Item | O que é |
 |----|------|---------|
 | 1 | **Comandas** | O cadastro que este manual explica. Ao lado ficam **Mesas** e **Formas Recebimento**. |
 
@@ -39,7 +39,7 @@ etiqueta **Ativo** ou **Inativo**.
 | 4 | **Criar em Lote** | Cria uma faixa numerada de uma vez — é como se cadastram 50 ou 100 comandas. |
 | 5 | **Gerar QR Code** | Abre os três tipos de QR Code. |
 
-    40|Ao lado da busca ficam o botão **atualizar** (atalho **F5**) e, no card, o lápis de edição.
+Ao lado da busca ficam o botão **atualizar** (atalho **F5**) e, no card, o lápis de edição.
 
 > **Ativo × Livre.** *Ativo* é do cadastro. *Livre*, *Ocupado* e *Fechado* são do dia a dia, na
 > tela Mesas/Comandas, e dependem de existir venda aberta naquela comanda.
@@ -61,7 +61,7 @@ descrição vem montada.
 | 4 | **Salvar** | Grava e o card aparece na lista. |
 
 > **O código tem de ser o número do cartão.** Se as comandas físicas vão de 1 a 50, cadastre de
-    60|> 1 a 50. É esse casamento que faz o pedido cair na comanda certa.
+> 1 a 50. É esse casamento que faz o pedido cair na comanda certa.
 
 ---
 
@@ -72,7 +72,7 @@ a exclusão pede confirmação repetindo a descrição:
 
 ![Confirmação de exclusão](imagens-tratadas/04-excluir-comanda.png)
 
-    70|| Nº | Item | O que conferir |
+| Nº | Item | O que conferir |
 |----|------|----------------|
 | 1 | O texto do aviso | Repete a **descrição** da comanda. Leia antes de confirmar. |
 | 2 | **Excluir** | Confirma. **Esta ação não pode ser desfeita.** |
@@ -82,7 +82,7 @@ a exclusão pede confirmação repetindo a descrição:
 
 ---
 
-    80|## Criar a faixa inteira de uma vez
+## Criar a faixa inteira de uma vez
 
 O **Criar em Lote** é o caminho normal para comandas, porque elas costumam vir em blocos de 50 ou
 100 cartões numerados.
@@ -93,7 +93,7 @@ O **Criar em Lote** é o caminho normal para comandas, porque elas costumam vir 
 |----|-------|-------------|
 | 1 | **Quantas comandas deseja criar?** | De 1 a 100 por vez. Para 200 comandas, repita a operação. |
 | 2 | **Iniciar na numeração:** | O primeiro código da faixa. |
-    90|| 3 | A previsão | Diz a primeira e a última comanda que serão criadas. Se a faixa esbarrar em comandas que já existem, aparece o aviso **Conflito de numeração** com os códigos repetidos, e o botão fica bloqueado até você mudar o número inicial. |
+| 3 | A previsão | Diz a primeira e a última comanda que serão criadas. Se a faixa esbarrar em comandas que já existem, aparece o aviso **Conflito de numeração** com os códigos repetidos, e o botão fica bloqueado até você mudar o número inicial. |
 
 Criado o lote, o contador sobe:
 
@@ -103,7 +103,7 @@ Criado o lote, o contador sobe:
 |----|------|----------------|
 | 1 | Contador | Quantas comandas existem agora no cadastro. |
 
-   100|---
+---
 
 ## Os três tipos de QR Code
 
@@ -114,7 +114,7 @@ O botão **Gerar QR Code** oferece três saídas diferentes:
 | Nº | Tipo | Para que serve | Quem lê |
 |----|------|----------------|---------|
 | 1 | **Cardápio Digital Presencial** | O cliente aponta a câmera e o cardápio abre no celular dele, **já na comanda dele** | O cliente |
-   110|| 2 | **Código da Comanda** | Identificar a comanda **dentro do BeeFood**: o operador lê no PDV ou no Cardápio no Tablet | Você |
+| 2 | **Código da Comanda** | Identificar a comanda **dentro do BeeFood**: o operador lê no PDV ou no Cardápio no Tablet | Você |
 | 3 | **Código de Barras das Comandas** | O mesmo, em **EAN-13**, para leitor a laser no balcão | Você |
 
 > **Por que o QR de comanda é melhor que o de mesa.** Com o QR na comanda, cada cliente lê o
@@ -125,7 +125,7 @@ O botão **Gerar QR Code** oferece três saídas diferentes:
 
 ### 1. Cardápio Digital Presencial
 
-   120|Informe a faixa e gere. Diferente do cadastro de mesas, aqui **não há** a pergunta "você usa
+Informe a faixa e gere. Diferente do cadastro de mesas, aqui **não há** a pergunta "você usa
 comanda?" — o sistema vai direto ao ponto.
 
 ![QR Code do cardápio presencial](imagens-tratadas/08-qr-cardapio-presencial.png)
@@ -147,7 +147,7 @@ você recorta e cola (ou plastifica) na comanda física:
 
 ### 2. Código da Comanda
 
-   140|Este QR **não é um endereço de internet**: é o código interno que o BeeFood entende. O operador
+Este QR **não é um endereço de internet**: é o código interno que o BeeFood entende. O operador
 lê no PDV e a venda já sai na comanda certa.
 
 ![QR Code do código da comanda](imagens-tratadas/10-qr-codigo-comanda.png)
@@ -157,7 +157,7 @@ lê no PDV e a venda já sai na comanda certa.
 | 1 | O QR de cada comanda | Com a etiqueta **Comanda N** embaixo. Só gera para comandas que **existem** no cadastro. |
 | 2 | **Download Todos** | Um PNG por comanda. |
 
-   150|### 3. Código de Barras das Comandas
+### 3. Código de Barras das Comandas
 
 Mesma função, em **EAN-13**, para quem já tem leitor de código de barras no balcão.
 
@@ -167,7 +167,7 @@ Mesma função, em **EAN-13**, para quem já tem leitor de código de barras no 
 |----|------|----------------|
 | 1 | O código de barras | Um EAN-13 exclusivo por comanda, com a etiqueta **Comanda N**. O limite é a comanda **9999**. |
 
-   160|> O código da **comanda** e o da **mesa** são diferentes de propósito: o sistema sabe, pelo
+> O código da **comanda** e o da **mesa** são diferentes de propósito: o sistema sabe, pelo
 > código lido, se aquilo é uma mesa ou uma comanda. Por isso não dá para reaproveitar a etiqueta
 > de uma na outra.
 
@@ -177,7 +177,7 @@ Mesma função, em **EAN-13**, para quem já tem leitor de código de barras no 
 
 Cada comanda cadastrada vira um card na aba **Comandas** da tela Mesas/Comandas:
 
-   170|![Mapa das comandas](imagens-tratadas/12-mapa-comandas.png)
+![Mapa das comandas](imagens-tratadas/12-mapa-comandas.png)
 
 | Nº | Item | O que é |
 |----|------|---------|
@@ -188,7 +188,7 @@ Cada comanda cadastrada vira um card na aba **Comandas** da tela Mesas/Comandas:
 Existe ainda o status **Fechado** (com cadeado), para a comanda que já pediu o fechamento.
 
 > Comanda **inativa** não aparece aqui. Se faltou uma comanda no mapa, confira o switch **Ativo**
-   180|> no cadastro.
+> no cadastro.
 
 ---
 
@@ -198,7 +198,7 @@ O caminho completo, do zero ao cartão na mão do cliente:
 
 1. **Conte os cartões físicos.** Se você tem 30 comandas numeradas de 1 a 30, é essa a faixa que
    precisa existir no cadastro.
-   190|2. **Cadastre a primeira à mão** (Nova Comanda F1) para conferir o padrão de descrição.
+2. **Cadastre a primeira à mão** (Nova Comanda F1) para conferir o padrão de descrição.
 3. **Crie o resto em lote**: no exemplo, 4 comandas a partir da 27, fechando a faixa 1–30. O
    aviso de conflito segura o botão se algum número já existir.
 4. **Gere o QR Code do Cardápio Digital Presencial** para a faixa — no exemplo, de 1 a 4.
@@ -218,7 +218,7 @@ O caminho completo, do zero ao cartão na mão do cliente:
 
 1. **Cadastros → Comandas**: um card por comanda, com **código**, **descrição** e **Ativo**.
 2. O **código** tem de ser o número impresso na comanda física.
-   210|3. Para blocos de cartões, use **Criar em Lote** (até 100 por vez).
+3. Para blocos de cartões, use **Criar em Lote** (até 100 por vez).
 4. São **três QR Codes**: cardápio para o **cliente**; código da comanda e código de barras para
    **você**.
 5. Tendo comanda, o QR Code que o cliente lê deve ser o **de comanda**, não o de mesa.
@@ -228,7 +228,7 @@ O caminho completo, do zero ao cartão na mão do cliente:
 
 ## Perguntas frequentes
 
-   220|**Preciso cadastrar mesas também?**
+**Preciso cadastrar mesas também?**
 Só se você controla o salão por mesa. Muitos estabelecimentos usam apenas comandas; outros usam
 os dois (a comanda anda com o cliente, a mesa organiza o salão).
 
@@ -248,7 +248,7 @@ Confira se o adesivo colado no cartão é o daquele número — a folha impressa
 fácil trocar dois códigos na hora de recortar. O número aparece embaixo de cada QR justamente
 para isso.
 
-   240|**Excluí uma comanda com vendas antigas. Perdi o histórico?**
+**Excluí uma comanda com vendas antigas. Perdi o histórico?**
 Não. As vendas continuam no Histórico de Vendas com a comanda que tinham quando foram feitas.
 
 **Qual QR Code eu colo no cartão do cliente?**
@@ -259,7 +259,7 @@ operador ler no balcão.
 
 ## Manuais relacionados
 
-   250|- **Cadastrar mesas e gerar o QR Code** — o par deste manual
+- **Cadastrar mesas e gerar o QR Code** — o par deste manual
 - **Cardápio digital presencial e QR Code** — a configuração do canal presencial e o *Meus Links*
 - **Taxa e obrigatoriedades de mesa** — comanda obrigatória e taxa de serviço
 - **Cadastrar forma de recebimento** — como a forma de pagamento chega ao fechamento da comanda

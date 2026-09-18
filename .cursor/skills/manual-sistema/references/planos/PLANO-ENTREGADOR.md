@@ -8,7 +8,7 @@
 >
 > **Resposta curta: a divisão em três está certa, mas dois escopos precisam mudar.** O manual 2,
 > como foi descrito, **já existe quatro vezes** (#35–#38) — inclusive com a imagem do cardápio
-    10|> mostrando a taxa. O manual 1 esbarra num furo do produto: **não existe tela para lançar a
+> mostrando a taxa. O manual 1 esbarra num furo do produto: **não existe tela para lançar a
 > diária**. E o manual 3 é maior do que parece: são **duas telas, três modos de cálculo e três
 > impressos**. Fora do pedido, sobrou uma tela inteira sem manual: a **Gestão de Entregas**.
 
@@ -19,7 +19,7 @@ para depois.
 
 ## 1. Resumo em cinco linhas
 
-    20|O dinheiro da entrega tem **dois lados independentes** no BeeFood: a **taxa que o cliente paga**
+O dinheiro da entrega tem **dois lados independentes** no BeeFood: a **taxa que o cliente paga**
 (`Taxa de Entrega`, cadastrada na Área de Entrega) e o **valor que o entregador recebe**
 (`Valor pago ao entregador`, cadastrado na mesma tela mas em outro campo — e que o cliente nunca
 vê). O cadastro do entregador é um **funcionário** com a função *Entregador*, que tem dois campos
@@ -29,7 +29,7 @@ três critérios** usar, e o **Caixa → Resumo Frete**, que faz a mesma conta n
 
 ---
 
-    30|## 2. Como este estudo foi feito
+## 2. Como este estudo foi feito
 
 | Fonte | O que rendeu |
 |-------|--------------|
@@ -40,7 +40,7 @@ três critérios** usar, e o **Caixa → Resumo Frete**, que faz a mesma conta n
 
 Nada foi alterado no ambiente.
 
-    40|---
+---
 
 ## 3. Validando o pedido, item a item
 
@@ -62,7 +62,7 @@ Marcando **Entregador**, aparecem exatamente dois campos:
 
 **O furo:** não achei, em nenhum lugar do painel, uma tela para **lançar a diária do dia** (marcar
 que o entregador trabalhou hoje). O campo do cadastro é só o **valor**; as linhas de diária
-    60|aparecem no relatório vindas do servidor (`qtdD` / `valorD`). No sandbox, **as diárias estão
+aparecem no relatório vindas do servidor (`qtdD` / `valorD`). No sandbox, **as diárias estão
 zeradas em todos os 6 entregadores com movimento** — ou seja, nunca foi lançada nenhuma. Sem saber
 como se lança, o manual 1 consegue explicar o campo, mas **não consegue mostrar a diária
 funcionando** — e o relatório do manual 3 sai sem a coluna que mais interessa. **É a pergunta 1 da
@@ -73,7 +73,7 @@ com a frase *"Diária e valor por KM são opcionais (só para o seu controle)"*.
 ir além disso — explicar **o que cada valor faz no relatório** — e não repetir o vínculo com o app
 (usuário + switch Aplicativos + código de barras), que é do #57.
 
-    70|### Manual 2 — taxa de entrega na área: **já existe, e não são 3 áreas**
+### Manual 2 — taxa de entrega na área: **já existe, e não são 3 áreas**
 
 Dois problemas no escopo como foi descrito:
 
@@ -84,7 +84,7 @@ Dois problemas no escopo como foi descrito:
 | **#35** `area-entrega-mapa` | Raio/Área (círculo e polígono) | Sim — busca, formulário e taxa |
 | **#36** `area-entrega-km` | Quilometragem KM | Sim — *"Cardápio — endereço confirmado, taxa R$ 5,99"* |
 | **#37** `area-entrega-bairro` | Bairro | Sim |
-    80|| **#38** `area-entrega-cep-fixo` | CEP Único | Sim |
+| **#38** `area-entrega-cep-fixo` | CEP Único | Sim |
 
 O #36 até já explica o campo do entregador: *"Valor pago ao Entregador — só no relatório Resumo
 Taxa Entrega — o cliente não vê"*. E o **#34** (`endereco-restaurante`) é o pré-requisito dos
@@ -95,7 +95,7 @@ cards**: **Quilometragem KM**, **Raio/Área**, **Bairro e CEP** e **CEP Único**
 *Bairro e CEP* existem **três subtipos** (**Bairro**, **CEP**, **Faixa CEP**) e dentro de
 *Raio/Área* existem **dois desenhos** (**Círculo** e **Polígono**).
 
-    90|| O que você chamou de | No sistema é | Manual existente |
+| O que você chamou de | No sistema é | Manual existente |
 |----------------------|--------------|------------------|
 | bairro | *Bairro e CEP* → subtipo **Bairro** | #37 |
 | cep | **dois lugares diferentes**: *CEP Único* (modo próprio) **e** *Bairro e CEP* → subtipos **CEP** e **Faixa CEP** | #38 cobre só o **CEP Único** |
@@ -106,7 +106,7 @@ Ou seja: **falta manual do CEP e da Faixa de CEP** dentro de *Bairro e CEP* — 
 ninguém documentou.
 
 **O que realmente falta e vale um manual:** o caminho da taxa **depois** que ela sai do cadastro.
-   100|Nenhum dos cinco manuais mostra que:
+Nenhum dos cinco manuais mostra que:
 
 - a taxa aparece na venda como **Taxa de Entrega (+)**, e o operador pode **alterá-la** por três
   caminhos: o campo **Taxa de Entrega** no modal de endereço (com o botão **Calcular Taxa**), o
@@ -128,7 +128,7 @@ São **duas telas**, não uma:
 
 **A) Desempenho → Delivery → Entregador (Taxa / KM)** — a tela de fechar a conta do mês.
 
-   120|Três modos de cálculo, num seletor de rádio (o rótulo é exatamente este):
+Três modos de cálculo, num seletor de rádio (o rótulo é exatamente este):
 
 | Opção | O que soma |
 |-------|-----------|
@@ -139,7 +139,7 @@ São **duas telas**, não uma:
 Mais o checkbox **Pagar KM de ida e volta**, que dobra as colunas. Cinco cartões no topo
 (**Total Entregas**, **KM Total**, **Taxa Cliente Total**, **Taxa Entregador Total**, **Diárias**),
 duas abas (**Resumo por Entregador** e **Todos os Detalhes**) e um **drill-down** por entregador
-   130|com seis cartões, o card **Diárias registradas** e a lista de entregas. A escolha do modo e do
+com seis cartões, o card **Diárias registradas** e a lista de entregas. A escolha do modo e do
 ida-e-volta fica **salva no navegador**.
 
 **B) Caixa → Ver Caixa → seletor Resumo → Resumo Frete** — a mesma conta, no escopo de **um
@@ -151,7 +151,7 @@ colunas de diária**; o Desempenho mostra.
 
 | Onde | Botão | Formato | Detalhe |
 |------|-------|---------|---------|
-   140|| Desempenho | **Imprimir A4** | A4 | Cabeçalho com **Período** e **Cálculo:** (o modo escolhido) + **Ida e volta: Sim/Não**; seções por entregador; **RESUMO POR ENTREGADOR**; **TOTAIS GERAIS** com a linha **TOTAL A PAGAR** |
+| Desempenho | **Imprimir A4** | A4 | Cabeçalho com **Período** e **Cálculo:** (o modo escolhido) + **Ida e volta: Sim/Não**; seções por entregador; **RESUMO POR ENTREGADOR**; **TOTAIS GERAIS** com a linha **TOTAL A PAGAR** |
 | Desempenho | **Imprimir Cupom** | Bobina 80 mm | Abre um **painel de configuração** com 7 opções (**Somente resumo por entregador**, **Incluir endereço**, **Incluir venda/pedido**, **Incluir KM**, **Incluir diárias**, **Resumo consolidado no final**, **Cabeçalho com período e filtros**), duas ordenações e a seleção de entregadores. Imprime pelo **navegador** ou pelo **servidor** (BeeImpressão) |
 | Desempenho | **Excel** | `.xlsx` | Download direto |
 | Caixa | **Imprimir Resumo** | Bobina 80 mm | Título muda com o modo: **RESUMO FRETE - TAXA CLIENTE** / **- TAXA ENTREGADOR** / **- KM ENTREGADOR** |
@@ -161,7 +161,7 @@ colunas de diária**; o Desempenho mostra.
 **Entregador** por venda. Vale uma seção curta no manual 3, porque é onde o gerente compara *o que
 entrou de frete* com *o que saiu para o entregador*.
 
-   150|---
+---
 
 ## 4. O que falta e você não pediu
 
@@ -183,7 +183,7 @@ cobrem as **terceirizadas**; o entregador **próprio** ficou sem passo a passo.
 modal). É por aí que se corrige o pagamento de um pedido específico — e ninguém documentou.
 
 Achado que vale aviso em manual (e talvez conversa de produto): no relatório do sandbox existe a
-   170|linha **"Sem entregador"** com **16 entregas** e **R$ 19,00 de taxa de entregador acumulada**. Ou
+linha **"Sem entregador"** com **16 entregas** e **R$ 19,00 de taxa de entregador acumulada**. Ou
 seja: a taxa do entregador é calculada pela **área de entrega**, mesmo quando ninguém foi
 despachado — e o dinheiro fica somado num entregador que não existe.
 
@@ -193,7 +193,7 @@ despachado — e o dinheiro fica somado num entregador que não existe.
 
 ### #83 — Cadastrar o entregador e definir o pagamento dele
 
-   180|| Seção | Conteúdo | Imagens |
+| Seção | Conteúdo | Imagens |
 |-------|----------|--------:|
 | 1 | Os dois lados do dinheiro da entrega (taxa do cliente × valor do entregador) — a tabela que abre o bloco | — |
 | 2 | Onde fica: **Cadastros → Funcionários**, o card de filtro **Entregadores** e a coluna **Função** | 2 |
@@ -214,7 +214,7 @@ Manual **curto e de decisão**, sem refazer os #35–#38.
 |-------|----------|--------:|
 | 1 | A tabela de decisão: os **quatro modos** e as **seis configurações**, com "use este quando…" e o link para o manual de cada um | 1 |
 | 2 | Onde se digita a taxa em cada modo (quadro com os rótulos exatos: **Valor do frete**, **Valor frete**, **Taxa entrega (R$)**, **CEP Fixo Valor Frete**) | 4 recortes |
-   200|| 3 | **CEP e Faixa de CEP** (o que falta manual): o modal, os subtipos e a validação de 8 dígitos | 2 |
+| 3 | **CEP e Faixa de CEP** (o que falta manual): o modal, os subtipos e a validação de 8 dígitos | 2 |
 | 4 | **Frete grátis acima de** × **pedido mínimo** da loja — não são a mesma coisa | 1 |
 | 5 | **Valor pago ao entregador**: mesmo modal, outro campo, e o cliente não vê | 1 |
 | 6 | A taxa na venda: **Taxa de Entrega (+)**, o **Calcular Taxa** do modal de endereço e os três jeitos de alterar | 3 |
@@ -234,7 +234,7 @@ Manual **curto e de decisão**, sem refazer os #35–#38.
 | 5 | **Imprimir A4**: o que sai, com destaque no **TOTAL A PAGAR** | 2 |
 | 6 | **Imprimir Cupom**: o painel de 7 opções e a escolha navegador × servidor | 2 |
 | 7 | **Caixa → Resumo Frete**: como chegar, os três botões, o **TOTAL** e o impresso 80 mm | 3 |
-   220|| 8 | **Desempenho → Vendas → Resumo**, grade **Entregador** (frete que entrou × valor que saiu) | 1 |
+| 8 | **Desempenho → Vendas → Resumo**, grade **Entregador** (frete que entrou × valor que saiu) | 1 |
 | 9 | Exemplo prático: fechar o pagamento do mês de um entregador e imprimir o comprovante | 2 |
 
 **Total: 15 a 18 imagens.**
@@ -255,7 +255,7 @@ Manual **curto e de decisão**, sem refazer os #35–#38.
 | Funcionários | 12, sendo **8 marcados como Entregador** | Ok, mas quase todos são das integrações (*99 Entrega*, *Machine*, *Uber Direct*, *Husky Sandbox*) |
 | **Valor Diária / Valor por KM** | **null em todos os 8** | Preciso cadastrar um entregador de verdade para o #83 |
 | Área de Entrega — modo ativo | **Bairro e CEP** | Trocar o ativo é o que permite o exemplo de cada modo no #84 |
-   240|| Área por **KM** | 3 faixas: 3 km R$ 5,99 · 6 km R$ 8,99 · 10 km R$ 14,99, com entregador R$ 3 / R$ 5 / R$ 8 | Pronto para fotografar |
+| Área por **KM** | 3 faixas: 3 km R$ 5,99 · 6 km R$ 8,99 · 10 km R$ 14,99, com entregador R$ 3 / R$ 5 / R$ 8 | Pronto para fotografar |
 | Área por **Mapa** | 3 regiões: *Campolim* (polígono, R$ 7,90), *Até 2 km* (círculo, R$ 5,99), *Zona industrial* (sem valor) | Pronto — e a terceira serve de exemplo de **não entrega** |
 | Área por **Bairro** | 1 grupo: R$ 6,50, frete grátis acima de R$ 45, entregador R$ 3,50 | Pronto |
 | **CEP Único** | CEP 18035490, R$ 7,00 | Pronto |
@@ -264,7 +264,7 @@ Manual **curto e de decisão**, sem refazer os #35–#38.
 | Colunas de **KM (Ida/Volta)** | **vazias** (nenhum funcionário tem Valor por KM) | Cadastrar o KM resolve — e é a validação da pergunta 2 |
 | Colunas de **Diária** | **vazias** em tudo | Depende da pergunta 1 |
 | Caixa para o Resumo Frete | **Caixa 967508** (fechado em 01/09) tem **12 entregas e 5 entregadores** | Melhor caixa para o #85 |
-   250|| Caixa aberto (983507) | 1 entrega, *Sem entregador* | Serve para mostrar o caixa "do dia" |
+| Caixa aberto (983507) | 1 entrega, *Sem entregador* | Serve para mostrar o caixa "do dia" |
 
 ---
 
@@ -276,7 +276,7 @@ Manual **curto e de decisão**, sem refazer os #35–#38.
    minutos** para refletir — foi assim nos #35–#38.
 2. **Cadastrar diária e valor por KM altera o cálculo do relatório** daquele entregador. É
    reversível (zerar os campos), mas muda números que aparecem em outros relatórios.
-   260|3. **O relatório do Desempenho abre num iframe** (`relatorios.beefood.com.br`) dentro do painel.
+3. **O relatório do Desempenho abre num iframe** (`relatorios.beefood.com.br`) dentro do painel.
    A captura precisa considerar isso; o `beefood-reports-hub` roda local com um `?auth` gerado
    pelo `beecripto`, o que ajuda a **entender** a tela, mas o manual deve ser capturado no
    ambiente real.
@@ -296,7 +296,7 @@ Manual **curto e de decisão**, sem refazer os #35–#38.
    *Funcionário 1*) para provar o efeito nas colunas **KM (Ida)** e **Valor Diária**?
 3. **Concorda em trocar o escopo do manual 2** (decisão + CEP/Faixa de CEP + a taxa na venda), em
    vez de refazer o que os #35–#38 já cobrem?
-   280|4. **Posso trocar o modo ativo da Área de Entrega** durante a captura, voltando para *Bairro e
+4. **Posso trocar o modo ativo da Área de Entrega** durante a captura, voltando para *Bairro e
    CEP* no fim?
 5. **A Gestão de Entregas entra na fila agora** (como #86) ou fica para depois?
 6. Existe algum critério de negócio que eu não deva contradizer no manual: o entregador é pago

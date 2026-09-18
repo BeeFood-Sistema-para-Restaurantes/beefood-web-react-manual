@@ -7,7 +7,7 @@ Em **Delivery**, crie um novo item de menu por último chamado **Vínculo Market
 Leia APENAS os arquivos abaixo (não varra o resto do projeto):
 
 1. Conteúdo (use na íntegra):
-    10|   `beefood-web-react-manual/manuais/vinculo-marketplace/vinculo-marketplace.md`
+   `beefood-web-react-manual/manuais/vinculo-marketplace/vinculo-marketplace.md`
 2. Imagens (nesta ordem), em `beefood-web-react-manual/manuais/vinculo-marketplace/imagens-tratadas/`:
    `01-delivery-menu.png`, `02-listagem.png`, `03-selecionar-item.png`,
    `04-selecionar-vinculo.png`, `05-vinculado.png`, `06-lote-selecao.png`,
@@ -17,7 +17,7 @@ Leia APENAS os arquivos abaixo (não varra o resto do projeto):
 
 NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`).
 
-    20|- Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa".
+- Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa".
 - pt-BR, didático. É um manual **de operação**: o leitor tem pedidos de marketplace entrando e
   precisa resolver os itens pendentes. Mantenha o passo a passo e as tabelas "Nº → o que fazer"
   logo depois de cada imagem.
@@ -27,7 +27,7 @@ NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `ima
   (2) **procure antes de criar** produto, senão o cardápio duplica; (3) o produto criado nasce
   **sem preço** e precisa ter o cadastro completado.
 - Manter a distinção **Produto × Grupo Opção**, inclusive a frase de que opção pendente não
-    30|  bloqueia a nota fiscal.
+  bloqueia a nota fiscal.
 - Não publicar nada do `fluxo-codigo.md`.
 
 ## Estrutura da página (na ordem do `.md`)
@@ -37,7 +37,7 @@ NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `ima
 3. Entendendo a tela
 4. Vincular um item
 5. Vincular vários nomes no mesmo produto
-    40|6. Vincular uma opção (adicional)
+6. Vincular uma opção (adicional)
 7. Criar produto e vincular
 8. Excluir um vínculo
 9. Resolver pelo próprio pedido
@@ -58,7 +58,7 @@ NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `ima
 | 6 | `06-lote-selecao.png` | com setas | Dois nomes selecionados de uma vez |
 | 7 | `07-lote-resultado.png` | com setas | Os dois nomes apontando para o mesmo produto |
 | 8 | `08-opcao-selecionar.png` | com setas | Item **Grupo Opção**: a janela passa a oferecer produtos **e** opções de grupo |
-    60|| 9 | `09-criar-produto.png` | com setas | **Criar produto e vincular** e o diálogo de confirmação |
+| 9 | `09-criar-produto.png` | com setas | **Criar produto e vincular** e o diálogo de confirmação |
 | 10 | `10-cardapio-produto-criado.png` | com setas | O produto criado no Cardápio, no setor **Vínculo Marketplace** e sem preço |
 | 11 | `11-excluir-dialogo.png` | com setas | **Excluir** e o aviso de que a ação não pode ser desfeita |
 | 12 | `12-venda-aviso.png` | com setas | A faixa **Produto não associado no pedido - sem vínculo marketplace** dentro do pedido |
@@ -69,7 +69,7 @@ NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `ima
 
 - A imagem **`02-listagem.png`** é a de referência da tela: publique grande o suficiente para o
   leitor ler as colunas **Vínculo** e **Setor**.
-    70|- O par **`03` → `04` → `05`** é o passo a passo principal (selecionar → escolher → conferir).
+- O par **`03` → `04` → `05`** é o passo a passo principal (selecionar → escolher → conferir).
   Não separe essas três em seções diferentes.
 - Nas imagens **12** e **14** há regiões borradas de propósito (nome, telefone e endereço de
   cliente real). Não substituir nem tentar "limpar".
