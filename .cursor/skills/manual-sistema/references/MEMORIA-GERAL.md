@@ -903,6 +903,46 @@ Teste de alcance, antes de instalar driver:
 timeout 15 bash -c 'cat < /dev/null > /dev/tcp/<host>/3306' && echo OK
 ```
 
+### Montar cenário de entregas sem emulador (#104)
+
+O que o dono autorizou em 18/09 para a Gestão de Entregas, e que foi conferido de ponta a ponta:
+**pedido semeado, entregador simulado e pin andando no mapa**, tudo do Cloud Agent. O caminho está
+detalhado em `manuais/gestao-entregas/MEMORIA.md`. Três coisas que valem para além daquele bloco:
+
+1. **`beetech_leitura` engana pelo nome.** O usuário do MSSQL que todo o backend usa é
+   `db_datareader` **+ `db_datawriter` + `db_ddladmin`**, com `EXECUTE` no banco inteiro. A
+   seção 8 acima já avisava isso do Aurora; vale igual para o ERP. Nenhuma das duas credenciais é
+   de leitura, apesar dos nomes.
+2. **O JWT do painel sai do `localStorage`**, não da API: a rota de login do painel não responde no
+   caminho óbvio, e Basic Auth devolve **401** nas rotas que têm `authMiddleware`. Logar com
+   Playwright e desofuscar a chave `beefood_auth_token` é o caminho que funciona.
+3. **Script Python não pode se chamar `token.py`** (nem `tokenize.py`, `logging.py`…): ele sombreia
+   o módulo da biblioteca padrão e o Playwright morre com erro de importação circular que não
+   parece ter nada a ver com o nome do arquivo.
+
+### ⚠️ Nunca cole saída do leitor de arquivos dentro de um `.md`
+
+Ferramentas de leitura prefixam **cada décima linha** com o número alinhado à direita em 6
+caracteres, seguido de `|` — `    10|`, `   150|`. Isso é **metadado da ferramenta**, não conteúdo
+do arquivo. Copiar a saída para dentro de um `.md` gravou o rótulo no texto, e em 18/09 havia
+**301 ocorrências em 20 arquivos**, incluindo quatro manuais **já publicados**
+(`vinculo-marketplace`, `formas-recebimento`, `cadastro-mesas`, `cadastro-comandas`).
+
+Os dois estragos são diferentes, e o segundo é pior:
+
+| Forma | Vira | Efeito |
+|---|---|---|
+| Rótulo **sozinho** na linha (linha vazia na posição) | `   150|` no lugar de uma linha em branco | Parágrafos que deviam estar separados aparecem colados |
+| Rótulo **grudado** na linha | `    50\|\| Nº \| Item \|` | O markdown não reconhece mais a tabela: cinco linhas viram um parágrafo com canos no meio |
+
+Para achar: `grep -rn '^ \{0,5\}[0-9]\{1,6\}|' --include=*.md .`. Ao corrigir, **rótulo sozinho
+volta a ser linha em branco** (apagar a linha cola parágrafos, e num caso colava texto com imagem);
+rótulo grudado perde só os 7 caracteres do prefixo.
+
+Antes de remover em lote, confirme que é artefato e não conteúdo: os números sobem
+**monotonicamente em passos de 10** e **não batem** com a posição real da própria linha — número
+escrito de propósito bateria.
+
 ---
 
 ## 9. Índice de manuais
@@ -1095,7 +1135,13 @@ suspeitar da configuração, espere.
 
 ---
 
-### Gestão de Entregas — #104 (em estudo, manual não escrito)
+### Gestão de Entregas — bloco #104 a #117 (lista proposta, nenhum manual escrito)
+
+A lista está em [`planos/PLANO-GESTAO-ENTREGAS.md`](planos/PLANO-GESTAO-ENTREGAS.md): **14 manuais**
+em cinco blocos — preparar o terreno (1), o painel do operador (5), os avisos de WhatsApp (1), o app
+do entregador (6, consolidando os 15 capítulos do material que o dono enviou) e juntar as peças (1).
+O **#104** herda a Parte 1 do **#57** e é o que permite aposentá-lo. Os **#104 a #110** não dependem
+de nada do dono; os **#111 a #116** dependem de 12 fotos do emulador, porque o app não roda aqui.
 
 Estudo completo em `manuais/gestao-entregas/estudo/`: o funcionamento do módulo em
 [`01-como-o-sistema-funciona.md`](../../../../manuais/gestao-entregas/estudo/01-como-o-sistema-funciona.md)
