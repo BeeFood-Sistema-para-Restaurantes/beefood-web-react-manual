@@ -1,0 +1,89 @@
+# texto-documentation.ia.md — #116 App do entregador: receber na porta
+
+## PROMPT (copiar e colar)
+
+Dentro do menu **Gestão de Entregas**, crie a página **App do entregador: receber na porta**.
+
+Leia APENAS os arquivos abaixo:
+
+1. Conteúdo (use na íntegra):
+   `beefood-web-react-manual/manuais/app-entregador-cobranca/app-entregador-cobranca.md`
+2. Imagens (na ordem dos nomes, que é a ordem do texto):
+   - `.../imagens-tratadas/01-rodape-de-cobranca.png`
+   - `.../imagens-tratadas/02-conferir-destaque.png`
+   - `.../imagens-tratadas/03-tela-de-pagamento.png`
+   - `.../imagens-tratadas/04-forma-de-pagamento.png`
+   - `.../imagens-tratadas/05-bandeira-do-cartao.png`
+   - `.../imagens-tratadas/06-troco-para-quanto.png`
+   - `.../imagens-tratadas/07-confirmar-cobranca.png`
+   - `.../imagens-tratadas/08-pagamento-confirmado.png`
+   - `.../imagens-tratadas/09-duas-pessoas.png`
+   - `.../imagens-tratadas/10-duas-formas.png`
+   - `.../imagens-tratadas/11-confirmar-duas-linhas.png`
+   - `.../imagens-tratadas/12-finalizar-sem-cobrar.png`
+   - `.../imagens-tratadas/13-observacao-preenchida.png`
+
+NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
+
+- Apresentação IGUAL ao menu "Abrir Caixa".
+- pt-BR, didático. Manter as tabelas de setas (nº → onde → o que é) embaixo de cada imagem.
+- Avisar, no começo, que a **Gestão de Entregas está em liberação**. Não citar `empresaID`.
+- **Este manual é para o entregador, e é o manual do dinheiro.** Tom de quem está na porta do
+  cliente. Nada de amenizar os avisos.
+- Manter, obrigatoriamente e sem enxugar, os blocos de aviso:
+  (a) **"Cobrar é finalizar"**, logo no começo — é a informação que muda o comportamento;
+  (b) **A soma precisa fechar com o valor a receber**, na divisão de conta;
+  (c) **Entrega que não aconteceu não deve ser finalizada**, na seção 4.
+- Manter também, sem enxugar:
+  (d) que a **forma do rodapé é uma previsão**, e que vale o que aconteceu de verdade — a frase
+  sobre o fechamento de caixa é o argumento, não pode sair;
+  (e) que **não tem como desfazer** nem a cobrança nem a finalização;
+  (f) que **não se deve tocar duas vezes em CONFIRMAR**, e que a saída é **conferir no histórico**
+  — nunca "tentar de novo";
+  (g) que a **bandeira é opcional** e, na dúvida, se segue sem;
+  (h) que a **lista de formas é o que o restaurante habilitou**, e que fiado, Pix automático e
+  formas de marketplace ficam fora de propósito;
+  (i) que, **com uma pessoa**, a forma é escolhida depois do CONFIRMAR PAGAMENTO, e que na
+  **divisão** cada bloco tem a sua — é a diferença entre as duas seções;
+  (j) que a divisão é **tudo ou nada**;
+  (k) que a **observação sempre deve ser escrita** no caminho sem cobrança, com o exemplo;
+  (l) a tabela **Quando usar cada caminho**, inteira, incluindo a linha do cliente ausente.
+- A seção 5 (**Regras que valem sempre**) é conteúdo, não apêndice. Publicar no corpo da página.
+- Não publicar rotas de API, nomes de tela do aplicativo, nomes de tabela nem de coluna. Em
+  particular: não citar `Cobranca.js`, `CobrancaPessoa`, `Finalizar.js`, `_preVendaPagamento` nem
+  os nomes internos de situação do pedido.
+- Não citar que o seletor de pessoas vai até dez.
+- Não citar bastidor de captura: nem emulador, nem material recebido, nem que a folha de bandeiras
+  foi aberta só para a foto, nem que várias imagens são recortes de folhas.
+- Os nomes de cliente que aparecem nas imagens são de cadastro de teste. Não comentar na página.
+
+## Estrutura da página (mesma numeração do `.md`)
+
+- Para que serve
+- Antes de começar
+- 1. Por onde a cobrança começa
+- 2. A tela de pagamento
+- 3. Quando mais de uma pessoa paga
+- 4. Finalizar sem cobrar
+- 5. Regras que valem sempre
+- Perguntas frequentes
+- Onde continuar
+
+## Anexo — legendas das imagens (na ordem do texto)
+
+1. `01-rodape-de-cobranca.png` — O rodapé escuro: forma prevista, TOTAL, TROCO, COBRAR e os dois
+   botões.
+2. `02-conferir-destaque.png` — A folha CONFIRMA E ENTREGA DESSES PRODUTOS CORRETAMENTE?
+3. `03-tela-de-pagamento.png` — A tela de pagamento com uma pessoa: A RECEBER, DIVIDIR CONTA,
+   valor, troco, observação e CONFIRMAR PAGAMENTO.
+4. `04-forma-de-pagamento.png` — A lista de formas, com a prevista já marcada.
+5. `05-bandeira-do-cartao.png` — A folha BANDEIRA, com o aviso de que é opcional.
+6. `06-troco-para-quanto.png` — A folha Troco para quanto?, já preenchida.
+7. `07-confirmar-cobranca.png` — A folha Confirmar cobrança?, com a linha da forma e do valor.
+8. `08-pagamento-confirmado.png` — A tela Pagamento Confirmado!
+9. `09-duas-pessoas.png` — A conta dividida em duas, com um bloco por pessoa.
+10. `10-duas-formas.png` — Pix numa pessoa, dinheiro na outra, e a linha Troco para.
+11. `11-confirmar-duas-linhas.png` — A confirmação com uma linha numerada por pessoa.
+12. `12-finalizar-sem-cobrar.png` — O aviso Finalizar sem cobrar?, com o valor em aberto.
+13. `13-observacao-preenchida.png` — A folha Finalizar Entrega, com a observação escrita e o
+    contador de caracteres.
