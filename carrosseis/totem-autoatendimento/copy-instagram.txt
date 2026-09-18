@@ -4,19 +4,20 @@ Fonte: beefood.com.br/totem-de-autoatendimento
 (peça perene: não tem data na arte nem palavra de lançamento, e pode ser
 republicada quando o assunto voltar)
 
-Publicar como carrossel de feed, 8 imagens em 1080x1350 (4:5), na ordem dos
+Publicar como carrossel de feed, 9 imagens em 1080x1350 (4:5), na ordem dos
 nomes de arquivo: 01-capa, 02-como-funciona, 03-cardapio, 04-venda-sugestiva,
-05-cupom, 06-cashback, 07-pagamento, 08-cta.
+05-cupom, 06-cashback, 07-pagamento, 08-idiomas, 09-cta.
 
-As sete telas são CAPTURA do aplicativo de produção (totem.beefood.app), na
-loja de exemplo da ONE Stand, que tem cardápio de verdade. Duas coisas entram
-de fora, as duas pela mesma interceptação de API: as artes de fundo (a campanha
-da loja anuncia um pudim com preço e roubaria o assunto do post) e a lista de
+As nove telas são CAPTURA do aplicativo de produção (totem.beefood.app), na
+loja de exemplo da ONE Stand, que tem cardápio de verdade. Três coisas entram
+de fora, as três pela mesma interceptação de API: as artes de fundo (a campanha
+da loja anuncia um pudim com preço e roubaria o assunto do post), a lista de
 cupons, porque a loja não tem cupom cadastrado e sem lista o totem esconde a
-tela de cupom inteira. Os dois cupons do slide 5 são de exemplo — código,
-benefício e regra que qualquer restaurante escreveria no painel. Nenhum pedido
-foi criado e nenhum cupom foi aplicado: o roteiro de captura para no botão "Ir
-para pagamento".
+tela de cupom inteira, e a tradução do cardápio do slide 8, que reaproveita o
+arquivo do carrossel da tradução. Os dois cupons do slide 5 são de exemplo —
+código, benefício e regra que qualquer restaurante escreveria no painel. Nenhum
+pedido foi criado e nenhum cupom foi aplicado: o roteiro de captura para no
+botão "Ir para pagamento".
 
 A página do site está sem conteúdo publicado no momento desta peça. Confira
 antes de publicar: o último slide manda o leitor para lá.
@@ -50,6 +51,11 @@ regra de cada cupom à vista. E o cashback aparece antes do pagamento — o
 aparelho pede o telefone, diz quanto volta e credita o saldo quando a venda é
 quitada, para virar desconto na próxima compra.
 
+Quem não fala português também pede sozinho. A pílula de bandeiras na primeira
+tela troca o aparelho para inglês ou espanhol, e com ele o setor, o nome e a
+descrição de cada item. A foto e o preço não mudam, e o cadastro continua sendo
+um só.
+
 O aparelho, o cardápio e o pagamento estão em
 beefood.com.br/totem-de-autoatendimento 🐝❤️
 
@@ -72,8 +78,9 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     pede e paga sozinho no totem", com "e paga" em vermelho, e a linha "E o
     programa de fidelidade entra no pedido". Embaixo, um totem branco de pé,
     com leitor, boca de impressora e pinpad no painel, mostrando o cardápio na
-    tela. Ao lado do aparelho, dois selos grandes: um vermelho com "Cupom, de
-    desconto" e um amarelo com "Cashback, com o telefone".
+    tela. Dois selos grandes saem de trás do aparelho: um vermelho com "Cupom,
+    de desconto" à esquerda e um amarelo com "Cashback, com o telefone" à
+    direita, cada um acendendo o fundo e a carcaça com a sua cor.
 
 02  Chapéu "Como funciona" e título "O totem conduz o pedido do começo ao fim",
     com a palavra fim em vermelho. O texto diz que não é uma tela de consulta e
@@ -92,11 +99,11 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
 04  Chapéu "Venda sugestiva" e título "Ofereça o adicional duas vezes no mesmo
     pedido", com "duas vezes" em vermelho. Dois recortes do totem: em cima, a
     pergunta "Quer turbinar o seu burger?" com a nota "Escolha até 4" e os
-    adicionais com foto e preço — bacon mais R$ 4,00, carne mais R$ 8,00,
-    cebola caramelizada mais R$ 2,00 e queijo cheddar mais R$ 2,00; embaixo, o
-    bloco "Peça também" da sacola, com o selo roxo "Gerada por IA" e os cartões
-    Tasty Bacon a partir de R$ 41,90, Batata Frita a R$ 11,00, Coca-Cola 350ml
-    a R$ 8,00 e Milk Shake Ovomaltine a R$ 17,90.
+    adicionais com foto e preço — bacon mais R$ 4,00, carne mais R$ 8,00, cebola
+    caramelizada mais R$ 2,00 e queijo cheddar mais R$ 2,00; embaixo, o bloco
+    "Peça também" da sacola, com o selo roxo "Gerada por IA" e os cartões Tasty
+    Bacon a partir de R$ 41,90, Batata Frita a R$ 11,00, Coca-Cola 350ml a
+    R$ 8,00 e Milk Shake Ovomaltine a R$ 17,90.
 
 05  Chapéu "Cupom de desconto" e título "O seu cupom vale no totem também", com
     a palavra totem em vermelho. Na tela do totem, o bloco "Adicionar cupom"
@@ -118,7 +125,14 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     R$ 24,00, o aviso de cashback de R$ 1,20 e o botão vermelho "Ir para
     pagamento".
 
-08  Fundo escuro com o pedido "Conheça o totem por dentro" e o endereço
+08  Chapéu "Inglês e espanhol" e título "E o mesmo cardápio fala a língua de
+    quem chega", com "quem chega" em vermelho. Dois recortes lado a lado do
+    mesmo cartão do cardápio do totem: à esquerda, sob a bandeira dos Estados
+    Unidos e a palavra English, a porção de batata frita com FRENCH FRIES e
+    R$ 11,00; à direita, sob a bandeira da Espanha e a palavra Español, a mesma
+    foto com PAPAS FRITAS e o mesmo R$ 11,00.
+
+09  Fundo escuro com o pedido "Conheça o totem por dentro" e o endereço
     beefood.com.br/totem-de-autoatendimento. Embaixo, o mesmo totem branco,
     agora parado na tela de espera: a foto de uma porção de batata frita em tela
     cheia e o botão vermelho "Faça seu pedido".

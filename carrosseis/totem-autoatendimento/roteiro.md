@@ -14,9 +14,10 @@
   quitada) e
   [`traducao-cardapio-presencial`](../../manuais/traducao-cardapio-presencial/traducao-cardapio-presencial.md)
   (o totem se configura em `Aplicativos → Totem de Autoatendimento`)
-- **Formato:** 4:5 (1080×1350), 8 slides
-- **Imagens:** 7 **capturas** do aplicativo de produção (`capturar-telas.py`).
-  Nenhuma tela desenhada
+- **Formato:** 4:5 (1080×1350), 9 slides
+- **Imagens:** 9 **capturas** do aplicativo de produção — 7 do
+  `capturar-telas.py` desta pasta e 2 do `capturar-totem.py` da skill, que é o
+  mesmo script do carrossel da tradução. Nenhuma tela desenhada
 
 ## A página está vazia, e por isso o fato vem da tela
 
@@ -49,6 +50,7 @@ da tradução:
 |---|---|---|
 | a **arte de fundo** da tela de espera e da faixa do cardápio | a loja de exemplo anuncia um pudim com preço, e num post sobre autoatendimento o olho lê o preço do pudim em vez da tela | `assets/fundos/` |
 | a **lista de cupons** | `venda2/cupomDescontoAtivo?tipo=totem` responde `[]`, e sem lista o totem **esconde a tela de cupom inteira** | [`cupons.json`](cupons.json) |
+| a **tradução** do cardápio (slide 8) | a loja de exemplo tem `aaTraducao: null`, e sem isso o totem esconde o seletor de idioma | [`traducoes.json`](../traducao-cardapio-presencial/traducoes.json) do carrossel da tradução |
 
 O que o arquivo de cupons tem é o que o restaurante escreveria no painel:
 código, título, benefício e regra. O aplicativo lê esses campos da resposta sem
@@ -101,6 +103,13 @@ Conferido tela por tela, do toque até o pagamento:
     estando na lista (manual `venda-sugestiva-upsell`).
 12. **o totem se configura no painel**, em `Aplicativos → Totem de
     Autoatendimento → aba Configuração` (manual `traducao-cardapio-presencial`).
+13. **o aparelho fala português, inglês e espanhol.** O seletor é uma pílula de
+    três bandeiras, na tela de espera (abaixo do `FAÇA SEU PEDIDO`) e no topo
+    do cardápio. Escolhido o idioma, mudam setor, nome e descrição — e os
+    textos do próprio aplicativo (`CANCEL ORDER`, `Your bag is empty`). Foto e
+    preço não mudam: `FRENCH FRIES` e `PAPAS FRITAS` são o mesmo item a
+    `R$ 11,00`. O manual `traducao-cardapio-presencial` confirma o totem como
+    um dos dois aparelhos em que as bandeiras aparecem.
 
 Fora da peça: a tela da carteira de cashback na confirmação (o recorte
 mostraria o nome e o telefone de teste que o script digita), o aviso de que
@@ -126,7 +135,8 @@ promete que o cliente volta: nada disso está na tela nem no manual.
 | `Cupom de desconto` é linha na confirmação, com campo de código e lista | o cupom do CRM não para no delivery | "O seu cupom vale no totem também" (5) |
 | `Insira seu telefone e ganhe 5% de cashback` | o autoatendimento não é anônimo: ele cadastra e credita | "Quem deixa o telefone ganha cashback" (6) |
 | `Para viagem` ou `Comer aqui`, `Total` e `Ir para pagamento` | o cliente sai do totem com o pedido pago | "Comer aqui ou levar, e o pagamento termina ali" (7) |
-| O aparelho, o cardápio e o pagamento estão na página do sistema | quem lê pode não ter conta | "Conheça o totem por dentro" (8) |
+| A pílula de três bandeiras, e o mesmo item em `FRENCH FRIES` e `PAPAS FRITAS` | quem não fala português também pede sem ninguém do outro lado | "E o mesmo cardápio fala a língua de quem chega" (8) |
+| O aparelho, o cardápio e o pagamento estão na página do sistema | quem lê pode não ter conta | "Conheça o totem por dentro" (9) |
 
 ## Os slides
 
@@ -139,7 +149,8 @@ promete que o cliente volta: nada disso está na tela nem no manual.
 | 5 | `05-cupom.html` | recorte grande | o cupom do CRM funciona no aparelho | `Adicionar cupom` e a lista `Cupons disponíveis` |
 | 6 | `06-cashback.html` | recorte largo | o totem cadastra e credita | `Insira seu telefone e ganhe 5% de cashback` |
 | 7 | `07-pagamento.html` | dois recortes | o pagamento termina no aparelho | `Como será o pedido?` e `Ir para pagamento` |
-| 8 | `08-cta.html` | capa + mockup | a página do sistema | o totem parado, na tela de espera |
+| 8 | `08-idiomas.html` | dois recortes lado a lado | o aparelho atende quem não fala português | o mesmo cartão em `FRENCH FRIES` e `PAPAS FRITAS` |
+| 9 | `09-cta.html` | capa + mockup | a página do sistema | o totem parado, na tela de espera |
 
 ## Decisões de arte
 
@@ -182,6 +193,29 @@ não se combinam (fato 8), então `NO MESMO PEDIDO` estava fora: os dois selos
 lado a lado já sugerem soma, e a nota não podia confirmar. `COM O TELEFONE` diz
 de onde o cashback nasce, que é o fato 7, e é o que o slide 6 desenvolve.
 
+**E os selos deixaram de ser adesivo quando entraram atrás do aparelho.** A
+volta do dono foi *"é a questão do layout do design mesmo, tá só um texto com
+um painel atrás"*, e estava certa: dois retângulos coloridos pousados na arte
+não têm relação nenhuma com o totem. O que resolveu não foi mais efeito, foi
+**oclusão** — cada selo entra ~60 px atrás da carcaça e a silhueta do aparelho
+corta a ponta dele, com padding maior desse lado (o que some é margem, nunca
+texto) e o gradiente escurecendo para lá, porque tab que dobra para trás entra
+na sombra. Virou o `.selo-recurso--encaixado` da `base.css`.
+
+**Depois veio a luz, em três camadas, e cada uma com o seu modo de mistura.**
+
+| camada | o que faz | mistura |
+|---|---|---|
+| brilho da tela, atrás do aparelho | o cardápio é uma tela acesa, e tela acesa derrama no escuro: é o que faz o totem parecer ligado | `screen` |
+| a luz do pé, do vermelho do cupom ao âmbar do cashback | **uma** luz, e não duas poças: com duas, os selos ficavam em cenas diferentes | `screen` |
+| a tinta na carcaça | prova que a luz bate no aparelho, e não só no fundo | `multiply` |
+
+A terceira é a que quase não existiu. A primeira tentativa acendeu a carcaça
+com `screen`, e não mudou **nada**: branco já é o teto do `screen`. Quem tinge
+branco é `multiply` — e só sobre o painel, nunca sobre o vidro, onde moram nome
+e preço de produto. Mais a sombra de contato na quina, sem a qual o selo
+encosta no aparelho mas não entra nele.
+
 **Do slide 3 ao 7 o print vai sem aparelho em volta.** É a escolha contrária à
 da capa, e pelo mesmo motivo: ali a tela precisa ser **lida**. A tela do totem é
 1080×1920; dentro de um mockup de 420 px de largura a letra do cardápio sai com
@@ -211,3 +245,22 @@ duas telas possíveis: esta, em que o totem **oferece** o programa, e a da
 carteira, em que ele mostra o saldo. A primeira serve melhor porque é o que o
 cliente sem saldo vê — e porque o recorte da segunda traria o nome e o telefone
 de teste que o roteiro de captura digita.
+
+**O slide de idioma é o mesmo do carrossel da tradução, e no penúltimo lugar.**
+A prova já existia e não precisava ser reinventada: o mesmo item, recortado do
+mesmo ponto da tela, nos dois idiomas — foto igual, `R$ 11,00` igual, e o nome
+saindo de `FRENCH FRIES` para `PAPAS FRITAS`. Dois recortes e não três: em
+português o cartão sai mais alto, porque a altura da fileira segue o nome mais
+longo do setor, e o português já está em cinco slides desta peça.
+
+O lugar dele contraria a cronologia de propósito. A bandeira fica na **primeira**
+tela, então o slide caberia em quarto — e empurraria cupom e cashback para o
+sexto e o sétimo, desfazendo o que a rodada anterior tinha feito de subir os
+dois. Idioma não é um passo do pedido, é um **modo do aparelho**: o cliente
+escolhe antes de tudo e não volta a pensar nisso. No penúltimo lugar ele é o
+"e ainda atende quem não fala português", que é leitura de quem chegou até ali.
+
+**E o slide não diz que o sistema traduz.** Quem escreve a versão em inglês do
+cardápio é o dono da loja. A peça mostra o resultado na tela do cliente e para
+— prometer tradução automática volta como reclamação, e foi a lição do
+carrossel da tradução.
