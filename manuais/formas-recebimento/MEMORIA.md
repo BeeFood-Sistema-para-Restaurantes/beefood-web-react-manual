@@ -8,7 +8,7 @@ PDV"* — e a resposta principal do manual é que **PDV não tem switch próprio
 Estado: ✅ **Concluído** em 03/09/2026. 11 imagens (10 com setas, 1 de contexto), 25 setas.
 
 ---
-    10|
+
 ## 1. O que o manual afirma, e com que prova
 
 | Afirmação | Prova |
@@ -39,7 +39,7 @@ bandeira de benefícios.
 | Ajuste no pagamento | **Sem ajuste** (o dropdown foi aberto só para fotografar as cinco opções) |
 | Taxa (%) | **4,5** |
 | Dias para Recebimento | **30** |
-    40|
+
 A base já tinha *Vale Alimentação* e *Vale Refeição* genéricos — o nome com a bandeira
 (*Sodexo*) reforça o conselho do manual de ser específico no título.
 
@@ -50,7 +50,7 @@ explica o vínculo. Assim o cardápio público continuou como estava.
 ---
 
 ## 3. Armadilhas de captura
-    50|
+
 - **Clicar no texto do tipo não marca o radio.** `text=Vale Refeição` acha um `span`; o clique não
   troca o tipo — e a aba de taxas continua desabilitada (foi o que quebrou a primeira tentativa).
   O que funciona é o `id` do radio: `#tipo-Vale\\ Refeição`.
@@ -80,7 +80,7 @@ explica o vínculo. Assim o cardápio público continuou como estava.
 | `09-cardapio-digital-formas.png` | 3 | Para o cliente ver na sacola |
 | `10-cardapio-adicionar.png` | 3 | Para o cliente ver na sacola |
 | `11-financeiro-formas.png` | contexto | E a terceira tela? |
-    80|
+
 ---
 
 ## 5. Estado do ambiente ao terminar

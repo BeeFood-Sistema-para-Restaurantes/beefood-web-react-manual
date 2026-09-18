@@ -86,7 +86,7 @@ com raio NULL **nunca recebe o aviso**, porque o cron pula. Só 6 filiais têm o
 porque alguém abriu o modal e salvou. É problema de ambiente (o PASSO 3 do script não rodou), não
 de manual — mas o manual não pode prometer um recurso que não funciona. Detalhe no
 [`estudo/02-estado-medido.md`](estudo/02-estado-medido.md), §4.
-    80|
+
 ## O que este repositório já tem sobre o assunto
 
 | Onde | O que cobre | Relação com o manual novo |
@@ -108,7 +108,7 @@ de manual — mas o manual não pode prometer um recurso que não funciona. Deta
    janela combinada, porque quem dispara é o painel.
 4. **Cada manual vai exigir montar um cenário à mão.** É o enunciado da segunda rodada, e é o que
    torna o §8 do `02-estado-medido.md` a parte mais importante do planejamento.
-   100|
+
 ## Restrições que continuam valendo
 
 1. **Não há como rodar o app do entregador aqui.** Sem emulador Android; iOS está fora de

@@ -86,7 +86,7 @@ com um botão **Excluir** a mais (1).
 | 2 | **Salvar** | Grava a alteração de código, descrição ou do switch **Ativo**. |
 
 A exclusão avisa que não tem volta:
-    80|
+
 ![Confirmação de exclusão](imagens-tratadas/06-excluir-mesa.png)
 
 | Nº | Item | O que conferir |
@@ -161,7 +161,7 @@ comanda:
 |----|----------|----------------|
 | 1 | **Sim, uso Comanda** | O sistema mostra um comparativo e **recomenda** gerar o QR Code de comanda, não de mesa. |
 | 2 | **Não, só Mesas** | Segue direto para a geração dos QR Codes de mesa. |
-   150|
+
 A recomendação existe por um motivo prático: com QR Code **de mesa**, o cliente ainda escolhe a
 comanda na hora do pedido — e dois clientes podem escolher a mesma. Com QR Code **de comanda**,
 cada pessoa lê o código da sua comanda e o pedido cai no lugar certo.
@@ -182,7 +182,7 @@ comandas, com a geração já aberta.
 | 2 | **Mesa Final** | Último número. Máximo de **100 QR Codes** por vez. |
 | 3 | **Gerar QR Codes** | Desenha os códigos na tela, um por mesa. |
 | 4 | **Imprimir Todos** | Abre a folha pronta para imprimir (o **Download Todos**, ao lado, salva um PNG por mesa). |
-   170|
+
 > **Este tipo gera pela faixa, não pelo cadastro.** Se você pedir da mesa 1 até a 20 e só existirem
 > 19 mesas, ele desenha 20 QR Codes. Confira a faixa antes de imprimir.
 
@@ -224,7 +224,7 @@ barras lê.
 | 3 | Card **Ocupado** | Mesa com venda em andamento: mostra o valor e o tempo. |
 
 Existe ainda o status **Fechado** (com um cadeado), que é a mesa que pediu o fechamento da conta.
-   210|
+
 > Mesa **inativa** não aparece no mapa. Se uma mesa cadastrada não apareceu aqui, confira o switch
 > **Ativo** no cadastro dela.
 
@@ -264,7 +264,7 @@ O caminho completo, do zero até o QR Code na mesa:
 4. São **três QR Codes**: cardápio para o **cliente**, código da mesa e código de barras para
    **você**.
 5. Mesa **inativa** sai do mapa do salão, mas continua no cadastro.
-   250|
+
 ---
 
 ## Perguntas frequentes

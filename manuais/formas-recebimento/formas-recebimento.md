@@ -118,7 +118,7 @@ adquirente para cobrar nesses casos.
 
 O campo **Ajuste no pagamento** é o que faz "5% de desconto no PIX" ou "3% de acréscimo no
 crédito".
-   110|
+
 ![Ajuste no pagamento](imagens-tratadas/04-ajuste-pagamento.png)
 
 | Nº | Item | O que fazer |
@@ -172,7 +172,7 @@ na loja.
 
 Sem TEF cadastrada, a lista mostra *"Nenhuma TEF disponível para esta empresa"* — e não há nada a
 fazer aqui. O vínculo exige que a forma **já esteja salva**.
-   160|
+
 ---
 
 ## Conferindo o resultado
@@ -244,7 +244,7 @@ A própria tela avisa: *"Para acessar as configurações completas acesse o menu
 de Recebimento"*.
 
 ---
-   230|
+
 ## Exemplo prático: aceitar um vale novo
 
 O restaurante fechou com o **Sodexo**: 4,5% de taxa e recebimento em 30 dias. O vale vale para o
@@ -317,7 +317,7 @@ sozinho.
 
 **Como mudo a ordem das formas na tela de recebimento?**
 Arraste a linha pela alça (à esquerda) na listagem, ou preencha o campo **Ordem** no cadastro.
-   300|
+
 **Para que serve o Usuário Vinculado?**
 Para separar recebimentos por operador ou por caixa — por exemplo, uma maquininha TEF por
 atendente. Só o usuário amarrado vê aquela forma.
@@ -327,7 +327,7 @@ A tela de Cadastros não tem exclusão — e é melhor assim, porque as vendas a
 ela. Desligue o **Ativo**: a forma sai de todos os canais e o histórico continua íntegro.
 
 ---
-   310|
+
 ## Manuais relacionados
 
 - **Taxas das formas de recebimento** — o efeito da taxa e dos dias no faturado × realizado

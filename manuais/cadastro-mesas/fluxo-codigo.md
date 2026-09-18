@@ -42,7 +42,7 @@ recarregar o catálogo na próxima visita.
 Payload de criação: `{ mesaID: null, empresaID, filialID, usuarioID, descricao, codigo, ativo,
 usuario, nomeFantasia, log: { acao, observacao } }`. O `log.acao` muda conforme a ação
 (`Inserir mesa`, `Atualizar mesa`, `Criar mesa em lote`).
-    40|
+
 ---
 
 ## 3. Regras que estão no front
@@ -85,7 +85,7 @@ Só aparece **no cadastro de mesas** e **só** ao escolher *Cardápio Digital Pr
 por causa desse parâmetro.
 
 ---
-    80|
+
 ## 5. Relação com a operação (`/mesas`)
 
 - O card do mapa vem do catálogo `mesaComanda`, que **não traz o campo `ativo`** — mesa inativa

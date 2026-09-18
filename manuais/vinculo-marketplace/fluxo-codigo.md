@@ -84,7 +84,7 @@ Todas com `Authorization: Bearer <token>`. O token do app vem do `localStorage`
    **SC** (`ESTADOS_FISCAL_BLOQUEADOS`), e o botão exige `filialConfigVenda.fiscalAtivo`.
 
 ---
-    80|
+
 ## 4. Impressão da cozinha (por que o vínculo importa)
 
 `ImpressaoCozinhaTab` tem o card **Local de Impressão padrão para Marketplace**, com

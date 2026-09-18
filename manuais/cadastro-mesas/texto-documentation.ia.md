@@ -27,7 +27,7 @@ NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `ima
 - Manter a seção final **Exemplo prático** na ordem em que está: cadastro → lote → QR → folha
   impressa → mapa do salão.
 - Não publicar nada do `fluxo-codigo.md` (rotas, nomes de arquivo, formato interno do código).
-    30|
+
 ## Estrutura da página (na ordem do `.md`)
 
 1. Onde fica

@@ -47,7 +47,7 @@ NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `ima
 13. Manuais relacionados
 
 ## Anexo — legendas das imagens (na ordem em que aparecem no texto)
-    50|
+
 | Ordem | Arquivo (em `imagens-tratadas/`) | Tipo | Legenda |
 |-------|----------------------------------|------|---------|
 | 1 | `01-delivery-menu.png` | com setas | Delivery → botão **⋮** → **Vínculo Marketplace** |

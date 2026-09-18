@@ -28,7 +28,7 @@ No menu lateral, clique em **Cadastros** e depois em **Comandas** (1).
 
 Uma comanda por card, em ordem de código: o **código** (o número grande), a **descrição** e a
 etiqueta **Ativo** ou **Inativo**.
-    30|
+
 ![Tela de cadastro de comandas](imagens-tratadas/02-tela-comandas.png)
 
 | Nº | Item | O que faz |
@@ -50,7 +50,7 @@ etiqueta **Ativo** ou **Inativo**.
 
 Clique em **Nova Comanda (F1)**. O código já vem sugerido com o próximo número livre e a
 descrição vem montada.
-    50|
+
 ![Modal Nova Comanda](imagens-tratadas/03-nova-comanda.png)
 
 | Nº | Campo | O que fazer |
@@ -136,7 +136,7 @@ comanda?" — o sistema vai direto ao ponto.
 | 2 | **Comanda Final** | Último número. Máximo de **100 QR Codes** por vez. |
 | 3 | **Gerar QR Codes** | Desenha os códigos, um por comanda. |
 | 4 | **Imprimir Todos** | Abre a folha pronta para imprimir. O **Download Todos**, ao lado, salva um PNG por comanda. |
-   130|
+
 A folha sai em grade, com o logo da loja e o número da comanda embaixo de cada código — é o que
 você recorta e cola (ou plastifica) na comanda física:
 
@@ -208,7 +208,7 @@ O caminho completo, do zero ao cartão na mão do cliente:
    o pedido cai na comanda dele — sem garçom digitando número errado.
 7. **Acompanhe pela aba Comandas.** A comanda sai de *Livre*, mostra o valor consumido e, no
    fim, é onde você recebe o pagamento.
-   200|
+
 > **Quer também o código para o balcão?** Gere o **Código de Barras das Comandas** na mesma faixa
 > e cole no verso do cartão. Aí o operador só passa o leitor para abrir a conta no PDV.
 
@@ -238,7 +238,7 @@ O lote vai até 100 por vez. Faça duas rodadas (1–100 e 101–200).
 **Perdi um cartão de comanda. O que faço?**
 Abra a comanda no cadastro e **desative**. Ela sai da tela de operação e o número não é oferecido
 por engano. Se imprimir um cartão novo com o mesmo número, reative.
-   230|
+
 **Posso repetir o número de uma comanda?**
 Não. O código é único, e o lote avisa com **Conflito de numeração** quando você tenta criar um
 número que já existe.

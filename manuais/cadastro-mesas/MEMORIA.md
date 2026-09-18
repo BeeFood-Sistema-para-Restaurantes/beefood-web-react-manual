@@ -9,7 +9,7 @@ Manual irmão: **#81** (`manuais/cadastro-comandas/`). Os dois foram produzidos 
 com o **#82** (`manuais/formas-recebimento/`).
 
 ---
-    10|
+
 
 ## 1. O que o manual afirma, e com que prova
 
@@ -43,7 +43,7 @@ exemplo perfeito para o cadastro individual sem inventar nome estranho. O lote e
 | Mapa do salão | Aba **Mesas**, 19 cards |
 
 Nada foi excluído: o diálogo de exclusão foi fotografado e **cancelado**.
-    40|
+
 
 ---
 
@@ -108,7 +108,7 @@ A pura `04-mesa-criada.png` ficou na pasta como registro do passo, mas **não en
 O `annotate.py` recebe as coordenadas em frações da **imagem cheia** e converte para o recorte
 sozinho, com recortes reaproveitados (`BARRA`, `MODAL_P`, `MODAL_M`, `MODAL_QR`) — os modais desta
 tela repetem a mesma geometria.
-   100|
+
 ---
 
 ## 6. Estado do ambiente ao terminar

@@ -27,7 +27,7 @@ NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `ima
 - Não publicar nada do `fluxo-codigo.md`.
 
 ## Estrutura da página (na ordem do `.md`)
-    30|
+
 1. Antes de começar: três telas parecidas
 2. Onde fica
 3. A tela: é aqui que se liga o canal

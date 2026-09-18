@@ -41,7 +41,7 @@ Abra o **Delivery**, clique no botão de três pontinhos do topo (1) e escolha
 
 > Existe um segundo caminho, **dentro de um pedido específico**, explicado na seção
 > *Resolver pelo próprio pedido*.
-    40|
+
 
 ---
 
@@ -129,7 +129,7 @@ Busque, marque a caixa do cabeçalho (1) para selecionar tudo o que a busca trou
 contagem (2) e clique em **Vincular** (3).
 
 ![Dois itens selecionados](imagens-tratadas/06-lote-selecao.png)
-   120|
+
 | Nº | Item | O que fazer |
 |----|------|-------------|
 | 1 | Caixa de seleção do cabeçalho | Marca todas as linhas da página. Combine com a busca para selecionar só o grupo que você quer. |
@@ -205,7 +205,7 @@ com o nome que veio do marketplace (2) e **sem preço** (3).
 > Enquanto o produto estiver sem preço e no setor **Vínculo Marketplace**, ele existe só para
 > receber os pedidos daquele marketplace. Trate isso como uma pendência de cadastro, não como
 > um cadastro pronto.
-   190|
+
 ---
 
 ## Excluir um vínculo
@@ -312,7 +312,7 @@ Não. Apaga só a ligação. O produto continua no cardápio.
 O produto está no **Cardápio**, no setor **Vínculo Marketplace**. Você pode completar o cadastro
 dele ou desativá-lo/excluí-lo por lá; e, na lista de vínculos, apagar a ligação e vincular no
 produto certo.
-   290|
+
 **A nota não emite e a janela de pendência abriu. Posso emitir sem vincular?**
 Não. O **EMITIR FISCAL (F2)** só habilita quando nenhum produto do pedido está pendente. Vincule
 pela própria janela e emita em seguida.

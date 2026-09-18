@@ -33,7 +33,7 @@ devolve exatamente o que o app vai mostrar. É o passo de conferência que o est
 propunha ("se o pedido não está aqui, não vale abrir o app") e funciona daqui.
 
 ## 2. A tela está no ar, e tem **duas** portas de entrada
-    30|
+
 Esta é a correção mais prática da rodada. Eu procurava um item de menu e não era isso:
 
 | Porta | Como | O que muda |
@@ -80,7 +80,7 @@ esconde.
 > primeira descrição do recurso para qualquer pessoa.
 
 ## 4. Os quatro avisos de WhatsApp estão criados e ligados
-    70|
+
 ![Lista de notificações automáticas, com a categoria Entregador](evidencias/04-notificacoes-whatsapp.png)
 
 Na filial 39202 os quatro tipos existem, `Ativo = 1`, e os textos são os **corrigidos**: o 30 e o

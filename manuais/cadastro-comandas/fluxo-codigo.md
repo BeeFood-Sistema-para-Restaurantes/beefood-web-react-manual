@@ -8,7 +8,7 @@ as diferenças abaixo.
 ---
 
 ## 1. Rota, menu e arquivos
-    10|
+
 | Item | Valor |
 |------|-------|
 | Rota | `/cadastro-comandas` |
@@ -19,7 +19,7 @@ as diferenças abaixo.
 | Modal individual | `src/components/ModalEditarComanda.tsx` |
 | Modal em lote | `src/components/ModalCriarComandasEmLote.tsx` |
 | Hook | `src/hooks/useCadastroComandas.ts` |
-    20|
+
 ---
 
 ## 2. Rotas de API
@@ -30,7 +30,7 @@ as diferenças abaixo.
 | Detalhe | GET | `/api/empresa2/comanda/{empresaID}/{usuarioID}/{comandaID}` |
 | Criar / atualizar / lote | POST | `/api/empresa2/comanda` |
 | Excluir | DELETE | `/api/empresa2/comanda` |
-    30|
+
 **Atenção:** o campo de identificação no payload é **`id`**, não `comandaID` (nas mesas é
 `mesaID`). O resto do corpo é igual ao das mesas (`descricao`, `codigo`, `ativo`, `usuario`,
 `nomeFantasia`, `log`).

@@ -106,7 +106,7 @@ intermediária que mostrava o cliente sem borrão foi **apagada antes do commit*
 | Pode vincular / criar produto / excluir no sandbox | **Pode, à vontade** — o produto criado fica |
 | Registrar pagamento para fotografar o bloqueio fiscal | **Autorizado** |
 | Existe permissão por marketplace (achado 7 do estudo) | **Não existe** — o #75 continua correto, nada a corrigir |
-   100|
+
 Reflexos no texto: nenhuma seção fala de linhas repetidas ou de "de qual marketplace veio"; a
 única menção é uma pergunta frequente que orienta a vincular todas as linhas pendentes do mesmo
 nome de uma vez.
@@ -137,7 +137,7 @@ sozinho (`converter()`). Isso importa porque quase toda tela do manual é o mesm
 centralizado: medir uma vez na captura cheia serve para todos os recortes. Recortes padrão:
 `MODAL` (o modal do Vínculo Marketplace) e `SELECIONAR` (a janela Selecionar Vínculo, que é menor
 e fica por cima).
-   130|
+
 ---
 
 ## 7. Estado do ambiente ao terminar

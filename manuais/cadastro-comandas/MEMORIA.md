@@ -20,7 +20,7 @@ Estado: ✅ **Concluído** em 03/09/2026. 12 imagens (11 com setas, 1 de context
 | Comanda cadastrada vira card na aba Comandas | Mapa capturado com as 30 comandas |
 
 Detalhe técnico e diferenças em relação às mesas em `fluxo-codigo.md`.
-    20|
+
 ---
 
 ## 2. Cenário no sandbox
@@ -41,7 +41,7 @@ O conflito de numeração **não** foi fotografado aqui (a imagem existe no #80)
 aviso em uma frase.
 
 ---
-    40|
+
 
 ## 3. Armadilhas de captura
 

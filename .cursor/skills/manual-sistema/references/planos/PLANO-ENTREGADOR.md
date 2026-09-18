@@ -51,7 +51,7 @@ filtro** chamado *Entregadores* na listagem). A função é escolhida na aba **F
 de **três opções mutuamente exclusivas**: **Garçom**, **Entregador**, **Outra Função**.
 
 Marcando **Entregador**, aparecem exatamente dois campos:
-    50|
+
 | Campo | Unidade | Texto de ajuda na tela |
 |-------|---------|------------------------|
 | **Valor Diária (R$)** | R$ fixo | *"Valor fixo pago por diária trabalhada"* |
@@ -117,7 +117,7 @@ ninguém documentou.
 - o sistema guarda o valor anterior a cada alteração (`taxaEntregaAnterior`);
 - **frete grátis** é por faixa/bairro/região (**Frete grátis acima de**), e o **pedido mínimo** da
   loja é outra coisa, em Cardápio Digital → Configurações.
-   110|
+
 **Proposta para o manual 2:** virar um manual **curto de decisão + a taxa na venda**, que serve de
 porta de entrada para os quatro que já existem, e que cobre o buraco do CEP/Faixa de CEP. Detalhe
 na seção 5.
@@ -172,7 +172,7 @@ painel de rotas, **posições dos entregadores no mapa** (atualiza a cada 10 s),
 vários pedidos, **ModalTrocarEntregador** (com os selos **Online**, **Offline**, **Sem app**,
 **Nunca usou o app**), **despachar**, **finalizar** e um **Despacho Automático** configurável.
 É o maior buraco do bloco e provavelmente rende **um ou dois manuais** próprios.
-   160|
+
 **2. Despachar o entregador próprio no Delivery.** O botão **Adicionar Entregador** / **Alterar
 Entregador do Pedido #N**, o modal com duas colunas (**Entrega Terceirizada** × **Entregadores
 Próprios**), o despacho **em lote** e o **CONFIRMAR E ALTERAR SITUAÇÃO**. Os manuais #59–#63
@@ -203,7 +203,7 @@ despachado — e o dinheiro fica somado num entregador que não existe.
 | 6 | Onde o valor por entrega é definido (área de entrega) e onde se corrige por pedido (o lápis na venda) | 2 |
 | 7 | Ligar o entregador ao app — **remissivo ao #57**, sem repetir o passo a passo | — |
 | 8 | Exemplo prático: cadastrar o entregador, dar diária e KM, despachar um pedido e ver o valor na venda | 2 |
-   190|
+
 **Total: 10 a 12 imagens.** Depende da resposta da pergunta 1 (diária).
 
 ### #84 — Taxa de entrega: qual modo usar, onde digitar e como ela cai na venda
@@ -224,7 +224,7 @@ Manual **curto e de decisão**, sem refazer os #35–#38.
 (hoje o ativo é **Bairro e CEP**) — ver riscos na seção 7.
 
 ### #85 — Relatórios da taxa de entrega e do entregador (Desempenho e Caixa)
-   210|
+
 | Seção | Conteúdo | Imagens |
 |-------|----------|--------:|
 | 1 | Qual relatório usar para quê (Desempenho = período; Caixa = um caixa) | — |
@@ -245,7 +245,7 @@ Manual **curto e de decisão**, sem refazer os #35–#38.
 |-----------|---------|---------|
 | **Gestão de Entregas** | Tela inteira sem manual: rotas, mapa ao vivo, despacho automático | 1 a 2 manuais |
 | **Despachar entregador no Delivery** | O passo a passo do entregador próprio, em lote e com troca de situação | 1 manual |
-   230|
+
 ---
 
 ## 6. Estado do sandbox — dá para produzir?
@@ -286,7 +286,7 @@ Manual **curto e de decisão**, sem refazer os #35–#38.
    e o #84 precisam de **um** pedido de exemplo cada.
 
 ---
-   270|
+
 ## 8. Perguntas para o dono
 
 1. **Como se lança a diária de um entregador?** Não achei tela no painel. É pelo app do
@@ -306,7 +306,7 @@ Manual **curto e de decisão**, sem refazer os #35–#38.
 ---
 
 ## 9. Roteiro de captura (quando aprovado)
-   290|
+
 - **#83:** criar o entregador *Entregador Manual* com **Valor Diária R$ 60,00** e
   **Valor por KM R$ 1,50**; despachar um pedido para ele; editar o **Valor do entregador** pelo
   lápis; conferir no relatório.
@@ -316,6 +316,6 @@ Manual **curto e de decisão**, sem refazer os #35–#38.
 - **#85:** período **01/08 a 05/09** no Desempenho (41 entregas); os três modos de cálculo com e
   sem ida e volta; drill-down do *99 Entrega* (6 entregas); **Imprimir A4** e **Imprimir Cupom**
   capturados pelo iframe oculto; **Caixa 967508 → Resumo Frete** nos três botões + impresso.
-   300|
+
 Vale a regra permanente da `MEMORIA-GERAL.md` (esperar o spinner sumir + 5 s) e, para telas de
 venda, os **14 segundos** que o #79 mediu.

@@ -71,7 +71,7 @@ ainda não tem ID (toast *"Forma de recebimento salva!"*) — foi assim que a ca
 preencher as taxas.
 
 ---
-    70|
+
 
 ## 4. Rotas de API
 
