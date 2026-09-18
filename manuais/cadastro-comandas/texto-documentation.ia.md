@@ -7,7 +7,7 @@ Em **Cadastros**, crie um novo item de menu por último chamado **Cadastrar coma
 Leia APENAS os arquivos abaixo (não varra o resto do projeto):
 
 1. Conteúdo (use na íntegra):
-    10|   `beefood-web-react-manual/manuais/cadastro-comandas/cadastro-comandas.md`
+   `beefood-web-react-manual/manuais/cadastro-comandas/cadastro-comandas.md`
 2. Imagens (nesta ordem), em `beefood-web-react-manual/manuais/cadastro-comandas/imagens-tratadas/`:
    `01-menu-cadastros.png`, `02-tela-comandas.png`, `03-nova-comanda.png`,
    `04-excluir-comanda.png`, `05-lote-previsao.png`, `06-lote-resultado.png`, `07-qr-tipos.png`,
@@ -17,7 +17,7 @@ Leia APENAS os arquivos abaixo (não varra o resto do projeto):
 NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`).
 
 - Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa".
-    20|- pt-BR, didático. É um manual **de cadastro**, par do manual de mesas. Mantenha o passo a passo e
+- pt-BR, didático. É um manual **de cadastro**, par do manual de mesas. Mantenha o passo a passo e
   as tabelas "Nº → o que fazer" logo depois de cada imagem.
 - Manter os dois quadros de destaque: **por que o QR de comanda é melhor que o de mesa** e que o
   **código tem de ser o número impresso na comanda física**.
@@ -27,7 +27,7 @@ NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `ima
 
 ## Estrutura da página (na ordem do `.md`)
 
-    30|1. Onde fica
+1. Onde fica
 2. A tela de comandas
 3. Cadastrar uma comanda
 4. Editar e excluir
@@ -37,7 +37,7 @@ NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `ima
 8. Exemplo prático: 30 comandas em circulação
 9. Resumo
 10. Perguntas frequentes
-    40|11. Manuais relacionados
+11. Manuais relacionados
 
 ## Anexo — legendas das imagens (na ordem em que aparecem no texto)
 
@@ -47,7 +47,7 @@ NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `ima
 | 2 | `02-tela-comandas.png` | com setas | A tela: Nova Comanda, busca, contador, Criar em Lote e Gerar QR Code |
 | 3 | `03-nova-comanda.png` | com setas | Modal **Nova Comanda**: código, descrição e Ativo |
 | 4 | `04-excluir-comanda.png` | com setas | Confirmação de exclusão, que repete a descrição |
-    50|| 5 | `05-lote-previsao.png` | com setas | Criar em Lote com a previsão da faixa |
+| 5 | `05-lote-previsao.png` | com setas | Criar em Lote com a previsão da faixa |
 | 6 | `06-lote-resultado.png` | com setas | A lista depois do lote, com o contador atualizado |
 | 7 | `07-qr-tipos.png` | com setas | Os três tipos de QR Code |
 | 8 | `08-qr-cardapio-presencial.png` | com setas | Faixa de comandas e os QR Codes gerados |
@@ -58,7 +58,7 @@ NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `ima
 
 ## Observações de conteúdo
 
-    60|- A imagem **`09-folha-impressa.png`** é o que o leitor vai imprimir de verdade: publique grande.
+- A imagem **`09-folha-impressa.png`** é o que o leitor vai imprimir de verdade: publique grande.
 - Manter a explicação de que o QR do cardápio gera **pela faixa informada**, mesmo que a comanda
   não exista no cadastro.
 - Não publicar nomes de campo da API, rotas, IDs nem o formato interno do código lido pelo PDV.

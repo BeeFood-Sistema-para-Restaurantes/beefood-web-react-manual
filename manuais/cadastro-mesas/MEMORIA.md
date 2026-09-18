@@ -9,7 +9,7 @@ Manual irmão: **#81** (`manuais/cadastro-comandas/`). Os dois foram produzidos 
 com o **#82** (`manuais/formas-recebimento/`).
 
 ---
-    10|
+
 
 ## 1. O que o manual afirma, e com que prova
 
@@ -21,7 +21,7 @@ com o **#82** (`manuais/formas-recebimento/`).
 | São três tipos de QR Code, com conteúdos diferentes | Os três gerados na tela: URL do cardápio, `38311_1` e EAN-13 `2 003831 100015` |
 | O QR do cardápio gera pela **faixa**, sem conferir o cadastro | Está no código (`ModalQRCode`) e vale como aviso no texto |
 | Existe um gate que recomenda QR de comanda | Reproduzido: pergunta → comparativo → *CONTINUAR COM QR CODE DE MESA (ENTER)* |
-    20|| A folha de impressão sai em grade de 3 com logo e nome da mesa | Capturada de verdade (ver seção 3) |
+| A folha de impressão sai em grade de 3 com logo e nome da mesa | Capturada de verdade (ver seção 3) |
 | Mesa cadastrada vira card no mapa do salão | Mapa capturado com as 19 mesas, incluindo *Livre*, *Ocupado* e *Fechado* |
 
 Detalhe técnico, rotas e limites em `fluxo-codigo.md`.
@@ -32,7 +32,7 @@ Detalhe técnico, rotas e limites em `fluxo-codigo.md`.
 
 A base já tinha **14 mesas (códigos 2 a 15)** e o código **1 estava vago** — sorte, porque deu o
 exemplo perfeito para o cadastro individual sem inventar nome estranho. O lote entrou na sequência
-    30|(16 a 19), fechando a faixa 1–19.
+(16 a 19), fechando a faixa 1–19.
 
 | Passo do manual | O que foi feito |
 |-----------------|-----------------|
@@ -43,7 +43,7 @@ exemplo perfeito para o cadastro individual sem inventar nome estranho. O lote e
 | Mapa do salão | Aba **Mesas**, 19 cards |
 
 Nada foi excluído: o diálogo de exclusão foi fotografado e **cancelado**.
-    40|
+
 
 ---
 
@@ -55,7 +55,7 @@ oculto de id **`beefood-print-frame`** — o mesmo caminho do cupom no #74. Para
 1. Antes do clique, instalar um `setInterval` de 40 ms que lê
    `document.getElementById('beefood-print-frame').contentDocument.documentElement.outerHTML`.
 2. Clicar em **Imprimir Todos**.
-    50|3. Renderizar o HTML capturado numa aba limpa com `set_content`, viewport de 900 px, e tirar o
+3. Renderizar o HTML capturado numa aba limpa com `set_content`, viewport de 900 px, e tirar o
    screenshot com `full_page=True`.
 
 Funcionou na primeira tentativa e rendeu a melhor imagem do manual (a folha pronta para recortar).
@@ -66,7 +66,7 @@ Funcionou na primeira tentativa e rendeu a melhor imagem do manual (a folha pron
 
 - **O item do menu não é `<a>`.** O submenu Cadastros é montado com `button`; `a[href=...]` não
   acha nada. O que funciona é `page.locator("button", has_text="Mesas").first` **depois** de
-    60|  clicar em `text=Cadastros`.
+  clicar em `text=Cadastros`.
 - **O modal individual não tem atalho.** Não existe ENTER/ESC no *Nova Mesa* — clique em
   **Salvar**.
 - **Só o lote valida código repetido.** O cadastro individual aceita e o backend resolve; para
@@ -76,7 +76,7 @@ Funcionou na primeira tentativa e rendeu a melhor imagem do manual (a folha pron
 - **O cardápio presencial não mostra o número da mesa na home.** A imagem 18 é só o cardápio
   abrindo no celular; o número viaja no link (`?tipo=p&mesa=1`). Tentar provar o "Mesa 1" na tela
   exigiria montar a sacola, e os cliques no cardápio (Vuetify) falham por elemento fora da
-    70|  viewport — não vale o esforço para este manual.
+  viewport — não vale o esforço para este manual.
 
 ---
 
@@ -87,7 +87,7 @@ Funcionou na primeira tentativa e rendeu a melhor imagem do manual (a folha pron
 | `01-menu-cadastros.png` | 2 | Onde fica |
 | `02-tela-mesas.png` | 5 | A tela de mesas |
 | `03-nova-mesa.png` | 4 | Cadastrar uma mesa |
-    80|| `05-editar-mesa.png` | 2 | Editar e excluir |
+| `05-editar-mesa.png` | 2 | Editar e excluir |
 | `06-excluir-mesa.png` | 2 | Editar e excluir |
 | `07-lote-conflito.png` | 3 | Criar o salão de uma vez |
 | `08-lote-previsao.png` | 2 | Criar o salão de uma vez |
@@ -97,7 +97,7 @@ Funcionou na primeira tentativa e rendeu a melhor imagem do manual (a folha pron
 | `12-qr-recomendacao.png` | contexto | Cardápio Digital Presencial |
 | `13-qr-cardapio-presencial.png` | 4 | Cardápio Digital Presencial |
 | `14-qr-codigo-mesa.png` | 2 | Código da Mesa |
-    90|| `15-codigo-barras.png` | 1 | Código de Barras |
+| `15-codigo-barras.png` | 1 | Código de Barras |
 | `16-mapa-salao.png` | 3 | O que o cadastro habilita |
 | `17-folha-impressa.png` | contexto | Exemplo prático |
 | `18-cardapio-celular.png` | contexto | Exemplo prático |
@@ -108,7 +108,7 @@ A pura `04-mesa-criada.png` ficou na pasta como registro do passo, mas **não en
 O `annotate.py` recebe as coordenadas em frações da **imagem cheia** e converte para o recorte
 sozinho, com recortes reaproveitados (`BARRA`, `MODAL_P`, `MODAL_M`, `MODAL_QR`) — os modais desta
 tela repetem a mesma geometria.
-   100|
+
 ---
 
 ## 6. Estado do ambiente ao terminar

@@ -8,7 +8,7 @@ Este manual percorre a tela inteira — cadastro individual, criação em lote, 
 os **três tipos de QR Code** — e termina com um exemplo completo, do cadastro à folha impressa.
 
 > As imagens têm **setas numeradas** (1, 2, 3…). Cada número indica o campo correspondente
-    10|> na tela.
+> na tela.
 
 ---
 
@@ -19,7 +19,7 @@ principal, use o **Voltar** do topo do submenu (2).
 
 ![Submenu Cadastros](imagens-tratadas/01-menu-cadastros.png)
 
-    20|| Nº | Item | O que é |
+| Nº | Item | O que é |
 |----|------|---------|
 | 1 | **Mesas** | O cadastro que este manual explica. |
 | 2 | **Voltar** | Sai do submenu Cadastros e devolve o menu principal. |
@@ -30,7 +30,7 @@ No mesmo submenu ficam **Comandas** (manual próprio) e **Formas Recebimento**.
 
 ## A tela de mesas
 
-    30|A tela lista **uma mesa por card**, em ordem de código. Em cada card você vê o **código** (o
+A tela lista **uma mesa por card**, em ordem de código. Em cada card você vê o **código** (o
 número grande), a **descrição** e a etiqueta **Ativo** ou **Inativo**.
 
 ![Tela de cadastro de mesas](imagens-tratadas/02-tela-mesas.png)
@@ -41,7 +41,7 @@ número grande), a **descrição** e a etiqueta **Ativo** ou **Inativo**.
 | 2 | **Buscar mesa...** | Filtra por código ou por descrição. Dentro da tela, qualquer tecla que você digitar cai nesta busca. |
 | 3 | Contador de mesas | Quantas mesas existem hoje no cadastro. |
 | 4 | **Criar em Lote** | Cria várias mesas numeradas de uma vez — é o caminho para montar o salão. |
-    40|| 5 | **Gerar QR Code** | Abre os três tipos de QR Code (explicados adiante). |
+| 5 | **Gerar QR Code** | Abre os três tipos de QR Code (explicados adiante). |
 
 Há também o botão de **atualizar** (o círculo com as setas), ao lado da busca, com o atalho
 **F5**.
@@ -52,7 +52,7 @@ Há também o botão de **atualizar** (o círculo com as setas), ao lado da busc
 
 ---
 
-    50|## Cadastrar uma mesa
+## Cadastrar uma mesa
 
 Clique em **Nova Mesa (F1)**. O BeeFood já sugere o **próximo código livre** e monta a descrição
 para você — normalmente é só conferir e salvar.
@@ -63,7 +63,7 @@ para você — normalmente é só conferir e salvar.
 |----|-------|-------------|
 | 1 | **Código*** | O número da mesa. É por ele que a mesa é chamada no PDV e no QR Code. Vem preenchido com o próximo número livre. |
 | 2 | **Descrição*** | O nome que aparece no card e no mapa do salão. Vem como `Mesa <código>`, e você pode trocar por qualquer texto — *Varanda 1*, *Deck*, *Balcão 2*. |
-    60|| 3 | **Ativo** | Ligado, a mesa entra no mapa do salão. Desligado, ela fica só no cadastro. |
+| 3 | **Ativo** | Ligado, a mesa entra no mapa do salão. Desligado, ela fica só no cadastro. |
 | 4 | **Salvar** | Grava. O card novo aparece na lista, em ordem de código. |
 
 Os dois campos são obrigatórios: com qualquer um deles vazio, o **Salvar** não conclui.
@@ -75,7 +75,7 @@ Os dois campos são obrigatórios: com qualquer um deles vazio, o **Salvar** nã
 
 ## Editar e excluir
 
-    70|Clique em qualquer card para reabrir a mesa. O modal é o mesmo, agora chamado **Editar Mesa**,
+Clique em qualquer card para reabrir a mesa. O modal é o mesmo, agora chamado **Editar Mesa**,
 com um botão **Excluir** a mais (1).
 
 ![Modal Editar Mesa](imagens-tratadas/05-editar-mesa.png)
@@ -86,7 +86,7 @@ com um botão **Excluir** a mais (1).
 | 2 | **Salvar** | Grava a alteração de código, descrição ou do switch **Ativo**. |
 
 A exclusão avisa que não tem volta:
-    80|
+
 ![Confirmação de exclusão](imagens-tratadas/06-excluir-mesa.png)
 
 | Nº | Item | O que conferir |
@@ -97,7 +97,7 @@ A exclusão avisa que não tem volta:
 > **Prefira desativar a excluir.** Se a mesa saiu do salão mas você quer preservar o histórico,
 > desligue o switch **Ativo** em vez de apagar o cadastro.
 
-    90|---
+---
 
 ## Criar o salão inteiro de uma vez
 
@@ -108,7 +108,7 @@ Se a faixa pega mesas que já existem, a tela avisa e **bloqueia** o botão:
 
 ![Conflito de numeração](imagens-tratadas/07-lote-conflito.png)
 
-   100|| Nº | Campo | O que fazer |
+| Nº | Campo | O que fazer |
 |----|-------|-------------|
 | 1 | **Quantas mesas deseja criar?** | De 1 a 100 por vez. |
 | 2 | **Iniciar na numeração:** | O primeiro código da faixa. |
@@ -118,7 +118,7 @@ Com a faixa livre, o aviso vira a previsão do que vai ser criado (1):
 
 ![Previsão do lote](imagens-tratadas/08-lote-previsao.png)
 
-   110|| Nº | Item | O que conferir |
+| Nº | Item | O que conferir |
 |----|-------|----------------|
 | 1 | A previsão | Diz a primeira e a última mesa da faixa. Confira antes de clicar. |
 | 2 | **Criar Mesas** | Cria a faixa inteira de uma vez. |
@@ -128,7 +128,7 @@ Terminado o lote, o contador sobe (1) e os cards novos entram no fim da lista (2
 ![Lote criado](imagens-tratadas/09-lote-resultado.png)
 
 | Nº | Item | O que conferir |
-   120||----|------|----------------|
+|----|------|----------------|
 | 1 | Contador | Confirma quantas mesas existem agora. |
 | 2 | Os cards novos | Já nascem **Ativos** e com a descrição padrão. Renomeie os que precisam de nome próprio. |
 
@@ -139,7 +139,7 @@ Terminado o lote, o contador sobe (1) e os cards novos entram no fim da lista (2
 O botão **Gerar QR Code** oferece três coisas diferentes. É a parte da tela que mais gera
 dúvida, então vale entender o que cada uma serve antes de imprimir:
 
-   130|![Tipos de QR Code](imagens-tratadas/10-qr-tipos.png)
+![Tipos de QR Code](imagens-tratadas/10-qr-tipos.png)
 
 | Nº | Tipo | Para que serve | Quem lê |
 |----|------|----------------|---------|
@@ -150,7 +150,7 @@ dúvida, então vale entender o que cada uma serve antes de imprimir:
 Os três geram por **faixa** (da mesa X até a mesa Y), com **Download Todos** (um PNG por mesa) e
 **Imprimir Todos** (uma folha com todos).
 
-   140|### 1. Cardápio Digital Presencial
+### 1. Cardápio Digital Presencial
 
 Escolhendo esta opção **no cadastro de mesas**, o BeeFood pergunta primeiro se você trabalha com
 comanda:
@@ -161,7 +161,7 @@ comanda:
 |----|----------|----------------|
 | 1 | **Sim, uso Comanda** | O sistema mostra um comparativo e **recomenda** gerar o QR Code de comanda, não de mesa. |
 | 2 | **Não, só Mesas** | Segue direto para a geração dos QR Codes de mesa. |
-   150|
+
 A recomendação existe por um motivo prático: com QR Code **de mesa**, o cliente ainda escolhe a
 comanda na hora do pedido — e dois clientes podem escolher a mesma. Com QR Code **de comanda**,
 cada pessoa lê o código da sua comanda e o pedido cai no lugar certo.
@@ -172,7 +172,7 @@ Você pode continuar com o QR de mesa pelo botão **CONTINUAR COM QR CODE DE MES
 aceitar a recomendação em **QUERO GERAR DE COMANDA** — que leva direto para o cadastro de
 comandas, com a geração já aberta.
 
-   160|Seguindo com mesa, informe a faixa e gere:
+Seguindo com mesa, informe a faixa e gere:
 
 ![QR Code do cardápio presencial](imagens-tratadas/13-qr-cardapio-presencial.png)
 
@@ -182,7 +182,7 @@ comandas, com a geração já aberta.
 | 2 | **Mesa Final** | Último número. Máximo de **100 QR Codes** por vez. |
 | 3 | **Gerar QR Codes** | Desenha os códigos na tela, um por mesa. |
 | 4 | **Imprimir Todos** | Abre a folha pronta para imprimir (o **Download Todos**, ao lado, salva um PNG por mesa). |
-   170|
+
 > **Este tipo gera pela faixa, não pelo cadastro.** Se você pedir da mesa 1 até a 20 e só existirem
 > 19 mesas, ele desenha 20 QR Codes. Confira a faixa antes de imprimir.
 
@@ -193,7 +193,7 @@ o operador apontar o leitor no PDV e a venda já sair na mesa certa.
 
 ![QR Code do código da mesa](imagens-tratadas/14-qr-codigo-mesa.png)
 
-   180|| Nº | Item | O que é |
+| Nº | Item | O que é |
 |----|------|---------|
 | 1 | O QR de cada mesa | Vem com a etiqueta **Mesa N** embaixo. Diferente do tipo anterior, este só gera para mesas que **existem** no cadastro. |
 | 2 | **Download Todos** | Salva um PNG por mesa, para colar no caixa ou na comanda de papel. |
@@ -203,7 +203,7 @@ o operador apontar o leitor no PDV e a venda já sair na mesa certa.
 Mesma função do **Código da Mesa**, em **EAN-13** — o padrão que qualquer leitor de código de
 barras lê.
 
-   190|![Código de barras das mesas](imagens-tratadas/15-codigo-barras.png)
+![Código de barras das mesas](imagens-tratadas/15-codigo-barras.png)
 
 | Nº | Item | O que observar |
 |----|------|----------------|
@@ -213,7 +213,7 @@ barras lê.
 
 ## O que o cadastro habilita no dia a dia
 
-   200|Cada mesa cadastrada vira um card na tela **Mesas/Comandas**:
+Cada mesa cadastrada vira um card na tela **Mesas/Comandas**:
 
 ![Mapa do salão](imagens-tratadas/16-mapa-salao.png)
 
@@ -224,7 +224,7 @@ barras lê.
 | 3 | Card **Ocupado** | Mesa com venda em andamento: mostra o valor e o tempo. |
 
 Existe ainda o status **Fechado** (com um cadeado), que é a mesa que pediu o fechamento da conta.
-   210|
+
 > Mesa **inativa** não aparece no mapa. Se uma mesa cadastrada não apareceu aqui, confira o switch
 > **Ativo** no cadastro dela.
 
@@ -234,7 +234,7 @@ Existe ainda o status **Fechado** (com um cadeado), que é a mesa que pediu o fe
 
 O caminho completo, do zero até o QR Code na mesa:
 
-   220|1. **Cadastre a primeira mesa à mão** (Nova Mesa F1) para conferir o padrão de descrição que você
+1. **Cadastre a primeira mesa à mão** (Nova Mesa F1) para conferir o padrão de descrição que você
    quer usar — no exemplo, `Mesa 1`.
 2. **Crie o resto em lote**: quantidade 4, iniciando na 16, e o BeeFood cria da **Mesa 16** à
    **Mesa 19**. Se a faixa bater com mesas existentes, o aviso de conflito aparece antes de
@@ -244,7 +244,7 @@ O caminho completo, do zero até o QR Code na mesa:
    adesivo — no exemplo, da 1 à 4.
 5. **Imprima a folha** e recorte: cada quadradinho já sai com o logo da loja e o nome da mesa.
 
-   230|![Folha de QR Codes pronta para imprimir](imagens-tratadas/17-folha-impressa.png)
+![Folha de QR Codes pronta para imprimir](imagens-tratadas/17-folha-impressa.png)
 
 6. **Cole o adesivo na mesa.** O cliente aponta a câmera e o cardápio abre no celular dele, já
    vinculado àquela mesa:
@@ -254,7 +254,7 @@ O caminho completo, do zero até o QR Code na mesa:
 7. **Acompanhe pelo mapa do salão.** Quando o pedido entra, a mesa sai de *Livre* e passa a
    mostrar valor e tempo.
 
-   240|---
+---
 
 ## Resumo
 
@@ -264,7 +264,7 @@ O caminho completo, do zero até o QR Code na mesa:
 4. São **três QR Codes**: cardápio para o **cliente**, código da mesa e código de barras para
    **você**.
 5. Mesa **inativa** sai do mapa do salão, mas continua no cadastro.
-   250|
+
 ---
 
 ## Perguntas frequentes
@@ -274,7 +274,7 @@ Não faz sentido: o código é numérico, então `01` e `1` são a mesma mesa. P
 ambientes, use a **descrição** (*Varanda 1*, *Salão 1*).
 
 **Criei mesas demais no lote. Preciso apagar uma por uma?**
-   260|Sim — a exclusão é individual, pelo card. Se as mesas extras não incomodam, uma alternativa mais
+Sim — a exclusão é individual, pelo card. Se as mesas extras não incomodam, uma alternativa mais
 rápida é **desativá-las**.
 
 **A mesa não aparece no mapa do salão.**
@@ -285,7 +285,7 @@ tela (o botão de atualizar, ou **F5**).
 Não. As vendas já registradas continuam no Histórico de Vendas com a mesa que tinham no momento
 da venda.
 
-   270|**O QR Code que colei na mesa parou de funcionar.**
+**O QR Code que colei na mesa parou de funcionar.**
 O QR do cardápio guarda o **link do seu cardápio digital** e o número da mesa. Se o link do
 cardápio mudou (domínio novo, por exemplo), gere e imprima os QR Codes de novo.
 
@@ -295,7 +295,7 @@ A impressão sai em grade, três por linha, para economizar papel. Para um por f
 
 **Qual QR Code eu colo na mesa: o do cardápio ou o código da mesa?**
 O do **Cardápio Digital Presencial**. O *Código da Mesa* e o *Código de Barras* são para o
-   280|operador ler no balcão, não para o cliente.
+operador ler no balcão, não para o cliente.
 
 **Uso comanda. Ainda preciso cadastrar mesas?**
 Sim, se você controla o salão por mesa. Mas, para o QR Code que o cliente lê, o próprio sistema
@@ -305,7 +305,7 @@ recomenda o **QR Code de comanda** — veja o manual de comandas.
 
 ## Manuais relacionados
 
-   290|- **Cadastrar comandas e gerar o QR Code** — o par deste manual
+- **Cadastrar comandas e gerar o QR Code** — o par deste manual
 - **Cardápio digital presencial e QR Code** — a configuração do canal presencial e o *Meus Links*
 - **Taxa e obrigatoriedades de mesa** — a taxa de serviço e as obrigatoriedades no atendimento
 - **Cadastrar forma de recebimento** — como a forma de pagamento chega ao fechamento da mesa

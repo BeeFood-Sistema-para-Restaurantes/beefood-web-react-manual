@@ -10,7 +10,7 @@ Mapeamento levantado em 03/09/2026 a partir de `beefood-web-react` (clone de lei
 | Item | Valor |
 |------|-------|
 | Rota | `/cadastro-mesas` |
-    10|| Menu | **Cadastros → Mesas** (`AppSidebar.tsx`, `cadastrosSubItems`) |
+| Menu | **Cadastros → Mesas** (`AppSidebar.tsx`, `cadastrosSubItems`) |
 | Permissão | `submenuKey="cadastros"`, `submenuItemKey="mesas"` (`ProtectedRoute`) |
 | Página desktop | `src/pages/CadastroMesas.tsx` |
 | Página mobile | `src/components/mobile/cadastro-mesas/MobileCadastroMesasPage.tsx` |
@@ -20,7 +20,7 @@ Mapeamento levantado em 03/09/2026 a partir de `beefood-web-react` (clone de lei
 | Gate de comanda | `src/components/qrcode/UsaComandaGate.tsx` |
 | QR do cardápio | `src/components/cardapio-digital/ModalQRCode.tsx` |
 | QR interno / código de barras | `src/components/ModalQRCodeMesa.tsx`, `src/components/ModalCodigoBarrasComanda.tsx` |
-    20|| Hook | `src/hooks/useCadastroMesas.ts` |
+| Hook | `src/hooks/useCadastroMesas.ts` |
 | Operação | `src/pages/Mesas.tsx` + `useMesasData` |
 
 A página **limpa o `mesaComanda_cache` do `localStorage`** ao montar, para a tela de operação
@@ -32,7 +32,7 @@ recarregar o catálogo na próxima visita.
 
 | Operação | Método | Caminho |
 |----------|--------|---------|
-    30|| Listar | GET | `/api/empresa2/mesas/{empresaID}/{filialID}/{usuarioID}` |
+| Listar | GET | `/api/empresa2/mesas/{empresaID}/{filialID}/{usuarioID}` |
 | Detalhe | GET | `/api/empresa2/mesa/{empresaID}/{usuarioID}/{mesaID}` |
 | Criar / atualizar | POST | `/api/empresa2/mesa` |
 | Criar em lote | POST | `/api/empresa2/mesa` (array) |
@@ -42,7 +42,7 @@ recarregar o catálogo na próxima visita.
 Payload de criação: `{ mesaID: null, empresaID, filialID, usuarioID, descricao, codigo, ativo,
 usuario, nomeFantasia, log: { acao, observacao } }`. O `log.acao` muda conforme a ação
 (`Inserir mesa`, `Atualizar mesa`, `Criar mesa em lote`).
-    40|
+
 ---
 
 ## 3. Regras que estão no front
@@ -53,7 +53,7 @@ usuario, nomeFantasia, log: { acao, observacao } }`. O `log.acao` muda conforme 
 3. **Não há validação de código duplicado no cadastro individual.** Só o lote confere.
 4. **Lote:** 1 a 100 por vez; compara a faixa com os códigos existentes e monta a mensagem
    *"As mesas X, Y já existem."*, bloqueando o botão.
-    50|5. **Atalhos:** `F1` abre Nova Mesa (só quando não há modal aberto), `F5` atualiza sempre.
+5. **Atalhos:** `F1` abre Nova Mesa (só quando não há modal aberto), `F5` atualiza sempre.
 6. **Ordenação** por código crescente; a busca filtra por `descricao` ou `codigo`.
 7. **Não existe** duplicar, editar em lote, ativar/desativar em massa nem exportar PDF.
 
@@ -64,7 +64,7 @@ usuario, nomeFantasia, log: { acao, observacao } }`. O `log.acao` muda conforme 
 | Tipo | Componente | Conteúdo do código |
 |------|------------|--------------------|
 | Cardápio Digital Presencial | `ModalQRCode` (`tipo="presencial-mesa"`) | `https://menu.beefood.com.br/{linkAcesso}/?tipo=p&mesa={codigo}` |
-    60|| Código da Mesa | `ModalQRCodeMesa` (`tipo="mesa"`) | `{empresaID}_{codigo}` — ex.: `38311_1` |
+| Código da Mesa | `ModalQRCodeMesa` (`tipo="mesa"`) | `{empresaID}_{codigo}` — ex.: `38311_1` |
 | Código de Barras | `ModalCodigoBarrasComanda` (`tipo="mesa"`) | EAN-13 `2` + `0` + empresa(6) + código(4) + dígito |
 
 - QR desenhado com **`qrcode.react`** (`QRCodeSVG`, nível H); código de barras com
@@ -74,7 +74,7 @@ usuario, nomeFantasia, log: { acao, observacao } }`. O `log.acao` muda conforme 
 - Limite de **100 QR Codes** por geração; código de barras limitado à mesa **9999**.
 - **Impressão via iframe oculto** (`imprimirViaIframe`, `#beefood-print-frame`), grade de 3
   colunas com logo e marca d'água *Sistema BeeFood*. **Não há PDF** — só PNG (um por mesa) e a
-    70|  folha HTML.
+  folha HTML.
 - No sandbox, o EAN-13 da Mesa 1 saiu **`2 003831 100015`** (empresa 38311, tipo 0, código 0001).
 
 ### O gate "Você usa Comanda?"
@@ -85,7 +85,7 @@ Só aparece **no cadastro de mesas** e **só** ao escolher *Cardápio Digital Pr
 por causa desse parâmetro.
 
 ---
-    80|
+
 ## 5. Relação com a operação (`/mesas`)
 
 - O card do mapa vem do catálogo `mesaComanda`, que **não traz o campo `ativo`** — mesa inativa
@@ -96,7 +96,7 @@ por causa desse parâmetro.
 
 ---
 
-    90|## 6. Medições no sandbox (03/09/2026, empresa 38311 / filial 39202)
+## 6. Medições no sandbox (03/09/2026, empresa 38311 / filial 39202)
 
 - Antes: **14 mesas** (códigos 2 a 15) — o código **1 não existia**, o que deixou o exemplo do
   cadastro individual pronto de graça.
