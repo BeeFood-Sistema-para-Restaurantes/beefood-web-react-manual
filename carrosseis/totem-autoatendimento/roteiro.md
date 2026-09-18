@@ -132,7 +132,7 @@ promete que o cliente volta: nada disso está na tela nem no manual.
 
 | # | Arquivo | Tipo | Ideia única | Imagem |
 |---|---|---|---|---|
-| 1 | `01-capa.html` | capa com cena | o cliente pede e paga sozinho | o totem inteiro com o cardápio, e dois selos: cupom e cashback |
+| 1 | `01-capa.html` | capa com cena | o cliente pede e paga sozinho, e a fidelidade entra no pedido | o totem inteiro com o cardápio, e dois `.selo-recurso`: `Cupom` e `Cashback` |
 | 2 | `02-como-funciona.html` | texto + lista | o aparelho vai do toque ao pagamento | nenhuma: são os seis passos em lista |
 | 3 | `03-cardapio.html` | recorte grande | o cardápio do totem é o cadastro da loja | topo do cardápio: setores, foto e preço |
 | 4 | `04-venda-sugestiva.html` | dois recortes | o totem oferece mais em dois momentos | `QUER TURBINAR O SEU BURGER?` e `Peça também` |
@@ -156,13 +156,31 @@ compra" mesmo pequeno. No slide 8 a ordem se inverte: ali o aparelho parado,
 esperando o próximo cliente, fecha o arco — e repetir a mesma tela nas duas
 pontas seria repetir a imagem.
 
-**Os dois selos da capa são a promessa da peça.** `Cupom de desconto` e `5% de
-cashback` são o que o carrossel entrega além do pedido, e sem eles a capa
-promete menos do que a peça tem. Eles são desenhados, e não recortados da tela:
-o recorte real da linha de cupom tem 1032 px de largura e, reduzido para caber
-ao lado do aparelho, fica ilegível — e posto por cima do vidro cobriria nome e
-preço de produto, que é o que a `mockups.md` chama de defeito de render. O texto
-dos dois é o da tela.
+**Os dois selos da capa são a promessa da peça.** Cupom e cashback são o que o
+carrossel entrega além do pedido, e sem eles a capa promete menos do que a peça
+tem. Eles são desenhados, e não recortados da tela: o recorte real da linha de
+cupom tem 1032 px de largura e, reduzido para caber ao lado do aparelho, fica
+ilegível — e posto por cima do vidro cobriria nome e preço de produto, que é o
+que a `mockups.md` chama de defeito de render.
+
+**E o selo tem duas alturas, porque uma não cabe.** Ao lado de um aparelho em
+pé sobra uma coluna de ~320 px, e nela um selo de uma linha só entra em corpo
+22 — que ao lado de um título de 68 lê como legenda de rodapé, não como
+promessa. Quebrado em nome grande (`Cupom`, `Cashback`) e nota em caixa alta
+(`DE DESCONTO`, `COM O TELEFONE`), o nome vai a 50 px e sobrevive à miniatura
+do feed. Virou o `.selo-recurso` da `base.css`.
+
+**O selo amarelo diz `Cashback`, e não `5% de cashback`.** Os 5% são a
+configuração da loja de exemplo. Dentro da captura do slide 6 eles saem da tela
+do cliente e são o que são; num selo desenhado sairiam da nossa boca, e a capa
+passaria a dizer que o sistema define a porcentagem — que quem configura o
+programa escolhe. Na peça, número que o lojista define só aparece **dentro de
+print**.
+
+**A nota do selo amarelo não pode somar com a do vermelho.** Cupom e cashback
+não se combinam (fato 8), então `NO MESMO PEDIDO` estava fora: os dois selos
+lado a lado já sugerem soma, e a nota não podia confirmar. `COM O TELEFONE` diz
+de onde o cashback nasce, que é o fato 7, e é o que o slide 6 desenvolve.
 
 **Do slide 3 ao 7 o print vai sem aparelho em volta.** É a escolha contrária à
 da capa, e pelo mesmo motivo: ali a tela precisa ser **lida**. A tela do totem é

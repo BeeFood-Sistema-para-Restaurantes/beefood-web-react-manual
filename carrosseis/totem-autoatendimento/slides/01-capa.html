@@ -27,10 +27,23 @@
      anuncia menos do que o carrossel entrega. Eles sao DESENHADOS, com o texto
      e a cor da interface, e nao recortados dela — o recorte real da linha de
      cupom tem 1032 px e, reduzido para caber nesta coluna, fica com 11 px de
-     letra; aumentado, cobre o vidro, ou seja, nome e preco de produto. Por
-     isso eles encostam na carcaca branca e nunca no vidro: sobreposicao em
-     cima de coisa decorativa vira profundidade, em cima de rotulo vira
-     defeito. -->
+     letra; aumentado, cobre o vidro, ou seja, nome e preco de produto.
+
+     Cada selo tem DUAS ALTURAS: o nome do recurso grande, para ser lido na
+     miniatura do feed, e o complemento em caixa alta pequena. Selo de uma
+     linha so cabe em corpo 22 nesta coluna, e corpo 22 ao lado de um titulo de
+     68 nao e promessa, e legenda.
+
+     O selo amarelo diz CASHBACK, e nao "5% de cashback". Os 5% sao a
+     configuracao da loja de exemplo: dentro da captura do slide 6 eles saem da
+     tela dela, mas num selo desenhado sairiam da nossa boca — e quem lê
+     entenderia que o sistema define a porcentagem. Numero que o lojista
+     configura nao vira manchete de capa.
+
+     Eles nao encostam no vidro: nesta altura do aparelho sobram 12 px de
+     carcaca de cada lado, entao o lugar deles e o fundo escuro, com folga.
+     Sobreposicao em cima de coisa decorativa vira profundidade, em cima de
+     rotulo vira defeito. -->
 
 <div class="slide slide--capa">
   <div class="topo">
@@ -43,7 +56,7 @@
     <h1 class="titulo titulo--medio">
       O cliente pede <span class="destaque">e paga</span><br>sozinho no totem
     </h1>
-    <p class="subtitulo">Com cupom e cashback no meio do caminho.</p>
+    <p class="subtitulo">E o programa de fidelidade entra no pedido.</p>
   </div>
 
   <div class="sangria" style="top: 540px; right: auto; left: 50%;
@@ -67,17 +80,15 @@
     </div>
   </div>
 
-  <span class="pilula" style="position: absolute; left: 36px; top: 706px;
-                              z-index: 2; background: var(--primaria);
-                              color: #fff; font-size: 22px;
-                              box-shadow: 0 18px 34px -16px #000">
-    Cupom de desconto
-  </span>
+  <div class="selo-recurso" style="left: 44px; top: 606px;
+                                   background: var(--primaria); color: #fff">
+    <span class="selo-recurso__nome">Cupom</span>
+    <span class="selo-recurso__nota">de desconto</span>
+  </div>
 
-  <span class="pilula" style="position: absolute; right: 36px; top: 966px;
-                              z-index: 2; background: #ffe680; color: #1c1c1c;
-                              font-size: 22px;
-                              box-shadow: 0 18px 34px -16px #000">
-    5% de cashback
-  </span>
+  <div class="selo-recurso" style="right: 44px; top: 916px;
+                                   background: #ffd84d; color: #1c1c1c">
+    <span class="selo-recurso__nome" style="font-size: 46px">Cashback</span>
+    <span class="selo-recurso__nota" style="font-size: 22px">com o telefone</span>
+  </div>
 </div>

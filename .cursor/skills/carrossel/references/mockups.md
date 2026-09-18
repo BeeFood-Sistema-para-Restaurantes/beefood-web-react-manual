@@ -161,6 +161,36 @@ partes que interessavam — a pergunta do consumo, no topo, e a barra de `Total`
 passariam por uma tela só, que é o que não são; por isso foram dois `.recorte`
 separados, com respiro, no mesmo slide.
 
+### A quinta saída: `.selo-recurso`, quando nem o aparelho nem o recorte cabem
+
+Na capa aparece um terceiro caso: a peça entrega mais de um eixo, o título só
+carrega um, e os outros precisam de anúncio. Pendurar **recortes de tela** ao
+lado do aparelho é a tentação, e falha nas duas pontas — reduzido para a coluna
+que sobra o recorte fica ilegível; aumentado, cobre o vidro, ou seja, rótulo e
+preço. O `.selo-recurso` é a etiqueta desenhada que ocupa esse lugar.
+
+```html
+<div class="selo-recurso" style="left: 44px; top: 606px;
+                                 background: var(--primaria); color: #fff">
+  <span class="selo-recurso__nome">Cupom</span>
+  <span class="selo-recurso__nota">de desconto</span>
+</div>
+```
+
+Três coisas para ele não sair pior que o recorte:
+
+- **duas alturas, não uma.** Ao lado de um aparelho em pé sobra uma coluna de
+  ~320 px, e nela a frase inteira numa linha não passa de corpo 22 — que ao
+  lado de um título de 68 lê como crédito de rodapé. Nome grande em cima, nota
+  em caixa alta embaixo: o que estoura a largura é a frase, não a fonte.
+- **cor da interface, nome do recurso** — e **nunca um número que o lojista
+  configura**. Dentro de um print o `5% de cashback` é da loja que aparece ali;
+  desenhado, vira promessa nossa.
+- **meça onde a carcaça acaba.** No `.totem` de 360 px sobram ~12 px de branco
+  de cada lado na altura do vidro: não há carcaça em que encostar, e o lugar do
+  selo é o fundo escuro, com folga. Sobreposição em cima de coisa decorativa
+  vira profundidade; em cima de rótulo, vira defeito.
+
 ### Capturar o totem, com tradução e com fundo nosso
 
 ```bash

@@ -150,6 +150,48 @@ body {
   color: #fff;
 }
 
+/* -------------------------------------------------------- selo de recurso
+ *
+ * Etiqueta sólida que flutua ao lado do mockup da capa, para anunciar um eixo
+ * que o título não tem como carregar — por exemplo, o cupom e o cashback numa
+ * peça cujo título é sobre o totem.
+ *
+ * Posicione com `left`/`right` e `top` inline; é `absolute` de propósito,
+ * porque o lugar dele depende do aparelho que está do lado.
+ *
+ * Duas alturas, e não uma. Ao lado de um mockup em pé sobra uma coluna de
+ * ~320 px, e nela um selo de uma linha só cabe em corpo 22 — que ao lado de um
+ * título de 68 lê como legenda, não como promessa. Quebrado em nome grande e
+ * nota em caixa alta, o nome vai a 50 px e é lido na miniatura do feed.
+ *
+ * O que vai escrito é o NOME DO RECURSO, não um número que a loja configura:
+ * dentro de uma captura o "5%" é da tela do cliente, mas num selo desenhado
+ * ele passa a ser afirmação nossa.
+ */
+.selo-recurso {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 32px;
+  border-radius: 30px;
+  box-shadow: 0 22px 44px -18px #000;
+}
+
+.selo-recurso__nome {
+  font-size: 50px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.selo-recurso__nota {
+  margin-top: 8px;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
 /* ------------------------------------------------------------------ textos */
 
 .chapeu {

@@ -69,11 +69,11 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
 ========================================================================
 
 01  Fundo escuro com a pílula "Totem de Autoatendimento", o título "O cliente
-    pede e paga sozinho no totem", com "e paga" em vermelho, e a linha "Com
-    cupom e cashback no meio do caminho". Embaixo, um totem branco de pé, com
-    leitor, boca de impressora e pinpad no painel, mostrando o cardápio na
-    tela. Ao lado do aparelho, dois selos: um vermelho com "Cupom de desconto"
-    e um amarelo com "5% de cashback".
+    pede e paga sozinho no totem", com "e paga" em vermelho, e a linha "E o
+    programa de fidelidade entra no pedido". Embaixo, um totem branco de pé,
+    com leitor, boca de impressora e pinpad no painel, mostrando o cardápio na
+    tela. Ao lado do aparelho, dois selos grandes: um vermelho com "Cupom, de
+    desconto" e um amarelo com "Cashback, com o telefone".
 
 02  Chapéu "Como funciona" e título "O totem conduz o pedido do começo ao fim",
     com a palavra fim em vermelho. O texto diz que não é uma tela de consulta e

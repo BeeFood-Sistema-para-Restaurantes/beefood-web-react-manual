@@ -773,9 +773,21 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
 - **Na capa, selo desenhado ganha de recorte ilegível.** Quando a capa precisa
   anunciar mais de um eixo, a tentação é pendurar recortes de tela ao lado do
   aparelho. Recorte de 1000 px reduzido para a coluna que sobra fica com 11 px
-  de letra, e aumentado cobre o vidro — ou seja, rótulo e preço. Desenhe o selo
-  com **o texto e a cor que a interface usa** e encoste-o na carcaça, nunca no
-  vidro: na capa a tela é atmosfera, e prova é assunto do miolo.
+  de letra, e aumentado cobre o vidro — ou seja, rótulo e preço. Use o
+  `.selo-recurso` com **a cor que a interface usa**, ao lado do aparelho e
+  nunca em cima do vidro: na capa a tela é atmosfera, e prova é do miolo.
+- **O selo de capa tem duas alturas.** Ao lado de um aparelho em pé sobra uma
+  coluna de ~320 px, e nela a frase inteira em uma linha não passa de corpo 22
+  — que ao lado de um título de 68 lê como crédito de rodapé e some na
+  miniatura. Quebre em **nome grande** (`Cupom`, 50 px) e **nota em caixa alta
+  pequena** (`DE DESCONTO`): o que estoura a largura é a frase, não a fonte.
+- **Não desenhe número que o lojista configura.** Dentro de um print, o `5% de
+  cashback` é da loja que aparece ali. Num selo desenhado ele vira promessa
+  nossa, e quem escolhe a porcentagem é o restaurante. Todo dado que sai do
+  print e vira arte **muda de dono** — no selo fica o nome do recurso.
+- **E a nota do selo não afirma o que dois recursos juntos não fazem.** Dois
+  selos lado a lado já sugerem soma; se os recursos não se combinam (cupom e
+  cashback não se combinam), a nota não pode confirmar a sugestão.
 - **Imagem em pé na capa custa uma linha de subtítulo.** Aparelho em pé come
   ~830 px de altura: com título de 2 linhas cabe **1** linha de subtítulo, e o
   resto do recado vai para a legenda.

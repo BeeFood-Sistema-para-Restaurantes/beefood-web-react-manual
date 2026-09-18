@@ -9,7 +9,9 @@ continua na
 cashback**, e com eles a primeira lição sobre assunto que **não é do aparelho,
 é de outro módulo que passa por ele**. Ver *fidelidade não é recurso do
 aparelho: é canal*, *lista vazia esconde tela* e *slide novo custa slide
-velho*. Na capa, **selo desenhado ganhou de recorte ilegível**).
+velho*. Na capa, **selo desenhado ganhou de recorte ilegível** — e, na volta,
+aprendeu a ter **duas alturas** e a **não desenhar número que o lojista
+configura**).
 
 22ª rodada: totem de autoatendimento, a segunda
 peça de função — e a primeira em que **a página da fonte estava vazia**. Ver *a
@@ -620,14 +622,58 @@ no mesmo render:
   seja, nome e preço de produto. Sobreposição em cima de coisa decorativa vira
   profundidade; em cima de rótulo, vira defeito.
 
-A saída foi o **selo desenhado** com o texto da tela: uma pílula vermelha
-`Cupom de desconto` e uma amarela `5% de cashback`, nas cores em que o
-aplicativo as mostra, encostadas na carcaça e **nunca no vidro**. Legíveis em
-qualquer tamanho, e fiéis — o texto é o da interface.
+A saída foi o **selo desenhado** nas cores em que o aplicativo mostra cada
+recurso, ao lado do aparelho e **nunca em cima do vidro**. Legível em qualquer
+tamanho, porque quem escolhe o corpo da letra é o selo, e não o zoom de um
+print.
 
 Vale a distinção de sempre: na capa a tela é **atmosfera**, e prova é assunto do
 miolo. Provar na capa custa legibilidade, e a capa é o único slide que todo
 mundo vê.
+
+#### O selo tem duas alturas, ou vira legenda de rodapé
+
+A primeira versão dos selos era uma `.pilula` de uma linha em corpo 22, e a
+volta foi *"precisamos chamar mais atenção sobre isso"*. Estava certa: ao lado
+de um aparelho em pé sobra uma coluna de ~320 px, e nela `CUPOM DE DESCONTO`
+inteiro em uma linha **não passa de corpo 22**. Corpo 22 ao lado de um título
+de 68 não lê como promessa — lê como crédito de rodapé, e some na miniatura do
+feed, que é onde a capa é decidida.
+
+O que resolveu foi **quebrar o selo em dois níveis**: o nome do recurso grande
+(`Cupom`, `Cashback`, em 50 px) e o complemento em caixa alta pequena
+(`DE DESCONTO`, `COM O TELEFONE`). A mesma coluna passa a caber um nome três
+vezes maior, porque o que estourava a largura era a frase, não a fonte. Virou o
+`.selo-recurso` da `base.css`.
+
+> Selo de capa não concorre com o título em quantidade de palavra: concorre em
+> tamanho. Corte a frase até o nome caber grande.
+
+#### Número que o lojista configura não vira manchete de capa
+
+O selo amarelo dizia `5% de cashback`, e o 5% é **texto real** da tela — está
+em `Insira seu telefone e ganhe 5% de cashback`, na loja de exemplo. Mesmo
+assim saiu do selo, e a razão é de voz:
+
+- **dentro de uma captura**, o número é da loja que aparece no print, e o
+  leitor lê como exemplo;
+- **num selo desenhado**, o número é nosso. A capa passa a prometer que o
+  sistema dá 5% de cashback, quando quem escolhe a porcentagem é o restaurante.
+
+Ficou `Cashback` sozinho no selo, e os 5% seguem no slide 6, dentro do print. É
+a mesma régua dos cupons de exemplo, vista pelo outro lado: lá o cuidado era
+não pôr dado nosso embaixo da marca de um cliente; aqui é não pôr configuração
+de cliente na boca da marca.
+
+> Todo dado que sai do print e vira arte muda de dono. Antes de desenhar um
+> número, pergunte quem estaria prometendo ele.
+
+#### E a nota do selo não pode afirmar o que os dois juntos não fazem
+
+`COM O TELEFONE` entrou no lugar de `NO MESMO PEDIDO`, que era a nota óbvia.
+Cupom e cashback **não se combinam** — o próprio aplicativo avisa *"Não combina
+com cupom — remova o cupom para usar"*. Dois selos lado a lado já sugerem soma
+por estarem lado a lado; a nota de um deles não podia confirmar a sugestão.
 
 **E a mesma rodada corrigiu a tela da capa.** A regra *na capa, tela cheia ganha
 de tela ícone* já estava escrita, e a peça a violava: a capa levava a tela de
