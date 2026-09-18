@@ -146,6 +146,13 @@ Se o leitor pode responder "não, eu não faço isso", é invenção. "Seu card�
 o seu melhor vendedor" descreve o cardápio e fica; "você já faz isso no balcão"
 descreve ele e sai. Em *tudo o que o slide afirma é do produto*.
 
+*O que a segunda versão entregou:* capa com os três eixos no texto e na imagem
+("Cada forma de pagamento com o seu **preço**", sobre a gaveta de formas com selo
+verde numa e vermelho na outra); slide 2 falando do sistema (a forma já guardava
+taxa e prazo, o preço do cliente é que não acompanhava); cinco capturas feitas
+para o carrossel, com **um** exemplo montado no sandbox e devolvido depois; e o
+mesmo pedido de R$ 39,55 fechando em R$ 36,55 e em R$ 40,34 no slide da prova.
+
 O que as três têm em comum: **nenhuma é erro de tom.** O texto estava claro,
 falava com o dono, tinha verbo na frente e passava no `conferir-texto.py`. As
 regras de registro estão maduras; o que faltava era regra de **origem** — de
@@ -773,6 +780,16 @@ aparelho come 830 px de altura, e com duas linhas de subtítulo ele começava
 dentro do texto. Ficou com uma linha, e o resto do recado foi para a legenda.
 Orçamento da capa com aparelho em pé: pílula + título de 2 linhas + **1** linha
 de subtítulo, e o mockup começando por volta de 520 px.
+
+**Título de 3 linhas ainda cabe — o preço é a largura do aparelho.** Na capa de
+*desconto por forma de pagamento* o título não podia encurtar (cortar palavra ali
+era cortar eixo do recurso), e com o celular em 620 px e `top: 560px` ele
+cobriu o subtítulo. O que a medida diz: o que aparece de uma captura de celular
+é `top + 16 + 1,22 × (largura − 32)`, e isso tem de ser ≤ 1350 para a última
+linha que interessa entrar. Em 550 px de largura o aparelho pode descer para
+672 px e o selo de acréscimo do crédito continua dentro do slide. Aparelho mais
+estreito compra linha de texto; aparelho mais largo compra legibilidade de tela.
+Escolha pela linha que precisa aparecer, e meça antes de renderizar.
 
 **Na capa, tela cheia ganha de tela icônica.** A tela de espera do totem é a
 imagem-símbolo do recurso (botão vermelho grande e as três bandeiras embaixo), e
@@ -1502,6 +1519,31 @@ que mais custou refazer. As duas medidas que resolveram:
 Melhor ainda é **não precisar da medida**: em captura própria dá para fotografar
 o elemento (`locator.screenshot()`) em vez de a página, e aí a borda é a do
 componente. Medida em pixel é o preço de moldura emprestada.
+
+### Onde a captura termina é decisão do slide, não do arquivo
+
+Nem toda tela tem elemento para fotografar. As duas telas de painel do carrossel
+de desconto saíram por `clip` medido no DOM, e nas duas o recorte que serve à
+tela não é o que serve à arte: o campo de ajuste trazia 26 px do rótulo
+`DISPONIBILIDADE` embaixo, e a lista de formas trazia uma faixa do quarto
+cartão. Rótulo cortado no meio lê como falha de render.
+
+Isso **não** se resolve editando a imagem pura nem recapturando: o arquivo puro
+vai inteiro para `imagens-puras/` e o **slide** escolhe onde ele acaba, com
+`aspect-ratio` no contêiner e `object-fit: cover` na imagem.
+
+```html
+<!-- 520 px de 556: a borda do terceiro cartão fecha em 509 -->
+<div class="recorte recorte--topo" style="aspect-ratio: 808 / 520">
+  <img src="../imagens-puras/painel-lista.png" alt="…">
+</div>
+```
+
+O `.recorte--topo` já faz isso; em `.navegador__tela` é o mesmo par de
+declarações por estilo inline. Duas consequências práticas: a captura pode ser
+generosa (sobra é barata, falta é recaptura) e o corte fica versionado ao lado
+do motivo, em comentário no slide, em vez de assado num PNG que ninguém sabe de
+onde veio.
 
 ### Devolva o sandbox como estava
 
