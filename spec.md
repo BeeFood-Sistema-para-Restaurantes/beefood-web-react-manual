@@ -1,7 +1,8 @@
 # BeeFood — Manuais e carrosséis (spec)
 
 Repositório de conteúdo sobre o BeeFood (`https://beefood.app`), organizado em
-**duas skills**: uma faz manual de usuário, a outra faz carrossel de novidade.
+**duas skills**: uma faz manual de usuário, a outra faz carrossel — de novidade
+publicada ou de função do sistema.
 Elas dividem stack e sandbox, e cada uma escreve na sua pasta de saída.
 
 ## Stack

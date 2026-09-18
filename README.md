@@ -8,7 +8,7 @@ São **duas skills**, cada uma com o seu fluxo, e duas pastas de saída.
 | Skill | O que produz | Escreve em |
 |-------|--------------|------------|
 | [`manual-sistema`](.cursor/skills/manual-sistema/SKILL.md) | manual de uso para o usuário final: passo a passo com setas verdes numeradas | `manuais/` |
-| [`carrossel`](.cursor/skills/carrossel/SKILL.md) | carrossel de Instagram sobre uma novidade: prints, mockups, PNG 1080×1350 | `carrosseis/` |
+| [`carrossel`](.cursor/skills/carrossel/SKILL.md) | carrossel de Instagram sobre uma novidade ou uma função do sistema: prints, mockups, PNG 1080×1350 | `carrosseis/` |
 
 A de carrossel **lê** o material da de manual — captura, contas, comportamento já
 conferido no sistema — e não escreve nada dentro dela. Cada skill tem a sua memória:
