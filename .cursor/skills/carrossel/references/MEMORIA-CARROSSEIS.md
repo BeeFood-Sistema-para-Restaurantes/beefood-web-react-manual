@@ -5,7 +5,13 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-18 (21ª rodada: a skill saiu de `carrossel-novidades`
+Última atualização: 2026-09-18 (22ª rodada: totem de autoatendimento, a segunda
+peça de função — e a primeira em que **a página da fonte estava vazia**. Ver *a
+página pode não existir, e o gênero continua de pé* e *o fluxo inteiro é
+captura, não só a primeira tela*. Na arte, a escolha entre **aparelho e
+recorte** virou pergunta de legibilidade).
+
+21ª rodada: a skill saiu de `carrossel-novidades`
 para **`carrossel`** e passou a ter **dois gêneros** — novidade e função do
 sistema. Ver *o segundo gênero: função do sistema*. Na volta da mesma rodada, a
 capa de função aprendeu três coisas: o **tema entra no título**, capa de assunto
@@ -60,6 +66,7 @@ na voz da marca e falando com você**.
 | Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + copy) |
 | Desconto ou acréscimo por forma de pagamento | [17/08/2026](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) | `carrosseis/desconto-forma-pagamento/` | 4:5, 7 slides | ✅ entregue — `entrega/desconto-forma-pagamento.zip` (7 PNG + copy) |
 | A dark kitchen de várias marcas num painel só | **função**, de [`beefood.com.br/sistema-dark-kitchen`](https://beefood.com.br/sistema-dark-kitchen/) | `carrosseis/dark-kitchen-multimarcas/` | 4:5, 7 slides | ✅ entregue — `entrega/dark-kitchen-multimarcas.zip` (7 PNG + copy) |
+| O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — página **sem conteúdo**; o fato veio da tela | `carrosseis/totem-autoatendimento/` | 4:5, 7 slides | ✅ entregue — `entrega/totem-autoatendimento.zip` (7 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -414,6 +421,107 @@ tela por tela, o que é captura e o que é desenho.
 
 A skill foi renomeada de `carrossel-novidades` para **`carrossel`** na mesma
 rodada: o nome antigo passaria a mentir sobre o escopo.
+
+### A página pode não existir, e o gênero continua de pé
+
+A 22ª rodada pediu o **Totem de Autoatendimento**, apontando para
+`beefood.com.br/totem-de-autoatendimento/`. A página está publicada, aparece no
+menu do site, tem título e descrição — e **não tem conteúdo**: o HTML servido
+traz o cabeçalho, o rodapé e um `Carregando…` no lugar do corpo. Renderizada no
+navegador, dá no mesmo. O `pauta.py --pagina` devolve dois blocos sem texto.
+
+A primeira reação foi achar que a peça tinha caído, e ela não tinha. O que a
+definição do gênero diz é que **o leitor** muda, não que a página é obrigatória:
+a peça de função existe porque quem lê pode não ter conta, e isso continua
+verdade com a página vazia. A página sempre foi **pauta** — e pauta é a parte
+substituível.
+
+Então a régua fica assim, e vale para qualquer função:
+
+| O que a fonte dá | O que fazer |
+|---|---|
+| página com seções e FAQ | os eixos e o público saem dela (dark kitchen) |
+| página só com a descrição de busca | ela vale como **uma** afirmação funcional, e o resto vem do fato |
+| nada | o tema ainda serve de pauta; sem fato, aí sim não há peça |
+
+Do totem sobrou uma linha, a descrição que a página dá ao buscador — *"Deixe
+seus clientes fazerem pedidos e pagamentos diretamente no totem de
+autoatendimento enquanto sua equipe foca em outras questões"* — e ela bastou
+para o ângulo, porque é afirmação funcional. O **fato** veio inteiro de outro
+lugar, que é o assunto da seção seguinte.
+
+Duas coisas para a próxima vez:
+
+- **confira a fonte antes de prometer.** O slide 7 manda o leitor para a página,
+  e mandar alguém para um `Carregando…` é pior do que não ter slide 7. Ficou
+  escrito no `copy-instagram.txt` da peça, para quem for publicar conferir.
+- **página vazia não é sinal de recurso fraco.** O totem tem mais tela
+  capturável que qualquer peça que já fizemos aqui. Falta de página é falta de
+  marketing, não falta de produto.
+
+### O fluxo inteiro é captura, não só a primeira tela
+
+A peça de dark kitchen foi **toda desenhada** porque o sandbox não tinha o
+cenário, e isso deixou uma marca errada: a de que peça de função nasce no
+terceiro degrau da ancoragem. A do totem nasceu no **segundo**, e sem nenhum
+desenho — seis capturas do aplicativo de produção.
+
+O que mudou não foi a ferramenta, foi a pergunta. *O totem é web* já estava
+escrito aqui, mas o `capturar-totem.py` parava no cardápio, porque a peça
+daquela rodada era sobre tradução. Ao chegar um assunto que é o **caminho
+inteiro do cliente**, a pergunta virou: até onde esse aplicativo vai? Foi até o
+fim — cardápio, montagem do item com adicional e preço, sacola com sugestão,
+identificação, escolha entre comer ali e levar, e a barra de pagamento.
+
+> **Antes de desenhar, ande no aplicativo.** Não é "existe captura desta tela?",
+> é "até onde esse aplicativo me deixa ir clicando?". A resposta costuma ser
+> mais longe do que o script que já existe.
+
+Três coisas de ofício que a rodada firmou:
+
+- **o roteiro de captura da peça mora na peça.** O `capturar-totem.py` da skill
+  é a rotina da tradução, com a interceptação do idioma ligada — usá-lo aqui
+  poria bandeiras na tela de espera contando outra história. O
+  `carrosseis/<slug>/capturar-telas.py` é onde vive o caminho específico, e ele
+  copia da skill só o que é caro: contexto com `service_workers="block"`, rota
+  no contexto e a troca da arte de fundo.
+- **pare uma tela antes do irreversível, e diga onde parou.** O script vai até
+  `Ir para pagamento` e não toca nele. O botão é a prova de que o pagamento
+  acontece no aparelho; tocar nele criaria pedido numa loja de cliente. O
+  `roteiro.md` e o `copy-instagram.txt` registram onde o roteiro para.
+- **dado de teste não entra na arte.** Para chegar ao fim do fluxo o script
+  digita telefone e nome, e a tela de confirmação os mostra. O recorte foi
+  reposicionado para pegar só a pergunta do consumo: `TESTE` no meio de uma peça
+  de Instagram é um vazamento de bastidor.
+
+**Sem seletor estável, a janela é a régua.** O totem é um PWA compilado, sem
+`id` nem classe de que se possa depender. Como a janela é sempre 1080×1920 (a
+tela do aparelho do catálogo), os recortes são faixas em coordenada fixa,
+medidas nos prints e anotadas no script. É frágil a uma reforma do aplicativo e
+robusto a tudo o mais — e a alternativa, medir no DOM, dependeria dos mesmos
+seletores que não existem. Onde há seletor (o painel web), continue medindo.
+
+### Aparelho ou recorte: quem decide é o que precisa ser lido
+
+A peça do totem usa as duas coisas e a regra ficou clara ao ver as duas erradas
+no mesmo render:
+
+| | Capa e CTA | Miolo |
+|---|---|---|
+| o que entra | o **aparelho**, com a tela dentro | o **recorte**, sozinho |
+| por quê | o assunto é alguém de pé na frente de uma máquina; sem a máquina a peça vira cardápio digital | a letra do cardápio tem 11 px dentro de um mockup de 420 px, e 24 px num recorte de 940 px |
+| o que a tela faz ali | é atmosfera: diz "é este aparelho" | é prova: precisa ser **lida** |
+
+O recorte preto continua lendo como tela de totem porque o aplicativo é escuro —
+o aparelho já foi estabelecido na capa e não precisa aparecer em toda página.
+Repeti-lo em todos os slides teria custado a legibilidade de quatro provas.
+
+E **tela que vai dentro de mockup precisa nascer na proporção da moldura.** O
+CTA levou o recorte de 1080×800 do cardápio, a moldura do totem é 9/16, e o
+`object-fit: cover` cortou a terceira coluna de produtos no meio do nome — nome
+cortado na lateral lê como render que falhou. A correção é de captura, não de
+CSS: a tela que entra no aparelho é a captura **inteira**, em 720×1280; o
+recorte serve para quando a imagem aparece sozinha.
 
 ### Em peça de função, o tema entra no título — a pílula não basta
 

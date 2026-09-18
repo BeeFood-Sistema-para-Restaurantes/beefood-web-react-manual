@@ -39,6 +39,13 @@ marca tem cardápio, canais e relatórios próprios") — mas **não** o que ela
 empresa: "+100 mil negócios", "melhor avaliação no Google", "melhor suporte do
 Brasil" são claim institucional e não entram na arte.
 
+**E a página pode estar vazia, sem que isso derrube a peça.** A do totem só tem
+menu, rodapé e um `Carregando…`; o que sobrou foi a descrição de busca, uma
+afirmação funcional, e ela bastou para o ângulo. Pauta é a parte substituível —
+o que não pode faltar é o **fato**, e ele vive na tela. Quando o CTA mandar para
+uma página assim, avise no `copy-instagram.txt` para conferirem antes de
+publicar.
+
 **O tema entra no título, e a pílula não basta.** *"Várias marcas num painel só"*
 descreve o arranjo e não diz para quem serve — multimarca acontece em franquia,
 em praça de alimentação, em food hall. Quem rola o feed lê o título, não a
@@ -132,11 +139,16 @@ Primeiro decida **onde a tela mora** — é isso que define se existe captura:
 | painel web (`beefood.app`) | `capturar.py --rota /cardapio` |
 | cardápio digital público | `capturar.py --url <link> --publico --dispositivo celular` |
 | cardápio digital com mídia nossa dentro | `capturar-cardapio.py --conteudo midias.json` (banner, vídeo e cartaz de aviso entregues na resposta da API) |
-| Totem de Autoatendimento | é **web**, e já tem script pronto: `capturar-totem.py` (telas, tradução injetada, fotos de produto). **Não finalize pedido** |
+| Totem de Autoatendimento | é **web**. `capturar-totem.py` faz o caminho da tradução; para outro caminho, escreva o roteiro em `carrosseis/<slug>/capturar-telas.py` — o aplicativo vai do cardápio até o pagamento. **Não finalize pedido** |
 | app Android (Garçom, Entregador, Tablet) | não roda no Cloud Agent: **peça o print ao dono** (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) e, enquanto ele não vem, desenhe a tela em CSS copiando o print de produção (passo 4) |
 | cupom impresso | `ganchar_cupom` + `salvar_cupom`: o cupom nasce num iframe que vai para a impressora, então não dá para fotografar a tela |
 | coisa que não é tela (impressora, balança) | print do manual, se existir; senão desenho em CSS |
 | cenário que a conta de teste não tem (segunda marca, pedido de marketplace chegando) | **desenhe a tela**: `carrosseis/<slug>/telas/*.html` + `desenhar-telas.py` |
+
+**Antes de desenhar, ande no aplicativo.** A pergunta não é "existe captura
+desta tela?", é "até onde esse aplicativo me deixa ir clicando?" — o script que
+já existe costuma parar bem antes do fim. Desenho é o terceiro degrau, e a peça
+do totem provou que dá para fazer uma peça de função inteira no segundo.
 
 **Cenário que o sandbox não tem: desenhe a tela.** É o terceiro degrau da
 ancoragem — *manual > tela capturada > tela desenhada* — e ele apareceu inteiro

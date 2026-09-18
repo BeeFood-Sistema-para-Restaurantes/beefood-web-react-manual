@@ -117,6 +117,42 @@ render. Em 420 px de largura deu 19 px, com quatro cartões em duas linhas.
 A grade desenhada tem **duas** colunas, e o aparelho tem três: em três, o nome
 do produto some na largura do mockup.
 
+### A quarta saída: tirar o aparelho e mostrar só o recorte
+
+As três acima assumem que a tela vai **dentro** do totem, e essa é a pergunta
+que faltava. Na peça de autoatendimento ela se inverteu: o que precisa ser lido
+não cabe numa moldura de 420 px, e o aparelho já foi estabelecido na capa.
+
+| | Aparelho com a tela dentro | Recorte da tela, sozinho |
+|---|---|---|
+| onde | capa e CTA | miolo, onde a tela é a prova |
+| o que a tela faz | atmosfera: "é este aparelho" | é **lida** |
+| tamanho da letra do cardápio | 11 px no feed | 24 px, com o recorte em 940 px |
+
+O recorte continua lendo como totem porque o aplicativo é escuro e a tela é em
+pé — não é preciso repetir a carcaça em todo slide, e repeti-la custaria a
+legibilidade de cada prova.
+
+**Tela que vai dentro do mockup precisa nascer na proporção da moldura.** O
+`.totem__tela` é 9/16 com `object-fit: cover`: qualquer imagem em outra
+proporção é recortada nas laterais. Um recorte de 1080×800 do cardápio entrou
+assim no CTA e saiu com a terceira coluna de produtos cortada no meio do nome —
+que lê como render quebrado, não como sangria. A correção é na captura: para
+dentro do aparelho, capture a tela **inteira** em 720×1280; o recorte é para
+quando a imagem aparece sozinha.
+
+**Onde o recorte termina, quando ele aparece sozinho.** Entre cortar dentro de
+uma foto e cortar no vão entre duas fileiras, o vão ganha: no cardápio do totem
+o recorte para 14 px depois da primeira fileira de produtos, e a grade não
+parece interrompida. Cortar dentro da foto continua valendo quando não há
+alternativa — é melhor que cortar em cima de um preço.
+
+**Recorte é faixa contínua, nunca montagem.** No slide de pagamento as duas
+partes que interessavam — a pergunta do consumo, no topo, e a barra de `Total` e
+`Ir para pagamento`, embaixo — têm 800 px de fundo vazio entre elas. Coladas
+passariam por uma tela só, que é o que não são; por isso foram dois `.recorte`
+separados, com respiro, no mesmo slide.
+
 ### Capturar o totem, com tradução e com fundo nosso
 
 ```bash

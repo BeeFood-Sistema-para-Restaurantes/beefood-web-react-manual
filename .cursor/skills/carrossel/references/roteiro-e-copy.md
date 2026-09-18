@@ -50,6 +50,13 @@ verificar, e o teste *quem poderia desmentir isto?* derruba as três. Peça que
 precisa de número de instituição para convencer é peça que não achou o que
 mostrar na tela.
 
+**Página vazia não cancela a peça.** A do Totem de Autoatendimento tem menu,
+rodapé e um `Carregando…` no lugar do corpo. Dela sobrou a descrição de busca —
+*"Deixe seus clientes fazerem pedidos e pagamentos diretamente no totem"* — que
+é afirmação funcional e deu o ângulo. O gênero se define por **quem lê**, não
+por a fonte ter texto: quem está escolhendo sistema continua existindo. O que
+não pode faltar é o fato, e ele está na tela.
+
 E **afirmar não é provar**: a prova visual continua vindo do manual, da tela
 capturada ou da tela desenhada — nunca da arte da própria página, que é ilustração
 de marketing.

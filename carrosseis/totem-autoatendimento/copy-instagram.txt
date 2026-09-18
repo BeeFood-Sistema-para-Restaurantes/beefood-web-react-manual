@@ -1,0 +1,105 @@
+CARROSSEL — O CLIENTE PEDE E PAGA SOZINHO NO TOTEM
+Gênero: função do sistema (não é novidade)
+Fonte: beefood.com.br/totem-de-autoatendimento
+(peça perene: não tem data na arte nem palavra de lançamento, e pode ser
+republicada quando o assunto voltar)
+
+Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-como-funciona, 03-cardapio, 04-adicional,
+05-peca-tambem, 06-pagamento, 07-cta.
+
+As seis telas são CAPTURA do aplicativo de produção (totem.beefood.app), na
+loja de exemplo da ONE Stand, que tem cardápio de verdade. Nosso é só o fundo:
+as artes de espera e da faixa do cardápio entram no lugar da campanha da loja,
+que anuncia um pudim com preço e roubaria o assunto do post. Nenhum pedido foi
+criado — o roteiro de captura para no botão "Ir para pagamento".
+
+A página do site está sem conteúdo publicado no momento desta peça. Confira
+antes de publicar: o último slide manda o leitor para lá.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+No totem, o cliente pede e paga sozinho
+
+E não é uma tela de consulta, dessas que mostram o preço e mandam a pessoa para
+o caixa. O aparelho leva o pedido do começo ao fim: o cliente toca em "Faça seu
+pedido", escolhe pelo cardápio com foto e preço, monta o item, diz se vai comer
+ali ou levar, e paga no próprio totem.
+
+O cardápio que aparece lá é o que você já mantém no sistema — setores, fotos,
+preços. Nada de manter um segundo cardápio só para o aparelho. E o produto que
+não deve aparecer ali sai pelo Desativar Totem, um por um.
+
+O adicional é oferecido em todo pedido. Antes de fechar o lanche, a tela
+pergunta se vai bacon a mais R$ 4,00, carne a mais R$ 8,00, cheddar a mais
+R$ 2,00 — com foto, com preço, e com um Pular para quem não quer. É a mesma
+venda sugestiva que você monta no painel.
+
+E ainda tem a sacola: antes de o cliente fechar, o totem abre um "Peça também"
+com batata, bebida e sobremesa, gerado por IA a partir do que ele já escolheu.
+
+O aparelho, o cardápio e o pagamento estão em
+beefood.com.br/totem-de-autoatendimento 🐝❤️
+
+#beefood #totemdeautoatendimento #autoatendimento #fastfood #hamburgueria
+#gestaoderestaurante #pdv #vendasugestiva
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Você deixaria o seu cliente fechar o pedido sozinho? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com a pílula "Totem de Autoatendimento", o título "O cliente
+    pede e paga sozinho no totem", com "e paga" em vermelho, e a linha "Do
+    primeiro toque ao pagamento". Embaixo, um totem branco de pé, com leitor,
+    boca de impressora e pinpad no painel: na tela, a foto de uma porção de
+    batata frita em tela cheia e o botão vermelho "Faça seu pedido".
+
+02  Chapéu "Como funciona" e título "O totem conduz o pedido do começo ao fim",
+    com a palavra fim em vermelho. O texto diz que não é uma tela de consulta e
+    que o cardápio exibido é o do sistema. Abaixo, os cinco passos numerados:
+    tocar em Faça seu pedido, escolher pelo cardápio com foto e preço, montar o
+    item vendo o total subir, dizer se vai comer aqui ou levar, e pagar no
+    próprio totem.
+
+03  Título "O cardápio do totem é o seu", com a palavra seu em vermelho, e a
+    tela do cardápio no totem: coluna da esquerda com os setores Combos Burger,
+    Burgers Avulsos, Sobremesas e Acompanhamentos, cada um com foto; no miolo, a
+    faixa de topo e a grade de combos com foto, nome e preço — One Burger a
+    partir de R$ 35,90, Supreme a partir de R$ 46,90 e Chicken Deluxe a partir
+    de R$ 38,90.
+
+04  Chapéu "Venda sugestiva" e título "Ofereça o adicional em todo pedido", com
+    a palavra todo em vermelho. Na tela do totem, a pergunta "Quer turbinar o
+    seu burger?" com a nota "Escolha até 4" e os adicionais com foto e preço:
+    bacon mais R$ 4,00, carne mais R$ 8,00, cebola caramelizada mais R$ 2,00,
+    queijo cheddar mais R$ 2,00, picles mais R$ 2,00, salada mais R$ 3,00 e copo
+    de molho cheddar e bacon mais R$ 11,90.
+
+05  Título "E a sacola ainda sugere o que falta", com a palavra falta em
+    vermelho, e o bloco "Peça também" da sacola do totem, com o selo roxo
+    "Gerada por IA" e os cartões com foto e preço: Tasty Bacon a partir de
+    R$ 41,90, Batata Frita a R$ 11,00, Coca-Cola 350ml a R$ 8,00 e Milk Shake
+    Ovomaltine a R$ 17,90.
+
+06  Chapéu "O pagamento" e título "Comer aqui ou levar, e o pagamento termina
+    ali", com a palavra ali em vermelho. Dois recortes da mesma tela do totem: em
+    cima, a pergunta "Como será o pedido?" com as opções Para viagem (levar o
+    pedido) e Comer aqui (consumo no local); embaixo, a barra com Total
+    R$ 24,00, o aviso de cashback de R$ 1,20 e o botão vermelho "Ir para
+    pagamento".
+
+07  Fundo escuro com o pedido "Conheça o totem por dentro" e o endereço
+    beefood.com.br/totem-de-autoatendimento. Embaixo, o mesmo totem branco,
+    agora com o cardápio na tela: os setores na coluna, a grade de combos com
+    foto e preço, e a barra vermelha "Sua sacola está vazia".
