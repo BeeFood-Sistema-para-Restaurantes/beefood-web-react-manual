@@ -58,7 +58,7 @@ peça conta.
 | A forma já guardava **Taxa (%)** e **Dias para Recebimento**, que são contrato com a operadora e não preço do cliente (manual `formas-recebimento`) | o dado existia e não chegava na conta | "O pedido tinha um preço **só**" |
 | O ajuste incide sobre o subtotal e aparece no fechamento, com o nome da forma | a prova é a tela | "Mesmo pedido, **dois** totais" |
 | Cinco opções no **Ajuste no pagamento**: sem ajuste, desconto e acréscimo, em % e em R$ | valor fixo e porcentagem servem a pedidos de tamanhos diferentes | "Escolha **reais** ou porcentagem" |
-| Dinheiro e PIX Online não têm aba de taxas; crédito e vale têm | a diferença de custo passa a caber no preço | "Forma que cai na hora pode sair mais **barata**" |
+| Dinheiro e PIX Online não têm aba de taxas; crédito e vale têm | a diferença de custo passa a caber no preço | "A forma que cai na hora pode sair mais **barata**" |
 | Vale no Cardápio Digital, no Totem, na tela de pagamento do BeeFood e no BeeBot | não é recurso de delivery | "Vale no totem, no caixa e no **chat**" |
 | Já está no ar, nas três telas de configuração | um pedido só | "Comece pela forma que mais **entra**" |
 
@@ -74,7 +74,7 @@ no manual.
 | 2 | `02-preco-so.html` | a taxa já estava cadastrada; o preço não acompanhava | — |
 | 3 | `03-dois-totais.html` | o mesmo subtotal fecha em dois totais | `total-dinheiro.png` + `total-credito.png` |
 | 4 | `04-regua.html` | o ajuste pode ser fixo ou proporcional | `painel-ajuste.png` em janela de navegador |
-| 5 | `05-forma-por-forma.html` | cada forma carrega o seu ajuste | `painel-lista.png` em janela, com realce |
+| 5 | `05-forma-por-forma.html` | cada forma carrega o seu ajuste | `painel-lista.png` em recorte, sem realce |
 | 6 | `06-onde-vale.html` | vale nos quatro canais, não só no delivery | — |
 | 7 | `07-cta.html` | ligar na forma que mais aparece | `novidades-celular.png` no celular |
 
@@ -126,9 +126,25 @@ tornou a captura barata.
 - **O slide 3 empilha as duas imagens** em vez de pô-las lado a lado: os cartões
   de valores são deitados (2,6/1), e empilhados cada um sai 1,7x maior — o
   `R$ 36,55` e o `R$ 40,34` precisam ser legíveis no feed.
-- **Slide 4 e 5 vão retos**, em janela de navegador. São os dois slides em que o
-  leitor lê rótulo de interface, e a face que recua no 3D come contraste justo
-  ali.
+- **Slide 4 e 5 vão retos**, e centralizados: a imagem está sozinha na faixa nos
+  dois. São também os dois slides em que o leitor lê rótulo de interface, e a
+  face que recua no 3D come contraste justo ali. A janela de navegador fica só
+  no 4; no 5 o recorte vai sem moldura, porque duas barras de navegador
+  seguidas viram moldura repetida.
+- **Sem `.realce` no slide 5.** O anel diz "olhe aqui", e ali o assunto são as
+  três linhas juntas — desconto em R$, nenhum ajuste e acréscimo em %. Um anel
+  num selo só contaria a metade que a primeira versão contou.
+- **Onde a captura termina é decisão do slide, não do arquivo.** As duas telas de
+  painel vão inteiras em `imagens-puras/` e o slide corta por CSS: 514 px de 540
+  no slide 4 (logo depois da borda do menu, antes do rótulo `DISPONIBILIDADE`) e
+  520 px de 556 no slide 5 (depois do terceiro cartão, antes da faixa do
+  quarto). Rótulo cortado no meio lê como falha de render.
+- **A capa cabe em título de três linhas porque o aparelho desceu.** Com o
+  celular em 672 px e 550 px de largura, o selo de acréscimo do crédito ainda
+  entra no slide — e o subtítulo, que na primeira medida ficava atrás do
+  aparelho, volta a aparecer. O subtítulo é de uma linha: aparelho em pé não
+  deixa duas.
 - **Nenhum emoji em título:** todos têm palavra em vermelho, e grifo em cima de
-  grifo cancela os dois. O único emoji da peça é o 💳 da própria novidade, no
-  chapéu do slide 6.
+  grifo cancela os dois. O único emoji da peça é o 💳 da própria novidade, e ele
+  vai no **rótulo do cartão** do slide 6 — o chapéu é vermelho inteiro, e emoji
+  ao lado de vermelho é a mesma colisão.
