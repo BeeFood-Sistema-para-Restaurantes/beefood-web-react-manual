@@ -30,9 +30,7 @@ do pagamento, e o script nunca chega lá.
 | `turbinar.png` | 4 | o adicional oferecido no meio do pedido, com preço |
 | `peca-tambem.png` | 4 | a sugestão da sacola, com o selo `Gerada por IA` |
 | `cupom-modal.png` | 5 | o cliente digita o código ou escolhe da lista, no aparelho |
-| `cupom-linha.png` | 1 | a chamada do cupom na confirmação, para a cena da capa |
 | `cashback-telefone.png` | 6 | o totem oferece o cashback em troca do telefone |
-| `cashback-faixa.png` | 1 | a mesma oferta, só a faixa, para a cena da capa |
 | `como-sera.png` | 7 | comer aqui ou levar, escolhido pelo cliente |
 | `ir-para-pagamento.png` | 7 | o pagamento termina no próprio totem |
 
@@ -97,10 +95,10 @@ RECORTES = {
     # separam uma fileira da outra. Cortar no meio da segunda deixava meia foto
     # na borda do slide, e meia foto na borda lê como render que falhou.
     "cardapio-topo": (0, 0, 1080, 800),
-    "turbinar": (0, 616, 1080, 800),
-    # Os dois momentos da venda sugestiva dividem um slide, então cada faixa é
-    # mais baixa: aqui, a pergunta e as duas primeiras fileiras de adicional.
-    "turbinar-curto": (0, 616, 1080, 436),
+    # Os dois momentos da venda sugestiva dividem um slide, então a faixa é
+    # baixa: a pergunta e as duas primeiras fileiras de adicional. Para em 436,
+    # que é o vão entre a segunda fileira e a terceira — a fileira tem 170 px.
+    "turbinar": (0, 616, 1080, 436),
     # Para 1030 e não 1080: a lista da sacola é um carrossel horizontal, e na
     # borda da janela sobra uma lasca do cartão seguinte — nome e preço cortados
     # no meio. A grade é de 256 px com 12 px de vão, então 1030 cai no vão
@@ -111,18 +109,12 @@ RECORTES = {
     # poria um "TESTE" no meio da arte.
     "como-sera": (0, 100, 1080, 300),
     "ir-para-pagamento": (0, 1650, 1080, 270),
-    # A chamada do cupom na confirmação, do tamanho do botão: vai flutuando na
-    # capa, e por isso sai sem nada em volta.
-    "cupom-linha": (24, 572, 1032, 100),
     # Do "Adicionar cupom" até o fim do segundo cartão. Começa abaixo do
     # cabeçalho de propósito: lá está o logotipo da loja.
     "cupom-modal": (0, 110, 1080, 590),
     # O ícone, a pergunta, a faixa do cashback e o campo vazio. Para antes do
     # teclado, que é meia tela de tecla repetida.
     "cashback-telefone": (0, 150, 1080, 450),
-    # Só a faixa amarela, do tamanho dela: é a peça curta o bastante para ainda
-    # ser lida flutuando ao lado do aparelho, na capa.
-    "cashback-faixa": (250, 346, 580, 88),
 }
 
 # Cliente de teste. Nada disso é gravado: o pedido para antes do pagamento.
@@ -261,7 +253,6 @@ def main() -> None:
         pagina.get_by_text("ONE BURGER", exact=True).first.click(force=True)
         pagina.wait_for_timeout(3000)
         recortar(pagina, "turbinar")
-        recortar(pagina, "turbinar-curto")
 
         # `Pular` até o fim dos grupos, e então o item entra na sacola. O botão
         # de ação fica na barra de baixo; o filtro de altura evita os cartões.
@@ -280,7 +271,6 @@ def main() -> None:
         # precisa do campo vazio — com o número dentro, a arte levaria o
         # telefone de teste.
         recortar(pagina, "cashback-telefone")
-        recortar(pagina, "cashback-faixa")
 
         digitar(pagina, TELEFONE)
         tocar(pagina, "CONFIRMAR")
@@ -294,7 +284,6 @@ def main() -> None:
 
         recortar(pagina, "como-sera")
         recortar(pagina, "ir-para-pagamento")
-        recortar(pagina, "cupom-linha")
 
         # A tela do cupom, que só existe porque a rota devolveu a lista. Abrir
         # não aplica nada: aplicar é um POST ao servidor da loja.

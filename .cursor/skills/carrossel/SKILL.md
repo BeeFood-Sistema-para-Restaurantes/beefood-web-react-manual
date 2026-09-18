@@ -139,7 +139,7 @@ Primeiro decida **onde a tela mora** — é isso que define se existe captura:
 | painel web (`beefood.app`) | `capturar.py --rota /cardapio` |
 | cardápio digital público | `capturar.py --url <link> --publico --dispositivo celular` |
 | cardápio digital com mídia nossa dentro | `capturar-cardapio.py --conteudo midias.json` (banner, vídeo e cartaz de aviso entregues na resposta da API) |
-| Totem de Autoatendimento | é **web**. `capturar-totem.py` faz o caminho da tradução; para outro caminho, escreva o roteiro em `carrosseis/<slug>/capturar-telas.py` — o aplicativo vai do cardápio até o pagamento. **Não finalize pedido** |
+| Totem de Autoatendimento | é **web**. `capturar-totem.py` faz o caminho da tradução; para outro caminho, escreva o roteiro em `carrosseis/<slug>/capturar-telas.py` — o aplicativo vai do cardápio ao pagamento, passando por cupom e cashback. **Não finalize pedido e não aplique cupom** (os dois são gravação no servidor da loja) |
 | app Android (Garçom, Entregador, Tablet) | não roda no Cloud Agent: **peça o print ao dono** (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) e, enquanto ele não vem, desenhe a tela em CSS copiando o print de produção (passo 4) |
 | cupom impresso | `ganchar_cupom` + `salvar_cupom`: o cupom nasce num iframe que vai para a impressora, então não dá para fotografar a tela |
 | coisa que não é tela (impressora, balança) | print do manual, se existir; senão desenho em CSS |
@@ -190,6 +190,21 @@ pasta, e o **aplicativo de produção renderiza**. O que veio de fora é só o t
 que o restaurante escreveria. O script está pronto e é de uso geral; as
 armadilhas (resolução, setor por índice, service worker, setor de combo) estão
 em [`references/mockups.md`](references/mockups.md).
+
+**E lista vazia esconde a tela inteira, que é o segundo uso da mesma rota.** A
+loja de exemplo não tem cupom cadastrado: `venda2/cupomDescontoAtivo?tipo=totem`
+responde `[]`, e sem lista o totem não desenha nem a linha de cupom. Aqui o
+recurso estava ligado e a **vitrine** é que faltava; a rota devolve os cupons de
+um `cupons.json` da pasta. Três cuidados:
+
+- **leia o bundle antes de inventar o formato.** Os campos saíram do JavaScript
+  do aplicativo, que lê a resposta sem mapear nada — formato adivinhado devolve
+  tela em branco, ou pior, tela que não é a de verdade.
+- **o que entra é o que o lojista escreveria**: código, título, benefício,
+  regra. Quem desenha a tela é o aplicativo.
+- **recorte fora o cabeçalho com o logotipo da loja.** Exemplo inventado
+  embaixo de marca real lê como promoção anunciada por um cliente nosso. E
+  avise no `copy-instagram.txt` que aquele dado é exemplo.
 
 **Quando o recurso é a mídia que o lojista sobe, você faz a mídia.** Capa e
 vitrine em vídeo não têm captura: o cardápio modelo está vazio e o de produção
@@ -656,6 +671,12 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   técnico é 10). Oito não é meta: o carrossel da tradução fecha em 7 porque o
   oitavo slide só existiria para chegar a oito. Quem lê no feed costuma parar no
   quinto, então ponha o ganho no começo.
+- **Slide novo custa slide velho.** Quando o assunto cresce e a peça bate no
+  teto, não estique: pergunte **quais dois slides já entregam a mesma ideia de
+  uso** e funda os dois. Na peça do totem, o adicional no item e o `Peça
+  também` na sacola viraram um — os dois diziam "a tela oferece antes de deixar
+  fechar" — e o cupom subiu do sexto para o quinto lugar, que é onde o leitor
+  ainda está.
 - **A capa diz o nome do recurso**, e nome é o que ele **faz**, não onde mora.
   "Acréscimo e desconto por forma de pagamento" é a notícia; "Aba nova: Ajuste no
   pagamento" é changelog. E conceito é o terceiro erro, o mais difícil de ver:
@@ -747,7 +768,14 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   recortar até sobrar um destaque, gere uma captura nova em que só ele apareça.
 - **Na capa, tela cheia ganha de tela icônica.** Tela cujo miolo é gradiente ou
   foto (a de espera do totem, por exemplo) deixa um vão morto no meio da capa.
-  Prefira a tela que mostra o recurso funcionando e enche a área útil.
+  Prefira a tela que mostra o recurso funcionando e enche a área útil — e, se a
+  peça tiver duas pontas com o mesmo aparelho, deixe a tela icônica para o CTA.
+- **Na capa, selo desenhado ganha de recorte ilegível.** Quando a capa precisa
+  anunciar mais de um eixo, a tentação é pendurar recortes de tela ao lado do
+  aparelho. Recorte de 1000 px reduzido para a coluna que sobra fica com 11 px
+  de letra, e aumentado cobre o vidro — ou seja, rótulo e preço. Desenhe o selo
+  com **o texto e a cor que a interface usa** e encoste-o na carcaça, nunca no
+  vidro: na capa a tela é atmosfera, e prova é assunto do miolo.
 - **Imagem em pé na capa custa uma linha de subtítulo.** Aparelho em pé come
   ~830 px de altura: com título de 2 linhas cabe **1** linha de subtítulo, e o
   resto do recado vai para a legenda.

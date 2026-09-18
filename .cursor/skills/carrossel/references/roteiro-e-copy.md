@@ -87,6 +87,23 @@ Três regras do desenho, para ele não virar mentira bonita:
   print do manual: leia, e desenhe a sua. Ver *o manual é referência, não acervo
   de imagem*, que vale igual para o site.
 
+### "Fale de X dentro de Y": o fato está na lista de canais de X
+
+Pedido comum, e o primeiro foi *"precisamos falar de cupom e cashback"* numa
+peça sobre o **totem**. Os dois não são recursos do totem: são do
+**Fidelidade (CRM)**, com manual próprio. Procurar o fato no assunto errado
+(um manual do totem, que não existe) leva direto a escrever de cabeça.
+
+O que autoriza a peça é o **canal**: o manual de `cupom-desconto` traz os
+*Canais de Visibilidade* (e o totem está lá), o de `cashback-configurar` traz
+as *Modalidades* (idem). A tela confirma o resto — como o recurso aparece
+naquele aparelho.
+
+E isso muda o que o slide diz. O título vira *"O seu cupom vale no totem
+também"*, não "crie um cupom": o recurso é do outro módulo, e o que a peça
+acrescenta é **onde ele também funciona**. Quem já usa reconhece a própria
+ferramenta; quem não usa descobre que ela existe.
+
 ## A novidade é matéria-prima, não roteiro
 
 O texto publicado em `beefood.app/novidades` é registro de release: descreve o

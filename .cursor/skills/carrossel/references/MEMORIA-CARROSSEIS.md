@@ -5,11 +5,17 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-18 (22ª rodada: totem de autoatendimento, a segunda
+Última atualização: 2026-09-18 (23ª rodada: a peça do totem ganhou **cupom e
+cashback**, e com eles a primeira lição sobre assunto que **não é do aparelho,
+é de outro módulo que passa por ele**. Ver *fidelidade não é recurso do
+aparelho: é canal*, *lista vazia esconde tela* e *slide novo custa slide
+velho*. Na capa, **selo desenhado ganhou de recorte ilegível**).
+
+22ª rodada: totem de autoatendimento, a segunda
 peça de função — e a primeira em que **a página da fonte estava vazia**. Ver *a
 página pode não existir, e o gênero continua de pé* e *o fluxo inteiro é
 captura, não só a primeira tela*. Na arte, a escolha entre **aparelho e
-recorte** virou pergunta de legibilidade).
+recorte** virou pergunta de legibilidade.
 
 21ª rodada: a skill saiu de `carrossel-novidades`
 para **`carrossel`** e passou a ter **dois gêneros** — novidade e função do
@@ -66,7 +72,7 @@ na voz da marca e falando com você**.
 | Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + copy) |
 | Desconto ou acréscimo por forma de pagamento | [17/08/2026](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) | `carrosseis/desconto-forma-pagamento/` | 4:5, 7 slides | ✅ entregue — `entrega/desconto-forma-pagamento.zip` (7 PNG + copy) |
 | A dark kitchen de várias marcas num painel só | **função**, de [`beefood.com.br/sistema-dark-kitchen`](https://beefood.com.br/sistema-dark-kitchen/) | `carrosseis/dark-kitchen-multimarcas/` | 4:5, 7 slides | ✅ entregue — `entrega/dark-kitchen-multimarcas.zip` (7 PNG + copy) |
-| O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — página **sem conteúdo**; o fato veio da tela | `carrosseis/totem-autoatendimento/` | 4:5, 7 slides | ✅ entregue — `entrega/totem-autoatendimento.zip` (7 PNG + copy) |
+| O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — página **sem conteúdo**; o fato veio da tela | `carrosseis/totem-autoatendimento/` | 4:5, 8 slides | ✅ entregue — `entrega/totem-autoatendimento.zip` (8 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -531,6 +537,104 @@ CTA levou o recorte de 1080×800 do cardápio, a moldura do totem é 9/16, e o
 cortado na lateral lê como render que falhou. A correção é de captura, não de
 CSS: a tela que entra no aparelho é a captura **inteira**, em 720×1280; o
 recorte serve para quando a imagem aparece sozinha.
+
+### Fidelidade não é recurso do aparelho: é canal, e o canal está no manual
+
+O pedido da 23ª rodada foi *"precisamos falar sobre programa de fidelidade:
+cupom de desconto e cashback, um slide para cada"* — numa peça sobre o totem.
+Cupom e cashback não são recursos do totem: são do **Fidelidade (CRM)**, e têm
+manual próprio. A tentação é tratá-los como assunto novo e escrever de cabeça.
+
+O que resolve a ancoragem é procurar o **canal**:
+
+- o manual `cupom-desconto` lista os **Canais de Visibilidade** — Delivery,
+  PDV, Mesas/Comandas e **Totem** — e diz que a confirmação por SMS existe no
+  cardápio digital e no totem;
+- o manual `cashback-configurar` lista as **Modalidades**, e o totem é uma
+  delas; e diz que o crédito entra em pedido **pago e finalizado**.
+
+> Quando o pedido for "fale de X dentro de Y", o fato não está no manual de Y.
+> Está na **lista de canais do manual de X** — e é ela que autoriza a peça.
+
+Isso muda também o que o slide afirma. O título ficou *"O seu cupom vale no
+totem também"*, e não "crie um cupom": o recurso é do CRM, o que a peça
+acrescenta é o canal. Quem já usa cupom no delivery reconhece a própria
+ferramenta; quem não usa descobre que ela existe.
+
+**E o cashback não promete que o cliente volta.** A primeira versão fechava com
+*"que é o jeito de o autoatendimento trazer o cliente de novo"* — frase que o
+leitor desmente com a própria loja. O que se afirma é o que o produto faz: o
+saldo entra quando a venda é quitada e vira desconto na próxima compra.
+
+### Lista vazia esconde tela, e tela escondida se abre na resposta da API
+
+A interceptação de API já estava aqui para **ligar recurso desligado** (a
+tradução, com `aaTraducao: true`). O cupom acrescentou o segundo uso, que é
+outro: o recurso estava ligado e a **vitrine estava vazia**. A loja de exemplo
+não tem cupom cadastrado, `venda2/cupomDescontoAtivo?tipo=totem` responde `[]`
+— e com lista vazia o totem **não desenha nem a linha de cupom**. Sem
+interceptar, a tela não existe para fotografar.
+
+Três coisas de ofício:
+
+- **leia o bundle antes de inventar o formato.** Os campos do cupom (`id`,
+  `titulo`, `subtitulo`, `beneficio`, `regras[].descricao`, `primeiraCompra`,
+  `limitarUmUsoCliente`) saíram do JavaScript do aplicativo, onde se vê que a
+  interface lê a resposta **sem mapear nada**. Injetar um formato adivinhado
+  devolve tela em branco, e pior: devolveria tela que não é a de verdade.
+- **o que entra é o que o lojista escreveria**, e mora num arquivo da pasta
+  (`cupons.json`, como o `traducoes.json` da tradução). Código, título,
+  benefício e regra. Quem desenha a tela, os cartões e o campo é o aplicativo.
+- **recorte fora o cabeçalho com o logotipo da loja.** A tela de cupom traz a
+  marca da loja de exemplo no topo, e cupom inventado embaixo de uma marca real
+  lê como promoção anunciada por um cliente nosso. O recorte começa abaixo dele.
+
+E registre na copy: o `copy-instagram.txt` avisa quem publica que os cupons do
+slide são exemplo.
+
+### Slide novo custa slide velho
+
+A peça fechava em 7 slides, e o pedido acrescentava 2 — daria 9, acima do teto
+de 8. A saída não foi esticar a peça: foi **fundir os dois slides de venda
+sugestiva** (o adicional dentro do item e o `Peça também` na sacola) num só,
+com as duas faixas mais baixas.
+
+Funcionou porque os dois entregavam **a mesma ideia de uso** — a tela oferece
+antes de deixar fechar — e estavam separados só porque havia espaço. E o ganho
+foi de posição: com dois slides de venda sugestiva, o cupom cairia no sexto, e
+quem rola o feed costuma parar no quinto.
+
+> Antes de somar um slide, pergunte quais dois já existentes dizem a mesma
+> coisa. Peça que cresce sem perder nada vira changelog paginado.
+
+### Na capa, selo desenhado ganha de recorte ilegível
+
+A capa precisava anunciar o que a peça passou a entregar além do pedido, e a
+primeira tentativa foi honesta demais: os **recortes reais** da linha de cupom
+e da faixa de cashback, flutuando ao lado do aparelho. Saiu errado duas vezes
+no mesmo render:
+
+- o recorte da linha de cupom tem 1032 px de largura; reduzido para caber ao
+  lado de um totem de 400 px, a letra ficou com 11 px;
+- para ser legível, ele precisava crescer — e crescendo, cobria o **vidro**, ou
+  seja, nome e preço de produto. Sobreposição em cima de coisa decorativa vira
+  profundidade; em cima de rótulo, vira defeito.
+
+A saída foi o **selo desenhado** com o texto da tela: uma pílula vermelha
+`Cupom de desconto` e uma amarela `5% de cashback`, nas cores em que o
+aplicativo as mostra, encostadas na carcaça e **nunca no vidro**. Legíveis em
+qualquer tamanho, e fiéis — o texto é o da interface.
+
+Vale a distinção de sempre: na capa a tela é **atmosfera**, e prova é assunto do
+miolo. Provar na capa custa legibilidade, e a capa é o único slide que todo
+mundo vê.
+
+**E a mesma rodada corrigiu a tela da capa.** A regra *na capa, tela cheia ganha
+de tela ícone* já estava escrita, e a peça a violava: a capa levava a tela de
+espera, que é uma foto com um botão e, em 360 px, vira mancha escura. Passou a
+levar o **cardápio**, com nove cartões de foto, nome e preço — e a tela de
+espera foi para o CTA, onde o aparelho parado esperando o próximo cliente fecha
+o arco. Repetir a mesma tela nas duas pontas seria repetir a imagem.
 
 ### Em peça de função, o tema entra no título — a pílula não basta
 
