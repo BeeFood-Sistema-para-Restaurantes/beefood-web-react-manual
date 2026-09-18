@@ -108,27 +108,69 @@ de manual — mas o manual não pode prometer um recurso que não funciona. Deta
    janela combinada, porque quem dispara é o painel.
 4. **Cada manual vai exigir montar um cenário à mão.** É o enunciado da segunda rodada, e é o que
    torna o §8 do `02-estado-medido.md` a parte mais importante do planejamento.
+5. **Autorização de cenário: concedida** (18/09). *"os testes vc terá que simular o entregador +
+   criar as entregas, fazer tudo funcionar no modo fake"*. O módulo está em desenvolvimento e
+   **ninguém usa ainda**, então escrever na sandbox não atropela trabalho de lojista.
+6. **O entregador que estava online era o dono**, e ele saiu. Daqui para frente **quem simula
+   entregador sou eu** — presença, posição e movimento.
+7. **WhatsApp: assumir o funcionamento.** *"ainda não está em produção, podemos assumir o
+   funcionamento tranquilamente e criar mensagens fakes no manual respectivo"*. O manual de avisos
+   monta a mensagem em vez de esperar a entrega real chegar no celular.
+8. **A lista de manuais está proposta**: 14 manuais, #104 a #117, em
+   [`references/planos/PLANO-GESTAO-ENTREGAS.md`](../../.cursor/skills/manual-sistema/references/planos/PLANO-GESTAO-ENTREGAS.md).
+
+## Como montar cenário (conferido em 18/09)
+
+As quatro peças foram testadas de verdade antes de entrar no plano — não são caminho teórico:
+
+| Peça | Como | Resultado medido |
+|---|---|---|
+| Pedido com endereço e coordenada | `node scripts/seed-gestao-entregas.js --empresa 38311 --filial 39202 --qtd N` no clone do backend | 4 pedidos criados (vendas 1036–1039), todos no painel; as 7 conferências do próprio script passaram |
+| Presença do entregador | `POST https://app3.beetechapi.be/api/entrega2/gestao/presenca`, Basic `beetech:1q2w3e4r` | `{"resultado":true,"online":true,"status":"DISPONIVEL","alterado":true}` |
+| Entregador **andando** | `INSERT` em `entregas.posicao` + `UPDATE entregador_status` (lat, lng, `dataHoraUltimaPosicao`, `distanciaLojaMetros`) | `posicaoIdadeMinutos` foi de 169 para **0** |
+| Ler o painel sem navegador | `GET /api/entrega2/gestao/painel/38311/39202/88711` com JWT | 200 — loja, 5 entregadores, 2 rotas |
+
+O **JWT do painel** sai do `localStorage` depois do login com Playwright: chave
+`beefood_auth_token`, ofuscada por XOR com `bf2024_secure_key_token`. O `usuarioID` tem que ser o
+88711; Basic Auth devolve **401** na rota do painel, embora funcione na de presença.
+
+O `seed-gestao-entregas.js` tem lista branca literal para a 38311/39202, só deixa passar quatro
+procedures, só dá `UPDATE` em `_PreVenda` com ID criado na própria execução, e tem `--dry-run`.
+Rodar fora da sandbox exigiria editar o arquivo. **Não invente atalho: use o script.**
+
+> **`beetech_leitura` engana pelo nome.** O usuário do MSSQL que todo o backend usa é
+> `db_datareader` **+ `db_datawriter` + `db_ddladmin`**, com `EXECUTE` no banco inteiro. É por isso
+> que o seeder funciona daqui. Trate como escrita em produção, porque é.
+
+> O clone do backend não vem com `node_modules`. Antes da primeira execução:
+> `cd ~/refs/beetech-server-node-2.0 && npm install --no-save mssql mysql2`.
+
+> A **Lambda de rastreamento não é chamável daqui**: exige `x-api-key` guardada num `.env`
+> gitignored. Escrever direto no Aurora chega ao mesmo estado, porque é o que a Lambda faz.
+
+> Script Python não pode se chamar `token.py`: ele sombreia o módulo `token` da biblioteca padrão e
+> o Playwright morre com um erro de importação circular que não parece ter nada a ver.
 
 ## Restrições que continuam valendo
 
 1. **Não há como rodar o app do entregador aqui.** Sem emulador Android; iOS está fora de
-   qualquer hipótese.
-2. **Pin de entregador se movendo no mapa exige alguém online** no momento da captura — janela
-   combinada com o dono.
-3. **Cenário custa escrita em produção.** Criar pedido para despachar é venda real na sandbox, e
-   cobrança na rua exige caixa aberto na filial, com lançamento em caixa real.
-4. **Criar rota exige JWT.** O app não cria rota: ela nasce no painel ou no despacho automático.
+   qualquer hipótese. É a única restrição que a autorização do dono **não** derrubou, e é o que
+   separa os sete manuais que eu fecho sozinho dos seis que dependem de foto dele.
+2. **Cenário custa escrita em produção.** Criar pedido é venda real na sandbox. O dono autorizou,
+   mas cobrança na rua ainda exige **caixa aberto** na filial — e o `02-estado-medido.md` mediu
+   que não há caixa aberto hoje.
+3. **Criar rota exige JWT.** O app não cria rota: ela nasce no painel ou no despacho automático.
+4. **A rota fantasma está viva no sandbox.** O entregador 194115 tem `rotaIDAtual = 120`, e a rota
+   120 não existe — o efeito é um entregador ocupado para sempre, sem entrega nenhuma. Limpar
+   antes de montar cenário. **Em loja real o lojista não resolve isso pela tela**: é bug, não
+   assunto de manual.
 
 ## Próximo passo
 
-Duas perguntas para o dono, e nenhuma delas é de execução:
+A lista está proposta em
+[`PLANO-GESTAO-ENTREGAS.md`](../../.cursor/skills/manual-sistema/references/planos/PLANO-GESTAO-ENTREGAS.md):
+**14 manuais, #104 a #117**, em cinco blocos. Aguarda aprovação do recorte e da numeração.
 
-1. **O recorte.** O painel sozinho dá pano para 3 ou 4 manuais (ler o mapa; montar e despachar
-   rota; despacho automático; os avisos de WhatsApp de entrega), e o app já tem 15 capítulos
-   escritos no material recebido. Quantos manuais, e em que ordem?
-2. **A autorização para montar cenário.** Semear pedido, criar rota e abrir caixa são escritas em
-   produção na sandbox. O estudo que ele mesmo enviou já pedia essa decisão em seis itens; agora
-   ela também vale para mim.
-
-Quando ele decidir, o fluxo da skill manda escrever o plano do bloco em `references/planos/`
-antes de produzir, porque o bloco é grande.
+Aprovada a lista, a ordem sugerida começa pelo **#104** (liberar o entregador), porque ele destrava
+a aposentadoria do #57 e porque sem entregador cadastrado nenhum dos outros cenários existe. Os
+**#104 a #110** não dependem de nada do dono e podem correr enquanto as 12 fotos do app não chegam.
