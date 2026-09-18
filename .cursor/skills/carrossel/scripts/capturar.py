@@ -19,7 +19,7 @@ Uso como CLI:
     python capturar.py <slug> --rota /pdv --nome 03-pdv --recorte 0.1,0.2,0.9,0.7
 
 Uso como módulo, quando a tela exige cliques:
-    import sys; sys.path.append(".cursor/skills/carrossel-novidades/scripts")
+    import sys; sys.path.append(".cursor/skills/carrossel/scripts")
     from capturar import sessao, esperar, limpar
 
     with sessao() as pagina:

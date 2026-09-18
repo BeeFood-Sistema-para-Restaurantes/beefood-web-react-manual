@@ -1,0 +1,66 @@
+<!-- Recorte do painel inicial: o cartao de vendas com a quebra `Por Cardapio`.
+     E a tela que prova a capa, porque os tres nomes de marca aparecem no mesmo
+     cartao.
+
+     Rotulos do sistema: `Valor Total de Vendas`, `Ticket Medio`, `Por Cardapio`,
+     `Ultimos 30 dias` — sao os do painel, e por isso nao mudam.
+
+     Numeros: exemplo, e o mesmo jogo da peca inteira. 19.420 + 12.860 + 6.460 =
+     38.740. Os tres tickets tambem fecham: 316 + 220 + 183 = 719 pedidos, e
+     38.740 / 719 = 53,88. Painel com soma errada e o tipo de detalhe que
+     derruba a peca inteira. -->
+<div class="tela" data-medida="900x470" style="padding: 26px">
+  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px">
+    <span class="tela__titulo">Início</span>
+    <span class="campo" style="padding: 8px 14px; font-size: 15px;
+                               color: var(--pn-suave)">📅&nbsp; Últimos 30 dias</span>
+  </div>
+
+  <div style="display: flex; gap: 18px; flex: 1">
+    <div class="cartao-pn cartao-pn--marcado" style="flex: 1.55">
+      <p class="rotulo-pn">Valor Total de Vendas</p>
+      <p class="valor-pn" style="margin-top: 10px">R$ 38.740,00</p>
+      <p style="font-size: 15px; font-weight: 700; color: var(--pn-verde);
+                margin-top: 6px">719 pedidos</p>
+
+      <p class="rotulo-pn" style="margin: 22px 0 6px">Por Cardápio:</p>
+      <div class="linha-pn">
+        <span class="linha-pn__nome"><span class="ponto ponto--vermelho"></span>
+          Hamburgueria</span>
+        <span class="linha-pn__valor">R$ 19.420,00</span>
+      </div>
+      <div class="linha-pn">
+        <span class="linha-pn__nome"><span class="ponto ponto--azul"></span>
+          Pizzaria</span>
+        <span class="linha-pn__valor">R$ 12.860,00</span>
+      </div>
+      <div class="linha-pn">
+        <span class="linha-pn__nome"><span class="ponto ponto--verde"></span>
+          Marmitaria</span>
+        <span class="linha-pn__valor">R$ 6.460,00</span>
+      </div>
+    </div>
+
+    <div class="cartao-pn" style="flex: 1">
+      <p class="rotulo-pn">Ticket Médio</p>
+      <p class="valor-pn" style="margin-top: 10px">R$ 53,88</p>
+
+      <p class="rotulo-pn" style="margin: 22px 0 6px">Por Cardápio:</p>
+      <div class="linha-pn">
+        <span class="linha-pn__nome"><span class="ponto ponto--vermelho"></span>
+          Hamburgueria</span>
+        <span class="linha-pn__valor">R$ 61,45</span>
+      </div>
+      <div class="linha-pn">
+        <span class="linha-pn__nome"><span class="ponto ponto--azul"></span>
+          Pizzaria</span>
+        <span class="linha-pn__valor">R$ 58,45</span>
+      </div>
+      <div class="linha-pn">
+        <span class="linha-pn__nome"><span class="ponto ponto--verde"></span>
+          Marmitaria</span>
+        <span class="linha-pn__valor">R$ 35,30</span>
+      </div>
+    </div>
+  </div>
+</div>

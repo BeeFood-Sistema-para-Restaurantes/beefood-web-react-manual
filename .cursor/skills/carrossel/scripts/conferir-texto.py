@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
-"""Confere que o texto dos slides foi reescrito, e não recortado da novidade.
+"""Confere que o texto dos slides foi reescrito, e não recortado da fonte.
 
-    python .cursor/skills/carrossel-novidades/scripts/conferir-texto.py <slug>
+    python .cursor/skills/carrossel/scripts/conferir-texto.py <slug>
     python ... <slug> --janela 6
     python ... <pasta> --novidade <slug-da-novidade>
+    python ... <pasta> --fonte https://beefood.com.br/sistema-dark-kitchen/
 
 A pasta do carrossel costuma ter o mesmo nome da novidade. Quando o slug
 publicado é comprido demais para virar nome de pasta
 (`cardapio-digital-avisos-banners-capas-midia`), `--novidade` diz qual entrada
-do feed é a fonte.
+do feed é a fonte. Em peça do gênero **função do sistema** não existe feed:
+`--fonte` aponta a página do site, que é copy pronta e por isso ainda mais fácil
+de recortar sem perceber.
 
-Compara o texto visível dos slides com o texto publicado em
-beefood.app/novidades e acusa qualquer sequência de N palavras que apareça igual
-nos dois. Termo de tela ("Destaque na impressão", "Editar em Lote", "Cupom
-Pedido") tem de repetir e por isso a janela padrão é 6 — nenhum rótulo do sistema
-chega a seis palavras.
+Compara o texto visível dos slides com o texto da fonte e acusa qualquer
+sequência de N palavras que apareça igual nos dois. Termo de tela ("Destaque na
+impressão", "Editar em Lote", "Cupom Pedido") tem de repetir e por isso a janela
+padrão é 6 — nenhum rótulo do sistema chega a seis palavras.
 
 Não substitui a leitura: ele pega cópia literal, não pega roteiro que segue a
 ordem do release com sinônimos. Isso quem vê é a tabela fato → ângulo → slide.
@@ -30,7 +32,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parents[4]  # .cursor/skills/<skill>/scripts -> raiz
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from pauta import FEED, baixar, fichas  # noqa: E402
+from pauta import FEED, baixar, fichas, ler_pagina  # noqa: E402
 
 # Nome de produto não é prosa do release: sai dos dois lados antes da comparação.
 #
@@ -94,6 +96,9 @@ def main() -> None:
     p.add_argument("slug", help="pasta em carrosseis/")
     p.add_argument("--novidade",
                    help="slug da novidade no feed, quando difere do da pasta")
+    p.add_argument("--fonte",
+                   help="URL da página de origem, quando a pauta não é o feed "
+                        "(gênero função do sistema)")
     p.add_argument("--janela", type=int, default=6,
                    help="tamanho da sequência considerada cópia (padrão 6)")
     args = p.parse_args()
@@ -102,14 +107,26 @@ def main() -> None:
     if not pasta.is_dir():
         sys.exit(f"ERRO: não achei {pasta}")
 
-    alvo = args.novidade or args.slug
-    ficha = next((f for f in fichas(baixar(FEED)) if f["slug"] == alvo), None)
-    if ficha is None:
-        sys.exit(f"ERRO: nenhuma novidade com slug {alvo} no feed")
+    # Peça de função não tem release: a fonte é a página do site, que é copy
+    # pronta e por isso ainda mais fácil de recortar sem perceber.
+    if args.fonte:
+        try:
+            pagina = ler_pagina(args.fonte)
+        except Exception as erro:
+            sys.exit(f"ERRO ao ler {args.fonte}: {erro}")
+        origem = args.fonte
+        bruto = f"{pagina['titulo']} {pagina['texto']}"
+    else:
+        alvo = args.novidade or args.slug
+        ficha = next((f for f in fichas(baixar(FEED)) if f["slug"] == alvo), None)
+        if ficha is None:
+            sys.exit(f"ERRO: nenhuma novidade com slug {alvo} no feed")
+        origem = f"novidade {alvo}"
+        # O título entra junto: copiar o título da novidade na capa é justamente
+        # o erro mais comum, e foi o da primeira versão do destaque-impressao.
+        bruto = f"{ficha['titulo']} {ficha['texto']}"
 
-    # O título entra junto: copiar o título da novidade na capa é justamente o
-    # erro mais comum, e foi o da primeira versão do destaque-impressao.
-    fonte = sequencias(palavras(f"{ficha['titulo']} {ficha['texto']}"), args.janela)
+    fonte = sequencias(palavras(bruto), args.janela)
 
     achados = 0
     conferidos = 0
@@ -140,12 +157,13 @@ def main() -> None:
 
     if achados:
         print(f"\n{achados} sequência(s) de {args.janela} palavras igual à "
-              f"novidade. Reescreva: o slide tem de dizer a mesma coisa com "
-              f"as palavras da publicação, não com as do release.")
+              f"fonte ({origem}). Reescreva: o slide tem de dizer a mesma coisa "
+              f"com as palavras da publicação, não com as do release nem com as "
+              f"da página de vendas.")
         sys.exit(1)
 
-    print(f"OK  nenhuma sequência de {args.janela} palavras repetida da novidade "
-          f"({conferidos} arquivos)")
+    print(f"OK  nenhuma sequência de {args.janela} palavras repetida de "
+          f"{origem} ({conferidos} arquivos)")
 
 
 if __name__ == "__main__":

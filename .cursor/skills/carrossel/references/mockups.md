@@ -20,6 +20,31 @@ prova de que o aparelho continua lendo como aparelho.
 | Janela de navegador | `.navegador` | 1120, sangrando pela direita | captura recortada |
 | Cupom térmico | `.cupom` + `.rasgado` | até 460 | desenho, sempre |
 
+## Fluxo: o caminho de várias coisas até uma tela só
+
+`.origem` (a bolinha), `.fio` (o tracejado) e `.selo-ok` (o visto no meio do
+caminho) montam a cena de convergência — três marcas entrando no mesmo painel,
+quatro canais caindo na mesma fila. Nasceram na capa de dark kitchen, e a razão
+é a mesma de sempre: **recorte de tela mostra o fim do caminho, nunca o
+caminho**.
+
+O slide é quem posiciona, como no `.realce`, e a cor de cada trio vem de
+`--cor` — a mesma com que aquela marca aparece no painel embaixo, senão as
+bolinhas viram enfeite. O fio é feito de borda, então a curva sai sem SVG: a
+caixa vazia é que diz para onde ela vai. Para descer, virar e descer de novo,
+são duas caixas (`fio--vira-direita` + `fio--desce-direita`).
+
+Duas armadilhas, as duas pagas na primeira tentativa: **posicione a bolinha por
+número**, não por `space-between` (o nome embaixo é mais largo que o disco e
+muda de marca para marca, e o fio nasce ao lado dela); e **termine o fio atrás
+do aparelho**, nunca encostado nele — linha que para na borda da tampa lê como
+risco, linha que some atrás dela lê como entrando.
+
+A referência de composição foi a ilustração do alto de
+`beefood.com.br/sistema-dark-kitchen`. Referência, como print de manual: nada
+foi recortado, e o que ela mostra (bolinhas em cima, fios descendo, computador
+embaixo recebendo) foi desenhado de novo com o nosso CSS.
+
 ## A biblioteca de imagens, e como o slide alcança ela
 
 `assets/fotos/` guarda o que serve para **mais de um** carrossel. O slide aponta
@@ -95,7 +120,7 @@ do produto some na largura do mockup.
 ### Capturar o totem, com tradução e com fundo nosso
 
 ```bash
-python .cursor/skills/carrossel-novidades/scripts/capturar-totem.py \
+python .cursor/skills/carrossel/scripts/capturar-totem.py \
     --saida carrosseis/<slug>/imagens-puras \
     --conteudo carrosseis/<slug>/traducoes.json
 ```
@@ -208,10 +233,10 @@ fazer a mídia e **entregar ela para o aplicativo de verdade renderizar**.
 
 ```bash
 # 1. as artes: PNG/JPG e os MP4
-python .cursor/skills/carrossel-novidades/scripts/fazer-midia.py
+python .cursor/skills/carrossel/scripts/fazer-midia.py
 
 # 2. o cardápio modelo rodando com elas dentro
-python .cursor/skills/carrossel-novidades/scripts/capturar-cardapio.py \
+python .cursor/skills/carrossel/scripts/capturar-cardapio.py \
     --saida carrosseis/<slug>/imagens-puras \
     --conteudo carrosseis/<slug>/midias.json
 ```

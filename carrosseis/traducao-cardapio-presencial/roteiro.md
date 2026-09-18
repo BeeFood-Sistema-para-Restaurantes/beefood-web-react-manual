@@ -324,8 +324,8 @@ skill**: são de uso geral, e o próximo carrossel de totem não precisa reescre
 nenhum dos dois.
 
 ```bash
-python .cursor/skills/carrossel-novidades/scripts/preparar-fundo.py
-python .cursor/skills/carrossel-novidades/scripts/capturar-totem.py \
+python .cursor/skills/carrossel/scripts/preparar-fundo.py
+python .cursor/skills/carrossel/scripts/capturar-totem.py \
     --saida carrosseis/traducao-cardapio-presencial/imagens-puras \
     --conteudo carrosseis/traducao-cardapio-presencial/traducoes.json \
     --cartao cartao-batata
@@ -376,12 +376,12 @@ a vir da API, e script sem uso é armadilha para a próxima rodada.
 ## Render e entrega
 
 ```bash
-python .cursor/skills/carrossel-novidades/scripts/renderizar.py \
+python .cursor/skills/carrossel/scripts/renderizar.py \
     carrosseis/traducao-cardapio-presencial --contato
-python .cursor/skills/carrossel-novidades/scripts/renderizar.py \
+python .cursor/skills/carrossel/scripts/renderizar.py \
     carrosseis/traducao-cardapio-presencial/capa-alternativa
-python .cursor/skills/carrossel-novidades/scripts/conferir-texto.py traducao-cardapio-presencial
-python .cursor/skills/carrossel-novidades/scripts/empacotar.py traducao-cardapio-presencial
+python .cursor/skills/carrossel/scripts/conferir-texto.py traducao-cardapio-presencial
+python .cursor/skills/carrossel/scripts/empacotar.py traducao-cardapio-presencial
 ```
 
 A legenda, o primeiro comentário e o texto alternativo de cada imagem estão em

@@ -1,0 +1,73 @@
+<!-- O link multilojas no celular do cliente, lido da ilustracao
+     `Link-multilojas-beefood` da pagina: titulo da rede, botao de localizacao,
+     abas `Delivery`, `Retirada` e `Consumir no local`, busca por cidade e um
+     cartao por marca, com endereco e horario.
+
+     390x844 e a medida do cardapio publico nos manuais, e e a proporcao que o
+     `.celular` do `base.css` espera.
+
+     O endereco e o do sandbox (R. Caramuru, 108), que e o mesmo que os manuais
+     usam: as tres marcas dividem a mesma cozinha, e e isso que a tela mostra. -->
+<div class="tela" data-medida="390x844" style="background: #fff">
+  <div style="padding: 30px 20px 18px; text-align: center">
+    <p style="font-size: 23px; font-weight: 900; line-height: 1.25">
+      Escolha a marca e faça<br>o seu pedido</p>
+    <div class="campo" style="margin: 18px auto 0; width: max-content;
+                              border-radius: 999px; font-size: 15px;
+                              color: var(--pn-suave)">
+      📍 Usar minha localização</div>
+  </div>
+
+  <div style="display: flex; gap: 12px; padding: 0 20px 16px; align-items: center">
+    <span class="selo" style="background: var(--pn-vermelho); color: #fff;
+                              font-size: 15px">Delivery</span>
+    <span style="font-size: 15px; color: var(--pn-suave); font-weight: 700">Retirada</span>
+    <span style="font-size: 15px; color: var(--pn-suave); font-weight: 700">
+      Consumir no local</span>
+  </div>
+
+  <div style="padding: 0 20px; display: flex; flex-direction: column; gap: 16px">
+    <div class="campo" style="border-radius: 999px; font-size: 15px;
+                              color: var(--pn-fraco)">🔍 Buscar por cidade</div>
+
+    <div class="cartao-pn" style="display: flex; gap: 15px; align-items: center;
+                                  padding: 16px">
+      <span class="chip chip--vermelho" style="width: 66px; height: 66px;
+                border-radius: 20px; font-size: 33px">🍔</span>
+      <span>
+        <span style="display: block; font-size: 19px; font-weight: 900">
+          Hamburgueria</span>
+        <span style="display: block; font-size: 14px; color: var(--pn-suave);
+                     margin-top: 4px">R. Caramuru, 108 · Vila Leão</span>
+        <span style="display: block; font-size: 14px; font-weight: 800;
+                     color: var(--pn-verde); margin-top: 5px">Aberto até 23:59</span>
+      </span>
+    </div>
+
+    <div class="cartao-pn" style="display: flex; gap: 15px; align-items: center;
+                                  padding: 16px">
+      <span class="chip chip--azul" style="width: 66px; height: 66px;
+                border-radius: 20px; font-size: 33px">🍕</span>
+      <span>
+        <span style="display: block; font-size: 19px; font-weight: 900">Pizzaria</span>
+        <span style="display: block; font-size: 14px; color: var(--pn-suave);
+                     margin-top: 4px">R. Caramuru, 108 · Vila Leão</span>
+        <span style="display: block; font-size: 14px; font-weight: 800;
+                     color: var(--pn-verde); margin-top: 5px">Aberto até 23:59</span>
+      </span>
+    </div>
+
+    <div class="cartao-pn" style="display: flex; gap: 15px; align-items: center;
+                                  padding: 16px">
+      <span class="chip chip--verde" style="width: 66px; height: 66px;
+                border-radius: 20px; font-size: 33px">🍱</span>
+      <span>
+        <span style="display: block; font-size: 19px; font-weight: 900">Marmitaria</span>
+        <span style="display: block; font-size: 14px; color: var(--pn-suave);
+                     margin-top: 4px">R. Caramuru, 108 · Vila Leão</span>
+        <span style="display: block; font-size: 14px; font-weight: 800;
+                     color: var(--pn-verde); margin-top: 5px">Aberto até 23:59</span>
+      </span>
+    </div>
+  </div>
+</div>

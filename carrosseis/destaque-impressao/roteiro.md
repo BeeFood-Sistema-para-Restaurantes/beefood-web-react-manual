@@ -30,7 +30,7 @@ Registro: os títulos passaram por uma segunda reescrita. A primeira leva estava
 correta e **travada** — "Um esquecido custa duas viagens", "A linha que importa
 para de se esconder", "Todo recurso novo vira manual no mesmo dia". Oito
 aforismos seguidos soam placa de museu. O antes-e-depois dos oito virou tabela em
-[`roteiro-e-copy.md`](../../.cursor/skills/carrossel-novidades/references/roteiro-e-copy.md).
+[`roteiro-e-copy.md`](../../.cursor/skills/carrossel/references/roteiro-e-copy.md).
 
 A capa levou uma terceira volta. "Cansou de bebida esquecida na sacola? 🥤" está
 correta e tem seis palavras; "Cansou de esquecer a **bebida**?" tem cinco, diz o
@@ -175,9 +175,9 @@ resolve. No 8, o celular centralizado passou a cobrir a base — e o
 
 ```bash
 # página pública e lista de produtos (sem clique)
-python .cursor/skills/carrossel-novidades/scripts/capturar.py destaque-impressao \
+python .cursor/skills/carrossel/scripts/capturar.py destaque-impressao \
     --url https://beefood.app/novidades --nome 01-pagina-novidades --publico
-python .cursor/skills/carrossel-novidades/scripts/capturar.py destaque-impressao \
+python .cursor/skills/carrossel/scripts/capturar.py destaque-impressao \
     --rota /cardapio --nome 02-cardapio-produtos
 
 # telas que exigem clique
@@ -202,10 +202,10 @@ não pelo nome solto.
 ## Render e entrega
 
 ```bash
-python .cursor/skills/carrossel-novidades/scripts/renderizar.py \
+python .cursor/skills/carrossel/scripts/renderizar.py \
     carrosseis/destaque-impressao --contato
-python .cursor/skills/carrossel-novidades/scripts/conferir-texto.py destaque-impressao
-python .cursor/skills/carrossel-novidades/scripts/empacotar.py destaque-impressao
+python .cursor/skills/carrossel/scripts/conferir-texto.py destaque-impressao
+python .cursor/skills/carrossel/scripts/empacotar.py destaque-impressao
 ```
 
 A legenda, o primeiro comentário e o texto alternativo de cada imagem estão em

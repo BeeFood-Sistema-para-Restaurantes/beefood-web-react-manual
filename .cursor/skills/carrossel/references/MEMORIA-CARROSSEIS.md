@@ -5,10 +5,16 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-18 (20ª rodada: a capa **nomeia o recurso**, o slide
-2 **explica** o recurso e palavra concreta ganha de metáfora — ver *o sétimo
-vício: a manchete-conceito*. A regra que mandava a capa não anunciar a
-funcionalidade saiu).
+Última atualização: 2026-09-18 (21ª rodada: a skill saiu de `carrossel-novidades`
+para **`carrossel`** e passou a ter **dois gêneros** — novidade e função do
+sistema. Ver *o segundo gênero: função do sistema*. Na volta da mesma rodada, a
+capa de função aprendeu três coisas: o **tema entra no título**, capa de assunto
+que converge é **cena e não recorte**, e sangria pela lateral só onde não tem
+texto).
+
+20ª rodada: a capa **nomeia o recurso**, o slide 2 **explica** o recurso e
+palavra concreta ganha de metáfora — ver *o sétimo vício: a manchete-conceito*.
+A regra que mandava a capa não anunciar a funcionalidade saiu.
 
 19ª rodada: a peça de desconto por forma de pagamento **voltou inteira**, e as
 três falhas estavam autorizadas aqui dentro — ver *a 19ª rodada devolveu a peça
@@ -47,12 +53,13 @@ na voz da marca e falando com você**.
 
 ## Índice
 
-| Carrossel | Novidade | Pasta | Formato | Estado |
-|-----------|----------|-------|---------|--------|
+| Carrossel | Fonte | Pasta | Formato | Estado |
+|-----------|-------|-------|---------|--------|
 | Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ entregue — `entrega/destaque-impressao.zip` (8 PNG + copy) |
 | Cardápio presencial em inglês e espanhol | [16/09/2026](https://beefood.app/novidades/traducao-cardapio-presencial) | `carrosseis/traducao-cardapio-presencial/` | 4:5, 7 slides | ✅ entregue — `entrega/traducao-cardapio-presencial.zip` (7 PNG + copy) |
 | Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + copy) |
 | Desconto ou acréscimo por forma de pagamento | [17/08/2026](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) | `carrosseis/desconto-forma-pagamento/` | 4:5, 7 slides | ✅ entregue — `entrega/desconto-forma-pagamento.zip` (7 PNG + copy) |
+| A dark kitchen de várias marcas num painel só | **função**, de [`beefood.com.br/sistema-dark-kitchen`](https://beefood.com.br/sistema-dark-kitchen/) | `carrosseis/dark-kitchen-multimarcas/` | 4:5, 7 slides | ✅ entregue — `entrega/dark-kitchen-multimarcas.zip` (7 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -363,6 +370,142 @@ outro assunto, e o assunto que sobra é enredo.
 
 E o *teste da capa*, que é o que pega isto antes do render: **quem leu só a capa
 sabe dizer o que entrou no sistema?**
+
+### O segundo gênero: função do sistema
+
+Até a 20ª rodada, tudo aqui pressupunha um **release**: o `pauta.py` só lia o RSS
+de novidades, o `conferir-texto.py` só comparava com o feed, a capa levava pílula
+`Novidade` e o CTA mandava abrir um caminho de menu. A 21ª rodada abriu o pedido
+que não cabia nisso: *"trazer funções do sistema exploradas em carrossel"*, a
+partir de `beefood.com.br/sistema-dark-kitchen`.
+
+A descoberta é que o gênero novo **não muda o assunto, muda o leitor**. Em
+novidade, quem lê já é cliente e pode ligar o recurso hoje; em função, ele pode
+estar escolhendo sistema e não ter painel nenhum. Daí saem quatro consequências
+que nenhuma regra anterior cobria:
+
+- **a pílula `Novidade` some** e entra o tema (`Dark Kitchen`), porque chamar de
+  novidade um recurso de três anos queima a peça com quem já é cliente;
+- **"agora", "acabou de sair", "já está no ar" saem do vocabulário** — a peça de
+  função é perene e vai ser republicada;
+- **o CTA muda de alvo:** caminho de menu não serve para quem não tem conta;
+- **o slide do limite fica mais valioso**, não menos: quem está comparando
+  sistema desconfia de peça sem limite.
+
+*A página de vendas é pauta, não fato.* Ela é matéria-prima **pior** que o
+release, porque já é copy — inclusive com a manchete-conceito pronta ("Tudo que
+sua Dark Kitchen precisa para vender mais", que é exatamente o vício da 20ª
+rodada). Dela saem os eixos e o público. E ela se divide em dois tipos de frase:
+**afirmação funcional** ("cada marca tem seu próprio cardápio, canais e
+relatórios") é a empresa descrevendo o próprio produto e dá para afirmar;
+**claim institucional** (*+100 mil negócios impactados*, *melhor avaliação no
+Google*, *melhor suporte do Brasil*) **não entra na arte** — o leitor não tem
+como verificar e o teste *quem poderia desmentir isto?* derruba os três. Decisão
+do dono nesta rodada. Afirmar, porém, não é provar: a prova é sempre tela.
+
+*E quando não existe manual, o fato é a tela.* Multicardápio, KDS e link
+multilojas não têm manual — o multilojas está no `CHECKLIST-MANUAIS.md` como
+ideia. A ordem de ancoragem virou **manual > tela capturada > tela
+reconstruída > código de referência**, e o degrau novo é o da reconstrução:
+quando o sandbox não tem o cenário (uma segunda marca, um pedido de iFood
+chegando), a tela se desenha em HTML/CSS a partir do que o produto mostra de
+verdade. Desenhar não é inventar comportamento, e o `roteiro.md` passa a dizer,
+tela por tela, o que é captura e o que é desenho.
+
+A skill foi renomeada de `carrossel-novidades` para **`carrossel`** na mesma
+rodada: o nome antigo passaria a mentir sobre o escopo.
+
+### Em peça de função, o tema entra no título — a pílula não basta
+
+A primeira capa de dark kitchen dizia *"Várias marcas num painel só"*, com o
+tema só na pílula. O dono devolveu: **"multimarcas → dark kitchen, precisamos
+explorar mais isso"**. Ele está certo, e a razão é de leitor de novo.
+
+Multimarca não é dark kitchen: acontece em franquia, em praça de alimentação, em
+food hall. Quem rola o feed lê o título, não a pílula — e um título que descreve
+o arranjo sem nomear **para quem** ele serve entrega a peça a todo mundo e a
+ninguém. Em peça de novidade isso não aparece, porque o recurso é o assunto e o
+leitor já é cliente. Em peça de função o assunto é **o recurso para um
+segmento**, e o segmento é metade do título.
+
+Virou *"A dark kitchen de várias marcas num painel só"*. Regra: **em peça de
+função, o título nomeia o recurso E o segmento**; a pílula confirma, não carrega
+sozinha.
+
+O subtítulo tentou emendar a definição do segmento — *"Sem salão, só entrega — e
+cada marca com o seu cardápio e o seu resultado"* — e o dono cortou a primeira
+metade. Ele está certo pelo mesmo motivo do título: **o segmento se diz uma vez,
+e quem se reconhece nele já sabe o que ele é**. Definir na capa gasta a linha
+que deveria vender, e ainda soa como explicar o óbvio para o próprio dono da
+dark kitchen. Ficou *"Cada marca com o seu cardápio e o seu resultado"*. Nomear
+o segmento é trabalho do título; o subtítulo continua sendo do recurso.
+
+### Quando o assunto é convergência, a capa é cena — recorte não serve
+
+A mesma capa levava um recorte do cartão de vendas, e o dono chamou de **pobre**,
+apontando a ilustração do alto da página do site como referência. O diagnóstico
+que ficou vale além desta peça.
+
+O assunto era várias marcas **chegando** num painel só. Chegada é caminho, e
+**recorte de tela mostra o fim do caminho, nunca o caminho**. Por isso a arte
+lida certinha parecia pequena: ela provava o resultado e não contava a história
+que o título prometia. A capa virou uma cena — as três marcas em disco, três
+fios tracejados descendo com um visto no meio, e embaixo o painel recebendo
+tudo, em notebook e em celular.
+
+Daí nasceram `.origem`, `.fio` e `.selo-ok` no `base.css`. O fio é feito de
+**borda** (`border-left` + `border-bottom` com raio na quina) — curva em L sem
+SVG e sem imagem, e a caixa vazia é que diz para onde ela vai.
+
+Três coisas que a composição ensinou, e que valem para qualquer cena:
+
+- **a ilustração do hero é referência de composição, não só de layout de tela.**
+  Já sabíamos que não se recorta print de manual nem arte do site; o que faltava
+  dizer é que dela se lê também o **arranjo** — o que fica em cima, o que desce,
+  onde o olho pousa. Nada foi recortado. E a adaptação é obrigatória: na página
+  as bolinhas são os canais, e aqui viraram as **marcas**, porque marca é o
+  assunto desta peça. Copiar a composição inteira teria trazido o assunto dela
+  junto.
+- **cor amarra o desenho ao dado.** Cada fio sai da cor com que aquela marca
+  aparece no painel embaixo. Sem isso as bolinhas seriam enfeite; com isso, quem
+  olha liga a bolinha à linha do relatório sem ler nada.
+- **posicione por número, não por `space-between`.** O nome embaixo de cada
+  disco é mais largo que o disco e muda de marca para marca, então o flex punha
+  o centro de cada bolinha num lugar diferente do previsto — e fio que nasce
+  20 px ao lado da bolinha lê como risco solto.
+
+### Sangrar pela base, sim; pela lateral, só o que não tem texto
+
+Na mesma capa o notebook tinha 940 px e saía pela direita do slide. O preço
+foram as pílulas de marca do topo do painel virando `Hamburgueria Pizzaria Mar`.
+Em 930 px a tampa cabe inteira, e a única sangria é pela base.
+
+É a diferença entre **sangria** e **corte**: a base cortada lê como "a tela
+continua"; palavra cortada no meio lê como erro de render. A regra fechada:
+mockup pode sair pela base à vontade, e pela lateral só quando o que sai de cena
+não tem texto.
+
+Vale também para aparelho por cima de aparelho. O celular da capa começou à
+direita do notebook, cortando `Ticket Médio` e `Cardápios ativos` no meio da
+palavra; foi para a esquerda, onde cobre o **menu lateral** — que numa capa não
+informa nada. Sobreposição em cima de coisa decorativa vira profundidade;
+em cima de rótulo, vira defeito.
+
+### Tela de capa tem versão própria, com tipo maior
+
+`painel-capa` não é o `painel-inicio` do slide final, e não deveria ser: no slide
+final a tela é **atmosfera** e só precisa dizer "é um sistema só"; na capa ela é
+**lida**, porque é ela que confirma o título.
+
+A conta é sempre a mesma, e é a mesma da lição do KDS: 1280 px de tela dentro de
+um notebook de 930 reduzem a 0,72, e o corpo de 15 px do painel cai para 11. Por
+isso a tela da capa tem tipo ~1,3x e **menos conteúdo** — três cartões e um
+gráfico, sem a lista de menu inteira. Tela de capa não compete com o título; ela
+confirma o título.
+
+E a vontade de encher espaço vazio com mais um cartão (`Canais ligados`) morreu
+na hora: **cartão inventado é produto inventado**, e quem lê a capa não tem como
+saber.
 
 ### O registro muda com a voz, e um carrossel pode ter duas
 
@@ -1530,6 +1673,14 @@ regressão da arte. E ele revelou peça esquecida — a `.tela-totem--espera` ex
 no CSS e nenhum slide usava, então ninguém sabia que ela estava disponível.
 
 ## O manual é referência, não acervo de imagem
+
+Vale igual para o site: a ilustração da página de vendas (o painel de pedidos
+estilizado da página de dark kitchen, o cartaz do KDS, a arte do link
+multilojas) é **referência de layout**, e não peça para recortar. Foi dela que
+saíram os nomes das colunas e a ordem dos blocos das telas desenhadas da 21ª
+rodada — lidos, e desenhados de novo com o nosso CSS de painel. Decisão do dono
+na abertura daquela rodada: *interprete as imagens e os vídeos da página para
+criar as suas imagens adaptadas*.
 
 O slide **não** aponta para o print do manual. Isso era regra até a 18ª rodada,
 está invertido desde a 19ª, e a história está em *a 19ª rodada devolveu a peça

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Monta o .zip de entrega do carrossel: as imagens e a legenda.
 
-    python .cursor/skills/carrossel-novidades/scripts/empacotar.py <slug>
+    python .cursor/skills/carrossel/scripts/empacotar.py <slug>
 
 Junta `png/*.png` e `copy-instagram.txt` em `entrega/<slug>.zip`. Os nomes dentro
 do zip são os mesmos de fora, sem pasta intermediária, porque quem recebe
