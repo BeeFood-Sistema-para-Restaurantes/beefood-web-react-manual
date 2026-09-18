@@ -191,6 +191,35 @@ Três coisas para ele não sair pior que o recorte:
   selo é o fundo escuro, com folga. Sobreposição em cima de coisa decorativa
   vira profundidade; em cima de rótulo, vira defeito.
 
+#### Com ícone: `.selo-recurso--com-icone`
+
+O formato é o que o próprio site usa para anunciar esses recursos — ícone num
+quadrado, nome ao lado, nota embaixo do nome. E o ícone não é enfeite: na
+miniatura do feed, onde a capa é decidida, o nome do recurso tem 9 px de altura
+e o desenho tem 30. Ele é a parte do selo que sobrevive ao tamanho em que a
+peça é vista pela primeira vez.
+
+```html
+<span class="selo-recurso__icone" style="background: rgba(255,255,255,.22)">
+  <svg viewBox="0 0 24 24">…</svg>
+</span>
+<span class="selo-recurso__texto">
+  <span class="selo-recurso__nome">Cupom</span>
+  <span class="selo-recurso__nota">de desconto</span>
+</span>
+```
+
+- **SVG inline, `stroke: currentColor`.** Herda a cor do selo, escala sem
+  borrar, não vira arquivo para manter. Emoji não serve: cada máquina desenha o
+  seu, e o mesmo carrossel sai diferente em duas máquinas.
+- **Desenho que já é conhecido** — bilhete picotado para cupom, cifrão com seta
+  de volta para cashback. Ícone que precisa de legenda não é ícone.
+- **Quadrado translúcido da cor do selo**, e não um bloco branco: o ícone é
+  parte do selo, não um adesivo em cima dele.
+- **O texto perde ~90 px**, e a nota que cabia passa a quebrar em duas linhas.
+  Selo mais alto que o outro desmonta o par: `.selo-recurso__texto` é `nowrap`,
+  e quem encurta é a frase.
+
 #### Preso ao aparelho: `.selo-recurso--encaixado`
 
 Legível, na cor certa e dizendo a coisa certa, o selo ainda pode sair errado —

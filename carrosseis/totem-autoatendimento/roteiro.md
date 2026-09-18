@@ -2,8 +2,8 @@
 
 - **Gênero:** função do sistema (a segunda peça do gênero, depois de
   `dark-kitchen-multimarcas`)
-- **Pauta:** [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/)
-  — **a página não tem conteúdo publicado**, ver a seção abaixo
+- **Pauta:** [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/),
+  que é **servida por um app externo** — ver a seção abaixo
 - **Manuais lidos:** nenhum documenta o totem. Sustentam parte do fato:
   [`venda-sugestiva-upsell`](../../manuais/venda-sugestiva-upsell/venda-sugestiva-upsell.md)
   (a sugestão vale no totem, e o produto desativado no totem fica de fora),
@@ -19,23 +19,35 @@
   `capturar-telas.py` desta pasta e 2 do `capturar-totem.py` da skill, que é o
   mesmo script do carrossel da tradução. Nenhuma tela desenhada
 
-## A página está vazia, e por isso o fato vem da tela
+## A página parecia vazia, e não estava
 
+**A primeira leitura desta pauta estava errada, e vale mais do que a correção.**
 `beefood.com.br/totem-de-autoatendimento/` responde com o menu, o rodapé e um
-`Carregando…` no lugar do corpo — conferido no HTML servido e com a página
-renderizada no navegador. O `pauta.py --pagina` devolve dois blocos sem texto.
+`<div class="super-loader">Carregando…</div>` no lugar do corpo. Foi conferido
+no HTML servido, na REST do WordPress e com a página aberta no navegador — as
+três coisas devolveram a mesma casca, e a conclusão foi que a página não tinha
+conteúdo publicado. A peça inteira foi escrita nessa premissa.
 
-Da página sobra uma frase, a descrição que ela dá ao buscador:
+Ela é falsa. O conteúdo existe e é montado por um **app externo**: o endereço
+está no próprio HTML da casca, e o app entrega HTML pronto.
 
-> *Deixe seus clientes fazerem pedidos e pagamentos diretamente no totem de
-> autoatendimento enquanto sua equipe foca em outras questões.*
+```
+https://beefood.com.br/totem-de-autoatendimento/  →  casca com "Carregando…"
+https://beefood-com-br.lovable.app/totem          →  a página de verdade
+```
 
-É afirmação funcional, e é dela que sai o **ângulo**. Fato ela não é: a régua
-segue sendo **manual > tela capturada > tela desenhada**, e aqui o degrau que
-existe é o do meio, que é melhor do que a peça de dark kitchen teve. O totem é
-web (`totem.beefood.app`), abre no Playwright e tem uma loja de exemplo com
-cardápio de verdade — então **tudo o que a peça mostra é print do aplicativo de
-produção**, e tudo o que ela afirma foi visto ali ou está num manual.
+Lá estão a seção de fidelidade, a demonstração do aparelho e o FAQ. O
+`pauta.py` agora **percebe a casca e segue o endereço** — a correção é de
+ferramenta, porque diagnóstico que depende de alguém lembrar não se repete.
+
+Isso não muda a régua do fato, que segue sendo **manual > tela capturada >
+página**: página de vendas é pauta. O que muda é que a pauta existe, e ela
+pautou duas coisas nesta rodada — a capa e o CTA.
+
+O totem é web (`totem.beefood.app`), abre no Playwright e tem uma loja de
+exemplo com cardápio de verdade, então **tudo o que a peça mostra continua
+sendo print do aplicativo de produção**, e tudo o que ela afirma foi visto ali
+ou está num manual.
 
 **Nenhum pedido foi criado.** O roteiro de captura para no botão `Ir para
 pagamento`, que é a última tela antes do pinpad, e não toca no `Aplicar cupom`,
@@ -111,6 +123,18 @@ Conferido tela por tela, do toque até o pagamento:
     `R$ 11,00`. O manual `traducao-cardapio-presencial` confirma o totem como
     um dos dois aparelhos em que as bandeiras aparecem.
 
+E dois fatos que são **da página**, achados só na segunda leitura:
+
+14. **a própria página roda um pedido inteiro no aparelho**, do `FAÇA SEU
+    PEDIDO` ao pagamento, com barra de progresso, botão de pausa e setas para
+    andar tela a tela. É o único fato desta peça que está na página e em lugar
+    nenhum mais, e é ele que sustenta o CTA.
+15. **a página anuncia cashback, cupons, fidelidade por pontos, WhatsApp e
+    CRM** como um conjunto, na seção *Transforme cada venda em uma nova
+    oportunidade de compra*. Cada item é um **cartão com ícone, nome e uma
+    linha de descrição** — e é desse desenho que saíram os selos da capa. Dos
+    cinco, a peça só anuncia os dois que ela prova na tela do totem.
+
 Fora da peça: a tela da carteira de cashback na confirmação (o recorte
 mostraria o nome e o telefone de teste que o script digita), o aviso de que
 cupom e cashback não se combinam (é regra fina, e o slide entrega uma ideia só)
@@ -136,7 +160,7 @@ promete que o cliente volta: nada disso está na tela nem no manual.
 | `Insira seu telefone e ganhe 5% de cashback` | o autoatendimento não é anônimo: ele cadastra e credita | "Quem deixa o telefone ganha cashback" (6) |
 | `Para viagem` ou `Comer aqui`, `Total` e `Ir para pagamento` | o cliente sai do totem com o pedido pago | "Comer aqui ou levar, e o pagamento termina ali" (7) |
 | A pílula de três bandeiras, e o mesmo item em `FRENCH FRIES` e `PAPAS FRITAS` | quem não fala português também pede sem ninguém do outro lado | "E o mesmo cardápio fala a língua de quem chega" (8) |
-| O aparelho, o cardápio e o pagamento estão na página do sistema | quem lê pode não ter conta | "Conheça o totem por dentro" (9) |
+| A página roda o pedido inteiro no aparelho, com pausa e setas | quem lê pode não ter conta, e pode olhar sem falar com ninguém | "Passe pelo pedido inteiro, tela por tela" (9) |
 
 ## Os slides
 
@@ -150,7 +174,7 @@ promete que o cliente volta: nada disso está na tela nem no manual.
 | 6 | `06-cashback.html` | recorte largo | o totem cadastra e credita | `Insira seu telefone e ganhe 5% de cashback` |
 | 7 | `07-pagamento.html` | dois recortes | o pagamento termina no aparelho | `Como será o pedido?` e `Ir para pagamento` |
 | 8 | `08-idiomas.html` | dois recortes lado a lado | o aparelho atende quem não fala português | o mesmo cartão em `FRENCH FRIES` e `PAPAS FRITAS` |
-| 9 | `09-cta.html` | capa + mockup | a página do sistema | o totem parado, na tela de espera |
+| 9 | `09-cta.html` | capa + mockup | a demonstração que roda na página | o totem parado, na tela de espera — que é onde a demonstração começa |
 
 ## Decisões de arte
 
@@ -216,6 +240,28 @@ branco é `multiply` — e só sobre o painel, nunca sobre o vidro, onde moram n
 e preço de produto. Mais a sombra de contato na quina, sem a qual o selo
 encosta no aparelho mas não entra nele.
 
+**Os ícones vieram da página, e mudaram o que se lê primeiro.** A seção
+*Transforme cada venda…* (fato 15) anuncia cada recurso como um cartão com
+ícone, nome e uma linha de descrição, e os selos passaram a ter a mesma
+estrutura: bilhete picotado para o cupom, cifrão com seta de volta para o
+cashback. Não é enfeite — na miniatura do feed a palavra `Cupom` tem 9 px de
+altura e o desenho tem 30, então o ícone é o que sobrevive ao tamanho em que a
+capa é decidida. São **SVG inline** com `stroke: currentColor`: herdam a cor do
+selo, escalam sem borrar e não viram arquivo para manter.
+
+`COM O TELEFONE` saiu e entrou `PRÓXIMA COMPRA`. A nota antiga contava **como
+se entra** no cashback, que é assunto do slide 6; a nova conta **o que se
+ganha**, que é o que um selo de capa tem de dizer. E ela cabe: a nota é
+`nowrap`, porque nota quebrada em duas linhas deixa um selo mais alto que o
+outro e os dois param de ler como par — quando não coube, quem encurta é o
+texto.
+
+**E o subtítulo trocou de assunto.** Era *"E o programa de fidelidade entra no
+pedido"*, que descreve onde o recurso fica. Virou *"E cada venda já sai puxando
+a próxima"*, que é o ângulo da própria página — *mais recorrência para o seu
+restaurante* — dito com as nossas palavras. O que os dois selos anunciam passa
+a ter um porquê em cima deles.
+
 **Do slide 3 ao 7 o print vai sem aparelho em volta.** É a escolha contrária à
 da capa, e pelo mesmo motivo: ali a tela precisa ser **lida**. A tela do totem é
 1080×1920; dentro de um mockup de 420 px de largura a letra do cardápio sai com
@@ -245,6 +291,18 @@ duas telas possíveis: esta, em que o totem **oferece** o programa, e a da
 carteira, em que ele mostra o saldo. A primeira serve melhor porque é o que o
 cliente sem saldo vê — e porque o recorte da segunda traria o nome e o telefone
 de teste que o roteiro de captura digita.
+
+**No CTA, "conheça" não era pedido nenhum.** *"Conheça o totem por dentro"*
+prometia duas coisas que a peça não tem: "por dentro" sugere hardware, e o que
+existe lá dentro — as telas — o leitor acabou de ver em oito slides. Convite
+que repete o carrossel não é convite.
+
+O que ficou no lugar é a única coisa que **só existe na página** (fato 14): ela
+roda um pedido inteiro no aparelho, com barra de progresso, pausa e setas. O
+verbo saiu daí e não do que soaria melhor — *"teste"* prometeria pedir de
+verdade, *"veja"* jogaria fora a pausa e as setas, e *"passe pelo pedido, tela
+por tela"* é exatamente o que o visitante faz. A tela de espera no mockup ganha
+uma segunda leitura de brinde: é onde a demonstração começa.
 
 **O slide de idioma é o mesmo do carrossel da tradução, e no penúltimo lugar.**
 A prova já existia e não precisava ser reinventada: o mesmo item, recortado do

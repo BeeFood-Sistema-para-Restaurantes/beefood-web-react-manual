@@ -19,8 +19,11 @@ código, benefício e regra que qualquer restaurante escreveria no painel. Nenhu
 pedido foi criado e nenhum cupom foi aplicado: o roteiro de captura para no
 botão "Ir para pagamento".
 
-A página do site está sem conteúdo publicado no momento desta peça. Confira
-antes de publicar: o último slide manda o leitor para lá.
+O endereço beefood.com.br/totem-de-autoatendimento é uma casca que monta o
+conteúdo a partir de um app externo: aberto no navegador ele às vezes fica no
+"Carregando…". A página de verdade está em beefood-com-br.lovable.app/totem, e
+é ela que traz a demonstração do aparelho citada no último slide. Confira que
+o endereço público está abrindo antes de publicar.
 
 
 ========================================================================
@@ -56,8 +59,9 @@ tela troca o aparelho para inglês ou espanhol, e com ele o setor, o nome e a
 descrição de cada item. A foto e o preço não mudam, e o cadastro continua sendo
 um só.
 
-O aparelho, o cardápio e o pagamento estão em
-beefood.com.br/totem-de-autoatendimento 🐝❤️
+Dá para passar por um pedido inteiro no aparelho antes de falar com qualquer
+pessoa: a página roda a coisa toda, do primeiro toque ao pagamento, com pausa e
+setas para andar tela a tela. Em beefood.com.br/totem-de-autoatendimento 🐝❤️
 
 #beefood #totemdeautoatendimento #autoatendimento #fastfood #hamburgueria
 #gestaoderestaurante #cashback #cupomdedesconto
@@ -75,12 +79,14 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
 ========================================================================
 
 01  Fundo escuro com a pílula "Totem de Autoatendimento", o título "O cliente
-    pede e paga sozinho no totem", com "e paga" em vermelho, e a linha "E o
-    programa de fidelidade entra no pedido". Embaixo, um totem branco de pé,
-    com leitor, boca de impressora e pinpad no painel, mostrando o cardápio na
-    tela. Dois selos grandes saem de trás do aparelho: um vermelho com "Cupom,
-    de desconto" à esquerda e um amarelo com "Cashback, com o telefone" à
-    direita, cada um acendendo o fundo e a carcaça com a sua cor.
+    pede e paga sozinho no totem", com "e paga" em vermelho, e a linha "E cada
+    venda já sai puxando a próxima". Embaixo, um totem branco de pé, com
+    leitor, boca de impressora e pinpad no painel, mostrando o cardápio na
+    tela. Dois selos grandes saem de trás do aparelho: à esquerda um vermelho
+    com o desenho de um bilhete picotado e os dizeres "Cupom, de desconto"; à
+    direita um amarelo com o desenho de um cifrão com seta de volta e os
+    dizeres "Cashback, próxima compra". Cada selo acende o fundo e a carcaça
+    do aparelho com a sua cor.
 
 02  Chapéu "Como funciona" e título "O totem conduz o pedido do começo ao fim",
     com a palavra fim em vermelho. O texto diz que não é uma tela de consulta e
@@ -132,7 +138,8 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     R$ 11,00; à direita, sob a bandeira da Espanha e a palavra Español, a mesma
     foto com PAPAS FRITAS e o mesmo R$ 11,00.
 
-09  Fundo escuro com o pedido "Conheça o totem por dentro" e o endereço
-    beefood.com.br/totem-de-autoatendimento. Embaixo, o mesmo totem branco,
-    agora parado na tela de espera: a foto de uma porção de batata frita em tela
-    cheia e o botão vermelho "Faça seu pedido".
+09  Fundo escuro com o chapéu "Totem", o pedido "Passe pelo pedido inteiro,
+    tela por tela", com "tela por tela" em vermelho, e a linha "Com pausa e
+    avanço, em beefood.com.br/totem-de-autoatendimento". Embaixo, o mesmo totem
+    branco, agora parado na tela de espera: a foto de uma porção de batata
+    frita em tela cheia e o botão vermelho "Faça seu pedido".

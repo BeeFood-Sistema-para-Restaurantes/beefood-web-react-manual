@@ -5,7 +5,13 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-18 (24ª rodada: o selo da capa do totem parou de
+Última atualização: 2026-09-18 (25ª rodada: a página do totem **não estava
+vazia** — o endereço público é uma casca e o conteúdo vem de um app externo. A
+peça foi escrita sem a página inteira, e o conserto foi no `pauta.py`. Ver
+*"Carregando…" não é página vazia*, *o ícone é o que sobrevive à miniatura* e
+*CTA: peça uma coisa que só existe no destino*).
+
+24ª rodada: o selo da capa do totem parou de
 ser adesivo e virou **cena** — ver *o selo não se integra com efeito: integra
 com oclusão* e *luz tem modo de mistura, e branco não acende com `screen`*. E a
 peça ganhou o slide de idioma **reaproveitando a prova de outro carrossel**,
@@ -438,11 +444,18 @@ rodada: o nome antigo passaria a mentir sobre o escopo.
 
 ### A página pode não existir, e o gênero continua de pé
 
+> **Correção da 25ª rodada.** Esta seção nasceu de um diagnóstico errado: a
+> página do totem **não** estava vazia. Ela é servida por um app externo, e o
+> endereço público só entrega a casca. A lição sobre gênero continua valendo
+> palavra por palavra — a lição sobre *aquela* página não. Ver
+> *"Carregando…" não é página vazia: é página servida por outro endereço*.
+
 A 22ª rodada pediu o **Totem de Autoatendimento**, apontando para
 `beefood.com.br/totem-de-autoatendimento/`. A página está publicada, aparece no
-menu do site, tem título e descrição — e **não tem conteúdo**: o HTML servido
-traz o cabeçalho, o rodapé e um `Carregando…` no lugar do corpo. Renderizada no
-navegador, dá no mesmo. O `pauta.py --pagina` devolve dois blocos sem texto.
+menu do site, tem título e descrição — e parecia **não ter conteúdo**: o HTML
+servido traz o cabeçalho, o rodapé e um `Carregando…` no lugar do corpo.
+Renderizada no navegador, dava no mesmo. O `pauta.py --pagina` devolvia dois
+blocos sem texto.
 
 A primeira reação foi achar que a peça tinha caído, e ela não tinha. O que a
 definição do gênero diz é que **o leitor** muda, não que a página é obrigatória:
@@ -472,6 +485,106 @@ Duas coisas para a próxima vez:
 - **página vazia não é sinal de recurso fraco.** O totem tem mais tela
   capturável que qualquer peça que já fizemos aqui. Falta de página é falta de
   marketing, não falta de produto.
+
+### "Carregando…" não é página vazia: é página servida por outro endereço
+
+O retorno da 25ª rodada foi *"no próprio site que te passei temos uma seção
+sobre isso que deveria ter copiado"*, e tinha mesmo: a página do totem traz uma
+seção de fidelidade, uma demonstração do aparelho e um FAQ. A peça inteira foi
+escrita sem nada disso.
+
+O diagnóstico anterior foi **cuidadoso e mesmo assim errado**, e é isso que faz
+o caso valer:
+
+| onde se olhou | o que voltou |
+|---|---|
+| HTML servido por `curl` | cabeçalho, rodapé e `<div class="super-loader">Carregando…</div>` |
+| página renderizada no navegador, com rolagem e espera | o mesmo |
+| `wp-json/wp/v2/pages/<id>` | `content.rendered` com a casca |
+
+Três fontes independentes, todas concordando — e todas olhando para o lugar
+errado. O conteúdo é montado por um **app externo**, e o endereço dele está no
+próprio HTML da casca:
+
+```
+https://beefood.com.br/totem-de-autoatendimento/  →  casca
+https://beefood-com-br.lovable.app/totem          →  a página
+```
+
+O que faltou não foi esforço, foi a **pergunta certa**: em vez de *"a página
+tem conteúdo?"*, é *"esta página se serve sozinha?"*. E a resposta estava na
+aba de rede o tempo todo — a casca pedia recursos a outro domínio.
+
+A correção não podia ser uma anotação, porque anotação depende de alguém
+lembrar. Foi para o `pauta.py`: quando o HTML tem cara de casca, ele acha o
+endereço do app no próprio HTML e lê de lá, avisando na saída. Vale para o
+`conferir-texto.py --fonte` de brinde, que importa a mesma função — e isso
+importava: enquanto a fonte era a casca, o teste de cópia literal comparava o
+texto dos slides com **nada** e passava sempre.
+
+> Ferramenta que engole uma casca em silêncio é pior que ferramenta que falha.
+> Quando a leitura de uma fonte vier suspeitosamente pobre, o conserto é no
+> script, não no roteiro.
+
+Duas coisas que a página devolveu assim que foi lida de verdade: a **seção de
+fidelidade**, que redesenhou a capa, e a **demonstração do aparelho**, que
+salvou o CTA. As duas seções seguintes.
+
+### O ícone é o que sobrevive à miniatura
+
+A seção *Transforme cada venda em uma nova oportunidade de compra* anuncia cada
+recurso como um cartão: **ícone num quadrado, nome ao lado, uma linha de
+descrição embaixo**. Os selos da capa passaram a ter a mesma estrutura, e o
+retorno que pediu isso foi direto — *"melhore o slide 1 com ícones"*.
+
+Não é gosto. Na miniatura do feed, onde a capa é decidida, a palavra `Cupom`
+tem 9 px de altura e o desenho do bilhete tem 30. O ícone é a única parte do
+selo que **sobrevive ao tamanho em que a peça é vista pela primeira vez**, e
+por isso vale roubar espaço do texto para ele existir.
+
+Como desenhar:
+
+- **SVG inline, com `stroke: currentColor`.** O traço herda a cor do selo,
+  escala sem borrar e não vira arquivo para manter. Emoji não serve: cada
+  máquina desenha o seu, e o mesmo carrossel sai diferente em duas máquinas;
+- **um desenho que já é conhecido** — bilhete picotado para cupom, cifrão com
+  seta de volta para cashback. Ícone que precisa de legenda não é ícone;
+- **quadrado translúcido da própria cor do selo**, e não um bloco branco: o
+  ícone é parte do selo, não um adesivo em cima dele.
+
+E uma medida que só aparece na primeira renderização: com o ícone, o texto
+perde ~90 px, e nota que não cabia passa a quebrar em duas linhas. Nota
+quebrada deixa um selo mais alto que o outro, e **os dois param de ler como
+par**. A saída é `white-space: nowrap` no bloco de texto e encurtar a frase —
+`COM O TELEFONE` virou `PRÓXIMA COMPRA`, e ainda ganhou com a troca, porque a
+nota antiga contava *como se entra* no recurso e a nova conta *o que se ganha*,
+que é o que um selo de capa tem de dizer.
+
+### CTA: peça uma coisa que só existe no destino
+
+*"Conheça o totem por dentro"* foi o CTA por duas rodadas, e a volta foi
+*"ficou estranho"*. Estava mesmo, por dois motivos que se somam:
+
+- **"por dentro" promete o que a peça não tem.** Sugere hardware, peça,
+  máquina aberta — e o que existe lá dentro são telas;
+- **e as telas o leitor acabou de ver.** Oito slides mostraram o cardápio, o
+  adicional, o cupom, o cashback, o pagamento e o idioma. Convite que repete o
+  carrossel não é convite: é a mesma coisa, de novo, agora sem imagem.
+
+O conserto não veio de escrever melhor, veio de **achar o que só existe lá**. A
+página roda um pedido inteiro no aparelho, do primeiro toque ao pagamento, com
+barra de progresso, botão de pausa e setas para andar tela a tela. Isso é
+motivo para sair do feed.
+
+E o verbo saiu do **controle que o destino tem**, não do que soaria melhor:
+*"teste"* prometeria pedir de verdade, *"veja"* jogaria fora a pausa e as
+setas, e *"passe pelo pedido, tela por tela"* é literalmente o que o visitante
+faz. CTA mentiroso não é descoberto na hora de ler — é descoberto na hora de
+chegar.
+
+> Antes de escrever o último slide, pergunte: **o que a pessoa consegue fazer
+> lá que ela não acabou de fazer aqui?** Se não houver resposta, o problema não
+> é o texto do CTA.
 
 ### O fluxo inteiro é captura, não só a primeira tela
 

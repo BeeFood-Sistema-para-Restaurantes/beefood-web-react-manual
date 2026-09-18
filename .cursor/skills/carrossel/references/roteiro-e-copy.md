@@ -50,12 +50,21 @@ verificar, e o teste *quem poderia desmentir isto?* derruba as três. Peça que
 precisa de número de instituição para convencer é peça que não achou o que
 mostrar na tela.
 
-**Página vazia não cancela a peça.** A do Totem de Autoatendimento tem menu,
-rodapé e um `Carregando…` no lugar do corpo. Dela sobrou a descrição de busca —
-*"Deixe seus clientes fazerem pedidos e pagamentos diretamente no totem"* — que
-é afirmação funcional e deu o ângulo. O gênero se define por **quem lê**, não
-por a fonte ter texto: quem está escolhendo sistema continua existindo. O que
-não pode faltar é o fato, e ele está na tela.
+**Antes disso: confira se a página é mesmo a página.** Parte do site é uma
+**casca** — o endereço público devolve menu, rodapé e um
+`<div class="super-loader">Carregando…</div>`, e o conteúdo é montado por um
+app externo cujo endereço está no próprio HTML. Foi o que aconteceu com o
+totem: `curl`, navegador e REST do WordPress concordaram que a página estava
+vazia, e a peça inteira foi escrita sem a seção de fidelidade, sem a
+demonstração do aparelho e sem o FAQ que existiam lá.
+
+O `pauta.py` já percebe a casca e segue o endereço, avisando na saída com
+`O endereço público é uma casca; o conteúdo veio de …`. A pergunta que evita o
+erro não é *"a página tem conteúdo?"*, é **"esta página se serve sozinha?"**.
+
+**E página vazia de verdade não cancela a peça.** O gênero se define por **quem
+lê**, não por a fonte ter texto: quem está escolhendo sistema continua
+existindo. O que não pode faltar é o fato, e ele está na tela.
 
 E **afirmar não é provar**: a prova visual continua vindo do manual, da tela
 capturada ou da tela desenhada — nunca da arte da própria página, que é ilustração
@@ -423,6 +432,27 @@ paga quando tem conteúdo do outro lado.
 Não é camisa de força. Melhoria pequena cabe em quatro slides, e forçar oito
 produz slide vazio — que é pior do que carrossel curto.
 
+### O CTA pede uma coisa que só existe no destino
+
+O último slide falha de um jeito específico e fácil de não ver: ele convida
+para o que o carrossel **acabou de mostrar**. *"Conheça o totem por dentro"*,
+depois de oito slides de telas do totem, é a mesma coisa de novo — agora sem
+imagem. Verbo genérico ("conheça", "saiba mais", "descubra") é o sintoma; a
+causa é não ter procurado o que há de diferente lá.
+
+Então procure, antes de escrever: uma demonstração que roda, uma calculadora,
+uma comparação de planos, um FAQ, um formulário que chama alguém. A página do
+totem roda um pedido inteiro no aparelho, com pausa e setas — e o CTA virou
+*"passe pelo pedido inteiro, tela por tela"*.
+
+**E o verbo sai do controle que o destino tem**, não do que soaria melhor:
+*"teste"* prometeria pedir de verdade, *"veja"* jogaria fora a pausa e as
+setas. CTA mentiroso não é descoberto na hora de ler — é descoberto na hora de
+chegar.
+
+> Pergunta antes do último slide: **o que a pessoa consegue fazer lá que ela
+> não acabou de fazer aqui?** Sem resposta, o problema não é o texto do CTA.
+
 ## Ritmo de imagem
 
 Pelo menos metade dos slides tem imagem, e a capa nunca fica de fora. Três
@@ -689,7 +719,8 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 - [ ] Nenhum número aparece sem fonte.
 - [ ] O `roteiro.md` diz quais telas são captura e quais são desenho (na arte
       não vai carimbo de ilustração).
-- [ ] O CTA pede uma coisa só.
+- [ ] O CTA pede uma coisa só, e é uma coisa que **só existe no destino** — não
+      o que os slides anteriores acabaram de mostrar.
 - [ ] Os pontos do rodapé marcam a posição certa do slide.
 - [ ] Nenhum nome, telefone ou e-mail de cliente aparece em nenhum print.
 - [ ] Nenhum print mostra data de publicação — nem o print de página nossa, que

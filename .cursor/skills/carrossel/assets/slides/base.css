@@ -192,6 +192,53 @@ body {
   text-transform: uppercase;
 }
 
+/* Com ícone, no formato em que o próprio site anuncia esses recursos: um
+ * quadrado com o desenho, o nome ao lado e a nota embaixo do nome.
+ *
+ * O ícone não é enfeite — ele é o que se lê primeiro na miniatura do feed, onde
+ * `Cupom` tem 9 px de altura e o desenho tem 30. Vale a pena roubar espaço do
+ * texto para ele existir.
+ *
+ * Desenhe em **SVG inline**, com `stroke: currentColor`: o traço herda a cor do
+ * selo, escala sem borrar e não vira mais um arquivo para manter. Ícone de
+ * fonte de emoji não serve — cada máquina desenha o seu.
+ */
+.selo-recurso--com-icone {
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+}
+
+.selo-recurso__icone {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 22px;
+}
+
+.selo-recurso__icone svg {
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* `nowrap` porque nota quebrada em duas linhas desmonta o par: um selo fica
+ * mais alto que o outro e os dois deixam de ler como conjunto. Se não coube,
+ * o texto é que encurta. */
+.selo-recurso__texto {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  white-space: nowrap;
+}
+
 /* O selo entra ATRAS do mockup, e é o corte que o prende ao aparelho.
  *
  * Etiqueta que só encosta continua lendo como adesivo colado na arte. Quando

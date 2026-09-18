@@ -99,6 +99,21 @@ cruzamento com `manuais/`, que é o que separa **o que tem manual** (fato
 conferido) do que vai precisar de tela. Ele também lista o que **não** pode
 virar slide: os números institucionais da página.
 
+**Parte do site é uma casca.** O endereço público devolve menu, rodapé e um
+`Carregando…`, e o conteúdo vem de um app externo. Aconteceu com o totem, e a
+peça inteira saiu sem a seção de fidelidade, sem a demonstração do aparelho e
+sem o FAQ que estavam lá — `curl`, navegador e REST do WordPress concordaram
+que a página estava vazia, e os três olhavam para o lugar errado. O script
+agora percebe a casca sozinho e avisa na saída:
+
+```
+- O endereço público é uma casca; o conteúdo veio de https://…/totem
+```
+
+Se a leitura de uma página vier suspeitosamente pobre, **desconfie da
+ferramenta antes de concluir que a página está vazia**. A pergunta não é "a
+página tem conteúdo?", é "esta página se serve sozinha?".
+
 ### 2. Roteiro — antes de qualquer imagem
 
 **O texto da fonte é matéria-prima, não roteiro.** A novidade é registro de
@@ -806,6 +821,13 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   **padding maior desse lado** (o que some é margem, nunca texto) e gradiente
   **escurecendo para a ponta oculta**. Passando atrás, o selo também deixa de
   ter como cobrir o vidro.
+- **Selo de capa leva ícone, porque o ícone é o que sobrevive à miniatura.** Na
+  miniatura do feed o nome do recurso tem 9 px de altura e o desenho tem 30 —
+  vale roubar espaço do texto para ele existir. Use `.selo-recurso--com-icone`
+  com **SVG inline** e `stroke: currentColor` (emoji não serve: cada máquina
+  desenha o seu). Com o ícone o texto perde ~90 px, e nota que quebra em duas
+  linhas deixa um selo mais alto que o outro: o bloco é `nowrap`, e quem
+  encurta é a frase.
 - **Luz tem modo de mistura, e branco não acende com `screen`.** `.luz`
   (`screen`) para o fundo escuro atrás do aparelho; `.luz--tinta` (`multiply`)
   para a carcaça clara, que é a camada que prova que a luz bate no aparelho, e
