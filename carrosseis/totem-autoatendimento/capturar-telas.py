@@ -25,12 +25,29 @@ do pagamento, e o script nunca chega lá.
 | Arquivo | Slide | O que prova |
 |---|---|---|
 | `espera-720.png` | 1 | o aparelho parado, esperando o toque |
-| `cardapio-720.png` | 7 | a tela inteira, para caber na moldura 9/16 do mockup |
+| `cardapio-720.png` | 8 | a tela inteira, para caber na moldura 9/16 do mockup |
 | `cardapio-topo.png` | 3 | o cardápio com foto, setor e preço |
 | `turbinar.png` | 4 | o adicional oferecido no meio do pedido, com preço |
-| `peca-tambem.png` | 5 | a sugestão da sacola, com o selo `Gerada por IA` |
-| `como-sera.png` | 6 | comer aqui ou levar, escolhido pelo cliente |
-| `ir-para-pagamento.png` | 6 | o pagamento termina no próprio totem |
+| `peca-tambem.png` | 4 | a sugestão da sacola, com o selo `Gerada por IA` |
+| `cupom-modal.png` | 5 | o cliente digita o código ou escolhe da lista, no aparelho |
+| `cupom-linha.png` | 1 | a chamada do cupom na confirmação, para a cena da capa |
+| `cashback-telefone.png` | 6 | o totem oferece o cashback em troca do telefone |
+| `cashback-faixa.png` | 1 | a mesma oferta, só a faixa, para a cena da capa |
+| `como-sera.png` | 7 | comer aqui ou levar, escolhido pelo cliente |
+| `ir-para-pagamento.png` | 7 | o pagamento termina no próprio totem |
+
+## O cupom vem de `cupons.json`, e por quê
+
+A loja de exemplo não tem cupom cadastrado: `venda2/cupomDescontoAtivo?tipo=totem`
+responde `[]`, e sem lista o totem esconde a linha de cupom inteira. É o caso
+que a skill já resolveu no carrossel da tradução — **recurso desligado na loja
+de exemplo se liga na resposta da API** — e a rota devolve os cupons de
+`cupons.json` no lugar da lista vazia. O que vem de fora é só o que o
+restaurante escreveria no painel: código, título, benefício e regra. A tela, a
+lista, o campo de código e os cartões são do aplicativo de produção.
+
+O recorte do modal **começa abaixo do cabeçalho**, que traz o logotipo da loja:
+cupom de exemplo não pode parecer promoção anunciada por um cliente nosso.
 
 ## Recorte por coordenada, e não por seletor
 
@@ -43,6 +60,7 @@ DPR 1 sai pastoso.
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
@@ -51,6 +69,7 @@ AQUI = Path(__file__).resolve().parent
 RAIZ = AQUI.parents[1]
 PURAS = AQUI / "imagens-puras"
 FUNDOS = RAIZ / ".cursor" / "skills" / "carrossel" / "assets" / "fundos"
+CUPONS = json.loads((AQUI / "cupons.json").read_text(encoding="utf-8"))
 
 TOTEM = ("https://totem.beefood.app/?empresaID=350&filialID=380"
          "&token=669461A4-1729-4E31-9BD2-8446993BBE7C")
@@ -79,6 +98,9 @@ RECORTES = {
     # na borda do slide, e meia foto na borda lê como render que falhou.
     "cardapio-topo": (0, 0, 1080, 800),
     "turbinar": (0, 616, 1080, 800),
+    # Os dois momentos da venda sugestiva dividem um slide, então cada faixa é
+    # mais baixa: aqui, a pergunta e as duas primeiras fileiras de adicional.
+    "turbinar-curto": (0, 616, 1080, 436),
     # Para 1030 e não 1080: a lista da sacola é um carrossel horizontal, e na
     # borda da janela sobra uma lasca do cartão seguinte — nome e preço cortados
     # no meio. A grade é de 256 px com 12 px de vão, então 1030 cai no vão
@@ -89,6 +111,18 @@ RECORTES = {
     # poria um "TESTE" no meio da arte.
     "como-sera": (0, 100, 1080, 300),
     "ir-para-pagamento": (0, 1650, 1080, 270),
+    # A chamada do cupom na confirmação, do tamanho do botão: vai flutuando na
+    # capa, e por isso sai sem nada em volta.
+    "cupom-linha": (24, 572, 1032, 100),
+    # Do "Adicionar cupom" até o fim do segundo cartão. Começa abaixo do
+    # cabeçalho de propósito: lá está o logotipo da loja.
+    "cupom-modal": (0, 110, 1080, 590),
+    # O ícone, a pergunta, a faixa do cashback e o campo vazio. Para antes do
+    # teclado, que é meia tela de tecla repetida.
+    "cashback-telefone": (0, 150, 1080, 450),
+    # Só a faixa amarela, do tamanho dela: é a peça curta o bastante para ainda
+    # ser lida flutuando ao lado do aparelho, na capa.
+    "cashback-faixa": (250, 346, 580, 88),
 }
 
 # Cliente de teste. Nada disso é gravado: o pedido para antes do pagamento.
@@ -124,6 +158,18 @@ def rotear_fundos(contexto) -> None:
     contexto.route(f"{FUNDO_BASE}**", servir)
 
 
+def rotear_cupons(contexto) -> None:
+    """Devolve os cupons de `cupons.json` no lugar da lista vazia da loja.
+
+    Com `[]` o totem não desenha nem a linha de cupom na confirmação, e a tela
+    do recurso fica inalcançável. O aplicativo lê os campos da resposta sem
+    traduzir nada, então o arquivo tem exatamente o que a API devolveria se a
+    loja tivesse esses cupons cadastrados.
+    """
+    contexto.route("**/venda2/cupomDescontoAtivo/**",
+                   lambda rota: rota.fulfill(status=200, json=CUPONS))
+
+
 def abrir(navegador, tela: dict, escala: int):
     """Contexto do totem, com o service worker desligado.
 
@@ -133,6 +179,7 @@ def abrir(navegador, tela: dict, escala: int):
     contexto = navegador.new_context(viewport=tela, device_scale_factor=escala,
                                      locale="pt-BR", service_workers="block")
     rotear_fundos(contexto)
+    rotear_cupons(contexto)
     return contexto
 
 
@@ -214,6 +261,7 @@ def main() -> None:
         pagina.get_by_text("ONE BURGER", exact=True).first.click(force=True)
         pagina.wait_for_timeout(3000)
         recortar(pagina, "turbinar")
+        recortar(pagina, "turbinar-curto")
 
         # `Pular` até o fim dos grupos, e então o item entra na sacola. O botão
         # de ação fica na barra de baixo; o filtro de altura evita os cartões.
@@ -228,6 +276,12 @@ def main() -> None:
 
         tocar(pagina, "CONTINUAR", 1650)
         pagina.wait_for_timeout(3000)
+        # Antes de digitar: é aqui que o totem oferece o cashback, e o recorte
+        # precisa do campo vazio — com o número dentro, a arte levaria o
+        # telefone de teste.
+        recortar(pagina, "cashback-telefone")
+        recortar(pagina, "cashback-faixa")
+
         digitar(pagina, TELEFONE)
         tocar(pagina, "CONFIRMAR")
         pagina.wait_for_timeout(3000)
@@ -240,6 +294,13 @@ def main() -> None:
 
         recortar(pagina, "como-sera")
         recortar(pagina, "ir-para-pagamento")
+        recortar(pagina, "cupom-linha")
+
+        # A tela do cupom, que só existe porque a rota devolveu a lista. Abrir
+        # não aplica nada: aplicar é um POST ao servidor da loja.
+        tocar(pagina, "CUPOM DE DESCONTO", 300)
+        pagina.wait_for_timeout(2500)
+        recortar(pagina, "cupom-modal")
         # E para aqui: o próximo toque é o pagamento.
         navegador.close()
 
