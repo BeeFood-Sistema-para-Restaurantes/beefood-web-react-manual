@@ -516,6 +516,27 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
   repetido rende imagem confusa. Um ensaio que imprime os botões da janela mostra isso em
   segundos.
 
+### Modal por cima de mapa Leaflet sai apagado — esconda o mapa antes do print (#104)
+
+Na Gestão de Entregas (`/gestao-entregas`) o modal de despacho automático saía **branco ou pela
+metade** em oito tentativas seguidas. A causa não é animação: no Chromium headless o
+`.leaflet-container` **compõe por cima do modal**, e o screenshot pega o mapa, não o diálogo.
+
+O que **não** resolve: aumentar o `wait_for_timeout`, forçar `opacity: 1` / `visibility: visible`,
+desligar animação por CSS, `--disable-gpu`, `--disable-lcd-text`. Forçar `transform: none` é pior:
+o modal é centralizado por `transform`, e o print sai com o diálogo fora da tela.
+
+O que resolve é esconder o mapa imediatamente antes do print:
+
+```python
+page.evaluate("document.querySelectorAll('.leaflet-container').forEach(e=>e.style.visibility='hidden')")
+page.wait_for_timeout(1500)
+page.locator("[role=dialog]").last.screenshot(path=destino, animations="disabled")
+```
+
+`visibility: hidden` e não `display: none`: o mapa continua ocupando o espaço, então o modal não
+se reposiciona entre a leitura das coordenadas e o disparo do print.
+
 ### Medir o efeito de uma permissão (grupo de acesso) — #75
 
 Vale para qualquer estudo que precise saber **o que cada switch faz**:
@@ -851,6 +872,37 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 > público (seção 11) valia para credenciais descartáveis de teste, não para acesso ao
 > código-fonte do servidor.
 
+> **Documentação de módulo pode estar dentro do clone que existe.** No #104 o dono pediu para ler
+> `beetech-server-node-3.0\docs\gestao-entrega-2.0`, e a conclusão apressada foi "não temos esse
+> repositório". A pasta estava em `~/refs/beetech-server-node-2.0/docs/gestao-entrega-2.0/` — 21
+> documentos, 13 prompts de frontend e 14 scripts SQL, ~17.100 linhas. **Procure por caminho de
+> documentação antes de concluir que falta repositório.**
+
+### Ler os bancos e a API do app direto do Cloud Agent (#104)
+
+Descoberto no estudo da Gestão de Entregas, e vale para qualquer manual que precise **provar** o
+estado de um cenário em vez de deduzi-lo da tela. Três caminhos funcionam de dentro da VM:
+
+| Caminho | Como | Serve para |
+|---|---|---|
+| **MSSQL `notafacilb`** (ERP) | usuário **de leitura** do backend, em `src/config/execSQLQuery.js`; `npm i mssql` | pedido, situação da entrega, funcionário, parâmetros, tipos de WhatsApp da filial |
+| **MySQL Aurora `entregas`** | credencial em `src/config/initMySqlServerGestaoEntrega.js`; `npm i mysql2` | rota, parada, presença, GPS, despacho automático, token de push |
+| **API do app do entregador** | Basic Auth + header `app-name: bee-entregador`, em `app.beetechapi.be` (login) e `app3.beetechapi.be` (entregas) | o **mesmo payload** que o celular recebe — conferir cenário sem emulador |
+
+Duas regras, e a segunda não é opcional:
+
+1. **Nunca copie credencial para este repositório.** Ele é público. Cite o arquivo do backend onde
+   ela está e pare aí — foi o que fiz nos arquivos de estudo do #104.
+2. **O usuário do Aurora tem `INSERT`, `UPDATE` e `DELETE`, não só `SELECT`.** Então daqui dá para
+   escrever no banco de produção do módulo de entregas. Isso **não** dispensa a regra da seção 7:
+   escrita em produção só com o dono pedindo, e a técnica do ensaio antes.
+
+Teste de alcance, antes de instalar driver:
+
+```bash
+timeout 15 bash -c 'cat < /dev/null > /dev/tcp/<host>/3306' && echo OK
+```
+
 ---
 
 ## 9. Índice de manuais
@@ -1040,6 +1092,59 @@ e 2) e o **mesmo relatório das sugestões automáticas** — não separa uma co
 
 **Cache do cardápio público chegou a ~10 minutos** aqui (o normal é 1 minuto). Antes de
 suspeitar da configuração, espere.
+
+---
+
+### Gestão de Entregas — #104 (em estudo, manual não escrito)
+
+Estudo completo em `manuais/gestao-entregas/estudo/`: o funcionamento do módulo em
+[`01-como-o-sistema-funciona.md`](../../../../manuais/gestao-entregas/estudo/01-como-o-sistema-funciona.md)
+e o estado medido em
+[`02-estado-medido.md`](../../../../manuais/gestao-entregas/estudo/02-estado-medido.md).
+O que precisa estar aqui porque vale para além deste manual:
+
+**Quatro programas, dois bancos.** A tela é do `beefood-web-react`; a API é o
+`beetech-server-node-3.0`; os crons rodam num servidor de **instância única**
+(`beefood3-server-entregas`); o app é `beetech-entregador` (React Native / Expo). O ERP MSSQL
+`notafacilb` é dono de pedido, cliente, funcionário e **taxa do entregador**; o Aurora MySQL
+`entregas` é dono de rota, parada, presença e GPS. Nada é replicado — o que há no Aurora são
+snapshots para o mapa não fazer JOIN entre servidores.
+
+**Duas portas para a mesma tela.** `/gestao-entregas` abre em página cheia, e o botão **`Entregas`**
+na barra do **Delivery** abre a **mesma tela dentro de um modal** sobre o Delivery, com botões de
+abrir em nova aba, expandir e fechar. Não há item de menu lateral — procurei e não existe.
+
+**Três frases que contrariam a intuição e o manual precisa acertar:**
+
+1. **Despachar avisa cliente e marketplace.** Grava `ENTREGA` no ERP e isso passa pelo
+   `SituacaoDeliveryUpdater`: marketplace, impressão e fila de WhatsApp.
+2. **Despacho automático não despacha** (só agrupa e associa entregador) **e não age com a tela
+   fechada** — quem autoriza o cron a olhar a filial é o `painel_heartbeat`, gravado pelo próprio
+   `GET /painel`. Conferido: a minha visita à tela escreveu o heartbeat.
+3. **"Melhor rota" no app desfaz a ordem que o operador montou** no painel (o app reordena por
+   distância a partir da loja).
+
+**O vocabulário de situação:** `PREPARO` → em preparação, `PRONTO` → pronto, `ENTREGA` → em rota,
+`ENTREGUE` → entregue. `TRANSPORTE` **não é valor válido** (removido do filtro da view pelo script
+`004`). E status **não regride**: evento de WebSocket atrasado não puxa pedido de "entregue" para
+"em rota".
+
+> ⚠️ **Achado que vale levar ao dono: o aviso "Entregador próximo" não dispara para quase
+> ninguém.** O campo de km mostra `2` na tela, mas é o padrão do código —
+> `_WhatsappMsgTipoFilial.raioProximidadeMetros` está **NULL em 56.630 das 56.636 filiais**, e o
+> padrão global também. O script `010` diz, na própria conferência, que filial com raio NULL nunca
+> recebe o aviso. Só 6 filiais têm valor, porque alguém abriu o modal e salvou. É pendência de
+> ambiente, não de manual — mas o manual não pode prometer o que não funciona.
+
+**O módulo tem um cliente piloto e nada mais.** O Aurora `entregas` só tem dados de duas filiais
+(a sandbox e uma real) e o `despacho_config` tem **1 linha na base inteira**, desligada. A tabela
+`entregador` (veículo, capacidade) está **vazia na base toda** — os nomes que o painel mostra vêm
+do `_Funcionario` do MSSQL.
+
+**Sujeira que estraga captura em silêncio:** *rota fantasma* — quando `entregador_status.rotaIDAtual`
+aponta para rota que já não existe, o entregador fica ocupado para sempre e **nunca recebe rota do
+despacho automático**. Há um caso vivo na sandbox (`194115` → rota 120, inexistente). Antes de
+fotografar despacho automático, confira isso.
 
 ---
 
