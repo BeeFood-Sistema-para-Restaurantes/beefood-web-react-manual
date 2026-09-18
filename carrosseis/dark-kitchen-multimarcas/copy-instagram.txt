@@ -60,8 +60,8 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
 ========================================================================
 
 01  Fundo escuro com a pílula "Dark Kitchen", o título "A dark kitchen de várias
-    marcas num painel só", a palavra só em vermelho, e a linha "Sem salão, só
-    entrega — e cada marca com o seu cardápio e o seu resultado". Embaixo, três
+    marcas num painel só", a palavra só em vermelho, e a linha "Cada marca com o
+    seu cardápio e o seu resultado". Embaixo, três
     círculos brancos com os ícones de hambúrguer, pizza e marmita, nomeados
     Hamburgueria, Pizzaria e Marmitaria, cada um em uma cor. De cada círculo
     desce uma linha tracejada da mesma cor, com um visto no meio, até o painel

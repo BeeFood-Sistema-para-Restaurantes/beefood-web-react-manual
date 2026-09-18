@@ -428,11 +428,17 @@ ninguém. Em peça de novidade isso não aparece, porque o recurso é o assunto 
 leitor já é cliente. Em peça de função o assunto é **o recurso para um
 segmento**, e o segmento é metade do título.
 
-Virou *"A dark kitchen de várias marcas num painel só"*, e o subtítulo passou a
-terminar a definição em vez de repetir o título com outras palavras: *"Sem
-salão, só entrega — e cada marca com o seu cardápio e o seu resultado"*. Regra:
-**em peça de função, o título nomeia o recurso E o segmento**; a pílula
-confirma, não carrega sozinha.
+Virou *"A dark kitchen de várias marcas num painel só"*. Regra: **em peça de
+função, o título nomeia o recurso E o segmento**; a pílula confirma, não carrega
+sozinha.
+
+O subtítulo tentou emendar a definição do segmento — *"Sem salão, só entrega — e
+cada marca com o seu cardápio e o seu resultado"* — e o dono cortou a primeira
+metade. Ele está certo pelo mesmo motivo do título: **o segmento se diz uma vez,
+e quem se reconhece nele já sabe o que ele é**. Definir na capa gasta a linha
+que deveria vender, e ainda soa como explicar o óbvio para o próprio dono da
+dark kitchen. Ficou *"Cada marca com o seu cardápio e o seu resultado"*. Nomear
+o segmento é trabalho do título; o subtítulo continua sendo do recurso.
 
 ### Quando o assunto é convergência, a capa é cena — recorte não serve
 
