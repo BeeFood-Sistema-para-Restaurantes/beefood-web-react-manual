@@ -138,17 +138,59 @@ def aplicar(pagina, config: dict[str, tuple[str, str]]) -> None:
         gravar_ajuste(pagina, forma, tipo, valor)
 
 
+def _uniao(caixas: list[dict], folga: int = 14) -> dict:
+    """A menor caixa que contém todas, com uma folga.
+
+    Recorte de painel é obrigatório — 1440 px lógicos reduzidos para a largura
+    do slide não se lêem no feed — e medir no DOM é o que evita a conta de pixel
+    no arquivo. Uma rodada anterior cortou no meio da sombra de uma pílula
+    porque a borda foi estimada olhando a miniatura.
+    """
+    esquerda = min(c["x"] for c in caixas) - folga
+    topo = min(c["y"] for c in caixas) - folga
+    direita = max(c["x"] + c["width"] for c in caixas) + folga
+    base = max(c["y"] + c["height"] for c in caixas) + folga
+    return {"x": max(esquerda, 0), "y": max(topo, 0),
+            "width": direita - max(esquerda, 0), "height": base - max(topo, 0)}
+
+
 def capturar_painel(pagina) -> None:
     """A lista com um selo em cada forma, e o campo de ajuste com a lista aberta."""
     abrir_formas(pagina)
-    pagina.screenshot(path=str(SAIDA / "painel-lista.png"), type="png")
-    print("OK  painel-lista.png")
+    # Três formas bastam para mostrar que o ajuste é por forma: uma com
+    # desconto em R$, uma sem ajuste nenhum e uma com acréscimo em %. Descer
+    # até o Pix traz a chave da conta para a arte, e o vale entra sem selo.
+    #
+    # A caixa sai da medida dos próprios selos, e não de um número escolhido:
+    # assim a borda direita fecha depois do selo mais largo, e não no meio dele.
+    alvos = [pagina.locator("h4", has_text=nome).first.bounding_box()
+             for nome in ("Dinheiro", "Cartão de Débito", "Cartão de Crédito")]
+    alvos += [pagina.get_by_text(selo, exact=True).first.bounding_box()
+              for selo in ("Desconto R$ 3,00", "Acréscimo 2,00%")]
+    caixa = _uniao(alvos, folga=24)
+    # O ícone da forma fica à esquerda do nome e não entra na medida do `h4`.
+    # São 42 px, e não 58: em 58 o interruptor de Ativo entra pela metade e
+    # sobram três arcos verdes na borda esquerda da arte.
+    caixa["x"] -= 42
+    caixa["width"] += 42
+    # A linha do cartão desce mais que o nome dela; sem isso o último cartão sai
+    # cortado no meio, o que lê como falha de render.
+    caixa["height"] += 26
+    pagina.screenshot(path=str(SAIDA / "painel-lista.png"), type="png",
+                      clip=caixa)
+    print(f"OK  painel-lista.png  {caixa}")
 
     dialogo = _editor(pagina, "Dinheiro")
-    _campo_ajuste(dialogo).click()
-    pagina.wait_for_timeout(1200)
-    pagina.screenshot(path=str(SAIDA / "painel-ajuste.png"), type="png")
-    print("OK  painel-ajuste.png")
+    campo = _campo_ajuste(dialogo)
+    rotulo = dialogo.get_by_text("Ajuste no pagamento").first.bounding_box()
+    valor = dialogo.locator(CAIXA_VALOR).first.bounding_box()
+    campo.click()
+    pagina.wait_for_timeout(1500)
+    lista = pagina.locator('[role="listbox"]').first.bounding_box()
+    caixa = _uniao([rotulo, valor, lista])
+    pagina.screenshot(path=str(SAIDA / "painel-ajuste.png"), type="png",
+                      clip=caixa)
+    print(f"OK  painel-ajuste.png  {caixa}")
     pagina.keyboard.press("Escape")
     pagina.wait_for_timeout(800)
     dialogo.locator('button:has-text("CANCELAR")').first.click()
@@ -303,6 +345,24 @@ def capturar_cardapio(pagina) -> None:
     capturar_resumo(pagina, "total-credito.png")
 
 
+def capturar_cta(pagina) -> None:
+    """O cartão desta novidade no celular, para o último slide.
+
+    A data de publicação sai antes do print. Não é maquiagem: data na arte faz
+    o post parecer velho quando ele sai da fila de conteúdo, e por isso a skill
+    não aceita data em slide nenhum. O cartão guarda a data num `<time>`, que é
+    um seletor e tanto — esconder a tag pega as duas ocorrências (a do alto do
+    cartão e a da faixa de áreas) sem tocar em mais nada.
+    """
+    pagina.goto("https://beefood.app/novidades/desconto-acrescimo-forma-pagamento",
+                wait_until="domcontentloaded", timeout=90000)
+    pagina.wait_for_timeout(8000)
+    pagina.add_style_tag(content="time{display:none !important}")
+    pagina.wait_for_timeout(1500)
+    pagina.screenshot(path=str(SAIDA / "novidades-celular.png"), type="png")
+    print("OK  novidades-celular.png")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -312,6 +372,8 @@ def main() -> int:
                     help="captura só as telas do painel")
     ap.add_argument("--so-cardapio", action="store_true",
                     help="captura só as telas do cardápio do cliente")
+    ap.add_argument("--so-cta", action="store_true",
+                    help="captura só a página de novidades do último slide")
     args = ap.parse_args()
 
     SAIDA.mkdir(parents=True, exist_ok=True)
@@ -321,6 +383,12 @@ def main() -> int:
             abrir_formas(pagina)
             print("--> restaurando")
             aplicar(pagina, ORIGINAL)
+        return 0
+
+    if args.so_cta:
+        # Não mexe no sandbox: é página pública.
+        with sessao("celular", publico=True) as pagina:
+            capturar_cta(pagina)
         return 0
 
     try:

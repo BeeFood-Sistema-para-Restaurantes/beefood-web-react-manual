@@ -1,127 +1,134 @@
 # Desconto ou acréscimo por forma de pagamento
 
-- **Novidade:** [Desconto ou acréscimo por forma de pagamento](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) — 17/08/2026
-- **Manual:** [`manuais/cardapio-digital-desconto-formas/`](../../manuais/cardapio-digital-desconto-formas/cardapio-digital-desconto-formas.md) (#64) e [`manuais/formas-recebimento/`](../../manuais/formas-recebimento/formas-recebimento.md) (#82)
+- **Novidade:** [17/08/2026](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento)
+  — áreas Pagamento, Cardápio Digital e Sistema
+- **Manuais lidos:** [`cardapio-digital-desconto-formas`](../../manuais/cardapio-digital-desconto-formas/cardapio-digital-desconto-formas.md)
+  e [`formas-recebimento`](../../manuais/formas-recebimento/formas-recebimento.md)
 - **Formato:** 4:5 (1080×1350), 7 slides
-- **Pasta com nome curto:** o slug publicado tem quatro palavras;
-  `conferir-texto.py` recebe `--novidade desconto-acrescimo-forma-pagamento`.
+- **Imagens:** 5 capturas próprias, todas de tela real
 
-## Fato → ângulo → ideia de uso → o que o slide diz
+## A segunda versão, e o que derrubou a primeira
 
-O **fato**, sem adjetivo, lido na novidade e nos dois manuais:
+A primeira versão desta peça voltou inteira, por três motivos que a memória da
+skill autorizava e agora proíbe (ver *a 19ª rodada devolveu a peça inteira* na
+`MEMORIA-CARROSSEIS.md`). Registrado aqui porque é o que explica cada escolha
+abaixo:
 
-- cada forma de recebimento passa a carregar um **ajuste automático**: desconto
-  ou acréscimo, em % ou em R$ — cinco opções num campo só;
-- o ajuste incide sobre o **subtotal dos produtos**;
-- configura-se em três lugares: `Cadastros → Formas de Recebimento` (vendas do
-  BeeFood), `Cardápio Digital → Formas Recebimento` (pedidos do cliente) e
-  `Cardápio Digital → Pagamento Online` (Pix online e cartão online);
-- aparece no cardápio digital (no fechamento, ao escolher a forma), no totem, na
-  tela de pagamento do BeeFood e no pedido pelo chat do WhatsApp.
+| Falha | O que esta versão faz |
+|---|---|
+| a capa dizia "Dê 5% de desconto no Pix" — um dos exemplos do release, promovido a manchete, com o acréscimo e o ajuste em R$ de fora | a capa diz o fato com os três eixos, e a **imagem** também: uma lista de formas com desconto numa, acréscimo na outra, em R$ e em % |
+| cinco das seis imagens eram recorte de print de manual, o que trouxe o aviso de cashback e o de cupom para a capa e **dois jogos de número** para a peça | as cinco imagens são captura feita para este carrossel, com **um** exemplo montado no sandbox |
+| o slide 2 afirmava a rotina do leitor ("Você já faz isso no balcão. No caixa você propõe na hora") | o slide 2 fala do sistema: a taxa da forma já estava cadastrada, o preço do cliente é que não acompanhava |
 
-O **ângulo** é o custo que o dono já conhece e nunca conseguiu transferir para o
-pedido de delivery: forma de pagamento não é neutra. No balcão ele negocia na
-boca ("no Pix eu tiro 5%") e no cardápio digital não há ninguém para negociar.
+## O fato, inteiro
 
-| Fato | Ângulo | Ideia de uso | O que o slide diz |
-|---|---|---|---|
-| desconto automático por forma, em % ou R$ | o Pix custa menos que o cartão | dar o desconto no Pix e deixar o cliente se convencer sozinho | **1.** Dê 5% de desconto no **Pix** |
-| o ajuste é do produto, não da conversa | no balcão ele já faz isso na boca | reconhecer que a prática existe e mostrar onde ela não alcança | **2.** Você já faz isso no **balcão** |
-| o aviso aparece em cada forma, antes da escolha | ninguém precisa perguntar | pôr o desconto na tela e parar de pedir | **3.** Seu cliente vê o desconto e escolhe **sozinho** |
-| desconto e acréscimo, calculados no subtotal | o cartão tem taxa; o Pix não | cobrar o custo de quem escolhe o caro, e só dele | **4.** O mesmo pedido, **dois** totais |
-| cinco opções num campo: %, R$, desconto, acréscimo | R$ 3,00 fixos rendem mais em ticket baixo | escolher a régua pela margem, não pelo que o sistema oferece | **5.** Ajuste em **reais** ou em porcentagem |
-| vale no PDV, mesa, comanda, delivery, totem e chat | o caixa também sofre com isso | ver o ajuste na tela de pagamento, na hora | **6.** No caixa o ajuste **já** vem na tela |
-| onde ligar | — | um pedido só | **7.** Ligue o desconto do Pix **hoje** |
+Três eixos, e nenhum pode sair da peça — cada um muda **quem** se interessa:
 
-Nenhuma frase sobrevive igual à da novidade — o `conferir-texto.py` mede isso na
-janela de seis palavras, e passa limpo.
+1. **desconto ou acréscimo.** Quem quer repassar a taxa do crédito não tem
+   interesse num post sobre desconto.
+2. **em % ou em R$.** Valor fixo é a régua de quem tem ticket baixo.
+3. **no cardápio, no totem, no caixa e no chat.** Quem não tem delivery para de
+   ler se a capa falar só de cardápio digital.
 
-## Slides
+O ajuste incide sobre o **subtotal dos produtos** e aparece para o cliente no
+fechamento, ao escolher a forma. Configura-se em três lugares:
+`Cadastros → Formas de Recebimento` (vendas do BeeFood),
+`Cardápio Digital → Formas Recebimento` (pedidos do cliente) e
+`Cardápio Digital → Pagamento Online` (Pix e cartão online).
 
-| # | Arquivo | Tipo | Imagem |
-|---|---------|------|--------|
-| 1 | `01-capa.html` | capa escura | celular: a sacola com o desconto do Pix e o total abatido |
-| 2 | `02-balcao.html` | texto | — |
-| 3 | `03-na-sacola.html` | recorte | a lista de formas, cada uma com o seu selo |
-| 4 | `04-dois-totais.html` | par de recortes | o mesmo pedido de R$ 39,00, no Pix e no vale |
-| 5 | `05-um-campo.html` | recorte | a lista de cinco opções, aberta no painel |
-| 6 | `06-no-caixa.html` | recorte | os botões de forma de pagamento com o ajuste embaixo do nome |
-| 7 | `07-cta.html` | capa escura | celular na página de novidades |
+## O ângulo, e de onde ele sai
 
-Cinco dos sete slides têm imagem, e todas são **captura de produção** — nenhuma
-tela desenhada, nenhum número inventado. O que muda de slide para slide é o
-recorte, não o arquivo.
+O ângulo é o custo que o recurso resolve, e ele está no manual
+`formas-recebimento` — não em cenário nenhum inventado:
 
-### As aberturas
+> "**Taxa** e **Dias para Recebimento** são o seu contrato com a adquirente, **não
+> o preço do cliente**."
 
-Sete imperativos em fila seriam template do mesmo jeito que sete "você pode".
-A sequência alterna: ordem direta (1), reconhecimento (2), o ganho dito direto
-(3), constatação com a prova na imagem (4), ordem direta (5), o lugar (6) e o
-pedido final (7). As palavras em vermelho também não se repetem — Pix, balcão,
-sozinho, dois, reais, já, hoje.
+E, na mesma página: "o **Tipo** decide se existe aba de taxas — Dinheiro, Fiado e
+PIX Online não têm". Ou seja: o sistema já sabia que receber custa diferente em
+cada forma, e guardava a taxa e o prazo de cada uma. O que não existia era um
+caminho dessa diferença até o total do pedido. É isso que mudou, e é isso que a
+peça conta.
 
-### O slide 2 elogia antes de cobrar
+## Fato → ângulo → o que o slide diz
 
-O furo só entra depois da premissa que o leitor aceita. "Você já faz isso no
-balcão" é verdade e é elogio: negociar a forma de pagamento na boca do caixa é
-gestão, não improviso. A falta aparece na frase seguinte, junto da consequência —
-no cardápio digital não há quem negocie, e a taxa do cartão sai do lucro.
-
-A versão que **não** ficou perguntava quanto o cartão custa por mês. É a fatura
-na cara, no slide em que o leitor decide se arrasta.
-
-## Imagens: de onde vem cada uma
-
-Todas as capturas são prints de produção que os manuais #64 e #82 já versionam.
-O `recortar.py` desta pasta lê esses arquivos e grava só o pedaço que cada slide
-usa, com as coordenadas medidas no arquivo com Pillow e comentadas no script.
-Não há imagem nova do sistema aqui — o que existe é recorte.
-
-| Arquivo em `imagens-puras/` | Origem | Por que recortar |
+| Fato (novidade ou manual) | Ângulo | O que o slide diz |
 |---|---|---|
-| `sacola-formas.png` | #64 `07-cardapio-outras.png` | a lista inteira tem 844 px de altura; o slide mostra do "Pague online" até o dinheiro, e o selo de 11 px sobe para 25 px na arte |
-| `total-pix.png`, `total-vale.png` | #64 `06-cardapio-pix.png` e `08-cardapio-vale.png` | o mesmo cartão de valores nos dois pedidos, cortado na mesma altura, para o leitor comparar o cartão e não duas fotos parecidas |
-| `lista-ajuste.png` | #82 `04-ajuste-pagamento.png` | a lista aberta ocupa um oitavo da tela do painel; a tela inteira no slide fica com letra de 10 px |
-| `caixa-formas.png` | #82 `08-pagamento-presencial.png` | três colunas de oito, escolhidas por serem as que têm ajuste: dinheiro (−1,00%), crédito (+3,00%) e vale alimentação (+R$ 5,00) |
+| Cada forma pode ter desconto **ou** acréscimo, em % **ou** em R$ | um pedido deixa de ter um preço único | "Cada forma de pagamento com o seu **preço**" |
+| A forma já guardava **Taxa (%)** e **Dias para Recebimento**, que são contrato com a operadora e não preço do cliente (manual `formas-recebimento`) | o dado existia e não chegava na conta | "O pedido tinha um preço **só**" |
+| O ajuste incide sobre o subtotal e aparece no fechamento, com o nome da forma | a prova é a tela | "Mesmo pedido, **dois** totais" |
+| Cinco opções no **Ajuste no pagamento**: sem ajuste, desconto e acréscimo, em % e em R$ | valor fixo e porcentagem servem a pedidos de tamanhos diferentes | "Escolha **reais** ou porcentagem" |
+| Dinheiro e PIX Online não têm aba de taxas; crédito e vale têm | a diferença de custo passa a caber no preço | "Forma que cai na hora pode sair mais **barata**" |
+| Vale no Cardápio Digital, no Totem, na tela de pagamento do BeeFood e no BeeBot | não é recurso de delivery | "Vale no totem, no caixa e no **chat**" |
+| Já está no ar, nas três telas de configuração | um pedido só | "Comece pela forma que mais **entra**" |
 
-A única captura feita para este carrossel é a do CTA (`novidades-celular.png`),
-no `capturar-telas.py`: a página de novidades rolada até o **título** desta
-publicação encostar no cabeçalho fixo, para a data de publicação ficar atrás
-dele e não datar o post.
+Nenhuma frase afirma o que o leitor faz, tem ou sente. O teste aplicado em cada
+linha: **quem poderia desmentir isto?** Tudo acima está na tela, na novidade ou
+no manual.
 
-### Dois exemplos numéricos, e por que os dois ficam
+## Os slides
 
-Os slides do cardápio mostram **5%** e os do caixa mostram **−1,00%**, **+3,00%**
-e **+R$ 5,00**. Não é descuido: são duas configurações diferentes do mesmo
-sandbox, porque o ajuste do cardápio digital e o das vendas do BeeFood são
-cadastrados em lugares distintos. Manter as duas é o que permite provar, com
-captura, que o ajuste existe em porcentagem **e** em reais.
+| # | Arquivo | Ideia única | Imagem |
+|---|---------|-------------|--------|
+| 1 | `01-capa.html` | o pedido passa a ter um preço por forma | `formas-lista.png` no celular, em sangria |
+| 2 | `02-preco-so.html` | a taxa já estava cadastrada; o preço não acompanhava | — |
+| 3 | `03-dois-totais.html` | o mesmo subtotal fecha em dois totais | `total-dinheiro.png` + `total-credito.png` |
+| 4 | `04-regua.html` | o ajuste pode ser fixo ou proporcional | `painel-ajuste.png` em janela de navegador |
+| 5 | `05-forma-por-forma.html` | cada forma carrega o seu ajuste | `painel-lista.png` em janela, com realce |
+| 6 | `06-onde-vale.html` | vale nos quatro canais, não só no delivery | — |
+| 7 | `07-cta.html` | ligar na forma que mais aparece | `novidades-celular.png` no celular |
 
-### A imagem prova o título?
+Cinco dos sete slides têm imagem. As aberturas não se repetem: afirmação,
+constatação do antes, constatação com prova, ordem direta, afirmação do ganho,
+enumeração de canais e pedido.
 
-- **1.** o título diz "5% no Pix" e a tela mostra `Pix Online — 5% de desconto`
-  escolhido, com `Total R$ 37,05`;
-- **3.** o título diz que o cliente vê antes de escolher, e o recorte é a lista
-  de formas **antes** da escolha, cada uma com o seu selo;
-- **4.** o título diz "dois totais", e são dois: `R$ 37,05` e `R$ 40,95`, do
-  mesmo `R$ 39,00`;
-- **5.** o título diz "em reais ou em porcentagem", e a lista aberta tem as
-  quatro combinações mais o "sem ajuste";
-- **6.** o título diz que o ajuste vem na tela do caixa, e ele está impresso
-  embaixo do nome de cada forma.
+## O exemplo numérico, e por que é um só
 
-## O que ficou de fora
+Um jogo de números na peça inteira, e é o da própria novidade:
 
-A novidade lista o **Aplicativo Garçom** entre o que ainda não aplica o ajuste.
-Peça de venda não anuncia o limite do recurso: quem precisa dessa linha abre o
-manual, que está a um clique. Pelo mesmo motivo não entrou o "até 1 minuto" que
-o cardápio leva para receber a mudança do painel.
+| Forma | Ajuste | No pedido de R$ 39,55 |
+|---|---|---|
+| PIX Online | 5% de desconto | − R$ 1,98 |
+| Dinheiro | R$ 3,00 de desconto | − R$ 3,00 → **R$ 36,55** |
+| Cartão de Crédito | 2% de acréscimo | + R$ 0,79 → **R$ 40,34** |
 
-Também ficou de fora a aba **Pagamento Online**, onde o Pix online tem desconto
-próprio: é mais um lugar de cadastro, e o slide que ele ocuparia diria a mesma
-coisa que o slide 5.
+O pedido é Combo One Burger + batata frita + Coca Cola, em retirada, sem cupom e
+sem cashback. O `capturar-telas.py` cadastra esse exemplo no sandbox antes de
+fotografar e **devolve** a configuração que encontrou — ela é a que os manuais
+versionam.
 
-## Legenda
+A versão anterior misturava dois jogos (5% nas telas do cardápio, −1,00%/+3,00%/
++R$ 5,00 nas do caixa) porque cada print vinha de um manual com outra
+configuração. Lido de fora, pareciam duas versões do recurso.
 
-Em [`copy-instagram.txt`](copy-instagram.txt), com o primeiro comentário e o
-texto alternativo de cada imagem.
+## Capturas
+
+Todas próprias, em `imagens-puras/`, nenhuma editada:
+
+| Arquivo | O que é | Como saiu |
+|---|---|---|
+| `formas-lista.png` | gaveta de formas do cliente, com os três selos | cardápio público no celular, barra de cupom fechada |
+| `total-dinheiro.png` | cartão `Resumo de valores` com o desconto | print do **elemento**, não da página |
+| `total-credito.png` | o mesmo cartão com o acréscimo | idem |
+| `painel-ajuste.png` | campo `Ajuste no pagamento` com as cinco opções | painel 1440×900, DPR 2 |
+| `painel-lista.png` | lista de formas com o selo de cada uma | idem |
+| `novidades-celular.png` | o cartão desta novidade | `<time>` escondido: data não entra em arte |
+
+Print de manual **não** entrou na arte. Os dois manuais foram lidos para saber
+quais campos existem, que valores são reais e qual tela prova o quê — e é o que
+tornou a captura barata.
+
+## Decisões de arte
+
+- **A capa é a gaveta de formas, e não um total com desconto.** Um total mostra
+  um sentido do ajuste; a gaveta mostra o par (selo verde de desconto, selo
+  vermelho de acréscimo) e as duas unidades (R$ 3,00 e 2%) na mesma imagem.
+- **O slide 3 empilha as duas imagens** em vez de pô-las lado a lado: os cartões
+  de valores são deitados (2,6/1), e empilhados cada um sai 1,7x maior — o
+  `R$ 36,55` e o `R$ 40,34` precisam ser legíveis no feed.
+- **Slide 4 e 5 vão retos**, em janela de navegador. São os dois slides em que o
+  leitor lê rótulo de interface, e a face que recua no 3D come contraste justo
+  ali.
+- **Nenhum emoji em título:** todos têm palavra em vermelho, e grifo em cima de
+  grifo cancela os dois. O único emoji da peça é o 💳 da própria novidade, no
+  chapéu do slide 6.
