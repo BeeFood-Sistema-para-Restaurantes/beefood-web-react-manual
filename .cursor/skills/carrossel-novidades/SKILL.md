@@ -59,6 +59,11 @@ nova, escrita a partir do fato**:
 3. **texto** — escrito da cena para a tela. Nenhuma frase pode aparecer igual à
    da novidade; se apareceu, foi copiada.
 
+A ordem dos três primeiros slides é fixa e vale para qualquer novidade: a capa
+**nomeia** o recurso, o slide 2 **explica** o recurso e o slide 3 **mostra** o
+recurso na tela. Conceito na capa e história no slide 2 são os dois jeitos de
+perder o leitor antes da prova.
+
 Crie `carrosseis/<slug>/roteiro.md` com a tabela **fato → ângulo → o que o slide
 diz** (é o que permite auditar que nada foi inventado e nada foi copiado) e a
 tabela de slides (arquivo, tipo, ideia única, imagem). A legenda não fica aqui:
@@ -460,25 +465,28 @@ fato → ângulo → slide.
 5. A capa diz o fato **inteiro**? Nenhum eixo da novidade (o "ou" e o "e" do
    título) ficou de fora, e nenhum **exemplo** do release virou manchete. E o
    carrossel tem **um** jogo de números, o mesmo em todos os slides.
-6. Alguma imagem da arte veio de `manuais/`? Sai: print de manual é referência,
+6. A capa diz o **nome do recurso**? Leia só ela: dá para saber o que o sistema
+   passou a fazer, ou a frase é conceito ("Cada forma de pagamento com o seu
+   preço")? E o slide 2 **explica** esse recurso, em vez de contar história?
+7. Alguma imagem da arte veio de `manuais/`? Sai: print de manual é referência,
    e a arte usa captura feita para o carrossel. E o sandbox voltou à
    configuração em que você o encontrou?
-7. Alguma frase explica enfeite de tela ("a bolinha verde marca…")? Algum
+8. Alguma frase explica enfeite de tela ("a bolinha verde marca…")? Algum
    diminutivo? Algum "ele" que não é o leitor nem o cliente dele? Os três saem
    — e o que fica no lugar é a consequência para o negócio.
-8. Algum slide alivia um trabalho ("não precisa traduzir tudo hoje", "aos
+9. Algum slide alivia um trabalho ("não precisa traduzir tudo hoje", "aos
    poucos")? Sai: é aviso de limite, e ele planta a objeção justo antes do CTA.
    E o slide do problema — normalmente o 2 — elogia o leitor antes de mostrar o
    furo, ou entrega uma fatura na cara dele?
-9. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE" em
-   branco, contorno branco no selo, tarja amarela e "food" vermelho?
-10. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa
+10. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE"
+    em branco, contorno branco no selo, tarja amarela e "food" vermelho?
+11. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa
     inclusive. (Data impressa dentro de um print de verdade pode ficar.)
-11. Saiu peça nova de uso geral (aparelho, tela desenhada, foto, script)? Ela
+12. Saiu peça nova de uso geral (aparelho, tela desenhada, foto, script)? Ela
     **sobe** para a skill: foto e tela em `assets/fotos/`, aparelho no
     `base.css` + `catalogo.py`, script em `scripts/`. Atualize
     [`references/mockups.md`](references/mockups.md) e rode o `catalogo.py`.
-12. Registre o que aprendeu em
+13. Registre o que aprendeu em
     [`references/MEMORIA-CARROSSEIS.md`](references/MEMORIA-CARROSSEIS.md).
 
 ### 7. Entrega
@@ -560,8 +568,21 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   técnico é 10). Oito não é meta: o carrossel da tradução fecha em 7 porque o
   oitavo slide só existiria para chegar a oito. Quem lê no feed costuma parar no
   quinto, então ponha o ganho no começo.
-- **O gancho fala do salão, não do sistema.** "Cansou de bebida esquecida na
-  sacola?" prende; "Novo campo Destaque na impressão" não.
+- **A capa diz o nome do recurso**, e nome é o que ele **faz**, não onde mora.
+  "Acréscimo e desconto por forma de pagamento" é a notícia; "Aba nova: Ajuste no
+  pagamento" é changelog. E conceito é o terceiro erro, o mais difícil de ver:
+  "Cada forma de pagamento com o seu preço" tem todos os eixos, não copia o
+  release e não diz o nome de nada. Teste: **quem leu só a capa sabe o que
+  entrou no sistema?**
+- **O slide 2 explica o recurso que a capa nomeou** — o que se marca, sobre o que
+  a conta incide, onde o cliente vê. Não é história ("você já faz isso no
+  balcão") e não é manual: caminho de menu só no CTA.
+- **Palavra concreta ganha de metáfora.** Se o recurso chama desconto, acréscimo
+  e ajuste, é isso que o slide escreve — "preço", "o que mais entra" e parentes
+  soam bem e não dizem o que a coisa é.
+- **O gancho pode falar do salão, desde que a capa nomeie.** "Cansou de bebida
+  esquecida na sacola?" prende, e funciona porque o subtítulo logo abaixo diz o
+  que o sistema passou a fazer.
 - **Cada slide entrega uma ideia de uso, com o verbo na frente.** A pergunta na
   cabeça de quem lê é "isso serve pra quê na minha loja?". "Destaque o combo do
   dia no meio do cardápio" entrega a ideia; "Você pode pôr um banner no meio do
@@ -595,11 +616,13 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   antes do CTA é derrubar a peça no fim. Quem precisa do limite abre o manual.
   Honestidade se faz mostrando a tela certa (o cadastro onde o texto em inglês é
   escrito), não com aviso.
-- **O slide do problema elogia antes de cobrar.** Slide 2 é onde o leitor decide
-  se arrasta: "Quanto seu salão **perde** por não falar inglês?" entrega uma
-  fatura, e ninguém salva post para ler a própria conta. Comece pelo que ele já
-  tem funcionando ("Seu cardápio é o seu melhor **vendedor**") e traga o furo
-  depois, na mesma frase que traz a solução.
+- **Quando o slide 2 é o do problema, ele elogia antes de cobrar.** Slide 2 é
+  onde o leitor decide se arrasta: "Quanto seu salão **perde** por não falar
+  inglês?" entrega uma fatura, e ninguém salva post para ler a própria conta.
+  Comece pelo que ele já tem funcionando ("Seu cardápio é o seu melhor
+  **vendedor**") e traga o furo depois, na mesma frase que traz a solução. Em
+  peça que abre nomeando o recurso, porém, o slide 2 é a **introdução** dele, e
+  não o problema.
 - **Se a tela prova, o slide é a tela.** Antes de escrever cinco linhas
   explicando que o cardápio existe em outro idioma, veja se dois recortes da
   mesma tela não dizem isso sozinhos — mesmo item, mesma foto, mesmo preço, nome

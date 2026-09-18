@@ -118,8 +118,34 @@ palavra a mais.
 
 | Amputado | Inteiro, e do mesmo tamanho |
 |---|---|
-| "Dê 5% de desconto no Pix" | "Cada forma de pagamento com o seu **preço**" |
+| "Dê 5% de desconto no Pix" | "Acréscimo e desconto por **forma** de pagamento" |
 | capa com o total abatido no Pix | capa com a lista de formas, desconto numa e acréscimo na outra |
+
+## Nomear o recurso é o começo de vender
+
+A correção acima foi feita uma vez pelo caminho errado, e a capa saiu **"Cada
+forma de pagamento com o seu preço"**. Tem os três eixos, não copia o release,
+não inventa nada sobre o leitor — e não diz o nome de coisa nenhuma. O dono leu
+e devolveu: *"isso foge da funcionalidade"*.
+
+É o que acontece quando *concisão corta palavra, não corta eixo* encontra *a capa
+não anuncia a funcionalidade*: para caber todo mundo sem dizer o nome de
+ninguém, a frase sobe um degrau de abstração e vira conceito. Conceito é bonito,
+é verdadeiro, e o leitor não sabe o que o sistema passou a fazer.
+
+> **Fugir do changelog nunca foi esconder o nome do recurso.** Changelog é
+> recortar o texto do release nos oito slides. Dizer na capa o que o recurso faz
+> é o contrário disso: é a notícia.
+
+| Conceito (a peça devolvida) | Nome (a peça que foi) |
+|---|---|
+| "Cada forma de pagamento com o seu preço" | "Acréscimo e desconto por **forma** de pagamento" |
+| "O pedido tinha um preço só" | "O ajuste fica no cadastro da **forma**" |
+| "Comece pela forma que mais entra" | "Ligue o primeiro **ajuste** hoje" |
+
+Os três pecados são o mesmo: metáfora ("preço", "o que mais entra") no lugar da
+palavra que o recurso usa ("desconto", "acréscimo", "ajuste"). Quando existir
+uma palavra concreta para a coisa, ela ganha da imagem poética — **sempre**.
 
 ## O alvo de cada slide: a utilidade
 
@@ -221,18 +247,30 @@ enquanto a gente escreve.
 
 ## A regra do primeiro segundo
 
-O slide 1 não anuncia a funcionalidade — ele nomeia **um incômodo que a pessoa
-já teve** — e leva **uma imagem**. Capa só de texto perde para capa com imagem, e
-a imagem certa é o resultado da novidade (o papel impresso, a tela nova), não um
-ícone decorativo.
+O slide 1 **diz o nome do recurso** e leva **uma imagem**. Capa só de texto perde
+para capa com imagem, e a imagem certa é o resultado da novidade (o papel
+impresso, a tela nova), não um ícone decorativo.
 
-| Em vez de | Escreva |
-|-----------|---------|
-| "Novo campo Destaque na impressão" | "Cansou de esquecer a bebida?" |
-| "Nova etapa Pronto no Delivery" | "Quem está pronto já saiu, ou ainda não?" |
-| "DRE: controle Considerar Custo Vendas" | "Seu custo pode estar entrando duas vezes no DRE" |
+Nome do recurso é o que ele **faz**, não onde ele mora:
 
-Teste rápido: leia só o slide 1 em voz alta. Se soa como changelog, reescreva.
+| Nome do campo (changelog) | Nome do recurso (capa) |
+|---|---|
+| "Novo campo Destaque na impressão" | "Destaque a bebida no cupom da cozinha" |
+| "Nova etapa Pronto no Delivery" | "Saiba quem já saiu para entregar" |
+| "Aba nova: Ajuste no pagamento" | "Acréscimo e desconto por forma de pagamento" |
+
+A coluna da esquerda nomeia a tela: o leitor teria que já usar o sistema para
+entender. A da direita nomeia a capacidade, com as palavras do dono — e é o que
+vende.
+
+**A capa pode abrir pelo incômodo, mas o nome tem de estar nela.** "Cansou de
+esquecer a bebida?" prende, e prende porque o subtítulo logo abaixo diz o que o
+sistema passou a fazer. O incômodo é a porta; o nome é o que o leitor leva se
+não arrastar.
+
+**Teste da capa:** quem leu **só** a capa sabe dizer o que entrou no sistema? Se
+a resposta depende de arrastar, a capa é conceito, não notícia. E leia em voz
+alta: se soa como changelog ("Novo campo X na tela Y"), reescreva.
 
 **É a frase mais curta do carrossel.** "Cansou de bebida esquecida na sacola?"
 tem seis palavras e está correta; "Cansou de esquecer a bebida?" tem cinco, diz o
@@ -264,12 +302,12 @@ paga quando tem conteúdo do outro lado.
 
 ## Estrutura que funciona (6 a 8 slides)
 
-1. **Capa** — o incômodo em no máximo oito palavras, com imagem.
-2. **O reconhecimento** — é aqui que o leitor se vê. Elogie primeiro o que ele já
-   tem funcionando e mostre o furo depois, na mesma frase que traz a solução; o
-   custo aparece em cena concreta ("alguém sai de novo no meio do pico"), nunca
-   em número inventado. Slide 2 que cobra afasta — ver *o slide do problema
-   elogia antes de cobrar*.
+1. **Capa** — o nome do recurso em no máximo oito palavras, com imagem.
+2. **A introdução** — explique o recurso que a capa nomeou: o que se marca,
+   sobre o que a conta incide, onde o cliente vê. Duas ou três frases, e acabou.
+   Não é o slide da história ("você já faz isso no balcão"), e explicar **não é
+   ensinar a mexer**: nome de campo, ordem de tela e passo a passo continuam no
+   manual — ver *explicar o recurso não é ensinar a mexer*.
 3. **A virada** — o que muda, mostrado. Antes × depois é o slide mais
    compartilhado do carrossel.
 4. **Onde ligar** — mockup de computador com o caminho de menu e o realce no
@@ -362,9 +400,32 @@ Duas cautelas:
 - **vender não é adjetivar.** "Revolucionário", "poderoso" e "incrível"
   continuam fora. O que vende é a cena concreta e a consequência.
 
+### Explicar o recurso não é ensinar a mexer
+
+O slide 2 explica, e a vala do manual fica logo ao lado. A fronteira é o tipo de
+frase:
+
+| Explicação (slide 2) | Manual (não entra) |
+|---|---|
+| "Em cada forma de pagamento você marca desconto, acréscimo ou nenhum dos dois" | "Abra **Cadastros → Formas de Recebimento**, clique na forma e role até **Ajuste no pagamento**" |
+| "A conta incide sobre o total em produtos" | "O campo **Valor (R$)** aceita até duas casas decimais" |
+| "O cliente vê o valor ao escolher como paga" | "O selo aparece à direita do nome, em verde ou vermelho" |
+
+A esquerda diz **o que o recurso faz**; a direita diz **onde clicar** e como a
+tela se comporta. O caminho de menu existe uma vez no carrossel, no CTA, quando
+o leitor já quer saber onde fica.
+
+E explicação não é enredo. "Você já faz isso no balcão", "no caixa você propõe
+na hora" é história, e história no slide 2 gasta o lugar de quem ainda não
+entendeu o recurso que a capa acabou de anunciar.
+
 ### O slide do problema elogia antes de cobrar
 
-O slide 2 é onde o leitor decide se arrasta o carrossel. Duas versões do de
+Vale para a peça que **abre pelo incômodo** — e, quando a capa nomeia o recurso,
+o slide 2 é a introdução, não o problema. O erro que esta seção evita continua
+sendo o mesmo: transformar o slide 2 em fatura.
+
+Duas versões do carrossel de
 tradução falharam ali: a primeira narrava o turista em terceira pessoa, e a
 segunda perguntou **"Quanto seu salão perde por não falar inglês?"**, com três
 linhas do que dá errado no salão e o custo no pé. Sujeito certo, tom de venda —
@@ -481,6 +542,13 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 
 ## Checagem antes de renderizar
 
+- [ ] **A capa diz o nome do recurso?** Quem lê só ela sabe o que entrou no
+      sistema — e o nome é o que o recurso faz, não o nome do campo.
+- [ ] **O slide 2 explica o recurso?** Não conta história, não cobra, e não
+      ensina onde clicar.
+- [ ] **Alguma frase trocou a palavra concreta por metáfora?** "Preço" no lugar
+      de desconto e acréscimo, "o que mais entra" no lugar da forma de
+      pagamento. A palavra do recurso ganha da imagem poética.
 - [ ] Existe a tabela **fato → ângulo → slide** no `roteiro.md`.
 - [ ] Existe, no `roteiro.md`, a **ideia de uso** de cada slide — e cada slide
       entrega a dele.

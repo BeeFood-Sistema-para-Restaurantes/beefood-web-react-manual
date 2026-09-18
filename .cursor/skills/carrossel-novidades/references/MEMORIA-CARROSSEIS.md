@@ -5,10 +5,15 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-17 (19ª rodada: a peça de desconto por forma de
-pagamento **voltou inteira**, e as três falhas estavam autorizadas aqui dentro —
-ver *a 19ª rodada devolveu a peça inteira*. Mudou o que o slide pode afirmar, o
-que a capa não pode amputar e de onde vem a imagem).
+Última atualização: 2026-09-18 (20ª rodada: a capa **nomeia o recurso**, o slide
+2 **explica** o recurso e palavra concreta ganha de metáfora — ver *o sétimo
+vício: a manchete-conceito*. A regra que mandava a capa não anunciar a
+funcionalidade saiu).
+
+19ª rodada: a peça de desconto por forma de pagamento **voltou inteira**, e as
+três falhas estavam autorizadas aqui dentro — ver *a 19ª rodada devolveu a peça
+inteira*. Mudou o que o slide pode afirmar, o que a capa não pode amputar e de
+onde vem a imagem.
 
 18ª rodada: desconto por forma de pagamento — o primeiro carrossel em que **o
 manual da novidade já existia**, e por isso o primeiro feito quase todo de
@@ -147,11 +152,11 @@ o seu melhor vendedor" descreve o cardápio e fica; "você já faz isso no balc�
 descreve ele e sai. Em *tudo o que o slide afirma é do produto*.
 
 *O que a segunda versão entregou:* capa com os três eixos no texto e na imagem
-("Cada forma de pagamento com o seu **preço**", sobre a gaveta de formas com selo
-verde numa e vermelho na outra); slide 2 falando do sistema (a forma já guardava
-taxa e prazo, o preço do cliente é que não acompanhava); cinco capturas feitas
-para o carrossel, com **um** exemplo montado no sandbox e devolvido depois; e o
-mesmo pedido de R$ 39,55 fechando em R$ 36,55 e em R$ 40,34 no slide da prova.
+(sobre a gaveta de formas, com selo verde numa e vermelho na outra); cinco
+capturas feitas para o carrossel, com **um** exemplo montado no sandbox e
+devolvido depois; e o mesmo pedido de R$ 39,55 fechando em R$ 36,55 e em
+R$ 40,34 no slide da prova. O texto da capa e do slide 2 ainda voltaria uma vez
+— por não nomear o recurso, ver *o sétimo vício*.
 
 O que as três têm em comum: **nenhuma é erro de tom.** O texto estava claro,
 falava com o dono, tinha verbo na frente e passava no `conferir-texto.py`. As
@@ -242,9 +247,16 @@ diferentes, e a pergunta é só um deles.
 
 A quarta capa tentou a ordem direta e **não passou**: *"Dê 5% de desconto no
 Pix"* cabia no molde e amputava o recurso, porque ordem direta precisa de um
-objeto único e a novidade tinha quatro combinações. Refeita como afirmação —
-*"Cada forma de pagamento com o seu **preço**"*. Placar dos moldes: pergunta 2,
-afirmação 2, ordem direta 0, antes × agora 0.
+objeto único e a novidade tinha quatro combinações. Refeita como afirmação, saiu
+*"Cada forma de pagamento com o seu **preço**"* — e **também voltou**, agora por
+não dizer o nome do recurso (ver *o sétimo vício*). A terceira tentativa é o
+quinto molde, e é o mais simples de todos: **o nome do recurso**, dito como
+ganho — *"Acréscimo e desconto por **forma** de pagamento"*. Placar dos moldes:
+pergunta 2, afirmação 1, nome do recurso 1, ordem direta 0, antes × agora 0.
+
+O molde novo tem preferência quando a novidade **cria uma capacidade** que ainda
+não existia no sistema: aí a notícia é o nome dela, e qualquer outra coisa na
+primeira linha é rodeio.
 
 Daí uma condição de uso que faltava: **ordem direta só quando o recurso tem um
 objeto só.** O verbo obriga a escolher o que se manda fazer, e se o recurso vai
@@ -313,6 +325,45 @@ O que ficou, e vale para a próxima novidade:
   sujeito, ela fica. O problema nunca foi a gramática, foi a frase não dizer para
   que serve.
 
+### O sétimo vício: a manchete-conceito, que não diz o nome do recurso
+
+A 20ª rodada devolveu três slides da **mesma** peça de desconto por forma de
+pagamento, e o diagnóstico foi curto: *"a hero ficou estranha, isso foge da
+funcionalidade"*, *"aqui basta a gente explicar a funcionalidade, não contar
+história"*, *"'forma que mais entra' tá estranho"*.
+
+As três frases devolvidas:
+
+| Devolvido | O que tinha de errado | O que foi |
+|---|---|---|
+| capa: "Cada forma de pagamento com o seu **preço**" | conceito: tem os três eixos e não diz o nome de nada | "Acréscimo e desconto por **forma** de pagamento" |
+| slide 2: "O pedido tinha um preço **só**" | história do antes, no lugar da explicação | "O ajuste fica no cadastro da **forma**" |
+| CTA: "Comece pela forma que mais **entra**" | metáfora ("entra") no lugar da ação | "Ligue o primeiro **ajuste** hoje" |
+
+*O que autorizou:* a primeira linha da *regra do primeiro segundo* — "**o slide 1
+não anuncia a funcionalidade**, ele nomeia um incômodo que a pessoa já teve" —
+somada à correção da rodada anterior, "concisão corta palavra, não corta eixo".
+Uma manda não dizer o nome; a outra manda caber todos os eixos. A saída que
+sobra é subir um degrau de abstração, e abstração que cabe em todos os casos é
+conceito. O resto veio junto: se a capa não pode nomear, o slide 2 precisa de
+outro assunto, e o assunto que sobra é enredo.
+
+*O que ficou:*
+
+- **a capa diz o nome do recurso**, e nome é o que ele **faz**, não onde mora.
+  "Aba nova: Ajuste no pagamento" é changelog; "Acréscimo e desconto por forma de
+  pagamento" é a notícia. Fugir do changelog nunca foi esconder o nome — é não
+  recortar o release nos oito slides;
+- **o slide 2 é a introdução:** explica o que se marca, sobre o que a conta
+  incide e onde o cliente vê. Não é o slide do problema, e explicar não é ensinar
+  a mexer (caminho de menu só no CTA);
+- **palavra concreta ganha de metáfora, sempre.** "Preço" no lugar de desconto e
+  acréscimo, "o que mais entra" no lugar da forma de pagamento: em todos os casos
+  existia a palavra que o recurso usa, e ela é mais curta que a imagem poética.
+
+E o *teste da capa*, que é o que pega isto antes do render: **quem leu só a capa
+sabe dizer o que entrou no sistema?**
+
 ### O registro muda com a voz, e um carrossel pode ter duas
 
 O mesmo imperativo curto que é a marca do cartaz da loja é o erro do slide.
@@ -380,7 +431,11 @@ O que ficou:
 
 ### O slide do problema elogia antes de cobrar
 
-O slide 2 do mesmo carrossel teve três versões, e as duas primeiras erraram por
+Isto vale para a peça que **abre pelo incômodo**. Quando a capa nomeia o recurso,
+o slide 2 é a introdução dele (ver *o sétimo vício*) — o que está abaixo continua
+sendo o que evita transformar o slide 2 em fatura, em qualquer um dos dois casos.
+
+O slide 2 do carrossel da tradução teve três versões, e as duas primeiras erraram por
 motivos diferentes: a primeira narrava o turista em terceira pessoa, a segunda
 perguntava *"Quanto seu salão **perde** por não falar inglês?"* e listava o que
 dá errado no salão. A segunda tem sujeito certo, tom de venda e fecha no custo —
