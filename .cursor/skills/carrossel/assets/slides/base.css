@@ -192,6 +192,59 @@ body {
   text-transform: uppercase;
 }
 
+/* O selo entra ATRAS do mockup, e é o corte que o prende ao aparelho.
+ *
+ * Etiqueta que só encosta continua lendo como adesivo colado na arte. Quando
+ * a silhueta do aparelho **corta** a ponta dela, a cena ganha profundidade sem
+ * nenhum efeito: oclusão é a pista mais forte que existe, e é de graça.
+ *
+ * Três coisas andam juntas, e sem as três o corte lê como erro de layout:
+ *
+ * - `z-index: 0`, abaixo da `.sangria` (que é 1). O selo continua acima do
+ *   fundo e do halo da capa;
+ * - `width` fixo, com a ponta escondida entrando ~60 px atrás da carcaça, e
+ *   **padding maior desse lado** para o texto não correr para debaixo dela;
+ * - gradiente que **escurece para a ponta oculta**, porque tab que dobra para
+ *   trás entra na sombra do aparelho. Sem isso o selo fica chapado e o corte
+ *   vira "faltou espaço".
+ *
+ * A ponta oculta nunca é a que leva o texto: o que some é margem.
+ */
+.selo-recurso--encaixado {
+  z-index: 0;
+  width: 384px;
+}
+
+/* ------------------------------------------------------------------- luz
+ *
+ * Luz é `div` vazio com gradiente, `filter: blur()` e mistura — nunca uma
+ * imagem. Renderiza igual em qualquer máquina e se ajusta com um número.
+ *
+ * O modo de mistura muda com a superfície, e é aqui que a primeira tentativa
+ * falha: `screen` sobre fundo escuro acende, e sobre a carcaça BRANCA do totem
+ * não faz absolutamente nada — branco já é o teto. Quem tinge branco é
+ * `multiply`, que é o `.luz--tinta`.
+ *
+ * | onde a luz cai | classe | z-index |
+ * |---|---|---|
+ * | fundo escuro, atrás do aparelho | `.luz` | 0 |
+ * | carcaça clara do aparelho | `.luz--tinta` | 2, por cima do mockup |
+ *
+ * E `.luz--tinta` só passa por cima de superfície opaca do aparelho (painel,
+ * carcaça). Em cima do vidro ela lava a tela, que é a prova.
+ */
+.luz {
+  position: absolute;
+  z-index: 0;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.luz--tinta {
+  z-index: 2;
+  mix-blend-mode: multiply;
+}
+
 /* ------------------------------------------------------------------ textos */
 
 .chapeu {

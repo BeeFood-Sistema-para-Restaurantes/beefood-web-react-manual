@@ -13,7 +13,7 @@
 
      Na tela vai o CARDAPIO, e nao a tela de espera. A regra e da skill: na capa,
      tela cheia ganha de tela icone — a de espera e uma foto com um botao, e
-     dentro de um aparelho de 400 px vira uma mancha escura com um risco
+     dentro de um aparelho de 360 px vira uma mancha escura com um risco
      vermelho. O cardapio tem foto, nome e preco em nove cartoes, e le como
      "aqui se compra" mesmo pequeno. A tela de espera passou para o CTA, que e
      onde o aparelho voltando a esperar o proximo cliente faz sentido.
@@ -23,27 +23,46 @@
      inteiro dentro do slide; quem sai pela base e a coluna, que a borda de
      baixo transforma em chao.
 
-     Os dois selos ao lado do aparelho sao a promessa da peca: sem eles a capa
-     anuncia menos do que o carrossel entrega. Eles sao DESENHADOS, com o texto
-     e a cor da interface, e nao recortados dela — o recorte real da linha de
-     cupom tem 1032 px e, reduzido para caber nesta coluna, fica com 11 px de
+     ====================================================================
+     OS DOIS SELOS, E POR QUE ELES SAO CENA E NAO ETIQUETA
+     ====================================================================
+
+     Eles anunciam o que a peca entrega alem do pedido. Sao DESENHADOS, com a
+     cor que a interface usa, e nao recortados da tela: o recorte real da linha
+     de cupom tem 1032 px e, reduzido para caber nesta coluna, fica com 11 px de
      letra; aumentado, cobre o vidro, ou seja, nome e preco de produto.
 
      Cada selo tem DUAS ALTURAS: o nome do recurso grande, para ser lido na
-     miniatura do feed, e o complemento em caixa alta pequena. Selo de uma
-     linha so cabe em corpo 22 nesta coluna, e corpo 22 ao lado de um titulo de
-     68 nao e promessa, e legenda.
+     miniatura do feed, e o complemento em caixa alta pequena. Selo de uma linha
+     so cabe em corpo 22 nesta coluna, e corpo 22 ao lado de um titulo de 68 nao
+     e promessa, e legenda.
 
      O selo amarelo diz CASHBACK, e nao "5% de cashback". Os 5% sao a
      configuracao da loja de exemplo: dentro da captura do slide 6 eles saem da
-     tela dela, mas num selo desenhado sairiam da nossa boca — e quem lê
-     entenderia que o sistema define a porcentagem. Numero que o lojista
-     configura nao vira manchete de capa.
+     tela dela, mas num selo desenhado sairiam da nossa boca — e quem le
+     entenderia que o sistema define a porcentagem.
 
-     Eles nao encostam no vidro: nesta altura do aparelho sobram 12 px de
-     carcaca de cada lado, entao o lugar deles e o fundo escuro, com folga.
-     Sobreposicao em cima de coisa decorativa vira profundidade, em cima de
-     rotulo vira defeito. -->
+     A primeira versao deles era texto com um painel atras, e o retorno foi
+     exatamente esse. O que resolveu nao foi mais efeito, foi OCLUSAO: cada selo
+     e uma `.selo-recurso--encaixado`, entra ~60 px atras da carcaca e a
+     silhueta do aparelho corta a ponta. O gradiente escurece para essa ponta,
+     porque tab que dobra para tras entra na sombra do totem.
+
+     A luz vem depois, e tem tres camadas, cada uma com o seu modo de mistura:
+
+     1. `.luz` da TELA, atras do aparelho: o cardaipio e uma tela acesa, e tela
+        acesa derrama no escuro. E o que faz o totem parecer ligado;
+     2. `.luz` UNICA no pe, que vai do vermelho do cupom ao amarelo do cashback.
+        Duas pocas separadas deixavam dois adesivos em cenas diferentes; uma luz
+        so poe os dois na mesma cena;
+     3. `.luz--tinta` na CARCACA: `screen` sobre branco nao faz nada, entao o
+        painel e tingido com `multiply` — vermelho do lado do cupom, ambar do
+        lado do cashback. E esta a camada que prova que a luz bate no aparelho,
+        e nao so no fundo.
+
+     Mais a sombra de contato na quina, sem a qual o selo encosta no aparelho
+     mas nao entra nele. Nenhuma das camadas passa por cima do VIDRO: ali mora
+     nome e preco de produto, e lavar a tela e perder a unica prova da capa. -->
 
 <div class="slide slide--capa">
   <div class="topo">
@@ -57,6 +76,50 @@
       O cliente pede <span class="destaque">e paga</span><br>sozinho no totem
     </h1>
     <p class="subtitulo">E o programa de fidelidade entra no pedido.</p>
+  </div>
+
+  <!-- 1. A tela acesa derrama no escuro. -->
+  <div class="luz" style="left: 50%; top: 500px; width: 700px; height: 760px;
+                          margin-left: -350px; filter: blur(52px);
+                          background: radial-gradient(ellipse 42% 46% at 50% 48%,
+                                      rgba(255, 168, 112, 0.5) 0%,
+                                      rgba(255, 110, 70, 0.16) 58%,
+                                      rgba(0, 0, 0, 0) 80%)"></div>
+
+  <!-- 2. Uma luz so, do vermelho do cupom ao ambar do cashback. -->
+  <div class="luz" style="left: -80px; right: -80px; top: 620px; height: 780px;
+                          filter: blur(60px);
+                          background:
+                            radial-gradient(ellipse 34% 40% at 17% 38%,
+                              rgba(255, 86, 74, 0.8), rgba(0, 0, 0, 0) 70%),
+                            radial-gradient(ellipse 34% 40% at 83% 58%,
+                              rgba(255, 196, 56, 0.74), rgba(0, 0, 0, 0) 70%),
+                            radial-gradient(ellipse 60% 24% at 50% 80%,
+                              rgba(255, 140, 70, 0.28), rgba(0, 0, 0, 0) 72%)"></div>
+
+  <div class="selo-recurso selo-recurso--encaixado"
+       style="left: 44px; top: 606px; padding: 26px 96px 26px 34px;
+              background: linear-gradient(104deg, #ff8078 0%, #f2483f 46%,
+                                          #a3201a 100%);
+              color: #fff;
+              box-shadow: 0 0 70px -12px rgba(255, 90, 80, 0.95),
+                          0 26px 44px -22px #000,
+                          inset 0 2px 0 rgba(255, 255, 255, 0.4)">
+    <span class="selo-recurso__nome">Cupom</span>
+    <span class="selo-recurso__nota">de desconto</span>
+  </div>
+
+  <div class="selo-recurso selo-recurso--encaixado"
+       style="right: 44px; top: 916px; padding: 26px 34px 26px 96px;
+              align-items: flex-end;
+              background: linear-gradient(256deg, #ffefb0 0%, #ffd23f 46%,
+                                          #c08a05 100%);
+              color: #1c1c1c;
+              box-shadow: 0 0 70px -12px rgba(255, 205, 70, 0.95),
+                          0 26px 44px -22px #000,
+                          inset 0 2px 0 rgba(255, 255, 255, 0.75)">
+    <span class="selo-recurso__nome" style="font-size: 46px">Cashback</span>
+    <span class="selo-recurso__nota" style="font-size: 22px">com o telefone</span>
   </div>
 
   <div class="sangria" style="top: 540px; right: auto; left: 50%;
@@ -80,15 +143,40 @@
     </div>
   </div>
 
-  <div class="selo-recurso" style="left: 44px; top: 606px;
-                                   background: var(--primaria); color: #fff">
-    <span class="selo-recurso__nome">Cupom</span>
-    <span class="selo-recurso__nota">de desconto</span>
-  </div>
+  <!-- 3. A luz bate na carcaca. Só sobre o painel, nunca sobre o vidro. -->
+  <div class="luz luz--tinta"
+       style="left: 360px; top: 1110px; width: 360px; height: 145px;
+              filter: blur(22px);
+              background: linear-gradient(90deg,
+                          rgba(255, 128, 116, 0.8) 0%,
+                          rgba(255, 255, 255, 0) 42%,
+                          rgba(255, 255, 255, 0) 60%,
+                          rgba(255, 214, 104, 0.75) 100%)"></div>
 
-  <div class="selo-recurso" style="right: 44px; top: 916px;
-                                   background: #ffd84d; color: #1c1c1c">
-    <span class="selo-recurso__nome" style="font-size: 46px">Cashback</span>
-    <span class="selo-recurso__nota" style="font-size: 22px">com o telefone</span>
-  </div>
+  <!-- O beijo de luz na quina em que o selo some: metade cai no fundo escuro
+       (e acende) e metade na carcaca branca (e nao muda nada). -->
+  <div class="luz" style="left: 330px; top: 590px; width: 54px; height: 190px;
+                          z-index: 2; filter: blur(13px);
+                          background: radial-gradient(ellipse 40% 50% at 60% 50%,
+                                      rgba(255, 150, 140, 0.95),
+                                      rgba(0, 0, 0, 0) 72%)"></div>
+
+  <div class="luz" style="left: 696px; top: 900px; width: 54px; height: 190px;
+                          z-index: 2; filter: blur(13px);
+                          background: radial-gradient(ellipse 40% 50% at 40% 50%,
+                                      rgba(255, 219, 130, 0.95),
+                                      rgba(0, 0, 0, 0) 72%)"></div>
+
+  <!-- Sombra de contato: sem ela o selo encosta no aparelho, mas nao entra. -->
+  <div class="luz luz--tinta"
+       style="left: 360px; top: 596px; width: 30px; height: 178px;
+              filter: blur(9px);
+              background: linear-gradient(90deg, rgba(60, 20, 18, 0.55),
+                          rgba(255, 255, 255, 0) 85%)"></div>
+
+  <div class="luz luz--tinta"
+       style="left: 690px; top: 906px; width: 30px; height: 178px;
+              filter: blur(9px);
+              background: linear-gradient(270deg, rgba(60, 44, 10, 0.5),
+                          rgba(255, 255, 255, 0) 85%)"></div>
 </div>
