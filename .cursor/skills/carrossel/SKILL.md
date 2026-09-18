@@ -676,7 +676,18 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   uso** e funda os dois. Na peça do totem, o adicional no item e o `Peça
   também` na sacola viraram um — os dois diziam "a tela oferece antes de deixar
   fechar" — e o cupom subiu do sexto para o quinto lugar, que é onde o leitor
-  ainda está.
+  ainda está. Quando não há mais o que fundir e o corte só tira conteúdo, é o
+  teto que cede: escreva o motivo no roteiro.
+- **Prova boa se reusa entre peças.** Pedido do tipo "inclua aquele slide que já
+  fizemos" não pede recaptura: o script de captura mora na skill e o conteúdo
+  injetado mora na pasta do outro carrossel, então apontar um para o outro
+  devolve a mesma tela. E o que se reusa não é a imagem, é o **par** — o mesmo
+  item, no mesmo ponto da tela, nas duas versões; recapturar daria outro
+  produto em outra posição, e a comparação perderia o que a torna prova.
+  Junto com a imagem viaja **o limite do que a peça afirma** (a peça da
+  tradução mostra o resultado e não promete traduzir), e o slide reusado entra
+  pela **função que cumpre no arco**, não pela ordem em que o cliente encontra
+  aquilo na tela.
 - **A capa diz o nome do recurso**, e nome é o que ele **faz**, não onde mora.
   "Acréscimo e desconto por forma de pagamento" é a notícia; "Aba nova: Ajuste no
   pagamento" é changelog. E conceito é o terceiro erro, o mais difícil de ver:
@@ -788,6 +799,21 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
 - **E a nota do selo não afirma o que dois recursos juntos não fazem.** Dois
   selos lado a lado já sugerem soma; se os recursos não se combinam (cupom e
   cashback não se combinam), a nota não pode confirmar a sugestão.
+- **Selo que só encosta no aparelho lê como adesivo.** O retorno vem nesta
+  forma: *"tá só um texto com um painel atrás"*. Não é acabamento, é
+  profundidade — e quem resolve é **oclusão**, não efeito. Use
+  `.selo-recurso--encaixado`: a ponta entra ~60 px atrás da carcaça, com
+  **padding maior desse lado** (o que some é margem, nunca texto) e gradiente
+  **escurecendo para a ponta oculta**. Passando atrás, o selo também deixa de
+  ter como cobrir o vidro.
+- **Luz tem modo de mistura, e branco não acende com `screen`.** `.luz`
+  (`screen`) para o fundo escuro atrás do aparelho; `.luz--tinta` (`multiply`)
+  para a carcaça clara, que é a camada que prova que a luz bate no aparelho, e
+  não só no fundo. Acender carcaça branca com `screen` não muda um pixel, e a
+  correção é a mistura, não a opacidade. Nenhuma das duas passa por cima do
+  **vidro**: ali moram nome e preço. Com mais de um selo colorido, faça **uma**
+  luz que vá de uma cor à outra — duas poças separadas põem os selos em cenas
+  diferentes. Detalhe em [`mockups.md`](references/mockups.md).
 - **Imagem em pé na capa custa uma linha de subtítulo.** Aparelho em pé come
   ~830 px de altura: com título de 2 linhas cabe **1** linha de subtítulo, e o
   resto do recado vai para a legenda.

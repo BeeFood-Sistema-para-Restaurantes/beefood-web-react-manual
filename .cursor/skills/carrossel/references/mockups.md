@@ -191,6 +191,65 @@ Três coisas para ele não sair pior que o recorte:
   selo é o fundo escuro, com folga. Sobreposição em cima de coisa decorativa
   vira profundidade; em cima de rótulo, vira defeito.
 
+#### Preso ao aparelho: `.selo-recurso--encaixado`
+
+Legível, na cor certa e dizendo a coisa certa, o selo ainda pode sair errado —
+e o retorno vem nesta forma: *"tá só um texto com um painel atrás"*. Está
+certo. Dois retângulos pousados na arte **dividem o slide** com o aparelho; não
+pertencem a ele. O reflexo é acrescentar efeito, e efeito não resolve, porque o
+problema é profundidade e não acabamento.
+
+Resolve **oclusão**: a silhueta do aparelho cortando a ponta do selo. É a pista
+mais barata de composição e a única que o olho não discute.
+
+```html
+<div class="selo-recurso selo-recurso--encaixado"
+     style="left: 44px; top: 606px; padding: 26px 96px 26px 34px;
+            background: linear-gradient(104deg, #ff8078, #f2483f 46%, #a3201a)">
+```
+
+O modificador põe o selo abaixo da `.sangria`. O resto é medida, e as três
+andam juntas:
+
+- a ponta escondida entra **~60 px** atrás da carcaça — o bastante para o corte
+  ser intenção, pouco para virar etiqueta espetada;
+- **padding maior desse lado**, porque o que some tem que ser margem e nunca
+  texto;
+- gradiente **escurecendo para a ponta oculta**: tab que dobra para trás entra
+  na sombra do aparelho. Chapado, o corte lê como "faltou espaço".
+
+Do outro lado, a régua do vidro sai de graça: passando **atrás**, o selo nunca
+cobre nome nem preço. A mesma sobreposição que era defeito virou profundidade
+só por trocar de lado.
+
+### Luz: `.luz` no escuro, `.luz--tinta` no branco
+
+Luz é `div` vazio com gradiente, `filter: blur()` e mistura — nunca imagem.
+Renderiza igual em qualquer máquina e se ajusta com um número. O que muda é o
+**modo de mistura**, e ele depende da cor da superfície, não da cor da luz:
+
+| onde a luz cai | classe | mistura |
+|---|---|---|
+| fundo escuro, atrás do aparelho | `.luz` | `screen` |
+| carcaça clara, por cima do mockup | `.luz--tinta` | `multiply` |
+
+`screen` sobre branco **não faz nada** — branco já é o teto. É o erro que
+aparece como "a luz não pegou no aparelho", e a correção é `multiply`, não mais
+opacidade. E `.luz--tinta` só passa por superfície opaca (painel, carcaça): em
+cima do vidro ela lava a tela, que é a prova.
+
+Numa cena com aparelho aceso, três camadas dão conta, e vale conferir se as
+três estão lá antes de mexer em número:
+
+1. **o brilho da tela**, atrás do aparelho — é o que faz o mockup parecer
+   ligado, e não recortado e colado;
+2. **uma luz só** no pé, se houver mais de um selo colorido: duas poças
+   separadas põem os selos em cenas diferentes;
+3. **a tinta na carcaça** — é a única que prova que a luz bate no aparelho.
+
+Mais a **sombra de contato** na quina em que o selo some. Sem ela o selo encosta
+no aparelho, mas não entra nele.
+
 ### Capturar o totem, com tradução e com fundo nosso
 
 ```bash

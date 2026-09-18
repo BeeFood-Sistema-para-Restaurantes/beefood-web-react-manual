@@ -5,13 +5,19 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-18 (23ª rodada: a peça do totem ganhou **cupom e
+Última atualização: 2026-09-18 (24ª rodada: o selo da capa do totem parou de
+ser adesivo e virou **cena** — ver *o selo não se integra com efeito: integra
+com oclusão* e *luz tem modo de mistura, e branco não acende com `screen`*. E a
+peça ganhou o slide de idioma **reaproveitando a prova de outro carrossel**,
+sem recapturar nada: *prova boa se reusa entre peças*).
+
+23ª rodada: a peça do totem ganhou **cupom e
 cashback**, e com eles a primeira lição sobre assunto que **não é do aparelho,
 é de outro módulo que passa por ele**. Ver *fidelidade não é recurso do
 aparelho: é canal*, *lista vazia esconde tela* e *slide novo custa slide
 velho*. Na capa, **selo desenhado ganhou de recorte ilegível** — e, na volta,
 aprendeu a ter **duas alturas** e a **não desenhar número que o lojista
-configura**).
+configura**.
 
 22ª rodada: totem de autoatendimento, a segunda
 peça de função — e a primeira em que **a página da fonte estava vazia**. Ver *a
@@ -74,7 +80,7 @@ na voz da marca e falando com você**.
 | Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + copy) |
 | Desconto ou acréscimo por forma de pagamento | [17/08/2026](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) | `carrosseis/desconto-forma-pagamento/` | 4:5, 7 slides | ✅ entregue — `entrega/desconto-forma-pagamento.zip` (7 PNG + copy) |
 | A dark kitchen de várias marcas num painel só | **função**, de [`beefood.com.br/sistema-dark-kitchen`](https://beefood.com.br/sistema-dark-kitchen/) | `carrosseis/dark-kitchen-multimarcas/` | 4:5, 7 slides | ✅ entregue — `entrega/dark-kitchen-multimarcas.zip` (7 PNG + copy) |
-| O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — página **sem conteúdo**; o fato veio da tela | `carrosseis/totem-autoatendimento/` | 4:5, 8 slides | ✅ entregue — `entrega/totem-autoatendimento.zip` (8 PNG + copy) |
+| O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — página **sem conteúdo**; o fato veio da tela | `carrosseis/totem-autoatendimento/` | 4:5, 9 slides | ✅ entregue — `entrega/totem-autoatendimento.zip` (9 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -681,6 +687,113 @@ espera, que é uma foto com um botão e, em 360 px, vira mancha escura. Passou a
 levar o **cardápio**, com nove cartões de foto, nome e preço — e a tela de
 espera foi para o CTA, onde o aparelho parado esperando o próximo cliente fecha
 o arco. Repetir a mesma tela nas duas pontas seria repetir a imagem.
+
+### O selo não se integra com efeito: integra com oclusão
+
+Os selos já estavam legíveis, já estavam nas cores certas, já diziam a coisa
+certa — e a volta foi *"é a questão do layout do design mesmo, tá só um texto
+com um painel atrás"*. A leitura estava correta e o diagnóstico também: dois
+retângulos coloridos **pousados** na arte não têm relação nenhuma com o
+aparelho. Eles dividem o slide com o totem; não pertencem a ele.
+
+O reflexo é acrescentar efeito — sombra maior, brilho, 3D. Nada disso resolve,
+porque o problema não é acabamento, é **profundidade**: as duas coisas estão no
+mesmo plano. O que resolve é a pista mais barata que existe em composição, e é
+a única que o olho não discute:
+
+> **Oclusão.** Se a silhueta do aparelho **corta** a ponta do selo, o selo está
+> atrás dele. Não há efeito que compre isso, e não há efeito que desminta.
+
+Cada selo passou a entrar ~60 px atrás da carcaça. Três detalhes fazem o corte
+ler como intenção, e sem os três ele lê como erro de layout:
+
+| detalhe | por quê |
+|---|---|
+| `z-index` abaixo da `.sangria` | é o que produz o corte, e mantém o selo acima do fundo |
+| **padding maior do lado oculto** | o que some tem que ser margem, nunca texto |
+| gradiente **escurecendo para a ponta oculta** | tab que dobra para trás entra na sombra do aparelho; chapado, o corte vira "faltou espaço" |
+
+Virou o `.selo-recurso--encaixado` da `base.css`. A régua do vidro continua de
+pé, e agora sem custo: o selo passa **atrás** do aparelho, então nunca cobre
+nome nem preço de produto — a mesma sobreposição que antes era defeito virou
+profundidade só por trocar de lado.
+
+### Luz tem modo de mistura, e branco não acende com `screen`
+
+Com o selo já preso ao aparelho, faltava a luz. Foram três camadas, e a terceira
+quase não existiu:
+
+1. **o brilho da tela**, atrás do aparelho — o cardápio é uma tela acesa, e tela
+   acesa derrama no escuro. É o que faz o totem parecer **ligado**, e não
+   recortado e colado;
+2. **uma luz só no pé**, indo do vermelho de um selo ao âmbar do outro. A
+   primeira tentativa foram **duas poças separadas**, e o resultado era dois
+   adesivos em duas cenas; uma luz contínua põe os dois na mesma cena;
+3. **a tinta na carcaça** — e esta é a que prova que a luz bate no **aparelho**,
+   e não só no fundo atrás dele.
+
+A camada 3 saiu em branco na primeira tentativa, literalmente: a carcaça foi
+acesa com `mix-blend-mode: screen` e **não mudou um pixel**. Faz sentido depois
+de visto — `screen` clareia, e branco já é o teto. Quem tinge branco é
+`multiply`:
+
+| onde a luz cai | mistura | classe |
+|---|---|---|
+| fundo escuro, atrás do aparelho | `screen` | `.luz` |
+| carcaça clara, por cima do mockup | `multiply` | `.luz--tinta` |
+
+> Antes de escolher a opacidade, escolha a mistura: ela depende da **cor da
+> superfície**, não da cor da luz.
+
+E `.luz--tinta` só passa por cima de superfície **opaca** do aparelho — painel,
+carcaça. Em cima do vidro ela lava a tela, que é a prova. Na peça do totem a
+tinta cobre exatamente o painel, e para na moldura.
+
+Falta um detalhe que parece decoração e não é: a **sombra de contato** na quina
+onde o selo some. Sem ela o selo encosta no aparelho, mas não entra nele.
+
+Tudo isso é `div` vazio com gradiente e `filter: blur()` — nenhuma imagem.
+Renderiza igual em qualquer máquina, e se ajusta com um número.
+
+### Prova boa se reusa entre peças
+
+O pedido foi *"inclua um slide da multilinguagem que já fizemos em outro
+carrossel"*, e o primeiro impulso foi capturar tudo de novo. Não precisava: o
+script de captura mora na **skill**, e o arquivo de tradução mora na pasta do
+carrossel da tradução. Apontar um para o outro deu as duas telas em um comando,
+com a mesma loja, o mesmo item e o mesmo recorte.
+
+Isso vale como regra porque o que se reusa não é a imagem, é o **par**: o mesmo
+item, no mesmo ponto da tela, nos dois idiomas. Recapturar produziria outro
+produto em outra posição, e a comparação perderia o que a torna prova.
+
+Duas coisas viajaram junto com a imagem, e as duas precisam viajar sempre:
+
+- **o limite do que a peça afirma.** Quem escreve a versão em inglês do cardápio
+  é o dono da loja. A peça mostra o resultado na tela do cliente e para —
+  prometer tradução automática volta como reclamação, e essa lição é do
+  carrossel da tradução, não desta peça;
+- **o motivo de serem dois recortes e não três.** Em português o cartão sai mais
+  alto, porque a altura da fileira segue o nome mais longo do setor; com três,
+  ou os rótulos desalinham ou o trio ganha um degrau. E o português não precisa
+  de prova numa peça em que ele está em cinco slides.
+
+**O lugar do slide reusado não é o lugar cronológico.** A bandeira fica na
+*primeira* tela do totem, então o slide caberia em quarto — e empurraria cupom
+e cashback para o sexto e o sétimo, desfazendo o que a rodada anterior fez de
+subir os dois. Idioma não é um passo do pedido, é um **modo do aparelho**: o
+cliente escolhe antes de tudo e não volta a pensar nisso. No penúltimo lugar
+ele vira o "e ainda atende quem não fala português", que é leitura de quem
+chegou até ali.
+
+> Slide reusado entra pela **função que ele cumpre no arco**, não pela ordem em
+> que o cliente encontra aquilo na tela.
+
+**E ele custou o teto de 8 slides.** A regra *slide novo custa slide velho* foi
+aplicada na rodada anterior e não tinha mais o que fundir: os nove slides dizem
+nove coisas diferentes. O teto é uma régua contra peça que cresce sem ganhar
+nada, e não um limite duro — quando o corte só tira conteúdo, é a régua que
+cede, com o motivo escrito no roteiro.
 
 ### Em peça de função, o tema entra no título — a pílula não basta
 
