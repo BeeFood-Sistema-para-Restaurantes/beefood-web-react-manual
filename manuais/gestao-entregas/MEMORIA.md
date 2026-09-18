@@ -71,18 +71,21 @@ mais **24 arquivos** em `src/components/gestao-entregas/` (~4.800 linhas), inclu
 4. **Cenário custa escrita em produção.** Criar pedido para despachar é venda real na sandbox, e
    cobrança na rua exige caixa aberto na filial.
 
-## Decisões pendentes com o dono
+## Decisões do dono (18/09/2026)
 
-1. **Quantos manuais?** A parte 1 (painel) e a parte 2 (app) têm tamanhos muito diferentes;
-   o `PLANO-ENTREGADOR.md` já estimava 1 a 2 só para o painel.
-2. **Numeração.** O último usado é o **#103**; a fila continuaria em **#104**.
-3. **O que fazer com o #57.** Ele tem cadastro (que continua válido) e prints velhos do app
-   (que o material novo substitui): atualizar, apontar para o manual novo, ou aposentar.
-4. **Como o material do app entra no manual.** Reaproveitar os prints como `imagens-puras` e
-   anotar no padrão da casa, ou publicar os 15 capítulos como estão, à parte.
+1. **Ainda não é para produzir o manual.** O pedido desta rodada era organizar o material e
+   continuar a conversa. Recorte, numeração e plano ficam para quando o dono retomar.
+2. **O #57 será aposentado**, e não atualizado — o manual novo ocupa o lugar dele. Registrado
+   na linha do #57 no `CHECKLIST-MANUAIS.md` e na `MEMORIA.md` daquele manual. **A remoção só
+   acontece quando o manual novo estiver pronto**: aposentar antes deixaria o app sem nenhum
+   manual publicado.
+3. **Capturas novas do app são possíveis** — o dono roda o emulador. O pedido tem de vir num
+   `.md` próprio, com o que preciso e como reproduzir, inclusive os scripts de cenário. Está em
+   [`pedidos/capturas-app.md`](pedidos/capturas-app.md): **12 prints em 5 pacotes**, sendo
+   três deles numa janela combinada, porque quem dispara é o painel.
 
 ## Próximo passo
 
-Escrever o plano do bloco em `references/planos/` (o fluxo da skill manda plano antes de
-produção quando o bloco é grande), com o recorte dos manuais, o cenário necessário e o que
-depende da máquina do dono.
+Esperar as capturas do pacote de 12 prints e a decisão de recorte. Quando o dono retomar, o
+fluxo da skill manda escrever o plano do bloco em `references/planos/` antes de produzir, porque
+o bloco é grande (o `PLANO-ENTREGADOR.md` já estimava 1 a 2 manuais só para o painel).

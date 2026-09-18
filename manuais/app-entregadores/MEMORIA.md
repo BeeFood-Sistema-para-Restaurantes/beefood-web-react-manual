@@ -1,5 +1,13 @@
 # MEMORIA.md — #57 BeeFood Entregador (aplicativo para motoboy)
 
+> 🗄️ **Este manual vai ser aposentado.** Decisão do dono em 18/09/2026, ao abrir o **#104
+> Gestão de Entregas**: os prints do celular aqui são de uma **versão anterior** do app
+> (cabeçalho branco, *FUNCIONÁRIO 1*, datas de 2024), e o app de hoje é outro. O material que
+> substitui já está em `manuais/gestao-entregas/material-recebido/`.
+>
+> **Não atualize este manual** e não use as imagens dele. A remoção acontece quando o #104
+> estiver pronto — antes disso, aposentar deixaria o app sem nenhum manual.
+
 ## Escopo
 Migração do artigo [BeeFood Aplicativo para Entregadores](https://ajuda.beefood.com.br/baseconhecimento/beefood-aplicativo-para-entregadores/).
 Mesma mentalidade da fila #49–#56: prints do **app** e do cupom antigo **copiados** para o repo; telas em que o BeeFood **salva** (funcionário, usuário, layout do cupom) com print **novo** (tema claro, Playwright 1440×900 DPR 1.5).
