@@ -67,7 +67,7 @@ NÃO leia outros arquivos (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `ima
 ## Observações de conteúdo
 
 - A imagem **`10-qr-tipos.png`** é a chave do manual: publique grande o suficiente para o leitor
-   70|  ler as três descrições.
+  ler as três descrições.
 - As imagens **`17`** e **`18`** fecham o exemplo prático. Não separe uma da outra.
 - Não afirmar que o cardápio do celular mostra o número da mesa na tela — o número vai no link do
   QR Code.

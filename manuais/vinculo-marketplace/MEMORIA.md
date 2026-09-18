@@ -52,7 +52,7 @@ capturar.
 
 ## 3. O teste que virou frase no manual
 
-   50|Pergunta: vincular por dentro do pedido resolve só aquele pedido, ou também ensina o sistema?
+Pergunta: vincular por dentro do pedido resolve só aquele pedido, ou também ensina o sistema?
 
 Medido em três passos, com o item *Complemento 1 - Segundo Nível* (pedido 871):
 

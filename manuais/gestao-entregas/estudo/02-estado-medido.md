@@ -117,7 +117,7 @@ A lista separa dois motivos de estar offline, e é uma distinção que o manual 
 
 | Entregador | O que a tela diz | O que está no Aurora |
 |---|---|---|
-    100|| BeeFood3 - Manual (`194115`) | *há 1 h · 310 m do restaurante · bateria 10%* | posição de hoje 13:42 UTC, app **3.3.0** |
+| BeeFood3 - Manual (`194115`) | *há 1 h · 310 m do restaurante · bateria 10%* | posição de hoje 13:42 UTC, app **3.3.0** |
 | Husky Sandbox (`264465`) | *há 116 h · 4,0 km do restaurante · bateria 92%* | posição de 13/09, `appVersao = 'teste-01'` (veio do teste de fluxo) |
 | Funcionário 1, novo moto2, novo motorista | *Nunca usou o app* | sem linha ou sem posição em `entregador_status` |
 
