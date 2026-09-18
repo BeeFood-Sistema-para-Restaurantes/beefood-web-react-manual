@@ -1578,6 +1578,14 @@ no CSS e nenhum slide usava, então ninguém sabia que ela estava disponível.
 
 ## O manual é referência, não acervo de imagem
 
+Vale igual para o site: a ilustração da página de vendas (o painel de pedidos
+estilizado da página de dark kitchen, o cartaz do KDS, a arte do link
+multilojas) é **referência de layout**, e não peça para recortar. Foi dela que
+saíram os nomes das colunas e a ordem dos blocos das telas desenhadas da 21ª
+rodada — lidos, e desenhados de novo com o nosso CSS de painel. Decisão do dono
+na abertura daquela rodada: *interprete as imagens e os vídeos da página para
+criar as suas imagens adaptadas*.
+
 O slide **não** aponta para o print do manual. Isso era regra até a 18ª rodada,
 está invertido desde a 19ª, e a história está em *a 19ª rodada devolveu a peça
 inteira*, abaixo. O print do manual serve para **ler**: quais campos existem, que

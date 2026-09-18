@@ -124,6 +124,24 @@ Primeiro decida **onde a tela mora** — é isso que define se existe captura:
 | app Android (Garçom, Entregador, Tablet) | não roda no Cloud Agent: **peça o print ao dono** (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) e, enquanto ele não vem, desenhe a tela em CSS copiando o print de produção (passo 4) |
 | cupom impresso | `ganchar_cupom` + `salvar_cupom`: o cupom nasce num iframe que vai para a impressora, então não dá para fotografar a tela |
 | coisa que não é tela (impressora, balança) | print do manual, se existir; senão desenho em CSS |
+| cenário que a conta de teste não tem (segunda marca, pedido de marketplace chegando) | **desenhe a tela**: `carrosseis/<slug>/telas/*.html` + `desenhar-telas.py` |
+
+**Cenário que o sandbox não tem: desenhe a tela.** É o terceiro degrau da
+ancoragem — *manual > tela capturada > tela desenhada* — e ele apareceu inteiro
+na peça de dark kitchen: o sandbox é uma loja, e o assunto eram três marcas.
+O fragmento fica em `carrosseis/<slug>/telas/`, declara a medida no elemento raiz
+(`<div class="tela" data-medida="1080x480">`) e sai em `imagens-puras/` pelo
+`desenhar-telas.py`, com `assets/telas/painel.css` — o cinza de página, o cartão
+branco, o selo de `Ativo`, o chip de ícone e a coluna de kanban do painel.
+
+Desenhar **não** é inventar produto, e são três obrigações: o **rótulo é o do
+sistema** (`Aguardando`, `Pronto/Entrega`, `Por Cardápio`, `Em Preparo` — lidos
+de print de produção); **número é exemplo**, um jogo só na peça e com as somas
+fechando; e a **arte da página do site não entra recortada** — ela é referência
+de layout, como print de manual. Quando a tela é para ler de longe (KDS na parede
+da cozinha), use `.tela--grande` e menos fichas por coluna: tela de 1280 px
+reduzida a 860 no feed leva corpo de 14 px para 9. O `roteiro.md` diz, tela por
+tela, o que é captura e o que é desenho.
 
 **Print do manual que não serve, você refaz — não desenha.** O cupom do manual
 *Destaque na impressão* sai com duas linhas em preto porque o manual precisava
@@ -580,12 +598,14 @@ carrosseis/<slug>/
 .cursor/skills/carrossel/
 ├── assets/slides/base.css   # os aparelhos e as telas desenhadas
 ├── assets/slides/*.html     # modelos de slide, prontos para copiar
+├── assets/telas/painel.css  # a aparência do painel, para a tela desenhada
 ├── assets/fotos/            # biblioteca: fotos de produto e telas reusáveis
 ├── assets/fundos/           # arte de fundo que entra no totem na captura
 ├── assets/midia/            # banner, cartaz de aviso e MP4 do cardápio digital
 ├── assets/catalogo/         # os aparelhos fotografados, e a folha com todos
 ├── scripts/capturar-totem.py, capturar-cardapio.py, fazer-midia.py,
-│          filmar-slide.py, preparar-fundo.py, catalogo.py
+│          filmar-slide.py, preparar-fundo.py, catalogo.py,
+│          desenhar-telas.py
 └── references/mockups.md    # o índice da prateleira: o que já existe e a medida
 ```
 
