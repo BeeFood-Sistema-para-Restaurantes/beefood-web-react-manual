@@ -654,6 +654,34 @@ download direto (`drive.usercontent.google.com/download?id=…&confirm=t`), porq
 devolve a página de visualização, não o arquivo. **Vale copiar essa função em qualquer manual
 cujas capturas venham de fora.**
 
+### WeTransfer também funciona — e não precisa de conta (confirmado em 18/09/2026)
+
+O link do WeTransfer é página, não arquivo: `curl` no endereço devolve HTML. Mas o próprio
+site pede o download por uma API pública, e o agente pode fazer a mesma chamada. Foi assim
+que os **18 MB** do material do app do entregador (#104) entraram no repositório.
+
+O link tem a forma `wetransfer.com/downloads/<transferID>/<recipientID>/<hash>`, e os três
+pedaços são exatamente o que a API quer:
+
+```bash
+TID=<transferID>; RID=<recipientID>; H=<hash>
+curl -sSL -c c.txt -o /dev/null "https://wetransfer.com/downloads/$TID/$RID/$H"   # pega o cookie
+URL=$(curl -sS -b c.txt -X POST "https://wetransfer.com/api/v4/transfers/$TID/download" \
+  -H "Content-Type: application/json" -H "x-requested-with: XMLHttpRequest" \
+  -H "Referer: https://wetransfer.com/downloads/$TID/$RID/$H" \
+  -d "{\"security_hash\":\"$H\",\"recipient_id\":\"$RID\",\"intent\":\"entire_transfer\"}" \
+  | python3 -c 'import json,sys; print(json.load(sys.stdin)["direct_link"])')
+curl -sSL -o pacote.zip "$URL"
+```
+
+A resposta é um `direct_link` assinado, com validade curta (o JWT do `token=` expira em
+minutos) — **peça o link e baixe na mesma rodada.** A página também traz a lista de arquivos
+em JSON (`"items":[{"name":…`), o que serve para conferir o pacote antes de baixar.
+
+**Ganho sobre o Drive:** não exige configurar compartilhamento nem converter o link, e o dono
+manda a pasta inteira de uma vez. Mesmos cuidados de sempre: conferir dado pessoal antes de
+versionar, e checar os links internos do pacote — os do #104 vinham com 8 caminhos quebrados.
+
 **O que resolve de verdade, para capturas que moram em outro repositório:** dar ao ambiente
 acesso a esse repositório, para o agente pegar os arquivos na origem em vez de depender de
 anexo. É o caso do #24: as capturas estão em `beetechbr/beetech-appgarcom-android`, em
