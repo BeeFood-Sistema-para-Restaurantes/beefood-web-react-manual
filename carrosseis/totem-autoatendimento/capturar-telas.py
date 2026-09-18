@@ -79,7 +79,11 @@ RECORTES = {
     # na borda do slide, e meia foto na borda lê como render que falhou.
     "cardapio-topo": (0, 0, 1080, 800),
     "turbinar": (0, 616, 1080, 800),
-    "peca-tambem": (0, 370, 1080, 450),
+    # Para 1030 e não 1080: a lista da sacola é um carrossel horizontal, e na
+    # borda da janela sobra uma lasca do cartão seguinte — nome e preço cortados
+    # no meio. A grade é de 256 px com 12 px de vão, então 1030 cai no vão
+    # depois do quarto cartão, qualquer que seja a sugestão daquele dia.
+    "peca-tambem": (0, 370, 1030, 450),
     # Só a pergunta do consumo. Mais abaixo a tela lista nome, telefone e mesa,
     # e ali estão os dados de teste digitados aqui — recorte que os mostrasse
     # poria um "TESTE" no meio da arte.
