@@ -6,11 +6,16 @@
   — **a página não tem conteúdo publicado**, ver a seção abaixo
 - **Manuais lidos:** nenhum documenta o totem. Sustentam parte do fato:
   [`venda-sugestiva-upsell`](../../manuais/venda-sugestiva-upsell/venda-sugestiva-upsell.md)
-  (a sugestão vale no totem, e o produto desativado no totem fica de fora) e
+  (a sugestão vale no totem, e o produto desativado no totem fica de fora),
+  [`cupom-desconto`](../../manuais/cupom-desconto/cupom-desconto.md) (o totem é
+  um dos **canais de visibilidade** do cupom),
+  [`cashback-configurar`](../../manuais/cashback-configurar/cashback-configurar.md)
+  (o totem é uma das **modalidades** do cashback, e o saldo cai em venda
+  quitada) e
   [`traducao-cardapio-presencial`](../../manuais/traducao-cardapio-presencial/traducao-cardapio-presencial.md)
   (o totem se configura em `Aplicativos → Totem de Autoatendimento`)
-- **Formato:** 4:5 (1080×1350), 7 slides
-- **Imagens:** 6 **capturas** do aplicativo de produção (`capturar-telas.py`).
+- **Formato:** 4:5 (1080×1350), 8 slides
+- **Imagens:** 7 **capturas** do aplicativo de produção (`capturar-telas.py`).
   Nenhuma tela desenhada
 
 ## A página está vazia, e por isso o fato vem da tela
@@ -31,13 +36,26 @@ web (`totem.beefood.app`), abre no Playwright e tem uma loja de exemplo com
 cardápio de verdade — então **tudo o que a peça mostra é print do aplicativo de
 produção**, e tudo o que ela afirma foi visto ali ou está num manual.
 
-O que é nosso nas capturas: só a **arte de fundo**. A loja de exemplo anuncia um
-pudim na tela de espera e na faixa do cardápio, e num post sobre autoatendimento
-o olho lê o preço do pudim em vez da tela. Entram as duas artes de
-`assets/fundos/`, pela mesma interceptação que o carrossel de tradução usa.
-
 **Nenhum pedido foi criado.** O roteiro de captura para no botão `Ir para
-pagamento`, que é a última tela antes do pinpad.
+pagamento`, que é a última tela antes do pinpad, e não toca no `Aplicar cupom`,
+que é um POST ao servidor da loja.
+
+### O que entra de fora da loja, e por quê
+
+Duas coisas, as duas pela interceptação de API que a skill já usava no carrossel
+da tradução:
+
+| O que | Por quê | De onde vem |
+|---|---|---|
+| a **arte de fundo** da tela de espera e da faixa do cardápio | a loja de exemplo anuncia um pudim com preço, e num post sobre autoatendimento o olho lê o preço do pudim em vez da tela | `assets/fundos/` |
+| a **lista de cupons** | `venda2/cupomDescontoAtivo?tipo=totem` responde `[]`, e sem lista o totem **esconde a tela de cupom inteira** | [`cupons.json`](cupons.json) |
+
+O que o arquivo de cupons tem é o que o restaurante escreveria no painel:
+código, título, benefício e regra. O aplicativo lê esses campos da resposta sem
+traduzir nada, e quem desenha a tela, os cartões tracejados e o campo de código
+é ele. O recorte do slide 5 **começa abaixo do cabeçalho**, onde está o
+logotipo da loja: cupom de exemplo não pode parecer promoção anunciada por um
+cliente nosso.
 
 ## O fato, inteiro
 
@@ -57,80 +75,121 @@ Conferido tela por tela, do toque até o pagamento:
    aplicativo responde *Necessário selecionar uma opção para "BURGER"*.
 5. **a sacola sugere o que falta**: bloco `Peça também` com o selo `Gerada por
    IA`, e os itens com foto e preço.
-6. **o totem pergunta como será o pedido**: `Para viagem` (Levar o pedido) ou
+6. **o cupom tem tela própria no totem.** Na confirmação há a linha `Cupom de
+   desconto` com o selo `2 cupons disponíveis`; ela abre `Adicionar cupom`, com
+   o campo `Digite o código`, o botão `Aplicar cupom` e a lista `Cupons
+   disponíveis`, cada cartão com código, benefício e as regras. Cupom de
+   primeira compra ou de um uso por cliente ganha o selo `Login`, porque exige
+   telefone. O manual `cupom-desconto` confirma o totem entre os **canais de
+   visibilidade**, e que a confirmação por SMS existe no cardápio digital e no
+   totem.
+7. **o cashback aparece três vezes, e nasce no telefone.** No item: `Ganha
+   R$ 1,20 em cashback!`. Na identificação: `Insira seu telefone e ganhe 5% de
+   cashback`. Na confirmação: a carteira do cliente (`Carteira vazia… por
+   enquanto!`, para quem não tem saldo) e, na barra, `Você ganhará de cashback
+   R$ 1,20`. Quem tem saldo vê `Cashback disponível` e o botão `Usar`. O manual
+   `cashback-configurar` confirma o totem entre as **modalidades** e diz que o
+   crédito entra em pedido **pago e finalizado**.
+8. **cupom e cashback não se somam.** O próprio aplicativo avisa: *Não combina
+   com cupom — remova o cupom para usar.*
+9. **o totem pergunta como será o pedido**: `Para viagem` (Levar o pedido) ou
    `Comer aqui` (Consumo no local).
-7. **o pagamento é no próprio aparelho.** A barra de baixo mostra `Total` e o
-   botão é `Ir para pagamento`.
-8. **a loja escolhe o que não entra.** `Desativar Totem`, no menu do produto,
-   tira o item do totem — e ele não é oferecido nem na venda sugestiva, mesmo
-   estando na lista (manual `venda-sugestiva-upsell`).
-9. **a sugestão é a mesma do painel**, e o que ela vendeu sai em `Desempenho →
-   Presencial → Sugestões` (manual `venda-sugestiva-upsell`).
-10. **o totem se configura no painel**, em `Aplicativos → Totem de
+10. **o pagamento é no próprio aparelho.** A barra de baixo mostra `Total` e o
+    botão é `Ir para pagamento`.
+11. **a loja escolhe o que não entra.** `Desativar Totem`, no menu do produto,
+    tira o item do totem — e ele não é oferecido nem na venda sugestiva, mesmo
+    estando na lista (manual `venda-sugestiva-upsell`).
+12. **o totem se configura no painel**, em `Aplicativos → Totem de
     Autoatendimento → aba Configuração` (manual `traducao-cardapio-presencial`).
 
-Fora da peça: a identificação por telefone e nome, e o cashback que ela dá. A
-tela existe e foi capturada, mas o que apareceria na arte são o nome e o
-telefone de teste que o script digita — e o assunto do post não é cadastro de
-cliente. A tradução do cardápio também fica de fora: já é a peça
-`traducao-cardapio-presencial`.
+Fora da peça: a tela da carteira de cashback na confirmação (o recorte
+mostraria o nome e o telefone de teste que o script digita), o aviso de que
+cupom e cashback não se combinam (é regra fina, e o slide entrega uma ideia só)
+e a tradução do cardápio, que já é a peça `traducao-cardapio-presencial`.
 
 ## O ângulo, e de onde ele sai
 
 O ângulo é **o pedido que não passa por ninguém**: o cliente escolhe, monta,
-decide se come ali ou leva e paga, tudo na mesma tela. Ele sai do que a empresa
-afirma do próprio produto ("pedidos e pagamentos diretamente no totem") e do que
-a tela mostra — não de cena inventada sobre a rotina de ninguém. A peça não diz
-que existe fila no balcão dele, não diz quantos atendentes ele tem e não promete
-economia: nada disso está na tela nem no manual.
+aplica o cupom, deixa o telefone do cashback, decide se come ali ou leva e paga,
+tudo na mesma tela. Ele sai do que a empresa afirma do próprio produto
+("pedidos e pagamentos diretamente no totem") e do que a tela mostra — não de
+cena inventada sobre a rotina de ninguém. A peça não diz que existe fila no
+balcão dele, não diz quantos atendentes ele tem, não promete economia e não
+promete que o cliente volta: nada disso está na tela nem no manual.
 
 | Fato | Ângulo | O que o slide diz |
 |---|---|---|
 | Da tela de espera ao `Ir para pagamento`, quem toca é o cliente | o pedido inteiro acontece sem ninguém do outro lado | "O cliente pede **e paga** sozinho no totem" (1) |
-| Cinco toques do começo ao fim, todos na mesma tela | quem nunca viu um não sabe até onde o aparelho vai | "O totem conduz o pedido do começo ao fim" (2) |
+| Seis toques do começo ao fim, todos na mesma tela | quem nunca viu um não sabe até onde o aparelho vai | "O totem conduz o pedido do começo ao fim" (2) |
 | O cardápio do totem é o cadastro da loja, com foto e preço | é o cardápio dele, não um cardápio à parte para manter | "O cardápio do totem é o seu" (3) |
-| `QUER TURBINAR O SEU BURGER?` oferece bacon a `+ R$ 4,00` em todo pedido | o adicional é o que sobe o ticket, e ele é oferecido sempre | "Ofereça o adicional em todo pedido" (4) |
-| `Peça também`, com o selo `Gerada por IA`, na sacola | a última chance de vender é antes de fechar | "E a sacola ainda sugere o que falta" (5) |
-| `Para viagem` ou `Comer aqui`, `Total` e `Ir para pagamento` | o cliente sai do totem com o pedido pago | "Comer aqui ou levar, e o pagamento termina ali" (6) |
-| O aparelho, o cardápio e o pagamento estão na página do sistema | quem lê pode não ter conta | "Conheça o totem por dentro" (7) |
+| `QUER TURBINAR O SEU BURGER?` no item e `Peça também` na sacola | o aparelho oferece mais duas vezes, e sem depender de quem atende | "Ofereça o adicional duas vezes no mesmo pedido" (4) |
+| `Cupom de desconto` é linha na confirmação, com campo de código e lista | o cupom do CRM não para no delivery | "O seu cupom vale no totem também" (5) |
+| `Insira seu telefone e ganhe 5% de cashback` | o autoatendimento não é anônimo: ele cadastra e credita | "Quem deixa o telefone ganha cashback" (6) |
+| `Para viagem` ou `Comer aqui`, `Total` e `Ir para pagamento` | o cliente sai do totem com o pedido pago | "Comer aqui ou levar, e o pagamento termina ali" (7) |
+| O aparelho, o cardápio e o pagamento estão na página do sistema | quem lê pode não ter conta | "Conheça o totem por dentro" (8) |
 
 ## Os slides
 
 | # | Arquivo | Tipo | Ideia única | Imagem |
 |---|---|---|---|---|
-| 1 | `01-capa.html` | capa com imagem | o cliente pede e paga sozinho | o totem inteiro, com a tela de espera (captura) |
-| 2 | `02-como-funciona.html` | texto + lista | o aparelho vai do toque ao pagamento | nenhuma: são os cinco passos em lista |
-| 3 | `03-cardapio.html` | recorte grande | o cardápio do totem é o cadastro da loja | topo do cardápio: setores, foto e preço (captura) |
-| 4 | `04-adicional.html` | recorte grande | o adicional é oferecido em todo pedido | `QUER TURBINAR O SEU BURGER?` com os preços (captura) |
-| 5 | `05-peca-tambem.html` | recorte largo | a sacola sugere antes de fechar | `Peça também` com o selo `Gerada por IA` (captura) |
-| 6 | `06-pagamento.html` | dois recortes | o pagamento termina no aparelho | `Como será o pedido?` e `Ir para pagamento` (capturas) |
-| 7 | `07-cta.html` | capa + mockup | a página do sistema | o totem com o cardápio, sangrando pela base (captura) |
+| 1 | `01-capa.html` | capa com cena | o cliente pede e paga sozinho | o totem inteiro com o cardápio, e dois selos: cupom e cashback |
+| 2 | `02-como-funciona.html` | texto + lista | o aparelho vai do toque ao pagamento | nenhuma: são os seis passos em lista |
+| 3 | `03-cardapio.html` | recorte grande | o cardápio do totem é o cadastro da loja | topo do cardápio: setores, foto e preço |
+| 4 | `04-venda-sugestiva.html` | dois recortes | o totem oferece mais em dois momentos | `QUER TURBINAR O SEU BURGER?` e `Peça também` |
+| 5 | `05-cupom.html` | recorte grande | o cupom do CRM funciona no aparelho | `Adicionar cupom` e a lista `Cupons disponíveis` |
+| 6 | `06-cashback.html` | recorte largo | o totem cadastra e credita | `Insira seu telefone e ganhe 5% de cashback` |
+| 7 | `07-pagamento.html` | dois recortes | o pagamento termina no aparelho | `Como será o pedido?` e `Ir para pagamento` |
+| 8 | `08-cta.html` | capa + mockup | a página do sistema | o totem parado, na tela de espera |
 
 ## Decisões de arte
 
 **A capa é o aparelho inteiro, e não um recorte de tela.** O assunto é o cliente
 de pé na frente de uma máquina: sem a máquina, o post vira "cardápio digital".
 O `.totem` vai reto, como manda a `mockups.md` — armário em pé girado lê como
-armário tombando — e a tela é a captura de 720p, porque em 1080p reduzida para
-420 px o `FAÇA SEU PEDIDO` vira um risco vermelho.
+armário tombando.
 
-**Do slide 3 ao 6 o print vai sem aparelho em volta.** É a escolha contrária à
+**Na tela da capa vai o cardápio, e a tela de espera foi para o fim.** A regra é
+da skill: *na capa, tela cheia ganha de tela ícone*. A tela de espera é uma foto
+com um botão, e dentro de um aparelho de 360 px vira mancha escura com um risco
+vermelho; o cardápio tem nove cartões com foto, nome e preço, e lê "aqui se
+compra" mesmo pequeno. No slide 8 a ordem se inverte: ali o aparelho parado,
+esperando o próximo cliente, fecha o arco — e repetir a mesma tela nas duas
+pontas seria repetir a imagem.
+
+**Os dois selos da capa são a promessa da peça.** `Cupom de desconto` e `5% de
+cashback` são o que o carrossel entrega além do pedido, e sem eles a capa
+promete menos do que a peça tem. Eles são desenhados, e não recortados da tela:
+o recorte real da linha de cupom tem 1032 px de largura e, reduzido para caber
+ao lado do aparelho, fica ilegível — e posto por cima do vidro cobriria nome e
+preço de produto, que é o que a `mockups.md` chama de defeito de render. O texto
+dos dois é o da tela.
+
+**Do slide 3 ao 7 o print vai sem aparelho em volta.** É a escolha contrária à
 da capa, e pelo mesmo motivo: ali a tela precisa ser **lida**. A tela do totem é
 1080×1920; dentro de um mockup de 420 px de largura a letra do cardápio sai com
 11 px no feed. Recortada e mostrada com 940 px de largura, a mesma letra sai com
 24 px. O aparelho já foi estabelecido na capa, e o `.recorte` preto continua
 lendo como tela de totem porque o aplicativo é escuro.
 
-**Cada recorte é uma faixa contínua da tela, nunca uma montagem.** O slide 6 tem
-dois recortes porque são duas partes distantes da mesma tela — o topo e a barra
-de baixo — e entre elas há 800 px de fundo vazio. Empilhá-las coladas as faria
-passar por uma tela só, que é o que elas não são; por isso vão separadas, com
-espaço e com legenda própria.
+**Cada recorte é uma faixa contínua da tela, nunca uma montagem.** Os slides 4 e
+7 têm dois recortes porque são duas telas (4) e duas faixas distantes da mesma
+tela (7). Empilhá-las coladas as faria passar por uma tela só, que é o que elas
+não são; por isso vão separadas, com respiro.
+
+**A venda sugestiva perdeu um slide quando a fidelidade ganhou dois.** Eram dois
+slides — o adicional no item e o `Peça também` na sacola — e viraram um, com as
+duas faixas mais baixas. A ideia de uso é a mesma (a tela oferece antes de
+deixar fechar) e o ganho precisa chegar cedo: com dois slides de venda
+sugestiva, o cupom cairia no sexto, e quem rola o feed costuma parar no quinto.
 
 **O item é avulso, não combo.** No combo o preço aparece como `A partir de
 R$ 35,90`, e a peça fala de preço e de adicional com valor fechado. `ONE BURGER
-R$ 24,00` mais `+ R$ 4,00` de bacon é uma conta que o leitor acompanha.
+R$ 24,00` mais `+ R$ 4,00` de bacon é uma conta que o leitor acompanha — e os
+5% do cashback dão o `R$ 1,20` que aparece na barra do slide 7. É um jogo de
+números só, na peça inteira.
 
-**O CTA repete o aparelho, com o cardápio na tela.** No fim a tela não precisa
-ser lida — precisa dizer "é o mesmo aparelho do começo". Ele sangra pela base,
-que é o que a `mockups.md` autoriza no totem: a borda de baixo lê como chão.
+**No slide do cashback a tela é a da identificação, e o campo está vazio.** São
+duas telas possíveis: esta, em que o totem **oferece** o programa, e a da
+carteira, em que ele mostra o saldo. A primeira serve melhor porque é o que o
+cliente sem saldo vê — e porque o recorte da segunda traria o nome e o telefone
+de teste que o roteiro de captura digita.
