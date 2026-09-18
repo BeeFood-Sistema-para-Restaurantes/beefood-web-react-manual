@@ -10,12 +10,21 @@ Este script também aponta o **manual correspondente**, quando existe. É a
 costura com a skill de manual: a novidade dá o gancho e a data, o manual dá o
 passo a passo conferido no sistema. Nada aqui escreve em `manuais/`.
 
+O outro gênero de pauta é a **função do sistema**, e ela não tem feed: mora numa
+página de `beefood.com.br` (um segmento, um módulo, um tema). `--pagina` lê essa
+página e devolve os blocos, a lista de funcionalidades e o FAQ — mais duas
+colunas que existem só aqui: qual **manual** sustenta cada eixo (e quais não
+têm nenhum, que é onde a tela vai ter de ser capturada ou desenhada) e quais
+frases da página são **claim institucional**, que não vira slide.
+
 Uso:
     python pauta.py                              # as 15 novidades mais recentes
     python pauta.py --limite 40 --tipo Novidade
     python pauta.py --buscar cupom
     python pauta.py --slug destaque-impressao    # material bruto de um item
     python pauta.py --slug destaque-impressao --json
+    python pauta.py --pagina https://beefood.com.br/sistema-dark-kitchen/
+    python pauta.py --pagina <url> --json
 """
 
 from __future__ import annotations
@@ -26,6 +35,7 @@ import re
 import sys
 import urllib.request
 from email.utils import parsedate_to_datetime
+from html.parser import HTMLParser
 from pathlib import Path
 from xml.etree import ElementTree
 
@@ -103,6 +113,167 @@ def manual_de(ficha: dict) -> Path | None:
     return melhor if nota_melhor >= 2 else None
 
 
+# --- pauta de função: uma página do site -------------------------------------
+#
+# Página de segmento é WordPress com Elementor: o mesmo texto costuma sair duas
+# vezes (variante de desktop e de celular) e vem embalado em dezenas de divs.
+# Não há por que dirigir navegador: o que interessa é a hierarquia de títulos e
+# o texto solto embaixo de cada um, e isso o parser da biblioteca-padrão lê.
+IGNORAR = {"script", "style", "noscript", "svg", "path", "template", "head"}
+TITULOS = {"h1", "h2", "h3", "h4", "h5", "h6"}
+TEXTOS = {"p", "li", "figcaption", "blockquote", "summary", "a", "span"}
+
+# Frase que vende a empresa, não o produto: ela pauta, mas não vira slide.
+INSTITUCIONAL = re.compile(
+    r"(\+?\s*\d[\d\.\s]*\s*(mil|milh[oõ]es)"          # +100 mil negócios
+    r"|melhor(es)?\s+(avalia|suporte|sistema)"         # melhor avaliação/suporte
+    r"|avalia[cç][aã]o\s+no\s+google"
+    r"|l[ií]der\s+(de|do|em)"
+    r"|n[ºo°]\s*1\b"
+    r"|sem\s+custos?\b)", re.I)
+
+
+class LeitorPagina(HTMLParser):
+    """Devolve a página como uma lista de (tag, texto), na ordem em que aparece."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.blocos: list[tuple[str, str]] = []
+        self._pilha: list[str] = []
+        self._buf: list[str] = []
+        self._pulando = 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag in IGNORAR:
+            self._pulando += 1
+        elif tag in TITULOS or tag in TEXTOS:
+            self._fechar()
+            self._pilha.append(tag)
+        elif tag == "br":
+            self._buf.append(" ")
+
+    def handle_endtag(self, tag):
+        if tag in IGNORAR:
+            self._pulando = max(0, self._pulando - 1)
+        elif tag in TITULOS or tag in TEXTOS:
+            self._fechar()
+
+    def handle_data(self, dado):
+        if not self._pulando and self._pilha:
+            self._buf.append(dado)
+
+    def _fechar(self) -> None:
+        if self._pilha:
+            texto = re.sub(r"\s+", " ", "".join(self._buf)).strip()
+            if texto:
+                self.blocos.append((self._pilha[-1], texto))
+            self._pilha.pop()
+        self._buf = []
+
+    def close(self):
+        while self._pilha:
+            self._fechar()
+        super().close()
+
+
+def ler_pagina(url: str) -> dict:
+    leitor = LeitorPagina()
+    leitor.feed(baixar(url).decode("utf-8", "replace"))
+    leitor.close()
+
+    # Elementor repete o mesmo texto em variantes de layout: a segunda cópia não
+    # acrescenta pauta nenhuma.
+    vistos, limpos = set(), []
+    for tag, texto in leitor.blocos:
+        chave = normalizar(texto)
+        if len(texto) < 3 or chave in vistos:
+            continue
+        # Link e span só interessam quando são pergunta: no acordeão de FAQ o
+        # título da aba é um `<span>` (ou um `<a>`, dependendo do widget). O
+        # resto é menu, botão e rótulo de ícone.
+        if tag in ("a", "span") and not texto.endswith("?"):
+            continue
+        # Menu de cabeçalho e rodapé chega como uma linha só, comprida e sem
+        # ponto ("Produtos Delivery Cardápio Digital WhatsApp Bot …").
+        if len(texto.split()) > 25 and "." not in texto:
+            continue
+        vistos.add(chave)
+        limpos.append((tag, texto))
+
+    secoes: list[dict] = []
+    faq: list[str] = []
+    claims: list[str] = []
+    atual = {"titulo": "(abertura)", "nivel": "h0", "linhas": []}
+    for tag, texto in limpos:
+        if INSTITUCIONAL.search(texto) and len(texto) < 120:
+            claims.append(texto)
+            continue
+        if tag in TITULOS:
+            if atual["linhas"] or atual["titulo"] != "(abertura)":
+                secoes.append(atual)
+            atual = {"titulo": texto, "nivel": tag, "linhas": []}
+        else:
+            if texto.endswith("?"):
+                faq.append(texto)
+            atual["linhas"].append(texto)
+    secoes.append(atual)
+
+    titulo = next((t for tag, t in limpos if tag == "h1"), "")
+    return {
+        "url": url,
+        "titulo": titulo or (secoes[1]["titulo"] if len(secoes) > 1 else url),
+        "secoes": [s for s in secoes if s["linhas"] or s["nivel"] in ("h1", "h2")],
+        "faq": faq,
+        "claims": claims,
+        "texto": " ".join(t for _, t in limpos),
+    }
+
+
+def manual_por_termos(texto: str) -> Path | None:
+    """Mesma costura do `manual_de`, mas a partir de um pedaço de texto solto."""
+    if not MANUAIS.is_dir():
+        return None
+    alvo = {p for p in normalizar(texto).replace("-", " ").split()
+            if len(p) > 3 and p not in VAZIAS}
+    melhor, nota_melhor = None, 0
+    for pasta in sorted(p for p in MANUAIS.iterdir() if p.is_dir()):
+        palavras = {p for p in normalizar(pasta.name).split("-") if len(p) > 3}
+        nota = len(alvo & palavras)
+        if nota > nota_melhor:
+            melhor, nota_melhor = pasta, nota
+    return melhor if nota_melhor >= 2 else None
+
+
+def imprimir_pagina(ficha: dict) -> None:
+    print(f"# {ficha['titulo']}\n")
+    print(f"- Gênero: função do sistema (a capa NÃO leva pílula Novidade)")
+    print(f"- Fonte: {ficha['url']}")
+    print("- A página é pauta, não fato: o que o slide afirma sai do manual ou da tela\n")
+
+    print("## Blocos da página\n")
+    for s in ficha["secoes"]:
+        if s["titulo"] == "(abertura)" and not s["linhas"]:
+            continue
+        manual = manual_por_termos(s["titulo"] + " " + " ".join(s["linhas"][:3]))
+        marca = f"manual: {manual.name}" if manual else "SEM manual — captura ou desenho"
+        print(f"### {s['titulo']}  [{marca}]")
+        for linha in s["linhas"][:6]:
+            print(f"    - {linha}")
+        print()
+
+    if ficha["faq"]:
+        print("## Perguntas da própria página (bom banco de ângulo)\n")
+        for p in ficha["faq"]:
+            print(f"- {p}")
+        print()
+
+    if ficha["claims"]:
+        print("## NÃO vira slide (claim institucional)\n")
+        for c in ficha["claims"]:
+            print(f"- {c}")
+        print()
+
+
 def imprimir_lista(lista: list[dict]) -> None:
     print(f"{'DATA':<12}{'TIPO':<11}{'SLUG':<44}TÍTULO")
     print("-" * 110)
@@ -139,8 +310,20 @@ def main() -> int:
     ap.add_argument("--tipo", help="filtra por tipo (Novidade, Melhoria)")
     ap.add_argument("--buscar", help="filtra por termo no título ou no texto")
     ap.add_argument("--limite", type=int, default=15)
+    ap.add_argument("--pagina", help="pauta de função: uma página de beefood.com.br")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
+
+    if args.pagina:
+        try:
+            ficha = ler_pagina(args.pagina)
+        except Exception as erro:
+            sys.exit(f"ERRO ao ler {args.pagina}: {erro}")
+        if args.json:
+            print(json.dumps(ficha, ensure_ascii=False, indent=2))
+        else:
+            imprimir_pagina(ficha)
+        return 0
 
     try:
         lista = fichas(baixar(FEED))
