@@ -54,17 +54,21 @@ def font(sz):
 FUNDO = (233, 237, 239)
 
 
-def com_margem(nome, esq=0.0, topo=0.0, fundo=FUNDO):
+def com_margem(nome, esq=0.0, topo=0.0, dire=0.0, fundo=FUNDO):
     """Acrescenta margem clara à pura, para etiqueta e seta viverem **fora** da tela.
 
     Tela de celular é estreita e cheia: etiqueta dentro cobre texto, e foi o que aconteceu na
     primeira rodada do leitor de código de barras. Com margem, a seta entra pela borda e o
-    print fica inteiro visível. `esq` e `topo` são frações da imagem original.
+    print fica inteiro visível. `esq`, `topo` e `dire` são frações da imagem original.
+
+    A margem da direita existe pelo motivo oposto à da esquerda: a coluna direita da tela do app
+    é onde moram a flecha `>`, o selo de estado e o `!` de atraso. Alcançá-los pela esquerda
+    obriga a seta a atravessar o cartão inteiro por cima do endereço.
     """
     img = Image.open(os.path.join(SRC, nome)).convert("RGB")
     W, H = img.size
-    dx, dy = int(W * esq), int(H * topo)
-    tela = Image.new("RGB", (W + dx, H + dy), fundo)
+    dx, dy, dd = int(W * esq), int(H * topo), int(W * dire)
+    tela = Image.new("RGB", (W + dx + dd, H + dy), fundo)
     tela.paste(img, (dx, dy))
     tela.save(os.path.join(SRC, nome))
     print("MARGEM", nome, tela.size)
@@ -95,6 +99,39 @@ def copiar_pura(origem, nome):
     """Print que já está em `imagens-puras/` de outro manual (mesma captura, outra anotação)."""
     shutil.copyfile(origem, os.path.join(SRC, nome))
     print("PURA", nome, "(copiada de outro manual)")
+
+
+# Todo print do material tem 1440x3120. Eu leio as posições numa prévia de 473x1024 — a mesma
+# proporção — e é nessa grade que as medições deste arquivo estão escritas. Medir uma vez, na
+# tela inteira, e deixar o `rec()` converter é o que permite mexer no recorte depois sem
+# remedir nada.
+W0, H0 = 473, 1024
+M = 0.30       # margem esquerda padrão, em fração da imagem final
+ETQ = 0.10     # x da etiqueta, dentro da margem esquerda
+
+
+def margem(nome, m=M, tm=0.0, md=0.0):
+    """Margem em fração **do resultado** — o `com_margem()` pede em fração do print."""
+    dentro = 1 - m - tm * 0 - md
+    com_margem(nome,
+               esq=m / dentro if m else 0.0,
+               topo=tm / (1 - tm) if tm else 0.0,
+               dire=md / dentro if md else 0.0)
+
+
+def rec(caixa, m=M, tm=0.0, md=0.0):
+    """Converte pixel da prévia do print inteiro em fração da imagem final já recortada.
+
+    `caixa` é o mesmo recorte passado ao `copiar()`; `m`, `tm` e `md` são as margens que o
+    `margem()` acrescentou, em fração da imagem final.
+    """
+    x0, x1 = caixa[0] * W0, caixa[2] * W0
+    y0, y1 = caixa[1] * H0, caixa[3] * H0
+
+    def f(x, y):
+        return (m + (1 - m - md) * (x - x0) / (x1 - x0),
+                tm + (1 - tm) * (y - y0) / (y1 - y0))
+    return f
 
 
 def seta(d, x0, y0, x1, y1, w):
@@ -158,33 +195,6 @@ def lado_a_lado(nomes, destino, espaco=24, fundo=(233, 237, 239)):
         x += i.size[0] + espaco
     tela.save(os.path.join(SRC, destino))
     print("JUNTA", destino, tela.size)
-
-
-W0, H0 = 473, 1024     # a prévia em que medi os prints do material (mesma proporção de 1440x3120)
-M = 0.30               # margem esquerda, em fração da imagem final
-
-
-def rec(caixa, m=M, tm=0.0):
-    """Converte pixel da prévia do print inteiro em fração da imagem final já recortada.
-
-    `caixa` é o mesmo recorte passado ao `copiar()`; `m` e `tm` são as margens que o
-    `com_margem()` acrescentou, em fração **da imagem final**.
-    """
-    x0, x1 = caixa[0] * W0, caixa[2] * W0
-    y0, y1 = caixa[1] * H0, caixa[3] * H0
-
-    def f(x, y):
-        return (m + (1 - m) * (x - x0) / (x1 - x0),
-                tm + (1 - tm) * (y - y0) / (y1 - y0))
-    return f
-
-
-def margem(nome, m=M, tm=0.0):
-    """`com_margem()` pede a margem em fração do print; aqui eu penso em fração do resultado."""
-    com_margem(nome, esq=m / (1 - m), topo=tm / (1 - tm) if tm else 0.0)
-
-
-ETQ = 0.10             # x da etiqueta, dentro da margem esquerda
 
 
 # ---------------------------------------------------------------------------------------

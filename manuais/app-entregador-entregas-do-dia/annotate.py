@@ -1,17 +1,18 @@
-"""Anota as capturas do #114 — Código de barras: ligar no cupom e ler no aplicativo.
+"""Anota as capturas do #112 — App do entregador: as entregas do dia e o histórico.
 
-São duas origens diferentes, e por isso duas convenções de coordenada convivem aqui:
+Mesma técnica do #111: os prints vêm do material do dono (emulador `Pixel_7_Pro`), `copiar()`
+recorta por fração e `rec()` converte pixel da prévia de 473x1024 — a proporção exata de
+1440x3120 — em fração da imagem final, já com as margens.
 
-* **Painel** (`01` e `02`): capturas de `/tmp/ge/cap-barras.py`, em 2160x1350. Elas nascem no
-  #104, que mostra a mesma tela no contexto de liberar o entregador; aqui o recorte é outro
-  (só a caixinha do código de barras), e a anotação é própria. `copiar_pura()` traz o arquivo.
-* **Aplicativo** (`04` a `06`): prints do emulador Android que vieram no material do dono, em
-  1440x3120. Recortados por fração para tirar a faixa preta, e reamostrados para 700 px de
-  largura, que é o que deixa três telas de celular lado a lado na mesma página.
+Duas imagens nascem de recorte **dentro** de um print maior, e é de propósito:
 
-O cupom (`03`) é a única imagem que não é de tela: é a prévia de impressão do pedido, com a
-etiqueta no pé — e o endereço do cliente já sai borrado da pura, porque o repositório é
-público.
+* `02-cartao.png` é um cartão só, tirado da lista de quatro. O cartão tem seis informações em
+  três linhas apertadas; na lista inteira, seis etiquetas viravam um emaranhado. Sozinho, com
+  margem à esquerda **e** em cima, cada uma tem espaço.
+* `05-rodape.png` é a faixa escura dos detalhes. Ela é a parte que o entregador olha na porta do
+  cliente, e some no meio de uma tela que tem mais dois cartões acima.
+
+Nenhuma outra tela do app precisa disso: as demais têm uma informação por linha.
 """
 
 import math
@@ -192,74 +193,129 @@ def lado_a_lado(nomes, destino, espaco=24, fundo=(233, 237, 239)):
     print("JUNTA", destino, tela.size)
 
 
-def p(x, y, W=2160, H=1350):
-    """Pixel da captura do painel -> fração. Os valores vêm dos `.geo.json` do #104."""
-    return x / W, y / H
-
-
-M = 0.30      # margem esquerda das telas de celular
-
-
-def t(x, y, m=M):
-    """Fração medida no print do celular -> fração na imagem com margem."""
-    return m + (1 - m) * x, y
-
-
 # ---------------------------------------------------------------------------------------
-# 01 e 02 — o painel: onde a etiqueta é ligada
+# 01 a 03 — a lista de entregas
 # ---------------------------------------------------------------------------------------
-copiar_pura("../gestao-entregas-liberar-entregador/imagens-puras/06-impressao-layout.png",
-            "01-impressao-layout.png")
-annotate("01-impressao-layout.png", [
-    (1, *p(911, 103), *p(830, 250)),        # aba Layout
-    (2, *p(600, 380), *p(600, 520)),        # Cupom Pedido
-    (3, *p(1966, 380), *p(2060, 250)),      # lápis
-], r=26, w=4)
-
-copiar_pura("../gestao-entregas-liberar-entregador/imagens-puras/07-cupom-texto-padrao.png",
-            "02-cupom-texto-padrao.png")
-annotate("02-cupom-texto-padrao.png", [
-    (1, *p(1141, 312), *p(1141, 200)),      # aba Texto Padrão
-    (2, *p(591, 999), *p(420, 1080)),       # caixinha Código de Barras App Entrega
-    (3, *p(591, 957), *p(420, 880)),        # QR Code Cardápio Digital, que não é isto
-    (4, *p(1468, 1155), *p(1468, 1265)),    # SALVAR E FECHAR
-], r=26, w=4)
-
-# ---------------------------------------------------------------------------------------
-# 03 — o cupom com a etiqueta no pé
-# ---------------------------------------------------------------------------------------
-# Única imagem do repositório que **já vem marcada na pura**: ela nasceu no #57, com a moldura e
-# a seta desenhadas fora daqui, e é a prévia de um cupom impresso de verdade. Anotar de novo
-# empilharia duas marcações sobre o mesmo alvo, então entra por `passthrough()`.
-copiar_pura("../gestao-entregas-liberar-entregador/imagens-puras/08-cupom-impresso.png",
-            "03-cupom-impresso.png")
-passthrough("03-cupom-impresso.png")
-
-# ---------------------------------------------------------------------------------------
-# 04 a 07 — o aplicativo
-# ---------------------------------------------------------------------------------------
-# O rodapé do app. Sem etiqueta numerada de propósito: as quatro abas ficam colada uma na
-# outra e qualquer número cobriria o nome de alguma. A moldura basta, e o texto cita a aba.
+C1 = (0, 0.105, 1, 0.845)
 copiar("03-lista-de-entregas/prints/01-lista-quatro-entregas.png",
-       "04-aba-codigo-barras.png", caixa=(0, 0.905, 1, 0.985), largura=900)
-annotate("04-aba-codigo-barras.png", molduras=[(0.50, 0.06, 0.245, 0.86)], w=5)
+       "01-lista.png", caixa=C1, largura=760)
+passthrough("01-lista.png")
 
-copiar("08-codigo-de-barras/prints/01-leitor-aberto.png",
-       "05-leitor-aberto.png", caixa=(0, 0.26, 1, 0.75), largura=700)
-com_margem("05-leitor-aberto.png", esq=M / (1 - M))
-annotate("05-leitor-aberto.png", [
-    (1, *t(0.225, 0.137), 0.10, 0.137),     # LEITURA DE CÓDIGO
-    (2, *t(0.06, 0.265), 0.10, 0.265),      # faixa de status (Aguardando Leitura)
-    (3, *t(0.02, 0.49), 0.10, 0.49),        # faixa da câmera, entre as linhas vermelhas
-    (4, *t(0.06, 0.878), 0.10, 0.878),      # VOLTAR
+# Um cartão só. Seis informações em três linhas: com margem à esquerda **e** em cima, três
+# etiquetas apontam para baixo e duas entram pela lateral, sem uma cobrir a outra.
+C2, M2, TM2 = (0, 0.115, 1, 0.305), 0.22, 0.28
+copiar("03-lista-de-entregas/prints/01-lista-quatro-entregas.png",
+       "02-cartao.png", caixa=C2, largura=900)
+margem("02-cartao.png", m=M2, tm=TM2)
+a = rec(C2, m=M2, tm=TM2)
+annotate("02-cartao.png", [
+    (1, *a(60, 148), a(60, 0)[0], 0.09),         # a etiqueta #1026
+    (2, *a(137, 160), a(137, 0)[0], 0.09),       # Previsão Entrega, com a hora
+    (3, *a(448, 220), a(448, 0)[0], 0.09),       # a flecha >
+    (4, *a(18, 213), 0.07, a(0, 213)[1]),        # o círculo da parada
+    (5, *a(48, 291), 0.07, a(0, 291)[1]),        # Cobrar R$
+], r=34, w=5)
+
+C3 = (0, 0.70, 1, 0.905)
+copiar("03-lista-de-entregas/prints/02-fim-da-lista.png",
+       "03-fim-da-lista.png", caixa=C3, largura=760)
+margem("03-fim-da-lista.png")
+a = rec(C3)
+annotate("03-fim-da-lista.png", [
+    (1, *a(140, 781), ETQ, a(0, 781)[1]),        # ATUALIZAR
+    (2, *a(24, 899), ETQ, a(0, 899)[1]),         # MELHOR ROTA GOOGLE MAPS (4)
 ], r=26, w=4)
 
-copiar("08-codigo-de-barras/prints/02-codigo-na-faixa.png",
-       "06-codigo-na-faixa.png", caixa=(0, 0.26, 1, 0.75), largura=700)
-com_margem("06-codigo-na-faixa.png", esq=M / (1 - M))
-annotate("06-codigo-na-faixa.png", [
-    (1, *t(0.02, 0.49), 0.10, 0.49),        # o código dentro da faixa
+# ---------------------------------------------------------------------------------------
+# 04 a 07 — os detalhes da entrega
+# ---------------------------------------------------------------------------------------
+C4 = (0, 0.055, 1, 0.70)
+copiar("04-detalhes-da-entrega/prints/01-topo-dos-detalhes.png",
+       "04-detalhes.png", caixa=C4, largura=760)
+margem("04-detalhes.png")
+a = rec(C4)
+annotate("04-detalhes.png", [
+    (1, *a(30, 190), ETQ, a(0, 190)[1]),         # o endereço
+    (2, *a(36, 241), ETQ, a(0, 241)[1]),         # a tarja do complemento
+    (3, *a(30, 299), ETQ, a(0, 299)[1]),         # Observações, em laranja
+    (4, *a(36, 337), ETQ, 0.46),                 # VER NO MAPA
+    (5, *a(30, 456), ETQ, a(0, 456)[1]),         # os itens do pedido
+    (6, *a(42, 528), ETQ, a(0, 528)[1]),         # a linha preta do item em destaque
+    (7, *a(30, 590), ETQ, a(0, 590)[1]),         # Estabelecimento e Destinatário
+], r=30, w=4)
+
+# A faixa escura, sozinha. É o que o entregador olha na porta do cliente, e na tela inteira ela
+# fica no pé, depois de dois cartões.
+C5 = (0, 0.725, 1, 0.99)
+copiar("04-detalhes-da-entrega/prints/01-topo-dos-detalhes.png",
+       "05-rodape.png", caixa=C5, largura=760)
+margem("05-rodape.png")
+a = rec(C5)
+annotate("05-rodape.png", [
+    (1, *a(22, 778), ETQ, a(0, 778)[1]),         # FORMA DE PAGAMENTO
+    (2, *a(22, 830), ETQ, a(0, 830)[1]),         # TOTAL, TROCO e COBRAR
+    (3, *a(36, 896), ETQ, a(0, 896)[1]),         # INICIAR COBRANÇA
+    (4, *a(36, 961), ETQ, a(0, 961)[1]),         # FINALIZAR SEM COBRAR
 ], r=26, w=4)
 
-copiar("08-codigo-de-barras/prints/03-etiqueta-ean13.png", "07-etiqueta-ean13.png", largura=700)
-passthrough("07-etiqueta-ean13.png")
+C6 = (0, 0.61, 1, 0.96)
+copiar("04-detalhes-da-entrega/prints/02-conferir-destaque.png",
+       "06-conferir-destaque.png", caixa=C6, largura=760)
+margem("06-conferir-destaque.png")
+a = rec(C6)
+annotate("06-conferir-destaque.png", [
+    (1, *a(30, 690), ETQ, a(0, 690)[1]),         # o título da folha
+    (2, *a(30, 763), ETQ, a(0, 763)[1]),         # o item marcado
+    (3, *a(36, 840), ETQ, a(0, 840)[1]),         # CONFIRMAR
+    (4, *a(36, 911), ETQ, a(0, 911)[1]),         # CANCELAR
+], r=26, w=4)
+
+C7 = (0, 0.055, 1, 0.99)
+copiar("04-detalhes-da-entrega/prints/03-sem-complemento.png",
+       "07-sem-complemento.png", caixa=C7, largura=700)
+margem("07-sem-complemento.png")
+a = rec(C7)
+annotate("07-sem-complemento.png", [
+    (1, *a(30, 200), ETQ, a(0, 200)[1]),         # o endereço, sem tarja nem observação
+    (2, *a(36, 272), ETQ, a(0, 272)[1]),         # VER NO MAPA, que subiu
+    (3, *a(22, 828), ETQ, a(0, 828)[1]),         # o rodapé sem a coluna TROCO
+], r=30, w=4)
+
+# ---------------------------------------------------------------------------------------
+# 08 a 10 — o histórico
+# ---------------------------------------------------------------------------------------
+C8 = (0, 0.11, 1, 0.50)
+copiar("14-historico/prints/01-historico-do-dia.png",
+       "08-historico-dias.png", caixa=C8, largura=760)
+margem("08-historico-dias.png")
+a = rec(C8)
+annotate("08-historico-dias.png", [
+    (1, *a(100, 148), ETQ, a(0, 148)[1]),        # 4 Entregas
+    (2, *a(110, 209), ETQ, a(0, 209)[1]),        # o período
+    (3, *a(24, 278), ETQ, a(0, 278)[1]),         # o cartão do dia
+    (4, *a(428, 367), ETQ, a(0, 367)[1]),        # a flecha > do dia
+    (5, *a(140, 459), ETQ, a(0, 459)[1]),        # ATUALIZAR
+], r=28, w=4)
+
+C9, M9, MD9 = (0, 0.24, 1, 0.80), 0.22, 0.18
+copiar("14-historico/prints/02-dia-expandido.png",
+       "09-dia-expandido.png", caixa=C9, largura=760)
+margem("09-dia-expandido.png", m=M9, md=MD9)
+a = rec(C9, m=M9, md=MD9)
+annotate("09-dia-expandido.png", [
+    (1, *a(30, 279), 0.07, a(0, 279)[1]),        # a flecha de voltar
+    (2, *a(70, 347), 0.07, a(0, 347)[1]),        # o pedido e a hora da entrega
+    (3, *a(438, 545), 0.93, a(0, 545)[1]),       # o ! vermelho do atraso
+    (4, *a(70, 662), 0.07, a(0, 662)[1]),        # a etiqueta do marketplace
+], r=28, w=4)
+
+C10 = (0, 0.055, 1, 0.94)
+copiar("14-historico/prints/03-detalhe-no-historico.png",
+       "10-detalhe-no-historico.png", caixa=C10, largura=700)
+margem("10-detalhe-no-historico.png")
+a = rec(C10)
+annotate("10-detalhe-no-historico.png", [
+    (1, *a(30, 297), ETQ, a(0, 297)[1]),         # Observações, com a Obs. Entrega
+    (2, *a(80, 700), ETQ, a(0, 700)[1]),         # VALOR TOTAL DO PEDIDO
+    (3, *a(40, 830), ETQ, a(0, 830)[1]),         # a linha do tempo
+], r=30, w=4)
