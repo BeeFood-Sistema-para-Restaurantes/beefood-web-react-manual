@@ -30,8 +30,8 @@ medida fixa.
 ├── roteiro.md            # fato→ângulo→ideia de uso→slide, e decisões de arte
 ├── copy-instagram.txt    # legenda, primeiro comentário e texto alternativo
 ├── capturar-telas.py     # só quando a captura exige clique
-├── recortar.py           # só quando o slide reaproveita print de manual
 ├── midias.json           # só quando a novidade é a mídia que o lojista sobe
+├── traducoes.json        # só quando a captura injeta conteúdo na API
 ├── imagens-puras/        # prints como saíram do navegador, nunca editados
 ├── slides/               # NN-nome.html (fragmentos de body)
 ├── png/                  # a arte final, 1080x1350
