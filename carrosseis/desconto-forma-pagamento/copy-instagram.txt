@@ -1,11 +1,11 @@
-CARROSSEL — DESCONTO OU ACRÉSCIMO POR FORMA DE PAGAMENTO
+CARROSSEL — ACRÉSCIMO E DESCONTO POR FORMA DE PAGAMENTO
 Fonte: novidade de 17/08/2026 em
 beefood.app/novidades/desconto-acrescimo-forma-pagamento
 (referência de produção; a arte não tem data, então este carrossel pode ser
 publicado a qualquer momento)
 
 Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
-nomes de arquivo: 01-capa, 02-preco-so, 03-dois-totais, 04-regua,
+nomes de arquivo: 01-capa, 02-como-funciona, 03-dois-totais, 04-regua,
 05-forma-por-forma, 06-onde-vale, 07-cta.
 
 As cinco telas são captura feita para este carrossel, com um exemplo só montado
@@ -19,30 +19,29 @@ resultado.
 LEGENDA — cole no campo de legenda
 ========================================================================
 
-Cada forma de pagamento com o seu preço
+Acréscimo e desconto por forma de pagamento
 
-Receber nunca custou igual, e o sistema já sabia disso: o cadastro de cada forma
-de recebimento guarda a taxa da operadora e os dias para o dinheiro cair.
-Dinheiro e Pix entram na hora e sem taxa. Crédito cobra taxa e ainda demora. O
-que faltava era essa diferença chegar até o total do pedido.
+Em cada forma de pagamento você marca um desconto, um acréscimo ou nenhum dos
+dois, em reais ou em porcentagem. Marcou uma vez, e o ajuste entra sozinho: a
+conta incide sobre o total em produtos e o cliente vê o valor com o nome da
+forma, na hora de escolher como vai pagar.
 
-Agora chega. Cada forma pode levar um desconto ou um acréscimo, em reais ou em
-porcentagem, e a conta incide sobre o total em produtos. O mesmo pedido de
-R$ 39,55 fecha em R$ 36,55 no dinheiro, com R$ 3,00 de desconto, ou em R$ 40,34
-no crédito, com 2% de acréscimo. O cliente vê a linha com o nome da forma antes
-de confirmar.
+O mesmo pedido de R$ 39,55 fecha em R$ 36,55 no dinheiro, com R$ 3,00 de
+desconto, ou em R$ 40,34 no crédito, com 2% de acréscimo. É a mesma sacola, e o
+cliente lê a diferença antes de confirmar.
 
-A régua é sua, e ela vai forma por forma: desconte no dinheiro e no Pix,
-repasse a taxa no crédito, deixe o débito sem ajuste nenhum. Valor fixo pesa
-mais no pedido pequeno; a porcentagem acompanha o combo de família.
+Reais e porcentagem estão os dois no campo, e os dois valem para desconto e para
+acréscimo: valor fixo pesa mais no pedido pequeno, a porcentagem acompanha o
+combo de família. E é forma por forma — desconte no dinheiro e no Pix, repasse a
+taxa no crédito, deixe o débito sem ajuste nenhum.
 
-E não é recurso de delivery. O ajuste é da forma de pagamento, então ele segue o
+Não é recurso de delivery. O ajuste é da forma de pagamento, então ele segue o
 pedido: no cardápio digital o valor entra no carrinho, no totem vale na
 finalização, no caixa do BeeFood o operador vê e aplica ou não, e quem pede pelo
 chat do BeeBot também recebe.
 
-Comece pela forma que mais entra nos seus pedidos, em Cardápio Digital → Formas
-de Recebimento. Tudo que entra de novo está em beefood.app/novidades 🐝❤️
+Ligue o primeiro ajuste hoje, em Cardápio Digital → Formas de Recebimento. Tudo
+que entra de novo está em beefood.app/novidades 🐝❤️
 
 #beefood #cardapiodigital #restaurante #delivery #formasdepagamento
 #gestaoderestaurante #pdv
@@ -59,17 +58,19 @@ Em qual forma de pagamento você daria o primeiro desconto? 👇
 TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
 ========================================================================
 
-01  Fundo escuro com o título "Cada forma de pagamento com o seu preço", a
-    palavra preço em vermelho, e a linha "Desconto ou acréscimo, em reais ou em
-    %". Embaixo, um celular com a lista de formas de pagamento do cardápio: PIX
-    com selo verde de 5% de desconto, dinheiro com selo verde de R$ 3,00 de
-    desconto e cartão de crédito com selo vermelho de 2% de acréscimo.
+01  Fundo escuro com o título "Acréscimo e desconto por forma de pagamento", a
+    palavra forma em vermelho, e a linha "Em reais ou em %. O cliente vê o valor
+    antes de confirmar o pedido". Embaixo, um celular com a lista de formas de
+    pagamento do cardápio: PIX com selo verde de 5% de desconto, dinheiro com
+    selo verde de R$ 3,00 de desconto e cartão de crédito com selo vermelho de
+    2% de acréscimo.
 
-02  Título "O pedido tinha um preço só", com a palavra só em vermelho. O texto
-    conta que o cadastro de cada forma já guardava a taxa da operadora e os dias
-    para o dinheiro cair, que dinheiro e Pix entram na hora e sem taxa e que o
-    crédito cobra taxa e demora. Num cartão escuro, o que mudou: a forma de
-    pagamento passa a entrar na conta do pedido.
+02  Chapéu "Como funciona" e título "O ajuste entra sozinho no total", com a
+    palavra total em vermelho. O texto explica que em cada forma de pagamento
+    você marca um desconto, um acréscimo ou nenhum dos dois, em reais ou em
+    porcentagem, que a conta incide sobre o total em produtos e que o cliente vê
+    o valor na hora de escolher como vai pagar. Num cartão escuro, um exemplo:
+    PIX com 5% de desconto, dinheiro com R$ 3,00 e crédito com 2% de acréscimo.
 
 03  Título "Mesmo pedido, dois totais", com a palavra dois em vermelho, e dois
     recortes do resumo de valores do mesmo pedido. Em cima, pagando em dinheiro:
@@ -82,15 +83,15 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     ajuste, desconto em porcentagem, desconto em reais, acréscimo em porcentagem
     e acréscimo em reais, com o valor de R$ 3,00 no campo ao lado.
 
-05  Título "A forma que cai na hora pode sair mais barata", com a palavra barata
-    em vermelho, e um recorte da lista de formas de recebimento do painel:
-    Dinheiro com desconto de R$ 3,00, Cartão de Débito sem ajuste e Cartão de
-    Crédito com acréscimo de 2,00%.
+05  Título "Desconto numa, acréscimo na outra", com a palavra outra em vermelho,
+    e um recorte da lista de formas de recebimento do painel: Dinheiro com
+    desconto de R$ 3,00, Cartão de Débito sem ajuste e Cartão de Crédito com
+    acréscimo de 2,00%.
 
 06  Título "Vale no totem, no caixa e no chat", com a palavra chat em vermelho, e
     um cartão com as quatro telas: cardápio digital, totem, caixa do BeeFood e
     BeeBot.
 
-07  Fundo escuro com o convite "Comece pela forma que mais entra", o caminho
-    Cardápio Digital, Formas de Recebimento, e um celular com a página de
-    novidades do BeeFood aberta nesta publicação.
+07  Fundo escuro com o pedido "Ligue o primeiro ajuste hoje", o caminho Cardápio
+    Digital, Formas de Recebimento, e um celular com a página de novidades do
+    BeeFood aberta nesta publicação.

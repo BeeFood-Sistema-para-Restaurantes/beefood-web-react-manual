@@ -7,6 +7,23 @@
 - **Formato:** 4:5 (1080×1350), 7 slides
 - **Imagens:** 5 capturas próprias, todas de tela real
 
+## A terceira versão: a capa nomeia o recurso
+
+A segunda versão acertou a imagem e o fato, e voltou pelo **texto** de três
+slides. O diagnóstico está em *o sétimo vício: a manchete-conceito* na
+`MEMORIA-CARROSSEIS.md`; aqui ficam as trocas:
+
+| Devolvido | O que esta versão diz | Por quê |
+|---|---|---|
+| capa: "Cada forma de pagamento com o seu **preço**" | "Acréscimo e desconto por **forma** de pagamento" | a capa nomeia o recurso. A anterior tinha os três eixos e não dizia o nome de nada — conceito, e o dono leu como fuga da funcionalidade |
+| slide 2: "O pedido tinha um preço **só**" | "O ajuste entra sozinho no **total**" | o slide 2 explica o recurso. A anterior contava o antes do sistema, e história ali gasta o lugar de quem ainda não entendeu o que a capa anunciou |
+| CTA: "Comece pela forma que mais **entra**" | "Ligue o primeiro **ajuste** hoje" | o pedido é a ação, com a palavra do recurso. "Mais entra" é metáfora e não diz o que fazer |
+| slide 5: "A forma que cai na hora pode sair mais **barata**" | "Desconto numa, acréscimo na **outra**" | mesmo vício do CTA, não apontado na revisão. O título agora é a captura em palavras |
+
+As quatro são o mesmo erro: metáfora onde existia a palavra do recurso
+(desconto, acréscimo, ajuste). Ordem dos três primeiros slides, que agora é
+regra da skill: a capa **nomeia**, o slide 2 **explica**, o slide 3 **mostra**.
+
 ## A segunda versão, e o que derrubou a primeira
 
 A primeira versão desta peça voltou inteira, por três motivos que a memória da
@@ -54,13 +71,13 @@ peça conta.
 
 | Fato (novidade ou manual) | Ângulo | O que o slide diz |
 |---|---|---|
-| Cada forma pode ter desconto **ou** acréscimo, em % **ou** em R$ | um pedido deixa de ter um preço único | "Cada forma de pagamento com o seu **preço**" |
-| A forma já guardava **Taxa (%)** e **Dias para Recebimento**, que são contrato com a operadora e não preço do cliente (manual `formas-recebimento`) | o dado existia e não chegava na conta | "O pedido tinha um preço **só**" |
+| Cada forma pode ter desconto **ou** acréscimo, em % **ou** em R$ | o nome do recurso é a notícia | "Acréscimo e desconto por **forma** de pagamento" |
+| O ajuste é automático e incide sobre o subtotal; o cliente vê ao escolher a forma | o dono marca uma vez e não faz conta nenhuma | "O ajuste entra sozinho no **total**" |
 | O ajuste incide sobre o subtotal e aparece no fechamento, com o nome da forma | a prova é a tela | "Mesmo pedido, **dois** totais" |
 | Cinco opções no **Ajuste no pagamento**: sem ajuste, desconto e acréscimo, em % e em R$ | valor fixo e porcentagem servem a pedidos de tamanhos diferentes | "Escolha **reais** ou porcentagem" |
-| Dinheiro e PIX Online não têm aba de taxas; crédito e vale têm | a diferença de custo passa a caber no preço | "A forma que cai na hora pode sair mais **barata**" |
+| Cada forma tem o seu ajuste, e "sem ajuste" é uma das cinco opções | o ajuste é por forma, e vai nos dois sentidos na mesma lista | "Desconto numa, acréscimo na **outra**" |
 | Vale no Cardápio Digital, no Totem, na tela de pagamento do BeeFood e no BeeBot | não é recurso de delivery | "Vale no totem, no caixa e no **chat**" |
-| Já está no ar, nas três telas de configuração | um pedido só | "Comece pela forma que mais **entra**" |
+| Já está no ar, nas três telas de configuração | um pedido só, e é uma ação | "Ligue o primeiro **ajuste** hoje" |
 
 Nenhuma frase afirma o que o leitor faz, tem ou sente. O teste aplicado em cada
 linha: **quem poderia desmentir isto?** Tudo acima está na tela, na novidade ou
@@ -70,17 +87,17 @@ no manual.
 
 | # | Arquivo | Ideia única | Imagem |
 |---|---------|-------------|--------|
-| 1 | `01-capa.html` | o pedido passa a ter um preço por forma | `formas-lista.png` no celular, em sangria |
-| 2 | `02-preco-so.html` | a taxa já estava cadastrada; o preço não acompanhava | — |
-| 3 | `03-dois-totais.html` | o mesmo subtotal fecha em dois totais | `total-dinheiro.png` + `total-credito.png` |
+| 1 | `01-capa.html` | **nomeia:** acréscimo e desconto por forma de pagamento | `formas-lista.png` no celular, em sangria |
+| 2 | `02-como-funciona.html` | **explica:** o ajuste é automático e cai no total | — |
+| 3 | `03-dois-totais.html` | **mostra:** o mesmo subtotal fecha em dois totais | `total-dinheiro.png` + `total-credito.png` |
 | 4 | `04-regua.html` | o ajuste pode ser fixo ou proporcional | `painel-ajuste.png` em janela de navegador |
-| 5 | `05-forma-por-forma.html` | cada forma carrega o seu ajuste | `painel-lista.png` em recorte, sem realce |
+| 5 | `05-forma-por-forma.html` | os dois sentidos convivem na mesma lista | `painel-lista.png` em recorte, sem realce |
 | 6 | `06-onde-vale.html` | vale nos quatro canais, não só no delivery | — |
-| 7 | `07-cta.html` | ligar na forma que mais aparece | `novidades-celular.png` no celular |
+| 7 | `07-cta.html` | ligar o primeiro ajuste | `novidades-celular.png` no celular |
 
-Cinco dos sete slides têm imagem. As aberturas não se repetem: afirmação,
-constatação do antes, constatação com prova, ordem direta, afirmação do ganho,
-enumeração de canais e pedido.
+Cinco dos sete slides têm imagem. As aberturas não se repetem: nome do recurso,
+mecanismo, prova em tela, ordem direta, par de exemplos, enumeração de canais e
+pedido.
 
 ## O exemplo numérico, e por que é um só
 
@@ -139,11 +156,11 @@ tornou a captura barata.
   no slide 4 (logo depois da borda do menu, antes do rótulo `DISPONIBILIDADE`) e
   520 px de 556 no slide 5 (depois do terceiro cartão, antes da faixa do
   quarto). Rótulo cortado no meio lê como falha de render.
-- **A capa cabe em título de três linhas porque o aparelho desceu.** Com o
-  celular em 672 px e 550 px de largura, o selo de acréscimo do crédito ainda
-  entra no slide — e o subtítulo, que na primeira medida ficava atrás do
-  aparelho, volta a aparecer. O subtítulo é de uma linha: aparelho em pé não
-  deixa duas.
+- **A capa usa `titulo--medio`, e é o nome do recurso que pede.** Em 92 px,
+  "Acréscimo e desconto por forma de pagamento" quebra em quatro linhas e não
+  sobra slide para a imagem; em 68 px ela fecha em duas, e o aparelho volta para
+  620 px de largura em 560 px de altura — nessa medida o selo de acréscimo do
+  crédito ainda entra e o subtítulo cabe em duas linhas.
 - **Nenhum emoji em título:** todos têm palavra em vermelho, e grifo em cima de
   grifo cancela os dois. O único emoji da peça é o 💳 da própria novidade, e ele
   vai no **rótulo do cartão** do slide 6 — o chapéu é vermelho inteiro, e emoji
