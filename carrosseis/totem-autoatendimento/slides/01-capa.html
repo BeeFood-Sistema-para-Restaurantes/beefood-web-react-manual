@@ -9,51 +9,72 @@
      A imagem e o APARELHO INTEIRO, e nao um recorte de tela. O assunto e uma
      pessoa de pe na frente de uma maquina: sem a maquina, a peca vira cardapio
      digital. O totem vai reto (mockups.md: armario em pe girado le como armario
-     tombando) e centralizado, porque divide a faixa com nada.
+     tombando) e centralizado.
+
+     Na tela vai o CARDAPIO, e nao a tela de espera. A regra e da skill: na capa,
+     tela cheia ganha de tela icone — a de espera e uma foto com um botao, e
+     dentro de um aparelho de 400 px vira uma mancha escura com um risco
+     vermelho. O cardapio tem foto, nome e preco em nove cartoes, e le como
+     "aqui se compra" mesmo pequeno. A tela de espera passou para o CTA, que e
+     onde o aparelho voltando a esperar o proximo cliente faz sentido.
 
      Sangra so pela COLUNA. O painel — leitor, impressora e pinpad — e o que faz
      a peca ler "autoatendimento" em vez de "tela grande", e por isso ele cabe
      inteiro dentro do slide; quem sai pela base e a coluna, que a borda de
      baixo transforma em chao.
 
-     A tela e a captura de 720p, nao a de 1080p: o aplicativo desenha o botao em
-     px fixo, e reduzida para 400 px de aparelho a versao grande transforma o
-     FACA SEU PEDIDO num risco vermelho. -->
+     As duas pecas que flutuam ao lado do aparelho sao RECORTES DA PROPRIA TELA,
+     nao enfeite: a chamada do cupom na confirmacao e a faixa do cashback na
+     identificacao. Elas cobrem a carcaca branca, nunca o vidro — sobreposicao
+     em cima de coisa decorativa vira profundidade, em cima de rotulo vira
+     defeito. E e por elas que a capa promete a peca inteira: o pedido, o
+     pagamento e a fidelidade. -->
 <div class="slide slide--capa">
   <div class="topo">
     <span class="logo"></span>
-    <span class="contador">1 de 7</span>
+    <span class="contador">1 de 8</span>
   </div>
 
-  <div class="pilha g24" style="margin-top: 26px; max-width: 900px">
+  <div class="pilha g24" style="margin-top: 22px; max-width: 900px">
     <span class="pilula">Totem de Autoatendimento</span>
     <h1 class="titulo titulo--medio">
       O cliente pede <span class="destaque">e paga</span><br>sozinho no totem
     </h1>
-    <!-- Uma linha, e nao duas: com a segunda linha o topo do aparelho subia em
-         cima dos rabos das letras. Encurtar o subtitulo custou menos do que
-         encolher o totem, que e a imagem da capa. -->
-    <p class="subtitulo">Do primeiro toque ao pagamento.</p>
+    <p class="subtitulo">Com cupom e cashback no meio do caminho.</p>
   </div>
 
-  <div class="sangria" style="top: 520px; right: auto; left: 50%;
+  <div class="sangria" style="top: 540px; right: auto; left: 50%;
                               transform: translateX(-50%)">
-    <div class="totem" style="width: 400px; --coluna: 240px">
+    <div class="totem" style="width: 360px; --coluna: 240px">
       <div class="totem__tela">
-        <img src="../imagens-puras/espera-720.png"
-             alt="Tela de espera do totem, em tela cheia, com o botão FAÇA SEU PEDIDO">
+        <img src="../imagens-puras/cardapio-720.png"
+             alt="Cardápio na tela do totem, com os setores na coluna e os combos com foto e preço">
       </div>
       <div class="totem__painel">
-        <div class="totem__leitor"></div>
-        <div class="totem__impressora"></div>
-        <div class="totem__pinpad">
-          <div class="totem__tecla"><span></span><span></span><span></span></div>
-          <div class="totem__tecla"><span></span><span></span><span></span></div>
-          <div class="totem__tecla"><span></span><span></span><span></span></div>
-        </div>
+        <span class="totem__leitor"></span>
+        <span class="totem__impressora"></span>
+        <span class="totem__pinpad">
+          <span class="totem__tecla"><span></span><span></span><span></span></span>
+          <span class="totem__tecla"><span></span><span></span><span></span></span>
+          <span class="totem__tecla"><span></span><span></span><span></span></span>
+        </span>
       </div>
       <div class="totem__coluna"></div>
       <div class="totem__base"></div>
     </div>
   </div>
+
+  <span class="pilula" style="position: absolute; left: 36px; top: 706px;
+                              z-index: 2; background: var(--primaria);
+                              color: #fff; font-size: 22px;
+                              box-shadow: 0 18px 34px -16px #000">
+    Cupom de desconto
+  </span>
+
+  <span class="pilula" style="position: absolute; right: 36px; top: 966px;
+                              z-index: 2; background: #ffe680; color: #1c1c1c;
+                              font-size: 22px;
+                              box-shadow: 0 18px 34px -16px #000">
+    5% de cashback
+  </span>
 </div>
