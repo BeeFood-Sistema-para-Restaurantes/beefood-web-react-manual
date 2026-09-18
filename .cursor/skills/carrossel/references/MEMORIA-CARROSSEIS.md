@@ -501,6 +501,15 @@ medidas nos prints e anotadas no script. É frágil a uma reforma do aplicativo 
 robusto a tudo o mais — e a alternativa, medir no DOM, dependeria dos mesmos
 seletores que não existem. Onde há seletor (o painel web), continue medindo.
 
+**Coordenada se mede na grade, não no conteúdo.** A prova veio ao reproduzir a
+captura do zero: a lista `Peça também` é gerada por IA e voltou com um item a
+mais, então o recorte que ia até a borda da janela passou a mostrar a lasca do
+quinto cartão — nome e preço cortados no meio, exatamente o que a
+`mockups.md` manda evitar. A grade do totem não muda (cartão de 256 px, vão de
+12), e a coordenada nova cai nesse vão: 1030 de 1080. **Reproduza a captura
+antes de fechar a peça** — o recorte que conteúdo variável desmente só aparece
+na segunda rodada.
+
 ### Aparelho ou recorte: quem decide é o que precisa ser lido
 
 A peça do totem usa as duas coisas e a regra ficou clara ao ver as duas erradas

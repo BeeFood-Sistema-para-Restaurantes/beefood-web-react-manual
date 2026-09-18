@@ -147,6 +147,14 @@ o recorte para 14 px depois da primeira fileira de produtos, e a grade não
 parece interrompida. Cortar dentro da foto continua valendo quando não há
 alternativa — é melhor que cortar em cima de um preço.
 
+**E o vão que você mede tem que existir na próxima captura.** A sugestão da
+sacola é gerada por IA e muda a cada rodada: o recorte que fechava limpo numa
+captura, na seguinte pegou a lasca de um cartão a mais, com nome e preço
+cortados no meio. O que não muda é a **grade** — no totem, cartão de 256 px com
+12 px de vão — então a coordenada foi para o vão da grade (1030 de 1080) e não
+para a borda da lista daquele dia. Recorte de tela com conteúdo variável se
+mede pela grade; pela borda, só onde o conteúdo é fixo.
+
 **Recorte é faixa contínua, nunca montagem.** No slide de pagamento as duas
 partes que interessavam — a pergunta do consumo, no topo, e a barra de `Total` e
 `Ir para pagamento`, embaixo — têm 800 px de fundo vazio entre elas. Coladas
