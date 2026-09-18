@@ -80,7 +80,7 @@ dois arquivos de estudo.
 
 **O aviso "Entregador próximo" (WhatsApp tipo 33) está ligado para a base toda e não dispara para
 quase ninguém.** O campo de km na tela mostra `2`, mas esse `2` é o padrão do código:
-`_WhatsappMsgTipoFilial.raioProximidadeMetros` está **NULL em 56.630 das 56.636 filiais**, e o
+`_WhatsappMsgTipoFilial.raioProximidadeMetros` está **NULL em 56.633 das 56.639 filiais**, e o
 padrão global também está NULL. O próprio `010-raio-proximidade-na-notificacao.sql` diz que filial
 com raio NULL **nunca recebe o aviso**, porque o cron pula. Só 6 filiais têm o valor, e chegaram lá
 porque alguém abriu o modal e salvou. É problema de ambiente (o PASSO 3 do script não rodou), não

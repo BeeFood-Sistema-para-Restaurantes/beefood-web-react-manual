@@ -1131,7 +1131,7 @@ abrir em nova aba, expandir e fechar. Não há item de menu lateral — procurei
 
 > ⚠️ **Achado que vale levar ao dono: o aviso "Entregador próximo" não dispara para quase
 > ninguém.** O campo de km mostra `2` na tela, mas é o padrão do código —
-> `_WhatsappMsgTipoFilial.raioProximidadeMetros` está **NULL em 56.630 das 56.636 filiais**, e o
+> `_WhatsappMsgTipoFilial.raioProximidadeMetros` está **NULL em 56.633 das 56.639 filiais**, e o
 > padrão global também. O script `010` diz, na própria conferência, que filial com raio NULL nunca
 > recebe o aviso. Só 6 filiais têm valor, porque alguém abriu o modal e salvou. É pendência de
 > ambiente, não de manual — mas o manual não pode prometer o que não funciona.

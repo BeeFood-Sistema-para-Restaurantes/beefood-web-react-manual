@@ -95,7 +95,8 @@ abaixo dele estão a mensagem principal e as **3 variações** do script `008`.
 
     80|> ⚠️ **Achado, e é um problema de ambiente, não de manual.** O `2` na tela é o **padrão do
 > código**, não um valor gravado. Medido no ERP: `_WhatsappMsgTipoFilial.raioProximidadeMetros`
-> está **NULL em 56.630 das 56.636 filiais** que têm o tipo 33, e o padrão global em
+> está **NULL em 56.633 das 56.639 filiais** que têm o tipo 33 (medido às 15:52 UTC; o total
+> cresce sozinho, com filial nova), e o padrão global em
 > `_WhatsappMsgTipo` também está NULL. O frontend cai em
 > `raioProximidadeMetros ?? raioDefault ?? 2000`, então a tela **sempre** mostra 2 km; mas o
 > `010-raio-proximidade-na-notificacao.sql` diz, na própria conferência, que
@@ -181,7 +182,7 @@ Conferido lendo o banco, não a documentação:
 | `007` descontinuar `valorEntregador` | a coluna **não existe** mais em `rota_parada` | ✅ aplicado |
 | `008` tipos 30–33 | os quatro existem e estão ligados na filial | ✅ aplicado |
 | `009` aviso de proximidade | `rota_parada.dataHoraAvisoProximidade` existe | ✅ aplicado |
-| `010` raio configurável | colunas existem; **valores NULL em 56.630 filiais** | ⚠️ **PASSO 2 sim, PASSO 3 não** — ver §4 |
+| `010` raio configurável | colunas existem; **valores NULL em 56.633 das 56.639 filiais** | ⚠️ **PASSO 2 sim, PASSO 3 não** — ver §4 |
 | `011` placeholders canônicos | o texto do 30/31 usa `**VENDA_NUMERO**` | ✅ aplicado |
 | `012` relatório detalhado | o texto do 32 tem `**DETALHE_ENTREGAS**` | ✅ aplicado |
 
