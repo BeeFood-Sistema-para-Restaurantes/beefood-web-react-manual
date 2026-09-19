@@ -152,7 +152,8 @@ Duas coisas invisíveis que valem registro:
 |---|---|---|
 | os círculos numerados são só desenho | "os números dos círculos são do aplicativo, e valem a posição na sequência — não o número do pedido" | as duas numerações convivem no mesmo cartão, e a laranja é a que o restaurante cita no telefone |
 | a observação de finalização aparece junto do recado do cliente, na mesma cor | o manual avisa que ela é **permanente** | é texto que o entregador escreve com pressa e que fica no registro da entrega |
-| **TROCO** simplesmente não aparece quando não há | o manual mostra as duas telas lado a lado | entregador acostumado com a coluna acha que a tela quebrou |
+| **TROCO** simplesmente não aparece quando não há | o manual diz que a coluna só existe em pedido de dinheiro, e mostra um rodapé de cada tipo | entregador acostumado com a coluna acha que a tela quebrou |
+| sem rede a lista **repete** o que tinha, sem mensagem nenhuma | o manual responde em dois parágrafos, sem imagem | a tela sem rede e a tela com rede são a mesma tela; foto de uma não ensina a diferença da outra |
 
 ## 6. Procedência das imagens
 
@@ -160,7 +161,7 @@ Os oito prints da primeira rodada vêm do material do dono (emulador `Pixel_7_Pr
 Duas das dez primeiras imagens do manual são **recortes** de prints maiores — o cartão e o rodapé
 —, não capturas novas.
 
-As cinco da seção 2 vieram da segunda rodada, com duas diferenças de tratamento:
+As quatro da seção 2 vieram da segunda rodada, com duas diferenças de tratamento:
 
 - **`14-antes-e-depois.png` é a única montagem do manual:** dois prints colados por
   `lado_a_lado()`, recortados na mesma faixa. Tela inteira duas vezes ficaria ilegível, e a metade

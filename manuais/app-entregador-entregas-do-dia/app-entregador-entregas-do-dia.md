@@ -138,25 +138,15 @@ nenhum, a entrega saiu enquanto o telefone estava sem sinal.
 > **você** finalizou. Se você já tinha coletado o pedido, ligue para o restaurante antes de
 > devolver a sacola.
 
-### Quando a lista para de mudar
+### Quando a lista não muda e você acha que deveria
 
-Sem internet, a lista não dá erro: ela **repete o que já tinha**.
+Não existe tela de "sem conexão" aqui: sem internet o aplicativo **repete o que já tinha**, com os
+mesmos cartões, a mesma hora e o mesmo valor. A pílula verde não desmente — ela diz que você se
+declarou disponível, não que há sinal. Lista parada, então, pode ser turno calmo ou telefone sem
+rede, e as duas têm a mesma cara.
 
-![A lista sem internet, com a pílula ONLINE verde](imagens-tratadas/15-lista-sem-carregar.png)
-
-| Nº | Onde | O que é |
-|----|------|---------|
-| 1. | **A pílula ONLINE** | Continua verde. Ela diz que você **se declarou disponível**, não que há internet. |
-| 2. | **Os cartões** | Os mesmos de antes, com a mesma hora e o mesmo valor. |
-| 3. | **ATUALIZAR** | Roda, volta, e não traz nada de novo. |
-
-**Não existe tela de "sem conexão" nesta lista.** O aplicativo guarda o que carregou por último e
-mostra de novo — então lista parada pode ser um turno calmo ou um telefone sem sinal, e as duas
-coisas têm a mesma cara.
-
-Dois sinais separam uma da outra: abra um detalhe e veja se **os itens** aparecem (eles são
-buscados na hora, e sem rede o pedido vem vazio), e confira se a pílula responde ao toque. Quando
-a rede voltar, um **ATUALIZAR** põe tudo em ordem.
+**O teste é abrir um detalhe e olhar os itens do pedido.** Eles são buscados na hora: se vêm
+vazios, é falta de rede. Quando a rede voltar, um **ATUALIZAR** põe tudo em ordem.
 
 ---
 
@@ -218,18 +208,19 @@ os dois estão disponíveis, mas cobrar é o caminho normal.
 > disser que vai pagar de outro jeito, você escolhe na hora da cobrança —
 > [App do entregador: receber na porta](../app-entregador-cobranca/app-entregador-cobranca.md).
 
-### Quando o pedido não tem complemento nem observação
+### O rodapé muda com a forma de pagamento
 
-![Os detalhes de um pedido sem complemento e pago em Pix](imagens-tratadas/07-sem-complemento.png)
+![Os detalhes de um pedido em Pix, sem complemento](imagens-tratadas/07-sem-complemento.png)
 
 | Nº | Onde | O que mudou |
 |----|------|-------------|
-| 1. | **Endereço** | Sem tarja vermelha e sem a linha de observações. |
+| 1. | **Endereço** | Este pedido não tem complemento nem observação, e as duas linhas simplesmente não aparecem. |
 | 2. | **VER NO MAPA** | Subiu, encostado no endereço. |
 | 3. | **O rodapé** | Pedido em **Pix**: há TOTAL e COBRAR, e a coluna **TROCO nem existe**. |
 
-**Nada fica vazio nem com traço:** o que não existe simplesmente não aparece na tela. É por isso
-que dois pedidos podem ter alturas de tela bem diferentes.
+**TROCO só aparece em pedido de dinheiro.** Não procure a coluna nos outros: ela não está escondida,
+ela não existe naquela tela. Vale para o resto também — **nada fica vazio nem com traço** no
+aplicativo, e é por isso que dois pedidos podem ter alturas de tela bem diferentes.
 
 ---
 
@@ -302,11 +293,8 @@ guarda o que **você** entregou.
 
 **Chegou o aviso de pedido novo e a lista continua igual.**
 Toque no aviso, e não no ícone do aplicativo: o toque no aviso é o que recarrega a lista. Se ainda
-assim não mudar, é sinal, não erro — veja *Quando a lista para de mudar*.
-
-**A lista não atualiza de jeito nenhum.**
-A pílula verde não garante internet. Confira pelos itens de um detalhe: se o pedido vem vazio, é
-falta de rede. A seção **A lista muda sozinha** tem a tela e os dois sinais.
+assim não mudar, é sinal, não erro — a pílula verde não garante internet, e o teste está em
+*Quando a lista não muda e você acha que deveria*.
 
 **Não recebo aviso nenhum.**
 A permissão de notificação do telefone está negada, ou o aplicativo foi fechado pelo sistema.
@@ -321,9 +309,6 @@ Ele vem do cadastro do cliente. Ligue para o restaurante: o aplicativo não edit
 
 **A forma de pagamento não é a que o cliente diz.**
 Normal. Siga para a cobrança e escolha a forma correta lá.
-
-**O histórico está vazio.**
-Ou você ainda não finalizou nada, ou o aplicativo perdeu a conexão. Toque em **ATUALIZAR**.
 
 **Uma entrega que eu fiz não está no histórico.**
 Se ela ainda aparece na aba *Entregas*, não foi finalizada. Se não aparece em nenhuma das duas,

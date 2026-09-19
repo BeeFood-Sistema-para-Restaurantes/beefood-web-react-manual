@@ -20,7 +20,7 @@ daqui.
 | `16-notificacoes/` | 2 | #112, seção do aviso que chega |
 | `17-troca-de-entregador/` | 2 | #112, *Uma entrega desapareceu sem eu fazer nada* |
 | `18-ciclo-completo/` | 6 | **#117**, a metade do celular da janela combinada |
-| `19-sem-internet/` | 2 | #112 e #115 |
+| `19-sem-internet/` | 2 | #115; a do #112 foi publicada e **depois retirada** (veja abaixo) |
 | `20-permissao-e-presenca/` | 2 | #111, seção 5 e o FAQ da pílula |
 | `21-listas-vazias/` | 2 | #111 e #112 |
 | `22-erros-de-cobranca/` | 4 | #116, o FAQ inteiro |
@@ -34,13 +34,22 @@ manual"*. Nenhum dos seis manuais do aplicativo perdeu nada com isso: eles descr
 que é o mesmo nos dois sistemas, e nomeiam o Android só onde a tela **é** do Android (as janelas de
 permissão do #111).
 
-## Três coisas para ler antes de usar
+## Quatro coisas para ler antes de usar
 
 **`21-listas-vazias/prints/02-historico-vazio.png` não é o histórico vazio.** O nome vem do pedido;
 a tela mostra o Histórico **com 22 entregas em três dias**. O caso `historico-vazio` desatribui os
 pedidos do entregador, e o histórico dele continuou com o que já estava lá de dias anteriores. A
-imagem é boa — só é outra coisa: o Histórico agrupado por dia. O *Nenhuma entrega no período*
-continua pedido.
+imagem é boa — só é outra coisa: o Histórico agrupado por dia. E o *Nenhuma entrega no período*
+**deixou de ser pedido**: manual não usa tela de ausência, porque ninguém o consulta para saber como
+é a tela quando não há nada nela.
+
+**`19-sem-internet/prints/01-lista-sem-carregar.png` virou imagem do #112 e saiu depois.** Ela é uma
+lista de entregas normal: sem rede o aplicativo repete o que carregou por último, sem mensagem
+nenhuma. Anotada, ficava uma foto de tela comum com três etiquetas explicando que era comum — o
+leitor não tem o que comparar. O achado ficou no manual como dois parágrafos, com o teste que
+funciona (abrir um detalhe e ver se os itens vêm vazios), e a imagem saiu. A outra da pasta, a
+confirmação de plataforma que não carrega, **ficou**: ali há o que ver, a faixa do aplicativo cheia
+sobre a página branca do site, e o que fazer, copiar o código.
 
 **`23-rota-com-problema/prints/02-falha-melhor-rota.png` mostra outra mensagem.** Com a rede
 desligada, o MELHOR ROTA responde **Permissão necessária**, não *Ocorreu uma falha ao gerar a melhor

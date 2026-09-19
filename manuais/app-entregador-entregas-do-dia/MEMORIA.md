@@ -68,9 +68,10 @@ Entregador acostumado com a coluna TROCO acha que a tela quebrou quando ela não
 
 ## A segunda rodada trouxe uma seção inteira
 
-Cinco prints da segunda rodada de capturas viraram a **seção 2 — A lista muda sozinha**, que não
+Quatro prints da segunda rodada de capturas viraram a **seção 2 — A lista muda sozinha**, que não
 existia. Eles não são variação das dez primeiras: são a lista **mudando**, e isso é um assunto, não
-um detalhe de tela.
+um detalhe de tela. Um quinto print chegou junto e **não virou imagem** — está em *As duas fotos que
+saíram*.
 
 | Print | O que mostra | Virou |
 |---|---|---|
@@ -78,7 +79,7 @@ um detalhe de tela.
 | `16-notificacoes/02-lista-depois-do-toque` | a lista recarregada, com o cartão novo | *Depois do toque* |
 | `17-troca-de-entregador/01-aviso-de-remocao` | o aviso de que um pedido saiu | *O aviso de que uma entrega saiu* |
 | `_triagem/lista-antes` + `17-.../02-lista-sem-o-pedido` | quatro cartões e três, lado a lado | *O que muda na lista* |
-| `19-sem-internet/01-lista-sem-carregar` | a lista sem rede, sem erro nenhum | *Quando a lista para de mudar* |
+| `19-sem-internet/01-lista-sem-carregar` | a lista sem rede, sem erro nenhum | **texto só** — a imagem saiu |
 
 Três coisas que só apareceram com as fotos na mão:
 
@@ -87,10 +88,9 @@ Três coisas que só apareceram com as fotos na mão:
   chegou sem abrir a lista.
 - **Os círculos são renumerados quando alguém sai.** No par antes/depois, quem era 4 virou 3. Foi
   o argumento que faltava para a regra "combine pelo endereço, não pelo número da parada".
-- **A pílula continua verde sem internet.** É a foto que resolve a pergunta mais frequente do
-  suporte, e ela resolve dizendo que a tela **não** avisa: o aplicativo repete o que carregou por
-  último. Os dois sinais que sobraram — itens vazios no detalhe, pílula que não responde — são a
-  única forma de descobrir de dentro do aplicativo.
+- **A pílula continua verde sem internet.** Achado que virou parágrafo, não imagem: a tela **não**
+  avisa nada, o aplicativo repete o que carregou por último, e o jeito de descobrir de dentro do
+  aplicativo é abrir um detalhe e ver se os itens do pedido vêm vazios.
 
 **As duas imagens de notificação são as únicas do manual que guardam a barra do sistema.** Nelas a
 barra não mostra relógio: mostra o ícone e o nome **BeeFood Entregador**, que é o que prova de quem
@@ -107,7 +107,7 @@ transplantando a linha de data do print da seção 1 para dentro dos novos — t
 aplicativo, não texto redesenhado, porque a Roboto do Android não existe na máquina que monta as
 imagens e qualquer `9` redesenhado apareceria como remendo. Só a linha da data muda.
 
-## O print que não entrou
+## As duas fotos que saíram
 
 `21-listas-vazias/02-historico-vazio` não é o histórico vazio: veio com **22 entregas em três
 dias**. Seria uma boa segunda foto do histórico, e ficou fora por contradição — ela mostra
@@ -117,31 +117,38 @@ prints o painel remanejou um pedido, e a diferença apareceria para quem compara
 O que ela ensinaria — **dia sem entrega não aparece na lista** — a imagem `08` já ensina: ela pula
 15 e 16 de setembro.
 
+`19-sem-internet/01-lista-sem-carregar` **entrou e saiu depois**, e essa é a parte que vale
+guardar. Ela virou a imagem `15` e uma seção chamada *Quando a lista para de mudar*, com três
+marcadores apontando a pílula verde, os cartões repetidos e o ATUALIZAR. O comentário que eu mesmo
+escrevi no `annotate.py` dizia a verdade sem perceber: *"a imagem inteira é a mensagem: não há
+mensagem"*. Uma foto de lista normal, com etiqueta explicando que ela é normal, não ensina nada —
+o leitor não tem o que comparar, porque a tela sem rede e a tela com rede são a mesma tela.
+
+O achado, que é bom, **ficou**: virou o parágrafo *Quando a lista não muda e você acha que
+deveria*, com o teste dos itens do detalhe. Menos tela, mesma resposta.
+
+> **O critério, que passou a valer para o bloco todo:** imagem entra quando o leitor **vê** algo
+> que o texto não conta em duas linhas. Tela de erro com saída ganha imagem — a janela *Despacho
+> não confirmado* do #113 ganhou, porque ela existe, é estranha e manda fazer algo. Tela de
+> ausência e tela idêntica à normal, não ganham.
+
 ## O que falta
 
-**Nada que impeça publicar.** As duas capturas que este manual esperava chegaram na segunda rodada —
-a da entrega tirada do entregador virou a seção 2 inteira, e a do histórico vazio veio com dado
-errado e está explicada acima.
+**Nada.** As duas capturas que este manual esperava chegaram na segunda rodada — a da entrega tirada
+do entregador virou a seção 2 inteira, e a do histórico vazio veio com dado errado e está explicada
+acima.
 
-**Duas melhoras estão pedidas, e nenhuma bloqueia:** as pastas 27 e 28 de
-[`capturas-app-2.md`](../gestao-entregas/pedidos/capturas-app-2.md) pedem o histórico **realmente**
-vazio e o aplicativo **abrindo** sem rede. Hoje as duas perguntas são respondidas por texto, e o
-texto está certo — *O histórico está vazio* descreve uma frase no meio de uma tela branca, e *A lista
-não carrega* descreve o aplicativo já aberto, que é o caso comum. O que falta nos dois é imagem, não
-resposta.
+**E nada está pedido.** Chegou a existir uma segunda lista de capturas pedindo o histórico **realmente** vazio
+e o aplicativo **abrindo** sem rede, e ela foi recusada na leitura, antes de virar trabalho de
+alguém: *"que tipo de manual estamos fazendo? mostrar uma imagem de um aplicativo sem pedidos é
+totalmente fora de realidade"*. Está certo, e vale para as duas. Quem procura o manual está com uma
+entrega na mão; ninguém consulta manual para saber como é a tela quando não há nada nela, e ninguém
+descobre pelo manual que está sem rede.
 
-A pasta 27 é a única da rodada que sai **só de emulador e banco**. A 28 depende de um **build de
-release** do repositório do app: release embute o bundle JavaScript no APK e não procura o Metro, então
-o aplicativo abre sem rede — no build de desenvolvimento ele morre antes de qualquer tela, que é o
-motivo registrado no relatório da rodada passada. A primeira versão do pedido mandava buscar o APK na
-Play Store, o que não cabe no que a outra ponta tem.
-
-A pasta 29 pede os fontes de `views/historico/index.js` e `views/entregas/index.js`, para conferir de
-primeira mão duas coisas que hoje este manual afirma pelo estudo do material: que a tela do histórico
-**não tem filtro de data** e o que a lista faz sem rede.
-
-O pedido da pasta 27 só existe porque o da rodada passada voltou errado, e o erro era do pedido: o
-caso `historico-vazio` desatribui os pedidos **do lote da execução**, e a tela lê tudo o que aquele
-entregador já entregou. Daí os comandos `historico-zerar` e `historico-voltar` do
-[`smoke-app.js`](../gestao-entregas/scripts/smoke-app.js), que zeram o histórico inteiro e guardam o
-desfazer — exercitados aqui de ponta a ponta antes de virar pedido.
+Para produzir a primeira dessas fotos eu tinha escrito dois comandos, `historico-zerar` e
+`historico-voltar`, que **apagavam o histórico inteiro do entregador** e guardavam o desfazer em
+arquivo. Funcionavam, e saíram junto com o pedido: reescrever o passado de um entregador de teste é
+risco que uma imagem dessas não paga. O que sobrou é a correção que interessa, e ela está no
+`smoke-app.js`: o caso `historico-vazio` só desatribui **o lote da execução**, e o Histórico do app
+lê tudo o que aquele entregador já entregou, de qualquer dia. Foi por isso que o print voltou com 22
+entregas.

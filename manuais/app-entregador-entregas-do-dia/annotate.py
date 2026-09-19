@@ -413,16 +413,3 @@ annotate("14-antes-e-depois.png", [
     (1, 0.028, 0.372, 0.028, 0.10),              # antes: o cartão 3 era a Rua Aparecida
     (2, 0.539, 0.372, 0.539, 0.10),              # depois: o mesmo lugar, com o endereço seguinte
 ], r=24, w=4)
-
-# 15 — a lista sem rede. A imagem inteira é a mensagem: **não há mensagem**. Os três marcadores
-# apontam para o que continua igual, e a pílula é o mais importante deles.
-C15, M15, MD15 = (0, 0.045, 1, 0.981), 0.24, 0.13
-copiar(f"{SI}/01-lista-sem-carregar.png", "15-lista-sem-carregar.png", caixa=C15, largura=620,
-       data=True)
-margem("15-lista-sem-carregar.png", m=M15, md=MD15)
-a = rec(C15, m=M15, md=MD15)
-annotate("15-lista-sem-carregar.png", [
-    (1, *a(458, 82), ETQ_DIR, a(0, 82)[1]),      # a pílula ONLINE, verde como sempre
-    (2, *a(118, 155), ETQ, a(0, 155)[1]),        # os cartões, congelados no que já havia
-    (3, *a(142, 710), ETQ, a(0, 710)[1]),        # ATUALIZAR, que não traz nada novo
-], r=26, w=4)

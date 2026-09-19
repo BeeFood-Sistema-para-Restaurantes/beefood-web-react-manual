@@ -17,7 +17,6 @@ Leia APENAS os arquivos abaixo:
    - `.../imagens-tratadas/12-lista-depois-do-toque.png`
    - `.../imagens-tratadas/13-aviso-de-remocao.png`
    - `.../imagens-tratadas/14-antes-e-depois.png`
-   - `.../imagens-tratadas/15-lista-sem-carregar.png`
    - `.../imagens-tratadas/04-detalhes.png`
    - `.../imagens-tratadas/06-conferir-destaque.png`
    - `.../imagens-tratadas/05-rodape.png`
@@ -30,8 +29,8 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 
 - Apresentação IGUAL ao menu "Abrir Caixa".
 - pt-BR, didático. Manter as tabelas de setas (nº → onde → o que é) embaixo de cada imagem.
-- **A ordem das imagens no `.md` não é a ordem do nome do arquivo**: as cinco da seção 2 (`11` a
-  `15`) entram entre a `03` e a `04`, e a folha de conferência (`06`) aparece antes do rodapé
+- **A ordem das imagens no `.md` não é a ordem do nome do arquivo**: as quatro da seção 2 (`11` a
+  `14`) entram entre a `03` e a `04`, e a folha de conferência (`06`) aparece antes do rodapé
   (`05`), porque ela pertence à seção do item em destaque. Seguir a ordem do texto.
 - Avisar, no começo, que a **Gestão de Entregas está em liberação**. Não citar `empresaID`.
 - **Este manual é para o entregador.** Tom de quem está com o celular na mão, na rua.
@@ -87,16 +86,14 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
    contador do botão azul um número acima.
 6. `13-aviso-de-remocao.png` — O aviso de que um pedido saiu da lista.
 7. `14-antes-e-depois.png` — A lista antes e depois de uma entrega sair, lado a lado.
-8. `15-lista-sem-carregar.png` — A lista sem internet: pílula verde, cartões repetidos e nenhuma
-   mensagem de erro.
-9. `04-detalhes.png` — Os detalhes da entrega: endereço fixo, complemento, observações, VER NO
+8. `04-detalhes.png` — Os detalhes da entrega: endereço fixo, complemento, observações, VER NO
    MAPA, itens e a linha preta do item em destaque.
-10. `06-conferir-destaque.png` — A folha CONFIRMA E ENTREGA DESSES PRODUTOS CORRETAMENTE?
-11. `05-rodape.png` — O rodapé escuro: forma de pagamento, TOTAL / TROCO / COBRAR e os dois
+9. `06-conferir-destaque.png` — A folha CONFIRMA E ENTREGA DESSES PRODUTOS CORRETAMENTE?
+10. `05-rodape.png` — O rodapé escuro: forma de pagamento, TOTAL / TROCO / COBRAR e os dois
     botões.
-12. `07-sem-complemento.png` — Um pedido sem complemento e pago em Pix, sem a coluna TROCO.
-13. `08-historico-dias.png` — O histórico agrupado por dia.
-14. `09-dia-expandido.png` — As entregas de um dia, com o `!` de atraso e a etiqueta do
+11. `07-sem-complemento.png` — Um pedido sem complemento e pago em Pix, sem a coluna TROCO.
+12. `08-historico-dias.png` — O histórico agrupado por dia.
+13. `09-dia-expandido.png` — As entregas de um dia, com o `!` de atraso e a etiqueta do
     marketplace.
-15. `10-detalhe-no-historico.png` — O detalhe no histórico, com VALOR TOTAL DO PEDIDO e a linha do
+14. `10-detalhe-no-historico.png` — O detalhe no histórico, com VALOR TOTAL DO PEDIDO e a linha do
     tempo.
