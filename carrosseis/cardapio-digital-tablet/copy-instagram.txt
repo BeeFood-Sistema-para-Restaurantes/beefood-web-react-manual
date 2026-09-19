@@ -1,4 +1,4 @@
-CARROSSEL — CADA MESA PEDE E FECHA A PRÓPRIA CONTA
+CARROSSEL — O CLIENTE PEDE NO TABLET, SEM ESPERAR O GARÇOM
 Gênero: função do sistema (não é novidade)
 Fonte: beefood.com.br/cardapio-digital-tablet
 (peça perene: não tem data na arte nem palavra de lançamento, e pode ser
@@ -34,11 +34,13 @@ de fora: não tem manual nem tela para provar.
 LEGENDA — cole no campo de legenda
 ========================================================================
 
-Cada mesa pede e fecha a própria conta
+O cliente pede no tablet, sem esperar o garçom
 
 O tablet é da casa e já está vinculado à mesa. Não tem QR Code para o cliente
 ler, nem aplicativo para instalar no celular dele: ele senta, e o cardápio já
-está ali.
+está ali. A segunda rodada, a bebida a mais, a sobremesa — nada disso depende
+de alguém passar na mesa, e o pedido entra na comanda do jeito que o cliente
+montou.
 
 A primeira tela é vitrine, não lista. O banner da abertura é seu e leva direto
 ao produto anunciado, e embaixo dele a faixa de recomendados fica à vista
@@ -82,13 +84,14 @@ Quantas mesas o seu salão tem? 👇
 TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
 ========================================================================
 
-01  Fundo escuro com a pílula "Cardápio Digital no Tablet", o título "Cada mesa
-    pede e fecha a própria conta", com a palavra conta em vermelho, e a linha
-    "E chama o garçom só quando quiser". Embaixo, um tablet deitado num suporte
-    de metal escovado, mostrando a tela inicial do cardápio: coluna escura à
-    esquerda com Destaques, Cardápio, Avalie e três bandeiras; no miolo, a foto
-    grande de um hambúrguer numa panela com batata frita e setas para os lados;
-    no pé, a faixa Recomendados com cinco combos em cartões amarelos.
+01  Fundo escuro com a pílula "Cardápio Digital no Tablet", o título "O cliente
+    pede no tablet, sem esperar o garçom", com "sem esperar" em vermelho, e a
+    linha "E o pedido entra na comanda como ele montou". Embaixo, um tablet
+    deitado num suporte de metal escovado, mostrando a tela inicial do
+    cardápio: coluna escura à esquerda com Destaques, Cardápio, Avalie e três
+    bandeiras; no miolo, a foto grande de um hambúrguer numa panela com batata
+    frita e setas para os lados; no pé, a faixa Recomendados com cinco combos
+    em cartões amarelos.
 
 02  Chapéu "Como funciona" e título "Um tablet por mesa, com o seu cardápio
     dentro", com a palavra dentro em vermelho. O texto diz que o aparelho é da

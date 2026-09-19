@@ -113,6 +113,11 @@ acompanha a refeição inteira** — a primeira rodada, a segunda, o gelo que
 faltou, a conta dividida no fim. É essa permanência que a peça vende, porque é
 o que separa este canal de todos os outros.
 
+E permanência, para quem está sentado, se chama **não esperar**: a segunda
+rodada não depende de alguém passar na mesa, e o garçom entra quando é chamado.
+É daí que sai a manchete da capa — e não do fechamento de conta, que foi por
+onde a primeira versão tentou, errado (ver *Decisões de arte*).
+
 Do lado do dono, a mesma permanência vira **frota**: dez, vinte aparelhos
 ligados no salão, cada um numa mesa, com bateria e sinal para acompanhar. A
 página chama isso de "controle todos os tablets em uma única tela", e o painel
@@ -120,7 +125,8 @@ entrega exatamente isso.
 
 | Fato | Ângulo | O que o slide diz |
 |---|---|---|
-| tela inicial com banner, recomendados e atalhos (1) | o cardápio na mesa é vitrine, e vitrine oferece antes de ser perguntada | capa e slide 3 |
+| o cardápio está na mesa, e o pedido entra na comanda pelo próprio tablet (1 e 3) | pedir deixa de depender de alguém passar | **capa** |
+| tela inicial com banner, recomendados e atalhos (1) | o cardápio na mesa é vitrine, e vitrine oferece antes de ser perguntada | slide 3 |
 | produto em tela cheia, complementos com regra (3) | o pedido sai montado, sem tradução de garçom | slide 2 |
 | dezesseis opções de chamada, com cupom impresso (4) | o cliente pede o que precisa, e a equipe já sabe o que levar | slide 4 |
 | fechamento de conta e Pix online, por chave (5) | a mesa fecha sem três idas e vindas até o caixa | slide 5 |
@@ -131,7 +137,7 @@ entrega exatamente isso.
 
 | # | Arquivo | Tipo | Ideia única | Imagem |
 |---|---|---|---|---|
-| 1 | `01-capa.html` | capa + mockup | o cardápio fica na mesa, e o pedido sai dali | tablet com a tela inicial de verdade |
+| 1 | `01-capa.html` | capa + mockup | o cliente pede no tablet sem esperar o garçom | tablet com a tela inicial de verdade |
 | 2 | `02-como-funciona.html` | texto | o caminho do pedido, do primeiro item à conta | — |
 | 3 | `03-vitrine.html` | recorte | a primeira tela já oferece o combo | banner + `Recomendados`, ampliados |
 | 4 | `04-chamar-garcom.html` | captura | o cliente pede gelo, talher, guardanapo — e sai cupom | aba `Garçom Opções` do painel |
@@ -171,9 +177,44 @@ está configurando; **`SALVAR` não é tocado**, então o sandbox fica como esta
 Evento`. Os dois são bons, e os dois puxariam a peça para a trava — que é o
 assunto em que as duas travas se confundem (fato 13).
 
-**A capa é afirmação, e o objeto dela é a mesa.** As três capas anteriores do
-gênero abriram com o recurso como sujeito; esta abre com a mesa, porque é o que
-o tablet tem de diferente do totem e do QR Code — ele **fica**.
+**A capa saiu vendendo o ponto fraco, e foi refeita.** A primeira versão era
+*"Cada mesa pede e fecha a própria conta"*, com **conta** em vermelho. O
+fechamento existe no produto — as duas chaves do slide 5 provam —, mas
+**pagamento é a promessa do totem**, e a capa do totem já diz *"O cliente pede
+e paga sozinho no totem"*. Pendurar esta peça no mesmo gancho fazia ela
+competir com a irmã justamente no ponto em que é mais fraca, e ainda gastava a
+manchete com o que o leitor menos vai usar.
+
+O conserto veio de reler a página. O topo dela tem três promessas, e uma delas
+é resultado em % (ticket médio), que não vira manchete. As outras duas são
+*"Garanta agilidade: o cliente só chama o garçom se quiser"* e *"Reduza o tempo
+de atendimento e elimine erros nos pedidos"* — e o FAQ repete as duas, com
+*"Clientes fazem pedidos com autonomia, sem esperar pelo garçom"* e *"Redução
+de erros de comunicação entre salão e cozinha"*. O bloco do Chamar Garçom ainda
+dá a imagem: *"sem precisar levantar a mão, acenar ou esperar"*.
+
+Manchete e subtítulo ficaram com um eixo cada:
+
+| | |
+|---|---|
+| manchete | **"O cliente pede no tablet, sem esperar o garçom"** |
+| subtítulo | **"E o pedido entra na comanda como ele montou."** |
+
+**"sem esperar" é o vermelho, e a posição não é acidente.** No totem o vermelho
+cai em *"e paga"*; aqui cai em *"sem esperar"*, no mesmo lugar da frase. As duas
+capas são da mesma família, e quem vê os dois posts lê a diferença entre os dois
+canais sem precisar que ninguém explique.
+
+O subtítulo é o *"elimine erros"* da página **ancorado no que o slide 2 prova**:
+o pedido entra na **comanda** como o cliente montou. Não fala em cozinha — o
+fato garante a comanda, não o caminho até o fogão.
+
+Cinco rascunhos foram renderizados antes deste. Os que caíram ensinaram duas
+coisas: título que não nomeia o aparelho (*"Ninguém levanta a mão para pedir de
+novo"*) vira manchete-conceito e entrega o assunto à pílula; e abrir com
+*"No tablet da mesa…"* põe a palavra **tablet** na linha logo abaixo de uma
+pílula que já termina em **TABLET**, o que pesa. Com o aparelho no meio da
+frase os dois problemas somem.
 
 **O suporte do mockup foi reaberto e ficou como estava.** Numa peça que se
 chama "no tablet", vale conferir se o aparelho lê como tablet — e na folha do
