@@ -14,9 +14,10 @@
 > | Para onde foram | 6 para o **#117** (a metade do celular) e 18 para os seis manuais do app, que passaram de 61 para **79 imagens** |
 >
 > A **segunda lista** é de qualidade, não de falta: [`capturas-app-2.md`](capturas-app-2.md) —
-> **6 prints, em 3 pastas**. Ela troca a única imagem **composta** do bloco por uma real e fecha
-> duas telas que hoje o manual descreve só por escrito. Se não vier nenhuma, nada se perde: o
-> `## O que falta` dos dezesseis continua dizendo que não falta nada para publicar.
+> **6 prints e 3 arquivos de fonte**, em 4 pastas. Ela troca a única imagem **composta** do bloco por
+> uma real, mostra as faixas de resultado da leitura e fecha duas telas que hoje o manual descreve só
+> por escrito. Se não vier nenhuma, nada se perde: o `## O que falta` dos dezesseis continua dizendo
+> que não falta nada para publicar.
 
 Três arquivos, e foi tudo o que faltou para a Gestão de Entregas 2.0 ficar documentada de ponta a
 ponta.
@@ -24,7 +25,7 @@ ponta.
 | Arquivo | O que é |
 |---|---|
 | [`capturas-app.md`](capturas-app.md) | **26 prints do app**, em 10 pastas, com nome de arquivo, a cena, o manual que ganha a foto e o comando que monta a tela — **respondido em 19/09** |
-| [`capturas-app-2.md`](capturas-app-2.md) | a **segunda lista**: 6 prints de melhora, no mesmo formato. Leitura de código de barras de verdade, histórico vazio e o app abrindo sem rede |
+| [`capturas-app-2.md`](capturas-app-2.md) | a **segunda lista**: 6 prints de melhora e 3 arquivos de fonte, no mesmo formato. Leitura de código de barras de verdade, histórico vazio e o app abrindo sem rede |
 | [`janela-117.md`](janela-117.md) | o roteiro da **janela combinada**: sete fases, o que cada lado fotografa em cada uma, e o que fazer quando algo dá errado |
 | [`../scripts/smoke-app.js`](../scripts/smoke-app.js) | o script que monta cada cena, **confere pela API do próprio app** e desmonta |
 
@@ -61,15 +62,25 @@ KM)**, os dois com dados de hoje da sandbox.
 
 ## O que a segunda lista muda, se vier
 
-| Pasta | Prints | Manual | Efeito |
+| Pasta | | Manual | Efeito |
 |---|--:|---|---|
-| **26** código de barras | 4 | #114 | troca a **única imagem composta** do bloco por leitura real, e mostra as três faixas de resultado que hoje são tabela |
-| **27** histórico vazio | 1 | #112, #111 | a tela *Nenhuma entrega no período*, que a rodada passada não conseguiu produzir |
-| **28** abrir sem rede | 1 | #112 | o app **abrindo do zero** sem rede, que só existe em APK de produção |
+| **26** código de barras | 4 prints | #114 | a primeira troca a **única imagem composta** do bloco por uma real; as outras três mostram as faixas de resultado que hoje são tabela |
+| **27** histórico vazio | 1 print | #112, #111 | a tela *Nenhuma entrega no período*, que a rodada passada não conseguiu produzir |
+| **28** abrir sem rede | 1 print | #112 | o app **abrindo do zero** sem rede, que só existe em build de release |
+| **29** fontes | 3 arquivos | #114, #112 | os fontes das três telas, para conferir o texto contra o código em vez de contra estudo de outra pessoa |
 
-Se der tempo para uma só, é a **26**: imagem montada é o único ponto do bloco em que a foto não é
-prova. Está declarada como composta no `fluxo-codigo.md` do #114, o que é honesto, mas imagem real é
-melhor que imagem declarada.
+Se der tempo para uma foto só, é a **26/01**, e ela é também a de menor risco das quatro: **não
+depende de a leitura dar certo**, só de a câmera estar apontada para o código na faixa. As outras três
+da pasta exigem decodificação, e sem decodificação a faixa de status nunca sai de *Aguardando
+Leitura* — o modal não tem campo para digitar. Imagem montada é o único ponto do bloco em que a foto
+não é prova; está declarada como composta no `fluxo-codigo.md` do #114, o que é honesto, mas imagem
+real é melhor que imagem declarada.
+
+**Tudo na lista cabe em emulador, banco e printscreen.** A primeira versão dela pedia etiqueta
+impressa em papel e APK da Play Store, e as duas coisas saíram quando o dono deixou claro o que existe
+do outro lado: a pasta 26 passou a ser pela **cena virtual do emulador**, que aceita trocar um pôster
+da parede por um PNG, e a 28 por um **build de release do próprio repositório** — release embute o
+bundle JavaScript e por isso abre sem o Metro, que é o motivo de a foto não ter saído antes.
 
 ## O que o script não faz, e por quê
 
@@ -104,7 +115,7 @@ repassar para quem vai fotografar.
 | Zip | Rodada | O que pede |
 |---|---|---|
 | **[`kit-teste-app-entregador.zip`](kit-teste-app-entregador.zip)** | 2 — respondida | 24 MB, 323 arquivos, os 26 prints de `capturas-app.md` |
-| **[`kit-teste-app-entregador-2.zip`](kit-teste-app-entregador-2.zip)** | 3 — aberta | 39 MB, 393 arquivos, os 6 prints de `capturas-app-2.md`. Mais pesado porque leva também as 24 capturas da rodada 2 como referência de tela |
+| **[`kit-teste-app-entregador-2.zip`](kit-teste-app-entregador-2.zip)** | 3 — aberta | 39 MB, 394 arquivos, os 6 prints de `capturas-app-2.md`. Mais pesado porque leva também as 24 capturas da rodada 2 como referência de tela |
 
 **O zip da rodada 2 está congelado como foi entregue, e é para ficar assim.** Regravá-lo hoje o
 deixaria com 404 arquivos, porque a referência passou a incluir as 24 fotos que ele **pede** — um kit

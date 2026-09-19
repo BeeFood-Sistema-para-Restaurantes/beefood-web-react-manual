@@ -1,22 +1,36 @@
 # Leia primeiro — o trabalho, em uma página
 
-Para a IA que vai operar o emulador Android (ou um aparelho físico) e tirar os prints do **BeeFood
-Entregador**. **Esta é a segunda rodada.** A primeira pediu 26 fotos e recebeu 24 — obrigado, o
-material foi bom e dois dos prints "errados" viraram achado que mudou o manual.
+Para a IA que opera o emulador Android na máquina do dono e tira os prints do **BeeFood Entregador**.
+**Esta é a segunda rodada.** A primeira pediu 26 fotos e recebeu 24 — obrigado, o material foi bom, e
+dois dos prints "errados" viraram achado que mudou o manual.
 
-Seu trabalho agora é **6 fotos de tela**, com nome de arquivo exato, devolvidas num zip. Nada além
-disso. Você não escreve manual, não recorta imagem, não desenha seta, não monta colagem. As fotos
-entram num material que já está escrito — o recorte, a seta verde numerada e o texto são feitos do
-outro lado, por scripts que esperam a foto crua.
+Seu trabalho agora é **6 fotos de tela** mais **3 arquivos de fonte copiados**, devolvidos num zip.
+Nada além disso. Você não escreve manual, não recorta imagem, não desenha seta, não monta colagem. As
+fotos entram num material que já está escrito — o recorte, a seta verde numerada e o texto são feitos
+do outro lado, por scripts que esperam a foto crua.
 
 **Nenhuma das seis bloqueia manual nenhum.** Os dezesseis manuais do bloco estão publicáveis hoje.
-Estas seis são de qualidade: quatro substituem a **única imagem composta** de todo o bloco, e duas
-fecham frases que hoje não têm tela. Se uma não sair, o manual continua de pé.
+Estas seis são de qualidade: uma substitui a **única imagem composta** de todo o bloco, três mostram
+faixas que o texto só descreve, e duas fecham frases que hoje não têm tela. Se uma não sair, o manual
+continua de pé.
 
 **A regra que vale mais que todas as outras: foto que você não conseguiu tirar não se inventa.**
 Nem editor de imagem, nem tela parecida de outro cenário, nem "essa serve". Um print errado é pior
 que um print faltando, porque o faltando está anotado no relatório e o errado vira manual publicado
 mentindo. Se uma cena não sair, escreva no `RELATORIO.md` o que aconteceu e siga.
+
+## O que este pedido pressupõe que você tem
+
+| Você tem | Usado em |
+|---|---|
+| o **emulador Android** com o app rodando | todas as seis fotos |
+| **acesso ao banco**, pelo `smoke-app.js` | as cenas que não se alcançam clicando |
+| **printscreen**, pelo `capturar.ps1` | todas |
+| o **repositório do aplicativo** (`beetech-entregador`) | a pasta 29 e a foto da 28, que sai de um build seu |
+
+**Nada aqui pede aparelho físico, papel, impressora ou loja de aplicativos.** A primeira versão desta
+lista pedia etiqueta impressa e APK da Play Store; as duas saíram. Se algum passo parecer pedir isso,
+está mal escrito — anote no relatório e siga.
 
 ## O que tem neste kit
 
@@ -49,15 +63,14 @@ Tudo isto roda na **máquina Windows do dono**, que é onde o emulador e o clone
 em `10.0.2.2:8081`. Reciclar o Wi-Fi virtual resolve: `adb shell svc wifi disable; adb shell svc wifi
 enable`, e confira com `adb shell ip route` que existe rota default por `wlan0`.
 
-**Duas fotos desta rodada podem pedir aparelho físico**, e é a diferença mais importante em relação à
-rodada passada:
+**Duas fotos saem fora do caminho comum**, e é a diferença desta rodada:
 
-- a pasta **26** precisa de uma câmera que veja um código de barras. Há um caminho pelo emulador (a
-  cena virtual aceita trocar o pôster da parede por um PNG seu), e o pedido explica. Se não der,
-  aparelho físico com a etiqueta impressa é a via boa;
-- a pasta **28** precisa do **APK de produção**, não do build de desenvolvimento: sem o Metro o build
-  de desenvolvimento não carrega o bundle, e "abrir sem rede" derruba o app antes de qualquer tela —
-  foi exatamente o que você anotou no relatório da rodada passada.
+- a pasta **26** precisa de um código de barras na frente da câmera. O caminho é a **cena virtual do
+  emulador**, que aceita trocar um pôster da parede por um PNG seu. O pedido explica passo a passo, e
+  avisa onde eu não pude conferir;
+- a pasta **28** precisa de um **build de release do próprio repositório** — não da Play Store.
+  Release embute o bundle JavaScript no APK, então o app abre sem o Metro; foi por isso que a foto não
+  saiu na rodada passada, e você já tinha anotado o motivo certo no relatório.
 
 As ferramentas de emulador vêm no kit, em `4-entrega/capturas-3/_ferramentas/emulador/`, e é de
 propósito que elas estão **lá dentro**: elas gravam dois níveis acima de si mesmas, então a partir
@@ -81,10 +94,11 @@ Os mesmos cinco pontos da rodada passada. Não negocie neles.
 
 1. **PNG, tela inteira, resolução nativa** — os prints do material são `1440 × 3120`. Nada de
    recorte, nada de redimensionar. O recorte é feito do outro lado, e recorte que chega pronto impede
-   o enquadramento que o manual precisa. **Se a pasta 26 sair de aparelho físico, a resolução vai ser
-   outra — está tudo bem, é só escrever qual no relatório.**
+   o enquadramento que o manual precisa.
 2. **Tela parada.** Sem *spinner*, sem animação no meio, sem transição. `capturar.ps1 -Espera 2`
-   ajuda.
+   ajuda. **Uma exceção nesta rodada:** as faixas de status da pasta 26 são mensagens curtas, que
+   somem sozinhas. Ali a pressa é a regra — capture no instante em que a faixa aparece, e se pegar
+   meio caminho de animação, anote e mande, que eu decido do outro lado.
 3. **Teclado fechado**, a menos que o assunto da foto seja digitar.
 4. **Barra de cima limpa**: sem notificação de outro app. Nesta rodada não há exceção — nenhuma das
    seis fotos tem notificação como assunto.
@@ -146,14 +160,34 @@ por WhatsApp e registra a saída no marketplace. **Só bipe etiqueta de pedido s
 `preparar --caso lista`** — os clientes desses pedidos são sintéticos, sem telefone e sem e-mail, e
 não são de plataforma. Nunca bipe etiqueta de pedido que apareceu na fila por outro caminho.
 
+## Sobre a pasta 29, que não é foto
+
+Ela pede **três arquivos de fonte do app**, copiados como estão. É leitura, não captura.
+
+O motivo está no pedido, e vale repetir aqui: hoje eu afirmo coisas sobre essas três telas com base no
+`estudo/01-o-que-o-app-faz-hoje.md` que veio no seu material da primeira rodada. É um estudo bom,
+escrito lendo o código — mas é leitura de segunda mão, e já custou uma correção: o manual do código de
+barras listava **cinco** mensagens de faixa de status e o estudo mostra **seis**. A que faltava é a que
+muda o que o entregador faz.
+
+**Os arquivos não vão para o repositório.** Eu leio, escrevo o que interessa no `fluxo-codigo.md` de
+cada manual e descarto o fonte. Este repositório de manuais é público, e fonte de aplicativo não entra
+nele — mesma regra que já vale para senha e host do backend.
+
+Se preferir não mandar fonte, diga no relatório. As fotos continuam valendo por si.
+
 ## Quando uma foto não sai
 
-Escreva no `RELATORIO.md` e siga. Duas das seis são reconhecidamente difíceis, e o pedido já diz:
+Escreva no `RELATORIO.md` e siga. Três das seis são reconhecidamente difíceis, e o pedido já diz:
 
 | Foto | Por que pode não sair |
 |---|---|
-| `26-codigo-de-barras/01-codigo-na-faixa.png` | precisa de câmera vendo um código de verdade. O caminho da cena virtual do emulador não foi conferido do outro lado; se falhar em duas tentativas, pule — a imagem composta que o manual tem hoje continua servindo, e está declarada como composta |
-| `26-codigo-de-barras/03-faixa-vermelha.png` | o app tem 20 s de timeout nessa chamada. Desligue wifi **e** dados antes de aproximar a etiqueta |
+| `26/01-codigo-na-faixa.png` | precisa da câmera apontada para um código. O caminho da cena virtual do emulador **não foi conferido** do outro lado; se falhar em duas tentativas honestas, pule — a imagem composta que o manual tem hoje continua servindo, e está declarada como composta |
+| `26/02`, `26/03`, `26/04` | dependem de a leitura **decodificar**. Sem isso a faixa nunca sai de *Aguardando Leitura*, e não há campo para digitar o código. Se a 01 não saiu, estas três não saem |
+| `28/01-app-sem-rede-do-zero.png` | depende de o `assembleRelease` do projeto rodar sem uma chave que você não tenha. Se pedir assinatura própria, **pare** e anote |
+
+A foto **26/01 é a de maior valor e a de menor risco das quatro** — ela não precisa que a leitura dê
+certo, só que a câmera veja o código. Tire ela primeiro.
 
 E se, fotografando, você notar que **o app faz diferente do que o manual escreveu**, isso é ouro:
 escreva no relatório, com o nome do manual e a frase que está errada. Foi assim que a rodada passada
@@ -167,10 +201,10 @@ Um zip com a árvore de `4-entrega/capturas-3/` preenchida, mais um `RELATORIO.m
 
 O relatório precisa de três coisas, e a terceira é a que faz o material ser confiável:
 
-1. **A versão do app** e a data da captura. Se a pasta 26 sair de APK de produção ou de aparelho
-   físico, diga a versão de cada um.
-2. **O aparelho**: emulador (qual AVD, qual Android) ou aparelho físico, qual. Nesta rodada pode ser
-   mais de um, e o manual precisa saber qual foto veio de qual.
+1. **A versão do app** e a data da captura. Se a pasta 28 sair de um build de release seu, diga a
+   versão dele também — ela pode não ser a mesma do build de desenvolvimento.
+2. **O aparelho**: qual AVD, qual Android. E, na pasta 26, **se a cena virtual funcionou ou não** —
+   isso vale tanto quanto a foto, porque decide se o manual continua com a imagem composta.
 3. **Uma linha por print que saiu diferente do pedido**, dizendo o que aconteceu antes. E uma linha
    por print que **não saiu**, dizendo por quê. Print que saiu exatamente como pedido não precisa de
    linha nenhuma.

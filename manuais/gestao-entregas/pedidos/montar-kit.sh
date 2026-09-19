@@ -53,6 +53,9 @@ case "$RODADA" in
     PEDIDOS=(README.md capturas-app-2.md capturas-app.md janela-117.md)
     SAIDA_NOME="capturas-3"
     SAIDA_PASTAS=(26-codigo-de-barras 27-historico-vazio 28-abrir-sem-rede)
+    # A 29 fica fora da lista acima porque não recebe print: são três arquivos de fonte do app,
+    # copiados para eu conferir o texto dos manuais contra o código. Sem subpasta `prints`.
+    SAIDA_PASTAS_SEM_PRINTS=(29-fontes)
     ;;
   *)
     echo "rodada desconhecida: $RODADA (use 2 ou 3)" >&2
@@ -107,6 +110,9 @@ cp -r "$ORIG" "$KIT/3-referencia/material-original"
 SAIDA="$KIT/4-entrega/$SAIDA_NOME"
 for pasta in "${SAIDA_PASTAS[@]}"; do
   mkdir -p "$SAIDA/$pasta/prints"
+done
+for pasta in ${SAIDA_PASTAS_SEM_PRINTS[@]+"${SAIDA_PASTAS_SEM_PRINTS[@]}"}; do
+  mkdir -p "$SAIDA/$pasta"
 done
 
 # O `capturar.ps1` grava dois níveis acima de si mesmo. Posto aqui, sem nenhuma alteração, ele

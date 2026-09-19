@@ -13,9 +13,9 @@ suas seis fotos da pasta 18 mais sete do painel. Nesta rodada nenhum deles depen
 | Nº | Pasta | Assunto | Prints novos que ele recebe |
 |--:|---|---|---|
 | 111 | `app-entregador-entrar/` | permissões, login, a tela de trabalho e a pílula disponível/pausa/offline | — |
-| 112 | `app-entregador-entregas-do-dia/` | a lista, o cartão, os detalhes, o rodapé de pagamento e o histórico | pastas **27** e **28** |
+| 112 | `app-entregador-entregas-do-dia/` | a lista, o cartão, os detalhes, o rodapé de pagamento e o histórico | pastas **27** e **28**, e 2 fontes da **29** |
 | 113 | `app-entregador-rota/` | ver no mapa, rota do restaurante e melhor rota | — |
-| 114 | `app-entregador-codigo-barras/` | o parâmetro do cupom, a etiqueta impressa e a leitura no app | pasta **26** — as quatro |
+| 114 | `app-entregador-codigo-barras/` | o parâmetro do cupom, a etiqueta impressa e a leitura no app | pasta **26** — as quatro — e 1 fonte da **29** |
 | 115 | `app-entregador-marketplace/` | iFood e 99Food: o chip, o localizador e a confirmação | — |
 | 116 | `app-entregador-cobranca/` | cobrança na porta, divisão de conta e finalizar sem cobrar | — |
 | 117 | `gestao-entregas-ciclo-completo/` | o mesmo pedido nas duas telas, do começo ao fim | — |
@@ -23,8 +23,14 @@ suas seis fotos da pasta 18 mais sete do painel. Nesta rodada nenhum deles depen
 **Vale abrir o 114 antes de começar.** É o manual que mais muda com esta rodada, e por um motivo que
 está escrito no `fluxo-codigo.md` dele: a imagem da leitura (`06-codigo-na-faixa.png`) é a **única
 imagem composta** de todo o bloco — o emulador não tem câmera, e a etiqueta foi sobreposta ali. Além
-disso, o manual descreve **cinco faixas de status** numa tabela e não mostra nenhuma. As quatro fotos
-da pasta 26 resolvem as duas coisas.
+disso, o manual descreve **seis mensagens de faixa de status** e não mostra nenhuma. As quatro fotos da
+pasta 26 resolvem as duas coisas.
+
+A tabela dele acabou de ser corrigida com o **seu estudo da primeira rodada**
+(`material-original/estudo/01-o-que-o-app-faz-hoje.md`, seção 2.10): o manual listava cinco mensagens e
+o estudo mostra seis — faltava *Erro: {mensagem}*, o servidor recusando, que é caso diferente de *Erro
+na leitura*. É por isso que a pasta 29 pede o fonte do modal: para a próxima correção vir de primeira
+mão.
 
 Cada manual traz mais dois arquivos ao lado, quando existem:
 
