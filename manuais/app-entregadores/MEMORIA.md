@@ -7,6 +7,14 @@
 >
 > **Não atualize este manual** e não use as imagens dele. A remoção acontece quando o #104
 > estiver pronto — antes disso, aposentar deixaria o app sem nenhum manual.
+>
+> **18/09/2026 — o substituto existe.** Os três assuntos deste manual foram para lugares próprios,
+> com prints do app `3.3.0`: o cadastro virou o
+> [**#104**](../gestao-entregas-liberar-entregador/gestao-entregas-liberar-entregador.md), o código
+> de barras virou o
+> [**#114**](../app-entregador-codigo-barras/app-entregador-codigo-barras.md) — com o parâmetro do
+> cupom, que este aqui só mencionava — e o uso no celular virou os **#111 a #116**, seis manuais.
+> Falta só o dono retirar o artigo publicado.
 
 ## Escopo
 Migração do artigo [BeeFood Aplicativo para Entregadores](https://ajuda.beefood.com.br/baseconhecimento/beefood-aplicativo-para-entregadores/).

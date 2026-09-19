@@ -1,13 +1,21 @@
-# MEMÓRIA — Gestão de Entregas (manual em preparação)
+# MEMÓRIA — Gestão de Entregas (a pasta de trabalho do bloco)
 
-Pasta: `manuais/gestao-entregas/` · Manual: **ainda não escrito** · Numeração: **#104**
-Aberta em 18/09/2026, na conta sandbox **BeeFood3 - Manual**
-(`contato@beefood.com.br`, `empresaID 38311`, `filialID 39202`, usuário `88711`,
-entregador `funcionarioID 194115`).
+Pasta: `manuais/gestao-entregas/` · Bloco: **#104 a #119** · Aberta em 18/09/2026, na conta sandbox
+**BeeFood3 - Manual** (`contato@beefood.com.br`, `empresaID 38311`, `filialID 39202`, usuário
+`88711`, entregador `funcionarioID 194115`).
 
-**Estado: estudo.** Nada foi capturado para manual, nada foi escrito para o usuário e **nada foi
-alterado no sistema**. Duas rodadas até aqui: a primeira organizou o material que o dono enviou;
-a segunda leu a documentação do backend e mediu o estado real do módulo.
+**Esta pasta não é um manual.** Ela guarda o estudo, o material que o dono enviou, os scripts de
+cenário e o pedido de fotos. Os manuais moram em pastas próprias, listadas em *O que foi entregue*,
+no fim deste arquivo.
+
+**Estado: bloco entregue, com uma pendência de foto.** **15 manuais prontos** (#104 a #116, #118 e
+#119) e o **#117 como esqueleto**, porque ele precisa das duas telas no mesmo pedido e o aplicativo
+não roda aqui. O que falta está pedido em [`pedidos/`](pedidos/README.md), com o script que monta
+cada cena.
+
+O histórico das primeiras rodadas fica abaixo, porque é ele que explica as decisões: a primeira
+organizou o material que o dono enviou; a segunda leu a documentação do backend e mediu o estado real
+do módulo. **Nessas duas, nada foi alterado no sistema** — a autorização de cenário veio depois.
 
 ## Pedido do dono
 
@@ -37,7 +45,7 @@ E, na segunda rodada:
 | [`estudo/01-como-o-sistema-funciona.md`](estudo/01-como-o-sistema-funciona.md) | a leitura completa de `docs/gestao-entrega-2.0` (~17.100 linhas): os quatro programas, os dois bancos, o ciclo da entrega, as dez operações de rota, as sete regras do despacho, o vocabulário de status, os quatro avisos de WhatsApp, e o que a doc promete e não existe |
 | [`estudo/02-estado-medido.md`](estudo/02-estado-medido.md) | o que eu medi no sistema em 18/09, com evidência em `estudo/evidencias/` |
 | [`material-recebido/README.md`](material-recebido/README.md) | procedência do manual do app que o dono enviou por WeTransfer: 15 capítulos, 63 prints, estudo e smoketests |
-| [`pedidos/capturas-app.md`](pedidos/capturas-app.md) | o pedido de **12 prints em 5 pacotes** para o dono capturar no emulador |
+| [`pedidos/`](pedidos/README.md) | o pedido de captura. Na primeira rodada eram **12 prints em 5 pacotes**, deduzidos do material; depois de os manuais existirem virou **26 prints em 10 pastas**, deduzidos do que o texto descreve e não mostra |
 
 ## As dez coisas que o estudo mudou
 
@@ -98,14 +106,15 @@ de manual — mas o manual não pode prometer um recurso que não funciona. Deta
 
 ## Decisões do dono já registradas
 
-1. **Ainda não é para produzir o manual.** Recorte, numeração e plano ficam para quando ele
-   retomar. As duas rodadas até agora foram organizar e estudar.
+1. ~~**Ainda não é para produzir o manual.**~~ Valeu nas duas primeiras rodadas, que foram organizar
+   e estudar. **Revogada** na terceira: *"faça o manual sem parar, todas"*.
 2. **O #57 será aposentado**, e não atualizado — o manual novo ocupa o lugar dele. Registrado na
    linha do #57 no `CHECKLIST-MANUAIS.md` e na `MEMORIA.md` daquele manual. **A remoção só
    acontece quando o manual novo estiver pronto**: aposentar antes deixaria o app sem manual.
 3. **Capturas novas do app são possíveis** — o dono roda o emulador. O pedido está em
-   [`pedidos/capturas-app.md`](pedidos/capturas-app.md): 12 prints em 5 pacotes, três deles numa
-   janela combinada, porque quem dispara é o painel.
+   [`pedidos/capturas-app.md`](pedidos/capturas-app.md) — refeito na terceira rodada, com o roteiro
+   da janela combinada em [`pedidos/janela-117.md`](pedidos/janela-117.md), porque quem dispara é o
+   painel.
 4. **Cada manual vai exigir montar um cenário à mão.** É o enunciado da segunda rodada, e é o que
    torna o §8 do `02-estado-medido.md` a parte mais importante do planejamento.
 5. **Autorização de cenário: concedida** (18/09). *"os testes vc terá que simular o entregador +
@@ -116,7 +125,8 @@ de manual — mas o manual não pode prometer um recurso que não funciona. Deta
 7. **WhatsApp: assumir o funcionamento.** *"ainda não está em produção, podemos assumir o
    funcionamento tranquilamente e criar mensagens fakes no manual respectivo"*. O manual de avisos
    monta a mensagem em vez de esperar a entrega real chegar no celular.
-8. **A lista de manuais está proposta**: 14 manuais, #104 a #117, em
+8. **A lista de manuais foi aprovada e cresceu**: os 14 propostos (#104 a #117) mais os dois
+   relatórios que o dono pediu depois (#118 e #119). A proposta original está em
    [`references/planos/PLANO-GESTAO-ENTREGAS.md`](../../.cursor/skills/manual-sistema/references/planos/PLANO-GESTAO-ENTREGAS.md).
 
 ## Como montar cenário (conferido em 18/09)
@@ -165,12 +175,53 @@ Rodar fora da sandbox exigiria editar o arquivo. **Não invente atalho: use o sc
    antes de montar cenário. **Em loja real o lojista não resolve isso pela tela**: é bug, não
    assunto de manual.
 
-## Próximo passo
+## O que foi entregue
 
-A lista está proposta em
-[`PLANO-GESTAO-ENTREGAS.md`](../../.cursor/skills/manual-sistema/references/planos/PLANO-GESTAO-ENTREGAS.md):
-**14 manuais, #104 a #117**, em cinco blocos. Aguarda aprovação do recorte e da numeração.
+Dezesseis linhas de checklist, em cinco frentes. A numeração passou de #117 porque o dono
+acrescentou dois relatórios no meio da rodada.
 
-Aprovada a lista, a ordem sugerida começa pelo **#104** (liberar o entregador), porque ele destrava
-a aposentadoria do #57 e porque sem entregador cadastrado nenhum dos outros cenários existe. Os
-**#104 a #110** não dependem de nada do dono e podem correr enquanto as 12 fotos do app não chegam.
+| Nº | Manual | Pasta |
+|---|---|---|
+| 104 | Liberar o entregador | [`gestao-entregas-liberar-entregador`](../gestao-entregas-liberar-entregador/gestao-entregas-liberar-entregador.md) |
+| 105 | Ler o mapa e o painel de entregas | [`gestao-entregas-mapa-painel`](../gestao-entregas-mapa-painel/gestao-entregas-mapa-painel.md) |
+| 106 | Montar a rota | [`gestao-entregas-montar-rota`](../gestao-entregas-montar-rota/gestao-entregas-montar-rota.md) |
+| 107 | Despachar a rota e acompanhar | [`gestao-entregas-despachar`](../gestao-entregas-despachar/gestao-entregas-despachar.md) |
+| 108 | Fechar a entrega no painel | [`gestao-entregas-fechar-entrega`](../gestao-entregas-fechar-entrega/gestao-entregas-fechar-entrega.md) |
+| 109 | Despacho automático | [`gestao-entregas-despacho-automatico`](../gestao-entregas-despacho-automatico/gestao-entregas-despacho-automatico.md) |
+| 110 | Avisos de WhatsApp da entrega | [`gestao-entregas-avisos-whatsapp`](../gestao-entregas-avisos-whatsapp/gestao-entregas-avisos-whatsapp.md) |
+| 111 | App: entrar e ficar disponível | [`app-entregador-entrar`](../app-entregador-entrar/app-entregador-entrar.md) |
+| 112 | App: as entregas do dia e o histórico | [`app-entregador-entregas-do-dia`](../app-entregador-entregas-do-dia/app-entregador-entregas-do-dia.md) |
+| 113 | App: chegar no endereço | [`app-entregador-rota`](../app-entregador-rota/app-entregador-rota.md) |
+| 114 | Código de barras: ligar e ler | [`app-entregador-codigo-barras`](../app-entregador-codigo-barras/app-entregador-codigo-barras.md) |
+| 115 | App: pedido de iFood e de 99Food | [`app-entregador-marketplace`](../app-entregador-marketplace/app-entregador-marketplace.md) |
+| 116 | App: receber na porta | [`app-entregador-cobranca`](../app-entregador-cobranca/app-entregador-cobranca.md) |
+| 117 | Uma entrega do começo ao fim | [`gestao-entregas-ciclo-completo`](../gestao-entregas-ciclo-completo/gestao-entregas-ciclo-completo.md) — 🔨 **esqueleto** |
+| 118 | Relatório Operação de Entrega | [`relatorio-operacao-entrega`](../relatorio-operacao-entrega/relatorio-operacao-entrega.md) |
+| 119 | Quanto o entregador recebe (Taxa / KM) | [`entregador-quanto-recebe`](../entregador-quanto-recebe/entregador-quanto-recebe.md) |
+
+Os **#118** e **#119** não estavam no plano. Entraram porque o dono pediu no meio da rodada — o
+primeiro filtrado na data de hoje contra o cenário que eu mesmo montei, e o segundo cobrindo as
+**três fontes** do valor do entregador, que era a parte que ele destacou.
+
+### O que sobrou nesta pasta
+
+| Onde | O que é |
+|---|---|
+| [`estudo/`](estudo/) | as duas leituras da primeira rodada: como o módulo funciona e o que eu medi |
+| [`material-recebido/`](material-recebido/README.md) | os 15 capítulos e 63 prints que o dono enviou por WeTransfer |
+| [`pedidos/`](pedidos/README.md) | as **26 capturas** que faltam e o roteiro da janela do #117 |
+| [`scripts/`](scripts/README.md) | `cenario.js` (o painel) e `smoke-app.js` (o app) |
+
+## O que falta, e de quem depende
+
+Uma coisa só: **as 6 fotos do celular do #117**, na janela combinada. Elas não têm substituto — sem
+elas o manual mostra números de pedido diferentes de cada lado, e um leitor atento percebe em dois
+segundos.
+
+As outras 20 capturas pedidas **não bloqueiam nada**. Cada uma melhora uma pergunta de FAQ de manual
+já escrito, e o `MEMORIA.md` de cada manual registra qual é e onde ela entraria.
+
+Fora de foto, ficou registrado um recado que **não é manual**: a *rota fantasma*. O entregador
+`194115` está com `rotaIDAtual` apontando para uma rota que não existe, o que o deixa ocupado para
+sempre aos olhos do despacho automático. Em loja real o lojista não resolve isso pela tela — é bug. O
+`limpar-fantasma` do `cenario.js` conserta na sandbox.

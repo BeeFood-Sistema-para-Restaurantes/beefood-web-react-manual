@@ -333,6 +333,41 @@ reais**. No #100, a mesma foto do tablet mostrou um produto traduzido e outro
 sem tradução, lado a lado — confirmado nos endpoints de detalhe antes de
 escrever a legenda.
 
+### Padrão oficial — prints de aplicativo de celular recebidos do dono — #111 a #116
+
+Seis manuais seguidos feitos com 63 prints de emulador Android (`Pixel_7_Pro`, app `3.3.0`)
+produziram um padrão próprio, com dois arquivos reaproveitáveis em `/tmp/ge/`:
+**`cabeca-app.py`** (o cabeçalho com as funções) e **`mkapp.py`** (gera o `annotate.py` de cada
+manual a partir de um `docNNN.txt` e um `marcNNN.txt`).
+
+Tela de celular é **estreita e cheia**, e é isso que muda tudo em relação ao painel:
+
+- **Etiqueta numerada dentro da tela cobre texto.** Foi o que aconteceu na primeira rodada do
+  leitor de código de barras. A solução é `com_margem()`: acrescentar margem clara **fora** do
+  print, para a etiqueta viver na margem e a seta entrar pela borda. O print fica inteiro visível.
+- **Três margens, três motivos.** `esq` é a padrão (a coluna esquerda da tela quase sempre tem
+  texto); `topo` serve para recorte em tira fina, onde não há altura para a etiqueta; e `dire`
+  existe pelo motivo oposto à esquerda — a coluna direita é onde moram a flecha `>`, o selo de
+  estado e o `!` de atraso, e alcançá-los pela esquerda obriga a seta a atravessar o cartão
+  inteiro por cima do endereço.
+- **`rec(caixa, m, tm, md)`** converte pixel lido na prévia do print inteiro em fração da imagem
+  **final**, já recortada e com as margens. Sem ela, cada recorte exige recalcular tudo à mão, e
+  foi a fonte de metade dos erros de posição.
+- **`recortar`/`copiar` em vez de print inteiro.** Cartão de pedido, rodapé de pagamento e
+  cabeçalho de rota viram imagens separadas. Uma tela de celular inteira com cinco etiquetas não
+  se lê; o mesmo conteúdo em três recortes se lê.
+- **Cuidado com o numeral que o app já desenha.** O aplicativo numera as paradas da rota em
+  círculos, e etiqueta verde numerada por cima disso cria dois sistemas de numeração na mesma
+  imagem. Nesses casos a imagem entra como **contexto** (`passthrough`, sem etiqueta) e o detalhe
+  numerado vai para um recorte.
+- **Recorte o resto da barra de status.** Sobra de barra preta no topo ou no pé aparece como um
+  risco fino e some na miniatura — apareceu em quatro imagens do #115 e do #116. Confira em
+  tamanho real.
+- **Nome de cliente em print de app costuma ser dado semeado.** Nos 63 prints, *Ana Beatriz
+  Moraes* e *Rafael Monteiro Dias* são clientes criados por script (repetidos na base, sem
+  telefone nem e-mail, origem *Delivery Manual*). Conferir antes de decidir se desfoca —
+  desfocar o que é fake só deixa a imagem pior.
+
 ---
 
 ## 4. Padrão de escrita do manual (.md)
@@ -1019,6 +1054,22 @@ escrito de propósito bateria.
 | Atender no BeeBot | `manuais/whatsapp-atendimento-beebot/` | ✅ Concluído (#91) |
 | Indicadores de WhatsApp | `manuais/whatsapp-indicadores/` | ✅ Concluído (#92) |
 | Histórico de mensagens | `manuais/whatsapp-historico/` | ✅ Concluído (#93) |
+| Liberar o entregador | `manuais/gestao-entregas-liberar-entregador/` | ✅ Concluído (#104) |
+| Ler o mapa e o painel de entregas | `manuais/gestao-entregas-mapa-painel/` | ✅ Concluído (#105) |
+| Montar a rota | `manuais/gestao-entregas-montar-rota/` | ✅ Concluído (#106) |
+| Despachar a rota e acompanhar | `manuais/gestao-entregas-despachar/` | ✅ Concluído (#107) |
+| Fechar a entrega no painel | `manuais/gestao-entregas-fechar-entrega/` | ✅ Concluído (#108) |
+| Despacho automático | `manuais/gestao-entregas-despacho-automatico/` | ✅ Concluído (#109) |
+| Avisos de WhatsApp da entrega | `manuais/gestao-entregas-avisos-whatsapp/` | ✅ Concluído (#110) |
+| App: instalar, entrar e ficar disponível | `manuais/app-entregador-entrar/` | ✅ Concluído (#111) |
+| App: as entregas do dia e o histórico | `manuais/app-entregador-entregas-do-dia/` | ✅ Concluído (#112) |
+| App: chegar no endereço | `manuais/app-entregador-rota/` | ✅ Concluído (#113) |
+| Código de barras: ligar a etiqueta e ler o pedido | `manuais/app-entregador-codigo-barras/` | ✅ Concluído (#114) |
+| App: pedido de iFood e de 99Food | `manuais/app-entregador-marketplace/` | ✅ Concluído (#115) |
+| App: receber na porta | `manuais/app-entregador-cobranca/` | ✅ Concluído (#116) |
+| Uma entrega do começo ao fim | `manuais/gestao-entregas-ciclo-completo/` | 🔨 Esqueleto (#117) — faltam 13 imagens |
+| Relatório Operação de Entrega | `manuais/relatorio-operacao-entrega/` | ✅ Concluído (#118) |
+| Quanto o entregador recebe (Taxa / KM) | `manuais/entregador-quanto-recebe/` | ✅ Concluído (#119) |
 
 ### Tradução do cardápio presencial — #100
 
@@ -1135,13 +1186,40 @@ suspeitar da configuração, espere.
 
 ---
 
-### Gestão de Entregas — bloco #104 a #117 (lista proposta, nenhum manual escrito)
+### Gestão de Entregas — bloco #104 a #119 (15 prontos, o #117 esperando foto)
 
-A lista está em [`planos/PLANO-GESTAO-ENTREGAS.md`](planos/PLANO-GESTAO-ENTREGAS.md): **14 manuais**
-em cinco blocos — preparar o terreno (1), o painel do operador (5), os avisos de WhatsApp (1), o app
-do entregador (6, consolidando os 15 capítulos do material que o dono enviou) e juntar as peças (1).
-O **#104** herda a Parte 1 do **#57** e é o que permite aposentá-lo. Os **#104 a #110** não dependem
-de nada do dono; os **#111 a #116** dependem de 12 fotos do emulador, porque o app não roda aqui.
+O plano pedia 14 manuais; saíram **16 linhas de checklist**, porque o dono acrescentou dois
+relatórios no meio da rodada. Quinze estão prontos:
+
+| Faixa | Manuais |
+|---|---|
+| Painel | **#104** liberar entregador · **#105** ler o mapa · **#106** montar rota · **#107** despachar · **#108** fechar · **#109** despacho automático · **#110** avisos de WhatsApp |
+| App | **#111** entrar · **#112** entregas do dia · **#113** chegar no endereço · **#114** código de barras · **#115** marketplace · **#116** receber na porta |
+| Relatórios | **#118** Operação de Entrega · **#119** Entregador (Taxa / KM) |
+| Esqueleto | **#117** uma entrega do começo ao fim — texto final, 13 imagens pendentes |
+
+O **#104** herda a Parte 1 do **#57** e o **#114** herda o código de barras: com os dois, mais os
+**#111 a #116**, o #57 está **pronto para aposentar**.
+
+**O #117 é esqueleto por um motivo que vale registrar como regra:** manual de "lado a lado" precisa
+que as duas metades sejam capturadas **no mesmo pedido**. Eu capturo o painel; o app depende de
+emulador, que não roda aqui. Capturar um lado hoje e receber o outro amanhã daria números de pedido
+diferentes em cada imagem — pior do que manual sem imagem. Então o texto ficou final, com marcador
+`⏳` no lugar de cada foto e aviso 🚧 no topo, e o `annotate.py` ficou para depois, porque ele se
+escreve medindo a imagem.
+
+**A pasta de pedidos e o smoke test** ficaram em `manuais/gestao-entregas/`:
+[`pedidos/capturas-app.md`](../../../../manuais/gestao-entregas/pedidos/capturas-app.md) (26 prints
+em 10 pastas, cada linha com a pergunta do FAQ que ganharia a foto),
+[`pedidos/janela-117.md`](../../../../manuais/gestao-entregas/pedidos/janela-117.md) (o roteiro de
+sete fases) e
+[`scripts/smoke-app.js`](../../../../manuais/gestao-entregas/scripts/smoke-app.js) (nove cenários
+que montam estados inalcançáveis por clique).
+
+> **Lição de pedido de foto:** a primeira versão do `capturas-app.md` pediu 12 prints deduzidos dos
+> capítulos que o dono enviou, **antes** de os manuais existirem. Depois de escrever os seis, a
+> lista real era outra — e maior. Pedido de captura feito antes do texto pede o que parece faltar;
+> feito depois, pede o que **falta**. Escreva o manual primeiro, com o que tem, e peça no fim.
 
 Estudo completo em `manuais/gestao-entregas/estudo/`: o funcionamento do módulo em
 [`01-como-o-sistema-funciona.md`](../../../../manuais/gestao-entregas/estudo/01-como-o-sistema-funciona.md)
@@ -1160,7 +1238,7 @@ snapshots para o mapa não fazer JOIN entre servidores.
 na barra do **Delivery** abre a **mesma tela dentro de um modal** sobre o Delivery, com botões de
 abrir em nova aba, expandir e fechar. Não há item de menu lateral — procurei e não existe.
 
-**Três frases que contrariam a intuição e o manual precisa acertar:**
+**Seis frases que contrariam a intuição e o manual precisa acertar:**
 
 1. **Despachar avisa cliente e marketplace.** Grava `ENTREGA` no ERP e isso passa pelo
    `SituacaoDeliveryUpdater`: marketplace, impressão e fila de WhatsApp.
@@ -1169,6 +1247,16 @@ abrir em nova aba, expandir e fechar. Não há item de menu lateral — procurei
    `GET /painel`. Conferido: a minha visita à tela escreveu o heartbeat.
 3. **"Melhor rota" no app desfaz a ordem que o operador montou** no painel (o app reordena por
    distância a partir da loja).
+4. **O que põe o pedido na tela do app é `_PreVenda.FuncionarioIDMotoboy`**, não estar pronto e não
+   estar em rota. Pedido pronto sem entregador atribuído não existe para o celular — e a rota
+   aparece no app **antes** de qualquer despacho, porque criar a rota com entregador já grava a
+   coluna. É a confusão número um da operação, e o eixo do #117.
+5. **Ler o código de barras é despachar** (#114) e **cobrar é finalizar** (#116). Nenhuma das duas
+   ações confere nada: as duas movem estado, e nenhuma tem volta. Manual que descreve leitura de
+   etiqueta como conferência ou cobrança como registro ensina errado.
+6. **O `INICIAR ROTA` do app é o mesmo `PUT /gestao/rota/:rotaID/despachar` do avião do painel.**
+   Foi aberto para o app em 29/08 por decisão de produto — o argumento foi que a alternativa era o
+   entregador na moto com o painel dizendo que nada saiu.
 
 **O vocabulário de situação:** `PREPARO` → em preparação, `PRONTO` → pronto, `ENTREGA` → em rota,
 `ENTREGUE` → entregue. `TRANSPORTE` **não é valor válido** (removido do filtro da view pelo script
@@ -1191,6 +1279,22 @@ do `_Funcionario` do MSSQL.
 aponta para rota que já não existe, o entregador fica ocupado para sempre e **nunca recebe rota do
 despacho automático**. Há um caso vivo na sandbox (`194115` → rota 120, inexistente). Antes de
 fotografar despacho automático, confira isso.
+
+**Conferir cenário pela API do app, não pelo banco.** Entre as duas coisas moram o agrupamento de
+rota, o filtro de situação e a ordenação por distância — e já aconteceu de o banco estar certo e a
+tela vir vazia. O `smoke-app.js` chama
+`GET /api/entrega2/gestao/entregador/{empresa}/{filial}/{usuario}/{funcionario}` com Basic Auth e
+verifica o que a tela vai mostrar. Vale como padrão para qualquer cenário de app: **confira pela
+porta que o cliente usa.**
+
+**Sentinela de escrita, o desenho que deu certo.** Script que escreve em produção (a sandbox é
+produção) precisa de mais do que `--dry-run`. O que o `smoke-app.js` usa, e que vale copiar:
+lista branca **literal** de empresa/filial no código (destravar exige editar o arquivo, não passar
+flag), `UPDATE` só numa tabela, só em ID que **o próprio script criou** naquela janela — guardado em
+arquivo de estado local, porque as fases acontecem em execuções diferentes —, lista branca de
+colunas, e uma flag separada (`--permitir-passado`) para o subconjunto que altera histórico. As
+operações de rota vão pela **API**, nunca por SQL, para o log, o socket e o `rota_evento`
+acontecerem como no uso real.
 
 ---
 
