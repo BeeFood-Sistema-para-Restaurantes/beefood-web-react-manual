@@ -5,7 +5,13 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-19 (28ª rodada: a capa do tablet vendia **pagar**,
+Última atualização: 2026-09-19 (29ª rodada: **estudar o acervo virou etapa**, e
+não sorte — ver *uma rodada depois isso virou etapa, e não sorte*, dentro de
+*prova boa se reusa entre peças*. A pergunta que autoriza o reuso é *a prova é
+do módulo, ou do canal?*, e o hábito pesa muito mais em `função` do que em
+`novidade`).
+
+28ª rodada: a capa do tablet vendia **pagar**,
 que é a promessa do totem, e o produto faz isso sem ser por isso que alguém
 compra — ver *a capa vende o uso principal, e não o recurso mais vistoso da
 lista*).
@@ -102,7 +108,7 @@ na voz da marca e falando com você**.
 | Desconto ou acréscimo por forma de pagamento | [17/08/2026](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) | `carrosseis/desconto-forma-pagamento/` | 4:5, 7 slides | ✅ entregue — `entrega/desconto-forma-pagamento.zip` (7 PNG + copy) |
 | A dark kitchen de várias marcas num painel só | **função**, de [`beefood.com.br/sistema-dark-kitchen`](https://beefood.com.br/sistema-dark-kitchen/) | `carrosseis/dark-kitchen-multimarcas/` | 4:5, 7 slides | ✅ entregue — `entrega/dark-kitchen-multimarcas.zip` (7 PNG + copy) |
 | O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — endereço público é **casca**; a página vem de um app externo | `carrosseis/totem-autoatendimento/` | 4:5, 9 slides | ✅ entregue — `entrega/totem-autoatendimento.zip` (9 PNG + copy) |
-| Cada mesa pede e fecha a própria conta | **função**, de [`beefood.com.br/cardapio-digital-tablet`](https://beefood.com.br/cardapio-digital-tablet/) — página inteira, servida pelo próprio site | `carrosseis/cardapio-digital-tablet/` | 4:5, 8 slides | ✅ entregue — `entrega/cardapio-digital-tablet.zip` (8 PNG + copy) |
+| Cada mesa pede e fecha a própria conta | **função**, de [`beefood.com.br/cardapio-digital-tablet`](https://beefood.com.br/cardapio-digital-tablet/) — página inteira, servida pelo próprio site | `carrosseis/cardapio-digital-tablet/` | 4:5, 9 slides | ✅ entregue — `entrega/cardapio-digital-tablet.zip` (9 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -993,6 +999,77 @@ chegou até ali.
 
 > Slide reusado entra pela **função que ele cumpre no arco**, não pela ordem em
 > que o cliente encontra aquilo na tela.
+
+#### Uma rodada depois isso virou etapa, e não sorte
+
+O reuso no totem aconteceu porque o dono **pediu**. Na peça do tablet o pedido
+voltou — *"precisamos incluir mais uma imagem sobre a multilinguagem, já
+fizemos um carrossel sobre isso e já temos o conteúdo pronto"* — junto com o
+diagnóstico: *"precisamos criar uma memória de que, ao criar um carrossel,
+estudamos todos os que já foram criados para encontrar implementações casadas
+com as outras que já foram feitas"*.
+
+Ele está certo, e o que faltava não era disposição: era **etapa**. Procurar
+prova antiga não estava em lugar nenhum do fluxo, então acontecia quando alguém
+lembrava. Virou a segunda metade do passo 1 da `SKILL.md`, com os quatro
+comandos que levantam o acervo, e a seção *o acervo é parte da pauta* em
+`roteiro-e-copy.md`.
+
+**E o peso do hábito muda com o gênero.** Em `novidade`, o acervo serve para
+não repetir, e pouco mais: a peça é um recorte no tempo, tem um fato próprio
+com data, e reaproveitar prova quase sempre significa falar de outra coisa. Em
+`função` é o contrário — totem, tablet, QR Code e app do garçom são canais da
+**mesma plataforma**, lendo o mesmo cadastro e o mesmo cardápio. Ali o reuso
+não é economia, é o que mantém as peças **coerentes entre si**: quem acompanha
+o perfil vê a mesma tela de cadastro nas duas peças e entende sozinho que é um
+sistema só. Recapturar, com outro produto e outro recorte, ensinaria o
+contrário.
+
+**A pergunta que autoriza o reuso é uma só: a prova é do módulo, ou do canal?**
+A tela do cadastro de produto é do **módulo**, e por isso viaja da peça da
+tradução para a do tablet sem uma linha de ressalva — o cadastro não muda por
+canal. Os dois recortes do cartão em inglês e espanhol, que eram o candidato
+mais óbvio porque já estavam prontos e já tinham sido reusados uma vez, são do
+**totem**: numa peça de tablet eles seriam arte desmentindo a frase do slide.
+
+Duas coisas viajaram junto com a imagem, e a segunda é a que se esquece:
+
+- **o limite**, de novo — a página do tablet também promete "traduzido
+  automaticamente", e o manual continua dizendo que quem escreve é a loja. Com
+  o slide do cadastro na peça, ela parou de só **evitar** a frase e passou a
+  **mostrar como é**: um campo a mais no produto que já existe. Vende melhor
+  que a promessa falsa, porque o trabalho é pequeno e serve todos os canais;
+- **a copy, que não viaja.** Na peça da tradução o slide convence quem ainda
+  não tem o recurso (*"Você escreve uma vez, e pronto"*). No tablet o leitor já
+  está escolhendo um canal, então o argumento passa a ser o cadastro único:
+  *"O mesmo produto, com um campo a mais"*, e o rodapé fecha com *"tudo
+  continua saindo de um cadastro só"*, que ainda prepara o CTA.
+
+**E a segunda viagem aconteceu assim mesmo, na mesma rodada em que a regra foi
+escrita.** A primeira versão do slide novo reusou a imagem **com o texto
+junto**: saíram duas peças dizendo *"toque na bandeira e escreva o nome do
+jeito que o turista entende"* e *"o português continua ali do lado, intacto"*
+com as mesmas palavras, e nada apitou — o `conferir-texto.py` só olhava para a
+fonte externa.
+
+Regra escrita não pega o que regra escrita não mede, então o conferidor passou
+a comparar a peça com **os outros carrosséis**. Três decisões, e as três são
+sobre o aviso ser lido:
+
+- **é `AVISO`, não erro.** O CTA de peça de função repete de propósito — ele é
+  convenção. Travar a entrega por isso ensinaria a contornar o conferidor.
+- **fora da comparação fica o que não é copy**: a interface desenhada dentro
+  dos mockups (duas peças com a mesma tela repetem "MELTED brioche bun…"
+  porque é o produto), o cromo do slide (contador, pontos, `arraste`) e o
+  texto alternativo, que descreve prova — e prova se repete de propósito. Sem
+  esses filtros o primeiro teste devolveu **170 avisos**, que é o mesmo que
+  nenhum.
+- **dentro fica o que a peça escreveu**: a copy dos slides e a legenda. Com o
+  filtro, a mesma peça caiu para **22** avisos, todos reais, e depois da
+  reescrita para **5** — os cinco do CTA.
+
+O teto de slides cedeu de novo, pelo mesmo motivo do totem: os nove dizem nove
+coisas diferentes, e o corte só tiraria conteúdo.
 
 **E ele custou o teto de 8 slides.** A regra *slide novo custa slide velho* foi
 aplicada na rodada anterior e não tinha mais o que fundir: os nove slides dizem

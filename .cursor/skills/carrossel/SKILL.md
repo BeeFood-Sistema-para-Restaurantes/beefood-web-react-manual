@@ -114,6 +114,40 @@ Se a leitura de uma página vier suspeitosamente pobre, **desconfie da
 ferramenta antes de concluir que a página está vazia**. A pergunta não é "a
 página tem conteúdo?", é "esta página se serve sozinha?".
 
+#### E a pauta tem uma segunda metade: o acervo
+
+Antes de escrever uma linha, **leia os carrosséis que já existem**. Não é
+curiosidade, é levantamento: os produtos da BeeFood compartilham módulos, e
+metade da prova que a peça nova precisa costuma já estar capturada, recortada e
+aprovada em outra pasta.
+
+```bash
+cat carrosseis/README.md                 # o índice, com gênero e fonte de cada peça
+ls carrosseis/*/slides/                  # que assuntos já viraram slide
+ls carrosseis/*/imagens-puras/           # que provas já estão capturadas
+ls carrosseis/*/*.json                   # dados de exemplo (traduções, cupons, frota)
+```
+
+Depois abra o `roteiro.md` das peças do **mesmo gênero** e das que tocam o mesmo
+módulo, e responda duas perguntas:
+
+1. **O que já está provado e vale aqui?** Tela de cadastro, cartão nos dois
+   idiomas, modal de configuração — prova de módulo compartilhado é verdadeira
+   em todos os canais que usam aquele módulo.
+2. **O que a peça vizinha já prometeu, e como esta se diferencia dela?** Duas
+   capas da mesma linha não podem vender o mesmo gancho.
+
+**Isso pesa muito mais no gênero `função` do que no gênero `novidade`.** Uma
+novidade é um recorte no tempo: ela tem um fato próprio, e reaproveitar prova de
+outra peça quase sempre significa falar de outra coisa. Uma função é um **canal
+da mesma plataforma** — totem, tablet, QR Code e app do garçom leem o mesmo
+cadastro, o mesmo cardápio, o mesmo programa de fidelidade. Aí o reuso não é
+atalho: é o que mantém as peças **coerentes entre si**.
+
+Regra e limites em
+[`references/roteiro-e-copy.md`](references/roteiro-e-copy.md), seção *o acervo
+é parte da pauta*.
+
 ### 2. Roteiro — antes de qualquer imagem
 
 **O texto da fonte é matéria-prima, não roteiro.** A novidade é registro de
@@ -564,6 +598,18 @@ Acusa qualquer sequência de seis palavras que apareça igual no texto (ou no
 título) da novidade — nenhum rótulo do sistema chega a seis palavras, então o que
 ele pega é cópia. Ele não julga o roteiro; para isso existe a tabela
 fato → ângulo → slide.
+
+**Ele também compara a peça com os outros carrosséis**, e isso é `AVISO`, não
+erro. Prova se reusa entre peças de propósito; **a copy, não** — o slide
+reaproveitado fala com um leitor diferente, e repetir o texto entrega duas
+peças que parecem a mesma. Para o aviso ser sinal e não ruído, ficam de fora da
+comparação a interface desenhada dentro dos mockups, o cromo do slide
+(contador, pontos, `arraste`) e o texto alternativo, que descrevem prova. Fica
+dentro o que a peça **escreveu**: a copy dos slides e a legenda.
+
+Nem todo aviso é defeito. O CTA de peça de função repete de propósito — ele é
+convenção, e a frase mais comum possível é a que funciona. Mas agora a decisão
+é tomada, em vez de passar batida.
 
 1. Abra a folha de contato: o conjunto tem ritmo, ou três slides de texto seguidos?
    A capa tem imagem?

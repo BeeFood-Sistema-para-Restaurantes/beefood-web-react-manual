@@ -113,6 +113,80 @@ também"*, não "crie um cupom": o recurso é do outro módulo, e o que a peça
 acrescenta é **onde ele também funciona**. Quem já usa reconhece a própria
 ferramenta; quem não usa descobre que ela existe.
 
+### O acervo é parte da pauta
+
+A pauta tem duas metades. A primeira é a fonte — o release ou a página. A
+segunda é **o que a casa já publicou**, e ela foi descoberta tarde: o pedido
+que a criou foi *"precisamos criar uma memória de que, ao criar um carrossel,
+estudamos todos os que já foram criados para encontrar implementações casadas
+com as outras que já foram feitas"*.
+
+O levantamento é barato e vem antes de escrever:
+
+```bash
+cat carrosseis/README.md                 # índice, com gênero e fonte de cada peça
+ls carrosseis/*/slides/                  # que assuntos já viraram slide
+ls carrosseis/*/imagens-puras/           # que provas já estão capturadas
+ls carrosseis/*/*.json                   # dados de exemplo já montados
+```
+
+Depois abra o `roteiro.md` das peças do mesmo gênero e das que tocam o mesmo
+módulo. Duas perguntas, e as duas mudam a peça nova:
+
+1. **O que já está provado e vale aqui?**
+2. **O que a peça vizinha já prometeu, e como esta se diferencia dela?**
+
+#### Por que isso vale muito mais no gênero `função`
+
+Uma **novidade** é um recorte no tempo. Ela tem um fato próprio, com data, e
+reaproveitar prova de outra peça quase sempre significa falar de outra coisa —
+o leitor veio ver o que mudou, e o que mudou é só aquilo. Ali o acervo serve
+para **não repetir**, e pouco mais.
+
+Uma **função** é um canal da mesma plataforma. Totem, tablet, QR Code e
+aplicativo do garçom leem o mesmo cadastro, o mesmo cardápio, o mesmo programa
+de fidelidade — então a prova de um módulo compartilhado é **verdadeira em
+todos eles**, e recapturar produz o mesmo arquivo com outro nome. Aí o reuso
+deixa de ser atalho e vira o que mantém as peças coerentes: quem acompanha o
+perfil vê a mesma tela de cadastro na peça do totem e na do tablet, e entende
+sozinho que é um sistema só. Capturar de novo, com outro produto e outro
+recorte, ensinaria o contrário.
+
+#### A pergunta que autoriza o reuso
+
+> **Esta prova é do módulo, ou é do canal?**
+
+Prova de **módulo** viaja: a tela do cadastro de produto, o modal de
+configuração, o cartão de cupom. Prova de **canal** não viaja, mesmo quando é
+tentador — os dois recortes do cartão em inglês e espanhol do totem são do
+**totem**, e pôr eles numa peça de tablet é arte desmentindo a frase do slide.
+
+#### O que viaja junto com a imagem, sempre
+
+- **O limite do que a peça afirma.** Se a peça de origem descobriu que a página
+  promete tradução automática e o manual diz que quem escreve é a loja, esse
+  limite vale na peça nova também. Prova reaproveitada sem a ressalva vira
+  promessa nova.
+- **A copy, não.** O slide reusado fala com um leitor diferente. Na peça da
+  tradução, o slide do cadastro convence quem ainda não tem o recurso; na peça
+  do tablet, o leitor já está escolhendo um canal, e o argumento passa a ser o
+  **cadastro único**. Mesma imagem, outro título.
+
+O segundo item é o que escapa, e escapou na primeira versão deste slide: a
+imagem foi reusada **com o texto junto**, e saíram duas peças dizendo *"toque
+na bandeira e escreva o nome do jeito que o turista entende"* com as mesmas
+palavras. Por isso o `conferir-texto.py` passou a comparar a peça com os outros
+carrosséis e avisar. É `AVISO` e não erro — o CTA repete de propósito —, mas
+agora a repetição aparece e alguém decide.
+
+#### Onde o slide reusado entra
+
+Pela **função que ele cumpre no arco**, não pela ordem em que o cliente encontra
+aquilo na tela. No tablet, o slide do cadastro entrou logo depois do slide de
+idiomas: um mostra o que o cliente lê, o outro mostra onde aquele texto foi
+escrito, e o par faz a virada do lado do cliente para o lado do dono, que o
+slide do painel completa.
+
 ## A novidade é matéria-prima, não roteiro
 
 O texto publicado em `beefood.app/novidades` é registro de release: descreve o
@@ -701,6 +775,9 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 - [ ] **O gênero está certo do começo ao fim?** Em peça de função: nenhuma
       pílula `Novidade`, nenhum "agora", CTA que serve para quem ainda não tem
       painel, e nenhum número institucional na arte.
+- [ ] **O acervo foi lido antes de a peça ser escrita?** Em peça de `função`:
+      que prova de módulo compartilhado já existe capturada, e que gancho a peça
+      vizinha já usou. Reuso é do **módulo**, nunca do canal.
 - [ ] **A manchete vende o uso principal, e não o recurso mais vistoso?** Se o
       restaurante comprar por causa desta capa, é isso que ele vai usar todo
       dia? E, quando o produto tem irmãos na linha (totem, tablet, QR Code,

@@ -58,16 +58,63 @@ NOMES_DE_PRODUTO = (
 )
 
 
+# Classe cujo conteúdo NÃO é copy, e por isso não conta quando se compara uma
+# peça com outra. São dois motivos:
+#
+# - interface desenhada (`tela-`, `cupom`) — duas peças que mostram a mesma
+#   tela repetem "MELTED brioche bun…" porque é o produto, não porque alguém
+#   copiou a copy da outra;
+# - cromo do slide (`contador`, `pontos`, `arraste`) — "1 de 9" e "arraste"
+#   estão em todo carrossel por construção, e colados ao texto vizinho ainda
+#   inventam sequências que ninguém escreveu.
+FORA_DA_COPY = ("tela-", "cupom", "contador", "pontos", "arraste")
+
+# Tag sem fechamento não conta profundidade: `<img>` dentro de uma tela
+# desenhada incrementaria o contador para sempre e o bloco nunca terminaria.
+VOID = {"img", "br", "hr", "input", "meta", "link", "source", "wbr"}
+
+
 class SomenteTexto(HTMLParser):
     """Texto visível do fragmento. Comentário de HTML fica de fora — é nota de
-    implementação para quem edita o slide, não vai para a arte."""
+    implementação para quem edita o slide, não vai para a arte.
 
-    def __init__(self) -> None:
+    Com `sem_desenho`, a interface desenhada e o cromo do slide também ficam de
+    fora.
+    Serve para comparar uma peça com outra: ali o que interessa é a **copy**, e
+    a interface desenhada é prova, que pode e deve se repetir.
+    """
+
+    def __init__(self, sem_desenho: bool = False) -> None:
         super().__init__()
         self.pedacos: list[str] = []
+        self._sem_desenho = sem_desenho
+        self._pulando = 0
+        self._fundo = 0
+
+    def handle_starttag(self, tag: str, attrs) -> None:
+        if not self._sem_desenho or tag in VOID:
+            return
+        # A profundidade tem de ser contada mesmo dentro do bloco pulado: sem
+        # isso, a primeira tag de fechamento de um filho reabriria a captura.
+        if self._pulando:
+            self._fundo += 1
+            return
+        classe = dict(attrs).get("class") or ""
+        if any(c.startswith(FORA_DA_COPY) for c in classe.split()):
+            self._pulando = 1
+            self._fundo = 0
+
+    def handle_endtag(self, tag: str) -> None:
+        if not self._pulando:
+            return
+        if self._fundo:
+            self._fundo -= 1
+        else:
+            self._pulando = 0
 
     def handle_data(self, data: str) -> None:
-        self.pedacos.append(data)
+        if not self._pulando:
+            self.pedacos.append(data)
 
     def texto(self) -> str:
         return " ".join(self.pedacos)
@@ -89,6 +136,64 @@ def palavras(texto: str) -> list[str]:
 
 def sequencias(lista: list[str], n: int) -> set[tuple[str, ...]]:
     return {tuple(lista[i:i + n]) for i in range(len(lista) - n + 1)}
+
+
+def copy_da_peca(pasta: Path) -> str:
+    """Só a LEGENDA do `copy-instagram.txt`.
+
+    O cabeçalho é nota de produção e o texto alternativo descreve a imagem —
+    duas peças que mostram a mesma prova descrevem a mesma coisa, e é certo que
+    descrevam. O que não pode repetir é a legenda.
+    """
+    copy = pasta / "copy-instagram.txt"
+    if not copy.is_file():
+        return ""
+    blocos = re.split(r"={10,}", copy.read_text(encoding="utf-8"))
+    return " ".join(b for i, b in enumerate(blocos)
+                    if i and "LEGENDA" in blocos[i - 1])
+
+
+def texto_da_peca(pasta: Path) -> str:
+    """O que uma peça ESCREVEU: a copy dos slides e a legenda.
+
+    Fora ficam a interface desenhada dentro dos mockups e o texto alternativo,
+    que descrevem prova. Prova se reusa entre peças de propósito.
+    """
+    partes = []
+    for arquivo in sorted((pasta / "slides").glob("*.html")):
+        leitor = SomenteTexto(sem_desenho=True)
+        leitor.feed(arquivo.read_text(encoding="utf-8"))
+        partes.append(leitor.texto())
+    partes.append(copy_da_peca(pasta))
+    return " ".join(partes)
+
+
+def conferir_vizinhos(pasta: Path, janela: int) -> int:
+    """Avisa quando a peça repete frase de outro carrossel já publicado.
+
+    Prova se reusa entre peças — a tela de cadastro do produto é a mesma no
+    totem e no tablet, porque o cadastro não muda por canal. **A copy não**: o
+    slide reusado fala com um leitor diferente, e repetir o texto entrega duas
+    peças que parecem a mesma.
+
+    Isto é AVISO e não erro de propósito. Duas peças da mesma família podem
+    precisar dizer o mesmo rótulo de tela em sequência, e travar a entrega por
+    isso ensinaria a contornar o conferidor. Quem lê decide caso a caso — mas
+    agora precisa decidir, em vez de não ficar sabendo.
+    """
+    minhas = sequencias(palavras(texto_da_peca(pasta)), janela)
+    if not minhas:
+        return 0
+
+    achados = 0
+    for outra in sorted(pasta.parent.iterdir()):
+        if outra == pasta or not (outra / "slides").is_dir():
+            continue
+        repetidas = minhas & sequencias(palavras(texto_da_peca(outra)), janela)
+        for seq in sorted(repetidas):
+            print(f"REPETIDO de {outra.name}: {' '.join(seq)}")
+            achados += 1
+    return achados
 
 
 def main() -> None:
@@ -155,6 +260,8 @@ def main() -> None:
             achados += 1
         conferidos += 1
 
+    vizinhos = conferir_vizinhos(pasta.parent, args.janela)
+
     if achados:
         print(f"\n{achados} sequência(s) de {args.janela} palavras igual à "
               f"fonte ({origem}). Reescreva: o slide tem de dizer a mesma coisa "
@@ -164,6 +271,10 @@ def main() -> None:
 
     print(f"OK  nenhuma sequência de {args.janela} palavras repetida de "
           f"{origem} ({conferidos} arquivos)")
+    if vizinhos:
+        print(f"AVISO  {vizinhos} trecho(s) repetido(s) de outro carrossel — "
+              f"veja acima se cada um é prova reusada ou copy que deveria ter "
+              f"sido reescrita.")
 
 
 if __name__ == "__main__":
