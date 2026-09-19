@@ -769,6 +769,43 @@ Playwright. Manual de aplicativo Android não tem esse atalho.
 > Detalhe útil: a API do Bitbucket **exige `Authorization: Bearer <token>`** com esse tipo de
 > token. `curl -u x-token-auth:<token>` devolve **401** na API, embora funcione no `git`.
 
+### O caminho de volta: mandar um kit para quem tira o print (19/09/2026)
+
+Tudo acima é sobre material **chegando**. Quando quem fotografa é outra pessoa — ou outra IA, na
+máquina do dono, com o emulador que aqui não existe — o problema se inverte: é preciso mandar um
+pacote que se explique sozinho. O padrão que ficou está em
+`manuais/gestao-entregas/pedidos/montar-kit.sh`, e vale copiar.
+
+Quatro pastas numeradas na ordem de leitura: **o pedido**, **os scripts de cenário**, **a
+referência** e **a árvore de saída já nomeada**. Mais um `LEIA-PRIMEIRO.md` na raiz. Três decisões
+que fizeram diferença:
+
+1. **A árvore de saída vai vazia, com os nomes exatos.** Quem fotografa grava dentro dela, e o
+   pacote volta sem renomear nada. Renomear 26 arquivos na volta custa mais que criar 10 pastas na
+   ida — e nome errado é o defeito que só aparece quando o manual já está sendo montado.
+2. **As pastas da referência vão com o nome que têm no repositório**, sem prefixo de número, para
+   os links que os manuais fazem entre si continuarem resolvendo dentro do kit. O número de cada um
+   fica num `INDICE.md`. Com prefixo, os 136 links internos quebravam; sem, sobram 35, todos
+   apontando para manuais que o kit não leva de propósito.
+3. **As imagens da referência vão junto** (24 MB no caso). É o que deixa quem fotografa comparar
+   enquadramento: "o seu print precisa parecer com estes". Kit só de texto obriga a adivinhar.
+
+Um detalhe que economiza uma hora: o `capturar.ps1` do material do dono grava **dois níveis acima
+de si mesmo**. Copiado sem alteração para `capturas-2/_ferramentas/emulador/`, ele passa a gravar
+na raiz de `capturas-2/` — e `-Capitulo 16-notificacoes` cai exatamente na pasta do pedido. Resolver
+por posição em vez de editar o script alheio evita divergência entre as duas cópias.
+
+E o `LEIA-PRIMEIRO.md` precisa de uma frase que um humano não precisaria ler: **foto que não saiu
+não se inventa.** Uma IA com acesso a editor de imagem e uma lista de 26 arquivos para preencher
+tem todo incentivo para produzir a 26ª. Print faltando está anotado no relatório; print forjado vira
+manual publicado mentindo.
+
+> **O store de artefatos tem cota, e ela aparece como "No space left on device".** O zip de 24 MB
+> falhou pela metade escrevendo direto em `/opt/cursor/artifacts` (que é link para
+> `/cursor/stores/self/artifacts`) e deixou um arquivo parcial de nome aleatório ocupando espaço.
+> O jeito que funciona é montar o zip em `/tmp` e **copiar** depois — e limpar o parcial, senão a
+> tentativa seguinte falha pelo mesmo motivo.
+
 ---
 
 ## 7. Regras de segurança em produção
