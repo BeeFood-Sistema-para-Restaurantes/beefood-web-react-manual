@@ -6,7 +6,7 @@ republicada quando o assunto voltar)
 
 Publicar como carrossel de feed, 9 imagens em 1080x1350 (4:5), na ordem dos
 nomes de arquivo: 01-capa, 02-como-funciona, 03-vitrine, 04-chamar-garcom,
-05-conta, 06-idiomas, 07-mesmo-cadastro, 08-painel, 09-cta.
+05-conta, 06-idiomas, 07-ingles-espanhol, 08-painel, 09-cta.
 
 De onde vem cada imagem. As telas do TABLET (slides 1, 3 e 9) são print de
 produção do aplicativo Android, o mesmo que o manual do modo kiosk versiona —
@@ -14,13 +14,11 @@ o aplicativo não roda no ambiente de captura, então este é o segundo degrau d
 régua, e não captura feita para a peça. As telas do PAINEL (slides 4, 5 e 8)
 são captura nova, tirada em produção para este carrossel.
 
-Dois slides reaproveitam prova do carrossel da tradução, e os dois por ela ser
-de MÓDULO e não de canal: o 6 é a tela DESENHADA de lá, e o 7 é o mesmo print
-do cadastro do produto. A tela de cadastro não muda por canal — o tablet lê o
-registro que o totem e o cardápio por QR Code também leem —, então recapturar
-devolveria o mesmo arquivo com outro nome. O TEXTO dos dois é desta peça: lá o
-slide do cadastro convence quem teme manter dois cardápios, aqui ele responde a
-quem está avaliando o aparelho e quer saber de quem é o texto em inglês.
+Os slides 6 e 7 são telas DESENHADAS, com conteúdo emprestado do carrossel da
+tradução: o layout é o do cardápio no tablet e o texto em inglês e espanhol é o
+do arquivo de tradução daquela peça, escrito como um restaurante escreveria. Os
+recortes prontos que existiam lá são do TOTEM, em cartão de grade, e ao lado do
+slide 6 — que mostra a lista do tablet — pareceriam outro aparelho.
 
 Três coisas são de exemplo, e nenhuma foi salva no sistema. A frota do slide 8
 vem de um arquivo nosso: a loja de teste tem um aparelho só, offline e sem
@@ -69,10 +67,10 @@ E a mesa do estrangeiro pede sozinha. Português, inglês e espanhol ficam numa
 coluna do próprio cardápio, e um toque troca a tela inteira — sem depender de
 quem está no salão naquela noite.
 
-E o cardápio em inglês e espanhol é o seu, escrito com as suas palavras. Cada
-item guarda o nome e a descrição nos três idiomas, dentro do produto que já
-existe, então o turista lê exatamente o que você quis dizer — não um chute de
-tradutor. O mesmo texto serve o tablet, o totem e o cardápio por QR Code.
+E o cardápio em inglês e espanhol é o seu, escrito com as suas palavras. Só o
+texto muda de língua: a imagem e o valor continuam os mesmos, e a linha que o
+turista lê sai do produto que você já cadastrou — não de um chute de tradutor.
+O mesmo texto serve o tablet, o totem e o cardápio por QR Code.
 
 Do seu lado, o salão inteiro cabe em uma tela. Cada aparelho aparece com a mesa
 em que está, a bateria, há quanto tempo deu sinal e a versão do aplicativo.
@@ -145,14 +143,14 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     R$ 30,00 e One Classic a R$ 26,00.
 
 07  Chapéu "Escrito por você" e título "Seu cardápio em inglês e espanhol",
-    com as palavras inglês e espanhol em vermelho. O texto diz que cada item
-    guarda o nome e a descrição nos três idiomas, escritos dentro do produto
-    que já existe. Abaixo, um recorte da tela de cadastro do
-    produto: o rótulo Nome seguido das bandeiras do Brasil, dos Estados Unidos
-    e da Espanha, com a dos Estados Unidos selecionada e a etiqueta "Inglês" ao
-    lado; no campo, CHEDDAR & BACON FRIES; embaixo, o campo Setor com
-    Acompanhamentos. Por último, uma caixa rosa: "O mesmo texto serve o tablet,
-    o totem e o cardápio por QR Code".
+    com as palavras inglês e espanhol em vermelho. O texto diz que só o texto
+    muda de língua, que a imagem e o valor continuam os mesmos, e que a linha
+    lida pelo turista é a que a loja escreveu. Abaixo, o mesmo item do cardápio
+    do tablet em duas versões, uma sob a bandeira dos Estados Unidos com o
+    rótulo English e outra sob a bandeira da Espanha com o rótulo Español: a
+    mesma foto de um balde de batata frita, o mesmo R$ 11,00, e só o texto
+    mudando — FRENCH FRIES com "150 g portion of french fries" e o botão Order;
+    PAPAS FRITAS com "Porción de 150 g de papas fritas" e o botão Pedir.
 
 08  Chapéu "No seu painel" e título "O salão inteiro cabe em uma tela", com a
     palavra tela em vermelho. O texto diz que cada aparelho mostra a mesa em

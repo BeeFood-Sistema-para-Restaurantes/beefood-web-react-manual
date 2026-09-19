@@ -15,8 +15,7 @@
 - **Formato:** 4:5 (1080×1350), 9 slides
 - **Imagens:** 4 **capturas** do painel de produção (feitas para esta peça), 2
   **prints de produção** do aplicativo Android que já estavam em `manuais/`,
-  1 tela **desenhada** e 1 **prova reaproveitada** — as duas últimas vêm do
-  carrossel da tradução (slides 6 e 7)
+  e 2 telas **desenhadas** com conteúdo do carrossel da tradução (slides 6 e 7)
 
 ## A pauta veio errada na primeira leitura, de novo — e foi ferramenta
 
@@ -132,7 +131,7 @@ entrega exatamente isso.
 | dezesseis opções de chamada, com cupom impresso (4) | o cliente pede o que precisa, e a equipe já sabe o que levar | slide 4 |
 | fechamento de conta e Pix online, por chave (5) | a mesa fecha sem três idas e vindas até o caixa | slide 5 |
 | bandeiras na coluna e tela em inglês (6) | mesa de turista deixa de depender de quem fala a língua | slide 6 |
-| o texto em outro idioma é escrito pela loja, no próprio produto (6) | o cardápio dele passa a existir em inglês e espanhol, com as palavras dele | slide 7 |
+| os idiomas são português, inglês e espanhol, e o que muda é só o texto: foto e preço são os mesmos (6) | o cardápio dele passa a existir nas três línguas, com as palavras dele | slide 7 |
 | frota com mesa, bateria e sinal (7 a 11) | o salão inteiro cabe numa tela, e o cardápio novo sai daí | slide 8 |
 
 ## Os slides
@@ -145,7 +144,7 @@ entrega exatamente isso.
 | 4 | `04-chamar-garcom.html` | captura | o cliente pede gelo, talher, guardanapo — e sai cupom | aba `Garçom Opções` do painel |
 | 5 | `05-conta.html` | captura | a conta fecha na mesa, com Pix | as três chaves de funcionalidade |
 | 6 | `06-idiomas.html` | mockup | o mesmo cardápio em inglês | tela desenhada, do carrossel da tradução |
-| 7 | `07-mesmo-cadastro.html` | captura reusada | o cardápio dele existe nos três idiomas, escrito por ele | linha do Nome com as três bandeiras |
+| 7 | `07-ingles-espanhol.html` | par desenhado | o mesmo item nos dois idiomas, com a foto e o preço intactos | dois cartões da lista do tablet, `FRENCH FRIES` e `PAPAS FRITAS` |
 | 8 | `08-painel.html` | captura | o salão inteiro numa tela, com mesa e bateria | aba `Tablets` com a frota |
 | 9 | `09-cta.html` | capa + mockup | a página do sistema tem o resto | tablet com a tela inicial |
 
@@ -231,7 +230,38 @@ Eles são prova **do totem**, e numa peça de tablet seriam arte desmentindo a
 frase do slide. A pergunta que resolveu: **esta prova é do módulo, ou do
 canal?**
 
-**A ideia do slide não viaja com a prova, e essa foi a correção da rodada.** A
+**O acervo tinha DUAS provas de idioma, e escolher a errada custou duas
+rodadas.** O carrossel da tradução guarda o print do cadastro do produto (a
+linha do `Nome` com as três bandeiras) e o par do mesmo item nos dois idiomas
+(`FRENCH FRIES` / `PAPAS FRITAS`). A primeira versão pegou o cadastro sem
+comparar — ele era o que estava mais à mão, e a regra escrita autorizava.
+
+Só que a manchete promete **inglês e espanhol**, e o cadastro mostra a bandeira
+dos Estados Unidos escolhida com a etiqueta "Inglês": prova **metade** do que o
+título diz. É literalmente o defeito que o carrossel da tradução já tinha
+corrigido no slide 6 dele — o roteiro de lá registra, com estas palavras: *"a
+capa promete espanhol e o carrossel só mostrava inglês; e a prova cabe numa
+imagem"*.
+
+| Prova candidata | O que ela prova | Serve à manchete? |
+|---|---|---|
+| print do cadastro | **quem escreve** o texto (um idioma) | metade |
+| par do mesmo item | **que são dois** idiomas, mesma foto e mesmo preço | inteira |
+
+Ganhou o par. O "escrito por você" não se perdeu: desceu para o chapéu e para o
+corpo, que é onde ele cabe sem imagem.
+
+**Mas o par de lá não podia ser colado aqui.** Aqueles recortes são do **totem**,
+em cartão de grade, e o slide 6 desta peça mostra o cardápio do tablet em
+**lista** — lado a lado, a arte diria que são dois aparelhos. Então o par foi
+**desenhado** com o mesmo `.tela-tablet__item` do slide 6, com a foto real da
+biblioteca e o texto do `traducoes.json` daquela peça. Mesmo item, mesma foto,
+mesmo preço; muda a linha do nome, o descritivo e o botão (`Order` / `Pedir`).
+
+Dois idiomas e não três, pela mesma razão de lá: o português está em cinco
+slides desta peça e não precisa de prova.
+
+**A ideia do slide não viaja com a prova, e essa foi a correção anterior.** A
 primeira versão trocou as palavras e manteve o ângulo de lá: chapéu *"Sem
 segundo cardápio"*, manchete *"O mesmo produto, com um campo a mais"*. Aquilo
 responde o medo de quem ainda **não tem** o recurso e teme trabalho dobrado —
@@ -247,7 +277,7 @@ Então a manchete passou a nomear o **resultado** e o corpo a entregar o
 |---|---|---|
 | Chapéu | Sem segundo cardápio | Escrito por você |
 | Manchete | O mesmo produto, com um campo a **mais** | Seu cardápio em **inglês e espanhol** |
-| Remate | tudo sai de um cadastro só (esforço) | o mesmo texto serve tablet, totem e QR Code (canais) |
+| Corpo | economia de esforço | o que muda é só a linha do nome |
 
 O remate mudou pelo mesmo motivo. *"Os três idiomas acompanham"* é argumento de
 **esforço**, útil para quem teme manter dois cardápios; aqui o que interessa é
