@@ -11,8 +11,9 @@ no fim deste arquivo.
 **Estado: bloco fechado. 16 manuais prontos, nenhum esqueleto.** #104 a #119, incluindo o **#117**,
 que era o único pendente porque precisa das duas telas no mesmo pedido. Ele fechou em 19/09, quando as
 fotos do celular chegaram da máquina do dono — a metade do painel foi **reencenada** depois, com os
-mesmos três pedidos. Em [`pedidos/`](pedidos/README.md) sobrou **uma lista aberta que não bloqueia
-nada**: 6 prints de melhora, com o kit já empacotado. Publicar os dezesseis não depende dela.
+mesmos três pedidos. Em [`pedidos/`](pedidos/README.md) **não há lista aberta**: uma terceira rodada
+foi escrita, empacotada e recusada na leitura pelo dono, porque pedia imagem de tela vazia. O que
+sobrou dela é o critério, e está em *O que falta*.
 
 O histórico das primeiras rodadas fica abaixo, porque é ele que explica as decisões: a primeira
 organizou o material que o dono enviou; a segunda leu a documentação do backend e mediu o estado real
@@ -210,66 +211,61 @@ primeiro filtrado na data de hoje contra o cenário que eu mesmo montei, e o seg
 |---|---|
 | [`estudo/`](estudo/) | as duas leituras da primeira rodada: como o módulo funciona e o que eu medi |
 | [`material-recebido/`](material-recebido/README.md) | as duas rodadas que o dono enviou por WeTransfer: 15 capítulos e 63 prints, mais os [24 da segunda rodada](material-recebido/app-entregador/capturas-2/README.md) |
-| [`pedidos/`](pedidos/README.md) | o pedido das 26 capturas (**respondido**), o roteiro da janela do #117, a **segunda lista de 6 prints** e os dois kits que vão para quem fotografa |
+| [`pedidos/`](pedidos/README.md) | o pedido das 26 capturas (**respondido**), o roteiro da janela do #117, o kit que vai para quem fotografa e o registro do pedido que foi **recusado na leitura** |
 | [`scripts/`](scripts/README.md) | `cenario.js` (o painel) e `smoke-app.js` (o app) |
 
 ## O que falta
 
-**De foto, nada que impeça publicar.** Das 26 capturas pedidas, 24 chegaram em 19/09 e as 2 de
-iPhone foram canceladas pelo dono — o manual não usa imagem de iOS. As 6 que bloqueavam o #117
-saíram; as 18 restantes viraram seção nova em quatro manuais do aplicativo, e o `## O que falta` de
-cada um dos seis diz hoje **"nada"**.
+**Nada, e nada está pedido.** Das 26 capturas pedidas, 24 chegaram em 19/09 e as 2 de iPhone foram
+canceladas pelo dono — o manual não usa imagem de iOS. As 6 que bloqueavam o #117 saíram; as demais
+viraram seção nova em quatro manuais do aplicativo, e o `## O que falta` de cada um dos seis diz hoje
+**"nada"**.
 
-Há uma **segunda lista aberta, de qualidade**: [`pedidos/capturas-app-2.md`](pedidos/capturas-app-2.md),
-**6 prints e 3 arquivos de fonte**, com o
-[`kit-teste-app-entregador-2.zip`](pedidos/kit-teste-app-entregador-2.zip) pronto para repassar. Ela não
-segura manual nenhum, e existe por dois motivos que só apareceram depois de fechar o bloco:
+### A segunda lista de capturas existiu e foi recusada na leitura
 
-1. **O #114 tem a única imagem composta de todo o bloco.** O emulador não tem câmera, então a
-   etiqueta dentro da faixa foi sobreposta pelo `compor-leitura.ps1`. Está declarado no
-   `fluxo-codigo.md` do manual, o que basta para ser honesto, mas não para ser prova. A pasta 26 pede
-   a leitura de verdade e, de graça, as faixas de resultado que o manual hoje só lista numa tabela.
-   Junto do pedido foi a advertência que vale mais que a foto: **bipar despacha o pedido de verdade** —
-   mesma rota do botão do painel —, então só etiqueta de pedido semeado pelo script.
-2. **Duas telas continuam descritas só por escrito**, e a culpa da primeira é do pedido antigo: o
-   caso `historico-vazio` desatribuía o lote da execução, e o Histórico do app lê tudo o que aquele
-   entregador já entregou. Daí os comandos `historico-zerar` e `historico-voltar` do `smoke-app.js`,
-   que zeram o histórico inteiro com desfazer gravado antes da escrita — exercitados aqui de ponta a
-   ponta, inclusive a recusa de um segundo `zerar` sobre desfazer pendente. A outra tela, o app
-   **abrindo** sem rede, não existe no build de desenvolvimento: sem Metro o bundle não carrega e o
-   app morre antes de qualquer tela.
+Fechado o bloco, escrevi uma lista nova de 6 prints, empacotei o kit e versionei o zip. O dono leu e
+abortou antes de delegar:
 
-### O pedido foi refeito quando o dono disse quem executa
+> *"que tipo de manual estamos fazendo? pra que vamos ter uma sessão e uma imagem mostrando 'Nenhum
+> pedido'? o manual deve ser util e não ter um monte de conteudo sem sentido."*
 
-A primeira versão da lista pedia **etiqueta impressa em papel** e **APK da Play Store**. O dono cortou
-as duas no mesmo recado: *"eu como pessoa não vou tirar nenhum print ou realizar fluxo"* — quem executa
-é uma IA que tem **emulador, banco, printscreen e o repositório do aplicativo**, e nada além disso. Se
-eu precisar de imagem fora desse alcance, o caminho é estudar o fonte e montar a imagem aqui.
+**Ele está certo, e o erro é de critério, não de execução.** As três coisas que a lista pedia tinham a
+mesma falha: existiam porque o aplicativo tem aquele estado, não porque alguém precisa daquela
+resposta.
 
-O que mudou, e é o tipo de coisa que só aparece quando se pergunta *quem vai fazer*:
+| O que eu pedi | Por que não servia |
+|---|---|
+| o histórico **de verdade vazio** | ninguém abre manual para ver como é a tela quando não há nada nela |
+| o app **abrindo sem rede** | não há o que fazer com a resposta: sem rede o entregador já sabe que está sem rede |
+| as **faixas de resultado** da leitura, uma foto para cada | são seis mensagens curtas; a tabela do #114 é mais útil que quatro fotos quase iguais de uma faixa colorida |
 
-- **A pasta 26 passou a ser pela cena virtual do emulador**, que aceita trocar um pôster da parede por
-  um PNG. Não foi invenção: o `gerar-ean13.js` do material do dono já tinha esse caminho em mente — o
-  comentário dele diz que o módulo do código é largo *porque a imagem vai ser lida pela câmera do
-  emulador*.
-- **As quatro fotos da 26 deixaram de ter o mesmo peso.** A `01` só precisa que a câmera **veja** o
-  código na faixa, e é ela que tira a imagem composta do manual; as outras três dependem de
-  **decodificação**, que não tem como ser forçada pela tela porque o modal não tem campo para digitar.
-  Separar as duas coisas foi o que deu ao pedido uma foto de alto valor e baixo risco, em vez de quatro
-  de risco igual.
-- **A pasta 28 passou a sair de `assembleRelease` do próprio repositório.** Release embute o bundle e
-  não procura o Metro; era isso que faltava, não a Play Store.
-- **Nasceu a pasta 29, que não é foto:** três arquivos de fonte (`BarcodeScannerModal.js`,
-  `views/historico/index.js`, `views/entregas/index.js`) para eu conferir o texto contra o código. Eles
-  **não serão versionados** — este repositório é público, e fonte de aplicativo não entra nele; a regra
-  é a mesma que já vale para senha e host do backend.
+O que saiu junto, e é o que dá o tamanho do erro: uma **imagem já publicada** (a lista sem rede do
+#112, que era uma lista normal com três etiquetas explicando que era normal), **dois comandos de
+script** (`historico-zerar` e `historico-voltar`, que apagavam o histórico inteiro do entregador só
+para produzir a tela vazia) e a engenharia de pedido que eu tinha montado para viabilizar as fotos —
+cena virtual do emulador, `assembleRelease`, separação por risco de decodificação. Tudo correto, tudo
+a serviço de imagem que não devia ter sido pedida. **A pergunta certa vem antes de "consigo produzir
+esta imagem?", e é "alguém precisa dela?"**
 
-E a pasta 29 já se pagou antes de existir. Relendo o estudo de fonte que veio no material da primeira
-rodada (`material-recebido/app-entregador/estudo/01-o-que-o-app-faz-hoje.md`, seção 2.10), a faixa de
-status do leitor tem **seis** mensagens, e o #114 listava cinco: faltava ***Erro: {mensagem}***, que é
-o servidor recusando, caso diferente de *Erro na leitura, tente novamente*, que é o envio que não saiu.
-A distinção decide o que o entregador faz, e o manual foi corrigido — de leitura de segunda mão, que
-funcionou, mas não deveria ser a regra.
+O critério que ficou está na
+[memória geral](../../.cursor/skills/manual-sistema/references/MEMORIA-GERAL.md), na regra 0 das boas
+práticas de imagem, e é uma pergunta: **o leitor sai daí fazendo algo diferente?** A seção *Quando a
+cobrança não fecha* do #116 passa — quatro telas, quatro ações, dinheiro em jogo. A janela *Despacho
+não confirmado* do #113 passa — manda ligar para a loja e avisa para não tocar de novo. Tela de
+ausência não passa.
+
+Uma coisa se salvou, e aponta para onde olhar primeiro na próxima vez. Relendo o estudo de fonte que
+já estava no material da primeira rodada
+(`material-recebido/app-entregador/estudo/01-o-que-o-app-faz-hoje.md`, seção 2.10), a faixa de status
+do leitor tem **seis** mensagens, e o #114 listava cinco: faltava ***Erro: {mensagem}***, que é o
+servidor recusando, caso diferente de *Erro na leitura, tente novamente*, que é o envio que não saiu.
+A distinção decide o que o entregador faz, e o manual foi corrigido. **A correção real do dia saiu de
+reler o que já estava no disco**, não de pedir foto nova.
+
+**A única imagem composta do bloco fica, declarada.** O #114 sobrepôs a etiqueta dentro da faixa da
+câmera porque o emulador não tem câmera, e isso está escrito no `fluxo-codigo.md` dele. Trocá-la por
+uma real seria melhor; mandar alguém montar um pôster de cena virtual para isso não é proporcional ao
+ganho, e a declaração é honesta.
 
 O receio que justificava a janela combinada — *o manual mostra números de pedido diferentes de cada
 lado* — não se concretizou, e por um motivo que só apareceu ao medir: **o número do pedido não

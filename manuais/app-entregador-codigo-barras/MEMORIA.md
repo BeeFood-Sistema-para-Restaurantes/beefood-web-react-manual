@@ -48,8 +48,8 @@ resolve; **`Erro: {mensagem}`** é a loja respondendo e recusando, e ler de novo
 tabela e o FAQ passaram a separar as duas, e o manual ganhou a dica que fica sob a faixa da câmera
 (*Posicione o código de barras na faixa da câmera*), que também não estava escrita em lugar nenhum.
 
-Foi o que motivou pedir **fonte** na rodada 3, e não só foto: esta correção veio de leitura de segunda
-mão, e funcionou, mas não deveria ser a regra.
+Vale reter de onde ela veio: **de reler o que já estava no disco**, não de captura nova. O material
+que o dono manda tem mais valor que as imagens dele.
 
 ## Decisões de imagem
 
@@ -65,26 +65,21 @@ mão, e funcionou, mas não deveria ser a regra.
 
 ## O que falta
 
-**Nada que impeça publicar.** As duas rodadas de capturas pedidas ao dono
-([`../gestao-entregas/pedidos/capturas-app.md`](../gestao-entregas/pedidos/capturas-app.md), 26
-prints) eram de outros assuntos — notificação, troca de entregador, rota ao vivo, falhas e iPhone —,
-e nenhuma era de código de barras.
+**Nada, e nada está pedido.** As 26 capturas pedidas ao dono
+([`../gestao-entregas/pedidos/capturas-app.md`](../gestao-entregas/pedidos/capturas-app.md)) eram de
+outros assuntos — notificação, troca de entregador, rota ao vivo, falhas e iPhone —, e nenhuma era de
+código de barras.
 
-Existem, sim, **melhoras pedidas e não bloqueantes** na pasta 26 de
-[`capturas-app-2.md`](../gestao-entregas/pedidos/capturas-app-2.md), e elas não têm o mesmo risco:
+**Chegou a existir um pedido para trocar a imagem composta por uma real e fotografar as faixas de
+resultado, e ele foi recusado.** Duas razões, e as duas são boas:
 
-- **`01-codigo-na-faixa`** só precisa que a câmera **veja** o código entre as duas linhas vermelhas. A
-  faixa de status pode continuar em *Aguardando Leitura* — o que o manual quer dali é o enquadramento,
-  que é justamente o que hoje está montado. É a foto de maior valor e menor risco da rodada.
-- **as outras três** (*Pedido lido com sucesso!*, *Erro na leitura*, *Pedido já lido.*) só existem
-  depois de uma **decodificação**, e não há como forçar pela tela: o modal não tem campo para digitar
-  código. Se a primeira não sair, estas três não saem.
+- as três fotos de **resultado** (*Pedido lido com sucesso!*, *Erro na leitura*, *Pedido já lido.*)
+  seriam quatro imagens quase iguais de uma faixa colorida, para ensinar o que **seis frases numa
+  tabela** já ensinam melhor — e a tabela permite comparar as seis de uma vez, o que nenhuma sequência
+  de fotos permite;
+- a de **enquadramento** substituiria a composição por uma captura real, o que é melhor em princípio,
+  mas custaria montar um pôster de cena virtual no emulador para ganhar precisão numa imagem que o
+  `fluxo-codigo.md` já declara como montada. Não é proporcional.
 
-O caminho pedido é a **cena virtual do emulador**, que aceita trocar um pôster da parede por um PNG —
-não etiqueta de papel, que a primeira versão do pedido pedia e ninguém do outro lado tem. O
-`gerar-ean13.js` do material foi escrito com esse caminho em mente: o comentário dele diz que o módulo
-é largo *porque a imagem vai ser lida pela câmera do emulador*.
-
-Enquanto não vierem, a composição continua declarada no `fluxo-codigo.md`, que é o combinado: imagem
-montada pode ficar, imagem montada sem aviso não pode. E a pasta 29 pede o fonte do
-`BarcodeScannerModal.js`, que melhora o manual **sem depender de foto nenhuma**.
+A composição fica, declarada, que é o combinado: **imagem montada pode ficar, imagem montada sem aviso
+não pode.** Nada fora da faixa da câmera foi alterado.

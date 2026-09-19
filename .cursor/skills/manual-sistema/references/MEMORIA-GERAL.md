@@ -4,7 +4,13 @@
 > A porta de entrada, com o fluxo resumido, é o [`SKILL.md`](../SKILL.md) — este
 > arquivo é o conteúdo. Cada manual tem ainda sua própria `MEMORIA.md` na pasta dele.
 
-Última atualização: 2026-09-19 (**bloco da Gestão de Entregas fechado, 16 manuais** — as 24
+Última atualização: 2026-09-19 (**regra 0 das imagens: o manual não é inventário do aplicativo** —
+um pedido de capturas inteiro foi recusado pelo dono na leitura, porque pedia tela vazia e app sem
+rede; *"o manual deve ser util e não ter um monte de conteudo sem sentido"*. O critério passou a
+abrir a seção 3: **imagem entra se o leitor sair dela fazendo algo diferente**. Custou uma imagem já
+publicada no #112, dois comandos do `smoke-app.js` e o kit da rodada nova, todos apagados. A história
+está em *O pedido que foi recusado antes de virar trabalho*);
+2026-09-19 (**bloco da Gestão de Entregas fechado, 16 manuais** — as 24
 capturas da segunda rodada chegaram e o **#117** saiu com as duas telas do mesmo pedido: 6 imagens
 do celular e 7 do painel **reencenadas** depois, restaurando o estado de cada fase no banco. Três
 regras novas na seção 3, todas de print que vem de outra máquina em outro dia: **transplantar a
@@ -124,6 +130,15 @@ para a skill; o que é **manual pronto** vai para `manuais/`.
 ---
 
 ## 3. Boas práticas de imagens
+
+> **0. Antes de tudo: o manual não é inventário do aplicativo.** Uma seção ou uma imagem só entra se
+> o leitor **sair dela fazendo algo diferente**. Tela de erro com saída entra; tela **vazia**, estado
+> que o leitor já sabe que está vivendo (sem rede, sem sinal) e tela idêntica à normal, não entram —
+> por mais fácil que seja produzi-las e por mais que a cobertura pareça incompleta sem elas. Custou
+> uma imagem publicada, dois comandos de script e um pedido de captura inteiro descobrir isso; a
+> história está em [O pedido que foi recusado antes de virar trabalho](#o-pedido-que-foi-recusado-antes-de-virar-trabalho-19092026).
+> Sinal de alarme no sumário: seções que se chamam *"Quando não tem…"*, *"Quando fica vazio"*,
+> *"Quando não há rede"*.
 
 1. **Sempre salvar a imagem PURA primeiro** em `imagens-puras\` (backup, **nunca referenciado** no `.md` nem no `texto-documentation.ia.md`).
 2. Depois gerar a versão **tratada** em `imagens-tratadas\` via `annotate.py`. **`imagens-tratadas\` deve conter TODAS as imagens usadas no manual:** as principais com setas + as de **contexto** (sem setas, via `passthrough()` do `annotate.py`). Assim só essa pasta é referenciada.
@@ -399,17 +414,21 @@ certas: são as gravadas no servidor e as que o relatório soma. Duas saídas, n
   máquina que monta as imagens, e a diferença de fonte salta aos olhos.
 
 **2. O aplicativo desmente o pedido, e quem cede é o pedido.** Dois dos 24 prints saíram diferentes
-do que a lista pedia: sem rede, o *MELHOR ROTA* responde **Permissão necessária** (o `try/catch`
-trata rede e GPS no mesmo `catch`), e o print do "histórico vazio" veio com 22 entregas em três
-dias. **Nos dois casos o manual passou a descrever o que a tela faz.** Print que sai diferente é
-achado, não defeito — mas só se quem tirou escrever no relatório o que fez antes, e é por isso que
+do que a lista pedia. Sem rede, o *MELHOR ROTA* responde **Permissão necessária** (o `try/catch`
+trata rede e GPS no mesmo `catch`): virou seção do #113, porque tem saída — conceder a permissão. O
+print do "histórico vazio" veio com 22 entregas em três dias: **não virou nada**, e a conclusão
+certa era que a foto não servia, não que o pedido precisava de outra volta. Print que sai diferente
+é achado, não defeito — mas só se quem tirou escrever no relatório o que fez antes, e é por isso que
 o pedido exige *uma linha por print que saiu diferente*.
 
-**3. Tela de erro não entra no FAQ — entra em seção nova, numerada.** A convenção da casa é FAQ **só
-de texto**. Quando chegam seis telas de erro para um manual, a saída não é enfiar imagem na pergunta:
-é abrir **seção numerada** (*Quando a cobrança não fecha* no #116, *A lista muda sozinha* no #112) e
-a pergunta do FAQ passa a **apontar para ela**. Mantém o FAQ escaneável e dá à imagem o texto que
-ela precisa em volta.
+**3. Tela de erro que passa no teste da regra 0 não entra no FAQ — entra em seção nova, numerada.** A
+convenção da casa é FAQ **só de texto**. Quando chegam seis telas de erro para um manual, a saída não
+é enfiar imagem na pergunta: é abrir **seção numerada** (*Quando a cobrança não fecha* no #116, *A
+lista muda sozinha* no #112) e a pergunta do FAQ passa a **apontar para ela**. Mantém o FAQ escaneável
+e dá à imagem o texto que ela precisa em volta. Cuidado com o efeito colateral, que é o que aconteceu
+aqui: **ter onde pôr imagem de erro faz querer imagem de erro**. Uma das seis não tinha o que mostrar
+— a lista sem rede é idêntica à lista com rede — e virou parágrafo depois de já ter sido publicada
+como imagem anotada.
 
 **E uma regra de asserção, que custou uma correção:** *"não aparece em tela nenhuma"* é afirmação
 sobre o aplicativo inteiro, e medição em 24 prints não sustenta isso. O #117 escreveu que o número do
@@ -862,50 +881,49 @@ Conferir o zip **baixado**, não o que ia entrar: `curl` na URL `raw` do GitHub 
 que o repositório é público), `unzip -t` e `md5sum` contra o arquivo versionado. Foi o que provou que o
 caminho funciona ponta a ponta.
 
-**Na segunda rodada de pedido, o script virou máquina de rodadas em vez de ganhar uma cópia.** A
-`rodada` entrou como primeiro parâmetro (`bash montar-kit.sh 3`) e muda **quatro coisas**: o nome do
-zip, o arquivo de pedido que é a tarefa, o `LEIA-PRIMEIRO` e a árvore de pastas de saída. Scripts,
-manuais de referência, material original e ferramentas de emulador ficam iguais, porque é igual o
-trabalho. A rodada anterior continua gerável de propósito — quando um arquivo que ela carrega muda, o
-zip dela também precisa ser regravado, e um `montar-kit-2.sh` duplicado não faria isso. Duas coisas
-que a rodada nova leva e a primeira não levava: o **pedido antigo junto do novo**, porque o novo se
-refere a ele e link para arquivo ausente é justamente o defeito que este kit não tem, e o
-`relogio.py`, para quem fotografa entender que a data é **transplantada aqui**, não redigitada lá.
+### O pedido que foi recusado antes de virar trabalho (19/09/2026)
 
-### Pergunte **quem executa** antes de escrever o pedido (19/09/2026)
+Com o bloco da Gestão de Entregas fechado, escrevi uma **segunda lista de capturas** — 6 prints,
+kit empacotado, zip versionado, tudo pronto — e o dono a recusou **na leitura**, antes de delegar:
 
-A primeira versão da rodada 3 pedia **etiqueta impressa em papel** e **APK da Play Store** — as duas
-escritas imaginando um humano com um celular na mão. O dono cortou as duas de uma vez: *"eu como pessoa
-não vou tirar nenhum print ou realizar fluxo"*. Quem executa é uma IA com **emulador, banco,
-printscreen e o repositório do aplicativo**, e nada além disso.
+> *"que tipo de manual estamos fazendo? pra que vamos ter uma sessão e uma imagem mostrando 'Nenhum
+> pedido'? o manual deve ser util e não ter um monte de conteudo sem sentido. mostrar uma imagem de
+> um aplicativo sem pedidos é totalmente fora de realidade."*
 
-O pedido inteiro caiu dentro desse alcance, e cada substituição ensinou algo reaproveitável:
+Ele tinha razão, e o defeito não estava na execução do pedido: estava em **o que eu tinha escolhido
+pedir**. Eu havia passado a cobrir o aplicativo em vez de escrever o que alguém procura. O sintoma
+é fácil de reconhecer depois: as seções começam a se chamar *"Quando não tem X"*, *"Quando a tela
+fica vazia"*, *"Quando não há rede"* — descrições de **ausência**, que existem porque o aplicativo
+tem aquele estado, não porque alguém precisa daquela resposta.
 
-1. **Câmera do emulador tem entrada.** A cena virtual (`virtualscene`) aceita **trocar um pôster da
-   parede por um PNG**, pelas Extended controls. Então "a câmera do emulador só vê uma sala" não é
-   impedimento para fotografar um leitor de código de barras — é só um passo a mais. Sinal de que o
-   caminho é o certo: o `gerar-ean13.js` do material do dono já dizia, em comentário, que o módulo do
-   código é largo *porque a imagem vai ser lida pela câmera do emulador*. **Quando algo parece
-   impossível, leia os comentários de quem tentou antes.**
-2. **Build de release resolve "abrir sem rede".** No React Native, o build de desenvolvimento carrega o
-   bundle do Metro e morre sem rede; o de **release embute o bundle** e abre. Pedir APK de loja era
-   pedir a coisa errada — o que faltava era `assembleRelease`, que no template padrão assina com o
-   keystore de debug e roda sem chave própria.
-3. **Separe as fotos por risco, não por assunto.** As quatro fotos da leitura pareciam um bloco só.
-   Não são: a do **enquadramento** só precisa que a câmera *veja* o código (e é justamente ela que
-   substitui a imagem composta), enquanto as três de **resultado** dependem de uma decodificação real.
-   Dividir deu ao pedido uma foto de alto valor e baixo risco, em vez de quatro de risco igual — e
-   quem executa sabe qual tirar primeiro.
-4. **Quando a imagem está fora de alcance, peça o fonte.** Nasceu uma pasta de entrega que não recebe
-   print: três arquivos de tela do app, para conferir o texto do manual contra o código. **O fonte não
-   é versionado** — repositório de manual é público, e a regra é a mesma das credenciais: o achado
-   fica, o arquivo não.
+**O critério, e é uma pergunta só: o leitor sai daí fazendo algo diferente?**
 
-O item 4 se pagou antes de existir. Relendo o **estudo de fonte que a própria IA anterior entregou**
-junto das fotos, a faixa de status do leitor tem **seis** mensagens e o manual listava cinco: faltava
-*Erro: {mensagem}* (o servidor recusando), que é caso diferente de *Erro na leitura* (o envio que não
-saiu) — e a diferença decide o que o entregador faz. Lição dupla: **material recebido tem mais valor
-que as imagens dele**, e vale reler o estudo que veio anexo antes de pedir coisa nova.
+| Ganha seção e imagem | Não ganha |
+|---|---|
+| tela de erro com **saída** — *Despacho não confirmado* do #113 manda ligar para a loja e avisa para não tocar de novo | tela **vazia**: ninguém consulta manual para saber como é a tela quando não há nada nela |
+| tela que **parece** outra coisa — *Pagamento Confirmado!* que ainda pede FINALIZAR muda uma frase só e vale dinheiro | estado que o leitor **já sabe** que está vivendo: sem rede, o entregador não descobre pelo manual que está sem rede |
+| variação que **muda a ação** — pedido de plataforma sem botão de confirmar encurta o roteiro | tela **idêntica** à normal: sem comparação possível, a foto não ensina |
+| o que o suporte **ouve ao telefone** — a seção de cobrança que não fecha responde quase toda ligação sobre dinheiro | cobertura por simetria: "já mostrei o cheio, falta o vazio" |
+
+Três coisas que saíram junto com o pedido, e é isso que dá o tamanho do erro:
+
+1. **Uma imagem publicada.** A lista sem internet do #112 já estava tratada, anotada com três
+   marcadores e no ar. O comentário que eu mesmo escrevi no `annotate.py` denunciava: *"a imagem
+   inteira é a mensagem: não há mensagem"*. O achado ficou, como dois parágrafos; a foto saiu.
+2. **Dois comandos de script.** `historico-zerar` e `historico-voltar` **apagavam o histórico
+   inteiro do entregador** e guardavam o desfazer em arquivo, e existiam só para produzir a tela
+   vazia. Ferramenta que reescreve passado precisa valer mais que uma imagem que não ensina nada.
+3. **Meia tarde de engenharia de pedido.** Cena virtual do emulador para a câmera ler um EAN-13,
+   `assembleRelease` para o app abrir sem Metro, separação das fotos por risco de decodificação —
+   tudo correto, tudo caro, tudo a serviço de três imagens que não deviam ter sido pedidas.
+   **Perguntar "consigo produzir esta imagem?" antes de "alguém precisa dela?" é a ordem errada.**
+
+A parte que se salvou aponta para a próxima lição: relendo o **estudo de fonte que a IA anterior
+entregou junto das fotos**, descobri que a faixa de status do leitor do #114 tem **seis** mensagens
+e o manual listava cinco — faltava *Erro: {mensagem}* (o servidor recusando), caso diferente de
+*Erro na leitura* (o envio que não saiu), e a diferença decide o que o entregador faz. **Material
+recebido vale mais que as imagens dele:** a correção real do dia saiu de reler o que já estava no
+disco, não de pedir coisa nova.
 
 > **O store de artefatos tem cota, e ela aparece como "No space left on device".** O zip de 24 MB
 > falhou pela metade escrevendo direto em `/opt/cursor/artifacts` (que é link para
@@ -1330,27 +1348,29 @@ suspeitar da configuração, espere.
 
 ---
 
-### Gestão de Entregas — bloco #104 a #119 (15 prontos, o #117 esperando foto)
+### Gestão de Entregas — bloco #104 a #119 (fechado, 16 prontos)
 
 O plano pedia 14 manuais; saíram **16 linhas de checklist**, porque o dono acrescentou dois
-relatórios no meio da rodada. Quinze estão prontos:
+relatórios no meio da rodada. **Os dezesseis estão prontos**, desde 19/09:
 
 | Faixa | Manuais |
 |---|---|
 | Painel | **#104** liberar entregador · **#105** ler o mapa · **#106** montar rota · **#107** despachar · **#108** fechar · **#109** despacho automático · **#110** avisos de WhatsApp |
 | App | **#111** entrar · **#112** entregas do dia · **#113** chegar no endereço · **#114** código de barras · **#115** marketplace · **#116** receber na porta |
 | Relatórios | **#118** Operação de Entrega · **#119** Entregador (Taxa / KM) |
-| Esqueleto | **#117** uma entrega do começo ao fim — texto final, 13 imagens pendentes |
+| Lado a lado | **#117** uma entrega do começo ao fim — 13 imagens, 6 do celular e 7 do painel |
 
 O **#104** herda a Parte 1 do **#57** e o **#114** herda o código de barras: com os dois, mais os
 **#111 a #116**, o #57 está **pronto para aposentar**.
 
-**O #117 é esqueleto por um motivo que vale registrar como regra:** manual de "lado a lado" precisa
-que as duas metades sejam capturadas **no mesmo pedido**. Eu capturo o painel; o app depende de
-emulador, que não roda aqui. Capturar um lado hoje e receber o outro amanhã daria números de pedido
-diferentes em cada imagem — pior do que manual sem imagem. Então o texto ficou final, com marcador
-`⏳` no lugar de cada foto e aviso 🚧 no topo, e o `annotate.py` ficou para depois, porque ele se
-escreve medindo a imagem.
+**O #117 ficou esqueleto até a última hora, e o motivo vale como regra:** manual de "lado a lado"
+precisa que as duas metades sejam do **mesmo pedido**. Eu capturo o painel; o app depende de
+emulador, que não roda aqui. O que destravou não foi a janela combinada que eu havia planejado, e sim
+descobrir que ela era dispensável: **reencenar** o lado do painel depois, restaurando no banco o
+estado de cada fase, dá o mesmo resultado — porque o que amarra as duas metades é endereço, valor,
+forma de pagamento, letra da rota e hora da baixa, não número de pedido. O número não aparece na
+lista nem nos detalhes do app (o crachá lê `numeroPedido`, nulo em pedido do restaurante); ele existe
+numa tela só, a de pagamento, que lê `numeroPreVenda`.
 
 **A pasta de pedidos e o smoke test** ficaram em `manuais/gestao-entregas/`:
 [`pedidos/capturas-app.md`](../../../../manuais/gestao-entregas/pedidos/capturas-app.md) (26 prints
