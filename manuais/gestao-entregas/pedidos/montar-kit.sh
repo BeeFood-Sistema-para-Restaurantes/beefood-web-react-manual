@@ -7,15 +7,20 @@
 # pedido, os scripts de cenário, os manuais já publicados como referência e a árvore de pastas de
 # saída com os nomes exatos.
 #
+# O zip fica **versionado**, nesta mesma pasta, a pedido do dono: assim ele baixa direto do GitHub
+# pelo botão de download do arquivo e repassa sem depender de WeTransfer nem de link que expira. São
+# 24 MB num repositório que já tem 669 MB de imagem de manual, e o conteúdo é o mesmo que está
+# versionado ao lado — o zip existe pela conveniência de ser um arquivo só.
+#
 # Uso:
-#   bash montar-kit.sh [destino]        # destino padrão: /opt/cursor/artifacts
+#   bash montar-kit.sh [destino]        # destino padrão: esta pasta
 #
 set -euo pipefail
 
 AQUI="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 GE="$(dirname "$AQUI")"
 MANUAIS="$(dirname "$GE")"
-DESTINO="${1:-/opt/cursor/artifacts}"
+DESTINO="${1:-$AQUI}"
 NOME="kit-teste-app-entregador"
 
 TMP="$(mktemp -d)"

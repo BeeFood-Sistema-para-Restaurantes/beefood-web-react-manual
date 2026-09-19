@@ -47,6 +47,10 @@ marcado — é o único que não existe sem a janela.
 
 ## Quando quem fotografa não é você
 
+O pacote pronto está aqui, versionado:
+**[`kit-teste-app-entregador.zip`](kit-teste-app-entregador.zip)** — 24 MB, 323 arquivos. No GitHub,
+abra o arquivo e use o botão de download; é só repassar para quem vai fotografar.
+
 Esta seção é a maquinaria do pacote, e fica de fora do zip de propósito: quem recebe o kit não
 precisa saber como ele foi montado.
 
@@ -57,9 +61,12 @@ precisa saber como ele foi montado.
 | [`indice-referencia.md`](indice-referencia.md), [`arvore-de-entrega.md`](arvore-de-entrega.md) | os dois guias que viajam dentro do kit, um em cada pasta |
 
 ```bash
-bash montar-kit.sh                 # sai um kit-teste-app-entregador.zip, ~24 MB
+bash montar-kit.sh                 # regrava o zip nesta pasta; commite o resultado
 ```
 
 O script corta esta seção da cópia e reescreve os links relativos para a árvore do kit. As pastas
 da referência vão com o nome que têm aqui, sem prefixo de número, para os links que os manuais fazem
 entre si continuarem resolvendo lá dentro.
+
+**Mexeu em algum dos arquivos que entram no kit? Rode o script e commite o zip junto.** Ele é uma
+cópia, e cópia que não acompanha o original engana quem confia nela.
