@@ -862,6 +862,16 @@ Conferir o zip **baixado**, não o que ia entrar: `curl` na URL `raw` do GitHub 
 que o repositório é público), `unzip -t` e `md5sum` contra o arquivo versionado. Foi o que provou que o
 caminho funciona ponta a ponta.
 
+**Na segunda rodada de pedido, o script virou máquina de rodadas em vez de ganhar uma cópia.** A
+`rodada` entrou como primeiro parâmetro (`bash montar-kit.sh 3`) e muda **quatro coisas**: o nome do
+zip, o arquivo de pedido que é a tarefa, o `LEIA-PRIMEIRO` e a árvore de pastas de saída. Scripts,
+manuais de referência, material original e ferramentas de emulador ficam iguais, porque é igual o
+trabalho. A rodada anterior continua gerável de propósito — quando um arquivo que ela carrega muda, o
+zip dela também precisa ser regravado, e um `montar-kit-2.sh` duplicado não faria isso. Duas coisas
+que a rodada nova leva e a primeira não levava: o **pedido antigo junto do novo**, porque o novo se
+refere a ele e link para arquivo ausente é justamente o defeito que este kit não tem, e o
+`relogio.py`, para quem fotografa entender que a data é **transplantada aqui**, não redigitada lá.
+
 > **O store de artefatos tem cota, e ela aparece como "No space left on device".** O zip de 24 MB
 > falhou pela metade escrevendo direto em `/opt/cursor/artifacts` (que é link para
 > `/cursor/stores/self/artifacts`) e deixou um arquivo parcial de nome aleatório ocupando espaço.

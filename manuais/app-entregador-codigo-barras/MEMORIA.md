@@ -53,7 +53,15 @@ defeito na impressora ou na câmera.
 
 ## O que falta
 
-Nada para este manual. As 12 capturas pedidas ao dono
-([`../gestao-entregas/pedidos/capturas-app.md`](../gestao-entregas/pedidos/capturas-app.md)) são
-de outros assuntos — notificação, troca de entregador, rota ao vivo, falhas e iPhone. Nenhuma
-delas é de código de barras.
+**Nada que impeça publicar.** As duas rodadas de capturas pedidas ao dono
+([`../gestao-entregas/pedidos/capturas-app.md`](../gestao-entregas/pedidos/capturas-app.md), 26
+prints) eram de outros assuntos — notificação, troca de entregador, rota ao vivo, falhas e iPhone —,
+e nenhuma era de código de barras.
+
+Existe, sim, **uma melhora pedida e não bloqueante**: a pasta 26 de
+[`capturas-app-2.md`](../gestao-entregas/pedidos/capturas-app-2.md) pede quatro prints de leitura
+**real** — a etiqueta de papel dentro da faixa e as faixas de resultado (*Pedido lido com sucesso!*,
+a vermelha de erro no envio, *Pedido já lido.*). Se vierem, este manual troca a única imagem
+**composta** do bloco por uma de verdade e passa a mostrar as faixas que hoje ele descreve numa
+tabela. Enquanto não vierem, a composição continua declarada no `fluxo-codigo.md`, que é o
+combinado: imagem montada pode ficar, imagem montada sem aviso não pode.

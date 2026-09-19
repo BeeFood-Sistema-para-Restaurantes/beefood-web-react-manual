@@ -119,7 +119,19 @@ O que ela ensinaria — **dia sem entrega não aparece na lista** — a imagem `
 
 ## O que falta
 
-Nada. As duas capturas que este manual esperava chegaram na segunda rodada — a da entrega tirada
-do entregador virou a seção 2 inteira, e a do histórico vazio veio com dado errado e está
-explicada acima. A pergunta *O histórico está vazio* continua respondida por texto, que é o
-suficiente: a tela dela é uma frase no meio de uma tela branca.
+**Nada que impeça publicar.** As duas capturas que este manual esperava chegaram na segunda rodada —
+a da entrega tirada do entregador virou a seção 2 inteira, e a do histórico vazio veio com dado
+errado e está explicada acima.
+
+**Duas melhoras estão pedidas, e nenhuma bloqueia:** as pastas 27 e 28 de
+[`capturas-app-2.md`](../gestao-entregas/pedidos/capturas-app-2.md) pedem o histórico **realmente**
+vazio e o aplicativo **abrindo** sem rede. Hoje as duas perguntas são respondidas por texto, e o
+texto está certo — *O histórico está vazio* descreve uma frase no meio de uma tela branca, e *A lista
+não carrega* descreve o aplicativo já aberto, que é o caso comum. O que falta nos dois é imagem, não
+resposta.
+
+O pedido da pasta 27 só existe porque o da rodada passada voltou errado, e o erro era do pedido: o
+caso `historico-vazio` desatribui os pedidos **do lote da execução**, e a tela lê tudo o que aquele
+entregador já entregou. Daí os comandos `historico-zerar` e `historico-voltar` do
+[`smoke-app.js`](../gestao-entregas/scripts/smoke-app.js), que zeram o histórico inteiro e guardam o
+desfazer — exercitados aqui de ponta a ponta antes de virar pedido.

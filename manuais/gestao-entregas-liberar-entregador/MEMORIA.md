@@ -71,5 +71,5 @@ app. Registrado também na linha do #57 no `CHECKLIST-MANUAIS.md`.
 | `../gestao-entregas-mapa-painel/` | ✅ existe (#105) |
 | `../gestao-entregas-montar-rota/` | ✅ existe (#106) |
 | `../entregador-quanto-recebe/` | ✅ existe (manual da taxa e do relatório Taxa/KM) |
-| `../app-entregador-codigo-barras/` | ⏳ #114, depende das fotos do emulador |
-| `../app-entregador-entrar/` | ⏳ #111, depende das fotos do emulador |
+| `../app-entregador-codigo-barras/` | ✅ existe (#114) |
+| `../app-entregador-entrar/` | ✅ existe (#111) |

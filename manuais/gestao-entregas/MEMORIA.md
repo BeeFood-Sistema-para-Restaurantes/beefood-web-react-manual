@@ -11,8 +11,8 @@ no fim deste arquivo.
 **Estado: bloco fechado. 16 manuais prontos, nenhum esqueleto.** #104 a #119, incluindo o **#117**,
 que era o único pendente porque precisa das duas telas no mesmo pedido. Ele fechou em 19/09, quando as
 fotos do celular chegaram da máquina do dono — a metade do painel foi **reencenada** depois, com os
-mesmos três pedidos. Nada em [`pedidos/`](pedidos/README.md) é lista aberta hoje; a pasta fica como
-registro e como maquinaria para uma eventual nova rodada.
+mesmos três pedidos. Em [`pedidos/`](pedidos/README.md) sobrou **uma lista aberta que não bloqueia
+nada**: 6 prints de melhora, com o kit já empacotado. Publicar os dezesseis não depende dela.
 
 O histórico das primeiras rodadas fica abaixo, porque é ele que explica as decisões: a primeira
 organizou o material que o dono enviou; a segunda leu a documentação do backend e mediu o estado real
@@ -210,15 +210,34 @@ primeiro filtrado na data de hoje contra o cenário que eu mesmo montei, e o seg
 |---|---|
 | [`estudo/`](estudo/) | as duas leituras da primeira rodada: como o módulo funciona e o que eu medi |
 | [`material-recebido/`](material-recebido/README.md) | as duas rodadas que o dono enviou por WeTransfer: 15 capítulos e 63 prints, mais os [24 da segunda rodada](material-recebido/app-entregador/capturas-2/README.md) |
-| [`pedidos/`](pedidos/README.md) | o pedido das 26 capturas, o roteiro da janela do #117 e o kit que foi para quem fotografou — **tudo já respondido** |
+| [`pedidos/`](pedidos/README.md) | o pedido das 26 capturas (**respondido**), o roteiro da janela do #117, a **segunda lista de 6 prints** e os dois kits que vão para quem fotografa |
 | [`scripts/`](scripts/README.md) | `cenario.js` (o painel) e `smoke-app.js` (o app) |
 
 ## O que falta
 
-**De foto, nada.** Das 26 capturas pedidas, 24 chegaram em 19/09 e as 2 de iPhone foram canceladas
-pelo dono — o manual não usa imagem de iOS. As 6 que bloqueavam o #117 saíram; as 18 restantes
-viraram seção nova em quatro manuais do aplicativo, e o `## O que falta` de cada um dos seis diz
-hoje **"nada"**.
+**De foto, nada que impeça publicar.** Das 26 capturas pedidas, 24 chegaram em 19/09 e as 2 de
+iPhone foram canceladas pelo dono — o manual não usa imagem de iOS. As 6 que bloqueavam o #117
+saíram; as 18 restantes viraram seção nova em quatro manuais do aplicativo, e o `## O que falta` de
+cada um dos seis diz hoje **"nada"**.
+
+Há uma **segunda lista aberta, de qualidade**: [`pedidos/capturas-app-2.md`](pedidos/capturas-app-2.md),
+**6 prints em 3 pastas**, com o [`kit-teste-app-entregador-2.zip`](pedidos/kit-teste-app-entregador-2.zip)
+pronto para repassar. Ela não segura manual nenhum, e existe por dois motivos que só apareceram
+depois de fechar o bloco:
+
+1. **O #114 tem a única imagem composta de todo o bloco.** O emulador não tem câmera, então a
+   etiqueta dentro da faixa foi sobreposta pelo `compor-leitura.ps1`. Está declarado no
+   `fluxo-codigo.md` do manual, o que basta para ser honesto, mas não para ser prova. A pasta 26 pede
+   a leitura de verdade e, de graça, as três faixas de resultado que o manual hoje só lista numa
+   tabela. Junto do pedido foi a advertência que vale mais que a foto: **bipar despacha o pedido de
+   verdade** — mesma rota do botão do painel —, então só etiqueta de pedido semeado pelo script.
+2. **Duas telas continuam descritas só por escrito**, e a culpa da primeira é do pedido antigo: o
+   caso `historico-vazio` desatribuía o lote da execução, e o Histórico do app lê tudo o que aquele
+   entregador já entregou. Daí os comandos `historico-zerar` e `historico-voltar` do `smoke-app.js`,
+   que zeram o histórico inteiro com desfazer gravado antes da escrita — exercitados aqui de ponta a
+   ponta, inclusive a recusa de um segundo `zerar` sobre desfazer pendente. A outra tela, o app
+   **abrindo** sem rede, não existe no build de desenvolvimento: sem Metro o bundle não carrega e o
+   app morre antes de qualquer tela. Só sai de APK de produção, e o pedido diz isso.
 
 O receio que justificava a janela combinada — *o manual mostra números de pedido diferentes de cada
 lado* — não se concretizou, e por um motivo que só apareceu ao medir: **o número do pedido não
