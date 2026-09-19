@@ -161,23 +161,57 @@ configuração, o cartão de cupom. Prova de **canal** não viaja, mesmo quando 
 tentador — os dois recortes do cartão em inglês e espanhol do totem são do
 **totem**, e pôr eles numa peça de tablet é arte desmentindo a frase do slide.
 
-#### O que viaja junto com a imagem, sempre
+#### Reusar é adaptar, e adaptar começa na ideia — não na frase
 
-- **O limite do que a peça afirma.** Se a peça de origem descobriu que a página
-  promete tradução automática e o manual diz que quem escreve é a loja, esse
-  limite vale na peça nova também. Prova reaproveitada sem a ressalva vira
-  promessa nova.
-- **A copy, não.** O slide reusado fala com um leitor diferente. Na peça da
-  tradução, o slide do cadastro convence quem ainda não tem o recurso; na peça
-  do tablet, o leitor já está escolhendo um canal, e o argumento passa a ser o
-  **cadastro único**. Mesma imagem, outro título.
+> **A prova viaja. O slide, não.** O slide reaproveitado é escrito do zero para
+> responder a pergunta que **esta** peça deixou aberta, e não a que a peça de
+> origem respondia.
 
-O segundo item é o que escapa, e escapou na primeira versão deste slide: a
-imagem foi reusada **com o texto junto**, e saíram duas peças dizendo *"toque
-na bandeira e escreva o nome do jeito que o turista entende"* com as mesmas
-palavras. Por isso o `conferir-texto.py` passou a comparar a peça com os outros
-carrosséis e avisar. É `AVISO` e não erro — o CTA repete de propósito —, mas
-agora a repetição aparece e alguém decide.
+É a parte que escapa, e escapou duas vezes seguidas no mesmo slide.
+
+**Primeiro escapou a frase.** A imagem foi reusada com o texto junto, e saíram
+duas peças dizendo *"toque na bandeira e escreva o nome do jeito que o turista
+entende"* com as mesmas palavras.
+
+**Depois escapou a ideia, que é pior** — porque parece resolvido. As palavras
+foram todas trocadas e o **ângulo** continuou sendo o de lá: chapéu *"Sem
+segundo cardápio"*, manchete *"O mesmo produto, com um campo a mais"*. Aquilo
+responde o medo de quem ainda **não tem** o recurso e teme trabalho dobrado. O
+leitor da peça do tablet está avaliando um **aparelho**, acabou de ver o cliente
+trocando de idioma sozinho, e a pergunta que sobra é outra: *o meu cardápio vai
+mesmo estar em inglês, e quem escreve isso?* A manchete virou **"Seu cardápio em
+inglês e espanhol"**, e o corpo passou a entregar controle em vez de economia de
+esforço.
+
+Três perguntas antes de escrever o slide reusado, e a primeira é a que pega o
+erro:
+
+1. **Qual pergunta esta peça deixou aberta neste ponto do arco?** Escreva a
+   pergunta, não o título. Se a resposta for a mesma da peça de origem, ou o
+   slide está no lugar errado, ou ele não era necessário.
+2. **O que muda no leitor?** Lá ele pode não ter o recurso; aqui pode estar
+   escolhendo entre dois produtos da linha. Leitor diferente compra por motivo
+   diferente.
+3. **O remate ainda serve?** *"Os três idiomas acompanham"* é argumento de
+   **esforço**; numa peça de canal, o que fecha é *"o mesmo texto serve o
+   tablet, o totem e o QR Code"*, que ainda prepara o CTA.
+
+#### O limite, esse viaja sempre
+
+Se a peça de origem descobriu que a página promete tradução automática e o
+manual diz que quem escreve é a loja, esse limite vale na peça nova também.
+Prova reaproveitada sem a ressalva vira promessa nova.
+
+E o limite costuma ser vendável do lado certo: em vez de *evitar* a frase da
+página, o slide do tablet passou a dizer que o texto é **seu**, e não um chute
+de tradutor. Mesma verdade, virada para a frente.
+
+#### O conferidor mede a frase, você julga a ideia
+
+Como a frase repetida passou batida, o `conferir-texto.py` passou a comparar a
+peça com os outros carrosséis e avisar. É `AVISO` e não erro — o CTA repete de
+propósito. Mas ele só pega palavra igual: **ângulo herdado ele não vê**, e é por
+isso que as três perguntas acima existem.
 
 #### Onde o slide reusado entra
 
@@ -778,6 +812,10 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 - [ ] **O acervo foi lido antes de a peça ser escrita?** Em peça de `função`:
       que prova de módulo compartilhado já existe capturada, e que gancho a peça
       vizinha já usou. Reuso é do **módulo**, nunca do canal.
+- [ ] **Slide reaproveitado foi adaptado, e não copiado?** A prova é a de lá; a
+      **ideia** é desta peça. Escreva a pergunta que este ponto do arco deixou
+      aberta: se ela for a mesma que a peça de origem respondia, o ângulo veio
+      junto por engano — trocar as palavras não conserta isso.
 - [ ] **A manchete vende o uso principal, e não o recurso mais vistoso?** Se o
       restaurante comprar por causa desta capa, é isso que ele vai usar todo
       dia? E, quando o produto tem irmãos na linha (totem, tablet, QR Code,

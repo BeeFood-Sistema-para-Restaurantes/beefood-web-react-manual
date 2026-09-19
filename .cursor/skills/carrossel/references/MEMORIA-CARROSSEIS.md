@@ -6,10 +6,11 @@ continua na
 `manual-sistema` — aqui só entra o que é de carrossel.
 
 Última atualização: 2026-09-19 (29ª rodada: **estudar o acervo virou etapa**, e
-não sorte — ver *uma rodada depois isso virou etapa, e não sorte*, dentro de
-*prova boa se reusa entre peças*. A pergunta que autoriza o reuso é *a prova é
-do módulo, ou do canal?*, e o hábito pesa muito mais em `função` do que em
-`novidade`).
+**reusar é adaptar** — a prova viaja, o slide não. As duas em *prova boa se
+reusa entre peças*: *uma rodada depois isso virou etapa, e não sorte* e *reusar
+é adaptar, e o erro tem dois andares*. A pergunta que autoriza o reuso é *a
+prova é do módulo, ou do canal?*; a que o faz valer é *qual pergunta esta peça
+deixou aberta neste ponto do arco?*).
 
 28ª rodada: a capa do tablet vendia **pagar**,
 que é a promessa do totem, e o produto faz isso sem ser por isso que alguém
@@ -1039,22 +1040,60 @@ Duas coisas viajaram junto com a imagem, e a segunda é a que se esquece:
   o slide do cadastro na peça, ela parou de só **evitar** a frase e passou a
   **mostrar como é**: um campo a mais no produto que já existe. Vende melhor
   que a promessa falsa, porque o trabalho é pequeno e serve todos os canais;
-- **a copy, que não viaja.** Na peça da tradução o slide convence quem ainda
-  não tem o recurso (*"Você escreve uma vez, e pronto"*). No tablet o leitor já
-  está escolhendo um canal, então o argumento passa a ser o cadastro único:
-  *"O mesmo produto, com um campo a mais"*, e o rodapé fecha com *"tudo
-  continua saindo de um cadastro só"*, que ainda prepara o CTA.
+- **o slide, que não viaja.** E aqui a regra nasceu errada e teve de ser
+  corrigida no mesmo dia — ver *reusar é adaptar, e o erro tem dois andares*,
+  logo abaixo.
 
-**E a segunda viagem aconteceu assim mesmo, na mesma rodada em que a regra foi
-escrita.** A primeira versão do slide novo reusou a imagem **com o texto
-junto**: saíram duas peças dizendo *"toque na bandeira e escreva o nome do
-jeito que o turista entende"* e *"o português continua ali do lado, intacto"*
-com as mesmas palavras, e nada apitou — o `conferir-texto.py` só olhava para a
-fonte externa.
+#### Reusar é adaptar, e o erro tem dois andares
 
-Regra escrita não pega o que regra escrita não mede, então o conferidor passou
-a comparar a peça com **os outros carrosséis**. Três decisões, e as três são
-sobre o aviso ser lido:
+O mesmo slide errou duas vezes seguidas, e a segunda só apareceu porque o dono
+olhou: *"a ideia não é copiar o slide de outra, mas sim adaptar. 'O mesmo
+produto com um campo a mais' é no contexto de lá; aqui precisamos de outra
+hero"*.
+
+**Andar de baixo: a frase.** A primeira versão reusou a imagem **com o texto
+junto** — duas peças dizendo *"toque na bandeira e escreva o nome do jeito que o
+turista entende"* com as mesmas palavras.
+
+**Andar de cima: a ideia, e esse é o que engana.** Na correção as palavras foram
+todas trocadas e o **ângulo** ficou: chapéu *"Sem segundo cardápio"*, manchete
+*"O mesmo produto, com um campo a mais"*. Parecia resolvido, e não estava.
+Aquele ângulo responde o medo de quem **ainda não tem** o recurso e teme manter
+dois cardápios — é o leitor da peça da tradução. O desta está avaliando um
+**aparelho**, acabou de ver no slide anterior o cliente trocando de idioma
+sozinho, e a pergunta que sobra é outra: *o meu cardápio vai mesmo estar em
+inglês, e quem escreve isso?*
+
+| | Ângulo herdado | Ângulo desta peça |
+|---|---|---|
+| Chapéu | Sem segundo cardápio | Escrito por você |
+| Manchete | O mesmo produto, com um campo a **mais** | Seu cardápio em **inglês e espanhol** |
+| Corpo | economia de esforço | controle sobre o texto |
+| Remate | tudo sai de um cadastro só | o mesmo texto serve tablet, totem e QR Code |
+
+> **A prova viaja. O slide, não.** O slide reaproveitado se escreve do zero para
+> a pergunta que **esta** peça deixou aberta.
+
+Três perguntas antes de escrever, e a primeira pega o erro de cima:
+
+1. **qual pergunta esta peça deixou aberta neste ponto do arco?** Escreva a
+   pergunta, não o título. Se for a mesma da peça de origem, ou o slide está no
+   lugar errado, ou não era necessário;
+2. **o que muda no leitor?** Lá ele pode não ter o recurso; aqui pode estar
+   escolhendo entre dois produtos da linha;
+3. **o remate ainda serve?** *"Os três idiomas acompanham"* é argumento de
+   esforço; numa peça de canal fecha melhor *"o mesmo texto serve o tablet, o
+   totem e o QR Code"*, que ainda prepara o CTA.
+
+E o **limite** continua viajando sempre, só que virado para a frente: em vez de
+*evitar* a promessa de "tradução automática" da página, o slide passou a dizer
+que o texto é **seu**, e não um chute de tradutor. Mesma verdade, vendendo.
+
+#### O conferidor mede a frase; a ideia é você que julga
+
+Como a frase repetida passou batida, o `conferir-texto.py` passou a comparar a
+peça com **os outros carrosséis**. Três decisões, e as três são sobre o aviso
+ser lido:
 
 - **é `AVISO`, não erro.** O CTA de peça de função repete de propósito — ele é
   convenção. Travar a entrega por isso ensinaria a contornar o conferidor.
@@ -1067,6 +1106,18 @@ sobre o aviso ser lido:
 - **dentro fica o que a peça escreveu**: a copy dos slides e a legenda. Com o
   filtro, a mesma peça caiu para **22** avisos, todos reais, e depois da
   reescrita para **5** — os cinco do CTA.
+
+Mas ele só pega **palavra igual**. O andar de cima do erro — ângulo herdado com
+palavras novas — passou por ele sem um aviso, e vai passar sempre. Ferramenta
+para a frase; as três perguntas para a ideia.
+
+Na mesma passagem entrou um segundo aviso, sem relação com reuso: **marca de
+linha**. O prefixo `   12|` que as ferramentas de leitura põem na saída volta
+para dentro do arquivo quando alguém reescreve um trecho a partir do que leu, e
+dentro de comentário de HTML ele **não aparece na arte** — sobrevive a rodadas
+de revisão, e só é achado quando cai em texto visível. Aconteceu de novo nesta
+rodada, no comentário do slide novo. O conferidor agora varre `.html`, `.md`,
+`.txt` e `.json` da pasta e falha.
 
 O teto de slides cedeu de novo, pelo mesmo motivo do totem: os nove dizem nove
 coisas diferentes, e o corte só tiraria conteúdo.

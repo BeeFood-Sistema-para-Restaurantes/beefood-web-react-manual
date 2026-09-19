@@ -144,6 +144,11 @@ da mesma plataforma** — totem, tablet, QR Code e app do garçom leem o mesmo
 cadastro, o mesmo cardápio, o mesmo programa de fidelidade. Aí o reuso não é
 atalho: é o que mantém as peças **coerentes entre si**.
 
+**E reusar é adaptar, não copiar.** A prova viaja; o slide, não. O slide
+reaproveitado é escrito do zero para responder a pergunta que **esta** peça
+deixou aberta — trocar as palavras e manter o ângulo da peça de origem é o erro
+que parece resolvido e não está.
+
 Regra e limites em
 [`references/roteiro-e-copy.md`](references/roteiro-e-copy.md), seção *o acervo
 é parte da pauta*.

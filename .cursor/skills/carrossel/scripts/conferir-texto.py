@@ -138,6 +138,26 @@ def sequencias(lista: list[str], n: int) -> set[tuple[str, ...]]:
     return {tuple(lista[i:i + n]) for i in range(len(lista) - n + 1)}
 
 
+# "    12|" no começo da linha: o prefixo que as ferramentas de leitura põem na
+# saída e que volta para dentro do arquivo quando alguém reescreve um trecho a
+# partir do que leu. Dentro de comentário de HTML ele não aparece na arte, e por
+# isso sobrevive a rodadas de revisão; dentro de texto, vira sujeira renderizada.
+MARCA_DE_LINHA = re.compile(r"^ *\d+\|")
+
+
+def conferir_marcas(pasta: Path) -> int:
+    achados = 0
+    for arquivo in sorted(pasta.rglob("*")):
+        if arquivo.suffix not in (".html", ".md", ".txt", ".json"):
+            continue
+        for n, linha in enumerate(arquivo.read_text(encoding="utf-8").splitlines(), 1):
+            if MARCA_DE_LINHA.match(linha):
+                rel = arquivo.relative_to(pasta)
+                print(f"MARCA DE LINHA  {rel}:{n}: {linha.strip()[:60]}")
+                achados += 1
+    return achados
+
+
 def copy_da_peca(pasta: Path) -> str:
     """Só a LEGENDA do `copy-instagram.txt`.
 
@@ -261,12 +281,14 @@ def main() -> None:
         conferidos += 1
 
     vizinhos = conferir_vizinhos(pasta.parent, args.janela)
+    achados += conferir_marcas(pasta.parent)
 
     if achados:
-        print(f"\n{achados} sequência(s) de {args.janela} palavras igual à "
-              f"fonte ({origem}). Reescreva: o slide tem de dizer a mesma coisa "
-              f"com as palavras da publicação, não com as do release nem com as "
-              f"da página de vendas.")
+        print(f"\n{achados} problema(s). COPIADO: reescreva — o slide tem de "
+              f"dizer a mesma coisa com as palavras da publicação, não com as "
+              f"do release nem com as da página de vendas ({origem}). MARCA DE "
+              f"LINHA: apague o prefixo, ele veio da saída de uma ferramenta de "
+              f"leitura e não do arquivo.")
         sys.exit(1)
 
     print(f"OK  nenhuma sequência de {args.janela} palavras repetida de "
