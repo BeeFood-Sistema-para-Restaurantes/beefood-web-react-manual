@@ -322,7 +322,8 @@ def main():
     quantos = int(sys.argv[1]) if len(sys.argv) > 1 else 1
     with sync_playwright() as p:
         browser = p.chromium.launch(env={**os.environ, "LANG": "pt_BR.UTF-8", "LANGUAGE": "pt_BR"})
-        for i in range(1, quantos + 1):
+        for indice in range(1, quantos + 1):
+            i = indice
             print(f"== pedido {i}/{quantos}")
             ctx = browser.new_context(
                 viewport={"width": 390, "height": 844},
@@ -336,11 +337,26 @@ def main():
             page = ctx.new_page()
 
             # Registra o que o cardápio manda: é a rota que decide a origem do pedido.
+            # O corpo do `tmesa/pedido` é gravado inteiro em disco, porque é ele que o
+            # `pedido_marketplace.py` repete trocando só a origem.
             def on_request(req):
-                if req.method in ("POST", "PUT") and "beetechapi" in req.url:
-                    corpo = (req.post_data or "")[:1200]
-                    print("   >>", req.method, req.url)
-                    print("      ", corpo)
+                if req.method not in ("POST", "PUT") or "beetechapi" not in req.url:
+                    return
+                corpo = req.post_data or ""
+                print("   >>", req.method, req.url)
+                print("      ", corpo[:1200])
+                if req.url.endswith("/tmesa/pedido"):
+                    destino = OUT / f"{indice}-tmesa-pedido.json"
+                    destino.write_text(corpo, encoding="utf-8")
+                    print("      corpo inteiro em", destino)
+                    # A rota do ERP responde 401 sem os cabeçalhos do cardápio, então
+                    # eles também vão para disco: é o que o `pedido_marketplace.py` repete.
+                    cab = OUT / f"{indice}-tmesa-pedido-headers.json"
+                    cab.write_text(
+                        json.dumps(req.all_headers(), ensure_ascii=False, indent=1),
+                        encoding="utf-8",
+                    )
+                    print("      cabecalhos em", cab)
 
             page.on("request", on_request)
             try:

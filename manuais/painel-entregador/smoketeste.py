@@ -13,9 +13,12 @@ Comandos:
     python smoketeste.py estado       # o que o painel enxerga agora
     python smoketeste.py catalogo     # produtos e clientes disponíveis
     python smoketeste.py ensaio       # monta os payloads e NÃO envia (técnica do ensaio)
-    python smoketeste.py semear       # cria os pedidos do cenário
-    python smoketeste.py situacao     # aplica Preparo/Pronto do cenário
-    python smoketeste.py limpar       # cancela o que este script criou
+    python smoketeste.py semear          # cria todos os pedidos do cenário
+    python smoketeste.py semear maduro   # só uma onda (ou um apelido)
+    python smoketeste.py preparo         # move para Em preparo (sem ID = todos da janela)
+    python smoketeste.py pronto 123      # move só esses preVendaID para Pronto
+    python smoketeste.py arquivar 123    # tira do painel (volta a AGUARDANDO)
+    python smoketeste.py limpar          # cancela o que este script criou
 
 Trava de segurança: só a sandbox 38311/39202. Qualquer outra empresa aborta.
 """
@@ -33,8 +36,12 @@ from beefood import abrir, api_get, api_post
 EMPRESA_PERMITIDA = 38311
 FILIAL_PERMITIDA = 39202
 
-# Marcador nas observações: é por ele que `limpar` reconhece o que é deste script.
-MARCADOR = "[SMOKE-PAINEL-ENTREGADOR]"
+# Marcador nas observações: é por ele que `limpar` reconhece o que é deste script, e é
+# a sentinela que o `marketplace-db.js` exige antes de gravar qualquer coluna no banco.
+# Pedido de verdade não tem o marcador, então não há como o script alcançar um.
+MARCADOR = "[SMOKE-PAINEL]"
+# O primeiro lote do #120 saiu com o marcador antigo; `limpar` reconhece os dois.
+MARCADORES = (MARCADOR, "[SMOKE-PAINEL-ENTREGADOR]")
 
 # Produtos reais do cardápio da sandbox (conferidos em `catalogo`).
 P = {
@@ -50,71 +57,62 @@ P = {
     "pudim": (2515385, "Pudim - Leite Condensado", 19.9),
 }
 
-# O cenário do manual: quatro origens, pedidos em preparo e prontos.
-# `ref` é o identificador que o marketplace manda e que o cartão mostra embaixo do logo.
+# Pedidos lançados no balcão (telefone, WhatsApp) — a origem que sai é **Manual**,
+# e o cartão do painel mostra o ícone da abelha. Os do **Cardápio Digital** vêm do
+# `pedido_cardapio.py`, porque origem não é campo de entrada: ver `fluxo-codigo.md`.
+#
+# Os apelidos são agrupados em **ondas**, porque a cor do cartão depende da idade do
+# pedido: o prazo do sandbox é de 53 min, e o alerta vira amarelo em 37 min, laranja
+# em 45 e vermelho em 53 (`prazo.py` imprime a conta). Para a captura mostrar as três
+# faixas, a onda `maduro` é semeada ~40 min antes e a `fresco` na hora.
 CENARIO = [
     {
-        "apelido": "ifood-preparo",
-        "origem": "iFood",
-        "ref": "4821",
-        "etapa": "PREPARO",
-        "itens": [("one_burger", 1), ("batata", 1), ("coca", 2)],
-        "pag": "PAGO ONLINE",
-        "frete": 8.0,
-    },
-    {
-        "apelido": "ifood-pronto",
-        "origem": "iFood",
-        "ref": "4817",
-        "etapa": "PRONTO",
-        "itens": [("crispy", 1), ("aneis", 1)],
-        "pag": "PAGO ONLINE",
-        "frete": 8.0,
-    },
-    {
-        "apelido": "keeta-preparo",
-        "origem": "Keeta",
-        "ref": "K7204",
-        "etapa": "PREPARO",
-        "itens": [("chicken", 2), ("cocazero", 1)],
-        "pag": "PAGO ONLINE",
-        "frete": 9.9,
-    },
-    {
-        "apelido": "99food-preparo",
-        "origem": "99Food",
-        "ref": "9F23",
-        "etapa": "PREPARO",
-        "itens": [("crispy", 1), ("milkshake", 1)],
-        "pag": "PIX",
-        "frete": 10.0,
-    },
-    {
-        "apelido": "99food-pronto",
-        "origem": "99Food",
-        "ref": "9F19",
-        "etapa": "PRONTO",
-        "itens": [("one_burger", 1), ("brownie", 1)],
-        "pag": "PIX",
-        "frete": 10.0,
-    },
-    {
-        "apelido": "cardapio-preparo",
-        "origem": "Cardápio Digital",
-        "ref": None,
-        "etapa": "PREPARO",
-        "itens": [("chicken", 1), ("batata", 1), ("pudim", 1)],
+        "apelido": "maduro-1",
+        "onda": "maduro",
+        "cliente": "Marina Oliveira",
+        "itens": [("crispy", 1), ("aneis", 1), ("cocazero", 1)],
         "pag": "Dinheiro",
-        "frete": 7.0,
+        "frete": 6.5,
     },
     {
-        "apelido": "cardapio-pronto",
-        "origem": "Cardápio Digital",
-        "ref": None,
-        "etapa": "PRONTO",
-        "itens": [("one_burger", 2), ("coca", 2)],
+        "apelido": "maduro-2",
+        "onda": "maduro",
+        "cliente": "Rafael Dias",
+        "itens": [("chicken", 2), ("batata", 1), ("coca", 2)],
         "pag": "Cartão de Crédito",
-        "frete": 7.0,
+        "frete": 6.5,
+    },
+    {
+        "apelido": "maduro-3",
+        "onda": "maduro",
+        "cliente": "Beatriz Lima",
+        "itens": [("one_burger", 1), ("milkshake", 1)],
+        "pag": "PIX",
+        "frete": 6.5,
+    },
+    {
+        "apelido": "fresco-1",
+        "onda": "fresco",
+        "cliente": "Paulo Sérgio Braga",
+        "itens": [("crispy", 1), ("batata", 1), ("pudim", 1), ("coca", 1)],
+        "pag": "Dinheiro",
+        "frete": 6.5,
+    },
+    {
+        "apelido": "fresco-2",
+        "onda": "fresco",
+        "cliente": "Helena Moraes",
+        "itens": [("one_burger", 2), ("aneis", 1), ("cocazero", 2)],
+        "pag": "PIX",
+        "frete": 6.5,
+    },
+    {
+        "apelido": "fresco-3",
+        "onda": "fresco",
+        "cliente": "Tiago Nunes",
+        "itens": [("chicken", 1), ("brownie", 1)],
+        "pag": "Cartão de Débito",
+        "frete": 6.5,
     },
 ]
 
@@ -222,20 +220,7 @@ def montar_payload(s: dict, caso: dict) -> dict:
             "telefone": None,
             "endereco": dict(ENDERECO),
         },
-        # Campos de marketplace. O `pedidoBuilder` do front não os manda (a origem
-        # de verdade é gravada pela integração), então aqui eles são um teste:
-        # `ensaio` mostra o payload e `semear` confere na listagem o que pegou.
-        "origem": caso["origem"],
-        "marketPlace": caso["origem"] != "Cardápio Digital",
     }
-    if caso["origem"] == "iFood":
-        pedido["ifoodShortReference"] = caso["ref"]
-        pedido["correlationId"] = f"smoke-{caso['apelido']}"
-    elif caso["origem"] == "Keeta":
-        pedido["keetaId"] = caso["ref"]
-    elif caso["origem"] == "99Food":
-        pedido["nnID"] = caso["ref"]
-        pedido["ifoodShortReference"] = caso["ref"]
     return pedido
 
 
@@ -287,11 +272,12 @@ def cmd_ensaio(s: dict):
         print(json.dumps(montar_payload(s, caso), ensure_ascii=False, indent=2))
 
 
-def cmd_semear(page, s: dict, apelidos: list[str] | None = None):
+def cmd_semear(page, s: dict, alvos: list[str] | None = None):
+    """`alvos` aceita apelido (`maduro-1`) ou nome de onda (`maduro`)."""
     antes = {p["preVendaID"] for p in pedidos_da_janela(page, s, 6)}
     criados = []
     for caso in CENARIO:
-        if apelidos and caso["apelido"] not in apelidos:
+        if alvos and caso["apelido"] not in alvos and caso.get("onda") not in alvos:
             continue
         st, resp = api_post(page, "/api/venda2/salvar", montar_payload(s, caso))
         ok = st == 200 and not (isinstance(resp, dict) and resp.get("resultado") is False)
@@ -316,49 +302,62 @@ def cmd_semear(page, s: dict, apelidos: list[str] | None = None):
         )
 
 
-def cmd_situacao(page, s: dict):
-    """Move para PRONTO os pedidos do cenário que devem aparecer prontos."""
-    prontos = {c["apelido"] for c in CENARIO if c["etapa"] == "PRONTO"}
-    lista = pedidos_da_janela(page, s, 6)
-    st_det = {}
-    for p in lista:
-        if str(p.get("situacaoDelivery")).upper() != "PREPARO":
-            continue
-        _, det = api_get(
-            page, f"/api/venda2/vendaDetalhes/{s['empresaID']}/{s['usuarioID']}/{p['preVendaID']}/0"
-        )
-        obs = ((det or {}).get("venda") or {}).get("observacoes") or ""
-        if MARCADOR not in obs:
-            continue
-        apelido = obs.replace(MARCADOR, "").strip().split()[0]
-        st_det[p["preVendaID"]] = (p, apelido)
+def mover(page, s: dict, p: dict, destino: str):
+    """Mesma rota que o operador aciona arrastando o cartão no kanban do Delivery."""
+    corpo = {
+        "empresaID": s["empresaID"],
+        "filialID": s["filialID"],
+        "usuarioID": s["usuarioID"],
+        "usuario": s["usuario"],
+        "clienteID": p.get("clienteID"),
+        "situacaoDelivery": destino,
+        "situacaoDeliveryAnterior": p.get("situacaoDelivery"),
+        "preVendaID": p["preVendaID"],
+        "numeroPreVenda": p.get("numeroPreVenda"),
+        "numeroPedido": p.get("numeroPedido") or 0,
+        "tipoPedido": p.get("tipoPedido"),
+        "correlationId": p.get("correlationId"),
+        "nnID": p.get("nnID"),
+        "keetaId": p.get("keetaId"),
+        "tipoPagStr": p.get("tipoPagStr"),
+        "filialIDOrigem": p.get("filialIDOrigem"),
+        "consumoLocal": p.get("consumoLocal"),
+        "tipo": "DELIVERY",
+        "esteira": False,
+    }
+    st, resp = api_post(page, "/api/venda2/atualizaSituacaoDelivery", corpo)
+    print(
+        f"  {p['preVendaID']} {str(p.get('origem')):<18}"
+        f" {p.get('situacaoDelivery')} -> {destino}  {st}"
+        f" {json.dumps(resp, ensure_ascii=False)[:120]}"
+    )
 
-    for pid, (p, apelido) in st_det.items():
-        if apelido not in prontos:
+
+def cmd_mover(page, s: dict, destino: str, ids: list[str]):
+    """`preparo`/`pronto`: sem IDs move todos os pedidos de delivery da janela."""
+    alvos = {int(i) for i in ids} if ids else None
+    for p in pedidos_da_janela(page, s, 6):
+        if str(p.get("tipoPedido") or "").upper() != "DELIVERY":
             continue
-        corpo = {
-            "empresaID": s["empresaID"],
-            "filialID": s["filialID"],
-            "usuarioID": s["usuarioID"],
-            "usuario": s["usuario"],
-            "clienteID": p.get("clienteID"),
-            "situacaoDelivery": "PRONTO",
-            "situacaoDeliveryAnterior": p.get("situacaoDelivery"),
-            "preVendaID": pid,
-            "numeroPreVenda": p.get("numeroPreVenda"),
-            "numeroPedido": p.get("numeroPedido") or 0,
-            "tipoPedido": p.get("tipoPedido"),
-            "correlationId": p.get("correlationId"),
-            "nnID": p.get("nnID"),
-            "keetaId": p.get("keetaId"),
-            "tipoPagStr": p.get("tipoPagStr"),
-            "filialIDOrigem": p.get("filialIDOrigem"),
-            "consumoLocal": p.get("consumoLocal"),
-            "tipo": "DELIVERY",
-            "esteira": False,
-        }
-        st, resp = api_post(page, "/api/venda2/atualizaSituacaoDelivery", corpo)
-        print(f"  {apelido:<18} {pid} -> PRONTO  {st} {json.dumps(resp, ensure_ascii=False)[:180]}")
+        if str(p.get("situacaoDelivery") or "").upper() in ("CANCELADO", "ENTREGUE", destino):
+            continue
+        if alvos is not None and p["preVendaID"] not in alvos:
+            continue
+        mover(page, s, p, destino)
+
+
+def cmd_arquivar(page, s: dict, ids: list[str]):
+    """Tira o pedido do painel devolvendo-o a AGUARDANDO, sem cancelar nada.
+
+    O painel só olha PREPARO e PRONTO, então AGUARDANDO some das duas colunas e o
+    pedido continua existindo no `/delivery` e nos relatórios. É o que permite
+    enxugar a fila do sandbox entre um ensaio e outro sem inventar cancelamento.
+    """
+    alvos = {int(i) for i in ids}
+    for p in pedidos_da_janela(page, s, 6):
+        if p["preVendaID"] not in alvos:
+            continue
+        mover(page, s, p, "AGUARDANDO")
 
 
 def cmd_limpar(page, s: dict):
@@ -372,7 +371,7 @@ def cmd_limpar(page, s: dict):
             page, f"/api/venda2/vendaDetalhes/{s['empresaID']}/{s['usuarioID']}/{p['preVendaID']}/0"
         )
         obs = ((det or {}).get("venda") or {}).get("observacoes") or ""
-        if MARCADOR in obs:
+        if any(m in obs for m in MARCADORES):
             alvo.append(p)
     print(f"{len(alvo)} pedidos deste script para cancelar")
     for p in alvo:
@@ -419,8 +418,10 @@ if __name__ == "__main__":
             cmd_ensaio(s)
         elif comando == "semear":
             cmd_semear(page, s, sys.argv[2:] or None)
-        elif comando == "situacao":
-            cmd_situacao(page, s)
+        elif comando in ("preparo", "pronto"):
+            cmd_mover(page, s, comando.upper(), sys.argv[2:])
+        elif comando == "arquivar":
+            cmd_arquivar(page, s, sys.argv[2:])
         elif comando == "limpar":
             cmd_limpar(page, s)
         else:
