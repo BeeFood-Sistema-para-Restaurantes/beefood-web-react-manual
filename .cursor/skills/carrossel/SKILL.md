@@ -114,6 +114,54 @@ Se a leitura de uma página vier suspeitosamente pobre, **desconfie da
 ferramenta antes de concluir que a página está vazia**. A pergunta não é "a
 página tem conteúdo?", é "esta página se serve sozinha?".
 
+#### E a pauta tem uma segunda metade: o acervo
+
+Antes de escrever uma linha, **leia os carrosséis que já existem**. Não é
+curiosidade, é levantamento: os produtos da BeeFood compartilham módulos, e
+metade da prova que a peça nova precisa costuma já estar capturada, recortada e
+aprovada em outra pasta.
+
+```bash
+cat carrosseis/README.md                 # o índice, com gênero e fonte de cada peça
+ls carrosseis/*/slides/                  # que assuntos já viraram slide
+ls carrosseis/*/imagens-puras/           # que provas já estão capturadas
+ls carrosseis/*/*.json                   # dados de exemplo (traduções, cupons, frota)
+```
+
+Depois abra o `roteiro.md` das peças do **mesmo gênero** e das que tocam o mesmo
+módulo, e responda duas perguntas:
+
+1. **Quais provas já existem sobre este assunto?** No plural. O acervo quase
+   nunca tem uma só, e a primeira que aparece na busca costuma não ser a
+   melhor — a escolhida é a que prova a **manchete inteira**.
+2. **O que a peça vizinha já prometeu, e como esta se diferencia dela?** Duas
+   capas da mesma linha não podem vender o mesmo gancho.
+3. **Que erro ela já cometeu neste assunto?** O `roteiro.md` de cada peça
+   registra o que deu errado e por quê. Repetir erro documentado é o
+   desperdício mais caro do acervo.
+
+**Isso pesa muito mais no gênero `função` do que no gênero `novidade`.** Uma
+novidade é um recorte no tempo: ela tem um fato próprio, e reaproveitar prova de
+outra peça quase sempre significa falar de outra coisa. Uma função é um **canal
+da mesma plataforma** — totem, tablet, QR Code e app do garçom leem o mesmo
+cadastro, o mesmo cardápio, o mesmo programa de fidelidade. Aí o reuso não é
+atalho: é o que mantém as peças **coerentes entre si**.
+
+**E reusar é adaptar, não copiar.** A prova viaja; o slide, não. O slide
+reaproveitado é escrito do zero para responder a pergunta que **esta** peça
+deixou aberta — trocar as palavras e manter o ângulo da peça de origem é o erro
+que parece resolvido e não está.
+
+**Quando a melhor prova é do canal errado, redesenhe.** Os recortes do cartão em
+inglês e espanhol são do totem; na peça do tablet eles foram refeitos com o
+componente de tela do tablet, a foto da biblioteca e o texto do arquivo de
+tradução da peça de origem. O que se reusa aí é a **ideia da prova**, e não o
+arquivo.
+
+Regra e limites em
+[`references/roteiro-e-copy.md`](references/roteiro-e-copy.md), seção *o acervo
+é parte da pauta*.
+
 ### 2. Roteiro — antes de qualquer imagem
 
 **O texto da fonte é matéria-prima, não roteiro.** A novidade é registro de
@@ -136,7 +184,15 @@ recurso, o slide 2 **explica** o recurso e o slide 3 **mostra** o recurso na
 tela. Conceito na capa e história no slide 2 são os dois jeitos de perder o
 leitor antes da prova.
 
-Crie `carrosseis/<slug>/roteiro.md` com a tabela **fato → ângulo → o que o slide
+**A pasta nasce numerada.** O nome é `NN-<slug>`, com `NN` sendo a **ordem de
+entrega** — o próximo número livre em `carrosseis/`. É o que faz a listagem do
+diretório sair na ordem em que as peças foram publicadas, e o `.zip` chegar ao
+cliente já ordenado (`empacotar.py` usa o nome da pasta). Ordem alfabética não
+diz nada sobre um acervo, e por isso o índice do
+[`carrosseis/README.md`](../../../carrosseis/README.md) tem coluna `#` em vez da
+palavra "entregue" repetida em toda linha.
+
+Crie `carrosseis/<NN-slug>/roteiro.md` com a tabela **fato → ângulo → o que o slide
 diz** (é o que permite auditar que nada foi inventado e nada foi copiado) e a
 tabela de slides (arquivo, tipo, ideia única, imagem). A legenda não fica aqui:
 ela é peça de entrega e mora em `copy-instagram.txt` (passo 7).
@@ -251,7 +307,7 @@ python .cursor/skills/carrossel/scripts/capturar.py <slug> \
 Tela que exige clique: escreva `carrosseis/<slug>/capturar-telas.py` importando
 `sessao`, `esperar` e `limpar` do `capturar.py` — mesmo padrão dos manuais, que
 têm um script por pasta. Veja
-[`carrosseis/destaque-impressao/capturar-telas.py`](../../../carrosseis/destaque-impressao/capturar-telas.py).
+[`carrosseis/01-destaque-impressao/capturar-telas.py`](../../../carrosseis/01-destaque-impressao/capturar-telas.py).
 
 **Recorte é obrigatório em tela de painel.** Um modal inteiro reduzido para a
 largura do slide fica ilegível no feed. O teto depende de como o slide exibe o
@@ -565,6 +621,18 @@ título) da novidade — nenhum rótulo do sistema chega a seis palavras, então
 ele pega é cópia. Ele não julga o roteiro; para isso existe a tabela
 fato → ângulo → slide.
 
+**Ele também compara a peça com os outros carrosséis**, e isso é `AVISO`, não
+erro. Prova se reusa entre peças de propósito; **a copy, não** — o slide
+reaproveitado fala com um leitor diferente, e repetir o texto entrega duas
+peças que parecem a mesma. Para o aviso ser sinal e não ruído, ficam de fora da
+comparação a interface desenhada dentro dos mockups, o cromo do slide
+(contador, pontos, `arraste`) e o texto alternativo, que descrevem prova. Fica
+dentro o que a peça **escreveu**: a copy dos slides e a legenda.
+
+Nem todo aviso é defeito. O CTA de peça de função repete de propósito — ele é
+convenção, e a frase mais comum possível é a que funciona. Mas agora a decisão
+é tomada, em vez de passar batida.
+
 1. Abra a folha de contato: o conjunto tem ritmo, ou três slides de texto seguidos?
    A capa tem imagem?
 2. Abra em **tamanho real** os slides com print. Miniatura esconde texto ilegível
@@ -626,7 +694,7 @@ mesma régua dos slides.
 python .cursor/skills/carrossel/scripts/empacotar.py <slug>
 ```
 
-Gera `carrosseis/<slug>/entrega/<slug>.zip` com os PNG e o `.txt`, em nomes
+Gera `carrosseis/<NN-slug>/entrega/<NN-slug>.zip` com os PNG e o `.txt`, em nomes
 soltos na raiz do zip (quem recebe arrasta direto para o celular, e a ordem de
 publicação é a ordem alfabética). Capa alternativa e slide em vídeo entram em
 subpastas (`capa-alternativa/`, `video/`), separados de propósito — quem arrasta
@@ -648,7 +716,7 @@ carrosseis/<slug>/
 ├── slides/               # NN-nome.html (fragmentos de body)
 ├── png/                  # a arte final, 1080x1350
 ├── video/                # slide em vídeo, quando a novidade é movimento
-├── entrega/<slug>.zip    # png + copy, o arquivo que vai para quem publica
+├── entrega/NN-<slug>.zip # png + copy, o arquivo que vai para quem publica
 └── folha-de-contato.png  # todos os slides numa imagem
 ```
 

@@ -40,7 +40,7 @@ conferido no sistema — e não escreve nada dentro dela. Cada skill tem a sua m
 │     ├─ imagens-puras/        # Screenshots originais (backup, sem edição)
 │     └─ imagens-tratadas/     # Screenshots com setas/números (usados no manual)
 └─ carrosseis/
-   └─ <slug>/                  # Uma pasta por carrossel — índice em carrosseis/README.md
+   └─ NN-<slug>/               # Uma pasta por carrossel, numerada pela ordem de entrega
 ```
 
 ## Manuais disponíveis

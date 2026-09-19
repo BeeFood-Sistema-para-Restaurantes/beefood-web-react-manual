@@ -113,6 +113,151 @@ também"*, não "crie um cupom": o recurso é do outro módulo, e o que a peça
 acrescenta é **onde ele também funciona**. Quem já usa reconhece a própria
 ferramenta; quem não usa descobre que ela existe.
 
+### O acervo é parte da pauta
+
+A pauta tem duas metades. A primeira é a fonte — o release ou a página. A
+segunda é **o que a casa já publicou**, e ela foi descoberta tarde: o pedido
+que a criou foi *"precisamos criar uma memória de que, ao criar um carrossel,
+estudamos todos os que já foram criados para encontrar implementações casadas
+com as outras que já foram feitas"*.
+
+O levantamento é barato e vem antes de escrever:
+
+```bash
+cat carrosseis/README.md                 # índice, com gênero e fonte de cada peça
+ls carrosseis/*/slides/                  # que assuntos já viraram slide
+ls carrosseis/*/imagens-puras/           # que provas já estão capturadas
+ls carrosseis/*/*.json                   # dados de exemplo já montados
+```
+
+Depois abra o `roteiro.md` das peças do mesmo gênero e das que tocam o mesmo
+módulo. Duas perguntas, e as duas mudam a peça nova:
+
+1. **Quais provas já existem sobre este assunto?** No plural: liste todas antes
+   de escolher, e escolha a que sustenta a manchete inteira.
+2. **O que a peça vizinha já prometeu, e como esta se diferencia dela?**
+3. **Que erro ela já cometeu neste assunto?** O `roteiro.md` de cada peça
+   registra o que deu errado. Repetir um erro documentado é o desperdício mais
+   caro do acervo.
+
+#### Por que isso vale muito mais no gênero `função`
+
+Uma **novidade** é um recorte no tempo. Ela tem um fato próprio, com data, e
+reaproveitar prova de outra peça quase sempre significa falar de outra coisa —
+o leitor veio ver o que mudou, e o que mudou é só aquilo. Ali o acervo serve
+para **não repetir**, e pouco mais.
+
+Uma **função** é um canal da mesma plataforma. Totem, tablet, QR Code e
+aplicativo do garçom leem o mesmo cadastro, o mesmo cardápio, o mesmo programa
+de fidelidade — então a prova de um módulo compartilhado é **verdadeira em
+todos eles**, e recapturar produz o mesmo arquivo com outro nome. Aí o reuso
+deixa de ser atalho e vira o que mantém as peças coerentes: quem acompanha o
+perfil vê a mesma tela de cadastro na peça do totem e na do tablet, e entende
+sozinho que é um sistema só. Capturar de novo, com outro produto e outro
+recorte, ensinaria o contrário.
+
+#### Levantar todas as candidatas antes de escolher uma
+
+O acervo quase nunca tem **uma** prova do assunto. Tem duas ou três, capturadas
+em peças diferentes, e a primeira que aparece na busca é a que tende a ser
+usada — o que é sorte, não escolha. Liste todas antes de pegar qualquer uma, e
+escolha por um critério só:
+
+> **Qual delas prova a manchete inteira?**
+
+No slide de idiomas do tablet havia duas candidatas, e elas provam coisas
+diferentes:
+
+| Candidata | O que prova | Serve à manchete "inglês e espanhol"? |
+|---|---|---|
+| print do cadastro do produto | **quem escreve** o texto, num idioma | metade |
+| par do mesmo item nos dois idiomas | **que são dois**, com foto e preço intactos | inteira |
+
+A primeira versão pegou o cadastro sem comparar, e o slide ficou prometendo dois
+idiomas enquanto mostrava um. O carrossel da tradução **já tinha passado por
+isso** e registrado no roteiro: *"a capa promete espanhol e o carrossel só
+mostrava inglês; e a prova cabe numa imagem"*. Ler o roteiro da peça vizinha
+teria poupado a rodada.
+
+O que a candidata perdedora provava não some do slide — desce para o chapéu e
+para o corpo, onde cabe sem imagem.
+
+#### A pergunta que autoriza o reuso
+
+> **Esta prova é do módulo, ou é do canal?**
+
+Prova de **módulo** viaja: a tela do cadastro de produto, o modal de
+configuração, o cartão de cupom. Prova de **canal** não viaja, mesmo quando é a
+melhor candidata — os dois recortes do cartão em inglês e espanhol são do
+**totem**, em cartão de grade, e o slide vizinho da peça do tablet mostra a
+lista do tablet: lado a lado, a arte diria que são dois aparelhos.
+
+**Quando a melhor prova é do canal errado, redesenhe em vez de trocar de
+prova.** O par foi refeito com o componente de tela do tablet, a foto real da
+biblioteca e o texto do arquivo de tradução da peça de origem — mesmo item,
+mesma foto, mesmo preço, mudando a linha do nome e o botão. O que se reusa aí
+já não é o arquivo: é a **ideia da prova**, que é o que a tornava boa.
+
+#### Reusar é adaptar, e adaptar começa na ideia — não na frase
+
+> **A prova viaja. O slide, não.** O slide reaproveitado é escrito do zero para
+> responder a pergunta que **esta** peça deixou aberta, e não a que a peça de
+> origem respondia.
+
+É a parte que escapa, e escapou duas vezes seguidas no mesmo slide.
+
+**Primeiro escapou a frase.** A imagem foi reusada com o texto junto, e saíram
+duas peças dizendo *"toque na bandeira e escreva o nome do jeito que o turista
+entende"* com as mesmas palavras.
+
+**Depois escapou a ideia, que é pior** — porque parece resolvido. As palavras
+foram todas trocadas e o **ângulo** continuou sendo o de lá: chapéu *"Sem
+segundo cardápio"*, manchete *"O mesmo produto, com um campo a mais"*. Aquilo
+responde o medo de quem ainda **não tem** o recurso e teme trabalho dobrado. O
+leitor da peça do tablet está avaliando um **aparelho**, acabou de ver o cliente
+trocando de idioma sozinho, e a pergunta que sobra é outra: *o meu cardápio vai
+mesmo estar em inglês, e quem escreve isso?* A manchete virou **"Seu cardápio em
+inglês e espanhol"**, e o corpo passou a entregar controle em vez de economia de
+esforço.
+
+Três perguntas antes de escrever o slide reusado, e a primeira é a que pega o
+erro:
+
+1. **Qual pergunta esta peça deixou aberta neste ponto do arco?** Escreva a
+   pergunta, não o título. Se a resposta for a mesma da peça de origem, ou o
+   slide está no lugar errado, ou ele não era necessário.
+2. **O que muda no leitor?** Lá ele pode não ter o recurso; aqui pode estar
+   escolhendo entre dois produtos da linha. Leitor diferente compra por motivo
+   diferente.
+3. **O remate ainda serve?** *"Os três idiomas acompanham"* é argumento de
+   **esforço**; numa peça de canal, o que fecha é *"o mesmo texto serve o
+   tablet, o totem e o QR Code"*, que ainda prepara o CTA.
+
+#### O limite, esse viaja sempre
+
+Se a peça de origem descobriu que a página promete tradução automática e o
+manual diz que quem escreve é a loja, esse limite vale na peça nova também.
+Prova reaproveitada sem a ressalva vira promessa nova.
+
+E o limite costuma ser vendável do lado certo: em vez de *evitar* a frase da
+página, o slide do tablet passou a dizer que o texto é **seu**, e não um chute
+de tradutor. Mesma verdade, virada para a frente.
+
+#### O conferidor mede a frase, você julga a ideia
+
+Como a frase repetida passou batida, o `conferir-texto.py` passou a comparar a
+peça com os outros carrosséis e avisar. É `AVISO` e não erro — o CTA repete de
+propósito. Mas ele só pega palavra igual: **ângulo herdado ele não vê**, e é por
+isso que as três perguntas acima existem.
+
+#### Onde o slide reusado entra
+
+Pela **função que ele cumpre no arco**, não pela ordem em que o cliente encontra
+aquilo na tela. No tablet, o slide do cadastro entrou logo depois do slide de
+idiomas: um mostra o que o cliente lê, o outro mostra onde aquele texto foi
+escrito, e o par faz a virada do lado do cliente para o lado do dono, que o
+slide do painel completa.
+
 ## A novidade é matéria-prima, não roteiro
 
 O texto publicado em `beefood.app/novidades` é registro de release: descreve o
@@ -701,6 +846,23 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 - [ ] **O gênero está certo do começo ao fim?** Em peça de função: nenhuma
       pílula `Novidade`, nenhum "agora", CTA que serve para quem ainda não tem
       painel, e nenhum número institucional na arte.
+- [ ] **O acervo foi lido antes de a peça ser escrita?** Em peça de `função`:
+      que prova de módulo compartilhado já existe capturada, e que gancho a peça
+      vizinha já usou. Reuso é do **módulo**, nunca do canal.
+- [ ] **Slide reaproveitado foi adaptado, e não copiado?** A prova é a de lá; a
+      **ideia** é desta peça. Escreva a pergunta que este ponto do arco deixou
+      aberta: se ela for a mesma que a peça de origem respondia, o ângulo veio
+      junto por engano — trocar as palavras não conserta isso.
+- [ ] **A arte prova a manchete inteira?** Se o título diz duas coisas (dois
+      idiomas, dois canais, antes e depois) e a imagem mostra uma, ou a imagem
+      está errada ou o título está grande demais. Havendo mais de uma prova no
+      acervo, a escolhida é a que fecha o título — e, se ela for do canal
+      errado, redesenhe em vez de trocar de prova.
+- [ ] **A manchete vende o uso principal, e não o recurso mais vistoso?** Se o
+      restaurante comprar por causa desta capa, é isso que ele vai usar todo
+      dia? E, quando o produto tem irmãos na linha (totem, tablet, QR Code,
+      app do garçom), a capa diz o que ele faz **de diferente** — não repete o
+      gancho da peça vizinha num ponto em que este canal é mais fraco.
 - [ ] **O slide 2 explica o recurso?** Não conta história, não cobra, e não
       ensina onde clicar.
 - [ ] **Alguma frase trocou a palavra concreta por metáfora?** "Preço" no lugar

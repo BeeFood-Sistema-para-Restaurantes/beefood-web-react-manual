@@ -1,0 +1,9 @@
+[
+  { "mesa": "Mesa 1", "minutos": 4,   "bateria": 96, "model": "SM-X115" },
+  { "mesa": "Mesa 2", "minutos": 2,   "bateria": 88, "model": "SM-X115" },
+  { "mesa": "Mesa 3", "minutos": 11,  "bateria": 74, "model": "SM-T290" },
+  { "mesa": "Mesa 4", "minutos": 8,   "bateria": 43, "model": "SM-T290" },
+  { "mesa": "Mesa 5", "minutos": 140, "bateria": 55, "model": "SM-T290",
+    "versao": "1.0.3.1" },
+  { "mesa": "Mesa 6", "minutos": 552, "bateria": 9,  "model": "SM-X115" }
+]

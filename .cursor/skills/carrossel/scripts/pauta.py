@@ -135,7 +135,14 @@ APP_EXTERNO = re.compile(r"https://[a-z0-9.-]+\.lovable\.app(?:/[a-z0-9\-/]*)?",
 
 IGNORAR = {"script", "style", "noscript", "svg", "path", "template", "head"}
 TITULOS = {"h1", "h2", "h3", "h4", "h5", "h6"}
-TEXTOS = {"p", "li", "figcaption", "blockquote", "summary", "a", "span"}
+# `a` e `span` são os dois casos duplos do WordPress: sozinhos, são item de menu
+# e rótulo de ícone; dentro de um parágrafo, são o parágrafo inteiro, porque o
+# editor embrulha o texto em `<span style="font-weight: 400">`. Por isso eles
+# contam como bloco só quando não há bloco aberto — ver `LeitorPagina`.
+BLOCOS = {"p", "li", "figcaption", "blockquote", "summary"}
+INLINE = {"a", "span"}
+TEXTOS = BLOCOS | INLINE
+PONTUACAO = re.compile(r"[.,;:?!]")
 
 # Frase que vende a empresa, não o produto: ela pauta, mas não vira slide.
 INSTITUCIONAL = re.compile(
@@ -160,16 +167,23 @@ class LeitorPagina(HTMLParser):
     def handle_starttag(self, tag, attrs):
         if tag in IGNORAR:
             self._pulando += 1
-        elif tag in TITULOS or tag in TEXTOS:
+        elif tag in TITULOS or tag in BLOCOS:
             self._fechar()
             self._pilha.append(tag)
+        elif tag in INLINE:
+            # Dentro de um bloco, o inline é parte do texto dele; fechar aqui
+            # jogaria fora o parágrafo, que é como o Elementor escreve todos.
+            if not self._pilha:
+                self._pilha.append(tag)
         elif tag == "br":
             self._buf.append(" ")
 
     def handle_endtag(self, tag):
         if tag in IGNORAR:
             self._pulando = max(0, self._pulando - 1)
-        elif tag in TITULOS or tag in TEXTOS:
+        elif tag in TITULOS or tag in BLOCOS:
+            self._fechar()
+        elif tag in INLINE and self._pilha and self._pilha[-1] == tag:
             self._fechar()
 
     def handle_data(self, dado):
@@ -229,9 +243,11 @@ def ler_pagina(url: str) -> dict:
         # resto é menu, botão e rótulo de ícone.
         if tag in ("a", "span") and not texto.endswith("?"):
             continue
-        # Menu de cabeçalho e rodapé chega como uma linha só, comprida e sem
-        # ponto ("Produtos Delivery Cardápio Digital WhatsApp Bot …").
-        if len(texto.split()) > 25 and "." not in texto:
+        # Menu de cabeçalho e rodapé chega como uma linha só: vários nomes de
+        # produto em sequência, sem pontuação nenhuma ("Soluções Presencial
+        # Cardápio Digital QRCode Aplicativo para Garçom …"). Frase de verdade
+        # com esse tamanho tem ponto, vírgula ou dois-pontos.
+        if tag not in TITULOS and len(texto.split()) > 11 and not PONTUACAO.search(texto):
             continue
         vistos.add(chave)
         limpos.append((tag, texto))
@@ -259,7 +275,9 @@ def ler_pagina(url: str) -> dict:
         "url": url,
         "servida_por": origem if origem != url else None,
         "titulo": titulo or (secoes[1]["titulo"] if len(secoes) > 1 else url),
-        "secoes": [s for s in secoes if s["linhas"] or s["nivel"] in ("h1", "h2")],
+        # Título sem corpo continua sendo pauta: "Para quem é o Cardápio no
+        # Tablet" não tem parágrafo nenhum embaixo e é um eixo da página.
+        "secoes": [s for s in secoes if s["linhas"] or s["nivel"] in ("h1", "h2", "h3")],
         "faq": faq,
         "claims": claims,
         "texto": " ".join(t for _, t in limpos),
