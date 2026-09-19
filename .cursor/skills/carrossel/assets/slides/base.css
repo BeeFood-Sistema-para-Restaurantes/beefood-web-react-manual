@@ -150,6 +150,148 @@ body {
   color: #fff;
 }
 
+/* -------------------------------------------------------- selo de recurso
+ *
+ * Etiqueta sólida que flutua ao lado do mockup da capa, para anunciar um eixo
+ * que o título não tem como carregar — por exemplo, o cupom e o cashback numa
+ * peça cujo título é sobre o totem.
+ *
+ * Posicione com `left`/`right` e `top` inline; é `absolute` de propósito,
+ * porque o lugar dele depende do aparelho que está do lado.
+ *
+ * Duas alturas, e não uma. Ao lado de um mockup em pé sobra uma coluna de
+ * ~320 px, e nela um selo de uma linha só cabe em corpo 22 — que ao lado de um
+ * título de 68 lê como legenda, não como promessa. Quebrado em nome grande e
+ * nota em caixa alta, o nome vai a 50 px e é lido na miniatura do feed.
+ *
+ * O que vai escrito é o NOME DO RECURSO, não um número que a loja configura:
+ * dentro de uma captura o "5%" é da tela do cliente, mas num selo desenhado
+ * ele passa a ser afirmação nossa.
+ */
+.selo-recurso {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 32px;
+  border-radius: 30px;
+  box-shadow: 0 22px 44px -18px #000;
+}
+
+.selo-recurso__nome {
+  font-size: 50px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.selo-recurso__nota {
+  margin-top: 8px;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+/* Com ícone, no formato em que o próprio site anuncia esses recursos: um
+ * quadrado com o desenho, o nome ao lado e a nota embaixo do nome.
+ *
+ * O ícone não é enfeite — ele é o que se lê primeiro na miniatura do feed, onde
+ * `Cupom` tem 9 px de altura e o desenho tem 30. Vale a pena roubar espaço do
+ * texto para ele existir.
+ *
+ * Desenhe em **SVG inline**, com `stroke: currentColor`: o traço herda a cor do
+ * selo, escala sem borrar e não vira mais um arquivo para manter. Ícone de
+ * fonte de emoji não serve — cada máquina desenha o seu.
+ */
+.selo-recurso--com-icone {
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+}
+
+.selo-recurso__icone {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 22px;
+}
+
+.selo-recurso__icone svg {
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* `nowrap` porque nota quebrada em duas linhas desmonta o par: um selo fica
+ * mais alto que o outro e os dois deixam de ler como conjunto. Se não coube,
+ * o texto é que encurta. */
+.selo-recurso__texto {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+/* O selo entra ATRAS do mockup, e é o corte que o prende ao aparelho.
+ *
+ * Etiqueta que só encosta continua lendo como adesivo colado na arte. Quando
+ * a silhueta do aparelho **corta** a ponta dela, a cena ganha profundidade sem
+ * nenhum efeito: oclusão é a pista mais forte que existe, e é de graça.
+ *
+ * Três coisas andam juntas, e sem as três o corte lê como erro de layout:
+ *
+ * - `z-index: 0`, abaixo da `.sangria` (que é 1). O selo continua acima do
+ *   fundo e do halo da capa;
+ * - `width` fixo, com a ponta escondida entrando ~60 px atrás da carcaça, e
+ *   **padding maior desse lado** para o texto não correr para debaixo dela;
+ * - gradiente que **escurece para a ponta oculta**, porque tab que dobra para
+ *   trás entra na sombra do aparelho. Sem isso o selo fica chapado e o corte
+ *   vira "faltou espaço".
+ *
+ * A ponta oculta nunca é a que leva o texto: o que some é margem.
+ */
+.selo-recurso--encaixado {
+  z-index: 0;
+  width: 384px;
+}
+
+/* ------------------------------------------------------------------- luz
+ *
+ * Luz é `div` vazio com gradiente, `filter: blur()` e mistura — nunca uma
+ * imagem. Renderiza igual em qualquer máquina e se ajusta com um número.
+ *
+ * O modo de mistura muda com a superfície, e é aqui que a primeira tentativa
+ * falha: `screen` sobre fundo escuro acende, e sobre a carcaça BRANCA do totem
+ * não faz absolutamente nada — branco já é o teto. Quem tinge branco é
+ * `multiply`, que é o `.luz--tinta`.
+ *
+ * | onde a luz cai | classe | z-index |
+ * |---|---|---|
+ * | fundo escuro, atrás do aparelho | `.luz` | 0 |
+ * | carcaça clara do aparelho | `.luz--tinta` | 2, por cima do mockup |
+ *
+ * E `.luz--tinta` só passa por cima de superfície opaca do aparelho (painel,
+ * carcaça). Em cima do vidro ela lava a tela, que é a prova.
+ */
+.luz {
+  position: absolute;
+  z-index: 0;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.luz--tinta {
+  z-index: 2;
+  mix-blend-mode: multiply;
+}
+
 /* ------------------------------------------------------------------ textos */
 
 .chapeu {

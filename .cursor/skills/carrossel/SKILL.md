@@ -39,6 +39,13 @@ marca tem cardápio, canais e relatórios próprios") — mas **não** o que ela
 empresa: "+100 mil negócios", "melhor avaliação no Google", "melhor suporte do
 Brasil" são claim institucional e não entram na arte.
 
+**E a página pode estar vazia, sem que isso derrube a peça.** A do totem só tem
+menu, rodapé e um `Carregando…`; o que sobrou foi a descrição de busca, uma
+afirmação funcional, e ela bastou para o ângulo. Pauta é a parte substituível —
+o que não pode faltar é o **fato**, e ele vive na tela. Quando o CTA mandar para
+uma página assim, avise no `copy-instagram.txt` para conferirem antes de
+publicar.
+
 **O tema entra no título, e a pílula não basta.** *"Várias marcas num painel só"*
 descreve o arranjo e não diz para quem serve — multimarca acontece em franquia,
 em praça de alimentação, em food hall. Quem rola o feed lê o título, não a
@@ -92,6 +99,21 @@ cruzamento com `manuais/`, que é o que separa **o que tem manual** (fato
 conferido) do que vai precisar de tela. Ele também lista o que **não** pode
 virar slide: os números institucionais da página.
 
+**Parte do site é uma casca.** O endereço público devolve menu, rodapé e um
+`Carregando…`, e o conteúdo vem de um app externo. Aconteceu com o totem, e a
+peça inteira saiu sem a seção de fidelidade, sem a demonstração do aparelho e
+sem o FAQ que estavam lá — `curl`, navegador e REST do WordPress concordaram
+que a página estava vazia, e os três olhavam para o lugar errado. O script
+agora percebe a casca sozinho e avisa na saída:
+
+```
+- O endereço público é uma casca; o conteúdo veio de https://…/totem
+```
+
+Se a leitura de uma página vier suspeitosamente pobre, **desconfie da
+ferramenta antes de concluir que a página está vazia**. A pergunta não é "a
+página tem conteúdo?", é "esta página se serve sozinha?".
+
 ### 2. Roteiro — antes de qualquer imagem
 
 **O texto da fonte é matéria-prima, não roteiro.** A novidade é registro de
@@ -132,11 +154,16 @@ Primeiro decida **onde a tela mora** — é isso que define se existe captura:
 | painel web (`beefood.app`) | `capturar.py --rota /cardapio` |
 | cardápio digital público | `capturar.py --url <link> --publico --dispositivo celular` |
 | cardápio digital com mídia nossa dentro | `capturar-cardapio.py --conteudo midias.json` (banner, vídeo e cartaz de aviso entregues na resposta da API) |
-| Totem de Autoatendimento | é **web**, e já tem script pronto: `capturar-totem.py` (telas, tradução injetada, fotos de produto). **Não finalize pedido** |
+| Totem de Autoatendimento | é **web**. `capturar-totem.py` faz o caminho da tradução; para outro caminho, escreva o roteiro em `carrosseis/<slug>/capturar-telas.py` — o aplicativo vai do cardápio ao pagamento, passando por cupom e cashback. **Não finalize pedido e não aplique cupom** (os dois são gravação no servidor da loja) |
 | app Android (Garçom, Entregador, Tablet) | não roda no Cloud Agent: **peça o print ao dono** (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) e, enquanto ele não vem, desenhe a tela em CSS copiando o print de produção (passo 4) |
 | cupom impresso | `ganchar_cupom` + `salvar_cupom`: o cupom nasce num iframe que vai para a impressora, então não dá para fotografar a tela |
 | coisa que não é tela (impressora, balança) | print do manual, se existir; senão desenho em CSS |
 | cenário que a conta de teste não tem (segunda marca, pedido de marketplace chegando) | **desenhe a tela**: `carrosseis/<slug>/telas/*.html` + `desenhar-telas.py` |
+
+**Antes de desenhar, ande no aplicativo.** A pergunta não é "existe captura
+desta tela?", é "até onde esse aplicativo me deixa ir clicando?" — o script que
+já existe costuma parar bem antes do fim. Desenho é o terceiro degrau, e a peça
+do totem provou que dá para fazer uma peça de função inteira no segundo.
 
 **Cenário que o sandbox não tem: desenhe a tela.** É o terceiro degrau da
 ancoragem — *manual > tela capturada > tela desenhada* — e ele apareceu inteiro
@@ -178,6 +205,21 @@ pasta, e o **aplicativo de produção renderiza**. O que veio de fora é só o t
 que o restaurante escreveria. O script está pronto e é de uso geral; as
 armadilhas (resolução, setor por índice, service worker, setor de combo) estão
 em [`references/mockups.md`](references/mockups.md).
+
+**E lista vazia esconde a tela inteira, que é o segundo uso da mesma rota.** A
+loja de exemplo não tem cupom cadastrado: `venda2/cupomDescontoAtivo?tipo=totem`
+responde `[]`, e sem lista o totem não desenha nem a linha de cupom. Aqui o
+recurso estava ligado e a **vitrine** é que faltava; a rota devolve os cupons de
+um `cupons.json` da pasta. Três cuidados:
+
+- **leia o bundle antes de inventar o formato.** Os campos saíram do JavaScript
+  do aplicativo, que lê a resposta sem mapear nada — formato adivinhado devolve
+  tela em branco, ou pior, tela que não é a de verdade.
+- **o que entra é o que o lojista escreveria**: código, título, benefício,
+  regra. Quem desenha a tela é o aplicativo.
+- **recorte fora o cabeçalho com o logotipo da loja.** Exemplo inventado
+  embaixo de marca real lê como promoção anunciada por um cliente nosso. E
+  avise no `copy-instagram.txt` que aquele dado é exemplo.
 
 **Quando o recurso é a mídia que o lojista sobe, você faz a mídia.** Capa e
 vitrine em vídeo não têm captura: o cardápio modelo está vazio e o de produção
@@ -644,6 +686,23 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   técnico é 10). Oito não é meta: o carrossel da tradução fecha em 7 porque o
   oitavo slide só existiria para chegar a oito. Quem lê no feed costuma parar no
   quinto, então ponha o ganho no começo.
+- **Slide novo custa slide velho.** Quando o assunto cresce e a peça bate no
+  teto, não estique: pergunte **quais dois slides já entregam a mesma ideia de
+  uso** e funda os dois. Na peça do totem, o adicional no item e o `Peça
+  também` na sacola viraram um — os dois diziam "a tela oferece antes de deixar
+  fechar" — e o cupom subiu do sexto para o quinto lugar, que é onde o leitor
+  ainda está. Quando não há mais o que fundir e o corte só tira conteúdo, é o
+  teto que cede: escreva o motivo no roteiro.
+- **Prova boa se reusa entre peças.** Pedido do tipo "inclua aquele slide que já
+  fizemos" não pede recaptura: o script de captura mora na skill e o conteúdo
+  injetado mora na pasta do outro carrossel, então apontar um para o outro
+  devolve a mesma tela. E o que se reusa não é a imagem, é o **par** — o mesmo
+  item, no mesmo ponto da tela, nas duas versões; recapturar daria outro
+  produto em outra posição, e a comparação perderia o que a torna prova.
+  Junto com a imagem viaja **o limite do que a peça afirma** (a peça da
+  tradução mostra o resultado e não promete traduzir), e o slide reusado entra
+  pela **função que cumpre no arco**, não pela ordem em que o cliente encontra
+  aquilo na tela.
 - **A capa diz o nome do recurso**, e nome é o que ele **faz**, não onde mora.
   "Acréscimo e desconto por forma de pagamento" é a notícia; "Aba nova: Ajuste no
   pagamento" é changelog. E conceito é o terceiro erro, o mais difícil de ver:
@@ -735,7 +794,48 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   recortar até sobrar um destaque, gere uma captura nova em que só ele apareça.
 - **Na capa, tela cheia ganha de tela icônica.** Tela cujo miolo é gradiente ou
   foto (a de espera do totem, por exemplo) deixa um vão morto no meio da capa.
-  Prefira a tela que mostra o recurso funcionando e enche a área útil.
+  Prefira a tela que mostra o recurso funcionando e enche a área útil — e, se a
+  peça tiver duas pontas com o mesmo aparelho, deixe a tela icônica para o CTA.
+- **Na capa, selo desenhado ganha de recorte ilegível.** Quando a capa precisa
+  anunciar mais de um eixo, a tentação é pendurar recortes de tela ao lado do
+  aparelho. Recorte de 1000 px reduzido para a coluna que sobra fica com 11 px
+  de letra, e aumentado cobre o vidro — ou seja, rótulo e preço. Use o
+  `.selo-recurso` com **a cor que a interface usa**, ao lado do aparelho e
+  nunca em cima do vidro: na capa a tela é atmosfera, e prova é do miolo.
+- **O selo de capa tem duas alturas.** Ao lado de um aparelho em pé sobra uma
+  coluna de ~320 px, e nela a frase inteira em uma linha não passa de corpo 22
+  — que ao lado de um título de 68 lê como crédito de rodapé e some na
+  miniatura. Quebre em **nome grande** (`Cupom`, 50 px) e **nota em caixa alta
+  pequena** (`DE DESCONTO`): o que estoura a largura é a frase, não a fonte.
+- **Não desenhe número que o lojista configura.** Dentro de um print, o `5% de
+  cashback` é da loja que aparece ali. Num selo desenhado ele vira promessa
+  nossa, e quem escolhe a porcentagem é o restaurante. Todo dado que sai do
+  print e vira arte **muda de dono** — no selo fica o nome do recurso.
+- **E a nota do selo não afirma o que dois recursos juntos não fazem.** Dois
+  selos lado a lado já sugerem soma; se os recursos não se combinam (cupom e
+  cashback não se combinam), a nota não pode confirmar a sugestão.
+- **Selo que só encosta no aparelho lê como adesivo.** O retorno vem nesta
+  forma: *"tá só um texto com um painel atrás"*. Não é acabamento, é
+  profundidade — e quem resolve é **oclusão**, não efeito. Use
+  `.selo-recurso--encaixado`: a ponta entra ~60 px atrás da carcaça, com
+  **padding maior desse lado** (o que some é margem, nunca texto) e gradiente
+  **escurecendo para a ponta oculta**. Passando atrás, o selo também deixa de
+  ter como cobrir o vidro.
+- **Selo de capa leva ícone, porque o ícone é o que sobrevive à miniatura.** Na
+  miniatura do feed o nome do recurso tem 9 px de altura e o desenho tem 30 —
+  vale roubar espaço do texto para ele existir. Use `.selo-recurso--com-icone`
+  com **SVG inline** e `stroke: currentColor` (emoji não serve: cada máquina
+  desenha o seu). Com o ícone o texto perde ~90 px, e nota que quebra em duas
+  linhas deixa um selo mais alto que o outro: o bloco é `nowrap`, e quem
+  encurta é a frase.
+- **Luz tem modo de mistura, e branco não acende com `screen`.** `.luz`
+  (`screen`) para o fundo escuro atrás do aparelho; `.luz--tinta` (`multiply`)
+  para a carcaça clara, que é a camada que prova que a luz bate no aparelho, e
+  não só no fundo. Acender carcaça branca com `screen` não muda um pixel, e a
+  correção é a mistura, não a opacidade. Nenhuma das duas passa por cima do
+  **vidro**: ali moram nome e preço. Com mais de um selo colorido, faça **uma**
+  luz que vá de uma cor à outra — duas poças separadas põem os selos em cenas
+  diferentes. Detalhe em [`mockups.md`](references/mockups.md).
 - **Imagem em pé na capa custa uma linha de subtítulo.** Aparelho em pé come
   ~830 px de altura: com título de 2 linhas cabe **1** linha de subtítulo, e o
   resto do recado vai para a legenda.

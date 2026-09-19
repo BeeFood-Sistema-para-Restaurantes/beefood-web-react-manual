@@ -5,7 +5,37 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-18 (21ª rodada: a skill saiu de `carrossel-novidades`
+Última atualização: 2026-09-18 (26ª rodada: o CTA do totem foi recusado pela
+**terceira** vez, e a versão que caiu era a que tinha o melhor fato — ver *CTA
+é convenção, e o fato bom não salva a frase esperta*. Junto, a regra de que
+frase de venda **se procura no site antes de inventar**).
+
+25ª rodada: a página do totem **não estava
+vazia** — o endereço público é uma casca e o conteúdo vem de um app externo. A
+peça foi escrita sem a página inteira, e o conserto foi no `pauta.py`. Ver
+*"Carregando…" não é página vazia* e *o ícone é o que sobrevive à miniatura*.
+
+24ª rodada: o selo da capa do totem parou de
+ser adesivo e virou **cena** — ver *o selo não se integra com efeito: integra
+com oclusão* e *luz tem modo de mistura, e branco não acende com `screen`*. E a
+peça ganhou o slide de idioma **reaproveitando a prova de outro carrossel**,
+sem recapturar nada: *prova boa se reusa entre peças*).
+
+23ª rodada: a peça do totem ganhou **cupom e
+cashback**, e com eles a primeira lição sobre assunto que **não é do aparelho,
+é de outro módulo que passa por ele**. Ver *fidelidade não é recurso do
+aparelho: é canal*, *lista vazia esconde tela* e *slide novo custa slide
+velho*. Na capa, **selo desenhado ganhou de recorte ilegível** — e, na volta,
+aprendeu a ter **duas alturas** e a **não desenhar número que o lojista
+configura**.
+
+22ª rodada: totem de autoatendimento, a segunda
+peça de função — e a primeira em que **a página da fonte estava vazia**. Ver *a
+página pode não existir, e o gênero continua de pé* e *o fluxo inteiro é
+captura, não só a primeira tela*. Na arte, a escolha entre **aparelho e
+recorte** virou pergunta de legibilidade.
+
+21ª rodada: a skill saiu de `carrossel-novidades`
 para **`carrossel`** e passou a ter **dois gêneros** — novidade e função do
 sistema. Ver *o segundo gênero: função do sistema*. Na volta da mesma rodada, a
 capa de função aprendeu três coisas: o **tema entra no título**, capa de assunto
@@ -60,6 +90,7 @@ na voz da marca e falando com você**.
 | Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + copy) |
 | Desconto ou acréscimo por forma de pagamento | [17/08/2026](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) | `carrosseis/desconto-forma-pagamento/` | 4:5, 7 slides | ✅ entregue — `entrega/desconto-forma-pagamento.zip` (7 PNG + copy) |
 | A dark kitchen de várias marcas num painel só | **função**, de [`beefood.com.br/sistema-dark-kitchen`](https://beefood.com.br/sistema-dark-kitchen/) | `carrosseis/dark-kitchen-multimarcas/` | 4:5, 7 slides | ✅ entregue — `entrega/dark-kitchen-multimarcas.zip` (7 PNG + copy) |
+| O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — página **sem conteúdo**; o fato veio da tela | `carrosseis/totem-autoatendimento/` | 4:5, 9 slides | ✅ entregue — `entrega/totem-autoatendimento.zip` (9 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -414,6 +445,518 @@ tela por tela, o que é captura e o que é desenho.
 
 A skill foi renomeada de `carrossel-novidades` para **`carrossel`** na mesma
 rodada: o nome antigo passaria a mentir sobre o escopo.
+
+### A página pode não existir, e o gênero continua de pé
+
+> **Correção da 25ª rodada.** Esta seção nasceu de um diagnóstico errado: a
+> página do totem **não** estava vazia. Ela é servida por um app externo, e o
+> endereço público só entrega a casca. A lição sobre gênero continua valendo
+> palavra por palavra — a lição sobre *aquela* página não. Ver
+> *"Carregando…" não é página vazia: é página servida por outro endereço*.
+
+A 22ª rodada pediu o **Totem de Autoatendimento**, apontando para
+`beefood.com.br/totem-de-autoatendimento/`. A página está publicada, aparece no
+menu do site, tem título e descrição — e parecia **não ter conteúdo**: o HTML
+servido traz o cabeçalho, o rodapé e um `Carregando…` no lugar do corpo.
+Renderizada no navegador, dava no mesmo. O `pauta.py --pagina` devolvia dois
+blocos sem texto.
+
+A primeira reação foi achar que a peça tinha caído, e ela não tinha. O que a
+definição do gênero diz é que **o leitor** muda, não que a página é obrigatória:
+a peça de função existe porque quem lê pode não ter conta, e isso continua
+verdade com a página vazia. A página sempre foi **pauta** — e pauta é a parte
+substituível.
+
+Então a régua fica assim, e vale para qualquer função:
+
+| O que a fonte dá | O que fazer |
+|---|---|
+| página com seções e FAQ | os eixos e o público saem dela (dark kitchen) |
+| página só com a descrição de busca | ela vale como **uma** afirmação funcional, e o resto vem do fato |
+| nada | o tema ainda serve de pauta; sem fato, aí sim não há peça |
+
+Do totem sobrou uma linha, a descrição que a página dá ao buscador — *"Deixe
+seus clientes fazerem pedidos e pagamentos diretamente no totem de
+autoatendimento enquanto sua equipe foca em outras questões"* — e ela bastou
+para o ângulo, porque é afirmação funcional. O **fato** veio inteiro de outro
+lugar, que é o assunto da seção seguinte.
+
+Duas coisas para a próxima vez:
+
+- **confira a fonte antes de prometer.** O slide 7 manda o leitor para a página,
+  e mandar alguém para um `Carregando…` é pior do que não ter slide 7. Ficou
+  escrito no `copy-instagram.txt` da peça, para quem for publicar conferir.
+- **página vazia não é sinal de recurso fraco.** O totem tem mais tela
+  capturável que qualquer peça que já fizemos aqui. Falta de página é falta de
+  marketing, não falta de produto.
+
+### "Carregando…" não é página vazia: é página servida por outro endereço
+
+O retorno da 25ª rodada foi *"no próprio site que te passei temos uma seção
+sobre isso que deveria ter copiado"*, e tinha mesmo: a página do totem traz uma
+seção de fidelidade, uma demonstração do aparelho e um FAQ. A peça inteira foi
+escrita sem nada disso.
+
+O diagnóstico anterior foi **cuidadoso e mesmo assim errado**, e é isso que faz
+o caso valer:
+
+| onde se olhou | o que voltou |
+|---|---|
+| HTML servido por `curl` | cabeçalho, rodapé e `<div class="super-loader">Carregando…</div>` |
+| página renderizada no navegador, com rolagem e espera | o mesmo |
+| `wp-json/wp/v2/pages/<id>` | `content.rendered` com a casca |
+
+Três fontes independentes, todas concordando — e todas olhando para o lugar
+errado. O conteúdo é montado por um **app externo**, e o endereço dele está no
+próprio HTML da casca:
+
+```
+https://beefood.com.br/totem-de-autoatendimento/  →  casca
+https://beefood-com-br.lovable.app/totem          →  a página
+```
+
+O que faltou não foi esforço, foi a **pergunta certa**: em vez de *"a página
+tem conteúdo?"*, é *"esta página se serve sozinha?"*. E a resposta estava na
+aba de rede o tempo todo — a casca pedia recursos a outro domínio.
+
+A correção não podia ser uma anotação, porque anotação depende de alguém
+lembrar. Foi para o `pauta.py`: quando o HTML tem cara de casca, ele acha o
+endereço do app no próprio HTML e lê de lá, avisando na saída. Vale para o
+`conferir-texto.py --fonte` de brinde, que importa a mesma função — e isso
+importava: enquanto a fonte era a casca, o teste de cópia literal comparava o
+texto dos slides com **nada** e passava sempre.
+
+> Ferramenta que engole uma casca em silêncio é pior que ferramenta que falha.
+> Quando a leitura de uma fonte vier suspeitosamente pobre, o conserto é no
+> script, não no roteiro.
+
+Duas coisas que a página devolveu assim que foi lida de verdade: a **seção de
+fidelidade**, que redesenhou a capa, e a **demonstração do aparelho**, que
+salvou o CTA. As duas seções seguintes.
+
+### O ícone é o que sobrevive à miniatura
+
+A seção *Transforme cada venda em uma nova oportunidade de compra* anuncia cada
+recurso como um cartão: **ícone num quadrado, nome ao lado, uma linha de
+descrição embaixo**. Os selos da capa passaram a ter a mesma estrutura, e o
+retorno que pediu isso foi direto — *"melhore o slide 1 com ícones"*.
+
+Não é gosto. Na miniatura do feed, onde a capa é decidida, a palavra `Cupom`
+tem 9 px de altura e o desenho do bilhete tem 30. O ícone é a única parte do
+selo que **sobrevive ao tamanho em que a peça é vista pela primeira vez**, e
+por isso vale roubar espaço do texto para ele existir.
+
+Como desenhar:
+
+- **SVG inline, com `stroke: currentColor`.** O traço herda a cor do selo,
+  escala sem borrar e não vira arquivo para manter. Emoji não serve: cada
+  máquina desenha o seu, e o mesmo carrossel sai diferente em duas máquinas;
+- **um desenho que já é conhecido** — bilhete picotado para cupom, cifrão com
+  seta de volta para cashback. Ícone que precisa de legenda não é ícone;
+- **quadrado translúcido da própria cor do selo**, e não um bloco branco: o
+  ícone é parte do selo, não um adesivo em cima dele.
+
+E uma medida que só aparece na primeira renderização: com o ícone, o texto
+perde ~90 px, e nota que não cabia passa a quebrar em duas linhas. Nota
+quebrada deixa um selo mais alto que o outro, e **os dois param de ler como
+par**. A saída é `white-space: nowrap` no bloco de texto e encurtar a frase —
+`COM O TELEFONE` virou `PRÓXIMA COMPRA`, e ainda ganhou com a troca, porque a
+nota antiga contava *como se entra* no recurso e a nova conta *o que se ganha*,
+que é o que um selo de capa tem de dizer.
+
+### CTA é convenção, e o fato bom não salva a frase esperta
+
+O último slide do totem foi recusado **três vezes**, e a terceira é a que
+ensina, porque nela o fato estava certo e o slide ficou pior.
+
+**Primeira:** *"Conheça o totem por dentro"*. "Por dentro" sugere hardware, e o
+que existe lá dentro são as telas que o leitor acabou de ver em oito slides.
+Volta: *"ficou estranho"*.
+
+**Segunda:** *"Passe pelo pedido inteiro, tela por tela"*. Essa veio de um
+raciocínio que parecia impecável — procurar **o que só existe no destino** e
+pedir aquilo. E o destino tem: a página roda um pedido inteiro no aparelho, com
+barra de progresso, pausa e setas. Fato conferido, verbo escolhido a dedo
+(*"teste"* prometeria pedir de verdade, *"veja"* jogaria fora a pausa). Volta:
+*"tá muito estranho o que você está tentando fazer aqui"*.
+
+E estava. De dentro do feed, **ninguém sabe que existe uma demonstração do
+outro lado**. A frase descrevia o mecanismo de uma página que o leitor não viu,
+então virou instrução sem objeto. O fato era verdadeiro e irrelevante: era
+informação que só faz sentido *depois* de chegar, usada para convencer alguém a
+chegar.
+
+**Terceira, e a que ficou:** *"Conheça todas as funcionalidades"* e o endereço.
+
+O pedido do dono foi literalmente *"apenas crie uma frase do tipo 'Conheça
+todas as funcionalidades'"*, e a lição está no **apenas**:
+
+> O CTA é o slide em que ser convencional é uma vantagem. O leitor tem de saber
+> o que fazer com a frase **sem precisar de explicação**, e frase convencional
+> é exatamente aquela que ele já sabe ler.
+
+O que o raciocínio da segunda tentativa acertou e errou vale separado, porque a
+parte certa continua valendo:
+
+| o raciocínio | serve para |
+|---|---|
+| procurar o que só existe no destino | **escolher para onde mandar**, e conferir que vale a viagem |
+| descrever esse achado na frase | nada: o leitor não tem contexto para ele |
+
+A página do totem tem uma seção de plataforma inteira — PDV, KDS, fiscal,
+financeiro, estoque, fidelidade. É isso que faz *"conheça todas as
+funcionalidades"* ser verdadeiro **e** generoso: promete mais do que o
+carrossel mostrou, que é a única razão honesta de sair do feed. A objeção
+original ("convite que repete o carrossel não é convite") segue de pé, e
+"funcionalidades" no plural é o que a derruba — não uma frase mais criativa.
+
+### Frase de venda se procura no site antes de inventar
+
+O subtítulo da capa do totem também levou três versões, e o padrão é o mesmo:
+
+| versão | o que estava errado |
+|---|---|
+| *"E o programa de fidelidade entra no pedido"* | descreve **onde o recurso fica** — informação de menu, não de capa |
+| *"E cada venda já sai puxando a próxima"* | metáfora nossa, que não estava em lugar nenhum e soa forçada |
+| **"Mais recorrência, com cashback e cupom"** | benefício primeiro, meios depois |
+
+A terceira não foi escrita: foi **encontrada**. O cartão de fidelidade da
+página diz *"Aumente a recorrência com cashback e cupons"* — a frase exata para
+o par que os selos anunciam, no vocabulário da casa.
+
+E o retorno que pediu a troca dizia, entre parênteses, *"(procurar no site)"*.
+Isso é regra:
+
+> Antes de inventar frase de venda, **leia a página**. Ela já foi escrita para
+> vender isso, por gente que decide como a empresa fala. Reescrever com as
+> nossas palavras é obrigatório; **partir do zero é desperdício**.
+
+O que não muda é a régua de cópia: a linha da página é ponto de partida, não
+texto pronto. *"Aumente a recorrência com cashback e cupons"* virou *"Mais
+recorrência, com cashback e cupom"* — mesma ideia, nossa construção, e o
+`conferir-texto.py` continua passando.
+
+### O fluxo inteiro é captura, não só a primeira tela
+
+A peça de dark kitchen foi **toda desenhada** porque o sandbox não tinha o
+cenário, e isso deixou uma marca errada: a de que peça de função nasce no
+terceiro degrau da ancoragem. A do totem nasceu no **segundo**, e sem nenhum
+desenho — seis capturas do aplicativo de produção.
+
+O que mudou não foi a ferramenta, foi a pergunta. *O totem é web* já estava
+escrito aqui, mas o `capturar-totem.py` parava no cardápio, porque a peça
+daquela rodada era sobre tradução. Ao chegar um assunto que é o **caminho
+inteiro do cliente**, a pergunta virou: até onde esse aplicativo vai? Foi até o
+fim — cardápio, montagem do item com adicional e preço, sacola com sugestão,
+identificação, escolha entre comer ali e levar, e a barra de pagamento.
+
+> **Antes de desenhar, ande no aplicativo.** Não é "existe captura desta tela?",
+> é "até onde esse aplicativo me deixa ir clicando?". A resposta costuma ser
+> mais longe do que o script que já existe.
+
+Três coisas de ofício que a rodada firmou:
+
+- **o roteiro de captura da peça mora na peça.** O `capturar-totem.py` da skill
+  é a rotina da tradução, com a interceptação do idioma ligada — usá-lo aqui
+  poria bandeiras na tela de espera contando outra história. O
+  `carrosseis/<slug>/capturar-telas.py` é onde vive o caminho específico, e ele
+  copia da skill só o que é caro: contexto com `service_workers="block"`, rota
+  no contexto e a troca da arte de fundo.
+- **pare uma tela antes do irreversível, e diga onde parou.** O script vai até
+  `Ir para pagamento` e não toca nele. O botão é a prova de que o pagamento
+  acontece no aparelho; tocar nele criaria pedido numa loja de cliente. O
+  `roteiro.md` e o `copy-instagram.txt` registram onde o roteiro para.
+- **dado de teste não entra na arte.** Para chegar ao fim do fluxo o script
+  digita telefone e nome, e a tela de confirmação os mostra. O recorte foi
+  reposicionado para pegar só a pergunta do consumo: `TESTE` no meio de uma peça
+  de Instagram é um vazamento de bastidor.
+
+**Sem seletor estável, a janela é a régua.** O totem é um PWA compilado, sem
+`id` nem classe de que se possa depender. Como a janela é sempre 1080×1920 (a
+tela do aparelho do catálogo), os recortes são faixas em coordenada fixa,
+medidas nos prints e anotadas no script. É frágil a uma reforma do aplicativo e
+robusto a tudo o mais — e a alternativa, medir no DOM, dependeria dos mesmos
+seletores que não existem. Onde há seletor (o painel web), continue medindo.
+
+**Coordenada se mede na grade, não no conteúdo.** A prova veio ao reproduzir a
+captura do zero: a lista `Peça também` é gerada por IA e voltou com um item a
+mais, então o recorte que ia até a borda da janela passou a mostrar a lasca do
+quinto cartão — nome e preço cortados no meio, exatamente o que a
+`mockups.md` manda evitar. A grade do totem não muda (cartão de 256 px, vão de
+12), e a coordenada nova cai nesse vão: 1030 de 1080. **Reproduza a captura
+antes de fechar a peça** — o recorte que conteúdo variável desmente só aparece
+na segunda rodada.
+
+### Aparelho ou recorte: quem decide é o que precisa ser lido
+
+A peça do totem usa as duas coisas e a regra ficou clara ao ver as duas erradas
+no mesmo render:
+
+| | Capa e CTA | Miolo |
+|---|---|---|
+| o que entra | o **aparelho**, com a tela dentro | o **recorte**, sozinho |
+| por quê | o assunto é alguém de pé na frente de uma máquina; sem a máquina a peça vira cardápio digital | a letra do cardápio tem 11 px dentro de um mockup de 420 px, e 24 px num recorte de 940 px |
+| o que a tela faz ali | é atmosfera: diz "é este aparelho" | é prova: precisa ser **lida** |
+
+O recorte preto continua lendo como tela de totem porque o aplicativo é escuro —
+o aparelho já foi estabelecido na capa e não precisa aparecer em toda página.
+Repeti-lo em todos os slides teria custado a legibilidade de quatro provas.
+
+E **tela que vai dentro de mockup precisa nascer na proporção da moldura.** O
+CTA levou o recorte de 1080×800 do cardápio, a moldura do totem é 9/16, e o
+`object-fit: cover` cortou a terceira coluna de produtos no meio do nome — nome
+cortado na lateral lê como render que falhou. A correção é de captura, não de
+CSS: a tela que entra no aparelho é a captura **inteira**, em 720×1280; o
+recorte serve para quando a imagem aparece sozinha.
+
+### Fidelidade não é recurso do aparelho: é canal, e o canal está no manual
+
+O pedido da 23ª rodada foi *"precisamos falar sobre programa de fidelidade:
+cupom de desconto e cashback, um slide para cada"* — numa peça sobre o totem.
+Cupom e cashback não são recursos do totem: são do **Fidelidade (CRM)**, e têm
+manual próprio. A tentação é tratá-los como assunto novo e escrever de cabeça.
+
+O que resolve a ancoragem é procurar o **canal**:
+
+- o manual `cupom-desconto` lista os **Canais de Visibilidade** — Delivery,
+  PDV, Mesas/Comandas e **Totem** — e diz que a confirmação por SMS existe no
+  cardápio digital e no totem;
+- o manual `cashback-configurar` lista as **Modalidades**, e o totem é uma
+  delas; e diz que o crédito entra em pedido **pago e finalizado**.
+
+> Quando o pedido for "fale de X dentro de Y", o fato não está no manual de Y.
+> Está na **lista de canais do manual de X** — e é ela que autoriza a peça.
+
+Isso muda também o que o slide afirma. O título ficou *"O seu cupom vale no
+totem também"*, e não "crie um cupom": o recurso é do CRM, o que a peça
+acrescenta é o canal. Quem já usa cupom no delivery reconhece a própria
+ferramenta; quem não usa descobre que ela existe.
+
+**E o cashback não promete que o cliente volta.** A primeira versão fechava com
+*"que é o jeito de o autoatendimento trazer o cliente de novo"* — frase que o
+leitor desmente com a própria loja. O que se afirma é o que o produto faz: o
+saldo entra quando a venda é quitada e vira desconto na próxima compra.
+
+### Lista vazia esconde tela, e tela escondida se abre na resposta da API
+
+A interceptação de API já estava aqui para **ligar recurso desligado** (a
+tradução, com `aaTraducao: true`). O cupom acrescentou o segundo uso, que é
+outro: o recurso estava ligado e a **vitrine estava vazia**. A loja de exemplo
+não tem cupom cadastrado, `venda2/cupomDescontoAtivo?tipo=totem` responde `[]`
+— e com lista vazia o totem **não desenha nem a linha de cupom**. Sem
+interceptar, a tela não existe para fotografar.
+
+Três coisas de ofício:
+
+- **leia o bundle antes de inventar o formato.** Os campos do cupom (`id`,
+  `titulo`, `subtitulo`, `beneficio`, `regras[].descricao`, `primeiraCompra`,
+  `limitarUmUsoCliente`) saíram do JavaScript do aplicativo, onde se vê que a
+  interface lê a resposta **sem mapear nada**. Injetar um formato adivinhado
+  devolve tela em branco, e pior: devolveria tela que não é a de verdade.
+- **o que entra é o que o lojista escreveria**, e mora num arquivo da pasta
+  (`cupons.json`, como o `traducoes.json` da tradução). Código, título,
+  benefício e regra. Quem desenha a tela, os cartões e o campo é o aplicativo.
+- **recorte fora o cabeçalho com o logotipo da loja.** A tela de cupom traz a
+  marca da loja de exemplo no topo, e cupom inventado embaixo de uma marca real
+  lê como promoção anunciada por um cliente nosso. O recorte começa abaixo dele.
+
+E registre na copy: o `copy-instagram.txt` avisa quem publica que os cupons do
+slide são exemplo.
+
+### Slide novo custa slide velho
+
+A peça fechava em 7 slides, e o pedido acrescentava 2 — daria 9, acima do teto
+de 8. A saída não foi esticar a peça: foi **fundir os dois slides de venda
+sugestiva** (o adicional dentro do item e o `Peça também` na sacola) num só,
+com as duas faixas mais baixas.
+
+Funcionou porque os dois entregavam **a mesma ideia de uso** — a tela oferece
+antes de deixar fechar — e estavam separados só porque havia espaço. E o ganho
+foi de posição: com dois slides de venda sugestiva, o cupom cairia no sexto, e
+quem rola o feed costuma parar no quinto.
+
+> Antes de somar um slide, pergunte quais dois já existentes dizem a mesma
+> coisa. Peça que cresce sem perder nada vira changelog paginado.
+
+### Na capa, selo desenhado ganha de recorte ilegível
+
+A capa precisava anunciar o que a peça passou a entregar além do pedido, e a
+primeira tentativa foi honesta demais: os **recortes reais** da linha de cupom
+e da faixa de cashback, flutuando ao lado do aparelho. Saiu errado duas vezes
+no mesmo render:
+
+- o recorte da linha de cupom tem 1032 px de largura; reduzido para caber ao
+  lado de um totem de 400 px, a letra ficou com 11 px;
+- para ser legível, ele precisava crescer — e crescendo, cobria o **vidro**, ou
+  seja, nome e preço de produto. Sobreposição em cima de coisa decorativa vira
+  profundidade; em cima de rótulo, vira defeito.
+
+A saída foi o **selo desenhado** nas cores em que o aplicativo mostra cada
+recurso, ao lado do aparelho e **nunca em cima do vidro**. Legível em qualquer
+tamanho, porque quem escolhe o corpo da letra é o selo, e não o zoom de um
+print.
+
+Vale a distinção de sempre: na capa a tela é **atmosfera**, e prova é assunto do
+miolo. Provar na capa custa legibilidade, e a capa é o único slide que todo
+mundo vê.
+
+#### O selo tem duas alturas, ou vira legenda de rodapé
+
+A primeira versão dos selos era uma `.pilula` de uma linha em corpo 22, e a
+volta foi *"precisamos chamar mais atenção sobre isso"*. Estava certa: ao lado
+de um aparelho em pé sobra uma coluna de ~320 px, e nela `CUPOM DE DESCONTO`
+inteiro em uma linha **não passa de corpo 22**. Corpo 22 ao lado de um título
+de 68 não lê como promessa — lê como crédito de rodapé, e some na miniatura do
+feed, que é onde a capa é decidida.
+
+O que resolveu foi **quebrar o selo em dois níveis**: o nome do recurso grande
+(`Cupom`, `Cashback`, em 50 px) e o complemento em caixa alta pequena
+(`DE DESCONTO`, `COM O TELEFONE`). A mesma coluna passa a caber um nome três
+vezes maior, porque o que estourava a largura era a frase, não a fonte. Virou o
+`.selo-recurso` da `base.css`.
+
+> Selo de capa não concorre com o título em quantidade de palavra: concorre em
+> tamanho. Corte a frase até o nome caber grande.
+
+#### Número que o lojista configura não vira manchete de capa
+
+O selo amarelo dizia `5% de cashback`, e o 5% é **texto real** da tela — está
+em `Insira seu telefone e ganhe 5% de cashback`, na loja de exemplo. Mesmo
+assim saiu do selo, e a razão é de voz:
+
+- **dentro de uma captura**, o número é da loja que aparece no print, e o
+  leitor lê como exemplo;
+- **num selo desenhado**, o número é nosso. A capa passa a prometer que o
+  sistema dá 5% de cashback, quando quem escolhe a porcentagem é o restaurante.
+
+Ficou `Cashback` sozinho no selo, e os 5% seguem no slide 6, dentro do print. É
+a mesma régua dos cupons de exemplo, vista pelo outro lado: lá o cuidado era
+não pôr dado nosso embaixo da marca de um cliente; aqui é não pôr configuração
+de cliente na boca da marca.
+
+> Todo dado que sai do print e vira arte muda de dono. Antes de desenhar um
+> número, pergunte quem estaria prometendo ele.
+
+#### E a nota do selo não pode afirmar o que os dois juntos não fazem
+
+`COM O TELEFONE` entrou no lugar de `NO MESMO PEDIDO`, que era a nota óbvia.
+Cupom e cashback **não se combinam** — o próprio aplicativo avisa *"Não combina
+com cupom — remova o cupom para usar"*. Dois selos lado a lado já sugerem soma
+por estarem lado a lado; a nota de um deles não podia confirmar a sugestão.
+
+**E a mesma rodada corrigiu a tela da capa.** A regra *na capa, tela cheia ganha
+de tela ícone* já estava escrita, e a peça a violava: a capa levava a tela de
+espera, que é uma foto com um botão e, em 360 px, vira mancha escura. Passou a
+levar o **cardápio**, com nove cartões de foto, nome e preço — e a tela de
+espera foi para o CTA, onde o aparelho parado esperando o próximo cliente fecha
+o arco. Repetir a mesma tela nas duas pontas seria repetir a imagem.
+
+### O selo não se integra com efeito: integra com oclusão
+
+Os selos já estavam legíveis, já estavam nas cores certas, já diziam a coisa
+certa — e a volta foi *"é a questão do layout do design mesmo, tá só um texto
+com um painel atrás"*. A leitura estava correta e o diagnóstico também: dois
+retângulos coloridos **pousados** na arte não têm relação nenhuma com o
+aparelho. Eles dividem o slide com o totem; não pertencem a ele.
+
+O reflexo é acrescentar efeito — sombra maior, brilho, 3D. Nada disso resolve,
+porque o problema não é acabamento, é **profundidade**: as duas coisas estão no
+mesmo plano. O que resolve é a pista mais barata que existe em composição, e é
+a única que o olho não discute:
+
+> **Oclusão.** Se a silhueta do aparelho **corta** a ponta do selo, o selo está
+> atrás dele. Não há efeito que compre isso, e não há efeito que desminta.
+
+Cada selo passou a entrar ~60 px atrás da carcaça. Três detalhes fazem o corte
+ler como intenção, e sem os três ele lê como erro de layout:
+
+| detalhe | por quê |
+|---|---|
+| `z-index` abaixo da `.sangria` | é o que produz o corte, e mantém o selo acima do fundo |
+| **padding maior do lado oculto** | o que some tem que ser margem, nunca texto |
+| gradiente **escurecendo para a ponta oculta** | tab que dobra para trás entra na sombra do aparelho; chapado, o corte vira "faltou espaço" |
+
+Virou o `.selo-recurso--encaixado` da `base.css`. A régua do vidro continua de
+pé, e agora sem custo: o selo passa **atrás** do aparelho, então nunca cobre
+nome nem preço de produto — a mesma sobreposição que antes era defeito virou
+profundidade só por trocar de lado.
+
+### Luz tem modo de mistura, e branco não acende com `screen`
+
+Com o selo já preso ao aparelho, faltava a luz. Foram três camadas, e a terceira
+quase não existiu:
+
+1. **o brilho da tela**, atrás do aparelho — o cardápio é uma tela acesa, e tela
+   acesa derrama no escuro. É o que faz o totem parecer **ligado**, e não
+   recortado e colado;
+2. **uma luz só no pé**, indo do vermelho de um selo ao âmbar do outro. A
+   primeira tentativa foram **duas poças separadas**, e o resultado era dois
+   adesivos em duas cenas; uma luz contínua põe os dois na mesma cena;
+3. **a tinta na carcaça** — e esta é a que prova que a luz bate no **aparelho**,
+   e não só no fundo atrás dele.
+
+A camada 3 saiu em branco na primeira tentativa, literalmente: a carcaça foi
+acesa com `mix-blend-mode: screen` e **não mudou um pixel**. Faz sentido depois
+de visto — `screen` clareia, e branco já é o teto. Quem tinge branco é
+`multiply`:
+
+| onde a luz cai | mistura | classe |
+|---|---|---|
+| fundo escuro, atrás do aparelho | `screen` | `.luz` |
+| carcaça clara, por cima do mockup | `multiply` | `.luz--tinta` |
+
+> Antes de escolher a opacidade, escolha a mistura: ela depende da **cor da
+> superfície**, não da cor da luz.
+
+E `.luz--tinta` só passa por cima de superfície **opaca** do aparelho — painel,
+carcaça. Em cima do vidro ela lava a tela, que é a prova. Na peça do totem a
+tinta cobre exatamente o painel, e para na moldura.
+
+Falta um detalhe que parece decoração e não é: a **sombra de contato** na quina
+onde o selo some. Sem ela o selo encosta no aparelho, mas não entra nele.
+
+Tudo isso é `div` vazio com gradiente e `filter: blur()` — nenhuma imagem.
+Renderiza igual em qualquer máquina, e se ajusta com um número.
+
+### Prova boa se reusa entre peças
+
+O pedido foi *"inclua um slide da multilinguagem que já fizemos em outro
+carrossel"*, e o primeiro impulso foi capturar tudo de novo. Não precisava: o
+script de captura mora na **skill**, e o arquivo de tradução mora na pasta do
+carrossel da tradução. Apontar um para o outro deu as duas telas em um comando,
+com a mesma loja, o mesmo item e o mesmo recorte.
+
+Isso vale como regra porque o que se reusa não é a imagem, é o **par**: o mesmo
+item, no mesmo ponto da tela, nos dois idiomas. Recapturar produziria outro
+produto em outra posição, e a comparação perderia o que a torna prova.
+
+Duas coisas viajaram junto com a imagem, e as duas precisam viajar sempre:
+
+- **o limite do que a peça afirma.** Quem escreve a versão em inglês do cardápio
+  é o dono da loja. A peça mostra o resultado na tela do cliente e para —
+  prometer tradução automática volta como reclamação, e essa lição é do
+  carrossel da tradução, não desta peça;
+- **o motivo de serem dois recortes e não três.** Em português o cartão sai mais
+  alto, porque a altura da fileira segue o nome mais longo do setor; com três,
+  ou os rótulos desalinham ou o trio ganha um degrau. E o português não precisa
+  de prova numa peça em que ele está em cinco slides.
+
+**O lugar do slide reusado não é o lugar cronológico.** A bandeira fica na
+*primeira* tela do totem, então o slide caberia em quarto — e empurraria cupom
+e cashback para o sexto e o sétimo, desfazendo o que a rodada anterior fez de
+subir os dois. Idioma não é um passo do pedido, é um **modo do aparelho**: o
+cliente escolhe antes de tudo e não volta a pensar nisso. No penúltimo lugar
+ele vira o "e ainda atende quem não fala português", que é leitura de quem
+chegou até ali.
+
+> Slide reusado entra pela **função que ele cumpre no arco**, não pela ordem em
+> que o cliente encontra aquilo na tela.
+
+**E ele custou o teto de 8 slides.** A regra *slide novo custa slide velho* foi
+aplicada na rodada anterior e não tinha mais o que fundir: os nove slides dizem
+nove coisas diferentes. O teto é uma régua contra peça que cresce sem ganhar
+nada, e não um limite duro — quando o corte só tira conteúdo, é a régua que
+cede, com o motivo escrito no roteiro.
 
 ### Em peça de função, o tema entra no título — a pílula não basta
 

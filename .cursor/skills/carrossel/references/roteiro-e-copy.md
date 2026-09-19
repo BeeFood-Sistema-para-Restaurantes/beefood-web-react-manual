@@ -50,6 +50,22 @@ verificar, e o teste *quem poderia desmentir isto?* derruba as três. Peça que
 precisa de número de instituição para convencer é peça que não achou o que
 mostrar na tela.
 
+**Antes disso: confira se a página é mesmo a página.** Parte do site é uma
+**casca** — o endereço público devolve menu, rodapé e um
+`<div class="super-loader">Carregando…</div>`, e o conteúdo é montado por um
+app externo cujo endereço está no próprio HTML. Foi o que aconteceu com o
+totem: `curl`, navegador e REST do WordPress concordaram que a página estava
+vazia, e a peça inteira foi escrita sem a seção de fidelidade, sem a
+demonstração do aparelho e sem o FAQ que existiam lá.
+
+O `pauta.py` já percebe a casca e segue o endereço, avisando na saída com
+`O endereço público é uma casca; o conteúdo veio de …`. A pergunta que evita o
+erro não é *"a página tem conteúdo?"*, é **"esta página se serve sozinha?"**.
+
+**E página vazia de verdade não cancela a peça.** O gênero se define por **quem
+lê**, não por a fonte ter texto: quem está escolhendo sistema continua
+existindo. O que não pode faltar é o fato, e ele está na tela.
+
 E **afirmar não é provar**: a prova visual continua vindo do manual, da tela
 capturada ou da tela desenhada — nunca da arte da própria página, que é ilustração
 de marketing.
@@ -79,6 +95,23 @@ Três regras do desenho, para ele não virar mentira bonita:
 - **a arte da página não entra recortada.** Ela é referência de layout, como o
   print do manual: leia, e desenhe a sua. Ver *o manual é referência, não acervo
   de imagem*, que vale igual para o site.
+
+### "Fale de X dentro de Y": o fato está na lista de canais de X
+
+Pedido comum, e o primeiro foi *"precisamos falar de cupom e cashback"* numa
+peça sobre o **totem**. Os dois não são recursos do totem: são do
+**Fidelidade (CRM)**, com manual próprio. Procurar o fato no assunto errado
+(um manual do totem, que não existe) leva direto a escrever de cabeça.
+
+O que autoriza a peça é o **canal**: o manual de `cupom-desconto` traz os
+*Canais de Visibilidade* (e o totem está lá), o de `cashback-configurar` traz
+as *Modalidades* (idem). A tela confirma o resto — como o recurso aparece
+naquele aparelho.
+
+E isso muda o que o slide diz. O título vira *"O seu cupom vale no totem
+também"*, não "crie um cupom": o recurso é do outro módulo, e o que a peça
+acrescenta é **onde ele também funciona**. Quem já usa reconhece a própria
+ferramenta; quem não usa descobre que ela existe.
 
 ## A novidade é matéria-prima, não roteiro
 
@@ -399,6 +432,50 @@ paga quando tem conteúdo do outro lado.
 Não é camisa de força. Melhoria pequena cabe em quatro slides, e forçar oito
 produz slide vazio — que é pior do que carrossel curto.
 
+### O CTA promete o que ainda não foi mostrado, com a frase mais comum possível
+
+O último slide falha de um jeito específico e fácil de não ver: ele convida
+para o que o carrossel **acabou de mostrar**. *"Conheça o totem por dentro"*,
+depois de oito slides de telas do totem, é a mesma coisa de novo — agora sem
+imagem.
+
+O conserto é achar o que há de **a mais** no destino, e prometer isso. A página
+do totem tem a plataforma inteira ao lado — PDV, KDS, fiscal, estoque,
+fidelidade — e o CTA virou *"Conheça todas as funcionalidades"*. O plural é o
+que faz o trabalho: é mais do que o carrossel entregou.
+
+**Mas não descreva o mecanismo do destino.** Essa é a armadilha da rodada
+seguinte, e ela é convincente: a mesma página roda uma demonstração do pedido,
+com pausa e setas, então *"passe pelo pedido inteiro, tela por tela"* parecia
+ótimo — fato verificado, verbo preciso. Ficou pior. **Do feed, ninguém sabe que
+existe uma demonstração do outro lado**, e a frase virou instrução para uma
+coisa que o leitor não viu.
+
+| o que existe só lá | serve para |
+|---|---|
+| a demonstração, a calculadora, o comparador | **escolher o destino** e conferir que vale a viagem |
+| descrever isso no texto do CTA | nada: o leitor não tem contexto |
+
+> O CTA é o único slide em que **ser convencional é vantagem**. O leitor
+> precisa saber o que fazer com a frase sem explicação, e frase convencional é
+> justamente a que ele já sabe ler. Gaste a criatividade na capa.
+
+### Frase de venda se procura no site antes de inventar
+
+A página de vendas já foi escrita para vender aquilo, por quem decide como a
+empresa fala. Antes de inventar manchete, subtítulo ou fecho, **leia a
+página** e veja se ela já tem a frase.
+
+O subtítulo da capa do totem precisava dizer por que cupom e cashback estão ali.
+Saíram duas invenções — *"E o programa de fidelidade entra no pedido"*
+(descreve onde o recurso mora) e *"E cada venda já sai puxando a próxima"*
+(metáfora forçada) — antes de alguém abrir a página e achar, no cartão de
+fidelidade: *"Aumente a recorrência com cashback e cupons."* Virou **"Mais
+recorrência, com cashback e cupom."**
+
+A régua de cópia não muda: a linha do site é **ponto de partida**, não texto
+pronto. Reescreva com as nossas palavras e passe o `conferir-texto.py`.
+
 ## Ritmo de imagem
 
 Pelo menos metade dos slides tem imagem, e a capa nunca fica de fora. Três
@@ -665,7 +742,11 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 - [ ] Nenhum número aparece sem fonte.
 - [ ] O `roteiro.md` diz quais telas são captura e quais são desenho (na arte
       não vai carimbo de ilustração).
-- [ ] O CTA pede uma coisa só.
+- [ ] O CTA pede uma coisa só, promete o que o carrossel **ainda não mostrou**
+      e faz isso com a frase mais comum possível — sem descrever o mecanismo da
+      página de destino.
+- [ ] Toda frase de venda foi procurada **na página** antes de ser inventada, e
+      reescrita com as nossas palavras depois de achada.
 - [ ] Os pontos do rodapé marcam a posição certa do slide.
 - [ ] Nenhum nome, telefone ou e-mail de cliente aparece em nenhum print.
 - [ ] Nenhum print mostra data de publicação — nem o print de página nossa, que

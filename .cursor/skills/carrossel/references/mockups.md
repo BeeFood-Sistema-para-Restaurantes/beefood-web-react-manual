@@ -117,6 +117,168 @@ render. Em 420 px de largura deu 19 px, com quatro cartões em duas linhas.
 A grade desenhada tem **duas** colunas, e o aparelho tem três: em três, o nome
 do produto some na largura do mockup.
 
+### A quarta saída: tirar o aparelho e mostrar só o recorte
+
+As três acima assumem que a tela vai **dentro** do totem, e essa é a pergunta
+que faltava. Na peça de autoatendimento ela se inverteu: o que precisa ser lido
+não cabe numa moldura de 420 px, e o aparelho já foi estabelecido na capa.
+
+| | Aparelho com a tela dentro | Recorte da tela, sozinho |
+|---|---|---|
+| onde | capa e CTA | miolo, onde a tela é a prova |
+| o que a tela faz | atmosfera: "é este aparelho" | é **lida** |
+| tamanho da letra do cardápio | 11 px no feed | 24 px, com o recorte em 940 px |
+
+O recorte continua lendo como totem porque o aplicativo é escuro e a tela é em
+pé — não é preciso repetir a carcaça em todo slide, e repeti-la custaria a
+legibilidade de cada prova.
+
+**Tela que vai dentro do mockup precisa nascer na proporção da moldura.** O
+`.totem__tela` é 9/16 com `object-fit: cover`: qualquer imagem em outra
+proporção é recortada nas laterais. Um recorte de 1080×800 do cardápio entrou
+assim no CTA e saiu com a terceira coluna de produtos cortada no meio do nome —
+que lê como render quebrado, não como sangria. A correção é na captura: para
+dentro do aparelho, capture a tela **inteira** em 720×1280; o recorte é para
+quando a imagem aparece sozinha.
+
+**Onde o recorte termina, quando ele aparece sozinho.** Entre cortar dentro de
+uma foto e cortar no vão entre duas fileiras, o vão ganha: no cardápio do totem
+o recorte para 14 px depois da primeira fileira de produtos, e a grade não
+parece interrompida. Cortar dentro da foto continua valendo quando não há
+alternativa — é melhor que cortar em cima de um preço.
+
+**E o vão que você mede tem que existir na próxima captura.** A sugestão da
+sacola é gerada por IA e muda a cada rodada: o recorte que fechava limpo numa
+captura, na seguinte pegou a lasca de um cartão a mais, com nome e preço
+cortados no meio. O que não muda é a **grade** — no totem, cartão de 256 px com
+12 px de vão — então a coordenada foi para o vão da grade (1030 de 1080) e não
+para a borda da lista daquele dia. Recorte de tela com conteúdo variável se
+mede pela grade; pela borda, só onde o conteúdo é fixo.
+
+**Recorte é faixa contínua, nunca montagem.** No slide de pagamento as duas
+partes que interessavam — a pergunta do consumo, no topo, e a barra de `Total` e
+`Ir para pagamento`, embaixo — têm 800 px de fundo vazio entre elas. Coladas
+passariam por uma tela só, que é o que não são; por isso foram dois `.recorte`
+separados, com respiro, no mesmo slide.
+
+### A quinta saída: `.selo-recurso`, quando nem o aparelho nem o recorte cabem
+
+Na capa aparece um terceiro caso: a peça entrega mais de um eixo, o título só
+carrega um, e os outros precisam de anúncio. Pendurar **recortes de tela** ao
+lado do aparelho é a tentação, e falha nas duas pontas — reduzido para a coluna
+que sobra o recorte fica ilegível; aumentado, cobre o vidro, ou seja, rótulo e
+preço. O `.selo-recurso` é a etiqueta desenhada que ocupa esse lugar.
+
+```html
+<div class="selo-recurso" style="left: 44px; top: 606px;
+                                 background: var(--primaria); color: #fff">
+  <span class="selo-recurso__nome">Cupom</span>
+  <span class="selo-recurso__nota">de desconto</span>
+</div>
+```
+
+Três coisas para ele não sair pior que o recorte:
+
+- **duas alturas, não uma.** Ao lado de um aparelho em pé sobra uma coluna de
+  ~320 px, e nela a frase inteira numa linha não passa de corpo 22 — que ao
+  lado de um título de 68 lê como crédito de rodapé. Nome grande em cima, nota
+  em caixa alta embaixo: o que estoura a largura é a frase, não a fonte.
+- **cor da interface, nome do recurso** — e **nunca um número que o lojista
+  configura**. Dentro de um print o `5% de cashback` é da loja que aparece ali;
+  desenhado, vira promessa nossa.
+- **meça onde a carcaça acaba.** No `.totem` de 360 px sobram ~12 px de branco
+  de cada lado na altura do vidro: não há carcaça em que encostar, e o lugar do
+  selo é o fundo escuro, com folga. Sobreposição em cima de coisa decorativa
+  vira profundidade; em cima de rótulo, vira defeito.
+
+#### Com ícone: `.selo-recurso--com-icone`
+
+O formato é o que o próprio site usa para anunciar esses recursos — ícone num
+quadrado, nome ao lado, nota embaixo do nome. E o ícone não é enfeite: na
+miniatura do feed, onde a capa é decidida, o nome do recurso tem 9 px de altura
+e o desenho tem 30. Ele é a parte do selo que sobrevive ao tamanho em que a
+peça é vista pela primeira vez.
+
+```html
+<span class="selo-recurso__icone" style="background: rgba(255,255,255,.22)">
+  <svg viewBox="0 0 24 24">…</svg>
+</span>
+<span class="selo-recurso__texto">
+  <span class="selo-recurso__nome">Cupom</span>
+  <span class="selo-recurso__nota">de desconto</span>
+</span>
+```
+
+- **SVG inline, `stroke: currentColor`.** Herda a cor do selo, escala sem
+  borrar, não vira arquivo para manter. Emoji não serve: cada máquina desenha o
+  seu, e o mesmo carrossel sai diferente em duas máquinas.
+- **Desenho que já é conhecido** — bilhete picotado para cupom, cifrão com seta
+  de volta para cashback. Ícone que precisa de legenda não é ícone.
+- **Quadrado translúcido da cor do selo**, e não um bloco branco: o ícone é
+  parte do selo, não um adesivo em cima dele.
+- **O texto perde ~90 px**, e a nota que cabia passa a quebrar em duas linhas.
+  Selo mais alto que o outro desmonta o par: `.selo-recurso__texto` é `nowrap`,
+  e quem encurta é a frase.
+
+#### Preso ao aparelho: `.selo-recurso--encaixado`
+
+Legível, na cor certa e dizendo a coisa certa, o selo ainda pode sair errado —
+e o retorno vem nesta forma: *"tá só um texto com um painel atrás"*. Está
+certo. Dois retângulos pousados na arte **dividem o slide** com o aparelho; não
+pertencem a ele. O reflexo é acrescentar efeito, e efeito não resolve, porque o
+problema é profundidade e não acabamento.
+
+Resolve **oclusão**: a silhueta do aparelho cortando a ponta do selo. É a pista
+mais barata de composição e a única que o olho não discute.
+
+```html
+<div class="selo-recurso selo-recurso--encaixado"
+     style="left: 44px; top: 606px; padding: 26px 96px 26px 34px;
+            background: linear-gradient(104deg, #ff8078, #f2483f 46%, #a3201a)">
+```
+
+O modificador põe o selo abaixo da `.sangria`. O resto é medida, e as três
+andam juntas:
+
+- a ponta escondida entra **~60 px** atrás da carcaça — o bastante para o corte
+  ser intenção, pouco para virar etiqueta espetada;
+- **padding maior desse lado**, porque o que some tem que ser margem e nunca
+  texto;
+- gradiente **escurecendo para a ponta oculta**: tab que dobra para trás entra
+  na sombra do aparelho. Chapado, o corte lê como "faltou espaço".
+
+Do outro lado, a régua do vidro sai de graça: passando **atrás**, o selo nunca
+cobre nome nem preço. A mesma sobreposição que era defeito virou profundidade
+só por trocar de lado.
+
+### Luz: `.luz` no escuro, `.luz--tinta` no branco
+
+Luz é `div` vazio com gradiente, `filter: blur()` e mistura — nunca imagem.
+Renderiza igual em qualquer máquina e se ajusta com um número. O que muda é o
+**modo de mistura**, e ele depende da cor da superfície, não da cor da luz:
+
+| onde a luz cai | classe | mistura |
+|---|---|---|
+| fundo escuro, atrás do aparelho | `.luz` | `screen` |
+| carcaça clara, por cima do mockup | `.luz--tinta` | `multiply` |
+
+`screen` sobre branco **não faz nada** — branco já é o teto. É o erro que
+aparece como "a luz não pegou no aparelho", e a correção é `multiply`, não mais
+opacidade. E `.luz--tinta` só passa por superfície opaca (painel, carcaça): em
+cima do vidro ela lava a tela, que é a prova.
+
+Numa cena com aparelho aceso, três camadas dão conta, e vale conferir se as
+três estão lá antes de mexer em número:
+
+1. **o brilho da tela**, atrás do aparelho — é o que faz o mockup parecer
+   ligado, e não recortado e colado;
+2. **uma luz só** no pé, se houver mais de um selo colorido: duas poças
+   separadas põem os selos em cenas diferentes;
+3. **a tinta na carcaça** — é a única que prova que a luz bate no aparelho.
+
+Mais a **sombra de contato** na quina em que o selo some. Sem ela o selo encosta
+no aparelho, mas não entra nele.
+
 ### Capturar o totem, com tradução e com fundo nosso
 
 ```bash

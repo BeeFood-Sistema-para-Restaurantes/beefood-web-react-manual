@@ -22,6 +22,7 @@ material e não o altera.
 | [`cardapio-capas-destaques/`](cardapio-capas-destaques/roteiro.md) | Novidade | [Capas, destaques e avisos com imagem e vídeo](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) — 13/08/2026 | 4:5 | 7 | [`.zip`](cardapio-capas-destaques/entrega/cardapio-capas-destaques.zip) · [copy](cardapio-capas-destaques/copy-instagram.txt) |
 | [`desconto-forma-pagamento/`](desconto-forma-pagamento/roteiro.md) | Novidade | [Desconto ou acréscimo por forma de pagamento](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) — 17/08/2026 | 4:5 | 7 | [`.zip`](desconto-forma-pagamento/entrega/desconto-forma-pagamento.zip) · [copy](desconto-forma-pagamento/copy-instagram.txt) |
 | [`dark-kitchen-multimarcas/`](dark-kitchen-multimarcas/roteiro.md) | **Função** | [Sistema para Dark Kitchen](https://beefood.com.br/sistema-dark-kitchen/) | 4:5 | 7 | [`.zip`](dark-kitchen-multimarcas/entrega/dark-kitchen-multimarcas.zip) · [copy](dark-kitchen-multimarcas/copy-instagram.txt) |
+| [`totem-autoatendimento/`](totem-autoatendimento/roteiro.md) | **Função** | [Totem de Autoatendimento](https://beefood.com.br/totem-de-autoatendimento/) — o endereço público é uma casca; a página vem de um app externo | 4:5 | 9 | [`.zip`](totem-autoatendimento/entrega/totem-autoatendimento.zip) · [copy](totem-autoatendimento/copy-instagram.txt) |
 
 O número de slides é o que o assunto pede, entre 6 e 8 — não é uma medida fixa.
 Peça de função não leva data nem pílula de novidade: ela é perene, e pode ser
