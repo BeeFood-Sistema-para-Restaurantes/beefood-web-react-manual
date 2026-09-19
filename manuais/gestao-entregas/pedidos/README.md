@@ -9,6 +9,18 @@ ponta. Onze manuais estão publicáveis hoje; um depende de foto.
 | [`janela-117.md`](janela-117.md) | o roteiro da **janela combinada**: sete fases, o que cada lado fotografa em cada uma, e o que fazer quando algo dá errado |
 | [`../scripts/smoke-app.js`](../scripts/smoke-app.js) | o script que monta cada cena, **confere pela API do próprio app** e desmonta |
 
+E, para quando quem fotografa não é você:
+
+| Arquivo | O que é |
+|---|---|
+| [`montar-kit.sh`](montar-kit.sh) | monta o **zip auto-suficiente** que vai para quem tira os prints — pedido, scripts, manuais com as imagens, e a árvore de pastas de saída já nomeada |
+| [`instrucoes-ia-app.md`](instrucoes-ia-app.md) | o `LEIA-PRIMEIRO.md` do kit: o trabalho, o ambiente do emulador, as cinco regras do print e o que devolver. Escrito para uma IA operar sozinha |
+| [`indice-referencia.md`](indice-referencia.md), [`arvore-de-entrega.md`](arvore-de-entrega.md) | os dois guias que viajam dentro do kit, um em cada pasta |
+
+```bash
+bash montar-kit.sh                 # sai um kit-teste-app-entregador.zip, ~24 MB
+```
+
 ## Por onde começar
 
 1. Leia [`capturas-app.md`](capturas-app.md) até a segunda tabela. Ela separa os **6 prints que
