@@ -5,7 +5,12 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-19 (27ª rodada: a página do Cardápio no Tablet
+Última atualização: 2026-09-19 (28ª rodada: a capa do tablet vendia **pagar**,
+que é a promessa do totem, e o produto faz isso sem ser por isso que alguém
+compra — ver *a capa vende o uso principal, e não o recurso mais vistoso da
+lista*).
+
+27ª rodada: a página do Cardápio no Tablet
 voltou pobre de novo, e de novo era o `pauta.py` — ver *e a pergunta ganhou uma
 irmã*. E o suporte do tablet foi reaberto, medido na foto e **fechado como
 limite do desenho frontal** — ver *o suporte do tablet é um limite do desenho
@@ -1019,6 +1024,57 @@ e quem se reconhece nele já sabe o que ele é**. Definir na capa gasta a linha
 que deveria vender, e ainda soa como explicar o óbvio para o próprio dono da
 dark kitchen. Ficou *"Cada marca com o seu cardápio e o seu resultado"*. Nomear
 o segmento é trabalho do título; o subtítulo continua sendo do recurso.
+
+### A capa vende o uso principal, e não o recurso mais vistoso da lista
+
+A capa do tablet saiu *"Cada mesa pede e fecha a própria **conta**"*, e o dono
+devolveu: *"é diferente do totem, que o cliente paga na mesa"*. O fechamento
+**existe** — tem duas chaves no painel e um slide inteiro provando —, e mesmo
+assim a manchete estava errada.
+
+O que estava errado não era o fato, era a **escolha**. Pagar é a promessa do
+totem, e a capa de lá já diz *"O cliente pede **e paga** sozinho no totem"*.
+Repetir o gancho na peça do tablet colocava as duas irmãs para competir no
+ponto em que a segunda é mais fraca — e gastava a linha mais cara da peça com
+o que o leitor menos vai usar no dia a dia. O produto faz; só não é por isso
+que alguém compra.
+
+> O teste que passou a valer: **se o restaurante comprar por causa desta capa,
+> é isto que ele vai usar todo dia?** Se a resposta é "existe, mas não é por
+> aí", a manchete está vendendo o ponto fraco.
+
+Isso é um risco específico do gênero **função do sistema**, e por dois motivos.
+A página de vendas lista tudo o que o produto faz, sem hierarquia, então a
+leitura entrega uma pilha de recursos em que o mais vistoso não é o mais usado.
+E os produtos da linha se parecem — totem, tablet, QR Code, app do garçom são
+quatro jeitos de pedir —, então a capa de cada um tem de dizer o que ele faz
+**de diferente**, não o que ele faz de mais chamativo.
+
+O conserto veio de reler a página com a pergunta certa. O topo dela tem três
+promessas: ticket médio em % (resultado, não vira manchete), *"o cliente só
+chama o garçom se quiser"* e *"reduza o tempo de atendimento e elimine erros
+nos pedidos"*. As duas últimas viraram manchete e subtítulo, um eixo cada:
+
+| | antes | depois |
+|---|---|---|
+| manchete | Cada mesa pede e fecha a própria **conta** | O cliente pede no tablet, **sem esperar** o garçom |
+| subtítulo | E chama o garçom só quando quiser. | E o pedido entra na comanda como ele montou. |
+
+**E o vermelho ficou na mesma posição das duas capas irmãs, de propósito.** No
+totem ele cai em *"e paga"*; no tablet, em *"sem esperar"*. Quem vê os dois
+posts lê a diferença entre os dois canais no mesmo lugar da frase, sem que
+ninguém precise explicar. Peças da mesma família ganham quando a comparação é
+desenhada, em vez de evitada.
+
+Dois rascunhos caídos, dos cinco que foram renderizados:
+
+- *"Ninguém levanta a mão para pedir de novo"* — a melhor imagem das cinco, e
+  não nomeia aparelho nenhum. É a **manchete-conceito** de novo, entregando o
+  assunto à pílula (ver *em peça de função, o tema entra no título*).
+- *"No tablet da mesa, o cliente pede sem esperar"* — certa no conteúdo e ruim
+  na página: põe **tablet** na primeira palavra da manchete, logo abaixo de uma
+  pílula que termina em **TABLET**. Com o aparelho no meio da frase o problema
+  some, e a manchete ainda fecha no vermelho.
 
 ### Quando o assunto é convergência, a capa é cena — recorte não serve
 

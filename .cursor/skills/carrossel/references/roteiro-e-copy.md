@@ -701,6 +701,11 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 - [ ] **O gênero está certo do começo ao fim?** Em peça de função: nenhuma
       pílula `Novidade`, nenhum "agora", CTA que serve para quem ainda não tem
       painel, e nenhum número institucional na arte.
+- [ ] **A manchete vende o uso principal, e não o recurso mais vistoso?** Se o
+      restaurante comprar por causa desta capa, é isso que ele vai usar todo
+      dia? E, quando o produto tem irmãos na linha (totem, tablet, QR Code,
+      app do garçom), a capa diz o que ele faz **de diferente** — não repete o
+      gancho da peça vizinha num ponto em que este canal é mais fraco.
 - [ ] **O slide 2 explica o recurso?** Não conta história, não cobra, e não
       ensina onde clicar.
 - [ ] **Alguma frase trocou a palavra concreta por metáfora?** "Preço" no lugar
