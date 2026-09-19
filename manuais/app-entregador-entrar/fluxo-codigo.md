@@ -114,11 +114,36 @@ existe nasce errado:
 | a folha de disponibilidade explica a consequência em letra cinza | o aviso ganhou número de seta e parágrafo próprio | é a linha que separa "avisei" de "bloqueei", e ela está justamente no texto que ninguém lê |
 | **Permissões** é um item de menu entre cinco | o manual manda conferir no começo do turno | o Android revoga por inatividade e não avisa; a falha aparece como defeito do aplicativo |
 
-## 9. Procedência das imagens
+## 9. O que a pílula amarela e o selo vermelho dizem por baixo
 
-Todas as treze vêm do material que o dono enviou — emulador `Pixel_7_Pro`, Android 15, contra a
-filial de teste. **Não há como capturar tela de app daqui**: o Cloud Agent não roda emulador.
+**A nuvem cortada é estado local sem confirmação do servidor.** A presença muda primeiro no
+aparelho e a tela responde na hora, mesmo sem rede — esperar o servidor faria o entregador achar
+que o aplicativo travou. Quando o `POST` de presença não volta, o estado fica marcado como não
+sincronizado e a pílula ganha o ícone.
+
+A retentativa pega carona no tick de 10 s do relato de posição, com **piso de 60 s** entre
+tentativas, e acontece também quando o aplicativo volta ao primeiro plano. `HTTP 400` é tratado
+como definitivo: insistir num corpo que o servidor nunca vai aceitar só gera tráfego. O manual
+traduz isso como *o aplicativo tenta de novo sozinho* — o entregador não tem botão para forçar, e
+não precisa de um.
+
+**O selo da tela de Permissões é leitura, não interruptor.** A tela é de conferência: mostra estado
+e abre as configurações do sistema. Quem pede a permissão de notificação é o
+`registrarDispositivoPush()`, no `Load`, e não esta tela — o plano original pedia ali, e mudou
+porque a maioria dos entregadores nunca abre a tela de Permissões. O cartão de status existe
+justamente para o caminho de volta: quem nega uma vez não é perguntado de novo pelo sistema
+(`canAskAgain` falso), e as configurações do aparelho passam a ser o único caminho.
+
+## 10. Procedência das imagens
+
+As treze primeiras vêm do material que o dono enviou — emulador `Pixel_7_Pro`, Android 15, contra
+a filial de teste. **Não há como capturar tela de app daqui**: o Cloud Agent não roda emulador.
 
 O `annotate.py` recorta, reamostra para largura fixa e acrescenta a margem clara onde a etiqueta
 vive. Nenhuma imagem é montagem: a de três pílulas é a justaposição de três recortes reais, e
 está declarada como tal na legenda.
+
+As duas últimas (`14` e `15`) vieram da segunda rodada de capturas. A `14` segue a mesma
+justaposição da `10` — duas pílulas PAUSA reais, coladas — e a `15` reusa o recorte da `12` para
+as duas telas de Permissões ficarem sobreponíveis. Nenhuma das duas mostra data, então nenhuma
+passou pelo `relogio.py`.

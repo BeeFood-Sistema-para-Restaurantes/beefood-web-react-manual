@@ -60,15 +60,30 @@ entende a pílula como tranca vai brigar com o restaurante pelo pedido que chego
   do repositório permite; o `texto-documentation.ia.md` só pede para não usar o valor como
   exemplo no texto publicado.
 
+## As duas que chegaram depois
+
+As duas capturas que faltavam vieram na segunda rodada, e cada uma virou uma subseção nova em vez
+de ilustrar uma pergunta do FAQ — as duas têm caminho de volta, e caminho de volta não cabe numa
+linha de pergunta.
+
+| Print | Virou | O que mudou no texto |
+|---|---|---|
+| `20-permissao-e-presenca/02-pilula-sem-nuvem` | *Quando o recado não chegou ao restaurante* (seção 4) | o manual passou a dizer que o aplicativo **tenta de novo sozinho**, de minuto em minuto e ao voltar ao primeiro plano — antes ele só dizia que faltava internet |
+| `20-permissao-e-presenca/01-localizacao-recusada` | *Quando uma permissão está negada* (seção 5) | ganhou os três passos do caminho de volta, e a separação entre as duas permissões de localização |
+
+Duas decisões de imagem novas:
+
+- **A pílula entrou em par, não sozinha.** A diferença entre confirmada e não confirmada é um
+  ícone de 24dp no fim da pílula; em imagem separada ninguém acha. Lado a lado, com etiqueta na
+  margem de cima, a comparação é imediata — e o formato já existia no manual, na imagem das três
+  pílulas.
+- **A tela de permissão negada usa o mesmo recorte da tela com tudo ativo.** As duas ficam
+  sobreponíveis, e o leitor compara selo com selo na mesma posição. As setas entram pela
+  **direita**, onde os selos moram: pela esquerda atravessariam o texto dos quatro cartões.
+
+O terceiro print da rodada que tocava este manual — `21-listas-vazias/01-entregas-vazia` — **não
+entrou**: é a mesma tela da imagem `08`, que o manual já tem.
+
 ## O que falta
 
-Nada para este manual. Das 12 capturas pedidas em
-[`../gestao-entregas/pedidos/capturas-app.md`](../gestao-entregas/pedidos/capturas-app.md), duas
-tocam este assunto de raspão e ficariam boas aqui se chegarem:
-
-| Captura pedida | Onde entraria |
-|---|---|
-| Permissão de localização **recusada** (a tela de Permissões com *Inativa*) | seção 5, ao lado da tela com as quatro Ativas |
-| A pílula com o ícone de nuvem cortada (sem confirmação do servidor) | a pergunta *A pílula não fica ONLINE* |
-
-Nenhuma das duas impede publicar: o texto já descreve os dois casos.
+Nada. As duas capturas que este manual esperava chegaram e estão publicadas.

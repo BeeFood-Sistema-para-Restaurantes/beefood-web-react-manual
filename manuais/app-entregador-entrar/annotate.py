@@ -360,3 +360,42 @@ annotate("13-confirmar-saida.png", [
     (1, *a(72, 833), ETQ, a(0, 833)[1]),         # SAIR
     (2, *a(45, 906), ETQ, a(0, 906)[1]),         # CANCELAR
 ], r=26, w=4)
+
+# ---------------------------------------------------------------------------------------
+# 14 e 15 — os dois estados que dão errado
+# ---------------------------------------------------------------------------------------
+# Vieram da segunda rodada (`capturas-2/20-permissao-e-presenca/`). São as duas telas que o
+# manual descrevia por texto: a pílula que o servidor não confirmou e a permissão negada.
+#
+# As duas são **comparação**, não tela nova, e o recorte segue isso:
+#
+# * a `14` é a mesma pílula PAUSA duas vezes, lado a lado — a diferença é um ícone de 24dp, e
+#   separada em duas imagens ninguém acharia;
+# * a `15` usa o **mesmo recorte da `12`**, para as duas telas de Permissões ficarem
+#   sobreponíveis: o leitor compara selo com selo, na mesma posição.
+CP2 = "capturas-2/20-permissao-e-presenca/prints"
+ETQ_DIR = 0.94
+
+# 14 — a pílula com e sem confirmação. Etiquetas na margem de cima: a pílula é larga e baixa, e
+# etiqueta ao lado dela empurraria a imagem para o dobro da largura.
+copiar("02-disponibilidade/prints/02-pilula-pausa.png", "pil-pausa-ok.png", PIL, 420)
+copiar(f"{CP2}/02-pilula-sem-nuvem.png", "pil-pausa-nuvem.png", PIL, 420)
+lado_a_lado(["pil-pausa-ok.png", "pil-pausa-nuvem.png"], "14-pilula-sem-nuvem.png")
+com_margem("14-pilula-sem-nuvem.png", topo=0.72)
+annotate("14-pilula-sem-nuvem.png", [
+    (1, 0.243, 0.60, 0.243, 0.17),               # a PAUSA de sempre, sem ícone nenhum
+    (2, 0.878, 0.60, 0.878, 0.17),               # a nuvem cortada, na mesma PAUSA
+], r=30, w=5)
+
+# 15 — a tela de Permissões com a localização negada. Os selos moram na coluna direita, e a seta
+# entra por ali: alcançá-los pela esquerda atravessaria o texto dos quatro cartões.
+C15, MD15 = (0, 0.037, 1, 0.71), 0.16
+copiar(f"{CP2}/01-localizacao-recusada.png", "15-permissao-inativa.png", caixa=C15, largura=700)
+margem("15-permissao-inativa.png", m=0.06, md=MD15)
+a = rec(C15, m=0.06, md=MD15)
+annotate("15-permissao-inativa.png", [
+    (1, *a(441, 261), ETQ_DIR, a(0, 261)[1]),    # Inativa, na Localização
+    (2, *a(441, 391), ETQ_DIR, a(0, 391)[1]),    # Inativa, na Localização em segundo plano
+    (3, *a(441, 521), ETQ_DIR, a(0, 521)[1]),    # Ativa, na Câmera — o contraste
+    (4, *a(464, 67), ETQ_DIR, a(0, 67)[1]),      # o ícone de recarregar
+], r=26, w=4)

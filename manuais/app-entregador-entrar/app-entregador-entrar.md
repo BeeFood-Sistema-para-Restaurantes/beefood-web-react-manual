@@ -201,6 +201,25 @@ A pílula muda de cor conforme o estado, e é assim que você reconhece o seu de
 **ONLINE** em verde, **PAUSA** em laranja, **OFFLINE** em cinza. O resto da tela não muda em
 nenhum dos três: você continua vendo suas entregas e pode finalizar e cobrar normalmente.
 
+### Quando o recado não chegou ao restaurante
+
+A pílula muda no toque, **antes** de o restaurante saber. Quando o aviso não sobe — sinal fraco,
+elevador, subsolo —, ela avisa com um ícone:
+
+![As duas PAUSA, com e sem confirmação](imagens-tratadas/14-pilula-sem-nuvem.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **PAUSA, sem ícone** | O restaurante recebeu: ele te vê em pausa. |
+| 2. | **A nuvem cortada, em amarelo** | O aplicativo entendeu, o restaurante ainda não. Para ele, você continua no estado anterior. |
+
+**Você não precisa fazer nada além de recuperar o sinal.** O aplicativo tenta de novo sozinho, de
+minuto em minuto e sempre que você volta para ele — quando conseguir, o ícone desaparece.
+
+O contrário também vale: a pílula verde **não** é prova de internet. Ela diz o que você declarou,
+não o que o servidor sabe. Lista que não atualiza com a pílula verde está em
+[App do entregador: as entregas do dia e o histórico](../app-entregador-entregas-do-dia/app-entregador-entregas-do-dia.md).
+
 ### O que a disponibilidade faz — e o que ela não faz
 
 **Faz:** avisa o restaurante da sua intenção de trabalho, e regula a frequência com que o
@@ -254,6 +273,27 @@ sozinho: é regra do sistema, não limitação dele.
 > **Vale conferir esta tela no começo do turno.** O Android revoga permissão de aplicativo que
 > fica dias sem uso, e não avisa ninguém. Você descobriria pelo problema.
 
+### Quando uma permissão está negada
+
+![A tela de Permissões com a localização inativa](imagens-tratadas/15-permissao-inativa.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **Inativa**, em vermelho | A localização está negada: o restaurante não te vê no mapa. |
+| 2. | **Inativa** no segundo plano | Mesmo com a de cima ligada, esta sozinha já congela sua posição quando você sai do aplicativo. |
+| 3. | **Ativa**, em verde | O selo de quem está concedida — é a comparação. |
+| 4. | **O ícone de recarregar** | Relê o estado. Use depois de mexer nas configurações do Android. |
+
+O caminho de volta tem três passos: **toque no cartão vermelho**, ligue a permissão na tela do
+Android que abrir, e volte tocando em **recarregar**. O selo só muda depois disso.
+
+> **Negar duas vezes fecha a porta do pedido.** O Android para de perguntar para quem já recusou,
+> e o aplicativo não tem como insistir. A partir daí, esta tela é o único caminho.
+
+**As duas primeiras são permissões diferentes,** e é comum ligar uma e esquecer a outra: *em
+segundo plano* é a que mantém você no mapa do restaurante enquanto o celular está no bolso, com o
+aplicativo minimizado.
+
 ### Sair
 
 ![A confirmação de saída](imagens-tratadas/13-confirmar-saida.png)
@@ -279,7 +319,8 @@ restaurante: nada se perde.** Basta entrar de novo com o mesmo login.
 A sessão foi encerrada no servidor. Entre de novo; se repetir, fale com o restaurante.
 
 **A pílula não fica ONLINE.**
-Falta internet. O aplicativo mostra um ícone de nuvem cortada e tenta de novo sozinho.
+Falta internet. O aplicativo mostra um ícone de nuvem cortada e tenta de novo sozinho — a tela está
+em *Quando o recado não chegou ao restaurante*.
 
 **A pílula volta sozinha para outro estado.**
 O restaurante pode ajustar a sua situação pelo painel. Se acontecer sem explicação, pergunte a
@@ -290,7 +331,8 @@ ele.
 
 **Uma permissão está inativa e eu não consigo ligar.**
 Toque nela para abrir as configurações do Android e conceda por lá. Em muitos aparelhos, a
-localização em segundo plano exige escolher **Permitir o tempo todo**.
+localização em segundo plano exige escolher **Permitir o tempo todo**. A tela, com o selo vermelho
+e o caminho de volta, está em *Quando uma permissão está negada*.
 
 **Recusei a câmera e agora o Android não pergunta mais.**
 Depois de duas recusas ele para de perguntar. A liberação passa a ser pela tela de **Permissões**
