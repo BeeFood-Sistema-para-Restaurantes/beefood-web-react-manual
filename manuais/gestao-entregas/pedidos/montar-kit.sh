@@ -27,6 +27,10 @@ mkdir -p "$KIT/1-pedido"
 cp "$AQUI/README.md" "$AQUI/capturas-app.md" "$AQUI/janela-117.md" "$KIT/1-pedido/"
 cp "$AQUI/instrucoes-ia-app.md" "$KIT/LEIA-PRIMEIRO.md"
 
+# A última seção do README é a maquinaria do kit — os arquivos que não viajam nele. Cortada aqui
+# para o kit não ficar com link apontando para arquivo que não existe lá dentro.
+sed -i '/^## Quando quem fotografa não é você$/,$d' "$KIT/1-pedido/README.md"
+
 # --- 2. os scripts ---------------------------------------------------------------------------
 mkdir -p "$KIT/2-scripts"
 cp "$GE/scripts/README.md" "$GE/scripts/cenario.js" "$GE/scripts/smoke-app.js" "$KIT/2-scripts/"

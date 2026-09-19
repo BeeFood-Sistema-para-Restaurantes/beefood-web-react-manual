@@ -9,18 +9,6 @@ ponta. Onze manuais estão publicáveis hoje; um depende de foto.
 | [`janela-117.md`](janela-117.md) | o roteiro da **janela combinada**: sete fases, o que cada lado fotografa em cada uma, e o que fazer quando algo dá errado |
 | [`../scripts/smoke-app.js`](../scripts/smoke-app.js) | o script que monta cada cena, **confere pela API do próprio app** e desmonta |
 
-E, para quando quem fotografa não é você:
-
-| Arquivo | O que é |
-|---|---|
-| [`montar-kit.sh`](montar-kit.sh) | monta o **zip auto-suficiente** que vai para quem tira os prints — pedido, scripts, manuais com as imagens, e a árvore de pastas de saída já nomeada |
-| [`instrucoes-ia-app.md`](instrucoes-ia-app.md) | o `LEIA-PRIMEIRO.md` do kit: o trabalho, o ambiente do emulador, as cinco regras do print e o que devolver. Escrito para uma IA operar sozinha |
-| [`indice-referencia.md`](indice-referencia.md), [`arvore-de-entrega.md`](arvore-de-entrega.md) | os dois guias que viajam dentro do kit, um em cada pasta |
-
-```bash
-bash montar-kit.sh                 # sai um kit-teste-app-entregador.zip, ~24 MB
-```
-
 ## Por onde começar
 
 1. Leia [`capturas-app.md`](capturas-app.md) até a segunda tabela. Ela separa os **6 prints que
@@ -56,3 +44,22 @@ KM)**, os dois com dados de hoje da sandbox.
 Nada se perde. Os seis manuais do app estão publicáveis, e o `MEMORIA.md` de cada um registra qual
 foto falta e em que pergunta ela entraria. O #117 fica como esqueleto, com o lugar de cada imagem
 marcado — é o único que não existe sem a janela.
+
+## Quando quem fotografa não é você
+
+Esta seção é a maquinaria do pacote, e fica de fora do zip de propósito: quem recebe o kit não
+precisa saber como ele foi montado.
+
+| Arquivo | O que é |
+|---|---|
+| [`montar-kit.sh`](montar-kit.sh) | monta o **zip auto-suficiente** — pedido, scripts, manuais com as imagens, material original e a árvore de pastas de saída já nomeada |
+| [`instrucoes-ia-app.md`](instrucoes-ia-app.md) | o `LEIA-PRIMEIRO.md` do kit: o trabalho, o ambiente do emulador, as cinco regras do print e o que devolver. Escrito para uma IA operar sozinha |
+| [`indice-referencia.md`](indice-referencia.md), [`arvore-de-entrega.md`](arvore-de-entrega.md) | os dois guias que viajam dentro do kit, um em cada pasta |
+
+```bash
+bash montar-kit.sh                 # sai um kit-teste-app-entregador.zip, ~24 MB
+```
+
+O script corta esta seção da cópia e reescreve os links relativos para a árvore do kit. As pastas
+da referência vão com o nome que têm aqui, sem prefixo de número, para os links que os manuais fazem
+entre si continuarem resolvendo lá dentro.
