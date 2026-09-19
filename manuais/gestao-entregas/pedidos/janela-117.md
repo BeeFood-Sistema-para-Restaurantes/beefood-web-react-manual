@@ -17,6 +17,7 @@ Em fases, cada foto tem o tempo que precisa, e um erro custa uma fase, não a ja
 |---|---|
 | Você, no celular | app **online**, permissões de localização e notificação **Ativas**, GPS fixado na loja: `adb emu geo fix -47.4657927 -23.5061438` |
 | Você, no celular | **nada de outro cenário na lista.** Se houver, `node smoke-app.js limpar` antes |
+| Eu, no painel | **a fila sem lote de teste antigo**: `node smoke-app.js arquivar-fila`. A fase 1 aborta se achar, porque a primeira foto é justamente a fila com três pedidos |
 | Eu, no painel | a tela de Gestão de Entregas aberta na filial 39202 — é ela que grava o *heartbeat*, e sem *heartbeat* o despacho automático não age |
 | A filial | **caixa aberto**, se a fase 5 for cobrar de verdade. Sem caixa, a cobrança na rua falha |
 
@@ -38,10 +39,17 @@ permite a fase 3 mexer no pedido que a fase 1 criou: a sentinela de escrita do s
 
 ---
 
+> **O roteiro já foi ensaiado.** Rodei as sete fases ponta a ponta em 18/09, com o painel aberto e o
+> entregador simulado, e as cinco telas do painel saíram como esta página promete: a fila com três
+> pedidos, a rota `A` *Pronta para sair* com *0 de 3*, a rota *Na rua* com o pino andando e a parada
+> marcada *Entregando agora*, e o painel vazio com o contador de entregues subindo de 7 para 10. O
+> que o ensaio não cobre é a sua metade — e é só por isso que a janela existe.
+
 ## Fase 1 — três pedidos prontos, nenhum atribuído
 
 Eu semeio três pedidos com endereço e coordenada, marco como **PRONTO** e ponho você disponível,
-parado na loja.
+parado na loja. Os três endereços são os mais próximos entre si da lista do gerador, a menos de
+500 m um do outro: rota de três paradas espalhadas por 10 km não é a rota que o manual quer contar.
 
 | Quem fotografa | A cena |
 |---|---|
@@ -137,6 +145,7 @@ relatório. E é a única parte do #117 que prova que a operação do dia virou 
 |---|---|
 | a rota não chegou no app | `node smoke-app.js conferir`. Se a API mostra a rota e a tela não, puxe a lista para atualizar |
 | a lista veio com pedido de outro lote | `node smoke-app.js limpar` e recomeçar da fase 1. Número trocado estraga as duas metades |
+| a fase 1 abortou falando de lote antigo | `node smoke-app.js arquivar-fila`, e rode a fase 1 de novo |
 | a cobrança falhou na fase 5 | quase sempre é **caixa fechado** na filial. Abra o caixa e tente de novo |
 | você tocou em MELHOR ROTA | não é perda total: fotografe e me diga. A ordem mudou, e o manual passa a dizer isso |
 | deu meia-noite no meio | pare. O relatório da fase 7 soma **por data**, e uma janela partida em dois dias não fecha |
@@ -146,4 +155,5 @@ relatório. E é a única parte do #117 que prova que a operação do dia virou 
 Combinamos na hora: ou você finaliza as três pelo app, ou eu desfaço pelo painel. O que não pode é
 ficar entrega aberta na sandbox — ela reaparece no painel de amanhã e estraga a próxima captura.
 
-Depois, `node smoke-app.js limpar` do meu lado, e a janela fecha limpa.
+Depois, do meu lado: `limpar` tira o que sobrou da sua tela, `arquivar-fila` tira o que sobrou da
+minha, e a janela fecha limpa.

@@ -1280,6 +1280,15 @@ aponta para rota que já não existe, o entregador fica ocupado para sempre e **
 despacho automático**. Há um caso vivo na sandbox (`194115` → rota 120, inexistente). Antes de
 fotografar despacho automático, confira isso.
 
+**Desmontar cenário é mais difícil do que montar, e o painel é a tela que esquece.** Desatribuir o
+entregador tira o pedido do app na hora, mas ele fica em *Pedidos sem rota* no painel por até **6 h**
+— e depois de uma tarde de ensaios a fila tinha **21 pedidos de teste**, o que estragaria em silêncio
+qualquer foto de "fila com N pedidos". O estado que resolve é `AGUARDANDO`: a view do painel filtra
+`PREPARO`/`PRONTO`/`ENTREGA`/`ENTREGUE` e o app ignora `AGUARDANDO`, então o pedido sai das duas telas
+sem ser apagado e **sem entrar na conta de entregas do dia** — o que `ENTREGUE` faria, inflando o
+relatório. É o `arquivar-fila` do `smoke-app.js`, e a lição geral é: **ensaie o roteiro inteiro antes
+da janela combinada**, porque é o ensaio que revela a sujeira que a foto mostraria.
+
 **Conferir cenário pela API do app, não pelo banco.** Entre as duas coisas moram o agrupamento de
 rota, o filtro de situação e a ordenação por distância — e já aconteceu de o banco estar certo e a
 tela vir vazia. O `smoke-app.js` chama

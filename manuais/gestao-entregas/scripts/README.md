@@ -51,6 +51,7 @@ node smoke-app.js estado                    # o que o app está vendo agora
 node smoke-app.js preparar --caso lista      # monta e confere
 node smoke-app.js conferir                   # confere de novo
 node smoke-app.js limpar                     # tira tudo da tela do app
+node smoke-app.js arquivar-fila              # tira da fila do painel, lotes antigos
 node smoke-app.js janela-117 --fase 1        # o roteiro dos dois lados
 ```
 
@@ -88,6 +89,24 @@ Os dois compartilham as travas, e o `smoke-app.js` acrescenta uma.
 5. **`--dry-run` em tudo.**
 6. **`limpar` não apaga pedido.** Ele desatribui o entregador, que é o que tira o pedido da tela do
    app sem mexer no que o ERP registrou.
+7. **`arquivar-fila` tem sentinela própria, e mais forte:** o `WHERE` exige o marcador
+   `[SEED-ENTREGAS]` que o seeder grava em `Observacoes`. Pedido de verdade não tem esse marcador,
+   então não há como o comando alcançar um.
+
+## `limpar` e `arquivar-fila` resolvem telas diferentes
+
+Achado do ensaio da janela do #117, e vale saber antes de fotografar: **`limpar` tira o pedido da
+tela do app, mas não do painel.** Ele desatribui o entregador, e pedido sem entregador continua em
+*Pedidos sem rota* por até 6 h. Depois de uma tarde de ensaios a fila do painel tinha **21 pedidos de
+teste** — e a primeira foto do #117 é justamente "três pedidos prontos na fila".
+
+O `arquivar-fila` resolve isso mandando os pedidos de teste para `AGUARDANDO`. É o estado certo,
+porque a view do painel filtra `PREPARO`/`PRONTO`/`ENTREGA`/`ENTREGUE` e o app ignora `AGUARDANDO`: o
+pedido sai das duas telas sem ser apagado e **sem entrar na conta de entregas do dia** — o que
+`ENTREGUE` faria, inflando o relatório Operação de Entrega.
+
+A fase 1 da janela do #117 **aborta** se achar lote antigo na fila, em vez de deixar você descobrir
+na foto.
 
 > **`beetech_leitura` engana pelo nome.** O usuário do MSSQL que todo o backend usa é
 > `db_datareader` **+ `db_datawriter` + `db_ddladmin`**, com `EXECUTE` no banco inteiro. É por isso

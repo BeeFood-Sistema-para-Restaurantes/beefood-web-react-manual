@@ -33,7 +33,9 @@
  *    o único caso que altera histórico, e histórico é o que o relatório soma.
  * 4. **`--dry-run` em tudo.**
  * 5. **`limpar` não apaga pedido.** Ele desatribui o entregador, que é o que tira o pedido
- *    da tela do app sem mexer no que o ERP registrou — mesma escolha do gerador do dono.
+ *    da tela do app sem mexer no que o ERP registrou — mesma escolha do gerador do dono. O
+ *    `arquivar-fila` vai um passo além, para o painel, e também não apaga: manda o pedido
+ *    para `AGUARDANDO`, que é o estado que as duas telas ignoram.
  *
  * ---------------------------------------------------------------------------------------
  * USO
@@ -51,7 +53,8 @@
  *   node smoke-app.js preparar --caso historico-dias --permitir-passado
  *   node smoke-app.js janela-117 --fase 1          <- o roteiro do #117, fase por fase
  *   node smoke-app.js conferir
- *   node smoke-app.js limpar
+ *   node smoke-app.js limpar                       <- tira da tela do app
+ *   node smoke-app.js arquivar-fila                <- tira da fila do painel, lotes antigos
  *
  * Todos aceitam `--backend`, `--empresa`, `--filial`, `--usuario`, `--entregador` e
  * `--dry-run`.
@@ -174,6 +177,25 @@ function execSQL() {
 async function ler(query, params = []) {
     const r = await execSQL()(null, null, query, params);
     return Array.isArray(r) ? r : [];
+}
+
+/** O marcador que o seeder do backend grava em `Observacoes` de todo pedido que ele cria. */
+const MARCADOR = '[SEED-ENTREGAS]';
+
+/**
+ * Os pedidos de teste que **ainda estão na fila do painel**, de qualquer lote.
+ *
+ * `CHARINDEX`, não `LIKE`: em T-SQL os colchetes de `[SEED-ENTREGAS]` são classe de
+ * caracteres, então `LIKE '[SEED-ENTREGAS]%'` devolve zero linha em silêncio. Está medido no
+ * próprio seeder — LIKE 0, CHARINDEX 11.
+ */
+async function pedidosSemeadosNaFila(f) {
+    return ler(
+        `SELECT preVendaID, numeroPreVenda, SituacaoDelivery FROM _PreVenda
+          WHERE filialID = ${f.filialID}
+            AND CHARINDEX('${MARCADOR}', Observacoes) = 1
+            AND SituacaoDelivery IN ('PREPARO', 'PRONTO', 'ENTREGA')
+          ORDER BY preVendaID`);
 }
 
 /**
@@ -647,7 +669,20 @@ const FASES_117 = [
         fotos: ['painel: a fila com os três pedidos e o mapa com o pin do entregador online'],
         async rodar(f) {
             await cen.limparFantasma(flags(f));
-            const { criados } = await cen.semear(flags(f, { qtd: 3, offset: 10 }));
+
+            // A foto desta fase é "três pedidos prontos na fila", e fila com lote antigo
+            // dentro estraga a foto em silêncio. Aconteceu no ensaio: 18 pedidos de teste.
+            const sobra = await pedidosSemeadosNaFila(f);
+            if (sobra.length) {
+                abortar(`a fila do painel tem ${sobra.length} pedido(s) de teste de lote anterior`,
+                    'rode "arquivar-fila" antes — a primeira foto do #117 é a fila com três '
+                    + 'pedidos, e lote velho no meio dela estraga a foto');
+            }
+
+            // Offset 0 de propósito: os três primeiros endereços da lista do seeder são os
+            // mais próximos entre si (menos de 500 m), e rota de três paradas espalhadas por
+            // 10 km não é a rota que o manual quer contar.
+            const { criados } = await cen.semear(flags(f, { qtd: 3, offset: 0 }));
             const ids = (criados || []).map((c) => c.preVendaID);
             const est = lerEstado();
             est.pedidos = [...new Set([...est.pedidos, ...ids])];
@@ -783,7 +818,10 @@ function listarCasos() {
         console.log(`  ${nome.padEnd(17)} ${c.foto}`);
         console.log(`  ${' '.repeat(17)} manuais: ${c.manuais}`);
     }
-    console.log('\n  janela-117        o roteiro de sete fases do manual dos dois lados\n');
+    console.log('\n  janela-117        o roteiro de sete fases do manual dos dois lados');
+    console.log('\nE dois de limpeza, que resolvem telas diferentes:');
+    console.log('  limpar            tira da tela do app — desatribui o entregador');
+    console.log('  arquivar-fila     tira da fila do painel — manda lote antigo para AGUARDANDO\n');
 }
 
 async function preparar(f) {
@@ -859,12 +897,54 @@ async function limpar(f) {
     console.log('\nLimpo. Os pedidos continuam no ERP, sem entregador — fora da tela do app.');
 }
 
+/**
+ * Tira da **fila do painel** os pedidos de teste de lotes anteriores.
+ *
+ * Descoberto no ensaio da janela do #117: `limpar` tira o pedido da tela do app, mas ele
+ * continua em *Pedidos sem rota* no painel por até 6 h. Depois de uma tarde de ensaios a fila
+ * tinha 18 pedidos de teste — e a primeira foto do #117 é justamente "três pedidos prontos".
+ *
+ * `AGUARDANDO` é o estado certo para isso: a view do painel filtra
+ * `PREPARO`/`PRONTO`/`ENTREGA`/`ENTREGUE`, e o app ignora `AGUARDANDO`. O pedido sai das duas
+ * telas sem ser apagado e sem entrar na conta de entregas do dia — o que `ENTREGUE` faria,
+ * inflando o relatório Operação de Entrega.
+ *
+ * A sentinela aqui é outra, e é mais forte que a do arquivo de estado: o `WHERE` exige o
+ * **marcador do seeder** em `Observacoes`. Pedido de verdade não tem esse marcador, então não
+ * há como este comando alcançar um.
+ */
+async function arquivarFila(f) {
+    const alvos = await pedidosSemeadosNaFila(f);
+    if (!alvos.length) {
+        console.log('\nA fila do painel não tem pedido de teste. Nada a arquivar.');
+        return;
+    }
+    console.log(`\n${alvos.length} pedido(s) de teste na fila do painel:`);
+    for (const p of alvos) {
+        console.log(`  #${p.numeroPreVenda}  id=${p.preVendaID}  ${p.SituacaoDelivery}`);
+    }
+
+    const texto = `UPDATE _PreVenda SET SituacaoDelivery = 'AGUARDANDO', FuncionarioIDMotoboy = NULL
+                    WHERE filialID = @pFilial
+                      AND CHARINDEX('${MARCADOR}', Observacoes) = 1
+                      AND SituacaoDelivery IN ('PREPARO', 'PRONTO', 'ENTREGA')`;
+    if (f.modoSeco) {
+        console.log(`\n  [dry-run] ${texto.replace(/\s+/g, ' ')}`);
+        return;
+    }
+    const sql = cen.doBackend('node_modules/mssql');
+    await execSQL()(null, null, texto, [{ name: 'pFilial', sqltype: sql.Int, value: f.filialID }]);
+    gravarEstado({ pedidos: [], rotas: [], caso: null, criadoEm: null }, f);
+    console.log(`\n${alvos.length} pedido(s) fora da fila. O painel abre limpo para a captura.`);
+}
+
 const COMANDOS = {
     casos: async () => listarCasos(),
     estado: mostrarEstado,
     preparar,
     conferir,
     limpar,
+    'arquivar-fila': arquivarFila,
     'janela-117': janela117,
 };
 

@@ -96,14 +96,33 @@ O roteiro está em [`janela-117.md`](../gestao-entregas/pedidos/janela-117.md): 
 elas as fotos. O cenário é montado por
 [`smoke-app.js`](../gestao-entregas/scripts/smoke-app.js), comando `janela-117 --fase N`.
 
-Três coisas precisam estar de pé, e as três já falharam em ensaio:
+### O ensaio, e o que ele encontrou
+
+Rodei as sete fases ponta a ponta em 18/09, com o painel aberto e o entregador simulado, para não
+descobrir problema de roteiro no dia. As cinco telas do painel saíram como a tabela promete: a fila
+com três pedidos, a rota `A` *Pronta para sair* com *0 de 3*, a rota *Na rua* com o pino andando e a
+parada marcada *Entregando agora*, e o painel vazio com o contador de entregues subindo de 7 para 10.
+
+Dois ajustes vieram do ensaio, e os dois teriam estragado foto:
+
+1. **A fase 1 semeava os três pedidos com `offset 10`**, que são endereços a 5 e 10 km um do outro.
+   Rota de três paradas espalhadas assim não é a rota que o manual conta. Passou a usar `offset 0`,
+   que são os três endereços mais próximos entre si da lista do gerador — menos de 500 m.
+2. **`limpar` tira o pedido da tela do app, mas não da fila do painel.** Pedido sem entregador
+   continua em *Pedidos sem rota* por até 6 h, e depois de uma tarde de ensaios a fila tinha **21
+   pedidos de teste**. A primeira foto do #117 é justamente "três pedidos prontos na fila". Nasceu
+   daí o comando **`arquivar-fila`**, que manda os pedidos de teste para `AGUARDANDO` — estado que as
+   duas telas ignoram e que **não** entra na conta de entregas do dia, como `ENTREGUE` entraria. E a
+   fase 1 passou a **abortar** se achar lote antigo, em vez de deixar o problema aparecer na foto.
+
+### Três coisas que precisam estar de pé
 
 1. **Caixa aberto na filial.** Sem caixa, a cobrança da fase 5 falha, e a fase 5 é o coração do
    manual. Na medição de 18/09 **não havia caixa aberto** na 39202.
 2. **A tela de Gestão de Entregas aberta do meu lado.** É ela que grava o `painel_heartbeat`, e sem
    heartbeat o despacho automático não age — o que atrapalha só se a janela for demonstrar isso.
-3. **Nenhum outro cenário na lista do app.** Pedido de outro lote na tela estraga as duas metades de
-   uma vez, e é o erro mais fácil de cometer. O `limpar` existe para isso.
+3. **Nenhum lote antigo em nenhuma das duas telas.** Pedido de outro lote estraga as duas metades de
+   uma vez, e é o erro mais fácil de cometer. `limpar` limpa a do app, `arquivar-fila` a do painel.
 
 ## Decisão registrada: por que não existe `annotate.py` aqui
 
