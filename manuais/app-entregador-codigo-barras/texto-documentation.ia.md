@@ -32,8 +32,9 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`, `*.
   Padrão*, e ela fica no fim do formulário;
   (b) a confusão vizinha: **QR Code Cardápio Digital** é outra coisa;
   (c) a etiqueta só sai em **delivery com entrega**;
-  (d) a tabela dos estados da faixa de status, incluindo *Pedido já lido* (não é erro) e a faixa
-  vermelha (o pedido **não** foi despachado);
+  (d) a tabela das **seis** mensagens da faixa de status, incluindo *Pedido já lido* (não é erro) e as
+  **duas** de erro, que são casos diferentes: *Erro na leitura, tente novamente* é o envio que não saiu
+  do celular, e *Erro: {mensagem}* é a loja recusando. Nas duas o pedido **não** foi despachado;
   (e) só **EAN-13**: QR Code e outros formatos não funcionam;
   (f) o pedido passa a ser de **quem bipou**;
   (g) a pergunta do FAQ sobre "diz sucesso e o pedido não muda": é recurso contratado, falar com

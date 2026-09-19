@@ -24,6 +24,23 @@ etiqueta própria (QR, Code128) tenta e não entende por que nada acontece.
 O modal também **evita reler o mesmo pedido na mesma sessão** — é de onde vem a mensagem *Pedido
 já lido*, que não é erro.
 
+## A faixa de status tem seis mensagens, não cinco
+
+O estudo de fonte que veio no material
+([`estudo/01-o-que-o-app-faz-hoje.md`](../gestao-entregas/material-recebido/app-entregador/estudo/01-o-que-o-app-faz-hoje.md),
+seção 2.10, lido em `src/components/Barras/BarcodeScannerModal.js`) lista as mensagens da faixa:
+*Aguardando Leitura*, *Lendo código...*, *Pedido lido com sucesso!*, *Pedido já lido.*, ***Erro na
+leitura, tente novamente*** e ***Erro: {mensagem}*** — mais a dica sob a faixa da câmera,
+*Posicione o código de barras na faixa da câmera*.
+
+A primeira versão do manual juntava as duas últimas em *"Erro… (vermelha)"*, e com isso perdia a
+distinção que decide o que o entregador faz: **`Erro na leitura` é o envio que não saiu do celular**
+(ler de novo resolve), e **`Erro: {mensagem}` é o servidor respondendo e recusando** (ler de novo
+repete a resposta; o que resolve é repassar a mensagem). A tabela e o FAQ passaram a separar as duas.
+
+Nenhuma das seis tem imagem: sem câmera não há decodificação, e sem decodificação a faixa não sai de
+*Aguardando Leitura*. É o mesmo motivo da imagem composta, e está na seção seguinte.
+
 ## O gate comercial devolve 200, e isso vira uma pergunta do FAQ
 
 `empresaLiberadaAppEntregador(empresaID)`: libera quem tem o plano do entregador, quem tem

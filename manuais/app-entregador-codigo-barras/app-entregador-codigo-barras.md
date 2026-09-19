@@ -103,9 +103,12 @@ Encoste o celular na etiqueta até o código ficar **dentro da faixa**, entre as
 |----|------|-------------|
 | 1. | **Código na faixa** | Aproxime e mantenha firme. **Não precisa tocar em nada**: a leitura é automática. |
 
-A faixa é estreita de propósito — código fora dela não é analisado.
+A faixa é estreita de propósito — código fora dela não é analisado. Abaixo dela o aplicativo repete
+a instrução: *Posicione o código de barras na faixa da câmera*.
 
 ### O que a faixa de status diz
+
+São **seis** mensagens, e vale saber que as duas últimas são situações diferentes.
 
 | Faixa | Significa |
 |-------|-----------|
@@ -113,7 +116,12 @@ A faixa é estreita de propósito — código fora dela não é analisado.
 | **Lendo código…** | achou, e está avisando a loja |
 | **Pedido lido com sucesso!** | deu certo. O pedido **foi despachado** |
 | **Pedido já lido.** | você bipou a mesma etiqueta duas vezes; nada foi enviado de novo |
-| **Erro…** (vermelha) | não deu. Leia de novo — o pedido **não** foi despachado |
+| **Erro na leitura, tente novamente** | não chegou a sair do celular. Aproxime e leia de novo |
+| **Erro: {mensagem}** | o pedido saiu do celular e **a loja respondeu recusando**. A mensagem depois dos dois pontos é a explicação, e é ela que você repassa ao restaurante |
+
+Nas duas de erro o pedido **não** foi despachado. A diferença está em onde parou: na primeira o
+envio não aconteceu, e ler de novo resolve; na segunda o servidor respondeu, e ler de novo vai dar
+a mesma coisa até alguém olhar o pedido.
 
 Você pode ler **várias etiquetas em sequência** sem sair da tela: é o caso normal de sair com
 três ou quatro pedidos.
@@ -167,8 +175,11 @@ A própria tela oferece **Solicitar Permissão** e **Abrir Configurações**. Se
 leitura.
 
 **Bipo e a faixa fica vermelha.**
-A leitura funcionou, mas o aviso à loja não chegou — sinal ruim, quase sempre. Leia de novo. Se
-insistir, o pedido **não** foi despachado, e o caminho é despachar pelo painel.
+Leia o que vem escrito, porque são dois casos. **Erro na leitura, tente novamente** é sinal ruim na
+maioria das vezes: o aviso à loja não chegou a sair, e ler de novo resolve. **Erro:** seguido de uma
+mensagem é a loja respondendo e recusando — ler de novo vai repetir a resposta, e o que resolve é
+repassar a mensagem ao restaurante. Nos dois casos o pedido **não** foi despachado, e o caminho de
+saída é despachar pelo painel.
 
 **Bipo, diz sucesso, mas o pedido não mudou no painel.**
 O aplicativo do entregador é um recurso contratado. Quando ele não está no plano da loja, a
