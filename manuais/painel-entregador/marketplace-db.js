@@ -36,14 +36,20 @@
  * ---------------------------------------------------------------------------------------
  * NENHUMA CREDENCIAL MORA AQUI
  * ---------------------------------------------------------------------------------------
- * Este repositório é público. Host, usuário e senha do MSSQL saem do clone do backend, pelo
- * caminho em `--backend` (ou `BEETECH_BACKEND`), exatamente como no `cenario.js` do bloco de
- * Gestão de Entregas:
+ * Este repositório é público, então host, usuário e senha do MSSQL vêm de fora. Há dois
+ * caminhos, e o script tenta nesta ordem:
  *
- *   src/config/execSQLQuery.js      -> executa a query
- *   node_modules/mssql              -> tipos dos parâmetros
+ * 1. **Variáveis de ambiente** `BEETECH_MSSQL_HOST`, `_USER`, `_PASSWORD`, `_DATABASE`
+ *    (e `_PORT`, opcional). É o caminho que **não depende do Bitbucket**: basta cadastrar
+ *    os secrets no Cursor Dashboard → Cloud Agents → Secrets. Lembrando que secret novo
+ *    só entra em **VM nova**.
+ * 2. **Clone do backend**, em `--backend` (ou `BEETECH_BACKEND`), como no `cenario.js` do
+ *    bloco de Gestão de Entregas: `src/config/execSQLQuery.js` executa a query e
+ *    `node_modules/mssql` dá os tipos. Antes da primeira execução:
+ *    `cd ~/refs/beetech-server-node-2.0 && npm install --no-save mssql`
  *
- * Antes da primeira execução: `cd ~/refs/beetech-server-node-2.0 && npm install --no-save mssql`
+ * O caminho 1 precisa do pacote `mssql` em algum lugar: o próprio clone serve, ou
+ * `MSSQL_PATH=/tmp/painel-db/node_modules/mssql` depois de um `npm install mssql` lá.
  *
  * ---------------------------------------------------------------------------------------
  * COMO ELE EVITA ESTRAGO
@@ -218,27 +224,73 @@ function canaisEscolhidos(f) {
 // Backend — só é exigido quando há banco a tocar
 // ---------------------------------------------------------------------------
 
-function exigirBackend() {
-    if (!fs.existsSync(CONFIG.backend)) {
-        abortar('clone do backend não encontrado',
-            `${CONFIG.backend}\n  Passe --backend <caminho> ou defina BEETECH_BACKEND.\n`
-            + `  Sem o clone não há host nem senha do MSSQL: eles não moram neste repositório,\n`
-            + `  que é público. Se o Bitbucket não estiver autenticando, é o token do ambiente\n`
-            + `  (BITBUCKET_TOKEN) que precisa ser renovado — e secret novo só entra em VM nova.\n`
-            + `  Enquanto isso, "node marketplace-db.js plano" mostra o SQL sem conectar.`);
-    }
-    if (!fs.existsSync(path.join(CONFIG.backend, 'node_modules', 'mssql'))) {
-        abortar('dependência do backend não instalada',
-            `cd ${CONFIG.backend} && npm install --no-save mssql`);
-    }
-}
-
 function doBackend(rel) {
     return require(path.join(CONFIG.backend, rel));
 }
 
+/** Credenciais por variável de ambiente, quando as quatro estão definidas. */
+function credenciaisDoAmbiente() {
+    const e = process.env;
+    if (!e.BEETECH_MSSQL_HOST || !e.BEETECH_MSSQL_USER || !e.BEETECH_MSSQL_PASSWORD) return null;
+    return {
+        server: e.BEETECH_MSSQL_HOST,
+        user: e.BEETECH_MSSQL_USER,
+        password: e.BEETECH_MSSQL_PASSWORD,
+        database: e.BEETECH_MSSQL_DATABASE || 'beetech',
+        port: Number(e.BEETECH_MSSQL_PORT || 1433),
+        options: { encrypt: false, trustServerCertificate: true },
+        requestTimeout: 60000,
+    };
+}
+
+/** O pacote `mssql`: do clone do backend, de `MSSQL_PATH`, ou instalado localmente. */
+function carregarMssql() {
+    const candidatos = [
+        process.env.MSSQL_PATH,
+        path.join(CONFIG.backend, 'node_modules', 'mssql'),
+        'mssql',
+    ].filter(Boolean);
+    for (const c of candidatos) {
+        try {
+            return require(c);
+        } catch { /* tenta o próximo */ }
+    }
+    abortar('pacote mssql não encontrado',
+        `tentei: ${candidatos.join(', ')}\n`
+        + `  Instale com "npm install mssql" e aponte MSSQL_PATH para o node_modules/mssql,\n`
+        + `  ou instale no clone do backend: cd ${CONFIG.backend} && npm install --no-save mssql`);
+}
+
+function semAcessoAoBanco() {
+    abortar('sem acesso ao banco do ERP',
+        'nenhum dos dois caminhos está disponível:\n'
+        + '  1. variáveis BEETECH_MSSQL_HOST / _USER / _PASSWORD (secret do Cloud Agent);\n'
+        + `  2. clone do backend em ${CONFIG.backend} (--backend ou BEETECH_BACKEND).\n\n`
+        + '  O clone depende do BITBUCKET_TOKEN do ambiente; quando ele expira, o repositório\n'
+        + '  do backend não clona e as credenciais somem junto — elas não moram neste\n'
+        + '  repositório, que é público. Secret novo só entra em VM nova.\n\n'
+        + '  Enquanto isso, "node marketplace-db.js plano" mostra o SQL sem conectar.');
+}
+
+/**
+ * Executa a query. Prefere as variáveis de ambiente, e cai para o `execSQLQuery` do
+ * backend quando elas não existem — assim o script funciona nos dois cenários.
+ */
 async function ler(query, params = []) {
-    exigirBackend();
+    const cred = credenciaisDoAmbiente();
+    if (cred) {
+        const sql = carregarMssql();
+        const pool = await new sql.ConnectionPool(cred).connect();
+        try {
+            const req = pool.request();
+            for (const p of params) req.input(p.name, p.sqltype, p.value);
+            const r = await req.query(query);
+            return r.recordset || [];
+        } finally {
+            await pool.close();
+        }
+    }
+    if (!fs.existsSync(CONFIG.backend)) semAcessoAoBanco();
     const execSQLQuery = doBackend('src/config/execSQLQuery');
     const r = await execSQLQuery(null, null, query, params);
     return Array.isArray(r) ? r : [];
@@ -281,8 +333,8 @@ async function gravar(f, pedidos, sets, rotulo) {
         return;
     }
 
-    exigirBackend();
-    const sql = doBackend('node_modules/mssql');
+    if (!credenciaisDoAmbiente() && !fs.existsSync(CONFIG.backend)) semAcessoAoBanco();
+    const sql = carregarMssql();
     const pares = Object.entries(sets);
     const params = pares.map(([, v], i) => ({
         name: `v${i}`,

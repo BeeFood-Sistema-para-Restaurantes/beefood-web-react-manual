@@ -161,37 +161,77 @@ cabeçalho — é o que o texto do popover de informação na tela explica.
 - **Não há coluna de Aguardando nem de Em entrega.** O painel é de duas etapas.
 - **O pedido de retirada não aparece**, mesmo pronto — o painel é dos entregadores.
 
-## Achado do estudo da base: origem não é campo de entrada
+## Achado do estudo da base: `origem` é derivada, não digitada
 
-Para montar o cenário de captura era preciso pedido de **iFood, Keeta, 99Food e Cardápio
-Digital**, com cartões em preparo e prontos. A conclusão do teste, feita contra a API de
-produção, muda o que o smoke teste pode montar:
+Para montar o cenário de captura era preciso pedido de **iFood, 99Food, Keeta, AIQFome e
+Cardápio Digital**, com cartões em preparo e prontos. Estudar como esses pedidos nascem
+virou a parte mais longa do #120, e o resultado tem valor além deste manual — por isso
+saiu também uma skill: [`cenario-sandbox`](../../.cursor/skills/cenario-sandbox/SKILL.md).
 
-- `POST /api/venda2/salvar` **grava sempre `origem = Manual`**. Foram testadas quatro
-  posições para os campos de marketplace — na raiz, dentro de `delivery`, dentro de um
-  `venda` aninhado e junto de `ifoodLocalizer`. Nas quatro o pedido nasceu, e nas quatro a
-  listagem devolveu `origem: "Manual"`, `marketPlace: null`, `ifoodShortReference: null`,
-  `keetaId: null`, `nnID: null`. O único campo que colou foi `filialIDOrigem`, e sozinho
-  ele não muda a origem.
-- Portanto `origem` é **gravada por quem recebe o pedido**: a integração do marketplace
-  ou o cardápio digital. Pela tela do painel não há como forjá-la, e isso é bom sinal —
-  significa que o ícone do cartão é confiável.
-- Pedido com origem **Cardápio Digital** de verdade sai fazendo o pedido no cardápio
-  público (`pedido_cardapio.py`). Pedido de **marketplace** exige o semeador do backend
-  (`scripts/seed-gestao-entregas.js` do `beetech-server-node-2.0`), que escreve direto no
-  `_PreVenda` — e o backend **não está clonado nesta máquina**, porque o
-  `BITBUCKET_TOKEN` está inválido (as quatro combinações de usuário e token falham na
-  autenticação).
+### Nenhuma rota aceita `origem`
 
-O formato que o semeador antigo usou, lido na base pelos pedidos `[SEED-ENTREGAS]` de
-19/09/2026, fica registrado aqui para quando o token voltar:
+| Rota | Quem usa | `origem` que grava | Ensaio |
+|---|---|---|---|
+| `POST app3/api/venda2/salvar` | a tela `/delivery` | sempre **Manual** | `exp_origem.py` |
+| `POST app/datasnap/rest/tmesa/pedido` | o cardápio público | sempre **Cardápio Digital** | `pedido_marketplace.py sondar` |
 
-| Origem | Campos que a definem | Exemplo real da base |
+Nas duas, os campos `origem`, `marketPlace`, `ifoodShortReference`, `keetaId` e `nnID`
+foram enviados na raiz, dentro de `delivery` e dentro de `cliente`: **descartados nas três
+posições**. O `exp_ids.py` ainda tentou seis rotas de atualização de venda
+(`atualizaSituacaoDelivery`, `atualizaCardapio`, `atualizaDocumento`,
+`atualizaTipoPedido`, `atualizaObs`, `salvarValores`) — todas responderam `resultado:
+true` e **nenhuma** mudou um identificador. E o `exp_rotas_erp.py` varreu quinze nomes
+plausíveis de rota de integração, com corpo vazio para não criar pedido: todas 404.
+
+Detalhe que esse último ensaio entregou de graça: `app.beetechapi.be/datasnap/rest/...`
+responde erro de **Node** (`Cannot read properties of undefined`) e 404 de **Express**. O
+caminho é DataSnap por herança, mas quem atende é o backend Node.
+
+### A regra de verdade
+
+`origem` **não é coluna que se grave**: ela sai do identificador que o pedido carrega.
+
+| Identificador preenchido em `_PreVenda` | `origem` que a API devolve |
+|---|---|
+| `ifoodLocalizer` | iFood |
+| `nnID` | 99Food |
+| `keetaId` | Keeta |
+| `aiqfomeId` | AIQFome |
+| `filialIDOrigem` | Cardápio Digital |
+| nenhum deles | Manual |
+
+**Como isso ficou provado.** O `smoke-app.js` da Gestão de Entregas tem lista branca de
+colunas graváveis, e `origem` **não está nela** — ele escreve `ifoodLocalizer`, `nnID`,
+`keetaId` e `marketPlace`. Ainda assim os pedidos que ele montou aparecem na API como
+iFood, 99Food e Keeta. E o argumento que fecha: aquele script pega os pedidos genéricos do
+semeador (`semearEAtribuir`) e só **depois** decide qual recebe o selo de iFood e qual
+recebe o de 99Food. O semeador não tinha como adivinhar a distribuição, então a origem só
+pode ter vindo do selo.
+
+Os valores lidos na base, que o `marketplace-db.js` reproduz:
+
+| Origem | Campos | Exemplo real da base |
 |---|---|---|
-| iFood | `marketPlace: true`, `ifoodShortReference`, `ifoodLocalizer`, `correlationId` | `"1851 - Coleta 3983"`, localizer `48731502` |
-| 99Food | `marketPlace: true`, `nnID` **e** `ifoodShortReference` | `nnID 5764687241800647938`, ref `254023` |
-| Keeta | `marketPlace: true`, `keetaId` | `keetaId 4900112233445566` |
-| Cardápio Digital | `marketPlace: null`, `filialIDOrigem` preenchido, `usuarioID: null` | pedido do próprio cardápio |
+| iFood | `ifoodLocalizer`, `ifoodShortReference`, `correlationId`, `marketPlace` | localizer `48731502`, ref `"1851 - Coleta 3983"` |
+| 99Food | `nnID`, `ifoodShortReference`, `marketPlace` | `nnID 5764687241800647938`, ref `254023` |
+| Keeta | `keetaId`, `marketPlace` | `keetaId 4900112233445566` |
+| AIQFome | `aiqfomeId`, `marketPlace` | `aiqfomeId 9820451` |
+| Cardápio Digital | `filialIDOrigem`, `usuarioID: null` | pedido feito no cardápio público |
 
 O `nnID` tem precedência sobre o `ifoodShortReference`: o pedido do 99Food traz os dois e
 a origem sai **99Food**.
+
+### O caminho para montar o cenário
+
+1. **Criar** o pedido pela rota do produto — `pedido_marketplace.py semear` usa o
+   `tmesa/pedido` do cardápio, que aceita cliente, forma de pagamento e frete, e grava o
+   marcador `[SMOKE-PAINEL]` em `Observacoes`.
+2. **Estampar** o identificador com `marketplace-db.js estampar`, que é o único passo que
+   precisa do banco. Ele só escreve com `--gravar`, só nas colunas da lista branca, só na
+   filial 39202 e só em pedido que tenha o marcador.
+3. **Mover** para PREPARO ou PRONTO com `smoketeste.py`, porque o painel ignora
+   AGUARDANDO.
+
+Nunca finalizar pelo app um pedido estampado: identificador de plataforma que não existe
+do outro lado faz a baixa tentar avisar o marketplace de verdade. `marketplace-db.js
+limpar` desfaz o selo.
