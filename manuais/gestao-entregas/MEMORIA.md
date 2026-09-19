@@ -11,9 +11,9 @@ no fim deste arquivo.
 **Estado: bloco fechado. 16 manuais prontos, nenhum esqueleto.** #104 a #119, incluindo o **#117**,
 que era o único pendente porque precisa das duas telas no mesmo pedido. Ele fechou em 19/09, quando as
 fotos do celular chegaram da máquina do dono — a metade do painel foi **reencenada** depois, com os
-mesmos três pedidos. Em [`pedidos/`](pedidos/README.md) **não há lista aberta**: uma terceira rodada
-foi escrita, empacotada e recusada na leitura pelo dono, porque pedia imagem de tela vazia. O que
-sobrou dela é o critério, e está em *O que falta*.
+mesmos três pedidos. Em [`pedidos/`](pedidos/README.md) **não há lista aberta**: uma segunda lista de
+capturas foi escrita, empacotada e recusada na leitura pelo dono, porque pedia imagem de tela vazia.
+O que sobrou dela é o critério, e está em *O que falta*.
 
 O histórico das primeiras rodadas fica abaixo, porque é ele que explica as decisões: a primeira
 organizou o material que o dono enviou; a segunda leu a documentação do backend e mediu o estado real

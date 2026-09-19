@@ -7,9 +7,23 @@
 > as entregas, fazer tudo funcionar no modo fake. agora me passe a lista de manuais que iremos
 > fazer."*
 
-Status: ⏳ **aguardando aprovação da lista.** Proposta: **14 manuais, #104 a #117**, em cinco
-blocos. O #104 de hoje no checklist (uma linha só para "o módulo inteiro") é substituído por esta
-divisão.
+Status: ✅ **entregue em 19/09/2026 — 16 manuais, #104 a #119.** A lista de catorze foi aprovada e
+executada; os **dois relatórios** que o dono pediu no meio da rodada (#118 Operação de Entrega e
+#119 Entregador Taxa/KM) entraram por cima dela. O #104 de hoje no checklist (uma linha só para "o
+módulo inteiro") foi substituído por esta divisão.
+
+**O que o plano previu errado, e vale ler antes de planejar o próximo bloco:**
+
+| O plano dizia | Como foi |
+|---|---|
+| **12 capturas** do app faltando | foram **26** pedidas, porque a lista real só apareceu depois de os seis manuais existirem. Chegaram 24; as 2 de iPhone foram canceladas pelo dono, que decidiu que o manual não usa imagem de iOS |
+| o **#117** exige uma janela coordenada, o dono no emulador e eu no painel ao mesmo tempo | a janela foi dispensável. O celular fotografou primeiro e o painel foi **reencenado depois**, restaurando no banco o estado de cada fase, porque o que amarra as duas metades é endereço, valor e hora — não número de pedido |
+| seis manuais **dependem** de foto do emulador | dependiam do miolo, não do todo: os seis ficaram publicáveis antes das fotos, e cada `MEMORIA.md` registrava qual imagem faltava e em que pergunta ela entraria |
+
+Depois da entrega ainda houve uma **segunda lista de capturas**, que o dono recusou na leitura
+porque pedia imagem de tela vazia. O critério que saiu dela é a **regra 0** das boas práticas de
+imagem da [`MEMORIA-GERAL.md`](../MEMORIA-GERAL.md): imagem entra se o leitor sair dela fazendo algo
+diferente.
 
 ---
 
