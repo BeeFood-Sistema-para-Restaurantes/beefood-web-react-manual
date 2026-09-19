@@ -1,0 +1,143 @@
+CARROSSEL — CADA MESA PEDE E FECHA A PRÓPRIA CONTA
+Gênero: função do sistema (não é novidade)
+Fonte: beefood.com.br/cardapio-digital-tablet
+(peça perene: não tem data na arte nem palavra de lançamento, e pode ser
+republicada quando o assunto voltar)
+
+Publicar como carrossel de feed, 8 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-como-funciona, 03-vitrine, 04-chamar-garcom,
+05-conta, 06-idiomas, 07-painel, 08-cta.
+
+De onde vem cada imagem. As telas do TABLET (slides 1, 3 e 8) são print de
+produção do aplicativo Android, o mesmo que o manual do modo kiosk versiona —
+o aplicativo não roda no ambiente de captura, então este é o segundo degrau da
+régua, e não captura feita para a peça. As telas do PAINEL (slides 4, 5 e 7)
+são captura nova, tirada em produção para este carrossel. O slide 6 é tela
+DESENHADA, reaproveitada do carrossel da tradução.
+
+Três coisas são de exemplo, e nenhuma foi salva no sistema. A frota do slide 7
+vem de um arquivo nosso: a loja de teste tem um aparelho só, offline e sem
+mesa, e "todos os tablets em uma tela" com um cartão mostra o contrário do que
+diz — os seis tablets, com mesa, bateria, sinal e versão, são dados de exemplo
+nos campos do aparelho de verdade, e quem conta os cartões e pinta o status é o
+próprio painel. As chaves dos slides 4 e 5 foram ligadas na tela para o recurso
+aparecer aceso: o botão SALVAR não foi tocado.
+
+Duas coisas que a página promete e a peça NÃO repete, de propósito: o aumento
+de até 40% do ticket médio, que é resultado prometido e não comportamento do
+produto, e a tradução automática — quem escreve a versão em inglês do cardápio
+é a loja, campo por campo, e nisso manda o manual. O Modo Rodízio também ficou
+de fora: não tem manual nem tela para provar.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+Cada mesa pede e fecha a própria conta
+
+O tablet é da casa e já está vinculado à mesa. Não tem QR Code para o cliente
+ler, nem aplicativo para instalar no celular dele: ele senta, e o cardápio já
+está ali.
+
+A primeira tela é vitrine, não lista. O banner da abertura é seu e leva direto
+ao produto anunciado, e embaixo dele a faixa de recomendados fica à vista
+enquanto a mesa decide. O produto abre em tela cheia, com foto e descrição,
+antes das escolhas — e os adicionais seguem as regras que você cadastrou.
+
+Copo, gelo, ketchup, guardanapo, talheres, limpar a mesa. São dezesseis
+chamadas prontas no painel e você escolhe quais aparecem para o cliente. A
+solicitação sai impressa, então a equipe já sai da cozinha sabendo o que levar,
+em vez de atravessar o salão para perguntar.
+
+No fim, a conta fecha na própria mesa. O cliente confere o que consumiu, com
+produto, adicional e valor, e pede o fechamento sem esperar ninguém trazer a
+comanda. Com o Pix online ligado, ele paga dali mesmo. As duas coisas são
+chaves no painel: quem decide se libera é você.
+
+E a mesa do estrangeiro pede sozinha. Português, inglês e espanhol ficam numa
+coluna do próprio cardápio, e um toque troca a tela inteira — sem depender de
+quem está no salão naquela noite. O texto em outro idioma é o que você escreve
+no cadastro, uma vez, e vale para todos os canais.
+
+Do seu lado, o salão inteiro cabe em uma tela. Cada aparelho aparece com a mesa
+em que está, a bateria, há quanto tempo deu sinal e a versão do aplicativo.
+Mudou o cardápio? Um envio atualiza todos os tablets do salão de uma vez — e dá
+para vincular mesa, destravar ou deslogar sem levantar da cadeira.
+
+Conheça todas as funcionalidades em beefood.com.br/cardapio-digital-tablet 🐝❤️
+
+#beefood #cardapiodigital #cardapionotablet #tabletnamesa #restaurante
+#gestaoderestaurante #atendimento #pix
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Quantas mesas o seu salão tem? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com a pílula "Cardápio Digital no Tablet", o título "Cada mesa
+    pede e fecha a própria conta", com a palavra conta em vermelho, e a linha
+    "E chama o garçom só quando quiser". Embaixo, um tablet deitado num suporte
+    de metal escovado, mostrando a tela inicial do cardápio: coluna escura à
+    esquerda com Destaques, Cardápio, Avalie e três bandeiras; no miolo, a foto
+    grande de um hambúrguer numa panela com batata frita e setas para os lados;
+    no pé, a faixa Recomendados com cinco combos em cartões amarelos.
+
+02  Chapéu "Como funciona" e título "Um tablet por mesa, com o seu cardápio
+    dentro", com a palavra dentro em vermelho. O texto diz que o aparelho é da
+    casa e já está vinculado à mesa, então não tem QR Code para ler nem
+    aplicativo para instalar. Abaixo, os cinco passos numerados: escolher pelo
+    cardápio com foto, descrição e preço; montar o item com os adicionais e
+    enviar; o pedido entrar na comanda da mesa; pedir o que faltou sem procurar
+    ninguém; e conferir o consumo e fechar a conta.
+
+03  Chapéu "A primeira tela" e título "Anuncie o combo antes de o cliente
+    procurar", com a palavra procurar em vermelho. O texto diz que o banner da
+    abertura leva direto ao produto anunciado e que a faixa de recomendados
+    segue à vista. Abaixo, um recorte ampliado da tela do tablet: o banner com
+    a foto do hambúrguer e as setas de navegação, e embaixo a faixa
+    Recomendados com Combo Chicken Deluxe, Combo One Cheddar, Combo Original
+    Burger, Combo Supreme e Combo Smash 2.0.
+
+04  Chapéu "Chamar garçom" e título "O que falta na mesa vira um toque", com a
+    palavra toque em vermelho. O texto diz que são dezesseis chamadas prontas,
+    que você escolhe quais entram e que a solicitação sai impressa. Abaixo, um
+    recorte do painel com cinco chaves: Açucar desligada, em cinza, e Copo,
+    Gelo, Ketchup e Limpar Mesa ligadas, em verde.
+
+05  Chapéu "Fechamento de conta" e título "A conta fecha na mesa, e o Pix
+    também", com a palavra Pix em vermelho. O texto diz que o cliente confere o
+    que consumiu e pede o fechamento no próprio tablet, e que com o Pix online
+    ligado ele paga dali mesmo. Abaixo, um recorte do painel com duas chaves
+    verdes: "Pix online — permite o fechamento da conta com Pix" e "Solicitar
+    Fechamento de Conta — exibe no tablet o botão para o cliente pedir o
+    fechamento da conta".
+
+06  Chapéu "Multi-idiomas" e título "A mesa do estrangeiro pede sozinha", com a
+    palavra sozinha em vermelho. O texto diz que português, inglês e espanhol
+    ficam numa coluna do próprio cardápio e que um toque troca a tela inteira.
+    Abaixo, o mesmo tablet no suporte, agora com o cardápio em inglês e fundo
+    escuro: coluna com Highlights, Menu e Rate, as três bandeiras no pé, as
+    abas Burgers, Sides e Desserts, e três itens com foto, descrição em inglês,
+    preço em amarelo e o botão Order — Melted a R$ 34,00, Tasty Bacon a
+    R$ 30,00 e One Classic a R$ 26,00.
+
+07  Chapéu "No seu painel" e título "O salão inteiro cabe em uma tela", com a
+    palavra tela em vermelho. O texto diz que cada aparelho mostra a mesa em
+    que está, a bateria e há quanto tempo deu sinal, e que um envio atualiza
+    todos os tablets de uma vez. Abaixo, um recorte do painel: os contadores
+    Contratados 10, Total 6, Online 4, Ausentes 1 e Offline 1, e seis cartões
+    de tablet — Mesa 1 a Mesa 4 online, Mesa 5 ausente e Mesa 6 offline, cada
+    um com modelo, bateria, tempo desde o último sinal e versão do aplicativo.
+
+08  Fundo escuro com o chapéu "Cardápio no Tablet", o pedido "Conheça todas as
+    funcionalidades", com a palavra funcionalidades em vermelho, e o endereço
+    beefood.com.br/cardapio-digital-tablet. Embaixo, o mesmo tablet no suporte,
+    com a tela inicial do cardápio.
