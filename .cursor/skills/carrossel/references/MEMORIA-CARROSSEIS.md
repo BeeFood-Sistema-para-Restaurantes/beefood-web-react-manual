@@ -9,7 +9,8 @@ continua na
 **reusar é adaptar** — a prova viaja, o slide não. As duas em *prova boa se
 reusa entre peças*: *uma rodada depois isso virou etapa, e não sorte* e *reusar
 é adaptar, e o erro tem dois andares*. A pergunta que autoriza o reuso é *a
-prova é do módulo, ou do canal?*; a que o faz valer é *qual pergunta esta peça
+prova é do módulo, ou do canal?*; a que **escolhe entre as candidatas** é *qual
+delas prova a manchete inteira?*; e a que o faz valer é *qual pergunta esta peça
 deixou aberta neste ponto do arco?*).
 
 28ª rodada: a capa do tablet vendia **pagar**,
@@ -1088,6 +1089,48 @@ Três perguntas antes de escrever, e a primeira pega o erro de cima:
 E o **limite** continua viajando sempre, só que virado para a frente: em vez de
 *evitar* a promessa de "tradução automática" da página, o slide passou a dizer
 que o texto é **seu**, e não um chute de tradutor. Mesma verdade, vendendo.
+
+#### E o terceiro andar: escolher entre as provas, e não pegar a primeira
+
+O dono voltou uma terceira vez no mesmo slide: *"tínhamos outro slide que mostra
+a imagem da batata frita em 2 línguas. Precisamos escolher a melhor para
+trazer"*.
+
+O acervo tinha **duas** provas de idioma, não uma, e eu peguei a que apareceu
+primeiro. A manchete promete "inglês e espanhol"; o print do cadastro mostra a
+bandeira dos Estados Unidos escolhida com a etiqueta "Inglês" — prova **metade**
+do que o título diz.
+
+| Candidata | O que prova | Serve à manchete? |
+|---|---|---|
+| print do cadastro do produto | **quem escreve** o texto, num idioma | metade |
+| par do mesmo item nos dois idiomas | **que são dois**, com foto e preço intactos | inteira |
+
+> **Qual delas prova a manchete inteira?** É o único critério, e ele só existe
+> depois de listar todas as candidatas.
+
+O que a perdedora provava não sumiu: "escrito por você" desceu para o chapéu e
+para o corpo, onde cabe sem imagem.
+
+**O mais barato dessa rodada foi o que não fizemos: ler o `roteiro.md` da peça
+vizinha.** O carrossel da tradução já tinha cometido este erro e já tinha
+escrito a correção, com estas palavras: *"a capa promete espanhol e o carrossel
+só mostrava inglês; e a prova cabe numa imagem"*. O acervo guarda erro
+documentado, e repetir um deles é o desperdício mais caro que ele permite.
+
+**E a melhor prova era do canal errado — o que não a desqualifica, obriga a
+redesenhar.** Aqueles recortes são do totem, em cartão de grade, e o slide 6
+desta peça mostra a lista do tablet: lado a lado, a arte diria que são dois
+aparelhos. O par foi refeito com o `.tela-tablet__item` do slide 6, a foto real
+da biblioteca e o texto do `traducoes.json` da peça de origem. Mesmo item, mesma
+foto, mesmo preço, mudando a linha do nome e o botão (`Order` / `Pedir`).
+
+> Quando a melhor prova é do canal errado, **reusa-se a ideia da prova**, e não
+> o arquivo.
+
+Entraram no `base.css` duas peças pequenas para isso: `.tela-tablet--avulsa` (a
+tela do tablet fora do aparelho, com um item só) e `.rotulo-idioma` (a legenda
+de bandeira que fica **fora** do recorte, porque não é interface).
 
 #### O conferidor mede a frase; a ideia é você que julga
 

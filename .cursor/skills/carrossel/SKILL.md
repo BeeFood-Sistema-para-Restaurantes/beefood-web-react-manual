@@ -131,11 +131,14 @@ ls carrosseis/*/*.json                   # dados de exemplo (traduções, cupons
 Depois abra o `roteiro.md` das peças do **mesmo gênero** e das que tocam o mesmo
 módulo, e responda duas perguntas:
 
-1. **O que já está provado e vale aqui?** Tela de cadastro, cartão nos dois
-   idiomas, modal de configuração — prova de módulo compartilhado é verdadeira
-   em todos os canais que usam aquele módulo.
+1. **Quais provas já existem sobre este assunto?** No plural. O acervo quase
+   nunca tem uma só, e a primeira que aparece na busca costuma não ser a
+   melhor — a escolhida é a que prova a **manchete inteira**.
 2. **O que a peça vizinha já prometeu, e como esta se diferencia dela?** Duas
    capas da mesma linha não podem vender o mesmo gancho.
+3. **Que erro ela já cometeu neste assunto?** O `roteiro.md` de cada peça
+   registra o que deu errado e por quê. Repetir erro documentado é o
+   desperdício mais caro do acervo.
 
 **Isso pesa muito mais no gênero `função` do que no gênero `novidade`.** Uma
 novidade é um recorte no tempo: ela tem um fato próprio, e reaproveitar prova de
@@ -148,6 +151,12 @@ atalho: é o que mantém as peças **coerentes entre si**.
 reaproveitado é escrito do zero para responder a pergunta que **esta** peça
 deixou aberta — trocar as palavras e manter o ângulo da peça de origem é o erro
 que parece resolvido e não está.
+
+**Quando a melhor prova é do canal errado, redesenhe.** Os recortes do cartão em
+inglês e espanhol são do totem; na peça do tablet eles foram refeitos com o
+componente de tela do tablet, a foto da biblioteca e o texto do arquivo de
+tradução da peça de origem. O que se reusa aí é a **ideia da prova**, e não o
+arquivo.
 
 Regra e limites em
 [`references/roteiro-e-copy.md`](references/roteiro-e-copy.md), seção *o acervo

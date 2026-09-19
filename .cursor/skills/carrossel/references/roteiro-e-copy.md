@@ -133,8 +133,12 @@ ls carrosseis/*/*.json                   # dados de exemplo já montados
 Depois abra o `roteiro.md` das peças do mesmo gênero e das que tocam o mesmo
 módulo. Duas perguntas, e as duas mudam a peça nova:
 
-1. **O que já está provado e vale aqui?**
+1. **Quais provas já existem sobre este assunto?** No plural: liste todas antes
+   de escolher, e escolha a que sustenta a manchete inteira.
 2. **O que a peça vizinha já prometeu, e como esta se diferencia dela?**
+3. **Que erro ela já cometeu neste assunto?** O `roteiro.md` de cada peça
+   registra o que deu errado. Repetir um erro documentado é o desperdício mais
+   caro do acervo.
 
 #### Por que isso vale muito mais no gênero `função`
 
@@ -152,14 +156,47 @@ perfil vê a mesma tela de cadastro na peça do totem e na do tablet, e entende
 sozinho que é um sistema só. Capturar de novo, com outro produto e outro
 recorte, ensinaria o contrário.
 
+#### Levantar todas as candidatas antes de escolher uma
+
+O acervo quase nunca tem **uma** prova do assunto. Tem duas ou três, capturadas
+em peças diferentes, e a primeira que aparece na busca é a que tende a ser
+usada — o que é sorte, não escolha. Liste todas antes de pegar qualquer uma, e
+escolha por um critério só:
+
+> **Qual delas prova a manchete inteira?**
+
+No slide de idiomas do tablet havia duas candidatas, e elas provam coisas
+diferentes:
+
+| Candidata | O que prova | Serve à manchete "inglês e espanhol"? |
+|---|---|---|
+| print do cadastro do produto | **quem escreve** o texto, num idioma | metade |
+| par do mesmo item nos dois idiomas | **que são dois**, com foto e preço intactos | inteira |
+
+A primeira versão pegou o cadastro sem comparar, e o slide ficou prometendo dois
+idiomas enquanto mostrava um. O carrossel da tradução **já tinha passado por
+isso** e registrado no roteiro: *"a capa promete espanhol e o carrossel só
+mostrava inglês; e a prova cabe numa imagem"*. Ler o roteiro da peça vizinha
+teria poupado a rodada.
+
+O que a candidata perdedora provava não some do slide — desce para o chapéu e
+para o corpo, onde cabe sem imagem.
+
 #### A pergunta que autoriza o reuso
 
 > **Esta prova é do módulo, ou é do canal?**
 
 Prova de **módulo** viaja: a tela do cadastro de produto, o modal de
-configuração, o cartão de cupom. Prova de **canal** não viaja, mesmo quando é
-tentador — os dois recortes do cartão em inglês e espanhol do totem são do
-**totem**, e pôr eles numa peça de tablet é arte desmentindo a frase do slide.
+configuração, o cartão de cupom. Prova de **canal** não viaja, mesmo quando é a
+melhor candidata — os dois recortes do cartão em inglês e espanhol são do
+**totem**, em cartão de grade, e o slide vizinho da peça do tablet mostra a
+lista do tablet: lado a lado, a arte diria que são dois aparelhos.
+
+**Quando a melhor prova é do canal errado, redesenhe em vez de trocar de
+prova.** O par foi refeito com o componente de tela do tablet, a foto real da
+biblioteca e o texto do arquivo de tradução da peça de origem — mesmo item,
+mesma foto, mesmo preço, mudando a linha do nome e o botão. O que se reusa aí
+já não é o arquivo: é a **ideia da prova**, que é o que a tornava boa.
 
 #### Reusar é adaptar, e adaptar começa na ideia — não na frase
 
@@ -816,6 +853,11 @@ Vai no fim do `roteiro.md`, pronta para copiar:
       **ideia** é desta peça. Escreva a pergunta que este ponto do arco deixou
       aberta: se ela for a mesma que a peça de origem respondia, o ângulo veio
       junto por engano — trocar as palavras não conserta isso.
+- [ ] **A arte prova a manchete inteira?** Se o título diz duas coisas (dois
+      idiomas, dois canais, antes e depois) e a imagem mostra uma, ou a imagem
+      está errada ou o título está grande demais. Havendo mais de uma prova no
+      acervo, a escolhida é a que fecha o título — e, se ela for do canal
+      errado, redesenhe em vez de trocar de prova.
 - [ ] **A manchete vende o uso principal, e não o recurso mais vistoso?** Se o
       restaurante comprar por causa desta capa, é isso que ele vai usar todo
       dia? E, quando o produto tem irmãos na linha (totem, tablet, QR Code,
