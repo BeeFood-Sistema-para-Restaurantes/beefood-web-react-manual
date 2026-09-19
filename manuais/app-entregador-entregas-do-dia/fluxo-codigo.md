@@ -34,7 +34,59 @@ atrasado), endereço completo e, quando há saldo, **Cobrar R$ {valor}** em verd
 **Não há botão de ação na lista.** Cobrar e finalizar vivem só nos detalhes, e isso é decisão de
 produto: a lista é rolada com o polegar enquanto a moto está parada no farol.
 
-## 2. Os detalhes
+## 2. O que muda a lista sem o entregador mexer
+
+Duas peças, uma em cada lado. No servidor, `src/models/gestaoEntrega/notificacao.js` é o **único**
+lugar que decide se avisa, quem avisa e o que diz. No aplicativo,
+`components/Navigation/EntregadorPushHost.js` monta dois ouvintes globais, ao lado do host de
+localização.
+
+| Evento | Título e corpo | Quando |
+|---|---|---|
+| `PEDIDO_VINCULADO` | **Novo pedido para você** · *Toque para ver a entrega* | o painel atribui um pedido avulso |
+| `PEDIDO_DESVINCULADO` | **Um pedido saiu da sua lista** · *Toque para conferir suas entregas* | o painel tira o pedido dele |
+| `ROTA_ASSOCIADA` | **Nova rota para você** · *Rota {código} com {N} paradas · toque para iniciar* | a rota ganha entregador |
+| `ROTA_REMOVIDA` / `ROTA_CANCELADA` / `ROTA_ALTERADA` | *Rota removida* / *Rota cancelada* / *Sua rota mudou* | assunto do #113 |
+
+**Nenhum texto leva endereço, nome de cliente nem número de pedido, de propósito:** a notificação
+aparece na tela de bloqueio, sem desbloquear o aparelho. É o que sustenta a frase do manual — *o
+aviso não diz qual pedido é* — e não é limitação do aviso, é decisão de privacidade.
+
+Os textos estão marcados no código como **proposta**, não como texto aprovado. Se mudarem, mudam
+num arquivo só, e as duas imagens deste manual ficam desatualizadas juntas.
+
+Três comportamentos que explicam perguntas do FAQ:
+
+- **Rota alterada tem freio de um aviso por minuto, por rota.** Arrastar paradas no painel dispara
+  um evento a cada solta; sem o freio o telefone tremeria a cada arrasto. Os excedentes são
+  **descartados**, não enfileirados — o aviso diz "confira", e conferir uma vez cobre as três
+  mudanças.
+- **Os dois ouvintes recarregam a lista com 800 ms de espera.** Sem isso, dois avisos ao mesmo
+  tempo — dois pedidos, ou o par *removido de você* / *associado a ele* — disparam dois
+  carregamentos, e o mais velho pode chegar por último.
+- **Quando o toque é o que abre o app, o ouvinte pode não estar montado e o evento se perde.** O
+  entregador cai no fluxo normal e vê a lista atualizada de qualquer forma, só não é levado pelo
+  atalho. É a pergunta *chegou o aviso e a lista continua igual* — e a resposta do manual (tocar no
+  aviso, não no ícone) é o caminho que funciona sempre.
+
+O banner aparecer com o **aplicativo aberto** — que é o estado da imagem `11` — depende de
+`setNotificationHandler` com `shouldShowBanner`; o padrão da biblioteca é engolir a notificação
+nesse caso. O toque leva sempre para `Entregas`, nunca para a rota: o deep link de `Rota` é
+declarado e não registrado no navegador.
+
+### Sem rede, a lista não tem estado de erro
+
+O inventário da tela tem lista cheia e **Nenhuma entrega agora**, e nada entre os dois: falha de
+requisição deixa na tela o que o último carregamento trouxe. Foi medido no print de
+`19-sem-internet/`, com o modo avião ligado — a pílula segue verde, os cartões seguem lá, o
+**ATUALIZAR** roda e volta.
+
+A pílula é presença declarada (`POST entrega2/gestao/presenca`), não estado de rede: ela só fica
+com o ícone de nuvem quando **o próprio envio da presença** não foi confirmado. Lista que não
+carrega e presença que não sobe são dois caminhos diferentes, e o manual precisa dizer isso porque
+a tela não diz.
+
+## 3. Os detalhes
 
 `src/components/Rota/Detalhes.js`. Abre como tela cheia sobre a lista, header **DETALHES DA
 ENTREGA**.
@@ -70,7 +122,7 @@ trata isso como conferência, não como aviso, porque é o que ela é na prátic
 | Não há saldo | **FINALIZAR** |
 | O pagamento já foi registrado nesta sessão | só **FINALIZAR** |
 
-## 3. O histórico
+## 4. O histórico
 
 `src/views/historico/index.js`.
 
@@ -94,7 +146,7 @@ Duas coisas invisíveis que valem registro:
 - o `!` vermelho de atraso compara a hora da baixa com a previsão. Não há como o entregador
   contestar pela tela.
 
-## 4. Onde o manual escolheu ser mais direto que a tela
+## 5. Onde o manual escolheu ser mais direto que a tela
 
 | Tela | Manual | Por quê |
 |---|---|---|
@@ -102,10 +154,22 @@ Duas coisas invisíveis que valem registro:
 | a observação de finalização aparece junto do recado do cliente, na mesma cor | o manual avisa que ela é **permanente** | é texto que o entregador escreve com pressa e que fica no registro da entrega |
 | **TROCO** simplesmente não aparece quando não há | o manual mostra as duas telas lado a lado | entregador acostumado com a coluna acha que a tela quebrou |
 
-## 5. Procedência das imagens
+## 6. Procedência das imagens
 
-Os oito prints vêm do material do dono (emulador `Pixel_7_Pro`, Android 15). Duas das dez imagens
-do manual são **recortes** de prints maiores — o cartão e o rodapé —, não capturas novas.
+Os oito prints da primeira rodada vêm do material do dono (emulador `Pixel_7_Pro`, Android 15).
+Duas das dez primeiras imagens do manual são **recortes** de prints maiores — o cartão e o rodapé
+—, não capturas novas.
+
+As cinco da seção 2 vieram da segunda rodada, com duas diferenças de tratamento:
+
+- **`14-antes-e-depois.png` é a única montagem do manual:** dois prints colados por
+  `lado_a_lado()`, recortados na mesma faixa. Tela inteira duas vezes ficaria ilegível, e a metade
+  de cima é idêntica nas duas.
+- **A linha de *Previsão Entrega* foi trocada** pela do print da seção 1, por
+  [`../gestao-entregas/scripts/relogio.py`](../gestao-entregas/scripts/relogio.py): os prints novos
+  são de dois dias depois, e a data em letras vermelhas contradiz o resto do manual. O transplante
+  é de tinta do próprio aplicativo — a Roboto do Android não existe na máquina que monta as
+  imagens. Nada mais da tela muda.
 
 Os destinatários que aparecem (*Ana Beatriz Moraes*, *Carlos Eduardo Prado*, *Rafael Monteiro
 Dias*) foram conferidos na base do sandbox antes de versionar: são **clientes sintéticos**,

@@ -73,11 +73,94 @@ O botão azul fica **fixo** acima das abas, e não desaparece ao rolar. Ele est�
 
 Arrastar a tela para baixo, tocar em **ATUALIZAR**, ou sair e voltar para a aba *Entregas* — o
 aplicativo recarrega sozinho ao voltar. Quando chega pedido novo pela notificação, ele já faz
-isso por você: abre em *Entregas*, fecha o detalhe que estiver aberto e recarrega.
+isso por você: abre em *Entregas*, fecha o detalhe que estiver aberto e recarrega. É o que a
+próxima seção mostra.
 
 ---
 
-## 2. Os detalhes da entrega
+## 2. A lista muda sozinha
+
+O restaurante despacha e cancela pedidos enquanto você roda. Quando isso acontece, o aplicativo
+avisa e a lista muda — **sem você tocar em nada**.
+
+### O aviso de entrega nova
+
+![O aviso de entrega nova, por cima da lista](imagens-tratadas/11-aviso-chegando.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **BeeFood Entregador** | Quem mandou o aviso. É o aplicativo, não o WhatsApp do restaurante. |
+| 2. | **Novo pedido para você** | O que aconteceu: o restaurante atribuiu uma entrega a você. |
+| 3. | **Toque para ver a entrega** | O que fazer. |
+| 4. | **A lista, por baixo** | O aviso chega por cima da tela que você já estava usando. |
+
+O aviso **não diz qual pedido é**: nem número, nem endereço, nem valor. Ele diz que chegou algo e
+manda olhar a lista.
+
+### Depois do toque
+
+![A lista depois de tocar no aviso](imagens-tratadas/12-lista-depois-do-toque.png)
+
+| Nº | Onde | O que mudou |
+|----|------|-------------|
+| 1. | **O cartão novo** | A entrega que acabou de chegar, na posição que a distância dela pede. |
+| 2. | **MELHOR ROTA GOOGLE MAPS (3)** | O contador subiu: agora são três paradas. |
+| 3. | **Aba *Entregas*** | O toque no aviso traz você para cá, mesmo que estivesse no histórico ou num detalhe. |
+
+**O contador do botão azul é o jeito mais rápido de conferir.** Ele conta as paradas da lista, e é
+um número só — mais fácil de guardar de cabeça do que a lista inteira.
+
+### O aviso de que uma entrega saiu
+
+![O aviso de que um pedido saiu da lista](imagens-tratadas/13-aviso-de-remocao.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **Um pedido saiu da sua lista** | O restaurante passou a entrega para outro entregador, ou cancelou o pedido. |
+| 2. | **Toque para conferir suas entregas** | O aviso não diz **qual** saiu — só que a lista encurtou. |
+
+### O que muda na lista
+
+![A lista antes e depois de uma entrega sair](imagens-tratadas/14-antes-e-depois.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **Antes** | A terceira posição era de uma entrega, e havia uma quarta depois dela. |
+| 2. | **Depois** | A entrega que estava na terceira posição saiu, e a seguinte subiu para o lugar dela. |
+
+Os círculos **são renumerados**: quem era 4 passa a ser 3. Por isso o combinado com o restaurante
+nunca é "a número 3" — é o endereço, ou o número do pedido.
+
+O contador do botão azul cai junto: **(4)** virou **(3)**. Se ele caiu e você não recebeu aviso
+nenhum, a entrega saiu enquanto o telefone estava sem sinal.
+
+> **Entrega que sai da sua lista não vai para o seu histórico.** O histórico só guarda o que
+> **você** finalizou. Se você já tinha coletado o pedido, ligue para o restaurante antes de
+> devolver a sacola.
+
+### Quando a lista para de mudar
+
+Sem internet, a lista não dá erro: ela **repete o que já tinha**.
+
+![A lista sem internet, com a pílula ONLINE verde](imagens-tratadas/15-lista-sem-carregar.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **A pílula ONLINE** | Continua verde. Ela diz que você **se declarou disponível**, não que há internet. |
+| 2. | **Os cartões** | Os mesmos de antes, com a mesma hora e o mesmo valor. |
+| 3. | **ATUALIZAR** | Roda, volta, e não traz nada de novo. |
+
+**Não existe tela de "sem conexão" nesta lista.** O aplicativo guarda o que carregou por último e
+mostra de novo — então lista parada pode ser um turno calmo ou um telefone sem sinal, e as duas
+coisas têm a mesma cara.
+
+Dois sinais separam uma da outra: abra um detalhe e veja se **os itens** aparecem (eles são
+buscados na hora, e sem rede o pedido vem vazio), e confira se a pílula responde ao toque. Quando
+a rede voltar, um **ATUALIZAR** põe tudo em ordem.
+
+---
+
+## 3. Os detalhes da entrega
 
 Tocar num cartão abre esta tela. É aqui que está tudo o que você precisa na porta do cliente.
 
@@ -150,7 +233,7 @@ que dois pedidos podem ter alturas de tela bem diferentes.
 
 ---
 
-## 3. O histórico
+## 4. O histórico
 
 A aba **Histórico** guarda o que você já entregou. É o seu comprovante dentro do aplicativo.
 
@@ -213,8 +296,21 @@ A finalização provavelmente não chegou ao servidor. Abra o detalhe: se o bot�
 está lá, ela não foi baixada.
 
 **Uma entrega desapareceu sem eu fazer nada.**
-O restaurante pode tê-la passado para outro entregador, ou cancelado o pedido. O histórico só
+O restaurante passou o pedido para outro entregador, ou cancelou. O aplicativo avisa quando isso
+acontece — o aviso e o que muda na lista estão na seção **A lista muda sozinha**. O histórico só
 guarda o que **você** entregou.
+
+**Chegou o aviso de pedido novo e a lista continua igual.**
+Toque no aviso, e não no ícone do aplicativo: o toque no aviso é o que recarrega a lista. Se ainda
+assim não mudar, é sinal, não erro — veja *Quando a lista para de mudar*.
+
+**A lista não atualiza de jeito nenhum.**
+A pílula verde não garante internet. Confira pelos itens de um detalhe: se o pedido vem vazio, é
+falta de rede. A seção **A lista muda sozinha** tem a tela e os dois sinais.
+
+**Não recebo aviso nenhum.**
+A permissão de notificação do telefone está negada, ou o aplicativo foi fechado pelo sistema.
+Está em [App do entregador: instalar, entrar e ficar disponível](../app-entregador-entrar/app-entregador-entrar.md).
 
 **Os itens do pedido não aparecem.**
 Eles são buscados no momento em que você abre o detalhe. Sem internet, o cartão do pedido fica

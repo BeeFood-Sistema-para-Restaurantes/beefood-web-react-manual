@@ -18,6 +18,7 @@ Nenhuma outra tela do app precisa disso: as demais têm uma informação por lin
 import math
 import os
 import shutil
+import sys
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -29,6 +30,17 @@ SRC = "imagens-puras"
 OUT = "imagens-tratadas"
 os.makedirs(SRC, exist_ok=True)
 os.makedirs(OUT, exist_ok=True)
+
+# Os prints da segunda rodada foram tirados dois dias depois dos da primeira, e a lista mostra a
+# data em letras vermelhas. `relogio` transplanta a linha de data de um print da primeira rodada
+# para dentro deles, com os glifos do próprio aplicativo — a seção 1 e a seção 4 deste manual
+# passam a ser o mesmo dia. Só a linha da data muda; o resto da tela é o que o emulador mostrou.
+sys.path.insert(0, "../gestao-entregas/scripts")
+import relogio  # noqa: E402
+
+# A data de referência é a do print que abre o manual: `17/09/2026 23:44`, a previsão dos quatro
+# pedidos da seção 1.
+DATA = relogio.tinta(f"{MATERIAL}/03-lista-de-entregas/prints/01-lista-quatro-entregas.png")
 
 GREEN = (22, 150, 78)
 WHITE = (255, 255, 255)
@@ -70,16 +82,21 @@ def com_margem(nome, esq=0.0, topo=0.0, dire=0.0, fundo=FUNDO):
     print("MARGEM", nome, tela.size)
 
 
-def copiar(origem, nome, caixa=None, largura=None):
+def copiar(origem, nome, caixa=None, largura=None, data=False):
     """Traz um print do material para `imagens-puras/`.
 
     `caixa` é em **fração** (esq, topo, dir, base) da imagem original: o print do celular tem
     1440x3120 e quase sempre sobra faixa preta em cima e embaixo, que só encolhe o que
     interessa. `largura` reamostra para um tamanho fixo, para as imagens do manual ficarem do
     mesmo tamanho na página.
+
+    `data=True` passa o print pelo `relogio`, que troca a linha de *Previsão Entrega* pela do
+    print de referência. Vale para os prints da segunda rodada, tirados dois dias depois.
     """
     caminho = os.path.join(MATERIAL, origem)
     img = Image.open(caminho).convert("RGB")
+    if data:
+        print("RELOGIO", nome, relogio.ajustar(img, DATA), "linha(s) de data")
     if caixa:
         W, H = img.size
         img = img.crop((int(caixa[0] * W), int(caixa[1] * H),
@@ -319,3 +336,93 @@ annotate("10-detalhe-no-historico.png", [
     (2, *a(80, 700), ETQ, a(0, 700)[1]),         # VALOR TOTAL DO PEDIDO
     (3, *a(40, 830), ETQ, a(0, 830)[1]),         # a linha do tempo
 ], r=30, w=4)
+
+# ---------------------------------------------------------------------------------------
+# 11 a 15 — a lista que muda sem o entregador mexer
+# ---------------------------------------------------------------------------------------
+# Vieram da segunda rodada (`capturas-2/16-notificacoes/`, `17-troca-de-entregador/`,
+# `19-sem-internet/`, `21-listas-vazias/` e uma da `_triagem/`). Todas respondem a mesma família de
+# pergunta: **a lista mudou e eu não fiz nada** — chegou entrega, saiu entrega, ou ela parou de
+# mudar porque o sinal caiu.
+#
+# Duas regras novas de recorte nasceram aqui:
+#
+# * **As duas de notificação (`11` e `13`) são as únicas do bloco que guardam a barra do sistema.**
+#   Nelas a barra não mostra relógio: mostra o ícone e o nome **BeeFood Entregador**, que é o que
+#   diz de quem é o aviso. Cortar a barra tiraria justamente o que a imagem prova. Nas outras
+#   quatro o recorte começa abaixo dela, porque o relógio do emulador estava em UTC.
+# * **O par antes/depois (`14`) tem um marcador em cada metade, na mesma altura.** O cartão que saiu
+#   ocupava exatamente o lugar que o seguinte passou a ocupar; marcar as duas metades no mesmo ponto
+#   é o que mostra a substituição sem precisar de legenda comparativa.
+NT = "capturas-2/16-notificacoes/prints"
+TC = "capturas-2/17-troca-de-entregador/prints"
+SI = "capturas-2/19-sem-internet/prints"
+TR = "capturas-2/_triagem/prints"
+ETQ_DIR = 0.94
+
+# 11 — o aviso chegando por cima da lista.
+C11, M11 = (0, 0.0, 1, 0.274), 0.26
+copiar(f"{NT}/01-aviso-chegando.png", "11-aviso-chegando.png", caixa=C11, largura=700,
+       data=True)
+margem("11-aviso-chegando.png", m=M11)
+a = rec(C11, m=M11)
+annotate("11-aviso-chegando.png", [
+    (1, *a(48, 22), ETQ, a(0, 22)[1]),           # BeeFood Entregador, na barra do sistema
+    (2, *a(82, 90), ETQ, a(0, 80)[1]),           # Novo pedido para você · agora
+    (3, *a(82, 115), ETQ, a(0, 128)[1]),         # Toque para ver a entrega
+    (4, *a(20, 196), ETQ, a(0, 210)[1]),         # o primeiro cartão, visível por baixo
+], r=24, w=4)
+
+# 12 — depois do toque: aba Entregas em foco, a entrega nova no fim e o contador do botão azul
+# um número acima.
+C12, M12 = (0, 0.045, 1, 0.981), 0.26
+copiar(f"{NT}/02-lista-depois-do-toque.png", "12-lista-depois-do-toque.png",
+       caixa=C12, largura=620, data=True)
+margem("12-lista-depois-do-toque.png", m=M12)
+a = rec(C12, m=M12)
+annotate("12-lista-depois-do-toque.png", [
+    (1, *a(24, 566), ETQ, a(0, 566)[1]),         # o terceiro cartão: o que acabou de chegar
+    (2, *a(18, 892), ETQ, a(0, 892)[1]),         # MELHOR ROTA GOOGLE MAPS (3)
+    (3, *a(30, 985), ETQ, a(0, 985)[1]),         # a aba Entregas, em vermelho
+], r=26, w=4)
+
+# 13 — o outro aviso, o que ninguém quer receber.
+C13, M13 = (0, 0.0, 1, 0.274), 0.26
+copiar(f"{TC}/01-aviso-de-remocao.png", "13-aviso-de-remocao.png", caixa=C13, largura=700,
+       data=True)
+margem("13-aviso-de-remocao.png", m=M13)
+a = rec(C13, m=M13)
+annotate("13-aviso-de-remocao.png", [
+    (1, *a(82, 90), ETQ, a(0, 80)[1]),           # Um pedido saiu da sua lista · agora
+    (2, *a(82, 115), ETQ, a(0, 128)[1]),         # Toque para conferir suas entregas
+], r=24, w=4)
+
+# 14 — o par antes/depois. O recorte é curto de propósito: começa no fim do cartão 2 e vai até o
+# botão azul, que é a faixa onde a diferença está. Tela inteira duas vezes lado a lado ficaria
+# ilegível, e a metade de cima é idêntica nas duas.
+C14, TM14 = (0, 0.430, 1, 0.930), 0.20
+copiar(f"{TR}/lista-antes.png", "14a-antes.png", caixa=C14, largura=520, data=True)
+copiar(f"{TC}/02-lista-sem-o-pedido.png", "14b-depois.png", caixa=C14, largura=520, data=True)
+lado_a_lado(["14a-antes.png", "14b-depois.png"], "14-antes-e-depois.png")
+com_margem("14-antes-e-depois.png", topo=TM14 / (1 - TM14))
+# Coordenada escrita à mão: `rec()` fala de um print só, e aqui são dois colados. A metade
+# esquerda ocupa 0..0,489 e a direita 0,511..1; o alvo é o mesmo ponto nas duas — o círculo
+# numerado do terceiro cartão —, alcançado por uma seta vertical que desce pela calha vazia à
+# esquerda dos endereços.
+annotate("14-antes-e-depois.png", [
+    (1, 0.028, 0.372, 0.028, 0.10),              # antes: o cartão 3 era a Rua Aparecida
+    (2, 0.539, 0.372, 0.539, 0.10),              # depois: o mesmo lugar, com o endereço seguinte
+], r=24, w=4)
+
+# 15 — a lista sem rede. A imagem inteira é a mensagem: **não há mensagem**. Os três marcadores
+# apontam para o que continua igual, e a pílula é o mais importante deles.
+C15, M15, MD15 = (0, 0.045, 1, 0.981), 0.24, 0.13
+copiar(f"{SI}/01-lista-sem-carregar.png", "15-lista-sem-carregar.png", caixa=C15, largura=620,
+       data=True)
+margem("15-lista-sem-carregar.png", m=M15, md=MD15)
+a = rec(C15, m=M15, md=MD15)
+annotate("15-lista-sem-carregar.png", [
+    (1, *a(458, 82), ETQ_DIR, a(0, 82)[1]),      # a pílula ONLINE, verde como sempre
+    (2, *a(118, 155), ETQ, a(0, 155)[1]),        # os cartões, congelados no que já havia
+    (3, *a(142, 710), ETQ, a(0, 710)[1]),        # ATUALIZAR, que não traz nada novo
+], r=26, w=4)

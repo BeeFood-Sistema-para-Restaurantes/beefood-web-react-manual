@@ -13,6 +13,11 @@ Leia APENAS os arquivos abaixo:
    - `.../imagens-tratadas/01-lista.png`
    - `.../imagens-tratadas/02-cartao.png`
    - `.../imagens-tratadas/03-fim-da-lista.png`
+   - `.../imagens-tratadas/11-aviso-chegando.png`
+   - `.../imagens-tratadas/12-lista-depois-do-toque.png`
+   - `.../imagens-tratadas/13-aviso-de-remocao.png`
+   - `.../imagens-tratadas/14-antes-e-depois.png`
+   - `.../imagens-tratadas/15-lista-sem-carregar.png`
    - `.../imagens-tratadas/04-detalhes.png`
    - `.../imagens-tratadas/06-conferir-destaque.png`
    - `.../imagens-tratadas/05-rodape.png`
@@ -25,9 +30,9 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 
 - Apresentação IGUAL ao menu "Abrir Caixa".
 - pt-BR, didático. Manter as tabelas de setas (nº → onde → o que é) embaixo de cada imagem.
-- **A ordem das imagens no `.md` não é a ordem do nome do arquivo**: a folha de conferência
-  (`06`) aparece antes do rodapé (`05`), porque ela pertence à seção do item em destaque. Seguir
-  a ordem do texto.
+- **A ordem das imagens no `.md` não é a ordem do nome do arquivo**: as cinco da seção 2 (`11` a
+  `15`) entram entre a `03` e a `04`, e a folha de conferência (`06`) aparece antes do rodapé
+  (`05`), porque ela pertence à seção do item em destaque. Seguir a ordem do texto.
 - Avisar, no começo, que a **Gestão de Entregas está em liberação**. Não citar `empresaID`.
 - **Este manual é para o entregador.** Tom de quem está com o celular na mão, na rua.
 - Manter, sem enxugar:
@@ -43,7 +48,17 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
   (h) que o aplicativo **não tem filtro de data** no histórico, e que ele mostra só as entregas
   daquele entregador;
   (i) que a **observação escrita ao finalizar fica registrada para sempre**;
-  (j) que os itens do pedido são buscados ao abrir o detalhe — sem internet, o cartão fica vazio.
+  (j) que os itens do pedido são buscados ao abrir o detalhe — sem internet, o cartão fica vazio;
+  (k) que o **aviso de entrega nova não diz qual pedido é** — nem número, nem endereço, nem valor
+  —, e que é o **toque no aviso** que recarrega a lista;
+  (l) que os **círculos são renumerados** quando uma entrega sai, e que por isso o combinado com o
+  restaurante é pelo endereço ou pelo número do pedido, nunca "a número 3";
+  (m) que o **contador do botão azul** é o jeito rápido de conferir quantas paradas restam;
+  (n) que a **pílula verde não é medidor de internet**, e que a lista sem rede **repete o que já
+  tinha, sem nenhuma mensagem de erro** — os dois sinais para descobrir são os itens de um detalhe
+  e a resposta da pílula ao toque;
+  (o) que entrega que **sai da lista não vai para o histórico**, e que, se a sacola já foi
+  coletada, o caminho é ligar para o restaurante.
 - Não publicar rotas de API, nomes de tabela, nomes de coluna nem nomes de arquivo do aplicativo.
   Em particular: não citar `ItemEntrega`, `preVendaID`, `tipoPagStr` nem `entrega2/gestao`.
 - Não citar bastidor de captura: nem emulador, nem material recebido, nem que duas imagens são
@@ -55,8 +70,9 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 - Para que serve
 - Antes de começar
 - 1. A lista de entregas
-- 2. Os detalhes da entrega
-- 3. O histórico
+- 2. A lista muda sozinha
+- 3. Os detalhes da entrega
+- 4. O histórico
 - Perguntas frequentes
 - Onde continuar
 
@@ -66,14 +82,21 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 2. `02-cartao.png` — Um cartão da lista: número do pedido, previsão, flecha, círculo da parada e
    Cobrar R$.
 3. `03-fim-da-lista.png` — O fim da lista, com ATUALIZAR e MELHOR ROTA GOOGLE MAPS (4).
-4. `04-detalhes.png` — Os detalhes da entrega: endereço fixo, complemento, observações, VER NO
+4. `11-aviso-chegando.png` — O aviso de entrega nova, por cima da lista.
+5. `12-lista-depois-do-toque.png` — A lista depois do toque no aviso, com o cartão novo e o
+   contador do botão azul um número acima.
+6. `13-aviso-de-remocao.png` — O aviso de que um pedido saiu da lista.
+7. `14-antes-e-depois.png` — A lista antes e depois de uma entrega sair, lado a lado.
+8. `15-lista-sem-carregar.png` — A lista sem internet: pílula verde, cartões repetidos e nenhuma
+   mensagem de erro.
+9. `04-detalhes.png` — Os detalhes da entrega: endereço fixo, complemento, observações, VER NO
    MAPA, itens e a linha preta do item em destaque.
-5. `06-conferir-destaque.png` — A folha CONFIRMA E ENTREGA DESSES PRODUTOS CORRETAMENTE?
-6. `05-rodape.png` — O rodapé escuro: forma de pagamento, TOTAL / TROCO / COBRAR e os dois
-   botões.
-7. `07-sem-complemento.png` — Um pedido sem complemento e pago em Pix, sem a coluna TROCO.
-8. `08-historico-dias.png` — O histórico agrupado por dia.
-9. `09-dia-expandido.png` — As entregas de um dia, com o `!` de atraso e a etiqueta do
-   marketplace.
-10. `10-detalhe-no-historico.png` — O detalhe no histórico, com VALOR TOTAL DO PEDIDO e a linha do
+10. `06-conferir-destaque.png` — A folha CONFIRMA E ENTREGA DESSES PRODUTOS CORRETAMENTE?
+11. `05-rodape.png` — O rodapé escuro: forma de pagamento, TOTAL / TROCO / COBRAR e os dois
+    botões.
+12. `07-sem-complemento.png` — Um pedido sem complemento e pago em Pix, sem a coluna TROCO.
+13. `08-historico-dias.png` — O histórico agrupado por dia.
+14. `09-dia-expandido.png` — As entregas de um dia, com o `!` de atraso e a etiqueta do
+    marketplace.
+15. `10-detalhe-no-historico.png` — O detalhe no histórico, com VALOR TOTAL DO PEDIDO e a linha do
     tempo.

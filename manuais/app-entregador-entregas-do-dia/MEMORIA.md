@@ -66,15 +66,60 @@ Entregador acostumado com a coluna TROCO acha que a tela quebrou quando ela não
   são sintéticos, semeados por script, sem telefone nem e-mail — laudo em
   [`../gestao-entregas/material-recebido/README.md`](../gestao-entregas/material-recebido/README.md).
 
+## A segunda rodada trouxe uma seção inteira
+
+Cinco prints da segunda rodada de capturas viraram a **seção 2 — A lista muda sozinha**, que não
+existia. Eles não são variação das dez primeiras: são a lista **mudando**, e isso é um assunto, não
+um detalhe de tela.
+
+| Print | O que mostra | Virou |
+|---|---|---|
+| `16-notificacoes/01-aviso-chegando` | o aviso do sistema por cima da lista | *O aviso de entrega nova* |
+| `16-notificacoes/02-lista-depois-do-toque` | a lista recarregada, com o cartão novo | *Depois do toque* |
+| `17-troca-de-entregador/01-aviso-de-remocao` | o aviso de que um pedido saiu | *O aviso de que uma entrega saiu* |
+| `_triagem/lista-antes` + `17-.../02-lista-sem-o-pedido` | quatro cartões e três, lado a lado | *O que muda na lista* |
+| `19-sem-internet/01-lista-sem-carregar` | a lista sem rede, sem erro nenhum | *Quando a lista para de mudar* |
+
+Três coisas que só apareceram com as fotos na mão:
+
+- **O aviso não diz qual pedido é.** Nem número, nem endereço, nem valor: *Novo pedido para você*
+  e nada mais. A pergunta do FAQ mudou por causa disso — o entregador não tem como saber o que
+  chegou sem abrir a lista.
+- **Os círculos são renumerados quando alguém sai.** No par antes/depois, quem era 4 virou 3. Foi
+  o argumento que faltava para a regra "combine pelo endereço, não pelo número da parada".
+- **A pílula continua verde sem internet.** É a foto que resolve a pergunta mais frequente do
+  suporte, e ela resolve dizendo que a tela **não** avisa: o aplicativo repete o que carregou por
+  último. Os dois sinais que sobraram — itens vazios no detalhe, pílula que não responde — são a
+  única forma de descobrir de dentro do aplicativo.
+
+**As duas imagens de notificação são as únicas do manual que guardam a barra do sistema.** Nelas a
+barra não mostra relógio: mostra o ícone e o nome **BeeFood Entregador**, que é o que prova de quem
+é o aviso. Nas outras o recorte começa abaixo dela.
+
+## A data dos prints novos
+
+Os prints da segunda rodada foram tirados na madrugada de 19/09/2026, dois dias depois dos
+primeiros, e a lista mostra a previsão em letras vermelhas. Um manual que abre com `17/09/2026
+23:44` na seção 1 e mostra `19/09/2026 01:50` na seção 2 não é o mesmo dia nem a mesma história.
+
+[`../gestao-entregas/scripts/relogio.py`](../gestao-entregas/scripts/relogio.py) resolve
+transplantando a linha de data do print da seção 1 para dentro dos novos — tinta do próprio
+aplicativo, não texto redesenhado, porque a Roboto do Android não existe na máquina que monta as
+imagens e qualquer `9` redesenhado apareceria como remendo. Só a linha da data muda.
+
+## O print que não entrou
+
+`21-listas-vazias/02-historico-vazio` não é o histórico vazio: veio com **22 entregas em três
+dias**. Seria uma boa segunda foto do histórico, e ficou fora por contradição — ela mostra
+*Quinta 17/09 · 2 entregas* onde a imagem `08` deste manual mostra *3 entregas*. Entre os dois
+prints o painel remanejou um pedido, e a diferença apareceria para quem comparasse as duas fotos.
+
+O que ela ensinaria — **dia sem entrega não aparece na lista** — a imagem `08` já ensina: ela pula
+15 e 16 de setembro.
+
 ## O que falta
 
-Nada para publicar. Duas capturas pedidas em
-[`../gestao-entregas/pedidos/capturas-app.md`](../gestao-entregas/pedidos/capturas-app.md) melhoram
-este manual se chegarem:
-
-| Captura pedida | Onde entraria |
-|---|---|
-| **Histórico vazio** (*Nenhuma entrega no período*) | a pergunta *O histórico está vazio* |
-| **Entrega tirada do entregador** pelo painel | a pergunta *Uma entrega desapareceu sem eu fazer nada* |
-
-O texto já descreve as duas situações; a foto só tornaria a leitura mais rápida.
+Nada. As duas capturas que este manual esperava chegaram na segunda rodada — a da entrega tirada
+do entregador virou a seção 2 inteira, e a do histórico vazio veio com dado errado e está
+explicada acima. A pergunta *O histórico está vazio* continua respondida por texto, que é o
+suficiente: a tela dela é uma frase no meio de uma tela branca.
