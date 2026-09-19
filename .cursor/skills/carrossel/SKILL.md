@@ -93,6 +93,13 @@ Sem argumento, lê o RSS de `beefood.app/novidades` (título, data, tipo, áreas
 texto completo) e indica o manual relacionado, com a contagem de capturas que já
 existem lá.
 
+**Quando ele disser que não achou manual, confira à mão.** O casamento é por
+nome de pasta, e nome de pasta não segue o título do release — o do Painel para
+Entregadores mora em `manuais/painel-entregador/` e passou batido por uma letra
+de plural. O script lista as pastas mais próximas justamente para isso; um
+`ls manuais/ | grep <palavra>` custa segundos e o manual costuma trazer o
+recurso lido no código-fonte, que é fato mais duro que o release.
+
 Com `--pagina`, lê uma página de `beefood.com.br` e devolve a mesma coisa para o
 gênero *função*: os blocos da página, a lista de funcionalidades, o FAQ — e o
 cruzamento com `manuais/`, que é o que separa **o que tem manual** (fato
@@ -277,6 +284,38 @@ um `cupons.json` da pasta. Três cuidados:
   embaixo de marca real lê como promoção anunciada por um cliente nosso. E
   avise no `copy-instagram.txt` que aquele dado é exemplo.
 
+**E o terceiro uso: o dado real existe e desmente o produto.** Os dois casos
+acima são de falta — recurso desligado, lista vazia. Aqui a tela abria e
+funcionava: o Painel para Entregadores da sandbox mostrava **sete cartões
+vermelhos**, todos "Atrasado • 1h38min", porque os pedidos de teste são da
+manhã e ninguém os moveu. Tudo verdade, e a peça montada com aquilo vende "o
+sistema que atrasa tudo".
+
+Antes de fotografar, pergunte **o que esta tela diz sobre o produto para quem
+não conhece o produto**. Se a resposta for o contrário do que a peça promete, a
+cena se monta — e monta-se o mínimo:
+
+- **o que é prova fica.** Pedidos, origens, números de marketplace: são reais e
+  é deles que vem a credibilidade da imagem.
+- **muda-se o que o tempo parado estragou** — situação e relógio —, e **um
+  problema fica de pé**: tela boa demais não é turno, e o slide do alerta
+  precisa ter o que provar.
+- **o que sobra da cena, some.** Um pedido antigo fora do arquivo de cena
+  continuava entrando vermelho ao lado dos ajustados, e uma coluna com dois
+  regimes de tempo é pior que qualquer um dos dois.
+- **registre**: um `cena.json` na pasta diz o que mudou e por quê, o script
+  ganha `--cru` para mostrar a tela como ela está, e o `copy-instagram.txt`
+  avisa quem publica.
+
+Duas armadilhas de relógio, que custaram duas rodadas de captura: o front pode
+ler a data **ignorando o fuso** (meça `new Date(<o que vai injetar>)` contra
+`Date.now()` no navegador da captura, em vez de confiar no sufixo `Z`), e o
+mesmo cartão pode ter **duas contas** — o tempo de etapa e o alerta de atraso
+vinham de campos diferentes, e mexer em um só produzia um estado que o sistema
+nunca geraria. Detalhe em
+[`references/MEMORIA-CARROSSEIS.md`](references/MEMORIA-CARROSSEIS.md), seção
+*a cena honesta pode ser a pior peça de venda*.
+
 **Quando o recurso é a mídia que o lojista sobe, você faz a mídia.** Capa e
 vitrine em vídeo não têm captura: o cardápio modelo está vazio e o de produção
 tem a campanha de um cliente. O `fazer-midia.py` renderiza as artes de
@@ -322,6 +361,16 @@ Prefira fechar a borda do recorte em área vazia — corte no meio de uma palavr
 parece defeito. O viewport de captura é **1440×900 com DPR 2**, então a fração
 que você passa em `--recorte` vira pixels sobre 900 de altura, não sobre 1350:
 confira a medida do arquivo com Pillow antes de calcular porcentagem de realce.
+
+**E o layout mais rico da tela não é o melhor para o slide.** O Painel para
+Entregadores passa a duas colunas internas por etapa acima de 1500 px, e cabe
+quase o dobro de pedido — é para isso que existe TV grande. Capturado assim, o
+cartão estreita e `2740 - Coleta 6118` sai cortado no meio da palavra: na TV de
+50 polegadas ninguém repara, num slide lido no celular aquilo lê como **bug**.
+A captura foi refeita mais estreita, e a vantagem do modo largo virou uma linha
+de legenda. O critério da arte é um só — *o que precisa ser lido está
+legível?* — e vantagem de operação que não sobrevive à miniatura se escreve,
+não se fotografa.
 
 **O print do manual é referência, não imagem do carrossel.** Ele existe para
 ensinar um caminho: traz a tela inteira, o estado que o manual precisava e o
@@ -655,6 +704,12 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
 7. Alguma imagem da arte veio de `manuais/`? Sai: print de manual é referência,
    e a arte usa captura feita para o carrossel. E o sandbox voltou à
    configuração em que você o encontrou?
+7a. Olhe as capturas como quem **não conhece o produto**: elas dizem o que a
+   peça promete, ou o contrário? Sandbox parada gera estado verdadeiro e
+   péssimo (o painel com sete pedidos atrasados há 1h38min). Se a cena precisou
+   ser montada, existe `cena.json` na pasta, `--cru` no script e aviso no
+   `copy-instagram.txt`? E duas capturas da mesma peça concordam entre si —
+   mesmos contadores, mesmos pedidos?
 8. Alguma frase explica enfeite de tela ("a bolinha verde marca…")? Algum
    diminutivo? Algum "ele" que não é o leitor nem o cliente dele? Os três saem
    — e o que fica no lugar é a consequência para o negócio.

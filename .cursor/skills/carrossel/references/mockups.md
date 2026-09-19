@@ -386,6 +386,33 @@ Duas armadilhas que custaram render:
 O notebook **aceita 3D** (tampa tem espessura, e o giro valoriza). O monitor
 também, mas tem menos a ganhar: a peça é uma chapa.
 
+### `.monitor--parede`: a televisão, que é o monitor sem o que o faz monitor
+
+Tela de parede é outro produto, e o Painel para Entregadores é o caso: ele fica
+numa TV perto da retirada, não na mesa de ninguém. O modificador tira o queixo,
+afina a moldura e **o `.monitor__pe` não entra no HTML**.
+
+```html
+<div class="monitor monitor--parede" style="width: 1012px">
+  <div class="monitor__tela"><img src="../imagens-puras/painel-claro.png" alt="…"></div>
+</div>
+```
+
+Duas coisas que só aparecem renderizando:
+
+- **a moldura precisa ser mais grossa que a do produto real.** Televisão de
+  hoje é quase só painel, e 0,65% fiel a isso vira 6 px em 1000 — o olho lê
+  como **borda de print**, não como aparelho. Em 1,5% a mesma caixa lê como TV.
+- **em capa escura, TV sem halo lê como aparelho desligado.** Daí o brilho
+  branco difuso no `box-shadow`. E por isso a imagem que entra na moldura é a
+  do tema **claro**, mesmo numa capa escura: tela acesa e branca sobre fundo
+  escuro é televisão ligada. O tema escuro do painel vai no slide que fala de
+  tema, onde ele tem função.
+
+A imagem precisa ser **16/9 de verdade**: o `object-fit: cover` do
+`.monitor__tela` come uma faixa de qualquer captura fora da proporção. Capture
+em 1280×720 em vez de recortar depois.
+
 ## Estúdio de mídia: quando a novidade é a mídia
 
 Tem novidade em que o recurso **é o conteúdo que o lojista sobe** — banner de

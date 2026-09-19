@@ -5,7 +5,16 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-19 (29ª rodada: **estudar o acervo virou etapa**, e
+Última atualização: 2026-09-19 (30ª rodada: a sandbox do Painel para
+Entregadores mostrava **a verdade e vendia o contrário** — sete cartões
+vermelhos, atrasados há 1h38min, porque a loja de teste está parada. Daí o
+terceiro uso da interceptação de API, que não é mais "ligar recurso desligado"
+nem "encher lista vazia": é **o dado real desmentir o produto** — ver *a cena
+honesta pode ser a pior peça de venda*. A rodada também fechou que **o layout
+mais rico da tela não é o melhor para o slide** e que **televisão não é
+monitor**).
+
+29ª rodada: **estudar o acervo virou etapa**, e
 **reusar é adaptar** — a prova viaja, o slide não. As duas em *prova boa se
 reusa entre peças*: *uma rodada depois isso virou etapa, e não sorte* e *reusar
 é adaptar, e o erro tem dois andares*. A pergunta que autoriza o reuso é *a
@@ -119,6 +128,7 @@ a posição na fila.
 | 5 | A dark kitchen de várias marcas num painel só | **função**, de [`beefood.com.br/sistema-dark-kitchen`](https://beefood.com.br/sistema-dark-kitchen/) | `carrosseis/05-dark-kitchen-multimarcas/` | 4:5, 7 slides | `entrega/05-dark-kitchen-multimarcas.zip` (7 PNG + copy) |
 | 6 | O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — endereço público é **casca**; a página vem de um app externo | `carrosseis/06-totem-autoatendimento/` | 4:5, 9 slides | `entrega/06-totem-autoatendimento.zip` (9 PNG + copy) |
 | 7 | O cliente pede no tablet, sem esperar o garçom | **função**, de [`beefood.com.br/cardapio-digital-tablet`](https://beefood.com.br/cardapio-digital-tablet/) — página inteira, servida pelo próprio site | `carrosseis/07-cardapio-digital-tablet/` | 4:5, 9 slides | `entrega/07-cardapio-digital-tablet.zip` (9 PNG + copy) |
+| 8 | Painel para Entregadores | [19/09/2026](https://beefood.app/novidades/painel-para-entregadores) — manual em `manuais/painel-entregador/`, com **slug diferente** do release | `carrosseis/08-painel-entregador/` | 4:5, 7 slides | `entrega/08-painel-entregador.zip` (7 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -592,6 +602,26 @@ e frase de verdade com aquele tamanho tem pontuação.
 > serve?"**. O sintoma é o mesmo nas duas — pauta curta demais para o tamanho
 > da página — e o conserto é sempre no script.
 
+#### E a terceira pergunta: "manual nenhum, ou manual com outro nome?"
+
+Na pauta seguinte, o script disse *"Manual relacionado: nenhum (as capturas
+terão de ser novas)"* — e existia um manual inteiro, lido no código-fonte, com
+as quatro telas já capturadas. A pasta se chama `painel-entregador`; o release
+se chama "Painel para **Entregadores**". O casamento comparava palavras exatas,
+então só `painel` batia, a nota ficou em 1 e o corte é 2.
+
+Duas correções, e a segunda é a que importa:
+
+- **a comparação passou a aceitar a mesma raiz** (prefixo de cinco letras), que
+  cobre plural e flexão sem casar qualquer coisa. Rodado nos quatro releases
+  anteriores, aponta exatamente os mesmos manuais de antes.
+- **o script parou de afirmar "nenhum".** Agora ele diz que não achou *pelo
+  nome*, manda conferir à mão e lista as três pastas em que quase acreditou.
+
+> Ferramenta que chuta deve dizer que está chutando. A frase antiga era uma
+> conclusão — "as capturas terão de ser novas" — e conclusão errada de script
+> custa uma peça inteira produzida sem o material que já existia.
+
 ### O ícone é o que sobrevive à miniatura
 
 A seção *Transforme cada venda em uma nova oportunidade de compra* anuncia cada
@@ -820,6 +850,93 @@ Três coisas de ofício:
 
 E registre na copy: o `copy-instagram.txt` avisa quem publica que os cupons do
 slide são exemplo.
+
+### A cena honesta pode ser a pior peça de venda
+
+Este é o **terceiro** uso da interceptação de API, e o motivo é novo. Os dois
+anteriores eram problemas de disponibilidade: a tradução estava **desligada** na
+loja e o cupom tinha a **lista vazia** — nos dois casos a tela que a peça
+precisava simplesmente não existia para fotografar.
+
+Aqui a tela existia, abria e funcionava. O problema é que ela dizia o contrário
+do produto.
+
+O Painel para Entregadores da sandbox mostra **sete cartões vermelhos**, todos
+com "Atrasado • 1h38min", porque os pedidos de teste foram criados de manhã e
+ninguém os moveu desde então. Cada pixel daquela captura é verdade, e a peça
+montada com ela vende "o sistema que atrasa tudo". Não há copy que conserte:
+a manchete promete que a cozinha fica em paz e a imagem mostra o inferno.
+
+> Antes de fotografar, pergunte **o que esta tela diz sobre o produto para quem
+> não conhece o produto**. Estado real que desmente o produto não é honestidade:
+> é uma loja de teste parada sendo publicada como se fosse um cliente.
+
+O que se monta e o que não se monta:
+
+- **os pedidos e as origens ficam.** iFood, 99Food e Keeta estão estampados no
+  banco desde o manual do recurso, com número de coleta e tudo. Inventar cartão
+  do zero seria trocar prova por desenho.
+- **a situação e o relógio se reescrevem**, porque é o que o tempo parado
+  estragou. Um pedido de Cardápio Digital subiu de aguardando para em preparo —
+  o release cita esse canal e a coluna precisava mostrá-lo.
+- **um atraso fica de pé.** Zerar todos daria uma tela boa demais para ser
+  turno, e o slide do alerta não teria o que provar.
+- **o que sobra da cena, some.** Um pedido antigo fora da lista continuava
+  entrando, vermelho, ao lado dos que a cena controla — e uma coluna com dois
+  regimes de tempo é pior que qualquer um dos dois.
+
+E registre: `cena.json` diz o que foi mudado e por quê, o script aceita `--cru`
+para mostrar a tela como ela está, e o `copy-instagram.txt` avisa quem publica.
+
+#### O relógio da tela não é lido no fuso do servidor
+
+A primeira rodada de capturas saiu com os sete cartões marcando **"há 0min"**. O
+servidor devolve `dataHoraEmPreparo` com sufixo `Z`, e a resposta injetada
+copiou o formato — só que o front lê com `parseLocalDateTime`, que **ignora o
+sufixo** e trata a string como hora local. Medido no navegador da captura, que
+roda em `America/Sao_Paulo`: `2026-09-19T22:40:00.000Z` volta como 7 min atrás
+lido como UTC e como 173 min **no futuro** lido como local — e tempo negativo a
+tela mostra como zero.
+
+> Não assuma o fuso pelo formato da string. Meça no navegador da captura:
+> `new Date(<o que você vai injetar>)` contra `Date.now()`, e veja se o número
+> que sai é o que o cartão deve mostrar.
+
+#### Uma tela pode ter duas contas, e mexer numa só cria estado impossível
+
+Com os relógios corrigidos, os cartões marcavam "Em preparo há 4min" e, logo
+abaixo, "Atrasado • 1h41min". O tempo de etapa vem de `dataHoraEmPreparo`; o
+alerta de atraso não olha a etapa, olha a hora do **pedido**. Ajustar um campo e
+não o outro produziu uma tela que o sistema nunca geraria.
+
+> Quando o mesmo cartão mostra dois números, ache os dois campos antes de mexer
+> em um. Prova que o próprio sistema não conseguiria produzir é pior que print
+> desatualizado — ela ensina errado.
+
+#### E recarregue depois de mudar a cena no meio da captura
+
+O slide da passagem entre colunas exige o mesmo pedido em dois estados, então a
+cena muda e a página recarrega. Restaurar a cena em memória não basta: sem um
+segundo `reload`, as capturas seguintes saíram marcando "4 pedidos / 3" enquanto
+as anteriores marcavam "3 / 4" — dois slides da mesma peça discordando sobre a
+mesma tela, no mesmo instante.
+
+### Menos pixels na captura, mais texto no slide
+
+O painel muda de layout a partir de 1500 px: cada etapa ganha **duas colunas
+internas** e cabe quase o dobro de pedido sem rolar. É o modo bom do produto, é
+para isso que existe TV grande, e capturar assim parecia óbvio.
+
+Só que em duas colunas o cartão estreita, e `2740 - Coleta 6118` sai cortado no
+meio da palavra. Na tela de 50 polegadas ninguém repara; num slide de 1080 px
+lido no celular, corte de texto não lê como "tela larga", lê como **bug**.
+
+A captura foi refeita em 1280 px — coluna única, número inteiro. A vantagem real
+do layout largo virou uma linha de texto na legenda, que é onde ela cabe.
+
+> O modo mais rico da interface não é automaticamente o melhor para a arte. O
+> critério do slide é um só: **o que precisa ser lido está legível?** Vantagem
+> de operação que não sobrevive à miniatura se escreve, não se fotografa.
 
 ### Slide novo custa slide velho
 
@@ -1960,6 +2077,27 @@ não pode ficar no invólucro do pé.
 E uma nova: o `overflow: hidden` do `.slide` **come a base do notebook** quando
 ele encosta no limite de baixo. A correção é subir o mockup alguns pixels, não
 encolher.
+
+#### E um quarto: `.monitor--parede`, que é televisão
+
+O Painel para Entregadores não é tela de trabalho — é tela de parede, numa TV
+perto da retirada. Desenhá-lo com `.monitor` colocava um monitor de escritório
+na área dos entregadores, e o comentário do próprio `.monitor` já avisava por
+quê: **o queixo embaixo da tela é o que separa monitor de televisão**.
+
+O modificador some com o queixo e com o `.monitor__pe`, que simplesmente não
+entra no HTML. E acrescenta duas coisas que só se descobrem renderizando:
+
+- **a moldura precisa de espessura que o produto real não tem.** A borda de uma
+  televisão de hoje é quase só o painel, e a primeira versão usou 0,65% fiel a
+  isso. Em 1000 px viraram 6 px, que o olho lê como **borda de print**, não como
+  aparelho. Em 1,5% a mesma caixa lê como TV. O desenho não copia a medida, ele
+  entrega a leitura.
+- **na capa escura, TV sem halo lê como aparelho desligado.** O halo branco
+  difuso atrás da moldura é o que diz "ligada" — e é também por isso que a tela
+  que entra na moldura é a do tema **claro**, mesmo a capa sendo escura: tela
+  acesa e branca sobre fundo escuro é televisão ligada num salão. A versão
+  escura tem o slide do tema, onde ela tem função.
 
 ### Realce, e por que medir
 
