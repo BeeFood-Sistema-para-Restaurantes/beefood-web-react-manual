@@ -1,0 +1,33 @@
+{
+  "_leia": [
+    "A cena que o painel mostra nas capturas desta peça.",
+    "",
+    "Os PEDIDOS SÃO REAIS: estão na sandbox 38311/39202, foram criados pelo dono",
+    "para o manual do #120 e carregam a origem de verdade — iFood, 99Food e Keeta",
+    "estampadas no banco, e o Cardápio Digital que o próprio checkout gravou. O que",
+    "este arquivo faz é só duas coisas, na resposta da API, sem escrever no servidor:",
+    "",
+    "1. SITUAÇÃO — promove um pedido de Cardápio Digital de AGUARDANDO para PREPARO,",
+    "   porque o release cita esse canal e a coluna precisa mostrá-lo;",
+    "2. RELÓGIO — reescreve dataHoraEmPreparo e dataHoraPronto.",
+    "",
+    "O relógio é o motivo de o arquivo existir. Os pedidos foram criados há mais de",
+    "duas horas, então o painel de verdade mostra SETE CARTÕES VERMELHOS, todos",
+    "atrasados há 1h38min. É a tela honesta de uma sandbox parada, e é a pior peça de",
+    "venda possível: quem olha entende que o sistema atrasa tudo. Os minutos abaixo",
+    "são os de um turno normal, com UM atraso — que é o que o release descreve e o",
+    "que o slide do alerta precisa provar.",
+    "",
+    "O prazo da loja está em torno de 52 min (medido: 150 min de preparo davam",
+    "'Atrasado • 1h38min'). Por isso 61 min atrasa e 16 não."
+  ],
+  "minutos": {
+    "53":   { "etapa": "PREPARO", "minutos": 61 },
+    "1137": { "etapa": "PREPARO", "minutos": 16 },
+    "1135": { "etapa": "PREPARO", "minutos": 9 },
+    "1133": { "etapa": "PREPARO", "minutos": 4 },
+    "1138": { "etapa": "PRONTO",  "minutos": 12 },
+    "1136": { "etapa": "PRONTO",  "minutos": 6 },
+    "1134": { "etapa": "PRONTO",  "minutos": 2 }
+  }
+}

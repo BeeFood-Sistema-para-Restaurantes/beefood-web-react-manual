@@ -1,0 +1,135 @@
+CARROSSEL — PAINEL PARA ENTREGADORES
+Gênero: novidade
+Fonte: beefood.app/novidades/painel-para-entregadores
+Manual: ajuda.beefood.com.br/manual-painel-entregador
+
+Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-duas-colunas, 03-de-onde-veio, 04-atraso,
+05-anda-sozinho, 06-na-parede, 07-cta.
+
+Todas as telas são captura nova, tirada em produção para esta peça — o painel
+está liberado na sandbox dos manuais, então não houve degrau de régua.
+
+A CENA DAS CAPTURAS É MONTADA, e vale saber o quê. Os pedidos são reais e as
+origens também: iFood, 99Food e Keeta estão estampados no banco da loja de
+teste desde o manual do recurso. Duas coisas foram reescritas na resposta da
+API, sem gravar nada no servidor: a situação de um pedido de Cardápio Digital
+(de aguardando para em preparo, porque o release cita esse canal) e os
+relógios de etapa.
+
+O motivo é simples: os pedidos da sandbox foram criados há horas, e o painel de
+verdade mostra hoje SETE CARTÕES VERMELHOS, todos "Atrasado • 1h38min". É a
+tela honesta de uma loja parada, e vender com ela diria que o sistema atrasa
+tudo. Os minutos da peça são os de um turno normal — com um atraso de pé, que é
+o que o slide 4 precisa provar. O arquivo `cena.json` registra o que foi
+mudado, e o script tem `--cru` para ver a tela como ela está.
+
+Três coisas do manual ficaram de fora, de propósito. O DETALHE DO PEDIDO, que
+abre ao tocar num cartão, mostra nome e endereço do cliente — e este material é
+público. A BUSCA e o recorte de seis horas são verdadeiros e não são motivo
+para ligar a tela.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+O entregador chega e vê sozinho se o pedido já saiu
+
+A cena é sempre a mesma: o entregador entra, procura alguém e pergunta pela
+entrega dele. Quem está na chapa larga o que estava fazendo para responder — e
+responde de novo dez minutos depois. O Painel para Entregadores é uma tela de
+parede para acabar com isso: numa TV perto da retirada, quem chega descobre
+sozinho.
+
+São duas colunas, Em preparo e Pronto, e em cada cartão o número vem em corpo
+grande. A tela é feita para ser lida em pé e de longe, e não para alguém
+consultar no computador.
+
+Cada cartão diz de onde o pedido veio. Quando é de marketplace, o número
+grande é o daquele aplicativo — o único que o entregador tem na mão para
+conferir. O número do caixa fica no cantinho, e o relógio ao lado mostra há
+quanto tempo o pedido está naquela etapa.
+
+O que passou do prazo fica vermelho sozinho. O critério é o mesmo prazo de
+entrega que já está configurado no seu delivery: o cartão ganha borda, sobe
+para o topo da coluna e mostra de quanto foi o estouro.
+
+E ninguém opera a tela. No instante em que a cozinha marca o pedido como
+pronto, o cartão salta para o outro lado. O painel é só leitura: não dá para
+mudar situação, atribuir entregador nem cancelar pedido por ali — quem toca na
+TV não desarruma nada.
+
+Para ligar, é rápido. No computador ele abre numa janela separada: arraste até
+a televisão da retirada, aperte F11 e deixe o dia inteiro. O botão de sol e lua
+troca o tema só do painel, claro na cozinha e escuro no corredor de serviço.
+
+Quem tem o módulo Entrega já tem o painel, junto da Gestão de Entregas.
+Tudo que entra de novo está em beefood.app/novidades 🐝❤️
+
+#beefood #delivery #entregadores #gestaodeentregas #restaurante
+#gestaoderestaurante #ifood #cozinha
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Quantas vezes por noite alguém para a cozinha para perguntar de um pedido? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com a pílula "Novidade", o título "O entregador chega e vê
+    sozinho se o pedido já saiu", com a palavra sozinho em vermelho, e a linha
+    "A cozinha segue no que estava fazendo". Embaixo, uma televisão de parede
+    mostrando o painel: barra de busca no alto e duas colunas, Em preparo com
+    quatro pedidos e Pronto com três, cada cartão com a marca do canal e o
+    número em fonte grande.
+
+02  Chapéu "Painel para Entregadores" e título "Em preparo de um lado, Pronto
+    do outro", com as duas etapas em vermelho. O texto diz que o número do
+    pedido sai em letra grande, para ser lido em pé e do outro lado da
+    retirada, e que a tela é feita para ficar ligada numa TV. Abaixo, as duas
+    colunas do painel: à esquerda, o pedido 53 com alerta vermelho, o 7412 da
+    Keeta, o 392011 da 99Food e o 2740 - Coleta 6118 do iFood; à direita, o
+    2846 da Keeta, o 392012 da 99Food e o 5391 - Coleta 0472 do iFood.
+
+03  Chapéu "Cada cartão" e título "O número que o entregador procura no app
+    dele", com as três últimas palavras em vermelho. O texto diz que pedido de
+    iFood, 99Food ou Keeta aparece com a marca do canal e com o número daquele
+    aplicativo, que o número do caixa fica no cantinho e que o relógio mostra o
+    tempo na etapa. Abaixo, três cartões do painel, um sobre o outro: Keeta com
+    7412 há 16 minutos, 99Food com 392011 há 9 minutos e iFood com 2740 -
+    Coleta 6118 há 4 minutos.
+
+04  Chapéu "Alerta de atraso" e título "O que passou do prazo fica vermelho
+    sozinho", com "fica vermelho" em vermelho. O texto diz que o critério é o
+    prazo de entrega já configurado no delivery, e que o cartão ganha borda,
+    sobe para o topo da coluna e mostra o estouro. Abaixo, a coluna Em preparo
+    inteira, com quatro pedidos: no topo, o pedido 53 com borda vermelha, "Em
+    preparo há 61min" e a linha "Atrasado • 14min"; abaixo dele, três pedidos
+    sem alerta.
+
+05  Chapéu "Sem ninguém operando" e título "O cartão muda de coluna na hora",
+    com "muda de coluna" em vermelho. O texto diz que o cartão salta para o
+    outro lado no instante em que a cozinha marca o pedido como pronto, e que
+    o painel é só leitura. Abaixo, o mesmo pedido fotografado duas vezes: sob
+    o rótulo Em preparo, o cartão 1133 do iFood com 2740 - Coleta 6118 e "Em
+    preparo há 4min"; uma seta para baixo; e sob o rótulo Pronto, o mesmo
+    cartão com "Pronto há 1min".
+
+06  Chapéu "Onde ligar" e título "Abre numa janela separada, e vai para a TV",
+    com "janela separada" em vermelho. O texto diz que no computador ele sai em
+    outra janela, para arrastar até a televisão da retirada e apertar F11, e
+    que o sol e lua do cabeçalho troca o tema só do painel. Abaixo, o topo do
+    mesmo painel duas vezes: sob o rótulo Claro, com fundo branco e botão de
+    lua; sob o rótulo Escuro, com fundo preto e botão de sol aceso.
+
+07  Fundo escuro com o chapéu "Já está no ar", o pedido "Abra o painel e deixe
+    ligado hoje", com "deixe ligado" em vermelho, e a linha "Quem tem o módulo
+    Entrega já tem o painel, junto da Gestão de Entregas". Embaixo, a etiqueta
+    de caminho "Aplicativos → Entrega → Painel para Entregadores" e um celular
+    com a página de novidades do BeeFood aberta nesta publicação.
