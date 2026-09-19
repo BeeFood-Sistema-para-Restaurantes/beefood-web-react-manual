@@ -8,10 +8,11 @@ Pasta: `manuais/gestao-entregas/` · Bloco: **#104 a #119** · Aberta em 18/09/2
 cenário e o pedido de fotos. Os manuais moram em pastas próprias, listadas em *O que foi entregue*,
 no fim deste arquivo.
 
-**Estado: bloco entregue, com uma pendência de foto.** **15 manuais prontos** (#104 a #116, #118 e
-#119) e o **#117 como esqueleto**, porque ele precisa das duas telas no mesmo pedido e o aplicativo
-não roda aqui. O que falta está pedido em [`pedidos/`](pedidos/README.md), com o script que monta
-cada cena.
+**Estado: bloco fechado. 16 manuais prontos, nenhum esqueleto.** #104 a #119, incluindo o **#117**,
+que era o único pendente porque precisa das duas telas no mesmo pedido. Ele fechou em 19/09, quando as
+fotos do celular chegaram da máquina do dono — a metade do painel foi **reencenada** depois, com os
+mesmos três pedidos. Nada em [`pedidos/`](pedidos/README.md) é lista aberta hoje; a pasta fica como
+registro e como maquinaria para uma eventual nova rodada.
 
 O histórico das primeiras rodadas fica abaixo, porque é ele que explica as decisões: a primeira
 organizou o material que o dono enviou; a segunda leu a documentação do backend e mediu o estado real
@@ -195,7 +196,7 @@ acrescentou dois relatórios no meio da rodada.
 | 114 | Código de barras: ligar e ler | [`app-entregador-codigo-barras`](../app-entregador-codigo-barras/app-entregador-codigo-barras.md) |
 | 115 | App: pedido de iFood e de 99Food | [`app-entregador-marketplace`](../app-entregador-marketplace/app-entregador-marketplace.md) |
 | 116 | App: receber na porta | [`app-entregador-cobranca`](../app-entregador-cobranca/app-entregador-cobranca.md) |
-| 117 | Uma entrega do começo ao fim | [`gestao-entregas-ciclo-completo`](../gestao-entregas-ciclo-completo/gestao-entregas-ciclo-completo.md) — 🔨 **esqueleto** |
+| 117 | Uma entrega do começo ao fim | [`gestao-entregas-ciclo-completo`](../gestao-entregas-ciclo-completo/gestao-entregas-ciclo-completo.md) — ✅ 13 imagens |
 | 118 | Relatório Operação de Entrega | [`relatorio-operacao-entrega`](../relatorio-operacao-entrega/relatorio-operacao-entrega.md) |
 | 119 | Quanto o entregador recebe (Taxa / KM) | [`entregador-quanto-recebe`](../entregador-quanto-recebe/entregador-quanto-recebe.md) |
 
@@ -208,18 +209,24 @@ primeiro filtrado na data de hoje contra o cenário que eu mesmo montei, e o seg
 | Onde | O que é |
 |---|---|
 | [`estudo/`](estudo/) | as duas leituras da primeira rodada: como o módulo funciona e o que eu medi |
-| [`material-recebido/`](material-recebido/README.md) | os 15 capítulos e 63 prints que o dono enviou por WeTransfer |
-| [`pedidos/`](pedidos/README.md) | as **26 capturas** que faltam e o roteiro da janela do #117 |
+| [`material-recebido/`](material-recebido/README.md) | as duas rodadas que o dono enviou por WeTransfer: 15 capítulos e 63 prints, mais os [24 da segunda rodada](material-recebido/app-entregador/capturas-2/README.md) |
+| [`pedidos/`](pedidos/README.md) | o pedido das 26 capturas, o roteiro da janela do #117 e o kit que foi para quem fotografou — **tudo já respondido** |
 | [`scripts/`](scripts/README.md) | `cenario.js` (o painel) e `smoke-app.js` (o app) |
 
-## O que falta, e de quem depende
+## O que falta
 
-Uma coisa só: **as 6 fotos do celular do #117**, na janela combinada. Elas não têm substituto — sem
-elas o manual mostra números de pedido diferentes de cada lado, e um leitor atento percebe em dois
-segundos.
+**De foto, nada.** Das 26 capturas pedidas, 24 chegaram em 19/09 e as 2 de iPhone foram canceladas
+pelo dono — o manual não usa imagem de iOS. As 6 que bloqueavam o #117 saíram; as 18 restantes
+viraram seção nova em quatro manuais do aplicativo, e o `## O que falta` de cada um dos seis diz
+hoje **"nada"**.
 
-As outras 20 capturas pedidas **não bloqueiam nada**. Cada uma melhora uma pergunta de FAQ de manual
-já escrito, e o `MEMORIA.md` de cada manual registra qual é e onde ela entraria.
+O receio que justificava a janela combinada — *o manual mostra números de pedido diferentes de cada
+lado* — não se concretizou, e por um motivo que só apareceu ao medir: **o número do pedido não
+aparece na lista nem nos detalhes do aplicativo**. O crachá laranja de lá vem só com o `#`, porque lê
+`numeroPedido`, nulo em pedido do restaurante. O número existe numa tela só, a de pagamento, que lê
+`numeroPreVenda`. Foi o que permitiu reencenar o painel depois, em vez de fotografar os dois lados na
+mesma hora: o que amarra as duas metades é endereço, valor, forma de pagamento, letra da rota e hora
+da baixa — e esses o #117 fez concordarem.
 
 Fora de foto, ficou registrado um recado que **não é manual**: a *rota fantasma*. O entregador
 `194115` está com `rotaIDAtual` apontando para uma rota que não existe, o que o deixa ocupado para

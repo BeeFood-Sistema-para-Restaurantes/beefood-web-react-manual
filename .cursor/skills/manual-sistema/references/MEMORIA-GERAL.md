@@ -4,7 +4,16 @@
 > A porta de entrada, com o fluxo resumido, é o [`SKILL.md`](../SKILL.md) — este
 > arquivo é o conteúdo. Cada manual tem ainda sua própria `MEMORIA.md` na pasta dele.
 
-Última atualização: 2026-09-17 (o repositório virou **duas skills**, `manual-sistema`
+Última atualização: 2026-09-19 (**bloco da Gestão de Entregas fechado, 16 manuais** — as 24
+capturas da segunda rodada chegaram e o **#117** saiu com as duas telas do mesmo pedido: 6 imagens
+do celular e 7 do painel **reencenadas** depois, restaurando o estado de cada fase no banco. Três
+regras novas na seção 3, todas de print que vem de outra máquina em outro dia: **transplantar a
+faixa de data** com `relogio.py` em vez de redigitar (a Roboto do Android não existe aqui);
+**quando o aplicativo desmente o pedido, quem cede é o pedido**; e **tela de erro vira seção
+numerada, não imagem no FAQ**. Mais a regra de asserção: *nenhum/sempre/nunca* exige achar o campo
+no código, não medir prints — o #117 escreveu que o número do pedido não aparecia em tela nenhuma
+do aplicativo, e ele estava numa imagem já publicada do #116);
+2026-09-17 (o repositório virou **duas skills**, `manual-sistema`
 e `carrossel-novidades`: o processo de manual saiu da raiz e passou a morar em
 `.cursor/skills/manual-sistema/`, com esta memória, o checklist, os planos e o
 `validar-imagens.py` dentro dela — ver seção 2);
@@ -367,6 +376,47 @@ Tela de celular é **estreita e cheia**, e é isso que muda tudo em relação ao
   Moraes* e *Rafael Monteiro Dias* são clientes criados por script (repetidos na base, sem
   telefone nem e-mail, origem *Delivery Manual*). Conferir antes de decidir se desfoca —
   desfocar o que é fake só deixa a imagem pior.
+
+### Quando o print vem de outra máquina, em outro dia — #111 a #117
+
+A segunda rodada (24 prints, tirados por uma IA na máquina do dono) trouxe três problemas que a
+primeira não tinha, e cada um virou regra:
+
+**1. O relógio do emulador não é o relógio da loja.** A barra de status marcava 03:4x (UTC) e o
+aplicativo escrevia 00:4x nos próprios campos (fuso da loja). As horas do **aplicativo** são as
+certas: são as gravadas no servidor e as que o relatório soma. Duas saídas, nesta ordem:
+
+- **Recorte a barra de status.** É a regra padrão, e não é só por causa da hora: o manual mostra a
+  tela do aplicativo, não a barra do sistema. Só mantenha a barra quando ela **é** a prova (o ícone
+  de rede cortada, por exemplo).
+- **Se a data aparece dentro da tela e está no dia errado, transplante — não redigite.**
+  [`manuais/gestao-entregas/scripts/relogio.py`](../../../../manuais/gestao-entregas/scripts/relogio.py)
+  copia a faixa de data de um print de **referência** (um do dia certo) para os novos. Ele acha a
+  faixa pela cor (vermelho por **dominância de canal**, `R > 1,8·G` e `R > 1,8·B`, não por brilho
+  absoluto — texto atrás de modal escurecido tem `R` baixo e passaria batido), repinta o fundo
+  **linha por linha** para não achatar o gradiente do escurecimento, e cola a tinta por máscara de
+  alpha com a cor local. Redigitar com Pillow não funciona: a Roboto do Android não existe na
+  máquina que monta as imagens, e a diferença de fonte salta aos olhos.
+
+**2. O aplicativo desmente o pedido, e quem cede é o pedido.** Dois dos 24 prints saíram diferentes
+do que a lista pedia: sem rede, o *MELHOR ROTA* responde **Permissão necessária** (o `try/catch`
+trata rede e GPS no mesmo `catch`), e o print do "histórico vazio" veio com 22 entregas em três
+dias. **Nos dois casos o manual passou a descrever o que a tela faz.** Print que sai diferente é
+achado, não defeito — mas só se quem tirou escrever no relatório o que fez antes, e é por isso que
+o pedido exige *uma linha por print que saiu diferente*.
+
+**3. Tela de erro não entra no FAQ — entra em seção nova, numerada.** A convenção da casa é FAQ **só
+de texto**. Quando chegam seis telas de erro para um manual, a saída não é enfiar imagem na pergunta:
+é abrir **seção numerada** (*Quando a cobrança não fecha* no #116, *A lista muda sozinha* no #112) e
+a pergunta do FAQ passa a **apontar para ela**. Mantém o FAQ escaneável e dá à imagem o texto que
+ela precisa em volta.
+
+**E uma regra de asserção, que custou uma correção:** *"não aparece em tela nenhuma"* é afirmação
+sobre o aplicativo inteiro, e medição em 24 prints não sustenta isso. O #117 escreveu que o número do
+pedido não aparecia em lugar nenhum do aplicativo — e o selo *PEDIDO #1030* estava visível numa
+imagem já publicada do #116. Antes de escrever *nenhum*, *sempre* ou *nunca*, ache o campo no código:
+eram **dois** campos diferentes (`numeroPedido` no crachá do cartão, nulo em pedido do restaurante;
+`numeroPreVenda` no selo do pagamento).
 
 ---
 

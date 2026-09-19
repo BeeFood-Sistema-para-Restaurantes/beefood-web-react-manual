@@ -1,7 +1,24 @@
-# O que eu preciso de você — a pasta de pedidos
+# O que eu precisei de você — a pasta de pedidos
 
-Três arquivos, e é tudo o que falta para a Gestão de Entregas 2.0 ficar documentada de ponta a
-ponta. Onze manuais estão publicáveis hoje; um depende de foto.
+> ## ✅ Fechado em 19/09/2026 — **não falta mais nada**
+>
+> As fotos chegaram, o **#117 foi publicado**, e com ele o bloco da Gestão de Entregas 2.0 ficou
+> completo: **16 manuais, #104 a #119, nenhum esqueleto**.
+>
+> | | |
+> |---|---|
+> | Pedido | 26 prints, em 10 pastas |
+> | Chegaram | **24**, mais um `RELATORIO.md` de quem os tirou |
+> | Cancelados | **2** — a pasta `25-ios`; o dono decidiu que o manual não usa imagem de iOS |
+> | Onde estão | [`../material-recebido/app-entregador/capturas-2/`](../material-recebido/app-entregador/capturas-2/README.md) |
+> | Para onde foram | 6 para o **#117** (a metade do celular) e 18 para os seis manuais do app, que passaram de 61 para **79 imagens** |
+>
+> Esta pasta continua aqui como **registro e como maquinaria**: se um dia precisar de mais prints do
+> aplicativo, o pedido, o kit e o smoke test estão prontos para uma nova rodada. Nada nela é lista
+> aberta hoje.
+
+Três arquivos, e foi tudo o que faltou para a Gestão de Entregas 2.0 ficar documentada de ponta a
+ponta.
 
 | Arquivo | O que é |
 |---|---|
@@ -9,23 +26,28 @@ ponta. Onze manuais estão publicáveis hoje; um depende de foto.
 | [`janela-117.md`](janela-117.md) | o roteiro da **janela combinada**: sete fases, o que cada lado fotografa em cada uma, e o que fazer quando algo dá errado |
 | [`../scripts/smoke-app.js`](../scripts/smoke-app.js) | o script que monta cada cena, **confere pela API do próprio app** e desmonta |
 
-## Por onde começar
+## Como foi, no fim
 
-1. Leia [`capturas-app.md`](capturas-app.md) até a segunda tabela. Ela separa os **6 prints que
-   bloqueiam** o #117 dos 20 que só melhoram manual já escrito.
-2. Rode `node smoke-app.js casos` para ver os nove cenários e o que cada um destrava.
-3. Marque uma hora para a janela do #117. É a única parte que precisa de nós dois ao mesmo tempo.
-
-Os 20 prints de "só melhora" você faz sozinho, na ordem que quiser, sem me avisar. Cada linha da
-tabela diz o comando e o gesto (`adb shell svc wifi disable`, e por aí vai).
+1. Os **6 prints que bloqueavam** o #117 saíram, e o roteiro da janela do
+   [`janela-117.md`](janela-117.md) foi seguido só do lado do celular. O lado do painel foi
+   **reencenado depois**, com os mesmos três pedidos: o estado de cada fase voltou ao banco e o
+   painel fotografou o que o celular já tinha registrado. Deu no mesmo, e sem precisar de nós dois
+   na mesma hora.
+2. Os **18 de "só melhora"** viraram **seção nova** em quatro manuais, não retoque: *A lista muda
+   sozinha* (#112), *Quando o servidor não confirma a saída* (#113), *Dois casos fora do roteiro*
+   (#115) e *Quando a cobrança não fecha* (#116). A convenção da casa é FAQ sem imagem, então a
+   pergunta aponta para a seção.
+3. **Dois prints saíram diferentes do pedido**, e os dois viraram achado: sem rede o *MELHOR ROTA*
+   responde *Permissão necessária*, e o "histórico vazio" veio com 22 entregas em três dias. O
+   manual passou a descrever o que a tela faz.
 
 ## O que já está fechado
 
 | Manual | Assunto | Fotos |
 |---|---|---|
 | **#104** a **#110** | o painel: liberar entregador, ler o mapa, montar rota, despachar, fechar, despacho automático, avisos de WhatsApp | minhas, feitas aqui |
-| **#111** a **#116** | o app: entrar, as entregas do dia, chegar no endereço, código de barras, marketplace, receber na porta | as 63 que você mandou |
-| **#117** | o ciclo completo, painel e app lado a lado | **esqueleto** — texto pronto, esperando os 6 prints |
+| **#111** a **#116** | o app: entrar, as entregas do dia, chegar no endereço, código de barras, marketplace, receber na porta | as 63 da primeira rodada **mais 18 da segunda** |
+| **#117** | o ciclo completo, painel e app lado a lado | **13** — 6 do celular, suas; 7 do painel, minhas |
 
 Fora da numeração, dois relatórios entraram junto: **Operação de Entrega** e **Entregador (Taxa /
 KM)**, os dois com dados de hoje da sandbox.
@@ -39,11 +61,14 @@ KM)**, os dois com dados de hoje da sandbox.
 | escreve fora da 38311/39202 | lista branca literal, herdada do `cenario.js`. Outra empresa aborta antes de abrir conexão |
 | mexe em data de entrega sem aviso | só com `--permitir-passado`. Data de entrega é o que o relatório Operação de Entrega soma — mover uma entrega para ontem tira ela do total de hoje |
 
-## Se as fotos não vierem
+## Se as fotos não viessem
 
-Nada se perde. Os seis manuais do app estão publicáveis, e o `MEMORIA.md` de cada um registra qual
-foto falta e em que pergunta ela entraria. O #117 fica como esqueleto, com o lugar de cada imagem
-marcado — é o único que não existe sem a janela.
+Nada se perderia. Os seis manuais do app já estavam publicáveis, e o `MEMORIA.md` de cada um
+registrava qual foto faltava e em que pergunta ela entraria. O #117 ficaria como esqueleto, com o
+lugar de cada imagem marcado — era o único que não existia sem a janela.
+
+Vieram, e hoje o `## O que falta` dos seis diz **"nada"**. Ficou escrito assim de propósito: quando
+não falta nada, a memória tem que dizer isso com a mesma clareza com que dizia o contrário.
 
 ## Quando quem fotografa não é você
 
