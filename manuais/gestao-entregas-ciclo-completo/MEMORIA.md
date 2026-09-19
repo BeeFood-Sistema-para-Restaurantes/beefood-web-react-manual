@@ -2,60 +2,48 @@
 
 Pasta: `manuais/gestao-entregas-ciclo-completo/` · Numeração: **#117** ·
 Aberta em 18/09/2026 na sandbox **BeeFood3 - Manual** (`empresaID 38311`, `filialID 39202`,
-entregador `194115`).
+entregador `194115`), fechada em 19/09/2026.
 
-**Estado: esqueleto.** Texto escrito e conferido contra os onze manuais que ele costura; **13
-imagens pendentes**, e nenhuma delas capturável agora. É o último dos catorze manuais do bloco, e o
-único que não dá para fechar de um lado só.
+**Estado: fechado.** Treze imagens, todas da **mesma viagem** — pedidos `59587920`, `59587921` e
+`59587923` (vendas **#1105** a **#1107**), rota **A**, 19/09/2026. É o último dos catorze manuais do
+bloco, e o único que não deu para fechar de um lado só.
 
-## Por que ele não está pronto, e por que isso não é atraso
+## Por que ele ficou dois dias como esqueleto
 
 O #117 mostra **o mesmo pedido** nas duas telas. Não é uma escolha de estilo: é o que o dono pediu
-quando descreveu a terceira parte do manual como *"juntar as peças"*. E é justamente isso que torna o
+quando descreveu a terceira parte do manual como *"juntar as peças"*. E é justamente isso que tornou o
 manual impossível de montar por partes.
 
-Eu capturo o painel. Eu **não capturo o aplicativo** — não há emulador Android nesta máquina, e iOS
-está fora de qualquer hipótese. Então as duas metades vêm de lugares diferentes.
+Eu capturo o painel. Eu **não capturo o aplicativo** — não há emulador Android nesta máquina. Então as
+duas metades vêm de lugares diferentes, e se o painel fosse capturado num dia com os pedidos 1057 a
+1059 e o celular no outro com outros três, o manual mostraria a rota `A` com três números de um lado e
+três diferentes do outro. Um leitor atento percebe em dois segundos, e a partir daí não acredita em
+mais nada.
 
-Se eu capturasse o painel hoje, com os pedidos 1057 a 1059, e o dono fotografasse o celular amanhã,
-o manual mostraria a rota `A` com três números de um lado e três números diferentes do outro. Um
-leitor atento percebe em dois segundos, e a partir daí não acredita em mais nada. Um manual de
-"lado a lado" com números que não casam é pior do que manual sem imagem.
-
-Daí a decisão: **esqueleto com texto final**, e as duas metades capturadas na mesma janela. Quando as
-seis fotos do celular chegarem, eu rodo a janela de novo, capturo os sete do painel com os **mesmos
-pedidos** e o manual fecha numa rodada.
+Daí a decisão de 18/09: **esqueleto com texto final**, e as duas metades na mesma janela. As seis
+fotos do celular chegaram na madrugada de 19/09, e o painel foi reencenado na manhã do mesmo dia.
 
 ## O storyboard — as 13 imagens, na ordem do texto
 
-| # | Arquivo | Lado | Quem captura | Fase da janela |
-|--:|---|---|---|--:|
-| 1 | `01-fila-de-pedidos.png` | painel | eu | 1 |
-| 2 | `02-rota-montada.png` | painel | eu | 2 |
-| 3 | `03-rota-no-app.png` | app | dono | 2 |
-| 4 | `04-confirmar-despacho.png` | painel | eu | 3 |
-| 5 | `05-em-rota-no-app.png` | app | dono | 3 |
-| 6 | `06-primeira-parada.png` | app | dono | 3 |
-| 7 | `07-mapa-ao-vivo.png` | painel | eu | 4 |
-| 8 | `08-cobranca-concluida.png` | app | dono | 5 |
-| 9 | `09-uma-de-tres.png` | painel | eu | 5 |
-| 10 | `10-lista-sem-a-rota.png` | app | dono | 6 |
-| 11 | `11-rota-finalizada.png` | painel | eu | 6 |
-| 12 | `12-relatorio-do-dia.png` | painel | eu | 7 |
-| 13 | `13-historico-do-dia.png` | app | dono | 7 |
+| # | Arquivo | Lado | Fase | O que mostra |
+|--:|---|---|--:|---|
+| 1 | `01-fila-de-pedidos.png` | painel | 1 | três pedidos prontos, sem rota, e o pino na loja |
+| 2 | `02-rota-montada.png` | painel | 2 | rota `A` *Pronta para sair*, *0 de 3*, avião por clicar |
+| 3 | `03-rota-no-app.png` | app | 2 | grupo **ROTA A** na lista, *0 de 3*, **INICIAR ROTA** |
+| 4 | `04-confirmar-despacho.png` | painel | 3 | a janela do despacho, com as três paradas *Pronto* |
+| 5 | `05-em-rota-no-app.png` | app | 3 | cabeçalho com *em rota* e **ABRIR NO MAPS** |
+| 6 | `06-primeira-parada.png` | app | 3 | detalhes da parada 1, observação e **COBRAR** |
+| 7 | `07-mapa-ao-vivo.png` | painel | 4 | pino longe da loja, *Na rua*, *Entregando agora* |
+| 8 | `08-cobranca-concluida.png` | app | 5 | *Pagamento Confirmado!* com R$ 19,90 |
+| 9 | `09-uma-de-tres.png` | painel | 5 | parada 1 apagada, *1 de 3*, *Entregando agora* na 2 |
+| 10 | `10-lista-sem-a-rota.png` | app | 6 | *Nenhuma entrega agora*, com a pílula **ONLINE** acesa |
+| 11 | `11-rota-fora-da-tela.png` | painel | 6 | lateral vazia, *3 entregues* — a rota concluiu sozinha |
+| 12 | `12-relatorio-do-dia.png` | painel | 7 | Operação de Entrega: *Entregas 3*, *R$ 126,60* |
+| 13 | `13-historico-do-dia.png` | app | 7 | Histórico do sábado, com 00:43, 00:45 e 00:46 |
 
-Sete minhas, seis dele. As seis dele estão pedidas em
-[`capturas-app.md`](../gestao-entregas/pedidos/capturas-app.md), pasta **18**, com os nomes de
-arquivo que o zip deve trazer:
-
-| No pedido | Vira aqui |
-|---|---|
-| `18-ciclo-completo/prints/01-rota-recebida.png` | `03-rota-no-app.png` |
-| `18-ciclo-completo/prints/02-em-rota.png` | `05-em-rota-no-app.png` |
-| `18-ciclo-completo/prints/03-primeira-parada.png` | `06-primeira-parada.png` |
-| `18-ciclo-completo/prints/04-cobranca-concluida.png` | `08-cobranca-concluida.png` |
-| `18-ciclo-completo/prints/05-lista-sem-a-rota.png` | `10-lista-sem-a-rota.png` |
-| `18-ciclo-completo/prints/06-historico-do-dia.png` | `13-historico-do-dia.png` |
+As seis do celular vieram de `capturas-2/18-ciclo-completo/prints/`, na ordem `01` a `06`; o
+[`README.md` do material](../gestao-entregas/material-recebido/app-entregador/capturas-2/README.md)
+tem a proveniência e o relatório de quem as tirou.
 
 ## O recorte
 
@@ -69,77 +57,69 @@ confusão número um da operação — o operador jura que mandou, o entregador 
 justifica a existência de um manual que costura os outros em vez de repeti-los.
 
 A regra que segurou o tamanho: **cada momento explica o que muda nas duas telas e aponta o manual do
-detalhe.** Nenhuma tabela de "Nº / Onde / O que é" aqui; elas moram nos onze. Este é o fio.
+detalhe.** As tabelas `Nº / Onde / O que é` existem porque as imagens têm setas numeradas, mas nenhuma
+delas repete o vocabulário dos outros onze: elas dizem o que aquele campo significa **nesta** viagem.
 
-## O que o texto afirma, e de onde vem cada afirmação
+## A seção que nasceu da medição
 
-Nada aqui foi deduzido: as onze afirmações que sustentam o manual saíram de captura ou de leitura de
-código nas rodadas anteriores.
+*Como as duas telas se encontram* não estava no esqueleto. Ela existe porque, ao medir os 24 prints,
+ficou claro que **o número do pedido não aparece na lista nem nos detalhes do aplicativo** — o crachá
+laranja traz só o `#`. O número está em uma tela só, a de **PAGAMENTO**, no selo *PEDIDO #NNNN*, e
+essa tela não entra na sequência do #117.
 
-| Afirmação | Onde foi medida |
-|---|---|
-| pedido só aparece no app com entregador atribuído | `FuncionarioIDMotoboy` — a coluna que o `smoke-app.js` escreve para montar a lista |
-| a rota chega no celular **antes** do despacho | conferido pela API do app com a rota em `ASSOCIADA`, no caso `rota-viva` |
-| o INICIAR ROTA do app tem o mesmo efeito do avião do painel | #113, `fluxo-codigo.md` |
-| despachar avisa cliente, marketplace e impressora | `SituacaoDeliveryUpdater`, lido no estudo do backend |
-| MELHOR ROTA reordena por distância e desfaz a ordem do operador | #113, `fluxo-codigo.md` |
-| ler o código de barras é despachar | #114, `fluxo-codigo.md` |
-| cobrar é finalizar | #116, `fluxo-codigo.md` |
-| o aviso de proximidade depende de um SALVAR por loja | #110 — `raioProximidadeMetros` NULL em 56.633 das 56.639 filiais |
-| finalizar rota confirma tudo, sem confirmação e sem volta | #108, medido na captura |
-| a rota encerrada sai da tela, não do sistema | #108 |
-| o despacho automático agrupa e associa, mas não despacha | #109, e o `painel_heartbeat` que a minha própria visita gravou |
+Isso muda a pergunta que funciona ao telefone. Não é *"você está com o 1107?"*, é *"você está na Rua
+Aparecida, 318, cobrando R$ 63,90?"*. A seção lista as seis coisas que as duas telas mostram: letra da
+rota, endereço, valor, forma de pagamento, posição na parada e hora da baixa.
 
-## A janela, e o que ela precisa
+## O que a reencenação do painel mudou no texto
 
-O roteiro está em [`janela-117.md`](../gestao-entregas/pedidos/janela-117.md): sete fases, e entre
-elas as fotos. O cenário é montado por
-[`smoke-app.js`](../gestao-entregas/scripts/smoke-app.js), comando `janela-117 --fase N`.
+O `fluxo-codigo.md` tem o detalhe técnico. Em resumo, três afirmações do esqueleto caíram:
 
-### O ensaio, e o que ele encontrou
+1. **"A rota fica sem paradas abertas, pronta para o operador encerrar."** Não existe esse estado: a
+   última baixa conclui a rota na mesma transação, e o cartão sai da lateral. A imagem 11 passou a ser
+   o depois, e o botão de finalizar ganhou um aviso explicando o caso em que ele serve.
+2. **"O relatório conta as três entregas do dia, com tempo médio e distância."** Tempo médio não é
+   calculado com três pedidos: *Confirmação até pronto* sai como *Poucos pedidos — mínimo 20*. Virou
+   marcador na imagem, não nota de rodapé.
+3. **A metade do celular não precisa de imagem de iOS.** Não há iPhone na máquina que tirou os prints,
+   e o manual não afirma nada sobre o layout do iOS. Antes de conferir, semelhança é promessa.
 
-Rodei as sete fases ponta a ponta em 18/09, com o painel aberto e o entregador simulado, para não
-descobrir problema de roteiro no dia. As cinco telas do painel saíram como a tabela promete: a fila
-com três pedidos, a rota `A` *Pronta para sair* com *0 de 3*, a rota *Na rua* com o pino andando e a
-parada marcada *Entregando agora*, e o painel vazio com o contador de entregues subindo de 7 para 10.
+## A janela, e o que ela precisou
 
-Dois ajustes vieram do ensaio, e os dois teriam estragado foto:
+O roteiro está em [`janela-117.md`](../gestao-entregas/pedidos/janela-117.md): sete fases, e entre elas
+as fotos. O cenário do lado do celular é montado por
+[`smoke-app.js`](../gestao-entregas/scripts/smoke-app.js), comando `janela-117 --fase N`; o lado do
+painel foi reencenado depois, com os mesmos pedidos, pelo `/tmp/ge/replay117.js`.
 
-1. **A fase 1 semeava os três pedidos com `offset 10`**, que são endereços a 5 e 10 km um do outro.
-   Rota de três paradas espalhadas assim não é a rota que o manual conta. Passou a usar `offset 0`,
-   que são os três endereços mais próximos entre si da lista do gerador — menos de 500 m.
-2. **`limpar` tira o pedido da tela do app, mas não da fila do painel.** Pedido sem entregador
-   continua em *Pedidos sem rota* por até 6 h, e depois de uma tarde de ensaios a fila tinha **21
-   pedidos de teste**. A primeira foto do #117 é justamente "três pedidos prontos na fila". Nasceu
-   daí o comando **`arquivar-fila`**, que manda os pedidos de teste para `AGUARDANDO` — estado que as
-   duas telas ignoram e que **não** entra na conta de entregas do dia, como `ENTREGUE` entraria. E a
-   fase 1 passou a **abortar** se achar lote antigo, em vez de deixar o problema aparecer na foto.
+Três coisas que precisavam estar de pé, e estavam:
 
-### Três coisas que precisam estar de pé
+1. **Caixa aberto na filial.** Sem caixa, a cobrança da fase 5 falha, e a fase 5 é o coração do manual.
+2. **A tela de Gestão de Entregas aberta do meu lado.** É ela que grava o `painel_heartbeat`.
+3. **Nenhum lote antigo em nenhuma das duas telas.** `limpar` limpa a do app, `arquivar-fila` a do
+   painel — e o relatório do dia precisou da mesma limpeza antes da imagem 12.
 
-1. **Caixa aberto na filial.** Sem caixa, a cobrança da fase 5 falha, e a fase 5 é o coração do
-   manual. Na medição de 18/09 **não havia caixa aberto** na 39202.
-2. **A tela de Gestão de Entregas aberta do meu lado.** É ela que grava o `painel_heartbeat`, e sem
-   heartbeat o despacho automático não age — o que atrapalha só se a janela for demonstrar isso.
-3. **Nenhum lote antigo em nenhuma das duas telas.** Pedido de outro lote estraga as duas metades de
-   uma vez, e é o erro mais fácil de cometer. `limpar` limpa a do app, `arquivar-fila` a do painel.
+## Sobre o `annotate.py` deste manual
 
-## Decisão registrada: por que não existe `annotate.py` aqui
+É o único do repositório com **dois jogos de ajudantes**, porque as imagens têm duas origens:
 
-Os outros manuais têm um `annotate.py` que recorta, mede e desenha as etiquetas numeradas. Este não
-tem, e não é esquecimento: o script se escreve **em cima da imagem**, medindo coordenada por
-coordenada. Sem as treze imagens, ele seria treze chutes.
+- as sete do painel usam `carregar()` + `alvo()`, que leem o `*.geo.json` gravado na captura — a seta
+  aponta para o `getBoundingClientRect()` do elemento, não para uma estimativa;
+- as seis do celular usam `copiar()` + `margem()` + `rec()`, a mesma técnica dos seis manuais do
+  aplicativo: medição numa prévia de 473x1024 e conversão para fração da imagem final.
 
-Pelo mesmo motivo não existe `texto-documentation.ia.md`: o prompt de publicação depende da ordem
-final das imagens, e publicar manual com marcador `⏳` no meio seria pior do que não publicar.
+**As puras do painel não são reescritas pelo script.** Elas são a única cópia da captura, e a janela
+que as produziu não se repete — os três pedidos voltaram ao estado original depois do ensaio. Só as do
+celular passam por `copiar()`, e essas sempre recomeçam do material.
 
-## O que fazer quando as fotos chegarem
+Uma lição que custou uma rodada: **nas telas do celular, a ponta da seta mira a borda esquerda do
+alvo, não o centro.** A tela do app é uma coluna de texto alinhado à esquerda; seta que entra pela
+margem e para no centro risca a palavra que devia marcar. O `alvo()` do lado do painel ganhou um
+`recuo` pela mesma razão, para o nome do entregador no cabeçalho da rota.
 
-1. Conferir se os três números do pedido nas fotos do app são os que a fase 1 imprimiu.
-2. Rodar a janela de novo, com os mesmos números, e capturar as sete do painel.
-3. Escrever o `annotate.py` e as etiquetas numeradas.
-4. Apagar os treze marcadores `⏳` e o aviso 🚧 do topo.
-5. Escrever o `texto-documentation.ia.md` e publicar.
+## Se alguém precisar refazer
 
-Se as fotos **não** chegarem, o manual fica assim, e está registrado no `CHECKLIST-MANUAIS.md` como
-pendente de captura — não como pendente de escrita.
+A janela é repetível, mas **o lote não**. Para refazer as sete do painel com estes três pedidos, o
+caminho é o `replay117.js`: `retrato` → `voltar` → `na-loja` → `rota` → fotos → `restaurar` →
+`conferir`. O `conferir` compara coluna por coluna com o retrato e é o que garante que a sandbox volta
+ao que era. Para refazer as seis do celular, é kit novo e janela nova — e aí as sete do painel também
+precisam ser refeitas, porque os números mudam.

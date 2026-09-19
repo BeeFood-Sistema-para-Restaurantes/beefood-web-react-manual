@@ -153,3 +153,77 @@ Vale registrar, para o manual não prometer:
 | notificação *push* de entrega nova | a fase 8 não foi construída; o aviso que o apêndice descreve é o do FCM, sem tela própria |
 | API de pagamento na rua com mais campos do que o app usa | o aplicativo usa o subconjunto que os capítulos 11 a 13 mostram |
 | `rota_evento` no Aurora, com o histórico de cada operação | ninguém fora do painel lê, e ele **desce no CASCADE** ao excluir a rota — daí a auditoria ter passado a gravar também no `beetech.log` |
+
+## As treze imagens: de onde vem cada uma
+
+As duas metades são a **mesma viagem** — pedidos `59587920`, `59587921` e `59587923` (vendas #1105 a
+#1107), rota `A`, filial 39202, entregador 194115, em 19/09/2026.
+
+| Lado | Quantas | Origem |
+|---|--:|---|
+| celular | 6 | material do dono, pasta `capturas-2/18-ciclo-completo/` — emulador `Pixel_7_Pro`, Android 15, app `3.3.0` (build Android `1.0.1.2`, `versionCode 24`), entre 02h e 04h |
+| painel | 7 | capturadas aqui com Playwright (`/tmp/ge/cap117.py` e `/tmp/ge/cap117rel.py`), 2160x1350, na manhã do mesmo dia |
+
+**As seis do celular vieram primeiro, e foi o que obrigou a reencenação.** As três baixas foram feitas
+pelo aplicativo, a rota concluiu sozinha, e quando chegou a hora de fotografar o painel os três
+pedidos já estavam `ENTREGUE` — não havia fila, nem rota montada, nem despacho para fotografar. Fazer
+um lote novo era o caminho fácil e errado: pedido novo tem número novo, e as duas metades deixariam de
+casar. Então o painel foi reencenado com **os mesmos três pedidos**, por um script que tira um retrato
+de quinze colunas do `_PreVenda`, devolve os três para `PRONTO`, roda o ciclo com pausa para foto e
+restaura o retrato coluna por coluna no fim.
+
+Duas coisas que o retrato precisou cobrir, e que não são óbvias:
+
+1. **A fila do painel filtra `DataPedido + HoraPedido` numa janela de ±6 h** (está na
+   `viewDeliveryFilaAguardandoEntrega`). Os três pedidos eram de oito horas antes, e por isso não
+   apareciam em tela nenhuma. Para a foto da fila existir, a hora do pedido voltou para dentro da
+   janela — e depois voltou ao que era. É de lá que saem os *há 9 min*, *há 16 min* e *há 24 min*.
+2. **`DataHoraEntregue` é o que o Histórico do aplicativo mostra** (00:43, 00:45 e 00:46) **e o que o
+   relatório soma por dia.** A baixa da reencenação grava a hora de agora; se ficasse assim, a foto do
+   Histórico passaria a mentir. Foi restaurada ao valor original.
+
+### O que a reencenação encontrou, e mudou no texto
+
+**Não existe a tela "rota sem paradas abertas, pronta para finalizar".** O esqueleto pedia essa foto
+para o momento 6. Ela não existe: a última baixa conclui a rota dentro da mesma transação, e o cartão
+sai da lateral no mesmo instante. A imagem 11 passou a ser o **depois** — painel de rotas vazio e
+contador em *3 entregues* —, que é o par exato da lista vazia no celular. O botão de finalizar ganhou
+um aviso próprio no texto, explicando o caso em que ele serve: paradas ainda pendentes.
+
+**O relatório do dia precisou ser limpo antes da foto.** No dia da janela a sandbox tinha outros oito
+lotes de teste entregues, e a aba Operação mostrava *Entregas 11* e *R$ 442,50* — nada a ver com a
+história que o manual conta. Os restos foram para `AGUARDANDO`, que é o estado que as duas telas
+ignoram e que **não** entra na conta de entregas do dia. A sentinela usada foi o marcador do seeder em
+`_Cliente.Observacao`; pedido de verdade não tem marcador, então nenhum foi alcançado.
+
+**As médias de tempo não fecham com três pedidos.** *Confirmação até pronto* saiu como *Poucos
+pedidos — medido em 2 pedidos, mínimo 20*, e *Pronto até sair* como *Não medido, com base em 0% dos
+pedidos*. Virou marcador na imagem 12 em vez de nota de rodapé: é a primeira pergunta de quem abre o
+relatório novo com um dia de teste.
+
+**`Taxas do entregador` em branco** é entregador sem valor por entrega configurado, não falha do
+relatório. O texto manda para o #119.
+
+### O número do pedido, e por que o manual ganhou uma seção sobre isso
+
+Medido nos 24 prints: **o crachá laranja da lista e dos detalhes traz só o `#`**, sem número. O número
+aparece numa tela só do aplicativo — a de **PAGAMENTO**, no selo *PEDIDO #NNNN* do topo —, e essa tela
+não entra na sequência do #117. Foi o que decidiu a seção *Como as duas telas se encontram*: a ponte
+entre painel e celular é endereço, valor, forma de pagamento, letra da rota, posição na parada e hora
+da baixa. Perguntar "você está com o 1107?" não funciona; perguntar pelo endereço e pelo valor,
+funciona.
+
+### Um detalhe de leitura das imagens do celular
+
+O relógio da barra de status do emulador estava em **UTC**, três horas à frente do fuso da loja: os
+prints marcam 03:4x enquanto o aplicativo escreve 00:4x nos próprios campos. As horas do aplicativo
+são as certas — são as que estão gravadas e as que o relatório soma. Por isso **todo recorte das seis
+imagens começa abaixo da barra de status**, que é também a regra dos seis manuais do aplicativo: o
+manual mostra a tela, não a barra do sistema.
+
+### As telas do aplicativo são de Android
+
+Não há iPhone nem simulador iOS na máquina que tirou os prints, e o manual não afirma nada sobre o
+layout do iOS. As telas são as mesmas em conteúdo — o aplicativo é um só, em React Native —, mas a
+conferência visual não foi feita, e prometer semelhança sem conferir era o erro que o pedido de
+capturas queria evitar.
