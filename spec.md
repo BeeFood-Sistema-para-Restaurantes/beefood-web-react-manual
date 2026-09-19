@@ -1,8 +1,9 @@
 # BeeFood — Manuais e carrosséis (spec)
 
 Repositório de conteúdo sobre o BeeFood (`https://beefood.app`), organizado em
-**duas skills**: uma faz manual de usuário, a outra faz carrossel — de novidade
-publicada ou de função do sistema.
+**duas skills de produto** — uma faz manual de usuário, a outra faz carrossel, de
+novidade publicada ou de função do sistema — e **uma de apoio**, que monta na
+sandbox o cenário que as duas precisam fotografar.
 Elas dividem stack e sandbox, e cada uma escreve na sua pasta de saída.
 
 ## Stack
@@ -11,6 +12,7 @@ Elas dividem stack e sandbox, e cada uma escreve na sua pasta de saída.
 - Python 3.10+ e Pillow para anotações
 - Playwright para capturas no Cloud Agent
 - Código de referência: `beefood-web-react` e `beetech-server-node-2.0` (somente leitura)
+- Node 22 para os scripts de cenário que falam com o MSSQL do ERP (pacote `mssql`)
 
 ## Estrutura
 
@@ -47,6 +49,7 @@ como porta de entrada, `references/` com a memória e os documentos longos,
 |-------|--------|-------|---------|
 | `manual-sistema` | passo a passo para o usuário final | `manuais/` | `references/MEMORIA-GERAL.md` (ler no início da sessão) + `references/CHECKLIST-MANUAIS.md` |
 | `carrossel` | carrossel de Instagram, em dois gêneros: **novidade** (release em `beefood.app/novidades`) e **função do sistema** (página de `beefood.com.br`, tema, segmento) | `carrosseis/` | `references/MEMORIA-CARROSSEIS.md` |
+| `cenario-sandbox` | apoio às duas: monta na sandbox o estado que a captura precisa e que a tela não sabe criar | nada versionado — os scripts ficam na pasta do manual que os pediu | o próprio `SKILL.md` |
 
 ```
 .cursor/skills/manual-sistema/
@@ -59,6 +62,13 @@ como porta de entrada, `references/` com a memória e os documentos longos,
     ├── validar-imagens.py      # imagem referenciada existe? há órfão?
     └── indice-manuais.py       # reescreve o índice de manuais do README
 ```
+
+A skill `cenario-sandbox` também não acrescenta stack própria, mas é a única que
+**escreve no banco do ERP** — em último recurso, com `UPDATE` sob lista branca e
+sentinela, e só quando nenhuma rota do produto grava o campo. O acesso ao MSSQL
+vem das variáveis `BEETECH_MSSQL_*` ou do clone do backend
+`beetech-server-node-2.0`; nenhuma credencial é versionada, porque o repositório
+é público.
 
 A skill de carrossel **não acrescenta stack**: os slides são HTML renderizado a
 PNG pelo mesmo Playwright, e a folha de contato sai pelo mesmo Pillow. Ela lê a

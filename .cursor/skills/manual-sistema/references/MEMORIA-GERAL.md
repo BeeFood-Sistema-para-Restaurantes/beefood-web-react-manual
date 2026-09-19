@@ -887,6 +887,33 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Atender no BeeBot | `manuais/whatsapp-atendimento-beebot/` | ✅ Concluído (#91) |
 | Indicadores de WhatsApp | `manuais/whatsapp-indicadores/` | ✅ Concluído (#92) |
 | Histórico de mensagens | `manuais/whatsapp-historico/` | ✅ Concluído (#93) |
+| Painel para Entregadores | `manuais/painel-entregador/` | ✅ Concluído (#120) |
+
+### Painel para Entregadores — #120
+
+Tela de **parede**, feita para TV na área onde os entregadores esperam: duas colunas
+(*Em preparo* e *Pronto*), número grande do canal, logo da plataforma e alerta de atraso.
+Rota `/painel-entregador`, **somente leitura** — nenhum hook de escrita. Abre em janela
+nova por dois caminhos: ⋮ do cabeçalho do Delivery e card em *Aplicativos → Entrega*.
+Liberada por lista de empresas (`[107, 38311]`, então a sandbox fotografa) e pela permissão
+`gestaoEntregas`, a **mesma** da Gestão de Entregas.
+
+Dois achados que valem para outras telas de fila:
+
+- **A janela é de 6 horas e olha a criação do pedido**, não a última mudança de situação.
+  Pedido de ontem não volta para a tela mexendo na situação dele. O painel é do **turno**.
+- **`origem` é derivada do identificador de plataforma** (`ifoodLocalizer` → iFood, `nnID`
+  → 99Food, `keetaId` → Keeta, `aiqfomeId` → AIQFome, `filialIDOrigem` → Cardápio Digital,
+  nada → Manual). Nenhuma rota aceita `origem` como entrada. O método que provou isso, e o
+  jeito seguro de estampar identificador na base, viraram a skill
+  [`cenario-sandbox`](../../cenario-sandbox/SKILL.md).
+
+Armadilha de captura que se repete: para forçar tema claro, **gravar
+`localStorage.theme = 'light'` e recarregar**. Ler `html.class` logo depois do `goto` às
+vezes diz `light` numa tela que ainda vai virar escura, porque a classe só se firma depois
+da hidratação. E a cobertura de dado pessoal tem de varrer **nó de texto**, não elemento
+folha: onde o nome divide a caixa com um ícone, a busca por folha mede zero e o print sai
+com o nome à vista.
 
 ### Tradução do cardápio presencial — #100
 
