@@ -55,8 +55,6 @@
  *   node smoke-app.js conferir
  *   node smoke-app.js limpar                       <- tira da tela do app
  *   node smoke-app.js arquivar-fila                <- tira da fila do painel, lotes antigos
- *   node smoke-app.js historico-zerar              <- tira TUDO do Histórico, e guarda o desfazer
- *   node smoke-app.js historico-voltar             <- devolve o que o zerar tirou
  *
  * Todos aceitam `--backend`, `--empresa`, `--filial`, `--usuario`, `--entregador` e
  * `--dry-run`.
@@ -77,10 +75,6 @@ const CONFIG = {
     // O segundo entregador serve a um caso só: a entrega ser **tirada** do primeiro.
     entregadorAlternativo: 194116,
     estado: path.join(__dirname, '.smoke-app-estado.json'),
-    // O `historico-zerar` guarda aqui quem era o entregador de cada entrega concluída, para o
-    // `historico-voltar` devolver exatamente o mesmo. Arquivo separado do estado dos casos de
-    // propósito: ele sobrevive a `limpar`, que zera o outro.
-    estadoHistorico: path.join(__dirname, '.smoke-app-historico.json'),
 };
 
 /**
@@ -593,8 +587,8 @@ const CASOS = {
 
     // -----------------------------------------------------------------------
     'historico-vazio': {
-        foto: 'a lista e o histórico vazios — *Nenhuma entrega no período*',
-        manuais: '#111, #112',
+        foto: 'a aba Entregas sem nenhuma entrega — *Nenhuma entrega agora*',
+        manuais: '#111',
         async montar(f) {
             const est = lerEstado();
             if (!est.pedidos.length) {
@@ -604,11 +598,10 @@ const CASOS = {
                 console.log(`\n=== desatribuindo ${est.pedidos.length} pedido(s) ===`);
                 await atualizar(f, est.pedidos, { FuncionarioIDMotoboy: null });
             }
-            console.log('\nA aba Entregas fica vazia. **O Histórico, não** — ele lê tudo o que');
-            console.log('este entregador já entregou, não o lote desta execução, e foi assim que');
-            console.log('a foto voltou com 22 entregas em três dias na rodada de 19/09.');
-            console.log('Para o Histórico vazio de verdade: "historico-zerar", a foto, e');
-            console.log('"historico-voltar" logo depois.');
+            console.log('\nA aba Entregas fica vazia — é a tela de trabalho recém-logado do #111.');
+            console.log('**O Histórico não fica vazio**: ele lê tudo o que este entregador já');
+            console.log('entregou, não o lote desta execução. Não tente a foto dele; nenhum manual');
+            console.log('usa tela de ausência.');
         },
         conferir: (app) => [
             ['a aba Entregas vazia', app.pedidos.length === 0,
@@ -828,14 +821,9 @@ function listarCasos() {
         console.log(`  ${' '.repeat(17)} manuais: ${c.manuais}`);
     }
     console.log('\n  janela-117        o roteiro de sete fases do manual dos dois lados');
-    console.log('\nE quatro fora dos casos, que resolvem telas diferentes:');
-    console.log('  limpar            tira da tela do app — desatribui o entregador do lote');
-    console.log('  arquivar-fila     tira da fila do painel — manda lote antigo para AGUARDANDO');
-    console.log('  historico-zerar   tira TUDO do Histórico do entregador, e guarda o desfazer');
-    console.log('  historico-voltar  devolve exatamente o que o zerar tirou\n');
-    console.log('O caso "historico-vazio" só alcança o lote da execução da vez; o Histórico lê');
-    console.log('tudo o que o entregador já entregou. Para a foto do histórico realmente vazio,');
-    console.log('é "historico-zerar", foto, "historico-voltar" — nessa ordem.\n');
+    console.log('\nE dois de limpeza, que resolvem telas diferentes:');
+    console.log('  limpar            tira da tela do app — desatribui o entregador');
+    console.log('  arquivar-fila     tira da fila do painel — manda lote antigo para AGUARDANDO\n');
 }
 
 async function preparar(f) {
@@ -952,147 +940,6 @@ async function arquivarFila(f) {
     console.log(`\n${alvos.length} pedido(s) fora da fila. O painel abre limpo para a captura.`);
 }
 
-/**
- * Zera o **Histórico** do entregador, e guarda como desfazer.
- *
- * Nasceu de um print que voltou errado. O caso `historico-vazio` desatribui só os pedidos do
- * lote da execução da vez, porque é o que a sentinela do arquivo de estado autoriza — e o
- * Histórico do app não lê o lote: lê **tudo** o que o entregador já entregou. Resultado: a foto
- * pedida como "histórico vazio" voltou com 22 entregas em três dias, de lotes de dias antes.
- *
- * O que o Histórico mostra é `FuncionarioIDMotoboy` + `SituacaoDelivery = 'ENTREGUE'`, sem
- * recorte de data que a tela possa mudar — o app manda a data de hoje nos dois campos do
- * período e o servidor devolve mais do que isso. Então a única forma de ver *Nenhuma entrega no
- * período* é o entregador não ter entrega concluída nenhuma.
- *
- * **A sentinela aqui é o alvo, não o marcador do seeder.** Medido em 19/09: nenhuma das oito
- * entregas concluídas do 194115 carrega `[SEED-ENTREGAS]`, nem na venda nem no cliente — o
- * seeder parou de marcar a venda para a observação poder ser texto de vida real na foto. Sobra
- * o recorte que a lista branca do `cenario.js` já garante: **esta filial** e **este
- * entregador**, que é a conta de teste com o app no emulador. Pedido de loja de verdade está
- * fora dos dois.
- *
- * O snapshot é gravado **antes** do `UPDATE`, e não depois: se a escrita falhar no meio, o que
- * não pode faltar é o caminho de volta.
- */
-async function historicoZerar(f) {
-    if (fs.existsSync(CONFIG.estadoHistorico)) {
-        abortar('já existe um histórico guardado',
-            `rode "historico-voltar" antes, ou apague ${path.basename(CONFIG.estadoHistorico)} `
-            + 'se você tem certeza de que ele é de um lote que não existe mais');
-    }
-
-    const alvos = await ler(
-        `SELECT preVendaID, numeroPreVenda, dataEntrega, FuncionarioIDMotoboy
-           FROM _PreVenda
-          WHERE filialID = ${f.filialID}
-            AND FuncionarioIDMotoboy = ${f.entregador}
-            AND SituacaoDelivery = 'ENTREGUE'
-          ORDER BY preVendaID`);
-
-    if (!alvos.length) {
-        console.log(`\nO entregador ${f.entregador} não tem entrega concluída nesta filial.`);
-        console.log('O Histórico já abre em *Nenhuma entrega no período*. Nada a fazer.');
-        return;
-    }
-
-    console.log(`\n${alvos.length} entrega(s) concluída(s) saem do histórico do ${f.entregador}:`);
-    for (const p of alvos) {
-        // `dataEntrega` chega como `Date` do tedious, e `String(Date)` daria "Mon Sep 14 2026".
-        const dia = p.dataEntrega
-            ? new Date(p.dataEntrega).toISOString().slice(0, 10)
-            : '(sem data)';
-        console.log(`  #${String(p.numeroPreVenda).padEnd(6)} id=${p.preVendaID}  ${dia}`);
-    }
-
-    const ids = alvos.map((p) => Number(p.preVendaID));
-    const texto = `UPDATE _PreVenda SET FuncionarioIDMotoboy = NULL
-                    WHERE preVendaID IN (${ids.join(',')})
-                      AND filialID = @pFilial
-                      AND FuncionarioIDMotoboy = @pFunc`;
-    if (f.modoSeco) {
-        console.log(`\n  [dry-run] ${texto.replace(/\s+/g, ' ')}`);
-        return;
-    }
-
-    fs.writeFileSync(CONFIG.estadoHistorico, JSON.stringify({
-        filialID: f.filialID,
-        entregador: f.entregador,
-        criadoEm: new Date().toISOString(),
-        pedidos: alvos.map((p) => ({
-            preVendaID: Number(p.preVendaID),
-            funcionarioID: Number(p.FuncionarioIDMotoboy),
-        })),
-    }, null, 2) + '\n');
-
-    const sql = cen.doBackend('node_modules/mssql');
-    await execSQL()(null, null, texto, [
-        { name: 'pFilial', sqltype: sql.Int, value: f.filialID },
-        { name: 'pFunc', sqltype: sql.Int, value: f.entregador },
-    ]);
-
-    console.log(`\nHistórico vazio. O desfazer está em ${path.basename(CONFIG.estadoHistorico)}.`);
-    console.log('Se a aba **Entregas** ainda tiver pedido aberto, rode "limpar" também — são');
-    console.log('duas telas, e a foto do histórico vazio combina com a lista vazia.');
-    console.log('\n**Rode "historico-voltar" logo depois da foto.** Enquanto isso está zerado, o');
-    console.log('relatório Operação de Entrega não conta essas entregas.');
-}
-
-/** Devolve o entregador de cada entrega que o `historico-zerar` tirou. */
-async function historicoVoltar(f) {
-    let guardado;
-    try {
-        guardado = JSON.parse(fs.readFileSync(CONFIG.estadoHistorico, 'utf8'));
-    } catch {
-        abortar('não há histórico guardado',
-            `${path.basename(CONFIG.estadoHistorico)} não existe — nada foi zerado, ou o desfazer `
-            + 'já foi feito');
-    }
-    if (guardado.filialID !== f.filialID) {
-        abortar('o histórico guardado é de outra filial',
-            `guardado: ${guardado.filialID}, pedido: ${f.filialID}`);
-    }
-
-    // Agrupado por entregador porque nada garante que era um só: se um dia o zerar rodar para
-    // dois entregadores em sequência, o arquivo carrega os dois e a volta continua exata.
-    const porFuncionario = new Map();
-    for (const p of guardado.pedidos) {
-        if (!porFuncionario.has(p.funcionarioID)) porFuncionario.set(p.funcionarioID, []);
-        porFuncionario.get(p.funcionarioID).push(p.preVendaID);
-    }
-
-    const sql = cen.doBackend('node_modules/mssql');
-    for (const [funcionarioID, ids] of porFuncionario) {
-        const texto = `UPDATE _PreVenda SET FuncionarioIDMotoboy = @pFunc
-                        WHERE preVendaID IN (${ids.join(',')}) AND filialID = @pFilial`;
-        if (f.modoSeco) {
-            console.log(`  [dry-run] ${texto.replace(/\s+/g, ' ')}  (func ${funcionarioID})`);
-            continue;
-        }
-        await execSQL()(null, null, texto, [
-            { name: 'pFunc', sqltype: sql.Int, value: funcionarioID },
-            { name: 'pFilial', sqltype: sql.Int, value: f.filialID },
-        ]);
-        console.log(`  ${ids.length} entrega(s) de volta para o entregador ${funcionarioID}`);
-    }
-    if (f.modoSeco) return;
-
-    const [conta] = await ler(
-        `SELECT COUNT(*) n FROM _PreVenda
-          WHERE filialID = ${f.filialID} AND FuncionarioIDMotoboy = ${guardado.entregador}
-            AND SituacaoDelivery = 'ENTREGUE'`);
-    const esperado = guardado.pedidos.filter((p) => p.funcionarioID === guardado.entregador).length;
-    if (Number(conta.n) !== esperado) {
-        console.log(`\nATENÇÃO: o histórico voltou com ${conta.n} entrega(s), e o guardado tinha `
-            + `${esperado}. O arquivo de desfazer foi mantido — confira antes de apagar.`);
-        process.exitCode = 1;
-        return;
-    }
-
-    fs.unlinkSync(CONFIG.estadoHistorico);
-    console.log(`\nHistórico de volta: ${conta.n} entrega(s) do entregador ${guardado.entregador}.`);
-}
-
 const COMANDOS = {
     casos: async () => listarCasos(),
     estado: mostrarEstado,
@@ -1100,8 +947,6 @@ const COMANDOS = {
     conferir,
     limpar,
     'arquivar-fila': arquivarFila,
-    'historico-zerar': historicoZerar,
-    'historico-voltar': historicoVoltar,
     'janela-117': janela117,
 };
 

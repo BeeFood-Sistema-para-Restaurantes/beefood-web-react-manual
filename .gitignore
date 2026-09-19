@@ -17,4 +17,3 @@ credenciais.local.md
 
 # Estado local dos scripts de cenário (só IDs de pedido da execução da vez)
 .smoke-app-estado.json
-.smoke-app-historico.json

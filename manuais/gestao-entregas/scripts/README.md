@@ -69,7 +69,7 @@ banco estar certo e a tela vir vazia.
 | `pago` | saldo zero sem marketplace: a folha *Pedido já pago* |
 | `notificacao` | o aviso chegando na tela, no instante da atribuição |
 | `troca` | a entrega sendo tirada do entregador |
-| `historico-vazio` | as duas telas vazias: Entregas e Histórico |
+| `historico-vazio` | a aba Entregas sem nenhuma entrega, que é a tela de trabalho recém-logado. O nome vem do pedido original e é mais largo que o caso: o Histórico **não** esvazia, porque ele lê tudo o que aquele entregador já entregou |
 | `historico-dias` | o histórico agrupado por dia, com dias anteriores |
 
 ## Como eles evitam estrago
