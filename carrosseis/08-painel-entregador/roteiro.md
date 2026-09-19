@@ -84,6 +84,15 @@ E o alerta de atraso é **outra conta**: ele não olha a hora da etapa, olha a d
 pedido. Sem reescrever `dataHoraPedido` junto, os cartões continuavam vermelhos
 com tempos de etapa curtinhos — que é um estado que não existe.
 
+Um resíduo ficou, de propósito: o `Atrasado • 14min` do slide 4 aparece como
+`15min` no slide 2. O carimbo é recalculado a cada resposta, então o tempo de
+etapa sai exato ("há 61min" em toda captura) e o atraso, que é uma subtração
+com o prazo da loja, cai de um lado ou do outro do arredondamento conforme os
+segundos. Travar o carimbo de uma vez consertaria o minuto e estragaria o
+resto: ao longo da execução o relógio real anda, e os cartões passariam a
+marcar 61, 63, 65. O que precisa concordar entre os slides é a **cena** —
+mesmos pedidos, mesmas colunas, mesmos contadores —, e ela concorda.
+
 ### Menos pixels de largura, para caber mais texto
 
 A TV do restaurante é larga, e acima de 1500 px cada etapa ganha **duas colunas

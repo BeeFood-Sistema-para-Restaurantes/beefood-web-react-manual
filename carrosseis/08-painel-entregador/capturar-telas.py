@@ -169,7 +169,7 @@ def main() -> None:
             largura = pagina.viewport_size["width"]
             pagina.screenshot(path=PURAS / f"colunas{sufixo}.png", type="png",
                               clip={"x": 14, "y": topo,
-                                    "width": largura - 28, "height": fundo - topo + 16})
+                                    "width": largura - 28, "height": fundo - topo + 44})
         except Exception as erro:
             print("colunas:", erro)
 

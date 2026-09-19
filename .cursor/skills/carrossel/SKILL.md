@@ -708,8 +708,10 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
    peça promete, ou o contrário? Sandbox parada gera estado verdadeiro e
    péssimo (o painel com sete pedidos atrasados há 1h38min). Se a cena precisou
    ser montada, existe `cena.json` na pasta, `--cru` no script e aviso no
-   `copy-instagram.txt`? E duas capturas da mesma peça concordam entre si —
-   mesmos contadores, mesmos pedidos?
+   `copy-instagram.txt`? E duas capturas da mesma peça concordam na **cena** —
+   mesmos pedidos, mesmas colunas, mesmos contadores? (O relógio pode variar um
+   minuto entre capturas; o que não pode é o painel ter sete itens num slide e
+   seis no outro.)
 8. Alguma frase explica enfeite de tela ("a bolinha verde marca…")? Algum
    diminutivo? Algum "ele" que não é o leitor nem o cliente dele? Os três saem
    — e o que fica no lugar é a consequência para o negócio.
