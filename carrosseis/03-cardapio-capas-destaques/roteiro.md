@@ -72,12 +72,12 @@ python3 .cursor/skills/carrossel/scripts/fazer-midia.py
 
 # 2. o cardápio modelo com a mídia dentro dele
 python3 .cursor/skills/carrossel/scripts/capturar-cardapio.py \
-  --saida carrosseis/cardapio-capas-destaques/imagens-puras \
-  --conteudo carrosseis/cardapio-capas-destaques/midias.json
+  --saida carrosseis/03-cardapio-capas-destaques/imagens-puras \
+  --conteudo carrosseis/03-cardapio-capas-destaques/midias.json
 
 # 3. as duas telas que exigem clique: a agenda com um dia só e a página de
 #    novidades parada no cartão desta publicação
-python3 carrosseis/cardapio-capas-destaques/capturar-telas.py
+python3 carrosseis/03-cardapio-capas-destaques/capturar-telas.py
 ```
 
 | Arquivo | O que é |

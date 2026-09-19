@@ -184,7 +184,15 @@ recurso, o slide 2 **explica** o recurso e o slide 3 **mostra** o recurso na
 tela. Conceito na capa e história no slide 2 são os dois jeitos de perder o
 leitor antes da prova.
 
-Crie `carrosseis/<slug>/roteiro.md` com a tabela **fato → ângulo → o que o slide
+**A pasta nasce numerada.** O nome é `NN-<slug>`, com `NN` sendo a **ordem de
+entrega** — o próximo número livre em `carrosseis/`. É o que faz a listagem do
+diretório sair na ordem em que as peças foram publicadas, e o `.zip` chegar ao
+cliente já ordenado (`empacotar.py` usa o nome da pasta). Ordem alfabética não
+diz nada sobre um acervo, e por isso o índice do
+[`carrosseis/README.md`](../../../carrosseis/README.md) tem coluna `#` em vez da
+palavra "entregue" repetida em toda linha.
+
+Crie `carrosseis/<NN-slug>/roteiro.md` com a tabela **fato → ângulo → o que o slide
 diz** (é o que permite auditar que nada foi inventado e nada foi copiado) e a
 tabela de slides (arquivo, tipo, ideia única, imagem). A legenda não fica aqui:
 ela é peça de entrega e mora em `copy-instagram.txt` (passo 7).
@@ -299,7 +307,7 @@ python .cursor/skills/carrossel/scripts/capturar.py <slug> \
 Tela que exige clique: escreva `carrosseis/<slug>/capturar-telas.py` importando
 `sessao`, `esperar` e `limpar` do `capturar.py` — mesmo padrão dos manuais, que
 têm um script por pasta. Veja
-[`carrosseis/destaque-impressao/capturar-telas.py`](../../../carrosseis/destaque-impressao/capturar-telas.py).
+[`carrosseis/01-destaque-impressao/capturar-telas.py`](../../../carrosseis/01-destaque-impressao/capturar-telas.py).
 
 **Recorte é obrigatório em tela de painel.** Um modal inteiro reduzido para a
 largura do slide fica ilegível no feed. O teto depende de como o slide exibe o
@@ -686,7 +694,7 @@ mesma régua dos slides.
 python .cursor/skills/carrossel/scripts/empacotar.py <slug>
 ```
 
-Gera `carrosseis/<slug>/entrega/<slug>.zip` com os PNG e o `.txt`, em nomes
+Gera `carrosseis/<NN-slug>/entrega/<NN-slug>.zip` com os PNG e o `.txt`, em nomes
 soltos na raiz do zip (quem recebe arrasta direto para o celular, e a ordem de
 publicação é a ordem alfabética). Capa alternativa e slide em vídeo entram em
 subpastas (`capa-alternativa/`, `video/`), separados de propósito — quem arrasta
@@ -708,7 +716,7 @@ carrosseis/<slug>/
 ├── slides/               # NN-nome.html (fragmentos de body)
 ├── png/                  # a arte final, 1080x1350
 ├── video/                # slide em vídeo, quando a novidade é movimento
-├── entrega/<slug>.zip    # png + copy, o arquivo que vai para quem publica
+├── entrega/NN-<slug>.zip # png + copy, o arquivo que vai para quem publica
 └── folha-de-contato.png  # todos os slides numa imagem
 ```
 

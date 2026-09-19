@@ -3,7 +3,7 @@
 - **Novidade:** [Cardápio presencial em inglês e espanhol](https://beefood.app/novidades/traducao-cardapio-presencial) — Novidade, Cardápio + Aplicativos
 - **Manual:** [Tradução do cardápio presencial: inglês e espanhol](https://ajuda.beefood.com.br/cardapio-presencial-ingles-espanhol)
 - **Formato:** 4:5 (1080×1350), **7 slides**
-- **Pasta:** `carrosseis/traducao-cardapio-presencial/`
+- **Pasta:** `carrosseis/02-traducao-cardapio-presencial/`
 
 Sete slides, não oito: a novidade tem uma ideia grande (o cliente lê o cardápio
 na língua dele) e três apoios (totem, tablet, e o fato de não existir um segundo
@@ -299,7 +299,7 @@ eram explicação de microdetalhe.
 ## Capturas
 
 ```bash
-python carrosseis/traducao-cardapio-presencial/capturar-telas.py
+python carrosseis/02-traducao-cardapio-presencial/capturar-telas.py
 ```
 
 O script faz duas coisas, na ordem: **grava** a tradução de inglês e de espanhol
@@ -326,8 +326,8 @@ nenhum dos dois.
 ```bash
 python .cursor/skills/carrossel/scripts/preparar-fundo.py
 python .cursor/skills/carrossel/scripts/capturar-totem.py \
-    --saida carrosseis/traducao-cardapio-presencial/imagens-puras \
-    --conteudo carrosseis/traducao-cardapio-presencial/traducoes.json \
+    --saida carrosseis/02-traducao-cardapio-presencial/imagens-puras \
+    --conteudo carrosseis/02-traducao-cardapio-presencial/traducoes.json \
     --cartao cartao-batata
 ```
 
@@ -377,13 +377,13 @@ a vir da API, e script sem uso é armadilha para a próxima rodada.
 
 ```bash
 python .cursor/skills/carrossel/scripts/renderizar.py \
-    carrosseis/traducao-cardapio-presencial --contato
+    carrosseis/02-traducao-cardapio-presencial --contato
 python .cursor/skills/carrossel/scripts/renderizar.py \
-    carrosseis/traducao-cardapio-presencial/capa-alternativa
+    carrosseis/02-traducao-cardapio-presencial/capa-alternativa
 python .cursor/skills/carrossel/scripts/conferir-texto.py traducao-cardapio-presencial
 python .cursor/skills/carrossel/scripts/empacotar.py traducao-cardapio-presencial
 ```
 
 A legenda, o primeiro comentário e o texto alternativo de cada imagem estão em
 [`copy-instagram.txt`](copy-instagram.txt). O que vai para quem publica é
-`entrega/traducao-cardapio-presencial.zip`.
+`entrega/02-traducao-cardapio-presencial.zip`.

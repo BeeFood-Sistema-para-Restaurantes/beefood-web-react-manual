@@ -2,7 +2,7 @@
 """Fotografa o Totem de Autoatendimento pedindo um lanche, do toque ao pagamento.
 
 Rodar da raiz do repositório:
-    python carrosseis/totem-autoatendimento/capturar-telas.py
+    python carrosseis/06-totem-autoatendimento/capturar-telas.py
 
 Por que não é o `capturar-totem.py` da skill: aquele script existe para o
 carrossel de **tradução** — ele injeta `aaTraducao: true` e o cardápio traduzido,

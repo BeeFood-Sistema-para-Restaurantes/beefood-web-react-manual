@@ -11,7 +11,9 @@ reusa entre peças*: *uma rodada depois isso virou etapa, e não sorte* e *reusa
 é adaptar, e o erro tem dois andares*. A pergunta que autoriza o reuso é *a
 prova é do módulo, ou do canal?*; a que **escolhe entre as candidatas** é *qual
 delas prova a manchete inteira?*; e a que o faz valer é *qual pergunta esta peça
-deixou aberta neste ponto do arco?*).
+deixou aberta neste ponto do arco?*. A pasta de cada peça passou a ser
+`NN-<slug>`, numerada pela ordem de entrega — ver *a pasta é numerada pela ordem
+de entrega*).
 
 28ª rodada: a capa do tablet vendia **pagar**,
 que é a promessa do totem, e o produto faz isso sem ser por isso que alguém
@@ -102,15 +104,21 @@ na voz da marca e falando com você**.
 
 ## Índice
 
-| Carrossel | Fonte | Pasta | Formato | Estado |
-|-----------|-------|-------|---------|--------|
-| Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ entregue — `entrega/destaque-impressao.zip` (8 PNG + copy) |
-| Cardápio presencial em inglês e espanhol | [16/09/2026](https://beefood.app/novidades/traducao-cardapio-presencial) | `carrosseis/traducao-cardapio-presencial/` | 4:5, 7 slides | ✅ entregue — `entrega/traducao-cardapio-presencial.zip` (7 PNG + copy) |
-| Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + copy) |
-| Desconto ou acréscimo por forma de pagamento | [17/08/2026](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) | `carrosseis/desconto-forma-pagamento/` | 4:5, 7 slides | ✅ entregue — `entrega/desconto-forma-pagamento.zip` (7 PNG + copy) |
-| A dark kitchen de várias marcas num painel só | **função**, de [`beefood.com.br/sistema-dark-kitchen`](https://beefood.com.br/sistema-dark-kitchen/) | `carrosseis/dark-kitchen-multimarcas/` | 4:5, 7 slides | ✅ entregue — `entrega/dark-kitchen-multimarcas.zip` (7 PNG + copy) |
-| O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — endereço público é **casca**; a página vem de um app externo | `carrosseis/totem-autoatendimento/` | 4:5, 9 slides | ✅ entregue — `entrega/totem-autoatendimento.zip` (9 PNG + copy) |
-| Cada mesa pede e fecha a própria conta | **função**, de [`beefood.com.br/cardapio-digital-tablet`](https://beefood.com.br/cardapio-digital-tablet/) — página inteira, servida pelo próprio site | `carrosseis/cardapio-digital-tablet/` | 4:5, 9 slides | ✅ entregue — `entrega/cardapio-digital-tablet.zip` (9 PNG + copy) |
+A pasta leva o número da **ordem de entrega** no nome, e a coluna `#` repete
+esse número. Assim a listagem do diretório sai na ordem em que as peças foram
+publicadas, e não em ordem alfabética, que não diz nada sobre um acervo. O texto
+"entregue" saiu: ele era igual em toda linha, e o que muda de uma para outra é
+a posição na fila.
+
+| # | Carrossel | Fonte | Pasta | Formato | Entrega |
+|---|-----------|-------|-------|---------|---------|
+| 1 | Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/01-destaque-impressao/` | 4:5, 8 slides | `entrega/01-destaque-impressao.zip` (8 PNG + copy) |
+| 2 | Cardápio presencial em inglês e espanhol | [16/09/2026](https://beefood.app/novidades/traducao-cardapio-presencial) | `carrosseis/02-traducao-cardapio-presencial/` | 4:5, 7 slides | `entrega/02-traducao-cardapio-presencial.zip` (7 PNG + copy) |
+| 3 | Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/03-cardapio-capas-destaques/` | 4:5, 7 slides | `entrega/03-cardapio-capas-destaques.zip` (7 PNG + copy) |
+| 4 | Desconto ou acréscimo por forma de pagamento | [17/08/2026](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) | `carrosseis/04-desconto-forma-pagamento/` | 4:5, 7 slides | `entrega/04-desconto-forma-pagamento.zip` (7 PNG + copy) |
+| 5 | A dark kitchen de várias marcas num painel só | **função**, de [`beefood.com.br/sistema-dark-kitchen`](https://beefood.com.br/sistema-dark-kitchen/) | `carrosseis/05-dark-kitchen-multimarcas/` | 4:5, 7 slides | `entrega/05-dark-kitchen-multimarcas.zip` (7 PNG + copy) |
+| 6 | O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — endereço público é **casca**; a página vem de um app externo | `carrosseis/06-totem-autoatendimento/` | 4:5, 9 slides | `entrega/06-totem-autoatendimento.zip` (9 PNG + copy) |
+| 7 | O cliente pede no tablet, sem esperar o garçom | **função**, de [`beefood.com.br/cardapio-digital-tablet`](https://beefood.com.br/cardapio-digital-tablet/) — página inteira, servida pelo próprio site | `carrosseis/07-cardapio-digital-tablet/` | 4:5, 9 slides | `entrega/07-cardapio-digital-tablet.zip` (9 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -1734,7 +1742,7 @@ Gastei uma rodada tentando `aspect-ratio` em 390, 400, 472 e 590 — nenhum fech
 certo foi montar no sandbox um pedido em que só a bebida tem destaque (combo sem
 o complemento marcado) e imprimir o cupom dele. Continua sendo impressão de
 verdade, e a linha preta é uma só. Ver `registrar_pedido()` em
-`carrosseis/destaque-impressao/capturar-telas.py` e `salvar_cupom()` na skill.
+`carrosseis/01-destaque-impressao/capturar-telas.py` e `salvar_cupom()` na skill.
 
 Duas consequências que valem para qualquer captura de cupom:
 
@@ -2451,12 +2459,34 @@ fica como o manual deixou.
 Vale como pergunta de revisão: *a imagem deste slide prova o título, ou só
 ilustra o assunto dele?*
 
+## A pasta é numerada pela ordem de entrega
+
+Sete peças depois, `ls carrosseis/` devolvia ordem alfabética — que num acervo de
+publicações é ordem nenhuma. A primeira da lista era a quarta a sair, e a última
+entrega estava no meio. O índice compensava isso com uma coluna que dizia
+`✅ entregue` em **todas** as linhas, o que é informação zero repetida sete
+vezes.
+
+A pasta passou a ser `NN-<slug>`, com `NN` sendo a ordem de entrega, e o índice
+ganhou coluna `#` no lugar do texto. Três coisas caíram no lugar de graça:
+
+- **a listagem do diretório já é a linha do tempo** — não precisa abrir o índice
+  para saber o que veio antes;
+- **o `.zip` chega ao cliente ordenado**, porque o `empacotar.py` nomeia pelo
+  nome da pasta;
+- **o `conferir-texto.py` cita a peça vizinha pelo número** quando acusa
+  repetição, e o número diz de imediato se ela é anterior ou posterior.
+
+O slug continua sendo o slug: o `--novidade` e o `--fonte` não mudam, e o
+prefixo é só do sistema de arquivos. A próxima peça abre com o próximo número
+livre.
+
 ## A prateleira: o que nasce no carrossel e sobe para a skill
 
 O tablet custou cinco rodadas e o totem três. Nada disso era CSS difícil — era
 **referência que não tínhamos juntado ainda**. O risco, depois de entregue, é o
 carrossel seguinte começar do zero outra vez: as fotos de produto ficaram dentro
-de `carrosseis/traducao-cardapio-presencial/imagens-puras/`, o capturador do
+de `carrosseis/02-traducao-cardapio-presencial/imagens-puras/`, o capturador do
 totem era um script daquela pasta, e o aparelho pronto só aparecia para quem
 abrisse os slides de lá.
 

@@ -181,11 +181,11 @@ python .cursor/skills/carrossel/scripts/capturar.py destaque-impressao \
     --rota /cardapio --nome 02-cardapio-produtos
 
 # telas que exigem clique
-python carrosseis/destaque-impressao/capturar-telas.py
+python carrosseis/01-destaque-impressao/capturar-telas.py
 
 # cupom da capa: 'venda' registra o pedido #43 (uma vez), 'cupom' reimprime
-python carrosseis/destaque-impressao/capturar-telas.py venda
-python carrosseis/destaque-impressao/capturar-telas.py cupom
+python carrosseis/01-destaque-impressao/capturar-telas.py venda
+python carrosseis/01-destaque-impressao/capturar-telas.py cupom
 ```
 
 De `imagens-puras/`, os slides usam `01-cupom-bebida.png`, `03-modal-janela.png`
@@ -203,11 +203,11 @@ não pelo nome solto.
 
 ```bash
 python .cursor/skills/carrossel/scripts/renderizar.py \
-    carrosseis/destaque-impressao --contato
+    carrosseis/01-destaque-impressao --contato
 python .cursor/skills/carrossel/scripts/conferir-texto.py destaque-impressao
 python .cursor/skills/carrossel/scripts/empacotar.py destaque-impressao
 ```
 
 A legenda, o primeiro comentário e o texto alternativo de cada imagem estão em
 [`copy-instagram.txt`](copy-instagram.txt). O que vai para quem publica é
-`entrega/destaque-impressao.zip`: as oito imagens mais aquele `.txt`.
+`entrega/01-destaque-impressao.zip`: as oito imagens mais aquele `.txt`.

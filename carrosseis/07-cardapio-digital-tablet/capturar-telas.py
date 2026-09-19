@@ -2,7 +2,7 @@
 """Fotografa o painel Cardápio no Tablet e recorta os prints do aplicativo.
 
 Rodar da raiz do repositório:
-    python carrosseis/cardapio-digital-tablet/capturar-telas.py
+    python carrosseis/07-cardapio-digital-tablet/capturar-telas.py
 
 São duas origens, porque o recurso tem dois lados e só um deles roda aqui:
 

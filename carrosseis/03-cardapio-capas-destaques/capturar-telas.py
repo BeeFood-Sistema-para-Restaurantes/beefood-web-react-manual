@@ -18,7 +18,7 @@ mídia injetada na resposta da API) e do `capturar.py`.
    inteiro, a data de publicação aparece na arte e data o post.
 
 Uso:
-    python3 carrosseis/cardapio-capas-destaques/capturar-telas.py
+    python3 carrosseis/03-cardapio-capas-destaques/capturar-telas.py
 """
 
 from __future__ import annotations

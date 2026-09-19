@@ -2,7 +2,7 @@
 """Capturas deste carrossel que exigem clique (o CLI do capturar.py não basta).
 
 Rodar da raiz do repositório:
-    python carrosseis/traducao-cardapio-presencial/capturar-telas.py
+    python carrosseis/02-traducao-cardapio-presencial/capturar-telas.py
 
 O que sai em imagens-puras/:
     05-cadastro-ingles.png     a linha do Nome com o inglês escrito, para o slide 5

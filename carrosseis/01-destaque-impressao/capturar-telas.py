@@ -2,7 +2,7 @@
 """Capturas deste carrossel que exigem clique (o CLI do capturar.py não basta).
 
 Rodar da raiz do repositório:
-    python carrosseis/destaque-impressao/capturar-telas.py
+    python carrosseis/01-destaque-impressao/capturar-telas.py
 
 O que sai em imagens-puras/:
     01-cupom-bebida.png      cupom real com SÓ a bebida destacada (imagem da capa)
@@ -12,8 +12,8 @@ O que sai em imagens-puras/:
     04-novidades-celular.png a página de novidades no celular
 
 O cupom vem em duas etapas, porque a primeira registra uma venda no sandbox:
-    python carrosseis/destaque-impressao/capturar-telas.py venda   # uma vez só
-    python carrosseis/destaque-impressao/capturar-telas.py cupom   # reimprime
+    python carrosseis/01-destaque-impressao/capturar-telas.py venda   # uma vez só
+    python carrosseis/01-destaque-impressao/capturar-telas.py cupom   # reimprime
 """
 
 import sys

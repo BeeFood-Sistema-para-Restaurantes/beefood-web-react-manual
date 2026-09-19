@@ -27,8 +27,8 @@ Combo One Burger + batata frita + Coca Cola = **R$ 39,55**, retirada, sem cupom
 e sem cashback. Nao finalize o pedido: a captura para no fechamento.
 
 Uso, da raiz do repositorio:
-    python3 carrosseis/desconto-forma-pagamento/capturar-telas.py
-    python3 carrosseis/desconto-forma-pagamento/capturar-telas.py --so-restaurar
+    python3 carrosseis/04-desconto-forma-pagamento/capturar-telas.py
+    python3 carrosseis/04-desconto-forma-pagamento/capturar-telas.py --so-restaurar
 """
 
 from __future__ import annotations
