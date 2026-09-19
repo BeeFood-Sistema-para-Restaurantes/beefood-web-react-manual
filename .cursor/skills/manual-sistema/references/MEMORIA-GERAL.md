@@ -800,11 +800,23 @@ não se inventa.** Uma IA com acesso a editor de imagem e uma lista de 26 arquiv
 tem todo incentivo para produzir a 26ª. Print faltando está anotado no relatório; print forjado vira
 manual publicado mentindo.
 
+**O zip fica versionado, na pasta do pedido.** Foi a decisão do dono e é a certa: artefato de agente
+é link que ele precisa abrir no dashboard, enquanto arquivo na PR é o botão de download do GitHub, que
+ele já sabe usar e pode repassar. São 24 MB num repositório que já tem **669 MB** de imagem de manual,
+e o conteúdo é cópia do que está versionado ao lado — o zip existe pela conveniência de ser um arquivo
+só. Duas consequências que o `README.md` da pasta precisa declarar: o `montar-kit.sh` grava **nesta
+pasta** por padrão, e mexer em qualquer arquivo que entra no kit obriga a regravar e commitar o zip
+junto, senão a cópia mente.
+
+Conferir o zip **baixado**, não o que ia entrar: `curl` na URL `raw` do GitHub (sem autenticação, já
+que o repositório é público), `unzip -t` e `md5sum` contra o arquivo versionado. Foi o que provou que o
+caminho funciona ponta a ponta.
+
 > **O store de artefatos tem cota, e ela aparece como "No space left on device".** O zip de 24 MB
 > falhou pela metade escrevendo direto em `/opt/cursor/artifacts` (que é link para
 > `/cursor/stores/self/artifacts`) e deixou um arquivo parcial de nome aleatório ocupando espaço.
 > O jeito que funciona é montar o zip em `/tmp` e **copiar** depois — e limpar o parcial, senão a
-> tentativa seguinte falha pelo mesmo motivo.
+> tentativa seguinte falha pelo mesmo motivo. Mais um argumento para o zip morar no repositório.
 
 ---
 
