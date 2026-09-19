@@ -5,7 +5,13 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-18 (26ª rodada: o CTA do totem foi recusado pela
+Última atualização: 2026-09-19 (27ª rodada: a página do Cardápio no Tablet
+voltou pobre de novo, e de novo era o `pauta.py` — ver *e a pergunta ganhou uma
+irmã*. E o suporte do tablet foi reaberto, medido na foto e **fechado como
+limite do desenho frontal** — ver *o suporte do tablet é um limite do desenho
+frontal, e está aceito*).
+
+26ª rodada: o CTA do totem foi recusado pela
 **terceira** vez, e a versão que caiu era a que tinha o melhor fato — ver *CTA
 é convenção, e o fato bom não salva a frase esperta*. Junto, a regra de que
 frase de venda **se procura no site antes de inventar**).
@@ -90,14 +96,15 @@ na voz da marca e falando com você**.
 | Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + copy) |
 | Desconto ou acréscimo por forma de pagamento | [17/08/2026](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) | `carrosseis/desconto-forma-pagamento/` | 4:5, 7 slides | ✅ entregue — `entrega/desconto-forma-pagamento.zip` (7 PNG + copy) |
 | A dark kitchen de várias marcas num painel só | **função**, de [`beefood.com.br/sistema-dark-kitchen`](https://beefood.com.br/sistema-dark-kitchen/) | `carrosseis/dark-kitchen-multimarcas/` | 4:5, 7 slides | ✅ entregue — `entrega/dark-kitchen-multimarcas.zip` (7 PNG + copy) |
-| O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — página **sem conteúdo**; o fato veio da tela | `carrosseis/totem-autoatendimento/` | 4:5, 9 slides | ✅ entregue — `entrega/totem-autoatendimento.zip` (9 PNG + copy) |
+| O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — endereço público é **casca**; a página vem de um app externo | `carrosseis/totem-autoatendimento/` | 4:5, 9 slides | ✅ entregue — `entrega/totem-autoatendimento.zip` (9 PNG + copy) |
+| Cada mesa pede e fecha a própria conta | **função**, de [`beefood.com.br/cardapio-digital-tablet`](https://beefood.com.br/cardapio-digital-tablet/) — página inteira, servida pelo próprio site | `carrosseis/cardapio-digital-tablet/` | 4:5, 8 slides | ✅ entregue — `entrega/cardapio-digital-tablet.zip` (8 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
 `conferir-texto.py` recebe `--novidade <slug-publicado>` para achar a fonte no
 feed.
 
-**Quantos slides:** os que a novidade tem de assunto, entre 6 e 8. O primeiro
+**Quantos slides:** os que a novidade tem de assunto, entre 6 e 9. O primeiro
 carrossel saiu com 8 e o segundo com 7, e os dois fecham — o de tradução tem uma
 ideia grande e três apoios, e o oitavo slide só existiria para chegar a oito.
 Nada no `base.css`, no `renderizar.py` nem no `empacotar.py` depende do número;
@@ -533,6 +540,36 @@ texto dos slides com **nada** e passava sempre.
 Duas coisas que a página devolveu assim que foi lida de verdade: a **seção de
 fidelidade**, que redesenhou a capa, e a **demonstração do aparelho**, que
 salvou o CTA. As duas seções seguintes.
+
+### E a pergunta ganhou uma irmã: "o meu leitor lê tudo o que ela serve?"
+
+Uma rodada depois, a página do Cardápio no Tablet voltou pobre pelo mesmo
+sintoma e por um motivo **oposto**: ela se serve sozinha, com todo o texto no
+HTML, e o `pauta.py` é que jogava fora três blocos inteiros — *Layout
+otimizado*, *Rodízio sem complicação*, *Fechamento de conta simplificado* — e o
+FAQ completo.
+
+Eram dois defeitos somados, cada um comendo uma metade do bloco:
+
+- **O parágrafo.** O editor do site embrulha o texto em
+  `<span style="font-weight: 400">`, e o leitor tratava `span` como bloco: ao
+  abrir o `span` ele **fechava o `<p>`** e mandava o conteúdo para a pilha de
+  "menu e rótulo de ícone", que é descartada. Agora `a` e `span` só contam como
+  bloco quando não há bloco aberto.
+- **O título.** Seção sem parágrafo embaixo era filtrada por estar vazia — e
+  *Para quem é o Cardápio no Tablet* é um eixo da página inteira, com o corpo
+  em cartões que o leitor recolhe à parte. `h3` agora sobrevive sem corpo.
+
+De brinde, o filtro de menu passou a exigir pontuação: linha comprida **sem
+ponto, vírgula ou dois-pontos** é a barra de navegação chegando como uma linha
+só (*"Soluções Presencial Cardápio Digital QRCode Aplicativo para Garçom…"*),
+e frase de verdade com aquele tamanho tem pontuação.
+
+> São duas pautas seguidas em que a leitura pobre era da **ferramenta**, não da
+> página. Antes de concluir que a fonte é magra, rode a pergunta dupla:
+> **"esta página se serve sozinha?"** e **"o meu leitor lê tudo o que ela
+> serve?"**. O sintoma é o mesmo nas duas — pauta curta demais para o tamanho
+> da página — e o conserto é sempre no script.
 
 ### O ícone é o que sobrevive à miniatura
 
@@ -1784,15 +1821,53 @@ O tablet custou cinco rodadas, e o que resolveu foi medir em vez de opinar:
   clara.
 - **e a chapa tem de ser grande.** Ela entrou com 46% da largura do aparelho por
   `100 / 24`, e ainda lia como pé de monitor: pequena demais para ser suporte.
-  Medindo a foto do catálogo, a chapa ocupa **66% da largura** do aparelho e 23%
-  da altura dele — e ali a foto está em perspectiva, que alarga. Frontal,
-  **58% por `100 / 25`** é o que ficou parecido. Regra que serve para qualquer
-  peça acessória: se ela lê como acessório de outro objeto, quase sempre está
-  pequena, não malfeita.
+  Frontal, **58% por `100 / 25`** é o que ficou parecido. Regra que serve para
+  qualquer peça acessória: se ela lê como acessório de outro objeto, quase
+  sempre está pequena, não malfeita.
 
   A lição geral: a foto do catálogo está em perspectiva e o mockup é frontal.
   **Copie a peça, não a pose.** Reproduzir o que a perspectiva revela (o lado do
   rolo, a aba fugindo para a direita) num desenho frontal devolve outro objeto.
+
+  > **Correção de medida, feita na 27ª rodada.** A rodada que fixou 58% anotou
+  > que "a chapa ocupa 66% da largura do aparelho", e os 66% estavam medidos no
+  > lugar errado. Medindo o alfa de
+  > `wp-content/uploads/2025/10/tablet-beefood.png` linha a linha, a carcaça tem
+  > 960 px de largura e a chapa tem **366 px (38%) no topo** e **622 px (65%)
+  > na altura do pé** — os 66% eram a **aba deitada na mesa**, não a chapa. Os
+  > 58% atuais são, sem querer, uma média dos dois; a anotação é que estava
+  > errada, não o valor.
+
+### O suporte do tablet é um limite do desenho frontal, e está aceito
+
+A 27ª rodada reabriu o mockup por um motivo objetivo: na folha do catálogo, o
+`.tablet` e o `Monitor de mesa` têm **a mesma silhueta**, e a folha existe
+justamente para provar que cada aparelho lê como o que é. Três variantes foram
+renderizadas em escala de capa (920 px) contra a foto do site:
+
+| variante | o que deu |
+|---|---|
+| chapa de hoje (58%, quase paralela) | pé de iMac, que é o defeito conhecido |
+| chapa estreita (38%) + 3D leve | o melhor dos três, e ainda ambíguo |
+| chapa 38% no topo abrindo para 65% no pé, medida da foto | **chapéu chinês** — exatamente a falha que a memória já registrava |
+
+O terceiro caso é o que fecha o assunto: reproduzir a medida **certa** num
+desenho frontal devolveu o erro **antigo**. Na foto, o que faz a peça ler como
+chapa não é a largura, é a **curvatura vista de lado** e a aba fugindo para a
+frente — as duas são informação de perspectiva, e desenho frontal não tem onde
+guardá-las. A chapa larga e quase paralela continua sendo a **menos pior**
+aproximação frontal.
+
+Duas conclusões práticas:
+
+- **Não reabra o suporte do tablet com mais uma variante frontal.** Seis
+  tentativas, três famílias de forma, mesmo resultado. O que falta não é
+  medida.
+- **Se um dia valer resolver, o caminho é a pose, não a peça**: `.cena3d` +
+  `.g3d` com giro suave, que é a única coisa que devolve espessura e curva.
+  Custa mais do que parece — `.tablet` é usado por mais de um carrossel já
+  publicado, então mexer nele pede re-render e revisão das peças antigas, e
+  isso não cabe no meio da produção de uma peça nova.
 
 Medidas que cabem no slide, com o texto acima:
 
