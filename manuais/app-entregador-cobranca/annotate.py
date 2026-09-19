@@ -368,3 +368,98 @@ annotate("13-observacao-preenchida.png", [
     (3, *a(455, 436), 0.94, a(0, 436)[1]),       # o contador de caracteres
     (4, *a(30, 490), ETQ, a(0, 490)[1]),         # FINALIZAR
 ], r=26, w=4)
+
+# ---------------------------------------------------------------------------------------
+# 14 a 19 — as seis telas de quando a cobrança não fecha
+# ---------------------------------------------------------------------------------------
+# Vieram da segunda rodada de capturas (`capturas-2/22-erros-de-cobranca/` e `_triagem/`). Quatro
+# perguntas do FAQ deste manual são as mais usadas pelo suporte e nenhuma tinha foto; a última
+# delas — pagamento registrado sem baixa — é uma **sequência de três telas**, e é o laço em que o
+# suporte cai. Por isso ela ganhou três imagens em vez de uma: quem está no laço precisa
+# reconhecer em qual das três telas está para saber o que fazer.
+#
+# As três telas de resultado (`15`, `16` e `17`) entram **inteiras**, com o vão do meio que é
+# real. Recortar só o título e colar os botões embaixo deixaria a imagem mais compacta e mentiria
+# sobre a tela: ela é uma marca, uma frase e um botão no pé, com muito espaço vazio entre eles —
+# e é justamente esse vazio que faz o entregador procurar um botão que não existe.
+EC = "capturas-2/22-erros-de-cobranca/prints"
+TR = "capturas-2/_triagem/prints"
+ETQ_DIR = 0.94
+
+# 14 — a divisão que não soma. O recorte junta o valor a receber, as duas partes e o aviso
+# vermelho, porque a conta que o leitor precisa fazer é 5 + 9,95 contra 19,90.
+C14, M14 = (0, 0.107, 1, 0.820), 0.26
+copiar(f"{EC}/01-soma-precisa-fechar.png", "14-soma-nao-fecha.png", caixa=C14, largura=620)
+margem("14-soma-nao-fecha.png", m=M14)
+a = rec(C14, m=M14)
+annotate("14-soma-nao-fecha.png", [
+    (1, *a(70, 183), ETQ, a(0, 183)[1]),         # A RECEBER: o valor que as partes têm de somar
+    (2, *a(88, 405), ETQ, a(0, 405)[1]),         # a parte da Pessoa 1
+    (3, *a(88, 645), ETQ, a(0, 645)[1]),         # a parte da Pessoa 2
+    (4, *a(137, 790), ETQ, a(0, 790)[1]),        # A soma precisa ser R$ 19,90
+], r=26, w=4)
+
+# 15 — o erro do servidor. Título, explicação e os dois botões: o de repetir e o de desistir.
+C15, M15 = (0, 0.045, 1, 0.978), 0.26
+copiar(f"{EC}/02-nao-foi-possivel-cobrar.png", "15-erro-no-pagamento.png",
+       caixa=C15, largura=560)
+margem("15-erro-no-pagamento.png", m=M15)
+a = rec(C15, m=M15)
+annotate("15-erro-no-pagamento.png", [
+    (1, *a(110, 491), ETQ, a(0, 491)[1]),        # Erro no Pagamento
+    (2, *a(76, 532), ETQ, a(0, 560)[1]),         # O servidor não confirmou o pagamento
+    (3, *a(22, 878), ETQ, a(0, 878)[1]),         # TENTAR NOVAMENTE
+    (4, *a(22, 952), ETQ, a(0, 952)[1]),         # VOLTAR PARA ENTREGAS
+], r=26, w=4)
+
+# 16 — pedido já pago. Marca **verde**, e é o detalhe que decide a leitura: não é erro.
+C16, M16 = (0, 0.045, 1, 0.978), 0.26
+copiar(f"{EC}/03-pedido-ja-pago.png", "16-pedido-ja-pago.png", caixa=C16, largura=560)
+margem("16-pedido-ja-pago.png", m=M16)
+a = rec(C16, m=M16)
+annotate("16-pedido-ja-pago.png", [
+    (1, *a(139, 515), ETQ, a(0, 515)[1]),        # Pedido já pago
+    (2, *a(56, 555), ETQ, a(0, 582)[1]),         # Não há saldo a receber. Finalize a entrega…
+    (3, *a(22, 951), ETQ, a(0, 951)[1]),         # FECHAR
+], r=26, w=4)
+
+# 17 — a tela de sucesso do caso em que a baixa não saiu. Ela é **quase** igual à do `08`: mesma
+# marca verde, mesmo título. A diferença mora na frase de baixo, e é só ela que diz que a entrega
+# continua aberta — por isso ela é o marcador 2 e a legenda insiste nisso.
+C17, M17 = (0, 0.045, 1, 0.978), 0.26
+copiar(f"{EC}/04-falta-finalizar.png", "17-pagamento-sem-baixa.png", caixa=C17, largura=560)
+margem("17-pagamento-sem-baixa.png", m=M17)
+a = rec(C17, m=M17)
+annotate("17-pagamento-sem-baixa.png", [
+    (1, *a(75, 514), ETQ, a(0, 514)[1]),         # Pagamento Confirmado! — o mesmo título do 08
+    (2, *a(83, 555), ETQ, a(0, 582)[1]),         # "Finalize a entrega — o dinheiro já está no caixa"
+    (3, *a(22, 951), ETQ, a(0, 951)[1]),         # VOLTAR PARA ENTREGAS
+], r=26, w=4)
+
+# 18 — de volta nos detalhes. O recorte guarda o rodapé de propósito: ele ainda mostra COBRAR com
+# o valor cheio, porque a tela não recarregou, e é esse rodapé que faz o entregador cobrar duas
+# vezes. O valor é alcançado pela direita — pela esquerda a seta atravessaria a coluna do TOTAL.
+C18, M18, MD18 = (0, 0.410, 1, 0.962), 0.24, 0.13
+copiar(f"{TR}/pos22.png", "18-pagamento-registrado.png", caixa=C18, largura=700)
+margem("18-pagamento-registrado.png", m=M18, md=MD18)
+a = rec(C18, m=M18, md=MD18)
+annotate("18-pagamento-registrado.png", [
+    (1, *a(58, 467), ETQ, a(0, 467)[1]),         # Pagamento registrado
+    (2, *a(58, 501), ETQ, a(0, 512)[1]),         # Finalize a entrega.
+    (3, *a(412, 579), ETQ_DIR, a(0, 579)[1]),    # OK
+    (4, *a(306, 845), ETQ_DIR, a(0, 845)[1]),    # COBRAR R$ 19,90 — o rodapé que não recarregou
+    (5, *a(22, 958), ETQ, a(0, 958)[1]),         # FINALIZAR SEM COBRAR, o caminho certo agora
+], r=30, w=4)
+
+# 19 — a baixa que não passa. O FINALIZAR atrás da janela entra porque a pergunta do leitor é
+# "eu apertei o botão certo?" — e a resposta é sim: o botão está certo, a lista é que está velha.
+C19, M19, MD19 = (0, 0.410, 1, 0.908), 0.24, 0.13
+copiar(f"{TR}/pos22d.png", "19-nao-foi-possivel-dar-baixa.png", caixa=C19, largura=700)
+margem("19-nao-foi-possivel-dar-baixa.png", m=M19, md=MD19)
+a = rec(C19, m=M19, md=MD19)
+annotate("19-nao-foi-possivel-dar-baixa.png", [
+    (1, *a(58, 464), ETQ, a(0, 464)[1]),         # Não foi possível dar baixa
+    (2, *a(58, 501), ETQ, a(0, 512)[1]),         # O servidor não confirmou a entrega
+    (3, *a(412, 579), ETQ_DIR, a(0, 579)[1]),    # OK
+    (4, *a(22, 840), ETQ, a(0, 840)[1]),         # FINALIZAR, atrás da janela
+], r=30, w=4)

@@ -184,6 +184,22 @@ e o outro R$ 18.
 > **A soma precisa fechar com o valor a receber.** É a única regra rígida aqui: se as partes não
 > somam o total, o aplicativo avisa e não deixa confirmar.
 
+![O aviso vermelho da soma que não fecha](imagens-tratadas/14-soma-nao-fecha.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **A RECEBER** | O valor que as partes têm de somar: R$ 19,90. |
+| 2. | **R$ 5,00** | A parte da Pessoa 1, editada pelo lápis. |
+| 3. | **R$ 9,95** | A parte da Pessoa 2, que o aplicativo havia calculado como metade. |
+| 4. | **A soma precisa ser R$ 19,90** | O aviso em vermelho, logo acima da observação. |
+
+No exemplo faltam R$ 4,95: o valor da Pessoa 1 foi mudado para R$ 5,00 e o da Pessoa 2 ficou como
+estava. **Corrija o valor de uma das pessoas até o aviso desaparecer.** O CONFIRMAR PAGAMENTO
+continua na tela, mas não passa enquanto a soma não fechar.
+
+> **Editar um valor não reajusta o outro.** O aplicativo divide em partes iguais uma vez, na hora
+> em que você cria as pessoas; a partir daí a conta é sua.
+
 ### A confirmação mostra uma linha por pessoa
 
 ![A folha de confirmação com duas linhas](imagens-tratadas/11-confirmar-duas-linhas.png)
@@ -250,7 +266,103 @@ pago pelo marketplace"* resolve a dúvida.
 
 ---
 
-## 5. Regras que valem sempre
+## 5. Quando a cobrança não fecha
+
+Quatro telas respondem quase todas as ligações que o suporte recebe sobre cobrança. As três
+primeiras são independentes; a quarta é uma sequência, e é a mais importante de reconhecer.
+
+### "Erro no Pagamento"
+
+![A tela Erro no Pagamento](imagens-tratadas/15-erro-no-pagamento.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **Erro no Pagamento** | O título, com a marca **vermelha**. |
+| 2. | **O servidor não confirmou o pagamento** | O envio saiu do celular e não voltou resposta. |
+| 3. | **TENTAR NOVAMENTE** | Repete o envio, com os mesmos valores. |
+| 4. | **VOLTAR PARA ENTREGAS** | Sai sem registrar. |
+
+**Nada foi registrado nesta tela** — é o que a mensagem diz. Confira o sinal e toque em **TENTAR
+NOVAMENTE**.
+
+> **Se você tocou em TENTAR NOVAMENTE e ficou na dúvida, confira o histórico antes de cobrar de
+> novo.** É o único jeito de não receber duas vezes: a entrega paga sai da aba *Entregas* e aparece
+> no [histórico](../app-entregador-entregas-do-dia/app-entregador-entregas-do-dia.md).
+
+### "Pedido já pago"
+
+![A tela Pedido já pago](imagens-tratadas/16-pedido-ja-pago.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **Pedido já pago** | O título, com a marca **verde**. Não é erro. |
+| 2. | **Não há saldo a receber. Finalize a entrega se ainda não estiver encerrada.** | O que fazer. |
+| 3. | **FECHAR** | Volta aos detalhes. |
+
+**Marca verde, e não vermelha, de propósito:** não há nada errado, só não há o que receber. O pedido
+chegou pago (marketplace, Pix antecipado) ou alguém já registrou o pagamento.
+
+**Não receba nada do cliente.** Volte aos detalhes e use **FINALIZAR SEM COBRAR**, com uma
+observação dizendo por quê.
+
+### Pagamento registrado, entrega em aberto
+
+Esta é a sequência que vira ligação. **O pagamento entra no caixa e a baixa da entrega não sai** —
+acontece quando a rede cai entre as duas coisas, ou quando o restaurante mexeu na rota enquanto você
+cobrava.
+
+A primeira tela é quase igual à do pagamento bem-sucedido. **O que muda é a frase de baixo.**
+
+![A tela de sucesso que pede para finalizar](imagens-tratadas/17-pagamento-sem-baixa.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **Pagamento Confirmado!** | O mesmo título e a mesma marca verde do pagamento normal. |
+| 2. | **Finalize a entrega — o dinheiro já está no caixa** | **É esta frase que diferencia.** No pagamento normal está escrito *registrado com sucesso*, e a entrega já fechou. |
+| 3. | **VOLTAR PARA ENTREGAS** | O único botão. |
+
+Ao abrir os detalhes daquela entrega de novo, o aplicativo repete o aviso:
+
+![O alerta Pagamento registrado, sobre os detalhes](imagens-tratadas/18-pagamento-registrado.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **Pagamento registrado** | O título do alerta. |
+| 2. | **Finalize a entrega.** | O que falta fazer. |
+| 3. | **OK** | Fecha o alerta. |
+| 4. | **COBRAR R$ 19,90** | **Cuidado: o rodapé é o de antes.** Esta tela não recarregou, e continua mostrando o valor como se nada tivesse sido pago. |
+| 5. | **FINALIZAR SEM COBRAR** | O caminho certo agora. O dinheiro já está registrado. |
+
+> **Não toque em INICIAR COBRANÇA nesta tela.** O valor em verde já foi recebido; cobrar de novo
+> registra o dobro no caixa do restaurante.
+
+E o FINALIZAR pode falhar na primeira tentativa:
+
+![A janela Não foi possível dar baixa](imagens-tratadas/19-nao-foi-possivel-dar-baixa.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **Não foi possível dar baixa** | O título da janela. |
+| 2. | **O servidor não confirmou a entrega. Verifique a conexão e tente novamente.** | O texto. |
+| 3. | **OK** | Fecha a janela. |
+| 4. | **FINALIZAR** | O botão que você tocou — e ele estava certo. |
+
+**A saída é atualizar a lista.** Toque em OK, volte para a aba *Entregas*, arraste a tela para
+baixo, abra a entrega de novo e finalize. O aplicativo estava mandando dados velhos; com a lista
+recarregada, a baixa passa.
+
+### O resumo dos quatro casos
+
+| A tela diz | O dinheiro | O que fazer |
+|------------|------------|-------------|
+| **A soma precisa ser R$ …** | nada foi enviado | corrigir os valores das pessoas |
+| **Erro no Pagamento** | nada foi registrado | conferir o sinal e TENTAR NOVAMENTE |
+| **Pedido já pago** | já estava pago antes | FINALIZAR SEM COBRAR, com observação |
+| **Finalize a entrega — o dinheiro já está no caixa** | **registrado** | atualizar a lista e FINALIZAR SEM COBRAR |
+
+---
+
+## 6. Regras que valem sempre
 
 **Não tem como desfazer.** Confirmada a cobrança ou a finalização, a entrega sai da sua lista e
 você não consegue reabri-la pelo aplicativo. Corrigir depende do restaurante, pelo sistema dele.
@@ -280,22 +392,29 @@ cobre por outra forma e avise a loja.
 
 **Não consigo confirmar a divisão.**
 Confira duas coisas: se **toda** pessoa tem forma escolhida e se a **soma das partes** bate com o
-valor a receber.
+valor a receber. O aviso vermelho da soma está na seção 3.
 
 **Dividi em pessoas demais.**
 O **−** reagrupa, e os valores voltam a ser divididos igualmente.
 
 **Erro ao confirmar.**
-Se o aplicativo avisou antes de enviar, nada foi registrado. Se o erro veio depois do envio,
-**confira no histórico** antes de repetir — é o único jeito de não cobrar duas vezes.
+Se a tela é a de **Erro no Pagamento** (marca vermelha), nada foi registrado: confira o sinal e
+toque em TENTAR NOVAMENTE. Se você já tentou mais de uma vez, **confira no histórico** antes de
+repetir. Está na seção 5.
 
 **Diz "Pedido já pago".**
-Não há saldo a receber: alguém já registrou o pagamento. Finalize a entrega, se ela ainda estiver
-aberta.
+Não há saldo a receber: o pedido chegou pago ou alguém já registrou o pagamento. **Não receba nada
+do cliente** — volte e use FINALIZAR SEM COBRAR, com observação. Está na seção 5.
 
 **Registrou o pagamento e a entrega continuou na lista.**
-Acontece quando o pagamento entra e a baixa não. O aplicativo avisa que o dinheiro já está no
-caixa e pede para finalizar — abra os detalhes e finalize.
+O pagamento entrou e a baixa não. A tela de sucesso diz *Finalize a entrega — o dinheiro já está no
+caixa*, e ao reabrir os detalhes o aplicativo repete o aviso. **O rodapé ainda mostra o valor a
+cobrar, e não deve ser cobrado de novo**: atualize a lista e finalize sem cobrar. A sequência inteira
+está na seção 5.
+
+**Finalizei e apareceu "Não foi possível dar baixa".**
+O botão estava certo; a lista é que estava velha. Toque em OK, volte para *Entregas*, arraste a tela
+para baixo, abra a entrega de novo e finalize. Está na seção 5.
 
 **Finalizei e a entrega continuou na lista.**
 O envio não chegou ao servidor. Puxe a lista para atualizar antes de tentar de novo.

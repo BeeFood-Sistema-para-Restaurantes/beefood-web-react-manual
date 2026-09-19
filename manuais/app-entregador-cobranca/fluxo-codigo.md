@@ -94,6 +94,29 @@ e 13. Três cobranças foram feitas de ponta a ponta, sem atalho:
 A folha de bandeiras foi aberta pelo Débito **só para a captura**, e desfeita antes de confirmar —
 a cobrança que valeu foi em dinheiro.
 
+### As seis da segunda rodada
+
+Vêm de `capturas-2/22-erros-de-cobranca/` e de `capturas-2/_triagem/`, no mesmo emulador, app
+`3.3.0` (build Android `1.0.1.2`), na madrugada de 19/09/2026.
+
+| Imagem | Como a cena foi produzida |
+|---|---|
+| `14-soma-nao-fecha.png` | conta dividida em duas e o valor da Pessoa 1 baixado à mão para R$ 5,00 |
+| `15-erro-no-pagamento.png` | wifi desligado **entre** escolher a forma e confirmar |
+| `16-pedido-ja-pago.png` | pedido de marketplace já pago, detalhes abertos, toque em cobrar |
+| `17`, `18` e `19` | **a rota foi excluída no painel** com a folha *Confirmar cobrança?* aberta no celular |
+
+O último caso é o que o pedido de capturas marcava como "talvez não saia", e a solução é registrável:
+em vez de tentar cortar a rede no meio de dois pedidos HTTP, tirou-se a rota debaixo do aplicativo.
+O pagamento entrou — rota não tem nada com o caixa — e a baixa falhou, porque o celular mandou o
+identificador de uma rota que já não existia. Depois da captura o pedido foi finalizado pela mesma
+porta do FINALIZAR, para não sobrar entrega aberta na sandbox.
+
+**O relógio da barra de status do emulador estava em UTC**, três horas à frente do fuso da loja. As
+três telas de resultado não mostram hora nenhuma; a `18` e a `19` têm o recorte começando abaixo da
+barra, e a hora que aparece nelas — *Realizado às 19/09/2026 00:48* — é a do aplicativo, que é a
+gravada no servidor.
+
 ## 10. Onde o manual escolheu ser mais direto que a tela
 
 | Tela | Manual | Por quê |

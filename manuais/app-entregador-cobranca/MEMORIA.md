@@ -53,18 +53,58 @@ novo"; aqui ela produziria uma segunda cobrança. O manual diz o contrário, em 
 - **Duas setas foram remontadas** depois da primeira rodada: o tique da forma escolhida (`04`), que
   atravessava a folha inteira na horizontal e agora entra pela direita, e o contador de caracteres
   (`13`), cuja ponta cobria exatamente o número que ela explicava.
+- **As três telas de resultado da seção 5 (`15`, `16` e `17`) entram inteiras, com o vão do meio.**
+  Recortar o título e colar os botões embaixo deixaria a imagem mais compacta e mentiria sobre a
+  tela: ela é uma marca, uma frase e um botão no pé, com muito espaço vazio entre eles — e é esse
+  vazio que faz o entregador procurar um botão que não existe.
+- **A `18` guarda o rodapé de propósito**, mesmo com a janela no alto: é o rodapé que faz cobrar em
+  dobro, e ele é o quarto marcador da imagem.
+
+## As quatro fotos de erro chegaram, e viraram uma seção nova
+
+As quatro capturas pedidas vieram na segunda rodada, mais duas telas de trabalho que a IA que
+capturou guardou por conta própria — as duas mais valiosas do lote. **O FAQ não recebeu imagem
+nenhuma:** nenhum manual do repositório põe foto em pergunta frequente, e quatro fotos ali deixariam
+o FAQ maior que as quatro seções juntas. Nasceu a **seção 5, *Quando a cobrança não fecha***, e cada
+pergunta do FAQ passou a apontar para ela.
+
+| Imagem | De onde veio | Onde entrou |
+|---|---|---|
+| `14-soma-nao-fecha.png` | `22-erros-de-cobranca/01` | seção 3, embaixo do bloco de aviso da soma |
+| `15-erro-no-pagamento.png` | `22-erros-de-cobranca/02` | seção 5 |
+| `16-pedido-ja-pago.png` | `22-erros-de-cobranca/03` | seção 5 |
+| `17-pagamento-sem-baixa.png` | `22-erros-de-cobranca/04` | seção 5, primeira das três da sequência |
+| `18-pagamento-registrado.png` | `_triagem/pos22.png` | seção 5, segunda |
+| `19-nao-foi-possivel-dar-baixa.png` | `_triagem/pos22d.png` | seção 5, terceira |
+
+### As três coisas que as fotos ensinaram, e que o texto não sabia
+
+**A tela de sucesso do caso sem baixa é igual à do pagamento normal.** Mesma marca verde, mesmo
+*Pagamento Confirmado!*. A única diferença é a frase de baixo: *Finalize a entrega — o dinheiro já
+está no caixa* em lugar de *registrado com sucesso*. Sem a foto lado a lado com a `08` isso não
+apareceria, e é a informação que decide o que o entregador faz em seguida.
+
+**O rodapé não recarrega.** Ao reabrir os detalhes da entrega paga-e-não-baixada, o `COBRAR` continua
+mostrando o valor cheio em verde e o `INICIAR COBRANÇA` continua clicável. **É o caminho que cobra em
+dobro**, e virou o aviso mais forte da seção nova. Só se vê na `18`.
+
+**A primeira tentativa de FINALIZAR falha.** O `pos22d` mostra *Não foi possível dar baixa* com o
+FINALIZAR atrás — e a pergunta do leitor nesse ponto é "eu apertei o botão errado?". A resposta é
+não: a lista do aplicativo está velha. A saída é atualizar a lista e finalizar de novo, o que o
+relatório de captura confirmou.
+
+**A soma que não fecha rendeu uma regra a mais:** editar o valor de uma pessoa **não** reajusta o da
+outra. O aplicativo divide em partes iguais uma vez, quando as pessoas são criadas; depois disso a
+conta é do entregador. É por isso que o print tem R$ 5,00 + R$ 9,95 e o aviso vermelho embaixo.
+
+### Como a foto do `22/04` foi produzida
+
+Está no relatório de quem capturou, e vale registrar porque o pedido a marcava como "talvez não
+saia": em vez de tentar cortar a rede entre dois pedidos HTTP, **a rota foi excluída no painel** com
+a folha *Confirmar cobrança?* aberta no celular. O pagamento entrou (rota não tem nada com o caixa) e
+a baixa falhou, porque o aplicativo mandou o identificador de uma rota que não existia mais. O
+estado é exatamente o que o FAQ descrevia: dinheiro no caixa, entrega aberta.
 
 ## O que falta
 
-Nada para publicar. Quatro capturas melhorariam o manual, e estão pedidas em
-[`../gestao-entregas/pedidos/capturas-app.md`](../gestao-entregas/pedidos/capturas-app.md):
-
-| Captura pedida | Onde entraria |
-|---|---|
-| **A soma precisa ser R$ …** (aviso vermelho da divisão) | o bloco de aviso da seção 3 |
-| **Não foi possível cobrar**, com mensagem do servidor | a pergunta *Erro ao confirmar* |
-| **Pedido já pago** | a pergunta com o mesmo nome |
-| **Pagamento registrado, falta finalizar** | a pergunta *Registrou o pagamento e a entrega continuou na lista* |
-
-As quatro são telas de erro, e o texto já descreve todas. Nenhuma é bloqueante — mas as quatro
-juntas transformariam o FAQ numa seção ilustrada, que é o formato que o suporte usa.
+Nada. Dezenove imagens, e as quatro perguntas mais usadas pelo suporte agora têm tela.

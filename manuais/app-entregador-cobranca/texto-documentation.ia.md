@@ -8,7 +8,8 @@ Leia APENAS os arquivos abaixo:
 
 1. Conteúdo (use na íntegra):
    `beefood-web-react-manual/manuais/app-entregador-cobranca/app-entregador-cobranca.md`
-2. Imagens (na ordem dos nomes, que é a ordem do texto):
+2. Imagens (**nesta** ordem — que não é a ordem dos nomes: a `14` chegou depois e entra
+   no meio, na seção 3):
    - `.../imagens-tratadas/01-rodape-de-cobranca.png`
    - `.../imagens-tratadas/02-conferir-destaque.png`
    - `.../imagens-tratadas/03-tela-de-pagamento.png`
@@ -19,9 +20,15 @@ Leia APENAS os arquivos abaixo:
    - `.../imagens-tratadas/08-pagamento-confirmado.png`
    - `.../imagens-tratadas/09-duas-pessoas.png`
    - `.../imagens-tratadas/10-duas-formas.png`
+   - `.../imagens-tratadas/14-soma-nao-fecha.png`
    - `.../imagens-tratadas/11-confirmar-duas-linhas.png`
    - `.../imagens-tratadas/12-finalizar-sem-cobrar.png`
    - `.../imagens-tratadas/13-observacao-preenchida.png`
+   - `.../imagens-tratadas/15-erro-no-pagamento.png`
+   - `.../imagens-tratadas/16-pedido-ja-pago.png`
+   - `.../imagens-tratadas/17-pagamento-sem-baixa.png`
+   - `.../imagens-tratadas/18-pagamento-registrado.png`
+   - `.../imagens-tratadas/19-nao-foi-possivel-dar-baixa.png`
 
 NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 
@@ -47,8 +54,18 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
   **divisão** cada bloco tem a sua — é a diferença entre as duas seções;
   (j) que a divisão é **tudo ou nada**;
   (k) que a **observação sempre deve ser escrita** no caminho sem cobrança, com o exemplo;
-  (l) a tabela **Quando usar cada caminho**, inteira, incluindo a linha do cliente ausente.
-- A seção 5 (**Regras que valem sempre**) é conteúdo, não apêndice. Publicar no corpo da página.
+  (l) a tabela **Quando usar cada caminho**, inteira, incluindo a linha do cliente ausente;
+  (m) na seção 5, que **Pedido já pago** tem marca **verde** e não é erro, e que o entregador
+  **não deve receber nada do cliente** nesse caso;
+  (n) na seção 5, que a tela *Pagamento Confirmado!* do caso sem baixa é **igual** à do pagamento
+  normal e que **só a frase de baixo diferencia** as duas;
+  (o) na seção 5, o aviso de **não tocar em INICIAR COBRANÇA** quando o rodapé ainda mostra o valor
+  a cobrar depois de o pagamento ter sido registrado — é o caminho que cobra em dobro;
+  (p) na seção 5, que a saída do *Não foi possível dar baixa* é **atualizar a lista** e finalizar de
+  novo, e que o botão não estava errado;
+  (q) a tabela **O resumo dos quatro casos**, no fim da seção 5, inteira.
+- As seções 5 (**Quando a cobrança não fecha**) e 6 (**Regras que valem sempre**) são conteúdo, não
+  apêndice. Publicar as duas no corpo da página.
 - Não publicar rotas de API, nomes de tela do aplicativo, nomes de tabela nem de coluna. Em
   particular: não citar `Cobranca.js`, `CobrancaPessoa`, `Finalizar.js`, `_preVendaPagamento` nem
   os nomes internos de situação do pedido.
@@ -65,7 +82,8 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 - 2. A tela de pagamento
 - 3. Quando mais de uma pessoa paga
 - 4. Finalizar sem cobrar
-- 5. Regras que valem sempre
+- 5. Quando a cobrança não fecha
+- 6. Regras que valem sempre
 - Perguntas frequentes
 - Onde continuar
 
@@ -83,7 +101,16 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 8. `08-pagamento-confirmado.png` — A tela Pagamento Confirmado!
 9. `09-duas-pessoas.png` — A conta dividida em duas, com um bloco por pessoa.
 10. `10-duas-formas.png` — Pix numa pessoa, dinheiro na outra, e a linha Troco para.
-11. `11-confirmar-duas-linhas.png` — A confirmação com uma linha numerada por pessoa.
-12. `12-finalizar-sem-cobrar.png` — O aviso Finalizar sem cobrar?, com o valor em aberto.
-13. `13-observacao-preenchida.png` — A folha Finalizar Entrega, com a observação escrita e o
+11. `14-soma-nao-fecha.png` — O aviso vermelho *A soma precisa ser R$ 19,90*, com as duas partes
+    que não fecham.
+12. `11-confirmar-duas-linhas.png` — A confirmação com uma linha numerada por pessoa.
+13. `12-finalizar-sem-cobrar.png` — O aviso Finalizar sem cobrar?, com o valor em aberto.
+14. `13-observacao-preenchida.png` — A folha Finalizar Entrega, com a observação escrita e o
     contador de caracteres.
+15. `15-erro-no-pagamento.png` — A tela Erro no Pagamento, com TENTAR NOVAMENTE e VOLTAR PARA
+    ENTREGAS.
+16. `16-pedido-ja-pago.png` — A tela Pedido já pago, de marca verde, com FECHAR.
+17. `17-pagamento-sem-baixa.png` — A tela Pagamento Confirmado! que pede para finalizar a entrega.
+18. `18-pagamento-registrado.png` — O alerta Pagamento registrado sobre os detalhes, com o rodapé
+    que ainda mostra o valor a cobrar.
+19. `19-nao-foi-possivel-dar-baixa.png` — A janela Não foi possível dar baixa, sobre o FINALIZAR.
