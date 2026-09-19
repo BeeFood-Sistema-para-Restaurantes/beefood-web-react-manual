@@ -92,8 +92,8 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 1. `01-rodape-de-cobranca.png` — O rodapé escuro: forma prevista, TOTAL, TROCO, COBRAR e os dois
    botões.
 2. `02-conferir-destaque.png` — A folha CONFIRMA E ENTREGA DESSES PRODUTOS CORRETAMENTE?
-3. `03-tela-de-pagamento.png` — A tela de pagamento com uma pessoa: A RECEBER, DIVIDIR CONTA,
-   valor, troco, observação e CONFIRMAR PAGAMENTO.
+3. `03-tela-de-pagamento.png` — A tela de pagamento com uma pessoa: o selo PEDIDO #1030, A RECEBER,
+   DIVIDIR CONTA, valor, troco, observação e CONFIRMAR PAGAMENTO.
 4. `04-forma-de-pagamento.png` — A lista de formas, com a prevista já marcada.
 5. `05-bandeira-do-cartao.png` — A folha BANDEIRA, com o aviso de que é opcional.
 6. `06-troco-para-quanto.png` — A folha Troco para quanto?, já preenchida.

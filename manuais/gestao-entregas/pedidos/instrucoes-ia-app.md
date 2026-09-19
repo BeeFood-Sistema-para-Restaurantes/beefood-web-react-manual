@@ -145,7 +145,7 @@ Escreva no `RELATORIO.md` e siga. Três das 26 são reconhecidamente difíceis, 
 |---|---|
 | `22-erros-de-cobranca/04-falta-finalizar.png` | exige cortar a rede **entre** dois pedidos HTTP. É sorte, não roteiro. Duas tentativas e pule |
 | `16-notificacoes/*` | o token FCM pode não registrar no emulador. Tente no aparelho físico; se não sair em nenhum, o apêndice fica sem imagem |
-| `25-ios/*` | precisa de um iPhone. Sem aparelho, pule e avise — o manual passa a falar só de Android |
+| ~~`25-ios/*`~~ | **cancelada em 19/09/2026.** Precisava de um iPhone, não havia, e o dono decidiu que o manual não usa imagem de iOS. Não tente, não fotografe, não crie a pasta |
 
 E se, fotografando, você notar que **o app faz diferente do que o manual escreveu**, isso é ouro:
 escreva no relatório, com o nome do manual e a frase que está errada. Não edite os arquivos de

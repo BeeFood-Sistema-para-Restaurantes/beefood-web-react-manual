@@ -42,8 +42,13 @@ novo"; aqui ela produziria uma segunda cobrança. O manual diz o contrário, em 
 - **Quase toda imagem é um recorte de folha.** A cobrança acontece em folhas que sobem por cima da
   tela de pagamento, e a parte de cima da tela aparece escurecida em todos os prints. Recortar a
   folha, e não a tela inteira, foi o que deixou o texto legível em treze imagens seguidas.
-- **A tela de pagamento (`03`) é a única inteira**, com oito etiquetas. Ela é o mapa da operação, e
+- **A tela de pagamento (`03`) é a única inteira**, com nove etiquetas. Ela é o mapa da operação, e
   o vazio no meio dela é real: com uma pessoa pagando, a tela é assim.
+- **A etiqueta 1 aponta o selo `PEDIDO #1030`**, acrescentada depois de fechar o #117: esta é a
+  **única tela do aplicativo que mostra o número do pedido**, e a tabela não dizia nada sobre o selo
+  que estava ali na imagem. O crachá do cartão e o dos detalhes leem `numeroPedido` (nulo em pedido
+  do restaurante) e vêm só com o `#`; este selo lê `numeroPreVenda`. A seta vem pela direita porque
+  o selo mora encostado na borda.
 - **O rodapé usou as três margens ao mesmo tempo** (`01`), primeira vez no bloco: esquerda para a
   primeira coluna e os botões, direita para o `COBRAR` em verde, e uma margem **em cima** só para a
   coluna do meio (`TROCO`), que não tem lado livre nenhum. A seta dela desce vertical, por um

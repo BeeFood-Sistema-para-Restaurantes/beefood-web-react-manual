@@ -246,14 +246,18 @@ copiar(f"{CO}/03-tela-de-pagamento.png", "03-tela-de-pagamento.png", caixa=C3, l
 margem("03-tela-de-pagamento.png", m=M3, md=MD3)
 a = rec(C3, m=M3, md=MD3)
 annotate("03-tela-de-pagamento.png", [
-    (1, *a(35, 207), ETQ, a(0, 207)[1]),         # A RECEBER — o valor grande
-    (2, *a(305, 268), 0.94, a(0, 268)[1]),       # JÁ PAGO, alcançado pela direita
-    (3, *a(452, 324), 0.94, a(0, 330)[1]),       # o + do DIVIDIR CONTA
-    (4, *a(45, 419), ETQ, a(0, 419)[1]),         # o valor da Pessoa 1
-    (5, *a(430, 419), 0.94, a(0, 419)[1]),       # o lápis que edita o valor
-    (6, *a(35, 477), ETQ, a(0, 477)[1]),         # Troco para, e o troco calculado
-    (7, *a(35, 537), ETQ, a(0, 545)[1]),         # o campo de observação
-    (8, *a(24, 952), ETQ, a(0, 952)[1]),         # CONFIRMAR PAGAMENTO
+    # O selo PEDIDO #NNNN é o marcador 1 porque é a única tela do app que mostra o número do
+    # pedido — medido nos prints das duas rodadas. Alcançado pela direita: ele mora encostado
+    # na borda, e vir pela esquerda cruzaria o nome do cliente.
+    (1, *a(440, 145), 0.94, a(0, 145)[1]),       # PEDIDO #1030 — o número, só aqui
+    (2, *a(35, 207), ETQ, a(0, 207)[1]),         # A RECEBER — o valor grande
+    (3, *a(305, 268), 0.94, a(0, 268)[1]),       # JÁ PAGO, alcançado pela direita
+    (4, *a(452, 324), 0.94, a(0, 330)[1]),       # o + do DIVIDIR CONTA
+    (5, *a(45, 419), ETQ, a(0, 419)[1]),         # o valor da Pessoa 1
+    (6, *a(430, 419), 0.94, a(0, 419)[1]),       # o lápis que edita o valor
+    (7, *a(35, 477), ETQ, a(0, 477)[1]),         # Troco para, e o troco calculado
+    (8, *a(35, 537), ETQ, a(0, 545)[1]),         # o campo de observação
+    (9, *a(24, 952), ETQ, a(0, 952)[1]),         # CONFIRMAR PAGAMENTO
 ], r=26, w=4)
 
 # ---------------------------------------------------------------------------------------

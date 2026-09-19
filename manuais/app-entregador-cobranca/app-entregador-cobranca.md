@@ -73,14 +73,15 @@ reclamação — e ela aparece nos dois caminhos, cobrando ou finalizando sem co
 
 | Nº | Onde | O que é |
 |----|------|---------|
-| 1. | **A RECEBER** | O valor grande: é o que falta receber. O **TOTAL**, abaixo, é o valor do pedido. |
-| 2. | **JÁ PAGO** | Quanto já foi pago antes. Normalmente R$ 0,00. |
-| 3. | **+** do **DIVIDIR CONTA** | Cria uma pessoa a mais. É o assunto da seção 3. |
-| 4. | **O valor da Pessoa 1** | Com uma pessoa só, é o valor cheio. |
-| 5. | **Lápis** | Edita o valor. Use quando o cliente paga só parte agora. |
-| 6. | **Troco para / Troco** | Quanto ele vai entregar, e o troco já calculado em verde. |
-| 7. | **Campo de observação** | Até 200 caracteres, para o restaurante. |
-| 8. | **CONFIRMAR PAGAMENTO** | Abre a escolha da forma e, no fim, registra. |
+| 1. | **PEDIDO #1030** | O número do pedido. **É a única tela do aplicativo que mostra ele** — na lista e nos detalhes o mesmo crachá laranja vem só com o `#`. |
+| 2. | **A RECEBER** | O valor grande: é o que falta receber. O **TOTAL**, abaixo, é o valor do pedido. |
+| 3. | **JÁ PAGO** | Quanto já foi pago antes. Normalmente R$ 0,00. |
+| 4. | **+** do **DIVIDIR CONTA** | Cria uma pessoa a mais. É o assunto da seção 3. |
+| 5. | **O valor da Pessoa 1** | Com uma pessoa só, é o valor cheio. |
+| 6. | **Lápis** | Edita o valor. Use quando o cliente paga só parte agora. |
+| 7. | **Troco para / Troco** | Quanto ele vai entregar, e o troco já calculado em verde. |
+| 8. | **Campo de observação** | Até 200 caracteres, para o restaurante. |
+| 9. | **CONFIRMAR PAGAMENTO** | Abre a escolha da forma e, no fim, registra. |
 
 Com **uma pessoa** não há campo de forma na tela: o **CONFIRMAR PAGAMENTO** abre a lista de formas
 primeiro. Essa é a diferença mais visível entre cobrar direto e cobrar dividido.

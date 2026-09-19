@@ -104,7 +104,7 @@ surpreende quem vem de outro sistema: atribuir é o suficiente.
 | 1. | **ROTA A** | A mesma letra do painel. |
 | 2. | **0 de 3 entregues** | Nenhuma concluída ainda. |
 | 3. | **INICIAR ROTA**, verde | Ele pode partir sem esperar o painel. |
-| 4. | **O crachá laranja** | Marca a linha do pedido. **Ele não traz o número** — o número de pedido é vocabulário do painel. |
+| 4. | **O crachá laranja** | Marca a linha do pedido. **Aqui ele vem só com o `#`, sem número** — o número aparece adiante, na tela de PAGAMENTO. |
 | 5. | **Cobrar R$ 19,90** | O mesmo valor que o painel mostra na parada 1. |
 
 O **INICIAR ROTA** é a parte que confunde os dois lados. Ele existe para o caso comum de o
@@ -355,12 +355,14 @@ mede o quanto o entregador tem a receber.
 
 ## Como as duas telas se encontram
 
-Vale saber disso antes da primeira ligação de suporte: **o número do pedido não aparece em tela
-nenhuma do aplicativo**. O crachá laranja dos cartões e dos detalhes traz só o `#`. Número de pedido
-é vocabulário do painel.
+Vale saber disso antes da primeira ligação de suporte: **o número do pedido aparece em uma tela só do
+aplicativo — a de PAGAMENTO**, no selo laranja *PEDIDO #NNNN* do topo, que você vê em
+[App do entregador: receber na porta](../app-entregador-cobranca/app-entregador-cobranca.md). Na
+lista e nos detalhes da entrega o mesmo crachá laranja vem só com o `#`, sem número.
 
-Então, quando o operador está com o painel aberto e o entregador com o celular na mão, o que os dois
-usam para falar do mesmo pedido é:
+Na prática isso quer dizer que, enquanto o entregador não abre a cobrança, ele **não tem número para
+conferir** — e a cobrança é o último passo da parada. Então, quando o operador está com o painel
+aberto e o entregador com o celular na mão, o que os dois usam para falar do mesmo pedido é:
 
 | Os dois veem | Onde, no painel | Onde, no celular |
 |---|---|---|

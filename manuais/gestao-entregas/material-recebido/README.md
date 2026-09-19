@@ -15,6 +15,12 @@ numerada, prompt de publicação).
 | Pasta | [`app-entregador/`](app-entregador/) — o pacote como veio, com 3 correções pontuais (seção 4) |
 | Volume | 152 arquivos: 15 capítulos, 63 prints, 4 documentos de estudo, 2 apêndices e 5 scripts |
 
+> **Houve uma segunda rodada.** Em 19/09/2026 chegaram mais 24 prints, tirados por uma IA na mesma
+> máquina a partir do pedido
+> [`../pedidos/capturas-app.md`](../pedidos/capturas-app.md). Eles moram em
+> [`app-entregador/capturas-2/`](app-entregador/capturas-2/README.md), com README e relatório
+> próprios. O que está descrito abaixo é a **primeira** rodada.
+
 ## 1. O que tem dentro
 
 `app-entregador/` é um **manual completo do app do entregador**, tela por tela, em 15
@@ -39,7 +45,7 @@ O manual da Gestão de Entregas tem **três partes** (o escopo está na
 
 | Parte do manual | Este material entrega? |
 |---|---|
-| App do entregador (Android/iOS) | **sim, por inteiro** — 15 fluxos, 63 prints de aparelho real |
+| App do entregador | **sim, por inteiro** — 15 fluxos, 63 prints de aparelho real |
 | Mapa da Gestão de Entregas no painel | **não** — só aparece de lado, no capítulo 06, como "o outro lado" da rota |
 | Juntar as peças (operador ↔ entregador) | **não** — é o trabalho que sobra |
 

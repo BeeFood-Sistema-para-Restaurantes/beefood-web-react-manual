@@ -80,7 +80,23 @@ de marketplace ficam fora **de propósito**: não são dinheiro trocando de mão
 Vale a pena o manual dizer isso em vez de deixar o entregador procurar: a pergunta *"a forma que eu
 preciso não está na lista"* tem resposta de cadastro, no painel, e não no celular.
 
-## 9. Procedência das imagens
+## 9. O número do pedido está só nesta tela
+
+O selo laranja *PEDIDO #1030* do topo é a **única** aparição do número do pedido no aplicativo. Na
+lista de entregas e nos detalhes da entrega o crachá laranja é o mesmo desenho, mas vem só com o `#`.
+
+Não é falha de captura: são dois campos. O crachá do cartão e o dos detalhes leem `numeroPedido`, que
+é numeração de marketplace e fica **nulo** em pedido que entrou pelos canais do restaurante — medido
+no banco de desenvolvimento, `_PreVenda.numeroPedido` é nulo nos 34 pedidos da filial 39202 usados
+nas capturas. O selo desta tela lê `numeroPreVenda`, que sempre tem valor: é o
+`numeroPreVenda: venda.numeroPreVenda` do `resumoVenda`, em
+`src/models/gestaoEntrega/pagamentoEntregador.js`.
+
+Consequência para o suporte, e é o que o [#117](../gestao-entregas-ciclo-completo/gestao-entregas-ciclo-completo.md)
+usa: como a cobrança é o último passo da parada, **antes dela o entregador não tem número para
+conferir ao telefone**. A conversa que funciona em qualquer momento é por endereço e valor.
+
+## 10. Procedência das imagens
 
 Os treze prints vêm do material do dono (emulador `Pixel_7_Pro`, Android 15), dos capítulos 11, 12
 e 13. Três cobranças foram feitas de ponta a ponta, sem atalho:
@@ -117,7 +133,7 @@ três telas de resultado não mostram hora nenhuma; a `18` e a `19` têm o recor
 barra, e a hora que aparece nelas — *Realizado às 19/09/2026 00:48* — é a do aplicativo, que é a
 gravada no servidor.
 
-## 10. Onde o manual escolheu ser mais direto que a tela
+## 11. Onde o manual escolheu ser mais direto que a tela
 
 | Tela | Manual | Por quê |
 |---|---|---|

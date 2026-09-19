@@ -210,8 +210,23 @@ Medido nos 24 prints: **o crachá laranja da lista e dos detalhes traz só o `#`
 aparece numa tela só do aplicativo — a de **PAGAMENTO**, no selo *PEDIDO #NNNN* do topo —, e essa tela
 não entra na sequência do #117. Foi o que decidiu a seção *Como as duas telas se encontram*: a ponte
 entre painel e celular é endereço, valor, forma de pagamento, letra da rota, posição na parada e hora
-da baixa. Perguntar "você está com o 1107?" não funciona; perguntar pelo endereço e pelo valor,
-funciona.
+da baixa. Perguntar "você está com o 1107?" não funciona antes da cobrança; perguntar pelo endereço e
+pelo valor, funciona em qualquer momento.
+
+São **dois campos diferentes**, e é isso que explica o `#` vazio. O crachá do cartão e o dos detalhes
+leem `numeroPedido`, que é numeração de marketplace — `_PreVenda.numeroPedido` fica **nulo** em pedido
+que entrou pelos canais do restaurante. O selo da tela de pagamento lê `numeroPreVenda`, que sempre
+tem valor: é o `resumoVenda` do `pagamentoEntregador.js` (`numeroPreVenda: venda.numeroPreVenda`).
+Medido no banco de desenvolvimento nos 34 pedidos da filial 39202 usados nas capturas, `numeroPedido`
+é nulo em **todos** e `numeroPreVenda` vai de 1078 a 1111 — o `#1082` do print de #116 é o
+`numeroPreVenda` do pedido de R$ 19,90.
+
+O painel usa a mesma ordem invertida: `painel.js` faz
+`row.numeroPedido != null ? row.numeroPedido : row.numeroPreVenda`. Efeito prático: em pedido do
+restaurante os dois números coincidem, porque ambos caem em `numeroPreVenda`; em pedido de
+marketplace o painel mostra a numeração da plataforma e a tela de pagamento continua mostrando a da
+venda. O manual não promete que os dois números batem — ele diz onde o número aparece e manda a
+conversa para endereço e valor, que batem sempre.
 
 ### Um detalhe de leitura das imagens do celular
 
@@ -221,9 +236,19 @@ são as certas — são as que estão gravadas e as que o relatório soma. Por i
 imagens começa abaixo da barra de status**, que é também a regra dos seis manuais do aplicativo: o
 manual mostra a tela, não a barra do sistema.
 
-### As telas do aplicativo são de Android
+### As telas do aplicativo são de Android, e isso está resolvido
 
-Não há iPhone nem simulador iOS na máquina que tirou os prints, e o manual não afirma nada sobre o
-layout do iOS. As telas são as mesmas em conteúdo — o aplicativo é um só, em React Native —, mas a
-conferência visual não foi feita, e prometer semelhança sem conferir era o erro que o pedido de
-capturas queria evitar.
+Não há iPhone nem simulador iOS na máquina que tirou os prints, e o pedido de capturas guardava uma
+pasta (`25-ios`) para os dois prints que permitiriam dizer, com honestidade, se a tela do iPhone é a
+mesma. Ela **não saiu, e foi cancelada** em 19/09/2026: o dono decidiu que o manual não precisa de
+imagem de iOS.
+
+A decisão não custou nada porque o manual nunca prometeu nada sobre o iOS. A regra do
+`texto-documentation.ia.md` — *não citar Android nem iOS: o manual fala do aplicativo, não do sistema
+do aparelho* — já resolvia o caso: o texto descreve a tela, e o aplicativo é um só, em React Native.
+Nenhuma frase deste manual muda se as telas do iPhone forem diferentes em altura de rodapé ou botão
+de voltar, porque ele não fala de rodapé nem de botão de voltar — fala de **ROTA A**, de
+**INICIAR ROTA** e de *Cobrar R$ 19,90*, que são texto do aplicativo.
+
+Onde o sistema do aparelho **é** o assunto, o manual nomeia, e aí é correto: as janelas de permissão
+do [#111](../app-entregador-entrar/app-entregador-entrar.md) são telas do Android, não do aplicativo.

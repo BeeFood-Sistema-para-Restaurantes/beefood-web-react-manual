@@ -28,6 +28,12 @@ daqui.
 | `24-plataforma-sem-confirmacao/` | 1 | #115, última pergunta |
 | `_triagem/` | 3 | telas de trabalho que entraram no material (veja abaixo) |
 
+A pasta `25-ios/` do pedido **não existe aqui, e não vai existir**: não havia iPhone nem simulador iOS
+na máquina, e o dono cancelou o item — *"não precisamos de imagem de iOS / Android diferentes no
+manual"*. Nenhum dos seis manuais do aplicativo perdeu nada com isso: eles descrevem o texto da tela,
+que é o mesmo nos dois sistemas, e nomeiam o Android só onde a tela **é** do Android (as janelas de
+permissão do #111).
+
 ## Três coisas para ler antes de usar
 
 **`21-listas-vazias/prints/02-historico-vazio.png` não é o histórico vazio.** O nome vem do pedido;
@@ -41,10 +47,14 @@ desligada, o MELHOR ROTA responde **Permissão necessária**, não *Ocorreu uma 
 rota*. Não é erro de captura: é como o `try/catch` do app trata rede e GPS no mesmo `catch`. O #113
 passou a responder a pergunta com as duas mensagens.
 
-**O número do pedido não aparece em tela nenhuma do aplicativo.** O crachá laranja dos cartões e dos
-detalhes traz só o `#`, sem número — o número de pedido é vocabulário do painel. Foi medido nestes
-prints, e é o que decidiu como o #117 amarra as duas metades: endereço, valor, forma de pagamento,
-letra da rota e hora da baixa.
+**O número do pedido aparece em uma tela só: a de PAGAMENTO.** O crachá laranja dos cartões e dos
+detalhes traz só o `#`, sem número, porque lê `numeroPedido` — numeração de marketplace, nula em
+pedido do restaurante. O selo *PEDIDO #NNNN* da tela de pagamento lê `numeroPreVenda`, que sempre tem
+valor: é o `#1082` de `22-erros-de-cobranca/prints/01-soma-precisa-fechar.png`, confirmado no banco
+(filial 39202, `numeroPedido` nulo em todos os 34 pedidos das capturas). Isso é o que decidiu como o
+#117 amarra as duas metades: como a cobrança é o último passo da parada, antes dela o entregador não
+tem número para conferir, e a ponte é endereço, valor, forma de pagamento, letra da rota e hora da
+baixa.
 
 ## Os três prints da triagem
 

@@ -71,6 +71,15 @@ Isso muda a pergunta que funciona ao telefone. Não é *"você está com o 1107?
 Aparecida, 318, cobrando R$ 63,90?"*. A seção lista as seis coisas que as duas telas mostram: letra da
 rota, endereço, valor, forma de pagamento, posição na parada e hora da baixa.
 
+**Um erro de redação que quase virou erro de manual.** A primeira versão da seção escreveu *"o número
+do pedido não aparece em tela nenhuma do aplicativo"* — mais forte do que a medição permitia, e
+desmentida pelo próprio material: o selo *PEDIDO #1030* está visível na imagem 03 do #116. A frase
+foi corrigida em três lugares (a seção, a tabela da imagem 03 do #117 e o README do material), e o
+motivo técnico foi para o `fluxo-codigo.md`: são dois campos diferentes, `numeroPedido` no crachá do
+cartão e `numeroPreVenda` no selo do pagamento. A lição para os próximos manuais é a de sempre —
+*nenhuma tela* é uma afirmação sobre o app inteiro, e o material tinha a contraprova a um print de
+distância.
+
 ## O que a reencenação do painel mudou no texto
 
 O `fluxo-codigo.md` tem o detalhe técnico. Em resumo, três afirmações do esqueleto caíram:
@@ -81,8 +90,11 @@ O `fluxo-codigo.md` tem o detalhe técnico. Em resumo, três afirmações do esq
 2. **"O relatório conta as três entregas do dia, com tempo médio e distância."** Tempo médio não é
    calculado com três pedidos: *Confirmação até pronto* sai como *Poucos pedidos — mínimo 20*. Virou
    marcador na imagem, não nota de rodapé.
-3. **A metade do celular não precisa de imagem de iOS.** Não há iPhone na máquina que tirou os prints,
-   e o manual não afirma nada sobre o layout do iOS. Antes de conferir, semelhança é promessa.
+3. **A metade do celular não precisa de imagem de iOS.** Não havia iPhone na máquina que tirou os
+   prints, e o dono fechou o assunto em 19/09: *"não precisamos de imagem de iOS / Android diferentes
+   no manual"*. A pasta `25-ios` do pedido foi cancelada. Não custou nada porque o manual nunca
+   afirmou nada sobre o layout do iOS — ele fala de **ROTA A** e de *Cobrar R$ 19,90*, que são texto
+   do aplicativo, não de rodapé nem de botão de voltar, que são do sistema.
 
 ## A janela, e o que ela precisou
 

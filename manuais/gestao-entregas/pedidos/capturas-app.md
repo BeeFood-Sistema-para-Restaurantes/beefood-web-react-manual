@@ -1,5 +1,19 @@
 # Capturas do app que faltam — 26 prints, em 10 pastas
 
+> ## ✅ Respondido em 19/09/2026 — **24 dos 26 chegaram, e os 2 que faltaram foram cancelados**
+>
+> Os prints estão em
+> [`../material-recebido/app-entregador/capturas-2/`](../material-recebido/app-entregador/capturas-2/README.md),
+> com o relatório de quem os tirou. **Os seis obrigatórios saíram**, o #117 foi publicado, e os 18
+> de "melhora manual" entraram nos seis manuais do aplicativo.
+>
+> A pasta **25 (iPhone) não saiu e não vai sair**: não havia aparelho nem simulador iOS na máquina, e
+> o dono decidiu que **o manual não precisa de imagem de iOS**. Ver a seção 25, abaixo.
+>
+> Dois prints saíram diferentes do pedido — o do histórico vazio e o da falha da melhor rota. Os dois
+> estão explicados no README do material, e os manuais se adaptaram ao que o aplicativo mostra de
+> verdade. **Este arquivo fica como registro do que foi pedido**, não como lista aberta.
+
 Para o dono, em resposta a *"aguardo a pasta com todas imagens necessárias + scripts completos, te
 entrego e vc finaliza"*.
 
@@ -13,11 +27,11 @@ linha da tabela aponta a pergunta ou a seção que ganharia a foto.
 
 ## O que muda de verdade, e o que só melhora
 
-| | Prints | Efeito |
-|---|--:|---|
-| **Bloqueia manual** | 6 | sem eles o **#117** não existe — é o manual que mostra o mesmo pedido nas duas telas |
-| **Melhora manual publicado** | 18 | o texto já descreve a cena; a foto poupa o leitor de imaginar |
-| **Fecha uma promessa** | 2 | o material promete Android **e iOS**, e tudo que temos é emulador Android |
+| | Prints | Efeito | Como terminou |
+|---|--:|---|---|
+| **Bloqueia manual** | 6 | sem eles o **#117** não existe — é o manual que mostra o mesmo pedido nas duas telas | ✅ os 6 chegaram, o #117 foi publicado |
+| **Melhora manual publicado** | 18 | o texto já descreve a cena; a foto poupa o leitor de imaginar | ✅ os 18 chegaram e entraram nos seis manuais |
+| **Fecha uma promessa** | 2 | o material promete Android **e iOS**, e tudo que temos é emulador Android | ❌ cancelado: o manual não precisa de imagem de iOS |
 
 Ou seja: **seis são obrigatórios**, vinte são bons de ter. Se der tempo para uma coisa só, faça a
 pasta 18 — ela é a janela combinada, e é a única que precisa de mim ao mesmo tempo que de você.
@@ -168,18 +182,27 @@ transformariam o FAQ numa seção ilustrada.
 um pedido Keeta e a conferência garante que nenhum iFood ou 99Food sobrou na tela, para o selo
 aparecer sozinho.
 
-## 25. iPhone (2)
+## 25. iPhone (2) — ~~pedido~~ **cancelado em 19/09/2026**
 
-| Arquivo | A cena |
-|---|---|
-| `25-ios/prints/01-lista-entregas.png` | a lista de entregas no iPhone |
-| `25-ios/prints/02-detalhes-entrega.png` | os detalhes de uma entrega no iPhone |
+| Arquivo | A cena | Situação |
+|---|---|---|
+| ~~`25-ios/prints/01-lista-entregas.png`~~ | a lista de entregas no iPhone | cancelado |
+| ~~`25-ios/prints/02-detalhes-entrega.png`~~ | os detalhes de uma entrega no iPhone | cancelado |
 
-Não preciso do app inteiro em iOS: preciso do suficiente para o manual dizer, com honestidade, se a
-tela é a mesma. Se for igual, o manual diz isso em uma linha e segue com as imagens do Android. Se
-houver diferença de layout — barra do iOS, botão de voltar, altura do rodapé — as duas entram nos
-manuais. **Sem iPhone à mão, pule e me diga**: o manual passa a falar só de Android, sem prometer o
-que não conferimos.
+Não havia aparelho nem simulador iOS na máquina que tirou os prints, e o dono decidiu:
+*"não precisamos de imagem de iOS / Android diferentes no manual"*. **A pasta 25 deixa de ser
+pedido.**
+
+E isso não custou nada aos manuais, porque nenhum deles prometia iOS. A regra que os seis já
+seguiam — *não citar Android nem iOS: o manual fala do aplicativo, não do sistema do aparelho* —
+resolve o caso sozinha: o texto descreve a tela, e a tela é a mesma em conteúdo, porque o aplicativo
+é um só, em React Native. Onde o sistema do aparelho **é** o assunto, o manual continua nomeando-o,
+porque aí a tela é do sistema e não do aplicativo: as permissões do #111 são janelas do Android, e
+não teria como ser diferente.
+
+O que a decisão fecha é só isto: **nenhum manual precisa de par de imagens**, e nenhum deles vai
+dizer *"no iPhone é assim"*. Se um dia aparecer diferença de layout que confunda o leitor, ela volta
+como pedido — com print, não com suposição.
 
 ---
 
