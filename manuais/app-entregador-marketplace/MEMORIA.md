@@ -54,14 +54,29 @@ página, o manual sobrevive.
   fim). Nos dois manuais anteriores a ordem dos arquivos brigou com a do texto e o
   `texto-documentation.ia.md` precisou avisar; aqui não precisou.
 
+## As duas que chegaram e viraram seção
+
+As duas capturas pedidas chegaram na segunda rodada, e em vez de ilustrar duas perguntas do FAQ
+viraram a **seção 6 — Dois casos fora do roteiro**. O motivo é o mesmo nos dois casos: a resposta
+tem passo a passo, e passo a passo não cabe numa linha de pergunta.
+
+| Print | Virou | O que a foto acrescentou |
+|---|---|---|
+| `19-sem-internet/02-plataforma-nao-carrega` | *A página da plataforma não abre* | a divisão da tela: **a faixa de cima é do aplicativo, o resto é do site**. É o que separa "pedido errado" de "sem sinal", e não estava escrito em lugar nenhum |
+| `24-plataforma-sem-confirmacao/01-selo-keeta` | *O pedido de plataforma que não pede confirmação* | que **a cor do selo não identifica a plataforma**: o da Keeta é amarelo igual ao do 99Food, e quem identifica é a marca dentro do selo |
+
+A segunda mudou também a seção 1, que descrevia os selos por cor. Ganhou uma linha dizendo que a
+marca dentro do selo é o que vale.
+
+Duas decisões de imagem:
+
+- **A tela em branco entra recortada na metade.** A imagem inteira seria 70% de nada. O recorte
+  guarda a faixa do aplicativo e um pedaço do branco — o suficiente para a etiqueta 2 apontar para
+  o vazio, que é o assunto.
+- **O pedido da Keeta começa abaixo da linha de *Realizado às***. Essa linha traz data e hora, e o
+  print é de dois dias depois dos outros do manual. Cortando ali, nenhuma data aparece na imagem e
+  nada precisou ser mexido — foi o caminho mais barato que o `relogio.py`.
+
 ## O que falta
 
-Nada para publicar. Duas capturas melhorariam o manual, e estão pedidas em
-[`../gestao-entregas/pedidos/capturas-app.md`](../gestao-entregas/pedidos/capturas-app.md):
-
-| Captura pedida | Onde entraria |
-|---|---|
-| A tela de confirmação **sem internet** (branca ou carregando) | a pergunta *A tela da plataforma não carrega* |
-| Um pedido de plataforma **sem botão de confirmação** (Keeta) | a última pergunta do FAQ |
-
-Nenhuma das duas é bloqueante: as duas situações já estão descritas por texto.
+Nada. As duas capturas que este manual esperava chegaram e estão publicadas.

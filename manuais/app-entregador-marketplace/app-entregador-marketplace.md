@@ -39,6 +39,9 @@ do número do restaurante.
 | 3. | **#1035**, laranja | O mesmo número de restaurante do segundo pedido. |
 | 4. | **Selo amarelo do 99Food** | O número do pedido **no 99Food** — um número bem mais longo. |
 
+**O selo traz a marca da plataforma dentro dele**, e é ela que vale: a cor se repete entre
+plataformas diferentes.
+
 Os dois números convivem, e cada um serve a um interlocutor: o **laranja** para falar com a
 loja, o **colorido** para falar com a plataforma.
 
@@ -192,6 +195,46 @@ conferência antes, e há campo de observação. Está em
 
 ---
 
+## 6. Dois casos fora do roteiro
+
+### A página da plataforma não abre
+
+![A tela de confirmação sem a página da plataforma](imagens-tratadas/10-plataforma-nao-carrega.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **O código, no alto** | Esta faixa é do **aplicativo**: ela aparece mesmo sem internet, e o botão de copiar funciona. |
+| 2. | **O branco** | É aqui que o site da plataforma deveria estar. Sem sinal, não vem nada — e **não há mensagem de erro**. |
+
+A divisão é a chave para não perder tempo: **a faixa de cima é do aplicativo, o resto é do site.**
+Faixa preenchida com página branca significa que o pedido está certo e o problema é conexão.
+
+O que fazer, em ordem: **copie o código** pelo ícone de copiar — ele funciona com a página vazia
+—, feche com o **X**, e tente de novo com sinal. Fechar não desfaz nem finaliza nada. Se o sinal
+não voltar, entregue o pedido, finalize no aplicativo e **avise a loja** de que a confirmação da
+plataforma ficou pendente: ela pode fazer pelo portal.
+
+### O pedido de plataforma que não pede confirmação
+
+Nem toda plataforma tem confirmação dentro do aplicativo. Quando não tem, o pedido fica assim:
+
+![Um pedido de plataforma com selo e sem botão de confirmação](imagens-tratadas/11-plataforma-sem-confirmacao.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **O selo da plataforma** | Aqui é uma **Keeta**: o selo traz a marca dela e o número do pedido. |
+| 2. | **PAGO ONLINE** | O cliente pagou na plataforma, como no iFood e no 99Food. |
+| 3. | **COBRAR R$ 0,00** | Nada a receber na porta. |
+| 4. | **FINALIZAR** | O **único** botão do rodapé: não há botão colorido de confirmar. |
+
+**A cor do selo não identifica a plataforma sozinha** — o da Keeta é amarelo, igual ao do 99Food.
+Quem identifica é a **marca dentro do selo**, e a observação em laranja nos detalhes.
+
+Para você, o roteiro encurta: **conferir, entregar, FINALIZAR.** Sem código, sem site, sem passo
+extra.
+
+---
+
 ## Perguntas frequentes
 
 **O cliente quer pagar na entrega.**
@@ -199,8 +242,8 @@ Não é o caso. O pedido está pago na plataforma, e o aplicativo mostra **COBRA
 receba nada.
 
 **A tela da plataforma não carrega.**
-É um site, e precisa de internet. Sem sinal, fica em branco ou carregando — o aplicativo desiste
-do indicador depois de alguns segundos. Tente de novo com sinal melhor.
+É um site, e precisa de internet. Sem sinal, fica em branco, sem mensagem de erro. A tela e o que
+fazer estão em *A página da plataforma não abre*.
 
 **O código não aparece no alto da tela.**
 Acontece quando o pedido não trouxe o identificador completo da plataforma. O código está na
@@ -220,8 +263,12 @@ O restaurante fechou a entrega, mas a plataforma não recebeu a prova. Avise a l
 pode ser feita pelo portal da plataforma.
 
 **O pedido é de outra plataforma e não tem botão de confirmação.**
-Nem toda plataforma pede confirmação de entrega própria. Nesse caso o pedido traz só o selo, e
-você finaliza direto.
+Nem toda plataforma pede confirmação de entrega própria. Nesse caso o pedido traz só o selo, e você
+finaliza direto — a tela está em *O pedido de plataforma que não pede confirmação*.
+
+**O selo é amarelo, mas o pedido não é de 99Food.**
+Acontece: a cor se repete entre plataformas. Olhe a **marca dentro do selo** e a observação em
+laranja dos detalhes.
 
 ---
 

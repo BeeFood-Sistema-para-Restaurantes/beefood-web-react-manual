@@ -68,7 +68,21 @@ COBRANÇA**, some o **FINALIZAR SEM COBRAR**, e sobra **FINALIZAR**.
 É o mesmo comportamento de "o que não existe não aparece" registrado no #112 — aqui aplicado ao
 bloco de ações inteiro.
 
-## 6. Procedência das imagens
+## 6. A plataforma que só tem etiqueta
+
+O aplicativo tem `WebView` de confirmação para **iFood** e **99Food**, e mais nada. Pedido de
+**Keeta** entra no mesmo lugar dos outros — etiqueta no cartão e nos detalhes, com o identificador
+da plataforma — e o rodapé **não ganha botão colorido**: o entregador vai direto ao `FINALIZAR`.
+
+Não é lacuna a preencher no manual, é o estado de hoje, e está declarado no apêndice
+*o que não existe na tela* do material. A imagem `11` é a prova: selo presente, rodapé com um botão
+só.
+
+**A etiqueta da Keeta é amarela, como a do 99Food.** Medido nos dois prints, lado a lado: o que
+distingue é o logotipo dentro da etiqueta. O manual passou a dizer isso na seção 1, porque
+descrever plataforma por cor levaria o entregador a procurar botão de confirmação que não existe.
+
+## 7. Procedência das imagens
 
 Os oito prints vêm do material do dono (emulador `Pixel_7_Pro`, Android 15), dos capítulos 09 e
 10. Os pedidos **#1034** (iFood) e **#1035** (99Food) foram criados pelo gerador de cenário com
@@ -83,7 +97,14 @@ A baixa desses dois pedidos foi feita **por script**, e não pelo botão, justam
 disparar webhook de entrega com identificador que não existe do outro lado. Está registrado no
 risco 3 do estudo do material.
 
-## 7. Onde o manual escolheu ser mais direto que a tela
+As duas últimas imagens vieram da segunda rodada de capturas. A `10` é a mesma tela de confirmação
+com o wifi desligado — o site não carregou, e é isso que ela mostra. A `11` é um pedido de Keeta
+montado pelo cenário, e o recorte começa **abaixo da linha de *Realizado às***: essa linha traz
+data e hora, e o print é de dois dias depois dos outros deste manual. Nenhuma das duas mostra data,
+então nenhuma passou pelo
+[`../gestao-entregas/scripts/relogio.py`](../gestao-entregas/scripts/relogio.py).
+
+## 8. Onde o manual escolheu ser mais direto que a tela
 
 | Tela | Manual | Por quê |
 |---|---|---|

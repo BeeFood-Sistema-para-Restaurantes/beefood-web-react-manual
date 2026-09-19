@@ -328,3 +328,38 @@ annotate("09-copiado-lado-a-lado.png", [
     (1, 0.098, 0.695, 0.098, 0.12),              # Localizador copiado com sucesso! (iFood)
     (2, 0.608, 0.695, 0.608, 0.12),              # Código copiado com sucesso! (99Food)
 ], r=24, w=4)
+
+# ---------------------------------------------------------------------------------------
+# 10 e 11 — quando a plataforma não responde, e quando ela não pede nada
+# ---------------------------------------------------------------------------------------
+# Vieram da segunda rodada (`capturas-2/19-sem-internet/` e `24-plataforma-sem-confirmacao/`).
+# São as duas últimas perguntas do manual, que até agora não tinham foto.
+CP2 = "capturas-2"
+
+# 10 — a tela de confirmação com a página vazia. O recorte para no meio do branco de propósito:
+# a imagem inteira seria 70% de nada, e o que ela precisa provar cabe na faixa de cima — a
+# **faixa do aplicativo veio**, com o código e os botões; a **página da plataforma não**.
+C10 = (0, 0.052, 1, 0.42)
+copiar(f"{CP2}/19-sem-internet/prints/02-plataforma-nao-carrega.png",
+       "10-plataforma-nao-carrega.png", caixa=C10, largura=700)
+margem("10-plataforma-nao-carrega.png")
+a = rec(C10)
+annotate("10-plataforma-nao-carrega.png", [
+    (1, *a(114, 104), ETQ, a(0, 104)[1]),        # o localizador, que é a parte do aplicativo
+    (2, *a(60, 250), ETQ, a(0, 250)[1]),         # o branco: a página do site não veio
+], r=28, w=4)
+
+# 11 — o pedido de plataforma sem botão de confirmação. O recorte **começa abaixo da linha de
+# *Realizado às***: ela traz data e hora, e este print é de dois dias depois dos outros deste
+# manual. Nada no recorte mostra data, então nenhuma tinta precisou ser mexida.
+C11, M11, MD11 = (0, 0.338, 1, 0.978), 0.24, 0.14
+copiar(f"{CP2}/24-plataforma-sem-confirmacao/prints/01-selo-keeta.png",
+       "11-plataforma-sem-confirmacao.png", caixa=C11, largura=700)
+margem("11-plataforma-sem-confirmacao.png", m=M11, md=MD11)
+a = rec(C11, m=M11, md=MD11)
+annotate("11-plataforma-sem-confirmacao.png", [
+    (1, *a(30, 366), ETQ, a(0, 366)[1]),         # o selo amarelo do pedido de plataforma
+    (2, *a(13, 849), ETQ, a(0, 849)[1]),         # PAGO ONLINE
+    (3, *a(302, 913), 0.93, a(0, 913)[1]),       # COBRAR R$ 0,00
+    (4, *a(13, 960), ETQ, a(0, 960)[1]),         # FINALIZAR, o único botão do rodapé
+], r=26, w=4)

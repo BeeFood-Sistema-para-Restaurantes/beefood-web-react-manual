@@ -19,6 +19,8 @@ Leia APENAS os arquivos abaixo:
    - `.../imagens-tratadas/07-rodape-99food.png`
    - `.../imagens-tratadas/08-tela-de-confirmacao-99food.png`
    - `.../imagens-tratadas/09-copiado-lado-a-lado.png`
+   - `.../imagens-tratadas/10-plataforma-nao-carrega.png`
+   - `.../imagens-tratadas/11-plataforma-sem-confirmacao.png`
 
 NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 
@@ -41,14 +43,24 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
   (h) que a **tela de confirmação é um site** e precisa de internet;
   (i) as duas perguntas espelhadas do FAQ (*confirmei e esqueci de finalizar* / *finalizei e não
   confirmei*) — são as duas situações reais de suporte;
-  (j) a tabela comparativa **iFood contra 99Food** da seção 4, inteira.
+  (j) a tabela comparativa **iFood contra 99Food** da seção 4, inteira;
+  (k) que, na tela de confirmação, **a faixa de cima é do aplicativo e o resto é do site** — faixa
+  preenchida com página branca é problema de conexão, não de pedido —, e que o **copiar funciona**
+  mesmo com a página vazia;
+  (l) que, sem sinal, a página fica branca **sem mensagem de erro**;
+  (m) que **a cor do selo não identifica a plataforma**: o da Keeta é amarelo como o do 99Food, e
+  quem identifica é a marca dentro do selo;
+  (n) que, na plataforma sem confirmação, o rodapé tem **só FINALIZAR**, e o roteiro do entregador
+  encurta para conferir, entregar e finalizar.
 - A quarta seção existe por causa de uma imagem montada com **duas telas lado a lado**. Publicar a
   imagem uma vez só, com a tabela de duas linhas embaixo, e depois a tabela comparativa.
 - Não publicar rotas de API, nomes de campo nem endereços dos sites das plataformas. Em
   particular: não citar `ifoodLocalizer`, `nnID`, `correlationId`, `IfoodView` nem os domínios de
   confirmação do iFood e do 99Food.
-- Não afirmar que toda plataforma tem confirmação: o texto já diz que há plataforma que traz só o
-  selo, e isso deve ser mantido como está.
+- Não afirmar que toda plataforma tem confirmação: a seção 6 mostra o pedido que traz só o selo, e
+  isso deve ser mantido como está.
+- A seção 6 é a única que fala de coisa dando errado. Manter as duas subseções na ordem, e manter o
+  passo a passo do que fazer quando a página não abre — é a parte que o suporte usa.
 - Não citar bastidor de captura: nem emulador, nem material recebido, nem que as confirmações não
   foram concluídas, nem que os pedidos são de teste.
 - Os nomes de cliente que aparecem nas imagens são de cadastro de teste. Não comentar na página.
@@ -62,6 +74,7 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 - 3. Pedido de 99Food
 - 4. As duas plataformas, lado a lado
 - 5. A ordem certa das coisas
+- 6. Dois casos fora do roteiro
 - Perguntas frequentes
 - Onde continuar
 
@@ -80,3 +93,7 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 8. `08-tela-de-confirmacao-99food.png` — O site do 99Food, com as duas etapas e a frase dos 8
    dígitos.
 9. `09-copiado-lado-a-lado.png` — Os dois avisos de cópia, um ao lado do outro.
+10. `10-plataforma-nao-carrega.png` — A tela de confirmação com o código no alto e a página do site
+    em branco.
+11. `11-plataforma-sem-confirmacao.png` — Um pedido de plataforma com selo, PAGO ONLINE, COBRAR
+    R$ 0,00 e só o FINALIZAR no rodapé.
