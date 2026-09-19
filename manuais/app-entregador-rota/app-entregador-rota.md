@@ -100,6 +100,29 @@ Quem não usa rota não vê nada disso: a lista continua exatamente como antes.
 | 3. | **0 de 3 entregues** | Quantas paradas você já fechou, de quantas a rota tem. |
 | 4. | **INICIAR ROTA** | O botão verde. Leia a próxima seção antes de tocar. |
 
+### Duas rotas ao mesmo tempo
+
+Em restaurante movimentado é normal receber mais de uma rota. Elas não se misturam: **cada rota é
+um bloco completo**, com a sua letra, o seu contador e o seu botão.
+
+![Duas rotas na mesma lista, A e B](imagens-tratadas/11-duas-rotas.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **A**, no círculo amarelo | A letra da primeira rota. |
+| 2. | **0 de 3 entregues** | O contador **da rota A**. |
+| 3. | **INICIAR ROTA** | O botão da rota A. Despacha as três paradas dela. |
+| 4. | **B**, no círculo amarelo | A letra da segunda rota. |
+| 5. | **0 de 2 entregues** | O contador **da rota B**, independente do primeiro. |
+| 6. | **INICIAR ROTA** | O botão da rota B. |
+
+**Toque no botão da rota que você vai rodar agora.** Iniciar as duas de uma vez avisa o cliente
+das cinco entregas ao mesmo tempo — e as duas últimas vão esperar você terminar as três
+primeiras.
+
+As paradas de cada rota são numeradas **a partir do 1**, dentro da própria rota. Ver dois cartões
+com o número 1 na mesma tela é esperado: um é a primeira parada da A, o outro a primeira da B.
+
 ### O que não está na rota
 
 ![A faixa OUTRAS ENTREGAS](imagens-tratadas/05-outras-entregas.png)
@@ -143,6 +166,29 @@ endereço um pouco diferente do cartão. O endereço que vale continua sendo o d
 |----|------|-------------|
 | 1. | **em rota** | A etiqueta ao lado do contador. É o sinal de que o restaurante já registrou a sua saída. |
 | 2. | **ABRIR NO MAPS** | O botão verde virou azul. **Só reabre o mapa** — pode tocar quantas vezes quiser, sem avisar ninguém de novo. |
+
+### Quando o restaurante não confirma a saída
+
+Às vezes o toque em **INICIAR ROTA** não chega ao restaurante — sinal fraco na porta da loja é o
+motivo de sempre. O aplicativo avisa e **abre o mapa do mesmo jeito**, para não te deixar parado.
+
+![A janela Despacho não confirmado](imagens-tratadas/10-despacho-nao-confirmado.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **INICIAR ROTA** | O botão que você tocou. A rota continua sem a etiqueta *em rota*. |
+| 2. | **Despacho não confirmado** | O título. O aplicativo tentou avisar a saída e não teve resposta. |
+| 3. | **Você ainda pode abrir o mapa** | O aplicativo não te trava: o caminho continua disponível. |
+| 4. | **CANCELAR** | Fica na lista, sem abrir o mapa. |
+| 5. | **ABRIR MAPA** | Segue para o Google Maps com as paradas da rota. |
+
+> **Esta janela quer dizer que o restaurante pode não saber que você saiu.** Ligue ou mande
+> mensagem para a loja e siga. O cliente também pode não ter recebido o aviso de *saiu para
+> entrega*.
+
+O contador e o cabeçalho continuam como estavam. Quando o sinal voltar, **não toque em INICIAR
+ROTA de novo** por conta própria: confirme com a loja primeiro, porque se o primeiro toque chegou,
+o segundo dispara o aviso ao cliente uma segunda vez.
 
 ### A rota organiza o caminho; entregar continua sendo pedido por pedido
 
@@ -193,6 +239,29 @@ com várias paradas é recurso do Google Maps.
 
 E com **uma** entrega solta o botão nem aparece: não há o que ordenar.
 
+### Quando o cálculo não sai
+
+A ordem das paradas é calculada **no servidor**, e a partir da sua posição. Faltando qualquer uma
+das duas coisas — internet ou localização —, o cálculo não acontece e uma janela para tudo.
+
+![A janela Permissão necessária sobre a folha ABRIR ROTA](imagens-tratadas/12-melhor-rota-falhou.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **MELHOR ROTA GOOGLE MAPS (4)** | O botão que você tocou. |
+| 2. | **ABRIR ROTA** | A folha que abriu por baixo. Ela fica aí, e é só fechar depois. |
+| 3. | **Permissão necessária** | O título da janela. |
+| 4. | **Permissão de localização é necessária para continuar** | O texto. |
+| 5. | **OK** | Fecha a janela. Depois, feche a folha no **FECHAR**. |
+
+**Esta mensagem tem duas causas, e o texto não distingue as duas:** a localização realmente
+recusada e a **falta de internet**. A do print é a segunda — o celular estava sem rede, e a
+permissão de localização estava concedida.
+
+Confira nesta ordem: primeiro o sinal, depois a permissão em *Permissões*, no menu. Se o servidor
+responder mas não conseguir calcular, a mensagem muda para **Falha**, com a explicação vinda do
+restaurante.
+
 ---
 
 ## Perguntas frequentes
@@ -201,23 +270,27 @@ E com **uma** entrega solta o botão nem aparece: não há o que ordenar.
 Endereço cadastrado de forma ambígua. O endereço do cartão é o que vale; procure-o à mão no
 aplicativo de mapa.
 
-**Aparece "Permissão de localização é necessária para continuar".**
-Toda rota começa na sua posição. Libere a localização pela tela de *Permissões* do menu.
+**Aparece "Permissão necessária — Permissão de localização é necessária para continuar".**
+Duas coisas produzem essa mensagem: localização recusada **ou** falta de internet. Confira o sinal
+primeiro; depois a localização, pela tela de *Permissões* do menu. Está ilustrada na seção 3.
 
 **O mapa não traça a rota.**
 Costuma ser sinal fraco. O aplicativo de mapa precisa de internet para calcular; o BeeFood só
 entrega o endereço a ele.
 
-**"Ocorreu uma falha ao gerar a melhor rota."**
-O cálculo é feito no servidor. Sem internet, a rota não sai — tente de novo ou abra as entregas
-uma a uma.
+**"Ocorreu uma falha ao gerar a melhor rota", ou "Falha" com outra explicação.**
+Aí o servidor respondeu e não conseguiu calcular — normalmente um endereço da lista sem
+coordenada. Abra as entregas uma a uma pelo **VER NO MAPA** e avise a loja qual endereço está
+estranho.
 
 **Tenho duas rotas na tela.**
-É normal em restaurante movimentado. Cada uma tem seu cabeçalho, sua letra e seu botão.
+É normal em restaurante movimentado. Cada uma tem seu cabeçalho, sua letra e seu botão — está na
+seção 2. Toque no botão da que você vai rodar agora.
 
 **Apareceu "Despacho não confirmado".**
 O mapa é oferecido de qualquer forma, com um aviso. O aplicativo não tem como saber se o
-restaurante registrou a saída — avise a loja.
+restaurante registrou a saída — **avise a loja** e não toque em INICIAR ROTA de novo antes disso.
+Está na seção 2.
 
 **A rota sumiu da minha lista.**
 O restaurante pode ter excluído a rota ou passado para outro entregador. Os pedidos saem da sua

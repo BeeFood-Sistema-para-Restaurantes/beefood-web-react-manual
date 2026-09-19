@@ -57,17 +57,43 @@ cartão"**. É a única frase acionável na porta do prédio.
 - **A margem da direita ganhou uso de verdade aqui.** O contador do cabeçalho fica encostado na
   borda direita; alcançá-lo pela esquerda riscava o nome da rota. O `dire=` que nasceu no #112 já
   entrou pronto — foi a primeira vez que uma peça do miolo comum se pagou sem ajuste.
+- **As duas janelas modais (`10` e `12`) guardam o botão que as abriu no mesmo recorte.** Janela
+  modal fotografada sozinha não diz de onde veio, e o leitor que chegou pelo FAQ precisa reconhecer
+  a sequência — o toque, a folha, a janela — para saber que está na pergunta certa.
+- **Nas duas janelas o botão da direita é alcançado pela direita.** CANCELAR/ABRIR MAPA e OK ficam
+  no fim da linha de botões; seta entrando pela esquerda atravessaria o botão vizinho.
+- **`11-duas-rotas.png` tem três marcadores por rota, nas mesmas três posições.** É a repetição que
+  responde a pergunta sem precisar de frase: letra, contador e botão, duas vezes.
+
+## As três fotos que chegaram depois, e o que elas mudaram no texto
+
+As três capturas que faltavam vieram na segunda rodada
+([`capturas-2/23-rota-com-problema/`](../gestao-entregas/material-recebido/app-entregador/capturas-2/README.md)),
+e nenhuma das três entrou no FAQ: **nenhum manual deste repositório põe imagem em pergunta
+frequente**, e abrir a exceção aqui deixaria o FAQ mais comprido que as três seções juntas. Cada
+uma virou subseção onde o assunto já morava, e a pergunta do FAQ passou a apontar para a seção.
+
+| Imagem | Onde entrou | O que o texto ganhou |
+|---|---|---|
+| `11-duas-rotas.png` | seção 2, *Duas rotas ao mesmo tempo* | a numeração das paradas **recomeça em cada rota** — dois cartões com o número 1 na mesma tela é esperado, e isso não estava escrito em lugar nenhum |
+| `10-despacho-nao-confirmado.png` | seção 2, *Quando o restaurante não confirma a saída* | **não tocar em INICIAR ROTA de novo** antes de falar com a loja: se o primeiro toque chegou, o segundo avisa o cliente duas vezes |
+| `12-melhor-rota-falhou.png` | seção 3, *Quando o cálculo não sai* | a mensagem é **Permissão necessária**, não *Ocorreu uma falha ao gerar a melhor rota* |
+
+**A terceira é um achado, não um print errado.** Com o celular sem rede e a localização
+concedida, o MELHOR ROTA responde *Permissão necessária · Permissão de localização é necessária
+para continuar*. O `try/catch` do aplicativo embrulha a leitura do GPS **e** a chamada ao servidor
+no mesmo `catch`, então falha de rede sai com o texto de permissão. O relatório de quem capturou
+conferiu o outro caminho: quando o servidor responde e não consegue calcular, a janela é **Falha**
+com a mensagem dele.
+
+Resultado no manual: a seção 3 diz que a mensagem tem **duas** causas e manda conferir o sinal
+antes da permissão, e o FAQ ganhou duas entradas no lugar de uma — *Permissão necessária* e
+*Falha*, que são coisas diferentes com soluções diferentes.
+
+> Vale um ajuste no aplicativo: separar o `catch` de rede do `catch` de GPS. Está registrado aqui
+> porque é a única parte deste manual em que o texto tem de explicar um comportamento que é
+> confuso por acidente, não por projeto.
 
 ## O que falta
 
-Nada para publicar. Três capturas pedidas em
-[`../gestao-entregas/pedidos/capturas-app.md`](../gestao-entregas/pedidos/capturas-app.md)
-melhoram este manual se chegarem:
-
-| Captura pedida | Onde entraria |
-|---|---|
-| A mensagem **Despacho não confirmado** | a pergunta do FAQ com o mesmo nome |
-| **Duas rotas na mesma lista** (A e B) | a pergunta *Tenho duas rotas na tela* |
-| **Ocorreu uma falha ao gerar a melhor rota** | a pergunta sobre a falha do cálculo |
-
-O texto já descreve as três; a foto só tornaria a leitura mais rápida.
+Nada. As nove imagens da primeira rodada e as três da segunda cobrem as três seções e o FAQ.

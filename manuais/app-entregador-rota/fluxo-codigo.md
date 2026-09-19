@@ -65,11 +65,31 @@ O **ABRIR NO MAPS** é inofensivo: só remonta a URL. Pode ser tocado à vontade
 Botão flutuante **MELHOR ROTA GOOGLE MAPS ({N})**, que só aparece com **mais de um** pedido
 avulso. Abre a janela **ABRIR ROTA** com o ícone do Google Maps e **FECHAR**.
 
-Quem calcula a ordem é o **servidor**, por distância da loja — daí a mensagem *Ocorreu uma falha
-ao gerar a melhor rota* quando não há rede. E daí também o aviso mais importante da seção: ele
-**reordena por distância e desfaz a sequência que o operador montou**, então cobre só os avulsos.
+Quem calcula a ordem é o **servidor**, por distância da loja. E daí o aviso mais importante da
+seção: ele **reordena por distância e desfaz a sequência que o operador montou**, então cobre só os
+avulsos.
 
 Não há Waze aqui porque URL com múltiplas paradas é recurso do Google Maps.
+
+### A mensagem de falha não é a que o manual prometia
+
+A primeira versão deste manual respondia a pergunta da falha com *Ocorreu uma falha ao gerar a
+melhor rota*, lida no código. **Com o celular sem rede, a janela que aparece é outra:** *Permissão
+necessária · Permissão de localização é necessária para continuar* — medido na captura, com a
+localização concedida.
+
+O motivo está em `src/components/Rota/ModalApp.js`: o `try` envolve a leitura do GPS **e** a chamada
+HTTP, e o `catch` único responde com o texto de permissão. Qualquer falha de rede sai como falha de
+permissão.
+
+O texto pedido existe no outro caminho: quando o servidor **responde** e não consegue calcular
+(`{resultado:false, msg:…}`), a janela é **Falha** com a mensagem dele — *Ocorreu um erro ao
+cálcular a melhor rota* ou *Falha ao cálcular a latitude e longitude dos endereços*, que é endereço
+sem coordenada.
+
+Consequência no manual: a seção 3 diz que a mensagem **tem duas causas** e manda conferir o sinal
+antes da permissão; o FAQ separou as duas mensagens em duas perguntas, porque a solução é
+diferente. **E fica registrado um ajuste de aplicativo:** separar o `catch` de rede do de GPS.
 
 ## 6. Onde o manual escolheu ser mais direto que a tela
 
@@ -81,14 +101,28 @@ Não há Waze aqui porque URL com múltiplas paradas é recurso do Google Maps.
 
 ## 7. Procedência das imagens
 
-Os oito prints vêm do material do dono (emulador `Pixel_7_Pro`, Android 15). **Quatro são telas do
-Google Maps**, não do aplicativo — entram porque a pergunta do entregador é o que ele vê depois de
-tocar, e a anotação se limita ao bloco de origem/destino e ao tempo.
+As doze imagens vêm do material do dono (emulador `Pixel_7_Pro`, Android 15, app `3.3.0`), em duas
+rodadas. **Quatro são telas do Google Maps**, não do aplicativo — entram porque a pergunta do
+entregador é o que ele vê depois de tocar, e a anotação se limita ao bloco de origem/destino e ao
+tempo.
 
-A rota do material foi criada pelo caminho oficial do painel (`gestaoEntregaCriarRota`) pelo
+A rota da primeira rodada foi criada pelo caminho oficial do painel (`gestaoEntregaCriarRota`) pelo
 gerador de cenário, com três dos quatro pedidos na rota A e o quarto solto — exatamente o caso de
 "rota + outras entregas" na mesma tela. O **INICIAR ROTA** foi tocado de verdade.
 
 Duas imagens são **recortes** de prints maiores: o cabeçalho da rota antes e depois do despacho.
 A lista inteira entra como contexto, sem seta, pelo motivo registrado no #112 — ela numera as
 próprias paradas.
+
+As três da segunda rodada (`capturas-2/23-rota-com-problema/`) foram montadas assim:
+
+| Imagem | Como a cena foi produzida |
+|---|---|
+| `10-despacho-nao-confirmado.png` | rota viva no painel e wifi caindo no instante do toque em INICIAR ROTA |
+| `11-duas-rotas.png` | duas rotas criadas no painel pelo `cenario.js`, três paradas na A e duas na B |
+| `12-melhor-rota-falhou.png` | quatro pedidos avulsos, wifi desligado, e toque em MELHOR ROTA |
+
+**O relógio da barra de status do emulador estava em UTC**, três horas à frente do fuso da loja, e
+por isso o recorte das três começa abaixo dela. As horas que aparecem nos cartões são as do
+aplicativo, gravadas no servidor — e estão em vermelho porque a previsão de entrega já havia
+passado, que é o comportamento normal da lista.

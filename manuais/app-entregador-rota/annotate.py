@@ -306,3 +306,63 @@ annotate("09-melhor-rota-no-maps.png", [
     (3, *a(112, 196), ETQ, a(0, 196)[1]),        # a entrega mais longe, como destino final
     (4, *a(22, 830), ETQ, a(0, 830)[1]),         # o tempo e a distância do trajeto inteiro
 ], r=30, w=4)
+
+# ---------------------------------------------------------------------------------------
+# 10 a 12 — as três telas que o FAQ descrevia por texto
+# ---------------------------------------------------------------------------------------
+# Vieram da segunda rodada de capturas (`capturas-2/23-rota-com-problema/`). Todas as três são
+# pergunta de FAQ com resposta escrita desde a primeira versão do manual; a foto entrou porque
+# duas delas são **janela modal**, e janela modal é o que o leitor não consegue imaginar a partir
+# da frase — ele precisa reconhecer a caixa na tela para saber que está na pergunta certa.
+#
+# Nas duas janelas o botão da direita é alcançado pela **direita**: CANCELAR e OK ficam no fim da
+# linha de botões, e a seta que entra pela esquerda atravessaria o outro botão para chegar lá.
+ETQ_DIR = 0.94
+
+# 10 — o cabeçalho da rota, o INICIAR ROTA tocado e a janela que o servidor não confirmou.
+# O recorte guarda o botão de propósito: a janela sozinha não diz **de onde** ela veio.
+C10, M10, MD10 = (0, 0.113, 1, 0.645), 0.24, 0.13
+copiar("capturas-2/23-rota-com-problema/prints/01-despacho-nao-confirmado.png",
+       "10-despacho-nao-confirmado.png", caixa=C10, largura=700)
+margem("10-despacho-nao-confirmado.png", m=M10, md=MD10)
+a = rec(C10, m=M10, md=MD10)
+annotate("10-despacho-nao-confirmado.png", [
+    (1, *a(16, 200), ETQ, a(0, 200)[1]),         # INICIAR ROTA, o toque que abriu a janela
+    (2, *a(58, 432), ETQ, a(0, 420)[1]),         # o título Despacho não confirmado
+    (3, *a(58, 538), ETQ, a(0, 548)[1]),         # "Você ainda pode abrir o mapa e avisar"
+    (4, *a(210, 607), ETQ, a(0, 607)[1]),        # CANCELAR
+    (5, *a(414, 607), ETQ_DIR, a(0, 607)[1]),    # ABRIR MAPA
+], r=36, w=5)
+
+# 11 — duas rotas na mesma lista. Três marcadores por rota, nas mesmas três posições: é a
+# repetição que responde a pergunta ("cada rota tem a sua letra, o seu contador e o seu botão")
+# sem precisar de frase.
+C11, M11 = (0, 0.045, 1, 0.918), 0.28
+copiar("capturas-2/23-rota-com-problema/prints/03-duas-rotas.png",
+       "11-duas-rotas.png", caixa=C11, largura=640)
+margem("11-duas-rotas.png", m=M11)
+a = rec(C11, m=M11)
+annotate("11-duas-rotas.png", [
+    (1, *a(16, 143), ETQ, a(0, 120)[1]),         # o círculo amarelo com o A
+    (2, *a(85, 165), ETQ, a(0, 168)[1]),         # 0 de 3 entregues
+    (3, *a(18, 200), ETQ, a(0, 216)[1]),         # o INICIAR ROTA da rota A
+    (4, *a(16, 823), ETQ, a(0, 800)[1]),         # o círculo amarelo com o B
+    (5, *a(85, 845), ETQ, a(0, 848)[1]),         # 0 de 2 entregues
+    (6, *a(18, 880), ETQ, a(0, 896)[1]),         # o INICIAR ROTA da rota B
+], r=26, w=4)
+
+# 12 — a janela que aparece quando o cálculo da melhor rota não sai. O recorte vai do topo da
+# folha ABRIR ROTA até o botão azul, porque os três elementos contam a sequência: o toque no
+# botão, a folha que abriu e a janela que parou tudo.
+C12, M12, MD12 = (0, 0.367, 1, 0.925), 0.24, 0.13
+copiar("capturas-2/23-rota-com-problema/prints/02-falha-melhor-rota.png",
+       "12-melhor-rota-falhou.png", caixa=C12, largura=700)
+margem("12-melhor-rota-falhou.png", m=M12, md=MD12)
+a = rec(C12, m=M12, md=MD12)
+annotate("12-melhor-rota-falhou.png", [
+    (1, *a(18, 898), ETQ, a(0, 898)[1]),         # MELHOR ROTA GOOGLE MAPS (4)
+    (2, *a(157, 400), ETQ, a(0, 412)[1]),        # a folha ABRIR ROTA, atrás da janela
+    (3, *a(58, 464), ETQ, a(0, 478)[1]),         # o título Permissão necessária
+    (4, *a(58, 501), ETQ, a(0, 560)[1]),         # o texto da permissão de localização
+    (5, *a(412, 579), ETQ_DIR, a(0, 579)[1]),    # OK, a única saída da janela
+], r=30, w=4)

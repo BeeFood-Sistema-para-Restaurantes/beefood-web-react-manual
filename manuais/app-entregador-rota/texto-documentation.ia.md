@@ -13,19 +13,24 @@ Leia APENAS os arquivos abaixo:
    - `.../imagens-tratadas/02-google-maps-uma-parada.png`
    - `.../imagens-tratadas/03-rota-na-lista.png`
    - `.../imagens-tratadas/04-cabecalho-da-rota.png`
+   - `.../imagens-tratadas/11-duas-rotas.png`
    - `.../imagens-tratadas/05-outras-entregas.png`
    - `.../imagens-tratadas/07-rota-no-maps.png`
    - `.../imagens-tratadas/06-rota-despachada.png`
+   - `.../imagens-tratadas/10-despacho-nao-confirmado.png`
    - `.../imagens-tratadas/08-abrir-rota.png`
    - `.../imagens-tratadas/09-melhor-rota-no-maps.png`
+   - `.../imagens-tratadas/12-melhor-rota-falhou.png`
 
 NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 
 - Apresentação IGUAL ao menu "Abrir Caixa".
 - pt-BR, didático. Manter as tabelas de setas (nº → onde → o que é) embaixo de cada imagem.
-- **A ordem das imagens no `.md` não é a ordem do nome do arquivo**: `07` (a rota aberta no Maps)
-  vem antes de `06` (o cabeçalho depois de iniciar), porque o texto mostra primeiro o que o toque
-  abre e só então o que sobra na tela do aplicativo. Seguir a ordem do texto.
+- **A ordem das imagens no `.md` não é a ordem do nome do arquivo.** Duas razões: `07` (a rota
+  aberta no Maps) vem antes de `06` (o cabeçalho depois de iniciar), porque o texto mostra primeiro
+  o que o toque abre e só então o que sobra na tela; e `10`, `11` e `12` chegaram depois, então
+  entram no meio (`11` na seção 2, `10` no fim da seção 2, `12` no fim da seção 3). **Seguir a
+  ordem do texto**, não a do nome.
 - Avisar, no começo, que a **Gestão de Entregas está em liberação**. Não citar `empresaID`.
 - **Este manual é para o entregador.** Tom de quem está com o celular na mão, na rua.
 - Manter, sem enxugar, e **sem transformar em nota de pé de página**:
@@ -43,7 +48,15 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
   (h) que o **contador do cabeçalho é da rota**, não dos cartões visíveis (o "de 3" com dois
   cartões na tela);
   (i) que **ABRIR NO MAPS só reabre o mapa**, e pode ser tocado à vontade;
-  (j) que, com **uma** entrega solta, o botão da melhor rota não aparece.
+  (j) que, com **uma** entrega solta, o botão da melhor rota não aparece;
+  (k) que **Despacho não confirmado** quer dizer que a loja pode não saber que o entregador saiu —
+  e o cliente pode não ter recebido o aviso de *saiu para entrega* —, que ele deve **avisar a
+  loja**, e que **não deve tocar em INICIAR ROTA de novo** antes de confirmar, para não disparar o
+  aviso ao cliente duas vezes;
+  (l) que cada rota da lista tem **letra, contador e botão próprios**, e que as paradas de cada
+  rota são numeradas a partir do 1 — dois cartões com o número 1 na tela é esperado, não erro;
+  (m) que **Permissão necessária** tem **duas** causas que a própria mensagem não distingue
+  (localização recusada **e** falta de internet), e que se confere o **sinal primeiro**.
 - Não publicar rotas de API, nomes de tabela, nomes de coluna nem nomes de arquivo do aplicativo.
   Em particular: não citar `CabecalhoRota`, `gestaoEntregaCriarRota` nem nomes de situação interna
   do pedido (*PRONTO*, *PREPARO*, *ENTREGA*).
@@ -58,8 +71,9 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 - Para que serve
 - Antes de começar
 - 1. Uma entrega: VER NO MAPA
-- 2. Quando o restaurante monta a rota
-- 3. Várias entregas soltas: MELHOR ROTA
+- 2. Quando o restaurante monta a rota — inclui *Duas rotas ao mesmo tempo* e *Quando o restaurante
+  não confirma a saída*
+- 3. Várias entregas soltas: MELHOR ROTA — inclui *Quando o cálculo não sai*
 - Perguntas frequentes
 - Onde continuar
 
@@ -70,9 +84,15 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
    e distância.
 3. `03-rota-na-lista.png` — A lista com a ROTA A no alto e as paradas numeradas abaixo.
 4. `04-cabecalho-da-rota.png` — O cabeçalho da rota: letra, nome, contador e INICIAR ROTA.
-5. `05-outras-entregas.png` — A faixa OUTRAS ENTREGAS (1) e o cartão solto.
-6. `07-rota-no-maps.png` — A rota de três paradas no Google Maps, com "2 stops" no meio.
-7. `06-rota-despachada.png` — O cabeçalho depois de iniciar: a etiqueta *em rota* e o botão azul
+5. `11-duas-rotas.png` — Duas rotas na mesma lista: a A com três paradas e a B com duas, cada uma
+   com a sua letra, o seu contador e o seu botão.
+6. `05-outras-entregas.png` — A faixa OUTRAS ENTREGAS (1) e o cartão solto.
+7. `07-rota-no-maps.png` — A rota de três paradas no Google Maps, com "2 stops" no meio.
+8. `06-rota-despachada.png` — O cabeçalho depois de iniciar: a etiqueta *em rota* e o botão azul
    ABRIR NO MAPS.
-8. `08-abrir-rota.png` — O botão MELHOR ROTA GOOGLE MAPS (4) e a janela ABRIR ROTA.
-9. `09-melhor-rota-no-maps.png` — As quatro paradas no Google Maps, com "3 stops" no meio.
+9. `10-despacho-nao-confirmado.png` — A janela *Despacho não confirmado* sobre a lista, com
+   CANCELAR e ABRIR MAPA.
+10. `08-abrir-rota.png` — O botão MELHOR ROTA GOOGLE MAPS (4) e a janela ABRIR ROTA.
+11. `09-melhor-rota-no-maps.png` — As quatro paradas no Google Maps, com "3 stops" no meio.
+12. `12-melhor-rota-falhou.png` — A janela *Permissão necessária* sobre a folha ABRIR ROTA, com o
+    botão da melhor rota no pé da tela.
