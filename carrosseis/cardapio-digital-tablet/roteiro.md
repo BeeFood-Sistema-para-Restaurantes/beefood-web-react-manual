@@ -12,10 +12,11 @@
 - **Novidade que sustenta o fato:**
   [`tablet-kiosk-conta-cashback-pedido`](https://beefood.app/novidades/tablet-kiosk-conta-cashback-pedido)
   (26/08/2026) — conta da mesa, identificação do cliente e pedido
-- **Formato:** 4:5 (1080×1350), 8 slides
+- **Formato:** 4:5 (1080×1350), 9 slides
 - **Imagens:** 4 **capturas** do painel de produção (feitas para esta peça), 2
-  **prints de produção** do aplicativo Android que já estavam em `manuais/`, e
-  1 tela **desenhada** — a do slide 6, reaproveitada do carrossel da tradução
+  **prints de produção** do aplicativo Android que já estavam em `manuais/`,
+  1 tela **desenhada** e 1 **prova reaproveitada** — as duas últimas vêm do
+  carrossel da tradução (slides 6 e 7)
 
 ## A pauta veio errada na primeira leitura, de novo — e foi ferramenta
 
@@ -131,7 +132,8 @@ entrega exatamente isso.
 | dezesseis opções de chamada, com cupom impresso (4) | o cliente pede o que precisa, e a equipe já sabe o que levar | slide 4 |
 | fechamento de conta e Pix online, por chave (5) | a mesa fecha sem três idas e vindas até o caixa | slide 5 |
 | bandeiras na coluna e tela em inglês (6) | mesa de turista deixa de depender de quem fala a língua | slide 6 |
-| frota com mesa, bateria e sinal (7 a 11) | o salão inteiro cabe numa tela, e o cardápio novo sai daí | slide 7 |
+| o texto em outro idioma é um campo do próprio produto (6) | não existe segundo cardápio para manter | slide 7 |
+| frota com mesa, bateria e sinal (7 a 11) | o salão inteiro cabe numa tela, e o cardápio novo sai daí | slide 8 |
 
 ## Os slides
 
@@ -143,8 +145,9 @@ entrega exatamente isso.
 | 4 | `04-chamar-garcom.html` | captura | o cliente pede gelo, talher, guardanapo — e sai cupom | aba `Garçom Opções` do painel |
 | 5 | `05-conta.html` | captura | a conta fecha na mesa, com Pix | as três chaves de funcionalidade |
 | 6 | `06-idiomas.html` | mockup | o mesmo cardápio em inglês | tela desenhada, do carrossel da tradução |
-| 7 | `07-painel.html` | captura | o salão inteiro numa tela, com mesa e bateria | aba `Tablets` com a frota |
-| 8 | `08-cta.html` | capa + mockup | a página do sistema tem o resto | tablet com a tela inicial |
+| 7 | `07-mesmo-cadastro.html` | captura reusada | o inglês é um campo no produto que já existe, e vale em todo canal | linha do Nome com as três bandeiras |
+| 8 | `08-painel.html` | captura | o salão inteiro numa tela, com mesa e bateria | aba `Tablets` com a frota |
+| 9 | `09-cta.html` | capa + mockup | a página do sistema tem o resto | tablet com a tela inicial |
 
 ## Decisões de arte
 
@@ -215,6 +218,35 @@ novo"*) vira manchete-conceito e entrega o assunto à pílula; e abrir com
 *"No tablet da mesa…"* põe a palavra **tablet** na linha logo abaixo de uma
 pílula que já termina em **TABLET**, o que pesa. Com o aparelho no meio da
 frase os dois problemas somem.
+
+**O slide 7 é prova emprestada, e o que viajou foi a prova — não a arte.** O
+print é o mesmo `05-cadastro-ingles.png` do carrossel da tradução, porque a
+tela de cadastro **não muda por canal**: o produto é um só, e o tablet lê o
+registro que o totem e o cardápio por QR Code também leem. Recapturar
+devolveria o mesmo arquivo com outro nome.
+
+O candidato mais óbvio era outro, e foi recusado: os dois recortes do cartão em
+inglês e espanhol, que já estavam prontos e já tinham sido reusados no totem.
+Eles são prova **do totem**, e numa peça de tablet seriam arte desmentindo a
+frase do slide. A pergunta que resolveu: **esta prova é do módulo, ou do
+canal?**
+
+Duas coisas viajaram junto com a imagem. O **limite** — a página do tablet
+também promete "traduzido automaticamente", e o manual continua dizendo que
+quem escreve é a loja. Com este slide, a peça parou de só *evitar* a frase e
+passou a **mostrar como é**: um campo a mais no produto que já existe. E a
+**copy não viajou**: o slide de lá fala com quem ainda não tem o recurso
+(*"Você escreve uma vez, e pronto"*); aqui o leitor já está escolhendo um
+canal, então o argumento é o cadastro único.
+
+**Onde ele entra é decisão de arco, não de cronologia.** Poderia abrir a peça,
+junto do resto do cadastro. Entrou depois do slide 6 porque os dois formam um
+par: lá está o que o **cliente** lê, aqui está **onde aquele texto foi
+escrito**. É a virada do lado do cliente para o lado do dono, que o slide do
+painel completa.
+
+**E ele custou o teto de 8 slides**, pela mesma razão do totem: os nove dizem
+nove coisas diferentes, e o corte só tiraria conteúdo.
 
 **O suporte do mockup foi reaberto e ficou como estava.** Numa peça que se
 chama "no tablet", vale conferir se o aparelho lê como tablet — e na folha do
