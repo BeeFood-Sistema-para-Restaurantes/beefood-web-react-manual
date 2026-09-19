@@ -132,7 +132,7 @@ entrega exatamente isso.
 | dezesseis opções de chamada, com cupom impresso (4) | o cliente pede o que precisa, e a equipe já sabe o que levar | slide 4 |
 | fechamento de conta e Pix online, por chave (5) | a mesa fecha sem três idas e vindas até o caixa | slide 5 |
 | bandeiras na coluna e tela em inglês (6) | mesa de turista deixa de depender de quem fala a língua | slide 6 |
-| o texto em outro idioma é um campo do próprio produto (6) | não existe segundo cardápio para manter | slide 7 |
+| o texto em outro idioma é escrito pela loja, no próprio produto (6) | o cardápio dele passa a existir em inglês e espanhol, com as palavras dele | slide 7 |
 | frota com mesa, bateria e sinal (7 a 11) | o salão inteiro cabe numa tela, e o cardápio novo sai daí | slide 8 |
 
 ## Os slides
@@ -145,7 +145,7 @@ entrega exatamente isso.
 | 4 | `04-chamar-garcom.html` | captura | o cliente pede gelo, talher, guardanapo — e sai cupom | aba `Garçom Opções` do painel |
 | 5 | `05-conta.html` | captura | a conta fecha na mesa, com Pix | as três chaves de funcionalidade |
 | 6 | `06-idiomas.html` | mockup | o mesmo cardápio em inglês | tela desenhada, do carrossel da tradução |
-| 7 | `07-mesmo-cadastro.html` | captura reusada | o inglês é um campo no produto que já existe, e vale em todo canal | linha do Nome com as três bandeiras |
+| 7 | `07-mesmo-cadastro.html` | captura reusada | o cardápio dele existe nos três idiomas, escrito por ele | linha do Nome com as três bandeiras |
 | 8 | `08-painel.html` | captura | o salão inteiro numa tela, com mesa e bateria | aba `Tablets` com a frota |
 | 9 | `09-cta.html` | capa + mockup | a página do sistema tem o resto | tablet com a tela inicial |
 
@@ -231,13 +231,34 @@ Eles são prova **do totem**, e numa peça de tablet seriam arte desmentindo a
 frase do slide. A pergunta que resolveu: **esta prova é do módulo, ou do
 canal?**
 
-Duas coisas viajaram junto com a imagem. O **limite** — a página do tablet
-também promete "traduzido automaticamente", e o manual continua dizendo que
-quem escreve é a loja. Com este slide, a peça parou de só *evitar* a frase e
-passou a **mostrar como é**: um campo a mais no produto que já existe. E a
-**copy não viajou**: o slide de lá fala com quem ainda não tem o recurso
-(*"Você escreve uma vez, e pronto"*); aqui o leitor já está escolhendo um
-canal, então o argumento é o cadastro único.
+**A ideia do slide não viaja com a prova, e essa foi a correção da rodada.** A
+primeira versão trocou as palavras e manteve o ângulo de lá: chapéu *"Sem
+segundo cardápio"*, manchete *"O mesmo produto, com um campo a mais"*. Aquilo
+responde o medo de quem ainda **não tem** o recurso e teme trabalho dobrado —
+é o leitor da peça da tradução, não o desta. Aqui a pessoa está avaliando um
+**aparelho**, acabou de ver no slide 6 o cliente trocando de idioma sozinho, e
+a pergunta que sobra é outra: *o meu cardápio vai mesmo estar em inglês, e quem
+escreve isso?*
+
+Então a manchete passou a nomear o **resultado** e o corpo a entregar o
+**controle**:
+
+| | Antes (ângulo herdado) | Depois (ângulo desta peça) |
+|---|---|---|
+| Chapéu | Sem segundo cardápio | Escrito por você |
+| Manchete | O mesmo produto, com um campo a **mais** | Seu cardápio em **inglês e espanhol** |
+| Remate | tudo sai de um cadastro só (esforço) | o mesmo texto serve tablet, totem e QR Code (canais) |
+
+O remate mudou pelo mesmo motivo. *"Os três idiomas acompanham"* é argumento de
+**esforço**, útil para quem teme manter dois cardápios; aqui o que interessa é
+que o texto vale nos outros canais, porque o leitor está escolhendo um deles —
+e isso ainda prepara o CTA.
+
+Isso também é o **limite** que veio junto com a prova: a página do tablet
+promete "traduzido automaticamente" e o manual continua dizendo que quem
+escreve é a loja. Até aqui a peça apenas *evitava* a frase; agora ela vende o
+lado certo da verdade — o texto é seu, e não um chute de tradutor —, sem
+precisar desmentir a página.
 
 **Onde ele entra é decisão de arco, não de cronologia.** Poderia abrir a peça,
 junto do resto do cadastro. Entrou depois do slide 6 porque os dois formam um

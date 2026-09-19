@@ -14,11 +14,13 @@ o aplicativo não roda no ambiente de captura, então este é o segundo degrau d
 régua, e não captura feita para a peça. As telas do PAINEL (slides 4, 5 e 8)
 são captura nova, tirada em produção para este carrossel.
 
-Dois slides vêm do carrossel da tradução, e os dois por serem prova de MÓDULO e
-não de canal: o 6 é a tela DESENHADA de lá, e o 7 é o mesmo print do cadastro
-do produto. A tela de cadastro não muda por canal — o tablet lê o registro que
-o totem e o cardápio por QR Code também leem —, então recapturar devolveria o
-mesmo arquivo com outro nome.
+Dois slides reaproveitam prova do carrossel da tradução, e os dois por ela ser
+de MÓDULO e não de canal: o 6 é a tela DESENHADA de lá, e o 7 é o mesmo print
+do cadastro do produto. A tela de cadastro não muda por canal — o tablet lê o
+registro que o totem e o cardápio por QR Code também leem —, então recapturar
+devolveria o mesmo arquivo com outro nome. O TEXTO dos dois é desta peça: lá o
+slide do cadastro convence quem teme manter dois cardápios, aqui ele responde a
+quem está avaliando o aparelho e quer saber de quem é o texto em inglês.
 
 Três coisas são de exemplo, e nenhuma foi salva no sistema. A frota do slide 8
 vem de um arquivo nosso: a loja de teste tem um aparelho só, offline e sem
@@ -67,11 +69,10 @@ E a mesa do estrangeiro pede sozinha. Português, inglês e espanhol ficam numa
 coluna do próprio cardápio, e um toque troca a tela inteira — sem depender de
 quem está no salão naquela noite.
 
-Isso não vira um segundo cardápio para manter. O inglês é um campo dentro do
-produto que você já tem: escolhe a bandeira, digita o nome, e cada idioma
-guarda o seu. Preço, foto e estoque continuam saindo de um cadastro só — e o
-que vale para o tablet vale para o totem e para o cardápio por QR Code, que
-leem o mesmo registro.
+E o cardápio em inglês e espanhol é o seu, escrito com as suas palavras. Cada
+item guarda o nome e a descrição nos três idiomas, dentro do produto que já
+existe, então o turista lê exatamente o que você quis dizer — não um chute de
+tradutor. O mesmo texto serve o tablet, o totem e o cardápio por QR Code.
 
 Do seu lado, o salão inteiro cabe em uma tela. Cada aparelho aparece com a mesa
 em que está, a bateria, há quanto tempo deu sinal e a versão do aplicativo.
@@ -143,15 +144,15 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     preço em amarelo e o botão Order — Melted a R$ 34,00, Tasty Bacon a
     R$ 30,00 e One Classic a R$ 26,00.
 
-07  Chapéu "Sem segundo cardápio" e título "O mesmo produto, com um campo a
-    mais", com a palavra mais em vermelho. O texto diz que o inglês não é um
-    cardápio à parte, e sim um campo dentro do produto que a loja já tem, com
-    cada idioma guardando o seu. Abaixo, um recorte da tela de cadastro do
+07  Chapéu "Escrito por você" e título "Seu cardápio em inglês e espanhol",
+    com as palavras inglês e espanhol em vermelho. O texto diz que cada item
+    guarda o nome e a descrição nos três idiomas, escritos dentro do produto
+    que já existe. Abaixo, um recorte da tela de cadastro do
     produto: o rótulo Nome seguido das bandeiras do Brasil, dos Estados Unidos
     e da Espanha, com a dos Estados Unidos selecionada e a etiqueta "Inglês" ao
     lado; no campo, CHEDDAR & BACON FRIES; embaixo, o campo Setor com
-    Acompanhamentos. Por último, uma caixa rosa: "Preço, foto, estoque: tudo
-    continua saindo de um cadastro só".
+    Acompanhamentos. Por último, uma caixa rosa: "O mesmo texto serve o tablet,
+    o totem e o cardápio por QR Code".
 
 08  Chapéu "No seu painel" e título "O salão inteiro cabe em uma tela", com a
     palavra tela em vermelho. O texto diz que cada aparelho mostra a mesa em
