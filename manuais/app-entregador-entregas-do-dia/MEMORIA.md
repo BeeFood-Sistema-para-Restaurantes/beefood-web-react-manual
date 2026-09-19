@@ -130,6 +130,16 @@ texto está certo — *O histórico está vazio* descreve uma frase no meio de u
 não carrega* descreve o aplicativo já aberto, que é o caso comum. O que falta nos dois é imagem, não
 resposta.
 
+A pasta 27 é a única da rodada que sai **só de emulador e banco**. A 28 depende de um **build de
+release** do repositório do app: release embute o bundle JavaScript no APK e não procura o Metro, então
+o aplicativo abre sem rede — no build de desenvolvimento ele morre antes de qualquer tela, que é o
+motivo registrado no relatório da rodada passada. A primeira versão do pedido mandava buscar o APK na
+Play Store, o que não cabe no que a outra ponta tem.
+
+A pasta 29 pede os fontes de `views/historico/index.js` e `views/entregas/index.js`, para conferir de
+primeira mão duas coisas que hoje este manual afirma pelo estudo do material: que a tela do histórico
+**não tem filtro de data** e o que a lista faz sem rede.
+
 O pedido da pasta 27 só existe porque o da rodada passada voltou errado, e o erro era do pedido: o
 caso `historico-vazio` desatribui os pedidos **do lote da execução**, e a tela lê tudo o que aquele
 entregador já entregou. Daí os comandos `historico-zerar` e `historico-voltar` do

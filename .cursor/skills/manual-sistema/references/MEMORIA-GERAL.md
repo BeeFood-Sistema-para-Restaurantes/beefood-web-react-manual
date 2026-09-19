@@ -872,6 +872,41 @@ que a rodada nova leva e a primeira não levava: o **pedido antigo junto do novo
 refere a ele e link para arquivo ausente é justamente o defeito que este kit não tem, e o
 `relogio.py`, para quem fotografa entender que a data é **transplantada aqui**, não redigitada lá.
 
+### Pergunte **quem executa** antes de escrever o pedido (19/09/2026)
+
+A primeira versão da rodada 3 pedia **etiqueta impressa em papel** e **APK da Play Store** — as duas
+escritas imaginando um humano com um celular na mão. O dono cortou as duas de uma vez: *"eu como pessoa
+não vou tirar nenhum print ou realizar fluxo"*. Quem executa é uma IA com **emulador, banco,
+printscreen e o repositório do aplicativo**, e nada além disso.
+
+O pedido inteiro caiu dentro desse alcance, e cada substituição ensinou algo reaproveitável:
+
+1. **Câmera do emulador tem entrada.** A cena virtual (`virtualscene`) aceita **trocar um pôster da
+   parede por um PNG**, pelas Extended controls. Então "a câmera do emulador só vê uma sala" não é
+   impedimento para fotografar um leitor de código de barras — é só um passo a mais. Sinal de que o
+   caminho é o certo: o `gerar-ean13.js` do material do dono já dizia, em comentário, que o módulo do
+   código é largo *porque a imagem vai ser lida pela câmera do emulador*. **Quando algo parece
+   impossível, leia os comentários de quem tentou antes.**
+2. **Build de release resolve "abrir sem rede".** No React Native, o build de desenvolvimento carrega o
+   bundle do Metro e morre sem rede; o de **release embute o bundle** e abre. Pedir APK de loja era
+   pedir a coisa errada — o que faltava era `assembleRelease`, que no template padrão assina com o
+   keystore de debug e roda sem chave própria.
+3. **Separe as fotos por risco, não por assunto.** As quatro fotos da leitura pareciam um bloco só.
+   Não são: a do **enquadramento** só precisa que a câmera *veja* o código (e é justamente ela que
+   substitui a imagem composta), enquanto as três de **resultado** dependem de uma decodificação real.
+   Dividir deu ao pedido uma foto de alto valor e baixo risco, em vez de quatro de risco igual — e
+   quem executa sabe qual tirar primeiro.
+4. **Quando a imagem está fora de alcance, peça o fonte.** Nasceu uma pasta de entrega que não recebe
+   print: três arquivos de tela do app, para conferir o texto do manual contra o código. **O fonte não
+   é versionado** — repositório de manual é público, e a regra é a mesma das credenciais: o achado
+   fica, o arquivo não.
+
+O item 4 se pagou antes de existir. Relendo o **estudo de fonte que a própria IA anterior entregou**
+junto das fotos, a faixa de status do leitor tem **seis** mensagens e o manual listava cinco: faltava
+*Erro: {mensagem}* (o servidor recusando), que é caso diferente de *Erro na leitura* (o envio que não
+saiu) — e a diferença decide o que o entregador faz. Lição dupla: **material recebido tem mais valor
+que as imagens dele**, e vale reler o estudo que veio anexo antes de pedir coisa nova.
+
 > **O store de artefatos tem cota, e ela aparece como "No space left on device".** O zip de 24 MB
 > falhou pela metade escrevendo direto em `/opt/cursor/artifacts` (que é link para
 > `/cursor/stores/self/artifacts`) e deixou um arquivo parcial de nome aleatório ocupando espaço.

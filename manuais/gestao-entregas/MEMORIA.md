@@ -221,23 +221,55 @@ saíram; as 18 restantes viraram seção nova em quatro manuais do aplicativo, e
 cada um dos seis diz hoje **"nada"**.
 
 Há uma **segunda lista aberta, de qualidade**: [`pedidos/capturas-app-2.md`](pedidos/capturas-app-2.md),
-**6 prints em 3 pastas**, com o [`kit-teste-app-entregador-2.zip`](pedidos/kit-teste-app-entregador-2.zip)
-pronto para repassar. Ela não segura manual nenhum, e existe por dois motivos que só apareceram
-depois de fechar o bloco:
+**6 prints e 3 arquivos de fonte**, com o
+[`kit-teste-app-entregador-2.zip`](pedidos/kit-teste-app-entregador-2.zip) pronto para repassar. Ela não
+segura manual nenhum, e existe por dois motivos que só apareceram depois de fechar o bloco:
 
 1. **O #114 tem a única imagem composta de todo o bloco.** O emulador não tem câmera, então a
    etiqueta dentro da faixa foi sobreposta pelo `compor-leitura.ps1`. Está declarado no
    `fluxo-codigo.md` do manual, o que basta para ser honesto, mas não para ser prova. A pasta 26 pede
-   a leitura de verdade e, de graça, as três faixas de resultado que o manual hoje só lista numa
-   tabela. Junto do pedido foi a advertência que vale mais que a foto: **bipar despacha o pedido de
-   verdade** — mesma rota do botão do painel —, então só etiqueta de pedido semeado pelo script.
+   a leitura de verdade e, de graça, as faixas de resultado que o manual hoje só lista numa tabela.
+   Junto do pedido foi a advertência que vale mais que a foto: **bipar despacha o pedido de verdade** —
+   mesma rota do botão do painel —, então só etiqueta de pedido semeado pelo script.
 2. **Duas telas continuam descritas só por escrito**, e a culpa da primeira é do pedido antigo: o
    caso `historico-vazio` desatribuía o lote da execução, e o Histórico do app lê tudo o que aquele
    entregador já entregou. Daí os comandos `historico-zerar` e `historico-voltar` do `smoke-app.js`,
    que zeram o histórico inteiro com desfazer gravado antes da escrita — exercitados aqui de ponta a
    ponta, inclusive a recusa de um segundo `zerar` sobre desfazer pendente. A outra tela, o app
    **abrindo** sem rede, não existe no build de desenvolvimento: sem Metro o bundle não carrega e o
-   app morre antes de qualquer tela. Só sai de APK de produção, e o pedido diz isso.
+   app morre antes de qualquer tela.
+
+### O pedido foi refeito quando o dono disse quem executa
+
+A primeira versão da lista pedia **etiqueta impressa em papel** e **APK da Play Store**. O dono cortou
+as duas no mesmo recado: *"eu como pessoa não vou tirar nenhum print ou realizar fluxo"* — quem executa
+é uma IA que tem **emulador, banco, printscreen e o repositório do aplicativo**, e nada além disso. Se
+eu precisar de imagem fora desse alcance, o caminho é estudar o fonte e montar a imagem aqui.
+
+O que mudou, e é o tipo de coisa que só aparece quando se pergunta *quem vai fazer*:
+
+- **A pasta 26 passou a ser pela cena virtual do emulador**, que aceita trocar um pôster da parede por
+  um PNG. Não foi invenção: o `gerar-ean13.js` do material do dono já tinha esse caminho em mente — o
+  comentário dele diz que o módulo do código é largo *porque a imagem vai ser lida pela câmera do
+  emulador*.
+- **As quatro fotos da 26 deixaram de ter o mesmo peso.** A `01` só precisa que a câmera **veja** o
+  código na faixa, e é ela que tira a imagem composta do manual; as outras três dependem de
+  **decodificação**, que não tem como ser forçada pela tela porque o modal não tem campo para digitar.
+  Separar as duas coisas foi o que deu ao pedido uma foto de alto valor e baixo risco, em vez de quatro
+  de risco igual.
+- **A pasta 28 passou a sair de `assembleRelease` do próprio repositório.** Release embute o bundle e
+  não procura o Metro; era isso que faltava, não a Play Store.
+- **Nasceu a pasta 29, que não é foto:** três arquivos de fonte (`BarcodeScannerModal.js`,
+  `views/historico/index.js`, `views/entregas/index.js`) para eu conferir o texto contra o código. Eles
+  **não serão versionados** — este repositório é público, e fonte de aplicativo não entra nele; a regra
+  é a mesma que já vale para senha e host do backend.
+
+E a pasta 29 já se pagou antes de existir. Relendo o estudo de fonte que veio no material da primeira
+rodada (`material-recebido/app-entregador/estudo/01-o-que-o-app-faz-hoje.md`, seção 2.10), a faixa de
+status do leitor tem **seis** mensagens, e o #114 listava cinco: faltava ***Erro: {mensagem}***, que é
+o servidor recusando, caso diferente de *Erro na leitura, tente novamente*, que é o envio que não saiu.
+A distinção decide o que o entregador faz, e o manual foi corrigido — de leitura de segunda mão, que
+funcionou, mas não deveria ser a regra.
 
 O receio que justificava a janela combinada — *o manual mostra números de pedido diferentes de cada
 lado* — não se concretizou, e por um motivo que só apareceu ao medir: **o número do pedido não
