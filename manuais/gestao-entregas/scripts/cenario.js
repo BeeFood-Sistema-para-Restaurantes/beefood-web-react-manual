@@ -696,4 +696,28 @@ if (require.main === module) {
     });
 }
 
-module.exports = { CONFIG, painel, presenca, ping, andar, semear, limparFantasma, cicloCompleto };
+// O `smoke-app.js` monta os cenários do **app** em cima daqui: quem fala com a API de rota
+// continua sendo este arquivo, para existir um lugar só onde a rota é criada e despachada.
+module.exports = {
+    CONFIG,
+    painel,
+    presenca,
+    ping,
+    andar,
+    semear,
+    marcarProntos,
+    rotaCriar,
+    rotaDespachar,
+    paradaEntregar,
+    rotaFinalizar,
+    rotaExcluir,
+    limparFantasma,
+    cicloCompleto,
+    basicDoBackend,
+    aurora,
+    gravarAurora,
+    exigirBackend,
+    doBackend,
+    abortar,
+    validarAlvo,
+};

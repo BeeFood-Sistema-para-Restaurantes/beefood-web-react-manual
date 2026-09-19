@@ -14,3 +14,6 @@ credenciais.local.md
 *.secret
 *.env
 .env
+
+# Estado local dos scripts de cenário (só IDs de pedido da execução da vez)
+.smoke-app-estado.json
