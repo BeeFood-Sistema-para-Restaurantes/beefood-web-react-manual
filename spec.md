@@ -26,7 +26,7 @@ manuais/<nome>/
 ├── imagens-puras/
 └── imagens-tratadas/
 
-carrosseis/<slug>/
+carrosseis/NN-<slug>/
 ├── roteiro.md
 ├── copy-instagram.txt  # legenda do post e texto alternativo
 ├── capturar-telas.py
@@ -34,7 +34,7 @@ carrosseis/<slug>/
 ├── imagens-puras/
 ├── slides/             # fragmentos de body HTML
 ├── png/                # arte final 1080x1350
-└── entrega/<slug>.zip  # png + copy, o que vai para quem publica
+└── entrega/NN-<slug>.zip  # png + copy, o que vai para quem publica
 ```
 
 ## Skills

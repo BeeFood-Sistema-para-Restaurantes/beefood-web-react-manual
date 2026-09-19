@@ -43,9 +43,9 @@
  *    (e `_PORT`, opcional). É o caminho que **não depende do Bitbucket**: basta cadastrar
  *    os secrets no Cursor Dashboard → Cloud Agents → Secrets. Lembrando que secret novo
  *    só entra em **VM nova**.
- * 2. **Clone do backend**, em `--backend` (ou `BEETECH_BACKEND`), como no `cenario.js` do
- *    bloco de Gestão de Entregas: `src/config/execSQLQuery.js` executa a query e
- *    `node_modules/mssql` dá os tipos. Antes da primeira execução:
+ * 2. **Clone do backend**, em `--backend` (ou `BEETECH_BACKEND`), como no
+ *    `manuais/gestao-entregas/scripts/cenario.js`: `src/config/execSQLQuery.js` executa a
+ *    query e `node_modules/mssql` dá os tipos. Antes da primeira execução:
  *    `cd ~/refs/beetech-server-node-2.0 && npm install --no-save mssql`
  *
  * O caminho 1 precisa do pacote `mssql` em algum lugar: o próprio clone serve, ou

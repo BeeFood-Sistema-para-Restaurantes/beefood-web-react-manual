@@ -200,7 +200,8 @@ caminho é DataSnap por herança, mas quem atende é o backend Node.
 | `filialIDOrigem` | Cardápio Digital |
 | nenhum deles | Manual |
 
-**Como isso ficou provado.** O `smoke-app.js` da Gestão de Entregas tem lista branca de
+**Como isso ficou provado.** O
+[`smoke-app.js`](../gestao-entregas/scripts/smoke-app.js) da Gestão de Entregas tem lista branca de
 colunas graváveis, e `origem` **não está nela** — ele escreve `ifoodLocalizer`, `nnID`,
 `keetaId` e `marketPlace`. Ainda assim os pedidos que ele montou aparecem na API como
 iFood, 99Food e Keeta. E o argumento que fecha: aquele script pega os pedidos genéricos do

@@ -1,0 +1,29 @@
+[
+  {
+    "id": 11290,
+    "empresaID": 38311,
+    "filialID": 39202,
+    "usuarioID": 88711,
+    "usuario": "",
+    "funcionarioID": 194115,
+    "funcionario": "",
+    "mesa": null,
+    "mesaID": null,
+    "uniqueId": "11290 (38311ca38592fb78408a2)",
+    "serialNumber": "unknown",
+    "systemVersion": "11",
+    "apiLevel": 30,
+    "brand": "samsung",
+    "model": "SM-T290",
+    "batteryLevel": "1",
+    "versao": "1.0.3.3",
+    "ultimaAtualizacao2": "2026-09-16 14:50:57",
+    "ping2": "2026-09-16 18:48:00",
+    "pingDif": "52 horas e 46 minutos",
+    "ultimaAtualizacaoDif": "56 horas e 43 minutos",
+    "eventos": "10/8",
+    "memoria": "0.35/1.80 GB",
+    "hd": "20.55/26.26 GB",
+    "bateria": "100.00 %"
+  }
+]

@@ -40,7 +40,7 @@ conferido no sistema — e não escreve nada dentro dela. Cada skill tem a sua m
 │     ├─ imagens-puras/        # Screenshots originais (backup, sem edição)
 │     └─ imagens-tratadas/     # Screenshots com setas/números (usados no manual)
 └─ carrosseis/
-   └─ <slug>/                  # Uma pasta por carrossel — índice em carrosseis/README.md
+   └─ NN-<slug>/               # Uma pasta por carrossel, numerada pela ordem de entrega
 ```
 
 ## Manuais disponíveis
@@ -55,6 +55,12 @@ O **status** e a fila ficam no
 
 | Manual | Pasta |
 |--------|-------|
+| App do entregador: receber na porta | [`app-entregador-cobranca/`](manuais/app-entregador-cobranca/app-entregador-cobranca.md) |
+| Código de barras: ligar a etiqueta e ler o pedido no aplicativo | [`app-entregador-codigo-barras/`](manuais/app-entregador-codigo-barras/app-entregador-codigo-barras.md) |
+| App do entregador: instalar, entrar e ficar disponível | [`app-entregador-entrar/`](manuais/app-entregador-entrar/app-entregador-entrar.md) |
+| App do entregador: as entregas do dia e o histórico | [`app-entregador-entregas-do-dia/`](manuais/app-entregador-entregas-do-dia/app-entregador-entregas-do-dia.md) |
+| App do entregador: pedido de iFood e de 99Food | [`app-entregador-marketplace/`](manuais/app-entregador-marketplace/app-entregador-marketplace.md) |
+| App do entregador: chegar no endereço | [`app-entregador-rota/`](manuais/app-entregador-rota/app-entregador-rota.md) |
 | BeeFood Entregador — aplicativo para motoboy | [`app-entregadores/`](manuais/app-entregadores/app-entregadores.md) |
 | Manual — App do Garçom (parâmetros) | [`app-garcom-parametros/`](manuais/app-garcom-parametros/app-garcom-parametros.md) |
 | Manual da Configuração por Bairro | [`area-entrega-bairro/`](manuais/area-entrega-bairro/area-entrega-bairro.md) |
@@ -98,6 +104,7 @@ O **status** e a fila ficam no
 | Domínio próprio no cardápio digital: como configurar o seu endereço, alterar a zona DNS e excluir | [`dominio-proprio-configurar/`](manuais/dominio-proprio-configurar/dominio-proprio-configurar.md) |
 | Manual do Endereço do Restaurante | [`endereco-restaurante/`](manuais/endereco-restaurante/endereco-restaurante.md) |
 | Entrega Fácil iFood — solicitar entregador no Delivery | [`entrega-facil-ifood/`](manuais/entrega-facil-ifood/entrega-facil-ifood.md) |
+| Quanto o entregador recebe: taxa, valor, diária e KM | [`entregador-quanto-recebe/`](manuais/entregador-quanto-recebe/entregador-quanto-recebe.md) |
 | Exibir e ocultar produtos | [`exibir-ocultar/`](manuais/exibir-ocultar/exibir-ocultar.md) |
 | Fechamento Fiscal | [`fechamento-fiscal/`](manuais/fechamento-fiscal/fechamento-fiscal.md) |
 | Manual do Fiado — Operar no dia a dia | [`fiado/`](manuais/fiado/fiado.md) |
@@ -105,6 +112,14 @@ O **status** e a fila ficam no
 | Manual da Ficha Técnica — o custo do prato | [`ficha-tecnica/`](manuais/ficha-tecnica/ficha-tecnica.md) |
 | Manual — Cadastrar forma de recebimento (Delivery, Presencial e PDV) | [`formas-recebimento/`](manuais/formas-recebimento/formas-recebimento.md) |
 | Gaveta de dinheiro — configuração pela impressora | [`gaveta-dinheiro/`](manuais/gaveta-dinheiro/gaveta-dinheiro.md) |
+| Avisos de WhatsApp da entrega | [`gestao-entregas-avisos-whatsapp/`](manuais/gestao-entregas-avisos-whatsapp/gestao-entregas-avisos-whatsapp.md) |
+| Uma entrega do começo ao fim: painel e aplicativo lado a lado | [`gestao-entregas-ciclo-completo/`](manuais/gestao-entregas-ciclo-completo/gestao-entregas-ciclo-completo.md) |
+| Despachar a rota e acompanhar no mapa | [`gestao-entregas-despachar/`](manuais/gestao-entregas-despachar/gestao-entregas-despachar.md) |
+| Despacho automático: as sete regras | [`gestao-entregas-despacho-automatico/`](manuais/gestao-entregas-despacho-automatico/gestao-entregas-despacho-automatico.md) |
+| Fechar a entrega no painel | [`gestao-entregas-fechar-entrega/`](manuais/gestao-entregas-fechar-entrega/gestao-entregas-fechar-entrega.md) |
+| Liberar o entregador: cadastro, acesso ao app e código de barras | [`gestao-entregas-liberar-entregador/`](manuais/gestao-entregas-liberar-entregador/gestao-entregas-liberar-entregador.md) |
+| Ler o mapa e o painel de entregas | [`gestao-entregas-mapa-painel/`](manuais/gestao-entregas-mapa-painel/gestao-entregas-mapa-painel.md) |
+| Montar a rota: agrupar pedidos e escolher o entregador | [`gestao-entregas-montar-rota/`](manuais/gestao-entregas-montar-rota/gestao-entregas-montar-rota.md) |
 | Estudo completo dos grupos de acesso | [`grupos-acesso/`](manuais/grupos-acesso/grupos-acesso.md) |
 | Manual do Horário de Atendimento | [`horario-atendimento/`](manuais/horario-atendimento/horario-atendimento.md) |
 | Inteligência Artificial do ChatGPT no WhatsApp | [`ia-chatgpt-whatsapp/`](manuais/ia-chatgpt-whatsapp/ia-chatgpt-whatsapp.md) |
@@ -136,6 +151,7 @@ O **status** e a fila ficam no
 | Preço programado | [`preco-programado/`](manuais/preco-programado/preco-programado.md) |
 | Reforma Tributária (IBS/CBS) — Configurando os campos fiscais do produto | [`reforma-tributaria-ibscbs/`](manuais/reforma-tributaria-ibscbs/reforma-tributaria.md) |
 | Relatório de comissão do garçom | [`relatorio-comissao-garcom/`](manuais/relatorio-comissao-garcom/relatorio-comissao-garcom.md) |
+| Relatório Operação de Entrega: onde o tempo da entrega se perde | [`relatorio-operacao-entrega/`](manuais/relatorio-operacao-entrega/relatorio-operacao-entrega.md) |
 | Relatório de taxa de serviço | [`relatorio-taxa-servico/`](manuais/relatorio-taxa-servico/relatorio-taxa-servico.md) |
 | Manual — Segmentação de Clientes | [`segmentacao-clientes/`](manuais/segmentacao-clientes/segmentacao-clientes.md) |
 | Manual — Senha do gerente | [`senha-gerente/`](manuais/senha-gerente/senha-gerente.md) |

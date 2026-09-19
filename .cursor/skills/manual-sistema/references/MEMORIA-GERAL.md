@@ -4,7 +4,22 @@
 > A porta de entrada, com o fluxo resumido, é o [`SKILL.md`](../SKILL.md) — este
 > arquivo é o conteúdo. Cada manual tem ainda sua própria `MEMORIA.md` na pasta dele.
 
-Última atualização: 2026-09-17 (o repositório virou **duas skills**, `manual-sistema`
+Última atualização: 2026-09-19 (**regra 0 das imagens: o manual não é inventário do aplicativo** —
+um pedido de capturas inteiro foi recusado pelo dono na leitura, porque pedia tela vazia e app sem
+rede; *"o manual deve ser util e não ter um monte de conteudo sem sentido"*. O critério passou a
+abrir a seção 3: **imagem entra se o leitor sair dela fazendo algo diferente**. Custou uma imagem já
+publicada no #112, dois comandos do `smoke-app.js` e o kit da rodada nova, todos apagados. A história
+está em *O pedido que foi recusado antes de virar trabalho*);
+2026-09-19 (**bloco da Gestão de Entregas fechado, 16 manuais** — as 24
+capturas da segunda rodada chegaram e o **#117** saiu com as duas telas do mesmo pedido: 6 imagens
+do celular e 7 do painel **reencenadas** depois, restaurando o estado de cada fase no banco. Três
+regras novas na seção 3, todas de print que vem de outra máquina em outro dia: **transplantar a
+faixa de data** com `relogio.py` em vez de redigitar (a Roboto do Android não existe aqui);
+**quando o aplicativo desmente o pedido, quem cede é o pedido**; e **tela de erro vira seção
+numerada, não imagem no FAQ**. Mais a regra de asserção: *nenhum/sempre/nunca* exige achar o campo
+no código, não medir prints — o #117 escreveu que o número do pedido não aparecia em tela nenhuma
+do aplicativo, e ele estava numa imagem já publicada do #116);
+2026-09-17 (o repositório virou **duas skills**, `manual-sistema`
 e `carrossel`: o processo de manual saiu da raiz e passou a morar em
 `.cursor/skills/manual-sistema/`, com esta memória, o checklist, os planos e o
 `validar-imagens.py` dentro dela — ver seção 2);
@@ -48,7 +63,8 @@ criar usuário/grupo — **usuário sem grupo enxerga quase tudo**;
 **#74** Entendendo a numeração dos pedidos — concluído: número da
 venda nunca reseta, número do pedido é do caixa, mesa nunca recebe **e não consome** número;
 virada 60→1 provada ao vivo; **cupom no navegador é IFRAME, não `window.open`**;
-**o `BITBUCKET_TOKEN` parou de autenticar** — backend não clona mais;
+**o `BITBUCKET_TOKEN` parou de autenticar** — mas o clone do backend
+sobrevive no snapshot do ambiente, em leitura congelada (seção 5);
 **#72** Ficha técnica — base de insumos zerada, opção repetida
 baixa em dobro, insumo sem controle de estoque não movimenta; **#73** Produto só com agendamento;
 **#71** Aparência e layout; **#70** Agendamento do cardápio digital; **#68/#69** Exibir/Ocultar e Preço Programado; **#66/#67** Lançamentos; **#65** Taxas formas de recebimento; **#64** Desconto formas de recebimento; **#19** e **#20** Cashback; **#59–#63** entregas/marketplace; **#21** Cupom; **#18** SMS; **#58** IA ChatGPT; **#57** BeeFood Entregador; **#48** Capas e Destaques; **#49–#56** migrados do
@@ -114,6 +130,15 @@ para a skill; o que é **manual pronto** vai para `manuais/`.
 ---
 
 ## 3. Boas práticas de imagens
+
+> **0. Antes de tudo: o manual não é inventário do aplicativo.** Uma seção ou uma imagem só entra se
+> o leitor **sair dela fazendo algo diferente**. Tela de erro com saída entra; tela **vazia**, estado
+> que o leitor já sabe que está vivendo (sem rede, sem sinal) e tela idêntica à normal, não entram —
+> por mais fácil que seja produzi-las e por mais que a cobertura pareça incompleta sem elas. Custou
+> uma imagem publicada, dois comandos de script e um pedido de captura inteiro descobrir isso; a
+> história está em [O pedido que foi recusado antes de virar trabalho](#o-pedido-que-foi-recusado-antes-de-virar-trabalho-19092026).
+> Sinal de alarme no sumário: seções que se chamam *"Quando não tem…"*, *"Quando fica vazio"*,
+> *"Quando não há rede"*.
 
 1. **Sempre salvar a imagem PURA primeiro** em `imagens-puras\` (backup, **nunca referenciado** no `.md` nem no `texto-documentation.ia.md`).
 2. Depois gerar a versão **tratada** em `imagens-tratadas\` via `annotate.py`. **`imagens-tratadas\` deve conter TODAS as imagens usadas no manual:** as principais com setas + as de **contexto** (sem setas, via `passthrough()` do `annotate.py`). Assim só essa pasta é referenciada.
@@ -332,6 +357,86 @@ reais**. No #100, a mesma foto do tablet mostrou um produto traduzido e outro
 sem tradução, lado a lado — confirmado nos endpoints de detalhe antes de
 escrever a legenda.
 
+### Padrão oficial — prints de aplicativo de celular recebidos do dono — #111 a #116
+
+Seis manuais seguidos feitos com 63 prints de emulador Android (`Pixel_7_Pro`, app `3.3.0`)
+produziram um padrão próprio, com dois arquivos reaproveitáveis em `/tmp/ge/`:
+**`cabeca-app.py`** (o cabeçalho com as funções) e **`mkapp.py`** (gera o `annotate.py` de cada
+manual a partir de um `docNNN.txt` e um `marcNNN.txt`).
+
+Tela de celular é **estreita e cheia**, e é isso que muda tudo em relação ao painel:
+
+- **Etiqueta numerada dentro da tela cobre texto.** Foi o que aconteceu na primeira rodada do
+  leitor de código de barras. A solução é `com_margem()`: acrescentar margem clara **fora** do
+  print, para a etiqueta viver na margem e a seta entrar pela borda. O print fica inteiro visível.
+- **Três margens, três motivos.** `esq` é a padrão (a coluna esquerda da tela quase sempre tem
+  texto); `topo` serve para recorte em tira fina, onde não há altura para a etiqueta; e `dire`
+  existe pelo motivo oposto à esquerda — a coluna direita é onde moram a flecha `>`, o selo de
+  estado e o `!` de atraso, e alcançá-los pela esquerda obriga a seta a atravessar o cartão
+  inteiro por cima do endereço.
+- **`rec(caixa, m, tm, md)`** converte pixel lido na prévia do print inteiro em fração da imagem
+  **final**, já recortada e com as margens. Sem ela, cada recorte exige recalcular tudo à mão, e
+  foi a fonte de metade dos erros de posição.
+- **`recortar`/`copiar` em vez de print inteiro.** Cartão de pedido, rodapé de pagamento e
+  cabeçalho de rota viram imagens separadas. Uma tela de celular inteira com cinco etiquetas não
+  se lê; o mesmo conteúdo em três recortes se lê.
+- **Cuidado com o numeral que o app já desenha.** O aplicativo numera as paradas da rota em
+  círculos, e etiqueta verde numerada por cima disso cria dois sistemas de numeração na mesma
+  imagem. Nesses casos a imagem entra como **contexto** (`passthrough`, sem etiqueta) e o detalhe
+  numerado vai para um recorte.
+- **Recorte o resto da barra de status.** Sobra de barra preta no topo ou no pé aparece como um
+  risco fino e some na miniatura — apareceu em quatro imagens do #115 e do #116. Confira em
+  tamanho real.
+- **Nome de cliente em print de app costuma ser dado semeado.** Nos 63 prints, *Ana Beatriz
+  Moraes* e *Rafael Monteiro Dias* são clientes criados por script (repetidos na base, sem
+  telefone nem e-mail, origem *Delivery Manual*). Conferir antes de decidir se desfoca —
+  desfocar o que é fake só deixa a imagem pior.
+
+### Quando o print vem de outra máquina, em outro dia — #111 a #117
+
+A segunda rodada (24 prints, tirados por uma IA na máquina do dono) trouxe três problemas que a
+primeira não tinha, e cada um virou regra:
+
+**1. O relógio do emulador não é o relógio da loja.** A barra de status marcava 03:4x (UTC) e o
+aplicativo escrevia 00:4x nos próprios campos (fuso da loja). As horas do **aplicativo** são as
+certas: são as gravadas no servidor e as que o relatório soma. Duas saídas, nesta ordem:
+
+- **Recorte a barra de status.** É a regra padrão, e não é só por causa da hora: o manual mostra a
+  tela do aplicativo, não a barra do sistema. Só mantenha a barra quando ela **é** a prova (o ícone
+  de rede cortada, por exemplo).
+- **Se a data aparece dentro da tela e está no dia errado, transplante — não redigite.**
+  [`manuais/gestao-entregas/scripts/relogio.py`](../../../../manuais/gestao-entregas/scripts/relogio.py)
+  copia a faixa de data de um print de **referência** (um do dia certo) para os novos. Ele acha a
+  faixa pela cor (vermelho por **dominância de canal**, `R > 1,8·G` e `R > 1,8·B`, não por brilho
+  absoluto — texto atrás de modal escurecido tem `R` baixo e passaria batido), repinta o fundo
+  **linha por linha** para não achatar o gradiente do escurecimento, e cola a tinta por máscara de
+  alpha com a cor local. Redigitar com Pillow não funciona: a Roboto do Android não existe na
+  máquina que monta as imagens, e a diferença de fonte salta aos olhos.
+
+**2. O aplicativo desmente o pedido, e quem cede é o pedido.** Dois dos 24 prints saíram diferentes
+do que a lista pedia. Sem rede, o *MELHOR ROTA* responde **Permissão necessária** (o `try/catch`
+trata rede e GPS no mesmo `catch`): virou seção do #113, porque tem saída — conceder a permissão. O
+print do "histórico vazio" veio com 22 entregas em três dias: **não virou nada**, e a conclusão
+certa era que a foto não servia, não que o pedido precisava de outra volta. Print que sai diferente
+é achado, não defeito — mas só se quem tirou escrever no relatório o que fez antes, e é por isso que
+o pedido exige *uma linha por print que saiu diferente*.
+
+**3. Tela de erro que passa no teste da regra 0 não entra no FAQ — entra em seção nova, numerada.** A
+convenção da casa é FAQ **só de texto**. Quando chegam seis telas de erro para um manual, a saída não
+é enfiar imagem na pergunta: é abrir **seção numerada** (*Quando a cobrança não fecha* no #116, *A
+lista muda sozinha* no #112) e a pergunta do FAQ passa a **apontar para ela**. Mantém o FAQ escaneável
+e dá à imagem o texto que ela precisa em volta. Cuidado com o efeito colateral, que é o que aconteceu
+aqui: **ter onde pôr imagem de erro faz querer imagem de erro**. Uma das seis não tinha o que mostrar
+— a lista sem rede é idêntica à lista com rede — e virou parágrafo depois de já ter sido publicada
+como imagem anotada.
+
+**E uma regra de asserção, que custou uma correção:** *"não aparece em tela nenhuma"* é afirmação
+sobre o aplicativo inteiro, e medição em 24 prints não sustenta isso. O #117 escreveu que o número do
+pedido não aparecia em lugar nenhum do aplicativo — e o selo *PEDIDO #1030* estava visível numa
+imagem já publicada do #116. Antes de escrever *nenhum*, *sempre* ou *nunca*, ache o campo no código:
+eram **dois** campos diferentes (`numeroPedido` no crachá do cartão, nulo em pedido do restaurante;
+`numeroPreVenda` no selo do pagamento).
+
 ---
 
 ## 4. Padrão de escrita do manual (.md)
@@ -515,6 +620,27 @@ O MCP `cursor-ide-browser` **não existe** no Cloud Agent. Lá o navegador é o 
   repetido rende imagem confusa. Um ensaio que imprime os botões da janela mostra isso em
   segundos.
 
+### Modal por cima de mapa Leaflet sai apagado — esconda o mapa antes do print (#104)
+
+Na Gestão de Entregas (`/gestao-entregas`) o modal de despacho automático saía **branco ou pela
+metade** em oito tentativas seguidas. A causa não é animação: no Chromium headless o
+`.leaflet-container` **compõe por cima do modal**, e o screenshot pega o mapa, não o diálogo.
+
+O que **não** resolve: aumentar o `wait_for_timeout`, forçar `opacity: 1` / `visibility: visible`,
+desligar animação por CSS, `--disable-gpu`, `--disable-lcd-text`. Forçar `transform: none` é pior:
+o modal é centralizado por `transform`, e o print sai com o diálogo fora da tela.
+
+O que resolve é esconder o mapa imediatamente antes do print:
+
+```python
+page.evaluate("document.querySelectorAll('.leaflet-container').forEach(e=>e.style.visibility='hidden')")
+page.wait_for_timeout(1500)
+page.locator("[role=dialog]").last.screenshot(path=destino, animations="disabled")
+```
+
+`visibility: hidden` e não `display: none`: o mapa continua ocupando o espaço, então o modal não
+se reposiciona entre a leitura das coordenadas e o disparo do print.
+
 ### Medir o efeito de uma permissão (grupo de acesso) — #75
 
 Vale para qualquer estudo que precise saber **o que cada switch faz**:
@@ -653,6 +779,34 @@ download direto (`drive.usercontent.google.com/download?id=…&confirm=t`), porq
 devolve a página de visualização, não o arquivo. **Vale copiar essa função em qualquer manual
 cujas capturas venham de fora.**
 
+### WeTransfer também funciona — e não precisa de conta (confirmado em 18/09/2026)
+
+O link do WeTransfer é página, não arquivo: `curl` no endereço devolve HTML. Mas o próprio
+site pede o download por uma API pública, e o agente pode fazer a mesma chamada. Foi assim
+que os **18 MB** do material do app do entregador (#104) entraram no repositório.
+
+O link tem a forma `wetransfer.com/downloads/<transferID>/<recipientID>/<hash>`, e os três
+pedaços são exatamente o que a API quer:
+
+```bash
+TID=<transferID>; RID=<recipientID>; H=<hash>
+curl -sSL -c c.txt -o /dev/null "https://wetransfer.com/downloads/$TID/$RID/$H"   # pega o cookie
+URL=$(curl -sS -b c.txt -X POST "https://wetransfer.com/api/v4/transfers/$TID/download" \
+  -H "Content-Type: application/json" -H "x-requested-with: XMLHttpRequest" \
+  -H "Referer: https://wetransfer.com/downloads/$TID/$RID/$H" \
+  -d "{\"security_hash\":\"$H\",\"recipient_id\":\"$RID\",\"intent\":\"entire_transfer\"}" \
+  | python3 -c 'import json,sys; print(json.load(sys.stdin)["direct_link"])')
+curl -sSL -o pacote.zip "$URL"
+```
+
+A resposta é um `direct_link` assinado, com validade curta (o JWT do `token=` expira em
+minutos) — **peça o link e baixe na mesma rodada.** A página também traz a lista de arquivos
+em JSON (`"items":[{"name":…`), o que serve para conferir o pacote antes de baixar.
+
+**Ganho sobre o Drive:** não exige configurar compartilhamento nem converter o link, e o dono
+manda a pasta inteira de uma vez. Mesmos cuidados de sempre: conferir dado pessoal antes de
+versionar, e checar os links internos do pacote — os do #104 vinham com 8 caminhos quebrados.
+
 **O que resolve de verdade, para capturas que moram em outro repositório:** dar ao ambiente
 acesso a esse repositório, para o agente pegar os arquivos na origem em vez de depender de
 anexo. É o caso do #24: as capturas estão em `beetechbr/beetech-appgarcom-android`, em
@@ -683,6 +837,99 @@ Playwright. Manual de aplicativo Android não tem esse atalho.
 >
 > Detalhe útil: a API do Bitbucket **exige `Authorization: Bearer <token>`** com esse tipo de
 > token. `curl -u x-token-auth:<token>` devolve **401** na API, embora funcione no `git`.
+
+### O caminho de volta: mandar um kit para quem tira o print (19/09/2026)
+
+Tudo acima é sobre material **chegando**. Quando quem fotografa é outra pessoa — ou outra IA, na
+máquina do dono, com o emulador que aqui não existe — o problema se inverte: é preciso mandar um
+pacote que se explique sozinho. O padrão que ficou está em
+`manuais/gestao-entregas/pedidos/montar-kit.sh`, e vale copiar.
+
+Quatro pastas numeradas na ordem de leitura: **o pedido**, **os scripts de cenário**, **a
+referência** e **a árvore de saída já nomeada**. Mais um `LEIA-PRIMEIRO.md` na raiz. Três decisões
+que fizeram diferença:
+
+1. **A árvore de saída vai vazia, com os nomes exatos.** Quem fotografa grava dentro dela, e o
+   pacote volta sem renomear nada. Renomear 26 arquivos na volta custa mais que criar 10 pastas na
+   ida — e nome errado é o defeito que só aparece quando o manual já está sendo montado.
+2. **As pastas da referência vão com o nome que têm no repositório**, sem prefixo de número, para
+   os links que os manuais fazem entre si continuarem resolvendo dentro do kit. O número de cada um
+   fica num `INDICE.md`. Com prefixo, os 136 links internos quebravam; sem, sobram 35, todos
+   apontando para manuais que o kit não leva de propósito.
+3. **As imagens da referência vão junto** (24 MB no caso). É o que deixa quem fotografa comparar
+   enquadramento: "o seu print precisa parecer com estes". Kit só de texto obriga a adivinhar.
+
+Um detalhe que economiza uma hora: o `capturar.ps1` do material do dono grava **dois níveis acima
+de si mesmo**. Copiado sem alteração para `capturas-2/_ferramentas/emulador/`, ele passa a gravar
+na raiz de `capturas-2/` — e `-Capitulo 16-notificacoes` cai exatamente na pasta do pedido. Resolver
+por posição em vez de editar o script alheio evita divergência entre as duas cópias.
+
+E o `LEIA-PRIMEIRO.md` precisa de uma frase que um humano não precisaria ler: **foto que não saiu
+não se inventa.** Uma IA com acesso a editor de imagem e uma lista de 26 arquivos para preencher
+tem todo incentivo para produzir a 26ª. Print faltando está anotado no relatório; print forjado vira
+manual publicado mentindo.
+
+**O zip fica versionado, na pasta do pedido.** Foi a decisão do dono e é a certa: artefato de agente
+é link que ele precisa abrir no dashboard, enquanto arquivo na PR é o botão de download do GitHub, que
+ele já sabe usar e pode repassar. São 24 MB num repositório que já tem **669 MB** de imagem de manual,
+e o conteúdo é cópia do que está versionado ao lado — o zip existe pela conveniência de ser um arquivo
+só. Duas consequências que o `README.md` da pasta precisa declarar: o `montar-kit.sh` grava **nesta
+pasta** por padrão, e mexer em qualquer arquivo que entra no kit obriga a regravar e commitar o zip
+junto, senão a cópia mente.
+
+Conferir o zip **baixado**, não o que ia entrar: `curl` na URL `raw` do GitHub (sem autenticação, já
+que o repositório é público), `unzip -t` e `md5sum` contra o arquivo versionado. Foi o que provou que o
+caminho funciona ponta a ponta.
+
+### O pedido que foi recusado antes de virar trabalho (19/09/2026)
+
+Com o bloco da Gestão de Entregas fechado, escrevi uma **segunda lista de capturas** — 6 prints,
+kit empacotado, zip versionado, tudo pronto — e o dono a recusou **na leitura**, antes de delegar:
+
+> *"que tipo de manual estamos fazendo? pra que vamos ter uma sessão e uma imagem mostrando 'Nenhum
+> pedido'? o manual deve ser util e não ter um monte de conteudo sem sentido. mostrar uma imagem de
+> um aplicativo sem pedidos é totalmente fora de realidade."*
+
+Ele tinha razão, e o defeito não estava na execução do pedido: estava em **o que eu tinha escolhido
+pedir**. Eu havia passado a cobrir o aplicativo em vez de escrever o que alguém procura. O sintoma
+é fácil de reconhecer depois: as seções começam a se chamar *"Quando não tem X"*, *"Quando a tela
+fica vazia"*, *"Quando não há rede"* — descrições de **ausência**, que existem porque o aplicativo
+tem aquele estado, não porque alguém precisa daquela resposta.
+
+**O critério, e é uma pergunta só: o leitor sai daí fazendo algo diferente?**
+
+| Ganha seção e imagem | Não ganha |
+|---|---|
+| tela de erro com **saída** — *Despacho não confirmado* do #113 manda ligar para a loja e avisa para não tocar de novo | tela **vazia**: ninguém consulta manual para saber como é a tela quando não há nada nela |
+| tela que **parece** outra coisa — *Pagamento Confirmado!* que ainda pede FINALIZAR muda uma frase só e vale dinheiro | estado que o leitor **já sabe** que está vivendo: sem rede, o entregador não descobre pelo manual que está sem rede |
+| variação que **muda a ação** — pedido de plataforma sem botão de confirmar encurta o roteiro | tela **idêntica** à normal: sem comparação possível, a foto não ensina |
+| o que o suporte **ouve ao telefone** — a seção de cobrança que não fecha responde quase toda ligação sobre dinheiro | cobertura por simetria: "já mostrei o cheio, falta o vazio" |
+
+Três coisas que saíram junto com o pedido, e é isso que dá o tamanho do erro:
+
+1. **Uma imagem publicada.** A lista sem internet do #112 já estava tratada, anotada com três
+   marcadores e no ar. O comentário que eu mesmo escrevi no `annotate.py` denunciava: *"a imagem
+   inteira é a mensagem: não há mensagem"*. O achado ficou, como dois parágrafos; a foto saiu.
+2. **Dois comandos de script.** `historico-zerar` e `historico-voltar` **apagavam o histórico
+   inteiro do entregador** e guardavam o desfazer em arquivo, e existiam só para produzir a tela
+   vazia. Ferramenta que reescreve passado precisa valer mais que uma imagem que não ensina nada.
+3. **Meia tarde de engenharia de pedido.** Cena virtual do emulador para a câmera ler um EAN-13,
+   `assembleRelease` para o app abrir sem Metro, separação das fotos por risco de decodificação —
+   tudo correto, tudo caro, tudo a serviço de três imagens que não deviam ter sido pedidas.
+   **Perguntar "consigo produzir esta imagem?" antes de "alguém precisa dela?" é a ordem errada.**
+
+A parte que se salvou aponta para a próxima lição: relendo o **estudo de fonte que a IA anterior
+entregou junto das fotos**, descobri que a faixa de status do leitor do #114 tem **seis** mensagens
+e o manual listava cinco — faltava *Erro: {mensagem}* (o servidor recusando), caso diferente de
+*Erro na leitura* (o envio que não saiu), e a diferença decide o que o entregador faz. **Material
+recebido vale mais que as imagens dele:** a correção real do dia saiu de reler o que já estava no
+disco, não de pedir coisa nova.
+
+> **O store de artefatos tem cota, e ela aparece como "No space left on device".** O zip de 24 MB
+> falhou pela metade escrevendo direto em `/opt/cursor/artifacts` (que é link para
+> `/cursor/stores/self/artifacts`) e deixou um arquivo parcial de nome aleatório ocupando espaço.
+> O jeito que funciona é montar o zip em `/tmp` e **copiar** depois — e limpar o parcial, senão a
+> tentativa seguinte falha pelo mesmo motivo. Mais um argumento para o zip morar no repositório.
 
 ---
 
@@ -795,6 +1042,17 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 > tokens, escopo *Repositories: Read*) e regravar o secret no Cursor Dashboard;
 > **secret novo só entra em VM nova**.
 >
+> ✅ **Mas o backend está lá — conferido em 2026-09-17.** O clone existe em
+> `~/refs/beetech-server-node-2.0` (branch `beefood-web-react`, commit `4a419d2`, baixado em
+> 2026-09-10) e foi ele que explicou o `sugestao: true` do `pedidoPOST.js` e a proc do
+> `relatorioSugestao.js` no manual #103. A VM inicia de um **snapshot pronto do ambiente**,
+> que guarda o clone feito num build em que o token ainda valia. O token continua falhando
+> (as quatro combinações testadas de novo em 2026-09-17), então o backend é **leitura
+> congelada**: o código de setembro está em disco, mas não atualiza. `git fetch` dentro da
+> sessão também não resolve — o `install.sh` grava o remote **sem** o token de propósito,
+> para o clone não travar quando o token expira. Antes de concluir que o backend não existe,
+> **olhe a pasta**.
+>
 > Enquanto isso, a saída que funcionou no #74 é **provar a regra por dado real** em vez de
 > ler o código do servidor: um script curto que loga com Playwright e consulta a API
 > autenticada de dentro da página (o token do app vem do `localStorage`, ofuscado por XOR
@@ -810,6 +1068,77 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 > cadastrar um token do backend, **torne este repositório privado**. A decisão de deixá-lo
 > público (seção 11) valia para credenciais descartáveis de teste, não para acesso ao
 > código-fonte do servidor.
+
+> **Documentação de módulo pode estar dentro do clone que existe.** No #104 o dono pediu para ler
+> `beetech-server-node-3.0\docs\gestao-entrega-2.0`, e a conclusão apressada foi "não temos esse
+> repositório". A pasta estava em `~/refs/beetech-server-node-2.0/docs/gestao-entrega-2.0/` — 21
+> documentos, 13 prompts de frontend e 14 scripts SQL, ~17.100 linhas. **Procure por caminho de
+> documentação antes de concluir que falta repositório.**
+
+### Ler os bancos e a API do app direto do Cloud Agent (#104)
+
+Descoberto no estudo da Gestão de Entregas, e vale para qualquer manual que precise **provar** o
+estado de um cenário em vez de deduzi-lo da tela. Três caminhos funcionam de dentro da VM:
+
+| Caminho | Como | Serve para |
+|---|---|---|
+| **MSSQL `notafacilb`** (ERP) | usuário **de leitura** do backend, em `src/config/execSQLQuery.js`; `npm i mssql` | pedido, situação da entrega, funcionário, parâmetros, tipos de WhatsApp da filial |
+| **MySQL Aurora `entregas`** | credencial em `src/config/initMySqlServerGestaoEntrega.js`; `npm i mysql2` | rota, parada, presença, GPS, despacho automático, token de push |
+| **API do app do entregador** | Basic Auth + header `app-name: bee-entregador`, em `app.beetechapi.be` (login) e `app3.beetechapi.be` (entregas) | o **mesmo payload** que o celular recebe — conferir cenário sem emulador |
+
+Duas regras, e a segunda não é opcional:
+
+1. **Nunca copie credencial para este repositório.** Ele é público. Cite o arquivo do backend onde
+   ela está e pare aí — foi o que fiz nos arquivos de estudo do #104.
+2. **O usuário do Aurora tem `INSERT`, `UPDATE` e `DELETE`, não só `SELECT`.** Então daqui dá para
+   escrever no banco de produção do módulo de entregas. Isso **não** dispensa a regra da seção 7:
+   escrita em produção só com o dono pedindo, e a técnica do ensaio antes.
+
+Teste de alcance, antes de instalar driver:
+
+```bash
+timeout 15 bash -c 'cat < /dev/null > /dev/tcp/<host>/3306' && echo OK
+```
+
+### Montar cenário de entregas sem emulador (#104)
+
+O que o dono autorizou em 18/09 para a Gestão de Entregas, e que foi conferido de ponta a ponta:
+**pedido semeado, entregador simulado e pin andando no mapa**, tudo do Cloud Agent. O caminho está
+detalhado em `manuais/gestao-entregas/MEMORIA.md`. Três coisas que valem para além daquele bloco:
+
+1. **`beetech_leitura` engana pelo nome.** O usuário do MSSQL que todo o backend usa é
+   `db_datareader` **+ `db_datawriter` + `db_ddladmin`**, com `EXECUTE` no banco inteiro. A
+   seção 8 acima já avisava isso do Aurora; vale igual para o ERP. Nenhuma das duas credenciais é
+   de leitura, apesar dos nomes.
+2. **O JWT do painel sai do `localStorage`**, não da API: a rota de login do painel não responde no
+   caminho óbvio, e Basic Auth devolve **401** nas rotas que têm `authMiddleware`. Logar com
+   Playwright e desofuscar a chave `beefood_auth_token` é o caminho que funciona.
+3. **Script Python não pode se chamar `token.py`** (nem `tokenize.py`, `logging.py`…): ele sombreia
+   o módulo da biblioteca padrão e o Playwright morre com erro de importação circular que não
+   parece ter nada a ver com o nome do arquivo.
+
+### ⚠️ Nunca cole saída do leitor de arquivos dentro de um `.md`
+
+Ferramentas de leitura prefixam **cada décima linha** com o número alinhado à direita em 6
+caracteres, seguido de `|` — `    10|`, `   150|`. Isso é **metadado da ferramenta**, não conteúdo
+do arquivo. Copiar a saída para dentro de um `.md` gravou o rótulo no texto, e em 18/09 havia
+**301 ocorrências em 20 arquivos**, incluindo quatro manuais **já publicados**
+(`vinculo-marketplace`, `formas-recebimento`, `cadastro-mesas`, `cadastro-comandas`).
+
+Os dois estragos são diferentes, e o segundo é pior:
+
+| Forma | Vira | Efeito |
+|---|---|---|
+| Rótulo **sozinho** na linha (linha vazia na posição) | `   150|` no lugar de uma linha em branco | Parágrafos que deviam estar separados aparecem colados |
+| Rótulo **grudado** na linha | `    50\|\| Nº \| Item \|` | O markdown não reconhece mais a tabela: cinco linhas viram um parágrafo com canos no meio |
+
+Para achar: `grep -rn '^ \{0,5\}[0-9]\{1,6\}|' --include=*.md .`. Ao corrigir, **rótulo sozinho
+volta a ser linha em branco** (apagar a linha cola parágrafos, e num caso colava texto com imagem);
+rótulo grudado perde só os 7 caracteres do prefixo.
+
+Antes de remover em lote, confirme que é artefato e não conteúdo: os números sobem
+**monotonicamente em passos de 10** e **não batem** com a posição real da própria linha — número
+escrito de propósito bateria.
 
 ---
 
@@ -887,6 +1216,22 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 | Atender no BeeBot | `manuais/whatsapp-atendimento-beebot/` | ✅ Concluído (#91) |
 | Indicadores de WhatsApp | `manuais/whatsapp-indicadores/` | ✅ Concluído (#92) |
 | Histórico de mensagens | `manuais/whatsapp-historico/` | ✅ Concluído (#93) |
+| Liberar o entregador | `manuais/gestao-entregas-liberar-entregador/` | ✅ Concluído (#104) |
+| Ler o mapa e o painel de entregas | `manuais/gestao-entregas-mapa-painel/` | ✅ Concluído (#105) |
+| Montar a rota | `manuais/gestao-entregas-montar-rota/` | ✅ Concluído (#106) |
+| Despachar a rota e acompanhar | `manuais/gestao-entregas-despachar/` | ✅ Concluído (#107) |
+| Fechar a entrega no painel | `manuais/gestao-entregas-fechar-entrega/` | ✅ Concluído (#108) |
+| Despacho automático | `manuais/gestao-entregas-despacho-automatico/` | ✅ Concluído (#109) |
+| Avisos de WhatsApp da entrega | `manuais/gestao-entregas-avisos-whatsapp/` | ✅ Concluído (#110) |
+| App: instalar, entrar e ficar disponível | `manuais/app-entregador-entrar/` | ✅ Concluído (#111) |
+| App: as entregas do dia e o histórico | `manuais/app-entregador-entregas-do-dia/` | ✅ Concluído (#112) |
+| App: chegar no endereço | `manuais/app-entregador-rota/` | ✅ Concluído (#113) |
+| Código de barras: ligar a etiqueta e ler o pedido | `manuais/app-entregador-codigo-barras/` | ✅ Concluído (#114) |
+| App: pedido de iFood e de 99Food | `manuais/app-entregador-marketplace/` | ✅ Concluído (#115) |
+| App: receber na porta | `manuais/app-entregador-cobranca/` | ✅ Concluído (#116) |
+| Uma entrega do começo ao fim | `manuais/gestao-entregas-ciclo-completo/` | 🔨 Esqueleto (#117) — faltam 13 imagens |
+| Relatório Operação de Entrega | `manuais/relatorio-operacao-entrega/` | ✅ Concluído (#118) |
+| Quanto o entregador recebe (Taxa / KM) | `manuais/entregador-quanto-recebe/` | ✅ Concluído (#119) |
 | Painel para Entregadores | `manuais/painel-entregador/` | ✅ Concluído (#120) |
 
 ### Painel para Entregadores — #120
@@ -1027,6 +1372,129 @@ e 2) e o **mesmo relatório das sugestões automáticas** — não separa uma co
 
 **Cache do cardápio público chegou a ~10 minutos** aqui (o normal é 1 minuto). Antes de
 suspeitar da configuração, espere.
+
+---
+
+### Gestão de Entregas — bloco #104 a #119 (fechado, 16 prontos)
+
+O plano pedia 14 manuais; saíram **16 linhas de checklist**, porque o dono acrescentou dois
+relatórios no meio da rodada. **Os dezesseis estão prontos**, desde 19/09:
+
+| Faixa | Manuais |
+|---|---|
+| Painel | **#104** liberar entregador · **#105** ler o mapa · **#106** montar rota · **#107** despachar · **#108** fechar · **#109** despacho automático · **#110** avisos de WhatsApp |
+| App | **#111** entrar · **#112** entregas do dia · **#113** chegar no endereço · **#114** código de barras · **#115** marketplace · **#116** receber na porta |
+| Relatórios | **#118** Operação de Entrega · **#119** Entregador (Taxa / KM) |
+| Lado a lado | **#117** uma entrega do começo ao fim — 13 imagens, 6 do celular e 7 do painel |
+
+O **#104** herda a Parte 1 do **#57** e o **#114** herda o código de barras: com os dois, mais os
+**#111 a #116**, o #57 está **pronto para aposentar**.
+
+**O #117 ficou esqueleto até a última hora, e o motivo vale como regra:** manual de "lado a lado"
+precisa que as duas metades sejam do **mesmo pedido**. Eu capturo o painel; o app depende de
+emulador, que não roda aqui. O que destravou não foi a janela combinada que eu havia planejado, e sim
+descobrir que ela era dispensável: **reencenar** o lado do painel depois, restaurando no banco o
+estado de cada fase, dá o mesmo resultado — porque o que amarra as duas metades é endereço, valor,
+forma de pagamento, letra da rota e hora da baixa, não número de pedido. O número não aparece na
+lista nem nos detalhes do app (o crachá lê `numeroPedido`, nulo em pedido do restaurante); ele existe
+numa tela só, a de pagamento, que lê `numeroPreVenda`.
+
+**A pasta de pedidos e o smoke test** ficaram em `manuais/gestao-entregas/`:
+[`pedidos/capturas-app.md`](../../../../manuais/gestao-entregas/pedidos/capturas-app.md) (26 prints
+em 10 pastas, cada linha com a pergunta do FAQ que ganharia a foto),
+[`pedidos/janela-117.md`](../../../../manuais/gestao-entregas/pedidos/janela-117.md) (o roteiro de
+sete fases) e
+[`scripts/smoke-app.js`](../../../../manuais/gestao-entregas/scripts/smoke-app.js) (nove cenários
+que montam estados inalcançáveis por clique).
+
+> **Lição de pedido de foto:** a primeira versão do `capturas-app.md` pediu 12 prints deduzidos dos
+> capítulos que o dono enviou, **antes** de os manuais existirem. Depois de escrever os seis, a
+> lista real era outra — e maior. Pedido de captura feito antes do texto pede o que parece faltar;
+> feito depois, pede o que **falta**. Escreva o manual primeiro, com o que tem, e peça no fim.
+
+Estudo completo em `manuais/gestao-entregas/estudo/`: o funcionamento do módulo em
+[`01-como-o-sistema-funciona.md`](../../../../manuais/gestao-entregas/estudo/01-como-o-sistema-funciona.md)
+e o estado medido em
+[`02-estado-medido.md`](../../../../manuais/gestao-entregas/estudo/02-estado-medido.md).
+O que precisa estar aqui porque vale para além deste manual:
+
+**Quatro programas, dois bancos.** A tela é do `beefood-web-react`; a API é o
+`beetech-server-node-3.0`; os crons rodam num servidor de **instância única**
+(`beefood3-server-entregas`); o app é `beetech-entregador` (React Native / Expo). O ERP MSSQL
+`notafacilb` é dono de pedido, cliente, funcionário e **taxa do entregador**; o Aurora MySQL
+`entregas` é dono de rota, parada, presença e GPS. Nada é replicado — o que há no Aurora são
+snapshots para o mapa não fazer JOIN entre servidores.
+
+**Duas portas para a mesma tela.** `/gestao-entregas` abre em página cheia, e o botão **`Entregas`**
+na barra do **Delivery** abre a **mesma tela dentro de um modal** sobre o Delivery, com botões de
+abrir em nova aba, expandir e fechar. Não há item de menu lateral — procurei e não existe.
+
+**Seis frases que contrariam a intuição e o manual precisa acertar:**
+
+1. **Despachar avisa cliente e marketplace.** Grava `ENTREGA` no ERP e isso passa pelo
+   `SituacaoDeliveryUpdater`: marketplace, impressão e fila de WhatsApp.
+2. **Despacho automático não despacha** (só agrupa e associa entregador) **e não age com a tela
+   fechada** — quem autoriza o cron a olhar a filial é o `painel_heartbeat`, gravado pelo próprio
+   `GET /painel`. Conferido: a minha visita à tela escreveu o heartbeat.
+3. **"Melhor rota" no app desfaz a ordem que o operador montou** no painel (o app reordena por
+   distância a partir da loja).
+4. **O que põe o pedido na tela do app é `_PreVenda.FuncionarioIDMotoboy`**, não estar pronto e não
+   estar em rota. Pedido pronto sem entregador atribuído não existe para o celular — e a rota
+   aparece no app **antes** de qualquer despacho, porque criar a rota com entregador já grava a
+   coluna. É a confusão número um da operação, e o eixo do #117.
+5. **Ler o código de barras é despachar** (#114) e **cobrar é finalizar** (#116). Nenhuma das duas
+   ações confere nada: as duas movem estado, e nenhuma tem volta. Manual que descreve leitura de
+   etiqueta como conferência ou cobrança como registro ensina errado.
+6. **O `INICIAR ROTA` do app é o mesmo `PUT /gestao/rota/:rotaID/despachar` do avião do painel.**
+   Foi aberto para o app em 29/08 por decisão de produto — o argumento foi que a alternativa era o
+   entregador na moto com o painel dizendo que nada saiu.
+
+**O vocabulário de situação:** `PREPARO` → em preparação, `PRONTO` → pronto, `ENTREGA` → em rota,
+`ENTREGUE` → entregue. `TRANSPORTE` **não é valor válido** (removido do filtro da view pelo script
+`004`). E status **não regride**: evento de WebSocket atrasado não puxa pedido de "entregue" para
+"em rota".
+
+> ⚠️ **Achado que vale levar ao dono: o aviso "Entregador próximo" não dispara para quase
+> ninguém.** O campo de km mostra `2` na tela, mas é o padrão do código —
+> `_WhatsappMsgTipoFilial.raioProximidadeMetros` está **NULL em 56.633 das 56.639 filiais**, e o
+> padrão global também. O script `010` diz, na própria conferência, que filial com raio NULL nunca
+> recebe o aviso. Só 6 filiais têm valor, porque alguém abriu o modal e salvou. É pendência de
+> ambiente, não de manual — mas o manual não pode prometer o que não funciona.
+
+**O módulo tem um cliente piloto e nada mais.** O Aurora `entregas` só tem dados de duas filiais
+(a sandbox e uma real) e o `despacho_config` tem **1 linha na base inteira**, desligada. A tabela
+`entregador` (veículo, capacidade) está **vazia na base toda** — os nomes que o painel mostra vêm
+do `_Funcionario` do MSSQL.
+
+**Sujeira que estraga captura em silêncio:** *rota fantasma* — quando `entregador_status.rotaIDAtual`
+aponta para rota que já não existe, o entregador fica ocupado para sempre e **nunca recebe rota do
+despacho automático**. Há um caso vivo na sandbox (`194115` → rota 120, inexistente). Antes de
+fotografar despacho automático, confira isso.
+
+**Desmontar cenário é mais difícil do que montar, e o painel é a tela que esquece.** Desatribuir o
+entregador tira o pedido do app na hora, mas ele fica em *Pedidos sem rota* no painel por até **6 h**
+— e depois de uma tarde de ensaios a fila tinha **21 pedidos de teste**, o que estragaria em silêncio
+qualquer foto de "fila com N pedidos". O estado que resolve é `AGUARDANDO`: a view do painel filtra
+`PREPARO`/`PRONTO`/`ENTREGA`/`ENTREGUE` e o app ignora `AGUARDANDO`, então o pedido sai das duas telas
+sem ser apagado e **sem entrar na conta de entregas do dia** — o que `ENTREGUE` faria, inflando o
+relatório. É o `arquivar-fila` do `smoke-app.js`, e a lição geral é: **ensaie o roteiro inteiro antes
+da janela combinada**, porque é o ensaio que revela a sujeira que a foto mostraria.
+
+**Conferir cenário pela API do app, não pelo banco.** Entre as duas coisas moram o agrupamento de
+rota, o filtro de situação e a ordenação por distância — e já aconteceu de o banco estar certo e a
+tela vir vazia. O `smoke-app.js` chama
+`GET /api/entrega2/gestao/entregador/{empresa}/{filial}/{usuario}/{funcionario}` com Basic Auth e
+verifica o que a tela vai mostrar. Vale como padrão para qualquer cenário de app: **confira pela
+porta que o cliente usa.**
+
+**Sentinela de escrita, o desenho que deu certo.** Script que escreve em produção (a sandbox é
+produção) precisa de mais do que `--dry-run`. O que o `smoke-app.js` usa, e que vale copiar:
+lista branca **literal** de empresa/filial no código (destravar exige editar o arquivo, não passar
+flag), `UPDATE` só numa tabela, só em ID que **o próprio script criou** naquela janela — guardado em
+arquivo de estado local, porque as fases acontecem em execuções diferentes —, lista branca de
+colunas, e uma flag separada (`--permitir-passado`) para o subconjunto que altera histórico. As
+operações de rota vão pela **API**, nunca por SQL, para o log, o socket e o `rota_evento`
+acontecerem como no uso real.
 
 ---
 

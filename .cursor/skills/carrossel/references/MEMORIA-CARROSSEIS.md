@@ -5,7 +5,28 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-18 (26ª rodada: o CTA do totem foi recusado pela
+Última atualização: 2026-09-19 (29ª rodada: **estudar o acervo virou etapa**, e
+**reusar é adaptar** — a prova viaja, o slide não. As duas em *prova boa se
+reusa entre peças*: *uma rodada depois isso virou etapa, e não sorte* e *reusar
+é adaptar, e o erro tem dois andares*. A pergunta que autoriza o reuso é *a
+prova é do módulo, ou do canal?*; a que **escolhe entre as candidatas** é *qual
+delas prova a manchete inteira?*; e a que o faz valer é *qual pergunta esta peça
+deixou aberta neste ponto do arco?*. A pasta de cada peça passou a ser
+`NN-<slug>`, numerada pela ordem de entrega — ver *a pasta é numerada pela ordem
+de entrega*).
+
+28ª rodada: a capa do tablet vendia **pagar**,
+que é a promessa do totem, e o produto faz isso sem ser por isso que alguém
+compra — ver *a capa vende o uso principal, e não o recurso mais vistoso da
+lista*).
+
+27ª rodada: a página do Cardápio no Tablet
+voltou pobre de novo, e de novo era o `pauta.py` — ver *e a pergunta ganhou uma
+irmã*. E o suporte do tablet foi reaberto, medido na foto e **fechado como
+limite do desenho frontal** — ver *o suporte do tablet é um limite do desenho
+frontal, e está aceito*).
+
+26ª rodada: o CTA do totem foi recusado pela
 **terceira** vez, e a versão que caiu era a que tinha o melhor fato — ver *CTA
 é convenção, e o fato bom não salva a frase esperta*. Junto, a regra de que
 frase de venda **se procura no site antes de inventar**).
@@ -83,21 +104,28 @@ na voz da marca e falando com você**.
 
 ## Índice
 
-| Carrossel | Fonte | Pasta | Formato | Estado |
-|-----------|-------|-------|---------|--------|
-| Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/destaque-impressao/` | 4:5, 8 slides | ✅ entregue — `entrega/destaque-impressao.zip` (8 PNG + copy) |
-| Cardápio presencial em inglês e espanhol | [16/09/2026](https://beefood.app/novidades/traducao-cardapio-presencial) | `carrosseis/traducao-cardapio-presencial/` | 4:5, 7 slides | ✅ entregue — `entrega/traducao-cardapio-presencial.zip` (7 PNG + copy) |
-| Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/cardapio-capas-destaques/` | 4:5, 7 slides | ✅ entregue — `entrega/cardapio-capas-destaques.zip` (7 PNG + copy) |
-| Desconto ou acréscimo por forma de pagamento | [17/08/2026](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) | `carrosseis/desconto-forma-pagamento/` | 4:5, 7 slides | ✅ entregue — `entrega/desconto-forma-pagamento.zip` (7 PNG + copy) |
-| A dark kitchen de várias marcas num painel só | **função**, de [`beefood.com.br/sistema-dark-kitchen`](https://beefood.com.br/sistema-dark-kitchen/) | `carrosseis/dark-kitchen-multimarcas/` | 4:5, 7 slides | ✅ entregue — `entrega/dark-kitchen-multimarcas.zip` (7 PNG + copy) |
-| O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — página **sem conteúdo**; o fato veio da tela | `carrosseis/totem-autoatendimento/` | 4:5, 9 slides | ✅ entregue — `entrega/totem-autoatendimento.zip` (9 PNG + copy) |
+A pasta leva o número da **ordem de entrega** no nome, e a coluna `#` repete
+esse número. Assim a listagem do diretório sai na ordem em que as peças foram
+publicadas, e não em ordem alfabética, que não diz nada sobre um acervo. O texto
+"entregue" saiu: ele era igual em toda linha, e o que muda de uma para outra é
+a posição na fila.
+
+| # | Carrossel | Fonte | Pasta | Formato | Entrega |
+|---|-----------|-------|-------|---------|---------|
+| 1 | Destaque na impressão | [15/09/2026](https://beefood.app/novidades/destaque-impressao) | `carrosseis/01-destaque-impressao/` | 4:5, 8 slides | `entrega/01-destaque-impressao.zip` (8 PNG + copy) |
+| 2 | Cardápio presencial em inglês e espanhol | [16/09/2026](https://beefood.app/novidades/traducao-cardapio-presencial) | `carrosseis/02-traducao-cardapio-presencial/` | 4:5, 7 slides | `entrega/02-traducao-cardapio-presencial.zip` (7 PNG + copy) |
+| 3 | Capas, destaques e avisos com imagem e vídeo | [13/08/2026](https://beefood.app/novidades/cardapio-digital-avisos-banners-capas-midia) | `carrosseis/03-cardapio-capas-destaques/` | 4:5, 7 slides | `entrega/03-cardapio-capas-destaques.zip` (7 PNG + copy) |
+| 4 | Desconto ou acréscimo por forma de pagamento | [17/08/2026](https://beefood.app/novidades/desconto-acrescimo-forma-pagamento) | `carrosseis/04-desconto-forma-pagamento/` | 4:5, 7 slides | `entrega/04-desconto-forma-pagamento.zip` (7 PNG + copy) |
+| 5 | A dark kitchen de várias marcas num painel só | **função**, de [`beefood.com.br/sistema-dark-kitchen`](https://beefood.com.br/sistema-dark-kitchen/) | `carrosseis/05-dark-kitchen-multimarcas/` | 4:5, 7 slides | `entrega/05-dark-kitchen-multimarcas.zip` (7 PNG + copy) |
+| 6 | O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — endereço público é **casca**; a página vem de um app externo | `carrosseis/06-totem-autoatendimento/` | 4:5, 9 slides | `entrega/06-totem-autoatendimento.zip` (9 PNG + copy) |
+| 7 | O cliente pede no tablet, sem esperar o garçom | **função**, de [`beefood.com.br/cardapio-digital-tablet`](https://beefood.com.br/cardapio-digital-tablet/) — página inteira, servida pelo próprio site | `carrosseis/07-cardapio-digital-tablet/` | 4:5, 9 slides | `entrega/07-cardapio-digital-tablet.zip` (9 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
 `conferir-texto.py` recebe `--novidade <slug-publicado>` para achar a fonte no
 feed.
 
-**Quantos slides:** os que a novidade tem de assunto, entre 6 e 8. O primeiro
+**Quantos slides:** os que a novidade tem de assunto, entre 6 e 9. O primeiro
 carrossel saiu com 8 e o segundo com 7, e os dois fecham — o de tradução tem uma
 ideia grande e três apoios, e o oitavo slide só existiria para chegar a oito.
 Nada no `base.css`, no `renderizar.py` nem no `empacotar.py` depende do número;
@@ -534,6 +562,36 @@ Duas coisas que a página devolveu assim que foi lida de verdade: a **seção de
 fidelidade**, que redesenhou a capa, e a **demonstração do aparelho**, que
 salvou o CTA. As duas seções seguintes.
 
+### E a pergunta ganhou uma irmã: "o meu leitor lê tudo o que ela serve?"
+
+Uma rodada depois, a página do Cardápio no Tablet voltou pobre pelo mesmo
+sintoma e por um motivo **oposto**: ela se serve sozinha, com todo o texto no
+HTML, e o `pauta.py` é que jogava fora três blocos inteiros — *Layout
+otimizado*, *Rodízio sem complicação*, *Fechamento de conta simplificado* — e o
+FAQ completo.
+
+Eram dois defeitos somados, cada um comendo uma metade do bloco:
+
+- **O parágrafo.** O editor do site embrulha o texto em
+  `<span style="font-weight: 400">`, e o leitor tratava `span` como bloco: ao
+  abrir o `span` ele **fechava o `<p>`** e mandava o conteúdo para a pilha de
+  "menu e rótulo de ícone", que é descartada. Agora `a` e `span` só contam como
+  bloco quando não há bloco aberto.
+- **O título.** Seção sem parágrafo embaixo era filtrada por estar vazia — e
+  *Para quem é o Cardápio no Tablet* é um eixo da página inteira, com o corpo
+  em cartões que o leitor recolhe à parte. `h3` agora sobrevive sem corpo.
+
+De brinde, o filtro de menu passou a exigir pontuação: linha comprida **sem
+ponto, vírgula ou dois-pontos** é a barra de navegação chegando como uma linha
+só (*"Soluções Presencial Cardápio Digital QRCode Aplicativo para Garçom…"*),
+e frase de verdade com aquele tamanho tem pontuação.
+
+> São duas pautas seguidas em que a leitura pobre era da **ferramenta**, não da
+> página. Antes de concluir que a fonte é magra, rode a pergunta dupla:
+> **"esta página se serve sozinha?"** e **"o meu leitor lê tudo o que ela
+> serve?"**. O sintoma é o mesmo nas duas — pauta curta demais para o tamanho
+> da página — e o conserto é sempre no script.
+
 ### O ícone é o que sobrevive à miniatura
 
 A seção *Transforme cada venda em uma nova oportunidade de compra* anuncia cada
@@ -952,6 +1010,169 @@ chegou até ali.
 > Slide reusado entra pela **função que ele cumpre no arco**, não pela ordem em
 > que o cliente encontra aquilo na tela.
 
+#### Uma rodada depois isso virou etapa, e não sorte
+
+O reuso no totem aconteceu porque o dono **pediu**. Na peça do tablet o pedido
+voltou — *"precisamos incluir mais uma imagem sobre a multilinguagem, já
+fizemos um carrossel sobre isso e já temos o conteúdo pronto"* — junto com o
+diagnóstico: *"precisamos criar uma memória de que, ao criar um carrossel,
+estudamos todos os que já foram criados para encontrar implementações casadas
+com as outras que já foram feitas"*.
+
+Ele está certo, e o que faltava não era disposição: era **etapa**. Procurar
+prova antiga não estava em lugar nenhum do fluxo, então acontecia quando alguém
+lembrava. Virou a segunda metade do passo 1 da `SKILL.md`, com os quatro
+comandos que levantam o acervo, e a seção *o acervo é parte da pauta* em
+`roteiro-e-copy.md`.
+
+**E o peso do hábito muda com o gênero.** Em `novidade`, o acervo serve para
+não repetir, e pouco mais: a peça é um recorte no tempo, tem um fato próprio
+com data, e reaproveitar prova quase sempre significa falar de outra coisa. Em
+`função` é o contrário — totem, tablet, QR Code e app do garçom são canais da
+**mesma plataforma**, lendo o mesmo cadastro e o mesmo cardápio. Ali o reuso
+não é economia, é o que mantém as peças **coerentes entre si**: quem acompanha
+o perfil vê a mesma tela de cadastro nas duas peças e entende sozinho que é um
+sistema só. Recapturar, com outro produto e outro recorte, ensinaria o
+contrário.
+
+**A pergunta que autoriza o reuso é uma só: a prova é do módulo, ou do canal?**
+A tela do cadastro de produto é do **módulo**, e por isso viaja da peça da
+tradução para a do tablet sem uma linha de ressalva — o cadastro não muda por
+canal. Os dois recortes do cartão em inglês e espanhol, que eram o candidato
+mais óbvio porque já estavam prontos e já tinham sido reusados uma vez, são do
+**totem**: numa peça de tablet eles seriam arte desmentindo a frase do slide.
+
+Duas coisas viajaram junto com a imagem, e a segunda é a que se esquece:
+
+- **o limite**, de novo — a página do tablet também promete "traduzido
+  automaticamente", e o manual continua dizendo que quem escreve é a loja. Com
+  o slide do cadastro na peça, ela parou de só **evitar** a frase e passou a
+  **mostrar como é**: um campo a mais no produto que já existe. Vende melhor
+  que a promessa falsa, porque o trabalho é pequeno e serve todos os canais;
+- **o slide, que não viaja.** E aqui a regra nasceu errada e teve de ser
+  corrigida no mesmo dia — ver *reusar é adaptar, e o erro tem dois andares*,
+  logo abaixo.
+
+#### Reusar é adaptar, e o erro tem dois andares
+
+O mesmo slide errou duas vezes seguidas, e a segunda só apareceu porque o dono
+olhou: *"a ideia não é copiar o slide de outra, mas sim adaptar. 'O mesmo
+produto com um campo a mais' é no contexto de lá; aqui precisamos de outra
+hero"*.
+
+**Andar de baixo: a frase.** A primeira versão reusou a imagem **com o texto
+junto** — duas peças dizendo *"toque na bandeira e escreva o nome do jeito que o
+turista entende"* com as mesmas palavras.
+
+**Andar de cima: a ideia, e esse é o que engana.** Na correção as palavras foram
+todas trocadas e o **ângulo** ficou: chapéu *"Sem segundo cardápio"*, manchete
+*"O mesmo produto, com um campo a mais"*. Parecia resolvido, e não estava.
+Aquele ângulo responde o medo de quem **ainda não tem** o recurso e teme manter
+dois cardápios — é o leitor da peça da tradução. O desta está avaliando um
+**aparelho**, acabou de ver no slide anterior o cliente trocando de idioma
+sozinho, e a pergunta que sobra é outra: *o meu cardápio vai mesmo estar em
+inglês, e quem escreve isso?*
+
+| | Ângulo herdado | Ângulo desta peça |
+|---|---|---|
+| Chapéu | Sem segundo cardápio | Escrito por você |
+| Manchete | O mesmo produto, com um campo a **mais** | Seu cardápio em **inglês e espanhol** |
+| Corpo | economia de esforço | controle sobre o texto |
+| Remate | tudo sai de um cadastro só | o mesmo texto serve tablet, totem e QR Code |
+
+> **A prova viaja. O slide, não.** O slide reaproveitado se escreve do zero para
+> a pergunta que **esta** peça deixou aberta.
+
+Três perguntas antes de escrever, e a primeira pega o erro de cima:
+
+1. **qual pergunta esta peça deixou aberta neste ponto do arco?** Escreva a
+   pergunta, não o título. Se for a mesma da peça de origem, ou o slide está no
+   lugar errado, ou não era necessário;
+2. **o que muda no leitor?** Lá ele pode não ter o recurso; aqui pode estar
+   escolhendo entre dois produtos da linha;
+3. **o remate ainda serve?** *"Os três idiomas acompanham"* é argumento de
+   esforço; numa peça de canal fecha melhor *"o mesmo texto serve o tablet, o
+   totem e o QR Code"*, que ainda prepara o CTA.
+
+E o **limite** continua viajando sempre, só que virado para a frente: em vez de
+*evitar* a promessa de "tradução automática" da página, o slide passou a dizer
+que o texto é **seu**, e não um chute de tradutor. Mesma verdade, vendendo.
+
+#### E o terceiro andar: escolher entre as provas, e não pegar a primeira
+
+O dono voltou uma terceira vez no mesmo slide: *"tínhamos outro slide que mostra
+a imagem da batata frita em 2 línguas. Precisamos escolher a melhor para
+trazer"*.
+
+O acervo tinha **duas** provas de idioma, não uma, e eu peguei a que apareceu
+primeiro. A manchete promete "inglês e espanhol"; o print do cadastro mostra a
+bandeira dos Estados Unidos escolhida com a etiqueta "Inglês" — prova **metade**
+do que o título diz.
+
+| Candidata | O que prova | Serve à manchete? |
+|---|---|---|
+| print do cadastro do produto | **quem escreve** o texto, num idioma | metade |
+| par do mesmo item nos dois idiomas | **que são dois**, com foto e preço intactos | inteira |
+
+> **Qual delas prova a manchete inteira?** É o único critério, e ele só existe
+> depois de listar todas as candidatas.
+
+O que a perdedora provava não sumiu: "escrito por você" desceu para o chapéu e
+para o corpo, onde cabe sem imagem.
+
+**O mais barato dessa rodada foi o que não fizemos: ler o `roteiro.md` da peça
+vizinha.** O carrossel da tradução já tinha cometido este erro e já tinha
+escrito a correção, com estas palavras: *"a capa promete espanhol e o carrossel
+só mostrava inglês; e a prova cabe numa imagem"*. O acervo guarda erro
+documentado, e repetir um deles é o desperdício mais caro que ele permite.
+
+**E a melhor prova era do canal errado — o que não a desqualifica, obriga a
+redesenhar.** Aqueles recortes são do totem, em cartão de grade, e o slide 6
+desta peça mostra a lista do tablet: lado a lado, a arte diria que são dois
+aparelhos. O par foi refeito com o `.tela-tablet__item` do slide 6, a foto real
+da biblioteca e o texto do `traducoes.json` da peça de origem. Mesmo item, mesma
+foto, mesmo preço, mudando a linha do nome e o botão (`Order` / `Pedir`).
+
+> Quando a melhor prova é do canal errado, **reusa-se a ideia da prova**, e não
+> o arquivo.
+
+Entraram no `base.css` duas peças pequenas para isso: `.tela-tablet--avulsa` (a
+tela do tablet fora do aparelho, com um item só) e `.rotulo-idioma` (a legenda
+de bandeira que fica **fora** do recorte, porque não é interface).
+
+#### O conferidor mede a frase; a ideia é você que julga
+
+Como a frase repetida passou batida, o `conferir-texto.py` passou a comparar a
+peça com **os outros carrosséis**. Três decisões, e as três são sobre o aviso
+ser lido:
+
+- **é `AVISO`, não erro.** O CTA de peça de função repete de propósito — ele é
+  convenção. Travar a entrega por isso ensinaria a contornar o conferidor.
+- **fora da comparação fica o que não é copy**: a interface desenhada dentro
+  dos mockups (duas peças com a mesma tela repetem "MELTED brioche bun…"
+  porque é o produto), o cromo do slide (contador, pontos, `arraste`) e o
+  texto alternativo, que descreve prova — e prova se repete de propósito. Sem
+  esses filtros o primeiro teste devolveu **170 avisos**, que é o mesmo que
+  nenhum.
+- **dentro fica o que a peça escreveu**: a copy dos slides e a legenda. Com o
+  filtro, a mesma peça caiu para **22** avisos, todos reais, e depois da
+  reescrita para **5** — os cinco do CTA.
+
+Mas ele só pega **palavra igual**. O andar de cima do erro — ângulo herdado com
+palavras novas — passou por ele sem um aviso, e vai passar sempre. Ferramenta
+para a frase; as três perguntas para a ideia.
+
+Na mesma passagem entrou um segundo aviso, sem relação com reuso: **marca de
+linha**. O prefixo `   12|` que as ferramentas de leitura põem na saída volta
+para dentro do arquivo quando alguém reescreve um trecho a partir do que leu, e
+dentro de comentário de HTML ele **não aparece na arte** — sobrevive a rodadas
+de revisão, e só é achado quando cai em texto visível. Aconteceu de novo nesta
+rodada, no comentário do slide novo. O conferidor agora varre `.html`, `.md`,
+`.txt` e `.json` da pasta e falha.
+
+O teto de slides cedeu de novo, pelo mesmo motivo do totem: os nove dizem nove
+coisas diferentes, e o corte só tiraria conteúdo.
+
 **E ele custou o teto de 8 slides.** A regra *slide novo custa slide velho* foi
 aplicada na rodada anterior e não tinha mais o que fundir: os nove slides dizem
 nove coisas diferentes. O teto é uma régua contra peça que cresce sem ganhar
@@ -982,6 +1203,57 @@ e quem se reconhece nele já sabe o que ele é**. Definir na capa gasta a linha
 que deveria vender, e ainda soa como explicar o óbvio para o próprio dono da
 dark kitchen. Ficou *"Cada marca com o seu cardápio e o seu resultado"*. Nomear
 o segmento é trabalho do título; o subtítulo continua sendo do recurso.
+
+### A capa vende o uso principal, e não o recurso mais vistoso da lista
+
+A capa do tablet saiu *"Cada mesa pede e fecha a própria **conta**"*, e o dono
+devolveu: *"é diferente do totem, que o cliente paga na mesa"*. O fechamento
+**existe** — tem duas chaves no painel e um slide inteiro provando —, e mesmo
+assim a manchete estava errada.
+
+O que estava errado não era o fato, era a **escolha**. Pagar é a promessa do
+totem, e a capa de lá já diz *"O cliente pede **e paga** sozinho no totem"*.
+Repetir o gancho na peça do tablet colocava as duas irmãs para competir no
+ponto em que a segunda é mais fraca — e gastava a linha mais cara da peça com
+o que o leitor menos vai usar no dia a dia. O produto faz; só não é por isso
+que alguém compra.
+
+> O teste que passou a valer: **se o restaurante comprar por causa desta capa,
+> é isto que ele vai usar todo dia?** Se a resposta é "existe, mas não é por
+> aí", a manchete está vendendo o ponto fraco.
+
+Isso é um risco específico do gênero **função do sistema**, e por dois motivos.
+A página de vendas lista tudo o que o produto faz, sem hierarquia, então a
+leitura entrega uma pilha de recursos em que o mais vistoso não é o mais usado.
+E os produtos da linha se parecem — totem, tablet, QR Code, app do garçom são
+quatro jeitos de pedir —, então a capa de cada um tem de dizer o que ele faz
+**de diferente**, não o que ele faz de mais chamativo.
+
+O conserto veio de reler a página com a pergunta certa. O topo dela tem três
+promessas: ticket médio em % (resultado, não vira manchete), *"o cliente só
+chama o garçom se quiser"* e *"reduza o tempo de atendimento e elimine erros
+nos pedidos"*. As duas últimas viraram manchete e subtítulo, um eixo cada:
+
+| | antes | depois |
+|---|---|---|
+| manchete | Cada mesa pede e fecha a própria **conta** | O cliente pede no tablet, **sem esperar** o garçom |
+| subtítulo | E chama o garçom só quando quiser. | E o pedido entra na comanda como ele montou. |
+
+**E o vermelho ficou na mesma posição das duas capas irmãs, de propósito.** No
+totem ele cai em *"e paga"*; no tablet, em *"sem esperar"*. Quem vê os dois
+posts lê a diferença entre os dois canais no mesmo lugar da frase, sem que
+ninguém precise explicar. Peças da mesma família ganham quando a comparação é
+desenhada, em vez de evitada.
+
+Dois rascunhos caídos, dos cinco que foram renderizados:
+
+- *"Ninguém levanta a mão para pedir de novo"* — a melhor imagem das cinco, e
+  não nomeia aparelho nenhum. É a **manchete-conceito** de novo, entregando o
+  assunto à pílula (ver *em peça de função, o tema entra no título*).
+- *"No tablet da mesa, o cliente pede sem esperar"* — certa no conteúdo e ruim
+  na página: põe **tablet** na primeira palavra da manchete, logo abaixo de uma
+  pílula que termina em **TABLET**. Com o aparelho no meio da frase o problema
+  some, e a manchete ainda fecha no vermelho.
 
 ### Quando o assunto é convergência, a capa é cena — recorte não serve
 
@@ -1470,7 +1742,7 @@ Gastei uma rodada tentando `aspect-ratio` em 390, 400, 472 e 590 — nenhum fech
 certo foi montar no sandbox um pedido em que só a bebida tem destaque (combo sem
 o complemento marcado) e imprimir o cupom dele. Continua sendo impressão de
 verdade, e a linha preta é uma só. Ver `registrar_pedido()` em
-`carrosseis/destaque-impressao/capturar-telas.py` e `salvar_cupom()` na skill.
+`carrosseis/01-destaque-impressao/capturar-telas.py` e `salvar_cupom()` na skill.
 
 Duas consequências que valem para qualquer captura de cupom:
 
@@ -1784,15 +2056,53 @@ O tablet custou cinco rodadas, e o que resolveu foi medir em vez de opinar:
   clara.
 - **e a chapa tem de ser grande.** Ela entrou com 46% da largura do aparelho por
   `100 / 24`, e ainda lia como pé de monitor: pequena demais para ser suporte.
-  Medindo a foto do catálogo, a chapa ocupa **66% da largura** do aparelho e 23%
-  da altura dele — e ali a foto está em perspectiva, que alarga. Frontal,
-  **58% por `100 / 25`** é o que ficou parecido. Regra que serve para qualquer
-  peça acessória: se ela lê como acessório de outro objeto, quase sempre está
-  pequena, não malfeita.
+  Frontal, **58% por `100 / 25`** é o que ficou parecido. Regra que serve para
+  qualquer peça acessória: se ela lê como acessório de outro objeto, quase
+  sempre está pequena, não malfeita.
 
   A lição geral: a foto do catálogo está em perspectiva e o mockup é frontal.
   **Copie a peça, não a pose.** Reproduzir o que a perspectiva revela (o lado do
   rolo, a aba fugindo para a direita) num desenho frontal devolve outro objeto.
+
+  > **Correção de medida, feita na 27ª rodada.** A rodada que fixou 58% anotou
+  > que "a chapa ocupa 66% da largura do aparelho", e os 66% estavam medidos no
+  > lugar errado. Medindo o alfa de
+  > `wp-content/uploads/2025/10/tablet-beefood.png` linha a linha, a carcaça tem
+  > 960 px de largura e a chapa tem **366 px (38%) no topo** e **622 px (65%)
+  > na altura do pé** — os 66% eram a **aba deitada na mesa**, não a chapa. Os
+  > 58% atuais são, sem querer, uma média dos dois; a anotação é que estava
+  > errada, não o valor.
+
+### O suporte do tablet é um limite do desenho frontal, e está aceito
+
+A 27ª rodada reabriu o mockup por um motivo objetivo: na folha do catálogo, o
+`.tablet` e o `Monitor de mesa` têm **a mesma silhueta**, e a folha existe
+justamente para provar que cada aparelho lê como o que é. Três variantes foram
+renderizadas em escala de capa (920 px) contra a foto do site:
+
+| variante | o que deu |
+|---|---|
+| chapa de hoje (58%, quase paralela) | pé de iMac, que é o defeito conhecido |
+| chapa estreita (38%) + 3D leve | o melhor dos três, e ainda ambíguo |
+| chapa 38% no topo abrindo para 65% no pé, medida da foto | **chapéu chinês** — exatamente a falha que a memória já registrava |
+
+O terceiro caso é o que fecha o assunto: reproduzir a medida **certa** num
+desenho frontal devolveu o erro **antigo**. Na foto, o que faz a peça ler como
+chapa não é a largura, é a **curvatura vista de lado** e a aba fugindo para a
+frente — as duas são informação de perspectiva, e desenho frontal não tem onde
+guardá-las. A chapa larga e quase paralela continua sendo a **menos pior**
+aproximação frontal.
+
+Duas conclusões práticas:
+
+- **Não reabra o suporte do tablet com mais uma variante frontal.** Seis
+  tentativas, três famílias de forma, mesmo resultado. O que falta não é
+  medida.
+- **Se um dia valer resolver, o caminho é a pose, não a peça**: `.cena3d` +
+  `.g3d` com giro suave, que é a única coisa que devolve espessura e curva.
+  Custa mais do que parece — `.tablet` é usado por mais de um carrossel já
+  publicado, então mexer nele pede re-render e revisão das peças antigas, e
+  isso não cabe no meio da produção de uma peça nova.
 
 Medidas que cabem no slide, com o texto acima:
 
@@ -2149,12 +2459,34 @@ fica como o manual deixou.
 Vale como pergunta de revisão: *a imagem deste slide prova o título, ou só
 ilustra o assunto dele?*
 
+## A pasta é numerada pela ordem de entrega
+
+Sete peças depois, `ls carrosseis/` devolvia ordem alfabética — que num acervo de
+publicações é ordem nenhuma. A primeira da lista era a quarta a sair, e a última
+entrega estava no meio. O índice compensava isso com uma coluna que dizia
+`✅ entregue` em **todas** as linhas, o que é informação zero repetida sete
+vezes.
+
+A pasta passou a ser `NN-<slug>`, com `NN` sendo a ordem de entrega, e o índice
+ganhou coluna `#` no lugar do texto. Três coisas caíram no lugar de graça:
+
+- **a listagem do diretório já é a linha do tempo** — não precisa abrir o índice
+  para saber o que veio antes;
+- **o `.zip` chega ao cliente ordenado**, porque o `empacotar.py` nomeia pelo
+  nome da pasta;
+- **o `conferir-texto.py` cita a peça vizinha pelo número** quando acusa
+  repetição, e o número diz de imediato se ela é anterior ou posterior.
+
+O slug continua sendo o slug: o `--novidade` e o `--fonte` não mudam, e o
+prefixo é só do sistema de arquivos. A próxima peça abre com o próximo número
+livre.
+
 ## A prateleira: o que nasce no carrossel e sobe para a skill
 
 O tablet custou cinco rodadas e o totem três. Nada disso era CSS difícil — era
 **referência que não tínhamos juntado ainda**. O risco, depois de entregue, é o
 carrossel seguinte começar do zero outra vez: as fotos de produto ficaram dentro
-de `carrosseis/traducao-cardapio-presencial/imagens-puras/`, o capturador do
+de `carrosseis/02-traducao-cardapio-presencial/imagens-puras/`, o capturador do
 totem era um script daquela pasta, e o aparelho pronto só aparecia para quem
 abrisse os slides de lá.
 

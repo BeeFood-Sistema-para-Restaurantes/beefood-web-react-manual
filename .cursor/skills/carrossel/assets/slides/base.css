@@ -1921,6 +1921,30 @@ body {
   overflow: hidden;
 }
 
+/* A tela do tablet fora do aparelho, com um item só dentro.
+ *
+ * Serve ao slide que compara o MESMO item em dois idiomas: dentro do mockup os
+ * dois cartões sairiam pequenos demais para ler o descritivo, e o aparelho
+ * repetido duas vezes rouba a comparação — o que o leitor tem de comparar é a
+ * linha do nome, não a moldura. Sem `height: 100%` (não há tela para preencher)
+ * e com o respiro que o `.tela-tablet__corpo` daria. */
+.tela-tablet--avulsa {
+  height: auto;
+  padding: 0.7em;
+  border-radius: 0.6em;
+}
+
+/* Rótulo do idioma, fora do recorte. Fica fora porque não é interface: é a
+ * legenda que diz qual das duas telas o leitor está olhando. */
+.rotulo-idioma {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 30px;
+  font-weight: 800;
+}
+
 .tela-tablet__item img {
   display: block;
   width: 8em;

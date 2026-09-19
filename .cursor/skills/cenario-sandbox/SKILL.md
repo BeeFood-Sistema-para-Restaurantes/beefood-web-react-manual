@@ -82,7 +82,8 @@ servidor Delphi separado.
 ### 4. Ler a lista branca de quem já fez
 
 Script de sessão anterior que mexeu na mesma tabela é a melhor documentação que existe da
-base — melhor que a base. A lista de colunas graváveis do `smoke-app.js` foi o que revelou
+base — melhor que a base. A lista de colunas graváveis do
+[`smoke-app.js`](../../../manuais/gestao-entregas/scripts/smoke-app.js) foi o que revelou
 que `origem` **não é coluna que se grave**: ela não estava na lista, e ainda assim os
 pedidos daquele lote apareciam como iFood.
 
@@ -130,10 +131,16 @@ funciona, e é uma hora perdida quando não se sabe disso.
 
 ## Degrau 4: escrever no banco sem risco
 
-Modelo pronto:
-[`marketplace-db.js` do #120](../../../manuais/painel-entregador/marketplace-db.js). Ele
-existe para estampar identificador de plataforma, mas a estrutura vale para qualquer
-escrita. **Seis travas, e nenhuma é opcional:**
+Três modelos prontos no repositório, e vale abrir o mais próximo do seu caso antes de
+escrever linha nenhuma:
+
+| Arquivo | Para que serve |
+|---|---|
+| [`marketplace-db.js`](../../../manuais/painel-entregador/marketplace-db.js) (#120) | estampa identificador de plataforma; é o menor e o mais fácil de copiar |
+| [`smoke-app.js`](../../../manuais/gestao-entregas/scripts/smoke-app.js) (#111–#117) | nove cenários do app do entregador, com `preparar → conferir → limpar` |
+| [`cenario.js`](../../../manuais/gestao-entregas/scripts/cenario.js) (#104–#110) | monta, move e conclui cenário do painel de Gestão de Entregas |
+
+A estrutura vale para qualquer escrita. **Seis travas, e nenhuma é opcional:**
 
 | Trava | Como | Por que |
 |---|---|---|
