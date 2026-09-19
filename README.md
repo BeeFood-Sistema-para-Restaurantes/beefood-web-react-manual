@@ -139,6 +139,7 @@ O **status** e a fila ficam no
 | Mercado Pago — cartão de crédito no Cardápio Digital | [`mercado-pago/`](manuais/mercado-pago/mercado-pago.md) |
 | Manual — Taxa e obrigatoriedades de mesa | [`mesas-taxa-obrigatorias/`](manuais/mesas-taxa-obrigatorias/mesas-taxa-obrigatorias.md) |
 | Manual — Entendendo a numeração dos pedidos | [`numeracao-pedidos/`](manuais/numeracao-pedidos/numeracao-pedidos.md) |
+| Painel para Entregadores | [`painel-entregador/`](manuais/painel-entregador/painel-entregador.md) |
 | Manual — Parâmetros gerais | [`parametros-geral/`](manuais/parametros-geral/parametros-geral.md) |
 | Manual — Balança no PDV | [`pdv-balanca/`](manuais/pdv-balanca/pdv-balanca.md) |
 | Manual — Fichas de consumo no PDV | [`pdv-fichas/`](manuais/pdv-fichas/pdv-fichas.md) |

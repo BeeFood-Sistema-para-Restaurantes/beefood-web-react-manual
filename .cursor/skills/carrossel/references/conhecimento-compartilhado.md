@@ -14,6 +14,20 @@ A fronteira é simples: **a skill de manual continua dona de tudo isso.** Ela é
 Esta skill lê os dois e as pastas de `manuais/`, e **não escreve** em nenhum
 deles.
 
+## Quando o sandbox não tem o que fotografar
+
+Antes de desenhar a tela em HTML, veja se o cenário pode ser **montado de
+verdade**: é o assunto da skill
+[`cenario-sandbox`](../../cenario-sandbox/SKILL.md). Ela ensina a descobrir de
+onde um campo vem (smoke teste contra a API antes de qualquer SQL) e traz o que
+já está medido no BeeFood — a origem do pedido é **derivada** do identificador de
+plataforma, qual rota grava o quê, e a janela de horas das telas de fila, que olha
+a **criação** do pedido e por isso não aceita pedido de ontem.
+
+Tela real vence desenho sempre que der. O desenho em CSS continua sendo a saída
+para o que a sandbox não consegue ter (uma segunda marca, por exemplo), não o
+primeiro recurso.
+
 ## O que ler na `MEMORIA-GERAL.md`, por assunto
 
 | Preciso de… | Seção | O que está lá |

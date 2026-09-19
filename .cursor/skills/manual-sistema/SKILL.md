@@ -20,6 +20,7 @@ fotografar. Nada é desenhado.
 | "cria o manual de X", "documenta a tela Y", "atualiza o manual Z" | **aqui** |
 | "estuda o bloco X e propõe os manuais" | aqui — sai um `PLANO-X.md` em `references/planos/` |
 | "faz um carrossel da novidade X", "post para o Instagram", "arte" | `carrossel` — **não é esta skill** |
+| "faz smoke teste", "semeia pedido de marketplace", "insere no banco" | `cenario-sandbox` — a skill de apoio que monta o cenário |
 
 As duas skills dividem o mesmo sandbox e as mesmas técnicas de captura. O que
 muda é o produto: aqui sai passo a passo para quem opera; lá sai peça de venda
@@ -56,7 +57,10 @@ conferir o estado da funcionalidade no sistema antes de fotografar.
 3. **Cenário.** Conferir no sandbox se o estado que o manual precisa existe —
    e montá-lo quando não existir. Passo irreversível pede a **técnica do
    ensaio**: rodar o fluxo inteiro sem o clique final, revisar, e só então
-   repetir para valer.
+   repetir para valer. Quando o estado é daqueles que a tela **não sabe criar**
+   (pedido de iFood, pedido atrasado, pedido já pago), o caminho está na skill
+   [`cenario-sandbox`](../cenario-sandbox/SKILL.md) — inclusive a ordem que evita
+   ir direto ao banco.
 4. **Captura.** Print de produção em `imagens-puras/`, numerado por etapa
    (`NN-descricao.png`). Tema claro, sempre. **Depois de cada clique, espere o
    spinner sumir e mais 5 segundos** — esta é a regra que mais se repete, e vale
