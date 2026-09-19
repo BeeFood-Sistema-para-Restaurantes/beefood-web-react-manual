@@ -1,0 +1,47 @@
+<!-- A PROVA da peca, e ela e a tela: o cardapio do totem com os setores na
+     coluna, a foto de cada item e o preco na frente.
+
+     Print sem aparelho em volta, ao contrario da capa, e pelo motivo oposto:
+     aqui a tela precisa ser LIDA. A tela do totem e 1080x1920, e dentro de um
+     mockup de 420 px a letra do cardapio sai com 11 px no feed. Recortada e
+     mostrada com 940 px, a mesma letra sai com 24 px. O aparelho ja foi
+     estabelecido no slide 1, e o `.recorte` preto continua lendo como totem
+     porque o aplicativo e escuro.
+
+     O recorte e uma faixa continua do topo da tela, nunca uma montagem, e
+     termina LOGO DEPOIS da primeira fileira de produtos. A primeira versao
+     pegava mil pixels e sobrava meia foto na borda de baixo do slide — corte
+     dentro da foto e o que a mockups.md aceita quando nao ha jeito, mas quando
+     ha jeito o corte limpo entre duas fileiras e melhor.
+
+     A faixa de cima e arte NOSSA, trocada na captura. A da loja de exemplo
+     anuncia um pudim com preco, e num slide sobre cardapio o olho le o pudim.
+
+     A ultima frase e o CONTROLE, e ela vem do manual de venda sugestiva:
+     `Desativar Totem` tira o produto do aparelho — e tambem da sugestao do
+     slide 4, mesmo que ele continue na lista. Peca de funcao sem nenhum limite
+     nao convence quem esta escolhendo sistema. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">3 de 9</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 900px">
+    <span class="chapeu">O cardápio</span>
+    <h2 class="titulo titulo--pequeno">
+      O cardápio do totem é o <span class="destaque">seu</span>
+    </h2>
+    <p class="corpo">
+      Setores na coluna, foto e preço em cada item — é o cadastro que você já
+      mantém. O que não deve aparecer ali sai pelo <b>Desativar Totem</b>.
+    </p>
+  </div>
+
+  <div class="figura" style="margin-top: 44px; width: 940px">
+    <div class="recorte">
+      <img src="../imagens-puras/cardapio-topo.png"
+           alt="Cardápio no totem: setores com foto na coluna da esquerda e a grade de combos com foto, nome e preço">
+    </div>
+  </div>
+</div>

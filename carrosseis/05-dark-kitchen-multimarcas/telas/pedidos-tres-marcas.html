@@ -1,0 +1,89 @@
+<!-- O painel de Delivery com as tres marcas ao mesmo tempo.
+
+     As colunas sao as do sistema: `Aguardando`, `Preparo`, `Pronto/Entrega`,
+     `Entregue` e `Cancelado`. Elas vieram da ilustracao da propria pagina de
+     dark kitchen, que as mostra nessa ordem — a arte da pagina serve de
+     referencia de layout, como print de manual, e nao entra recortada.
+
+     Os filtros de marca aparecem os tres ligados: o titulo do slide diz que os
+     pedidos chegam na mesma tela, e um filtro ligado mostraria o contrario.
+     A etiqueta em cada pedido e o que prova de qual marca ele e.
+
+     O canal vai escrito no cartao (iFood, 99Food, Cardapio, WhatsApp) porque e
+     o segundo eixo do slide: canais diferentes, tela uma.
+
+     Tres colunas, e nao as cinco do painel: a janela entra inteira no slide, e
+     coluna cortada pela metade le como defeito de render, nao como tela que
+     continua. -->
+<div class="tela" data-medida="1080x480">
+  <div class="tela__topo">
+    <span class="tela__titulo">Delivery</span>
+    <span class="selo selo--ativo">Hamburgueria</span>
+    <span class="selo selo--azul">Pizzaria</span>
+    <span class="selo" style="background: var(--pn-verde-claro);
+                              color: var(--pn-verde)">Marmitaria</span>
+    <span style="margin-left: auto; display: flex; gap: 10px">
+      <span class="botao-pn botao-pn--claro">Filtros</span>
+      <span class="botao-pn">Novo pedido</span>
+    </span>
+  </div>
+
+  <div class="tela__corpo">
+    <div class="colunas">
+      <div class="coluna">
+        <div class="coluna__topo"><span>Aguardando</span><span>3</span></div>
+        <div class="pedido">
+          <span class="pedido__topo"><span>#1042</span><span>iFood</span></span>
+          <span class="pedido__item">2 itens · R$ 74,80</span>
+          <span class="etiqueta" style="background: var(--pn-vermelho-claro);
+                                        color: var(--pn-vermelho)">Hamburgueria</span>
+        </div>
+        <div class="pedido">
+          <span class="pedido__topo"><span>#1043</span><span>Cardápio</span></span>
+          <span class="pedido__item">1 item · R$ 58,90</span>
+          <span class="etiqueta" style="background: var(--pn-azul-claro);
+                                        color: var(--pn-azul)">Pizzaria</span>
+        </div>
+        <div class="pedido">
+          <span class="pedido__topo"><span>#1044</span><span>WhatsApp</span></span>
+          <span class="pedido__item">3 itens · R$ 41,70</span>
+          <span class="etiqueta" style="background: var(--pn-verde-claro);
+                                        color: var(--pn-verde)">Marmitaria</span>
+        </div>
+      </div>
+
+      <div class="coluna">
+        <div class="coluna__topo"><span>Preparo</span><span>2</span></div>
+        <div class="pedido">
+          <span class="pedido__topo"><span>#1039</span><span>99Food</span></span>
+          <span class="pedido__item">2 itens · R$ 63,40</span>
+          <span class="etiqueta" style="background: var(--pn-vermelho-claro);
+                                        color: var(--pn-vermelho)">Hamburgueria</span>
+        </div>
+        <div class="pedido">
+          <span class="pedido__topo"><span>#1040</span><span>Cardápio</span></span>
+          <span class="pedido__item">1 item · R$ 72,00</span>
+          <span class="etiqueta" style="background: var(--pn-azul-claro);
+                                        color: var(--pn-azul)">Pizzaria</span>
+        </div>
+      </div>
+
+      <div class="coluna">
+        <div class="coluna__topo"><span>Pronto/Entrega</span><span>2</span></div>
+        <div class="pedido">
+          <span class="pedido__topo"><span>#1036</span><span>iFood</span></span>
+          <span class="pedido__item">4 itens · R$ 118,60</span>
+          <span class="etiqueta" style="background: var(--pn-vermelho-claro);
+                                        color: var(--pn-vermelho)">Hamburgueria</span>
+        </div>
+        <div class="pedido">
+          <span class="pedido__topo"><span>#1037</span><span>Keeta</span></span>
+          <span class="pedido__item">2 itens · R$ 37,90</span>
+          <span class="etiqueta" style="background: var(--pn-verde-claro);
+                                        color: var(--pn-verde)">Marmitaria</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

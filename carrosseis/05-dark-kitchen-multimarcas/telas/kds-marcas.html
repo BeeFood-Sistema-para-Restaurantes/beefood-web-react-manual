@@ -1,0 +1,104 @@
+<!-- O Monitor KDS, lido do print real que a pagina usa (`KDS-beefood`): barra de
+     cima com `Pendentes` e `Em Producao` contados, botoes `Colunas` e `Setores`,
+     e as colunas com um cartao por pedido — origem (`PDV #1042`, `iFood #1039`),
+     tempo, e os itens com quantidade.
+
+     O que muda em relacao ao print: a etiqueta de marca e de setor em cada
+     pedido, que e o assunto do slide. A pagina afirma a organizacao "por marca e
+     por setor" — afirmacao funcional da empresa sobre o proprio produto,
+     anotada como fonte no roteiro.
+
+     `tela--grande` e duas fichas por coluna: o monitor fica na parede da
+     cozinha, e quem le esta longe. A primeira versao tinha tres colunas cheias
+     em 1280 px, e reduzida para o tablet do slide a etiqueta de marca caia para
+     8 px — ilegivel justamente o que o titulo promete provar.
+
+     16/10 e a proporcao que o `.tablet__tela` espera, e e a do print de
+     producao.
+
+     Itens: os do sandbox dos manuais (One Burger, batata, Coca-Cola), para nao
+     estrear exemplo novo na peca. -->
+<div class="tela tela--grande" data-medida="1024x640">
+  <div class="tela__topo" style="gap: 16px">
+    <span class="tela__titulo">Monitor KDS</span>
+    <span class="selo">Pendentes: 4</span>
+    <span class="selo selo--ativo">Em Produção: 2</span>
+    <span style="margin-left: auto; display: flex; gap: 10px">
+      <span class="botao-pn botao-pn--claro">Colunas</span>
+      <span class="botao-pn botao-pn--claro">Setores</span>
+    </span>
+  </div>
+
+  <div class="tela__corpo">
+    <div class="colunas">
+      <div class="coluna" style="background: #eceef5">
+        <div class="coluna__topo"><span>⏳ Em Espera</span><span>2</span></div>
+
+        <div class="pedido">
+          <span class="pedido__topo"><span>PDV #1042</span>
+            <span style="color: var(--pn-suave); font-weight: 700">4 min</span></span>
+          <span class="etiqueta" style="background: var(--pn-vermelho-claro);
+                                        color: var(--pn-vermelho)">Hamburgueria
+            · Chapa</span>
+          <span class="pedido__item">2 · ONE BURGER (COMBO)</span>
+          <span class="pedido__item">2 · BATATA FRITA GRANDE</span>
+        </div>
+
+        <div class="pedido">
+          <span class="pedido__topo"><span>Cardápio #1043</span>
+            <span style="color: var(--pn-suave); font-weight: 700">2 min</span></span>
+          <span class="etiqueta" style="background: var(--pn-azul-claro);
+                                        color: var(--pn-azul)">Pizzaria · Forno</span>
+          <span class="pedido__item">1 · PIZZA GRANDE CALABRESA</span>
+          <span class="pedido__item">1 · BORDA DE CATUPIRY</span>
+        </div>
+      </div>
+
+      <div class="coluna" style="background: #e7f3ea">
+        <div class="coluna__topo"><span>🔥 Em Preparo</span><span>2</span></div>
+
+        <div class="pedido">
+          <span class="pedido__topo"><span>iFood #1039</span>
+            <span style="color: var(--pn-suave); font-weight: 700">7 min</span></span>
+          <span class="etiqueta" style="background: var(--pn-vermelho-claro);
+                                        color: var(--pn-vermelho)">Hamburgueria
+            · Chapa</span>
+          <span class="pedido__item">1 · TRIPLO SMASH BURGER</span>
+          <span class="pedido__item">1 · MOLHO BARBECUE 30ML</span>
+        </div>
+
+        <div class="pedido">
+          <span class="pedido__topo"><span>WhatsApp #1044</span>
+            <span style="color: var(--pn-suave); font-weight: 700">5 min</span></span>
+          <span class="etiqueta" style="background: var(--pn-verde-claro);
+                                        color: var(--pn-verde)">Marmitaria
+            · Cozinha</span>
+          <span class="pedido__item">3 · MARMITA EXECUTIVA</span>
+          <span class="pedido__item">3 · SUCO DE LARANJA 500ML</span>
+        </div>
+      </div>
+
+      <div class="coluna" style="background: #eceef5">
+        <div class="coluna__topo"><span>🛎️ Pronto</span><span>2</span></div>
+
+        <div class="pedido">
+          <span class="pedido__topo"><span>iFood #1036</span>
+            <span style="color: var(--pn-verde); font-weight: 800">✓ pronto</span></span>
+          <span class="etiqueta" style="background: var(--pn-vermelho-claro);
+                                        color: var(--pn-vermelho)">Hamburgueria
+            · Chapa</span>
+          <span class="pedido__item">4 · ONE BURGER (COMBO)</span>
+        </div>
+
+        <div class="pedido">
+          <span class="pedido__topo"><span>Keeta #1037</span>
+            <span style="color: var(--pn-verde); font-weight: 800">✓ pronto</span></span>
+          <span class="etiqueta" style="background: var(--pn-verde-claro);
+                                        color: var(--pn-verde)">Marmitaria
+            · Cozinha</span>
+          <span class="pedido__item">2 · MARMITA FITNESS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

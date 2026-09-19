@@ -1,0 +1,79 @@
+<!-- O slide de idioma da peca do totem, e ele reaproveita a ideia do carrossel
+     `traducao-cardapio-presencial`: o MESMO item, recortado do mesmo ponto da
+     tela, nos dois idiomas. Foto igual, preco igual, o que muda e a linha do
+     nome.
+
+     Por que aqui e nao junto do cardapio: o idioma nao e um passo do pedido, e
+     um modo do aparelho — o cliente escolhe antes de tudo e nao volta a pensar
+     nisso. No lugar cronologico (slide 4) ele empurraria cupom e cashback para
+     o sexto e o setimo, e a rodada passada subiu os dois de proposito. No
+     penultimo lugar ele e o "e ainda atende quem nao fala portugues", que e
+     leitura de quem chegou ate aqui.
+
+     O slide NAO diz que o sistema traduz. Quem escreve a versao em ingles do
+     cardapio e o dono da loja, e a peca nao toca no assunto: mostra o
+     resultado na tela do cliente e para. Prometer traducao automatica volta
+     como reclamacao.
+
+     Dois recortes e nao tres. Em portugues o cartao sai mais alto, porque a
+     altura da fileira segue o nome mais longo do setor; com tres, ou os
+     rotulos desalinham ou o trio ganha um degrau embaixo. E o portugues nao
+     precisa de prova: ele esta em cinco slides desta peca.
+
+     Os dois sao captura do aplicativo de producao, com a traducao entregue na
+     resposta da API — o mesmo mecanismo do cupom do slide 5. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">8 de 9</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 900px">
+    <span class="chapeu">Inglês e espanhol</span>
+    <h2 class="titulo titulo--pequeno">
+      E o mesmo cardápio fala a língua de <span class="destaque">quem chega</span>
+    </h2>
+    <p class="corpo">
+      O cliente toca na bandeira na primeira tela e o aparelho troca de idioma:
+      setor, nome e descrição. A foto e o preço não mudam, e o cadastro
+      continua sendo um só.
+    </p>
+  </div>
+
+  <!-- 768 px: com a largura cheia os dois recortes encostavam no rodape. Nesta
+       medida o cartao de 248 px logicos aparece a 372, e o nome do produto sai
+       com 24 px na arte. -->
+  <div class="par" style="max-width: 768px; gap: 24px; margin: 40px auto 0">
+    <div>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 32px;
+                  font-weight: 800; margin-bottom: 16px">
+        <span class="bandeira"><span>&#127482;&#127480;</span></span> English
+      </div>
+      <div class="recorte">
+        <img src="../imagens-puras/cartao-batata-en.png"
+             alt="Cartão do cardápio do totem com FRENCH FRIES e R$ 11,00">
+      </div>
+    </div>
+    <div>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 32px;
+                  font-weight: 800; margin-bottom: 16px">
+        <span class="bandeira"><span>&#127466;&#127480;</span></span> Español
+      </div>
+      <div class="recorte">
+        <img src="../imagens-puras/cartao-batata-es.png"
+             alt="O mesmo cartão, agora com PAPAS FRITAS e o mesmo R$ 11,00">
+      </div>
+    </div>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="pontos">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span class="on"></span>
+      <span></span>
+    </span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>

@@ -1,0 +1,160 @@
+<!-- O painel inteiro, com o menu lateral, para o slide do fim: aqui a tela nao
+     precisa ser lida, precisa dizer "e um sistema so". Por isso e a unica que
+     entra em notebook, e em 16/10, que e a proporcao que o `.notebook__tela`
+     espera.
+
+     Os itens do menu sao os do painel real, na ordem em que aparecem: Inicio,
+     Caixa, Delivery, Mesas/Comandas, PDV, KDS, Historico de Vendas, Cardapio,
+     Cardapio Digital, Estoque, Clientes, Fidelidade, Financeiro, Fiscal.
+
+     O cartao de vendas repete o mesmo jogo de numeros da peca, e a faixa de
+     barras e a `Vendas por periodo` do painel: uma barra por dia, empilhada por
+     cardapio nas tres cores da peca. -->
+<div class="tela" data-medida="1280x800" style="flex-direction: row">
+  <div style="width: 216px; background: #fff; border-right: 1px solid var(--pn-borda);
+              padding: 18px 14px; flex: none">
+    <p style="font-size: 17px; font-weight: 900; padding: 0 8px 16px">BeeFood</p>
+    <div style="display: flex; flex-direction: column; gap: 3px; font-size: 14px;
+                font-weight: 700; color: var(--pn-suave)">
+      <span style="padding: 9px 10px; border-radius: 9px;
+                   background: var(--pn-vermelho-claro);
+                   color: var(--pn-vermelho)">Início</span>
+      <span style="padding: 9px 10px">Caixa</span>
+      <span style="padding: 9px 10px">Delivery</span>
+      <span style="padding: 9px 10px">Mesas/Comandas</span>
+      <span style="padding: 9px 10px">PDV</span>
+      <span style="padding: 9px 10px">KDS</span>
+      <span style="padding: 9px 10px">Histórico de Vendas</span>
+      <span style="padding: 9px 10px">Cardápio</span>
+      <span style="padding: 9px 10px">Cardápio Digital</span>
+      <span style="padding: 9px 10px">Estoque</span>
+      <span style="padding: 9px 10px">Clientes</span>
+      <span style="padding: 9px 10px">Fidelidade (CRM)</span>
+      <span style="padding: 9px 10px">Financeiro</span>
+      <span style="padding: 9px 10px">Fiscal</span>
+    </div>
+  </div>
+
+  <div style="flex: 1; display: flex; flex-direction: column; min-width: 0">
+    <div class="tela__topo" style="gap: 12px">
+      <span class="tela__titulo">Início</span>
+      <span class="campo" style="padding: 8px 14px; font-size: 14px;
+                                 color: var(--pn-suave)">📅&nbsp; Últimos 30 dias</span>
+      <span style="margin-left: auto; display: flex; gap: 8px">
+        <span class="selo selo--vermelho">Hamburgueria</span>
+        <span class="selo selo--azul">Pizzaria</span>
+        <span class="selo selo--ativo">Marmitaria</span>
+      </span>
+    </div>
+
+    <div class="tela__corpo" style="display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; gap: 16px">
+        <div class="cartao-pn" style="flex: 1.3">
+          <p class="rotulo-pn">Valor Total de Vendas</p>
+          <p class="valor-pn" style="margin-top: 8px">R$ 38.740,00</p>
+          <p style="font-size: 14px; font-weight: 700; color: var(--pn-verde);
+                    margin-top: 4px">719 pedidos</p>
+        </div>
+        <div class="cartao-pn" style="flex: 1">
+          <p class="rotulo-pn">Ticket Médio</p>
+          <p class="valor-pn valor-pn--medio" style="margin-top: 8px">R$ 53,88</p>
+        </div>
+        <div class="cartao-pn" style="flex: 1">
+          <p class="rotulo-pn">Cardápios ativos</p>
+          <p class="valor-pn valor-pn--medio" style="margin-top: 8px">3</p>
+        </div>
+      </div>
+
+      <div class="cartao-pn" style="flex: 1; display: flex; flex-direction: column">
+        <p class="rotulo-pn">Vendas por período</p>
+        <div style="flex: 1; display: flex; align-items: flex-end; gap: 7px;
+                    margin-top: 16px">
+          <!-- Uma barra por dia, empilhada nas cores das tres marcas. As
+               alturas sobem de leve para a direita: grafico chapado le como
+               imagem falsa, e degrau perfeito le como enfeite. -->
+          <span style="flex: 1; display: flex; flex-direction: column;
+                       justify-content: flex-end; gap: 2px; height: 38%">
+            <span style="flex: 1.0; background: var(--pn-verde);
+                         border-radius: 3px 3px 0 0"></span>
+            <span style="flex: 1.6; background: var(--pn-azul)"></span>
+            <span style="flex: 2.4; background: var(--pn-vermelho)"></span></span>
+          <span style="flex: 1; display: flex; flex-direction: column;
+                       justify-content: flex-end; gap: 2px; height: 46%">
+            <span style="flex: 1.0; background: var(--pn-verde);
+                         border-radius: 3px 3px 0 0"></span>
+            <span style="flex: 1.8; background: var(--pn-azul)"></span>
+            <span style="flex: 2.6; background: var(--pn-vermelho)"></span></span>
+          <span style="flex: 1; display: flex; flex-direction: column;
+                       justify-content: flex-end; gap: 2px; height: 42%">
+            <span style="flex: 1.0; background: var(--pn-verde);
+                         border-radius: 3px 3px 0 0"></span>
+            <span style="flex: 1.5; background: var(--pn-azul)"></span>
+            <span style="flex: 2.2; background: var(--pn-vermelho)"></span></span>
+          <span style="flex: 1; display: flex; flex-direction: column;
+                       justify-content: flex-end; gap: 2px; height: 55%">
+            <span style="flex: 1.2; background: var(--pn-verde);
+                         border-radius: 3px 3px 0 0"></span>
+            <span style="flex: 1.7; background: var(--pn-azul)"></span>
+            <span style="flex: 2.8; background: var(--pn-vermelho)"></span></span>
+          <span style="flex: 1; display: flex; flex-direction: column;
+                       justify-content: flex-end; gap: 2px; height: 49%">
+            <span style="flex: 1.0; background: var(--pn-verde);
+                         border-radius: 3px 3px 0 0"></span>
+            <span style="flex: 2.0; background: var(--pn-azul)"></span>
+            <span style="flex: 2.5; background: var(--pn-vermelho)"></span></span>
+          <span style="flex: 1; display: flex; flex-direction: column;
+                       justify-content: flex-end; gap: 2px; height: 58%">
+            <span style="flex: 1.1; background: var(--pn-verde);
+                         border-radius: 3px 3px 0 0"></span>
+            <span style="flex: 1.9; background: var(--pn-azul)"></span>
+            <span style="flex: 3.0; background: var(--pn-vermelho)"></span></span>
+          <span style="flex: 1; display: flex; flex-direction: column;
+                       justify-content: flex-end; gap: 2px; height: 52%">
+            <span style="flex: 1.0; background: var(--pn-verde);
+                         border-radius: 3px 3px 0 0"></span>
+            <span style="flex: 1.6; background: var(--pn-azul)"></span>
+            <span style="flex: 2.9; background: var(--pn-vermelho)"></span></span>
+          <span style="flex: 1; display: flex; flex-direction: column;
+                       justify-content: flex-end; gap: 2px; height: 64%">
+            <span style="flex: 1.3; background: var(--pn-verde);
+                         border-radius: 3px 3px 0 0"></span>
+            <span style="flex: 2.1; background: var(--pn-azul)"></span>
+            <span style="flex: 3.1; background: var(--pn-vermelho)"></span></span>
+          <span style="flex: 1; display: flex; flex-direction: column;
+                       justify-content: flex-end; gap: 2px; height: 71%">
+            <span style="flex: 1.1; background: var(--pn-verde);
+                         border-radius: 3px 3px 0 0"></span>
+            <span style="flex: 1.8; background: var(--pn-azul)"></span>
+            <span style="flex: 2.7; background: var(--pn-vermelho)"></span></span>
+          <span style="flex: 1; display: flex; flex-direction: column;
+                       justify-content: flex-end; gap: 2px; height: 66%">
+            <span style="flex: 1.2; background: var(--pn-verde);
+                         border-radius: 3px 3px 0 0"></span>
+            <span style="flex: 2.0; background: var(--pn-azul)"></span>
+            <span style="flex: 3.2; background: var(--pn-vermelho)"></span></span>
+          <span style="flex: 1; display: flex; flex-direction: column;
+                       justify-content: flex-end; gap: 2px; height: 79%">
+            <span style="flex: 1.1; background: var(--pn-verde);
+                         border-radius: 3px 3px 0 0"></span>
+            <span style="flex: 2.2; background: var(--pn-azul)"></span>
+            <span style="flex: 3.0; background: var(--pn-vermelho)"></span></span>
+          <span style="flex: 1; display: flex; flex-direction: column;
+                       justify-content: flex-end; gap: 2px; height: 88%">
+            <span style="flex: 1.4; background: var(--pn-verde);
+                         border-radius: 3px 3px 0 0"></span>
+            <span style="flex: 2.1; background: var(--pn-azul)"></span>
+            <span style="flex: 3.3; background: var(--pn-vermelho)"></span></span>
+        </div>
+        <div style="display: flex; gap: 20px; margin-top: 14px; font-size: 13px;
+                    font-weight: 700; color: var(--pn-suave)">
+          <span class="linha-pn__nome"><span class="ponto ponto--vermelho"></span>
+            Hamburgueria</span>
+          <span class="linha-pn__nome"><span class="ponto ponto--azul"></span>
+            Pizzaria</span>
+          <span class="linha-pn__nome"><span class="ponto ponto--verde"></span>
+            Marmitaria</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

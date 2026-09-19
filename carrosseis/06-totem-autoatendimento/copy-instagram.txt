@@ -1,0 +1,145 @@
+CARROSSEL — O CLIENTE PEDE E PAGA SOZINHO NO TOTEM
+Gênero: função do sistema (não é novidade)
+Fonte: beefood.com.br/totem-de-autoatendimento
+(peça perene: não tem data na arte nem palavra de lançamento, e pode ser
+republicada quando o assunto voltar)
+
+Publicar como carrossel de feed, 9 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-como-funciona, 03-cardapio, 04-venda-sugestiva,
+05-cupom, 06-cashback, 07-pagamento, 08-idiomas, 09-cta.
+
+As nove telas são CAPTURA do aplicativo de produção (totem.beefood.app), na
+loja de exemplo da ONE Stand, que tem cardápio de verdade. Três coisas entram
+de fora, as três pela mesma interceptação de API: as artes de fundo (a campanha
+da loja anuncia um pudim com preço e roubaria o assunto do post), a lista de
+cupons, porque a loja não tem cupom cadastrado e sem lista o totem esconde a
+tela de cupom inteira, e a tradução do cardápio do slide 8, que reaproveita o
+arquivo do carrossel da tradução. Os dois cupons do slide 5 são de exemplo —
+código, benefício e regra que qualquer restaurante escreveria no painel. Nenhum
+pedido foi criado e nenhum cupom foi aplicado: o roteiro de captura para no
+botão "Ir para pagamento".
+
+O endereço beefood.com.br/totem-de-autoatendimento é uma casca que monta o
+conteúdo a partir de um app externo: aberto no navegador ele às vezes fica no
+"Carregando…". A página de verdade está em beefood-com-br.lovable.app/totem, e
+é ela que traz a demonstração do aparelho citada no último slide. Confira que
+o endereço público está abrindo antes de publicar.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+No totem, o cliente pede e paga sozinho
+
+E não é uma tela de consulta, dessas que mostram o preço e mandam a pessoa para
+o caixa. O aparelho leva o pedido do começo ao fim: o cliente toca em "Faça seu
+pedido", escolhe pelo cardápio com foto e preço, monta o item, diz se vai comer
+ali ou levar, e paga no próprio totem.
+
+O cardápio que aparece lá é o que você já mantém no sistema — setores, fotos,
+preços. Nada de manter um segundo cardápio só para o aparelho. E o produto que
+não deve aparecer ali sai pelo Desativar Totem, um por um.
+
+O adicional é oferecido duas vezes no mesmo pedido. Antes de fechar o lanche, a
+tela pergunta se vai bacon a mais R$ 4,00, carne a mais R$ 8,00, cheddar a mais
+R$ 2,00 — com foto, com preço, e com um Pular para quem não quer. E na sacola,
+antes de o cliente fechar, abre um "Peça também" com batata, bebida e
+sobremesa, gerado por IA a partir do que ele já escolheu.
+
+O programa de fidelidade não fica de fora. O cupom que você cria no Fidelidade
+(CRM) tem o totem entre os canais: na hora de confirmar, o cliente digita o
+código que recebeu na campanha ou escolhe um da lista que aparece ali, com a
+regra de cada cupom à vista. E o cashback aparece antes do pagamento — o
+aparelho pede o telefone, diz quanto volta e credita o saldo quando a venda é
+quitada, para virar desconto na próxima compra.
+
+Quem não fala português também pede sozinho. A pílula de bandeiras na primeira
+tela troca o aparelho para inglês ou espanhol, e com ele o setor, o nome e a
+descrição de cada item. A foto e o preço não mudam, e o cadastro continua sendo
+um só.
+
+O totem é uma porta de entrada: na mesma plataforma estão o PDV, o monitor de
+cozinha, o fiscal, o estoque e o financeiro. Conheça todas as funcionalidades
+em beefood.com.br/totem-de-autoatendimento 🐝❤️
+
+#beefood #totemdeautoatendimento #autoatendimento #fastfood #hamburgueria
+#gestaoderestaurante #cashback #cupomdedesconto
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Você deixaria o seu cliente fechar o pedido sozinho? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com a pílula "Totem de Autoatendimento", o título "O cliente
+    pede e paga sozinho no totem", com "e paga" em vermelho, e a linha "Mais
+    recorrência, com cashback e cupom". Embaixo, um totem branco de pé, com
+    leitor, boca de impressora e pinpad no painel, mostrando o cardápio na
+    tela. Dois selos grandes saem de trás do aparelho: à esquerda um vermelho
+    com o desenho de um bilhete picotado e os dizeres "Cupom, de desconto"; à
+    direita um amarelo com o desenho de um cifrão com seta de volta e os
+    dizeres "Cashback, próxima compra". Cada selo acende o fundo e a carcaça
+    do aparelho com a sua cor.
+
+02  Chapéu "Como funciona" e título "O totem conduz o pedido do começo ao fim",
+    com a palavra fim em vermelho. O texto diz que não é uma tela de consulta e
+    que o cardápio exibido é o do sistema. Abaixo, os seis passos numerados:
+    tocar em Faça seu pedido, escolher pelo cardápio com foto e preço, montar o
+    item vendo o total subir, aplicar o cupom e deixar o telefone para o
+    cashback, dizer se vai comer aqui ou levar, e pagar no próprio totem.
+
+03  Título "O cardápio do totem é o seu", com a palavra seu em vermelho, e a
+    tela do cardápio no totem: coluna da esquerda com os setores Combos Burger,
+    Burgers Avulsos, Sobremesas e Acompanhamentos, cada um com foto; no miolo, a
+    faixa de topo e a grade de combos com foto, nome e preço — One Burger a
+    partir de R$ 35,90, Supreme a partir de R$ 46,90 e Chicken Deluxe a partir
+    de R$ 38,90.
+
+04  Chapéu "Venda sugestiva" e título "Ofereça o adicional duas vezes no mesmo
+    pedido", com "duas vezes" em vermelho. Dois recortes do totem: em cima, a
+    pergunta "Quer turbinar o seu burger?" com a nota "Escolha até 4" e os
+    adicionais com foto e preço — bacon mais R$ 4,00, carne mais R$ 8,00, cebola
+    caramelizada mais R$ 2,00 e queijo cheddar mais R$ 2,00; embaixo, o bloco
+    "Peça também" da sacola, com o selo roxo "Gerada por IA" e os cartões Tasty
+    Bacon a partir de R$ 41,90, Batata Frita a R$ 11,00, Coca-Cola 350ml a
+    R$ 8,00 e Milk Shake Ovomaltine a R$ 17,90.
+
+05  Chapéu "Cupom de desconto" e título "O seu cupom vale no totem também", com
+    a palavra totem em vermelho. Na tela do totem, o bloco "Adicionar cupom"
+    com o campo "Digite o código" e o botão "Aplicar cupom"; abaixo, a lista
+    "Cupons disponíveis" com dois cartões de borda tracejada: BEMVINDO10,
+    Bem-vindo, 10% no primeiro pedido pelo totem, válido só na primeira compra;
+    e COMBO5, Combo da semana, R$ 5,00 de desconto em combos, em pedido a
+    partir de R$ 40,00.
+
+06  Chapéu "Cashback" e título "Quem deixa o telefone ganha cashback", com a
+    palavra cashback em vermelho. Na tela do totem, o ícone de telefone, a
+    pergunta "Informe seu telefone", a faixa amarela "Insira seu telefone e
+    ganhe 5% de cashback" e o campo vazio, com a máscara (00) 00000-0000.
+
+07  Chapéu "O pagamento" e título "Comer aqui ou levar, e o pagamento termina
+    ali", com a palavra ali em vermelho. Dois recortes da mesma tela do totem: em
+    cima, a pergunta "Como será o pedido?" com as opções Para viagem (levar o
+    pedido) e Comer aqui (consumo no local); embaixo, a barra com Total
+    R$ 24,00, o aviso de cashback de R$ 1,20 e o botão vermelho "Ir para
+    pagamento".
+
+08  Chapéu "Inglês e espanhol" e título "E o mesmo cardápio fala a língua de
+    quem chega", com "quem chega" em vermelho. Dois recortes lado a lado do
+    mesmo cartão do cardápio do totem: à esquerda, sob a bandeira dos Estados
+    Unidos e a palavra English, a porção de batata frita com FRENCH FRIES e
+    R$ 11,00; à direita, sob a bandeira da Espanha e a palavra Español, a mesma
+    foto com PAPAS FRITAS e o mesmo R$ 11,00.
+
+09  Fundo escuro com o chapéu "Totem", o pedido "Conheça todas as
+    funcionalidades", com "funcionalidades" em vermelho, e o endereço
+    beefood.com.br/totem-de-autoatendimento. Embaixo, o mesmo totem branco,
+    agora parado na tela de espera: a foto de uma porção de batata frita em
+    tela cheia e o botão vermelho "Faça seu pedido".

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "BEMVINDO10",
+    "titulo": "Bem-vindo",
+    "subtitulo": "10% no primeiro pedido pelo totem",
+    "beneficio": "10%",
+    "primeiraCompra": true,
+    "limitarUmUsoCliente": true,
+    "regras": [
+      { "descricao": "Válido só na primeira compra" }
+    ]
+  },
+  {
+    "id": "COMBO5",
+    "titulo": "Combo da semana",
+    "subtitulo": "R$ 5,00 de desconto em combos",
+    "beneficio": "R$ 5,00",
+    "regras": [
+      { "descricao": "Pedido a partir de R$ 40,00" }
+    ]
+  }
+]

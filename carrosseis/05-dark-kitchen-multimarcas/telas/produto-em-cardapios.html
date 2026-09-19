@@ -1,0 +1,91 @@
+<!-- O mesmo produto aberto, com uma linha por cardapio.
+
+     Layout lido da ilustracao `gestao-inteligente` da pagina: o produto em cima
+     e, embaixo, um bloco por cardapio com a chave de ativo, os canais e o campo
+     de preco. Os rotulos sao os do sistema (`Delivery`, `Presencial`, `Totem`,
+     `Promocao`).
+
+     O produto e o do sandbox dos manuais (Batata Frita Grande), para a peca nao
+     estrear um exemplo novo. Preco diferente por marca e o assunto do slide:
+     22,90 na hamburgueria, 24,90 na pizzaria. A marmitaria fica desligada, que e
+     o terceiro estado e o que mostra que a escolha e por cardapio. -->
+<div class="tela" data-medida="1000x640" style="padding: 26px">
+  <div class="cartao-pn" style="display: flex; align-items: center; gap: 20px;
+                                padding: 18px 22px">
+    <span class="chip chip--amarelo" style="width: 74px; height: 74px;
+              border-radius: 20px; font-size: 38px; background: #fdf3d7">🍟</span>
+    <span>
+      <span style="display: block; font-size: 24px; font-weight: 900">
+        Batata Frita Grande</span>
+      <span style="display: block; font-size: 16px; color: var(--pn-suave);
+                   margin-top: 4px">Porção de 400 g · serve 2 pessoas</span>
+    </span>
+    <span class="selo selo--ativo" style="margin-left: auto">Em 2 cardápios</span>
+  </div>
+
+  <p class="rotulo-pn" style="margin: 22px 0 12px">Disponibilidade por cardápio</p>
+
+  <div style="display: flex; flex-direction: column; gap: 14px">
+    <div class="cartao-pn" style="padding: 16px 20px">
+      <div style="display: flex; align-items: center; gap: 14px">
+        <span class="chip chip--vermelho">🍔</span>
+        <span style="font-size: 19px; font-weight: 800">Hamburgueria</span>
+        <span style="margin-left: auto; display: flex; align-items: center; gap: 10px">
+          <span class="selo selo--ativo">Ativo</span>
+          <span class="chave chave--on"></span>
+        </span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 22px; margin-top: 14px">
+        <span style="display: flex; align-items: center; gap: 9px; font-size: 16px;
+                     font-weight: 700"><span class="chave chave--on"
+              style="width: 38px; height: 22px"></span>Delivery</span>
+        <span style="display: flex; align-items: center; gap: 9px; font-size: 16px;
+                     color: var(--pn-fraco); font-weight: 700"><span class="chave"
+              style="width: 38px; height: 22px"></span>Presencial</span>
+        <span class="campo" style="margin-left: auto; padding: 8px 14px">
+          <span class="campo__rotulo">PREÇO</span> R$ 22,90</span>
+      </div>
+    </div>
+
+    <div class="cartao-pn" style="padding: 16px 20px">
+      <div style="display: flex; align-items: center; gap: 14px">
+        <span class="chip chip--azul">🍕</span>
+        <span style="font-size: 19px; font-weight: 800">Pizzaria</span>
+        <span style="margin-left: auto; display: flex; align-items: center; gap: 10px">
+          <span class="selo selo--ativo">Ativo</span>
+          <span class="chave chave--on"></span>
+        </span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 22px; margin-top: 14px">
+        <span style="display: flex; align-items: center; gap: 9px; font-size: 16px;
+                     font-weight: 700"><span class="chave chave--on"
+              style="width: 38px; height: 22px"></span>Delivery</span>
+        <span style="display: flex; align-items: center; gap: 9px; font-size: 16px;
+                     color: var(--pn-fraco); font-weight: 700"><span class="chave"
+              style="width: 38px; height: 22px"></span>Presencial</span>
+        <span class="campo" style="margin-left: auto; padding: 8px 14px">
+          <span class="campo__rotulo">PREÇO</span> R$ 24,90</span>
+      </div>
+    </div>
+
+    <div class="cartao-pn" style="padding: 16px 20px; opacity: 0.55">
+      <div style="display: flex; align-items: center; gap: 14px">
+        <span class="chip">🍱</span>
+        <span style="font-size: 19px; font-weight: 800; color: var(--pn-suave)">
+          Marmitaria</span>
+        <span style="margin-left: auto"><span class="chave"></span></span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 22px; margin-top: 14px">
+        <span style="display: flex; align-items: center; gap: 9px; font-size: 16px;
+                     color: var(--pn-fraco); font-weight: 700"><span class="chave"
+              style="width: 38px; height: 22px"></span>Delivery</span>
+        <span style="display: flex; align-items: center; gap: 9px; font-size: 16px;
+                     color: var(--pn-fraco); font-weight: 700"><span class="chave"
+              style="width: 38px; height: 22px"></span>Presencial</span>
+        <span class="campo" style="margin-left: auto; padding: 8px 14px;
+                                   color: var(--pn-fraco)">
+          <span class="campo__rotulo">PREÇO</span> R$ –</span>
+      </div>
+    </div>
+  </div>
+</div>

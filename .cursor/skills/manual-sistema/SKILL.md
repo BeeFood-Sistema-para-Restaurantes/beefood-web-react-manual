@@ -1,6 +1,6 @@
 ---
 name: manual-sistema
-description: Produz manual de funcionalidade para o usuário final do BeeFood — passo a passo em markdown, com capturas reais de produção anotadas com setas verdes numeradas, e o prompt de publicação. Use quando o pedido falar de manual, documentar tela, explicar como usar, ajuda ou passo a passo. Não use para arte de divulgação — carrossel de Instagram tem skill própria (carrossel-novidades).
+description: Produz manual de funcionalidade para o usuário final do BeeFood — passo a passo em markdown, com capturas reais de produção anotadas com setas verdes numeradas, e o prompt de publicação. Use quando o pedido falar de manual, documentar tela, explicar como usar, ajuda ou passo a passo. Não use para arte de divulgação — carrossel de Instagram tem skill própria (carrossel).
 ---
 
 # Manual de funcionalidade do BeeFood
@@ -19,7 +19,7 @@ fotografar. Nada é desenhado.
 |--------|---------------------|
 | "cria o manual de X", "documenta a tela Y", "atualiza o manual Z" | **aqui** |
 | "estuda o bloco X e propõe os manuais" | aqui — sai um `PLANO-X.md` em `references/planos/` |
-| "faz um carrossel da novidade X", "post para o Instagram", "arte" | `carrossel-novidades` — **não é esta skill** |
+| "faz um carrossel da novidade X", "post para o Instagram", "arte" | `carrossel` — **não é esta skill** |
 
 As duas skills dividem o mesmo sandbox e as mesmas técnicas de captura. O que
 muda é o produto: aqui sai passo a passo para quem opera; lá sai peça de venda

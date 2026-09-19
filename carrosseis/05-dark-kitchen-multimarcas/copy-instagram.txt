@@ -1,0 +1,104 @@
+CARROSSEL — A DARK KITCHEN DE VÁRIAS MARCAS NUM PAINEL SÓ
+Gênero: função do sistema (não é novidade)
+Fonte: beefood.com.br/sistema-dark-kitchen
+(peça perene: não tem data na arte nem palavra de lançamento, e pode ser
+republicada quando o assunto voltar)
+
+Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-como-funciona, 03-pedidos, 04-produto,
+05-cozinha, 06-link, 07-cta.
+
+As oito telas são DESENHADAS, e não capturadas: a conta de teste tem uma loja, e
+o assunto da peça é uma operação com três marcas. Cada desenho copia o layout e
+os rótulos do produto (colunas do painel de Delivery, cartão Por Cardápio do
+painel inicial, Monitor KDS, link multilojas) e usa um jogo de números só:
+R$ 38.740,00 em 719 pedidos, repartidos entre Hamburgueria, Pizzaria e
+Marmitaria. Nenhum número aqui é promessa de resultado, e nenhum claim
+institucional entrou na arte.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+A dark kitchen de várias marcas num painel só
+
+Cada marca tem o seu cardápio: os produtos dela, os preços dela, os canais de
+venda dela e o relatório dela. Embaixo disso a operação continua uma — mesma
+cozinha, mesmo estoque, mesmo financeiro e um acesso só, sem trocar de sistema e
+sem fazer outro login.
+
+Os pedidos chegam todos na mesma fila. Marketplace, cardápio próprio e WhatsApp
+entram no mesmo painel, e cada pedido chega com a marca dele. Quer olhar uma
+marca de cada vez? É um filtro. Quer a operação inteira? Tire o filtro.
+
+O produto é cadastrado uma vez. Depois você escolhe em quais cardápios ele
+aparece, e quanto custa em cada um: a mesma batata pode sair a R$ 22,90 na
+hamburgueria, a R$ 24,90 na pizzaria e ficar de fora da marmitaria.
+
+Na cozinha, o Monitor KDS separa por marca e por setor — quem está na chapa vê o
+que é da chapa, com a marca escrita no pedido. E do lado do cliente, o link
+multilojas junta todas as marcas num endereço só, para a bio do Instagram e para
+o WhatsApp.
+
+A operação inteira — pedidos, cozinha, estoque, financeiro e fiscal — está em
+beefood.com.br/sistema-dark-kitchen 🐝❤️
+
+#beefood #darkkitchen #multicardapio #delivery #gestaoderestaurante
+#cozinhaindustrial #marketplace #kds
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Quantas marcas saem da sua cozinha hoje? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com a pílula "Dark Kitchen", o título "A dark kitchen de várias
+    marcas num painel só", a palavra só em vermelho, e a linha "Cada marca com o
+    seu cardápio e o seu resultado". Embaixo, três
+    círculos brancos com os ícones de hambúrguer, pizza e marmita, nomeados
+    Hamburgueria, Pizzaria e Marmitaria, cada um em uma cor. De cada círculo
+    desce uma linha tracejada da mesma cor, com um visto no meio, até o painel
+    do BeeFood aberto num notebook e num celular: total de vendas de
+    R$ 38.740,00 em 719 pedidos, repartido por cardápio em Hamburgueria
+    R$ 19.420,00, Pizzaria R$ 12.860,00 e Marmitaria R$ 6.460,00, com o ticket
+    médio de R$ 53,88 e três cardápios ativos.
+
+02  Chapéu "Como funciona" e título "Cada marca tem o seu cardápio", com a
+    palavra cardápio em vermelho. O texto explica que se cria um cardápio por
+    marca, com os produtos, os preços e os canais de venda dele, e que embaixo a
+    operação é uma. Num cartão, duas colunas: de cada marca (cardápio e preço,
+    promoções, canais de venda, relatório) e de todas juntas (fila de pedidos,
+    cozinha e KDS, estoque, financeiro).
+
+03  Título "Os pedidos chegam todos na mesma tela", com a palavra tela em
+    vermelho, e uma janela de navegador com o painel de Delivery: os filtros das
+    três marcas ligados e as colunas Aguardando, Preparo e Pronto/Entrega. Cada
+    pedido traz o número, o canal (iFood, 99Food, Keeta, cardápio ou WhatsApp) e
+    a etiqueta da marca.
+
+04  Título "Um produto, um preço por marca", com a palavra marca em vermelho, e o
+    cadastro da Batata Frita Grande com uma linha por cardápio: Hamburgueria
+    ativa a R$ 22,90, Pizzaria ativa a R$ 24,90 e Marmitaria desligada, sem
+    preço.
+
+05  Título "A cozinha vê de qual marca é o pedido", com a palavra pedido em
+    vermelho, e um tablet com o Monitor KDS: colunas Em Espera, Em Preparo e
+    Pronto, e em cada pedido a etiqueta da marca e do setor — Hamburgueria na
+    chapa, Pizzaria no forno, Marmitaria na cozinha.
+
+06  Título "Todas as marcas num link só", com a palavra só em vermelho, e um
+    celular com o link multilojas: os cartões da Hamburgueria, da Pizzaria e da
+    Marmitaria, todos no mesmo endereço, com as abas Delivery, Retirada e
+    Consumir no local.
+
+07  Fundo escuro com o pedido "Coloque as suas marcas num painel só" e o endereço
+    beefood.com.br/sistema-dark-kitchen. Embaixo, um notebook com o painel do
+    BeeFood aberto: menu lateral, total de vendas e o gráfico de vendas por
+    período repartido nas cores das três marcas.

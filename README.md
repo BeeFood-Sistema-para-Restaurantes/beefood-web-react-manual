@@ -8,12 +8,12 @@ São **duas skills**, cada uma com o seu fluxo, e duas pastas de saída.
 | Skill | O que produz | Escreve em |
 |-------|--------------|------------|
 | [`manual-sistema`](.cursor/skills/manual-sistema/SKILL.md) | manual de uso para o usuário final: passo a passo com setas verdes numeradas | `manuais/` |
-| [`carrossel-novidades`](.cursor/skills/carrossel-novidades/SKILL.md) | carrossel de Instagram sobre uma novidade: prints, mockups, PNG 1080×1350 | `carrosseis/` |
+| [`carrossel`](.cursor/skills/carrossel/SKILL.md) | carrossel de Instagram sobre uma novidade ou uma função do sistema: prints, mockups, PNG 1080×1350 | `carrosseis/` |
 
 A de carrossel **lê** o material da de manual — captura, contas, comportamento já
 conferido no sistema — e não escreve nada dentro dela. Cada skill tem a sua memória:
 [`MEMORIA-GERAL.md`](.cursor/skills/manual-sistema/references/MEMORIA-GERAL.md) e
-[`MEMORIA-CARROSSEIS.md`](.cursor/skills/carrossel-novidades/references/MEMORIA-CARROSSEIS.md).
+[`MEMORIA-CARROSSEIS.md`](.cursor/skills/carrossel/references/MEMORIA-CARROSSEIS.md).
 
 ## Estrutura
 
@@ -26,7 +26,7 @@ conferido no sistema — e não escreve nada dentro dela. Cada skill tem a sua m
 │  │  ├─ SKILL.md              # O fluxo, em sete passos
 │  │  ├─ references/           # MEMORIA-GERAL.md, CHECKLIST-MANUAIS.md e planos/
 │  │  └─ scripts/              # validar-imagens.py e indice-manuais.py
-│  └─ carrossel-novidades/     # Skill: fazer carrossel
+│  └─ carrossel/               # Skill: fazer carrossel
 │     ├─ SKILL.md
 │     ├─ references/           # MEMORIA-CARROSSEIS.md, mockups, roteiro e copy
 │     ├─ scripts/              # pauta, captura, render, empacotamento
@@ -40,7 +40,7 @@ conferido no sistema — e não escreve nada dentro dela. Cada skill tem a sua m
 │     ├─ imagens-puras/        # Screenshots originais (backup, sem edição)
 │     └─ imagens-tratadas/     # Screenshots com setas/números (usados no manual)
 └─ carrosseis/
-   └─ <slug>/                  # Uma pasta por carrossel — índice em carrosseis/README.md
+   └─ NN-<slug>/               # Uma pasta por carrossel, numerada pela ordem de entrega
 ```
 
 ## Manuais disponíveis

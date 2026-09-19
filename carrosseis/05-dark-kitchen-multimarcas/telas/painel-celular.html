@@ -1,0 +1,109 @@
+<!-- O mesmo painel no celular, para o aparelho da frente na capa.
+
+     Nao e enfeite: dark kitchen e operacao de quem nao fica sentado. O dono
+     abre o painel no celular entre uma entrega e outra, e a capa mostra que o
+     numero e o mesmo dos dois lados — 38.740, 719 pedidos, a mesma quebra por
+     marca.
+
+     390x844 e a medida que o `.celular` espera. Na capa ele entra com uns
+     320 px de largura, entao o tipo daqui e grande e o conteudo e curto: o
+     total, a quebra por marca e a faixa de barras. Tudo que fosse menor que
+     isso viraria borrao. -->
+<div class="tela" data-medida="390x844" style="background: var(--pn-pagina)">
+  <div class="tela__topo" style="padding: 16px 18px; gap: 10px">
+    <span class="tela__titulo" style="font-size: 20px">Início</span>
+    <span class="campo" style="margin-left: auto; padding: 7px 12px; font-size: 14px;
+                               color: var(--pn-suave)">📅&nbsp; Últimos 30 dias</span>
+  </div>
+
+  <div class="tela__corpo" style="padding: 16px 18px; display: flex;
+                                  flex-direction: column; gap: 14px">
+    <div class="cartao-pn cartao-pn--marcado" style="padding: 18px">
+      <p class="rotulo-pn" style="font-size: 15px">Valor Total de Vendas</p>
+      <p class="valor-pn" style="font-size: 40px; margin-top: 6px">R$ 38.740,00</p>
+      <p style="font-size: 15px; font-weight: 700; color: var(--pn-verde);
+                margin-top: 4px">719 pedidos</p>
+    </div>
+
+    <div class="cartao-pn" style="padding: 18px">
+      <p class="rotulo-pn" style="font-size: 15px; margin-bottom: 2px">Por Cardápio:</p>
+      <div class="linha-pn" style="font-size: 18px; padding: 11px 0">
+        <span class="linha-pn__nome"><span class="ponto ponto--vermelho"></span>
+          Hamburgueria</span>
+        <span class="linha-pn__valor">R$ 19.420</span>
+      </div>
+      <div class="linha-pn" style="font-size: 18px; padding: 11px 0">
+        <span class="linha-pn__nome"><span class="ponto ponto--azul"></span>
+          Pizzaria</span>
+        <span class="linha-pn__valor">R$ 12.860</span>
+      </div>
+      <div class="linha-pn" style="font-size: 18px; padding: 11px 0">
+        <span class="linha-pn__nome"><span class="ponto ponto--verde"></span>
+          Marmitaria</span>
+        <span class="linha-pn__valor">R$ 6.460</span>
+      </div>
+    </div>
+
+    <div class="cartao-pn" style="padding: 18px; flex: 1; display: flex;
+                                  flex-direction: column">
+      <p class="rotulo-pn" style="font-size: 15px">Vendas por período</p>
+      <div style="flex: 1; display: flex; align-items: flex-end; gap: 6px;
+                  margin-top: 12px">
+        <span style="flex: 1; display: flex; flex-direction: column;
+                     justify-content: flex-end; gap: 2px; height: 44%">
+          <span style="flex: 1.0; background: var(--pn-verde);
+                       border-radius: 3px 3px 0 0"></span>
+          <span style="flex: 1.6; background: var(--pn-azul)"></span>
+          <span style="flex: 2.4; background: var(--pn-vermelho)"></span></span>
+        <span style="flex: 1; display: flex; flex-direction: column;
+                     justify-content: flex-end; gap: 2px; height: 52%">
+          <span style="flex: 1.0; background: var(--pn-verde);
+                       border-radius: 3px 3px 0 0"></span>
+          <span style="flex: 1.8; background: var(--pn-azul)"></span>
+          <span style="flex: 2.6; background: var(--pn-vermelho)"></span></span>
+        <span style="flex: 1; display: flex; flex-direction: column;
+                     justify-content: flex-end; gap: 2px; height: 47%">
+          <span style="flex: 1.0; background: var(--pn-verde);
+                       border-radius: 3px 3px 0 0"></span>
+          <span style="flex: 1.5; background: var(--pn-azul)"></span>
+          <span style="flex: 2.2; background: var(--pn-vermelho)"></span></span>
+        <span style="flex: 1; display: flex; flex-direction: column;
+                     justify-content: flex-end; gap: 2px; height: 61%">
+          <span style="flex: 1.2; background: var(--pn-verde);
+                       border-radius: 3px 3px 0 0"></span>
+          <span style="flex: 1.7; background: var(--pn-azul)"></span>
+          <span style="flex: 2.8; background: var(--pn-vermelho)"></span></span>
+        <span style="flex: 1; display: flex; flex-direction: column;
+                     justify-content: flex-end; gap: 2px; height: 55%">
+          <span style="flex: 1.0; background: var(--pn-verde);
+                       border-radius: 3px 3px 0 0"></span>
+          <span style="flex: 2.0; background: var(--pn-azul)"></span>
+          <span style="flex: 2.5; background: var(--pn-vermelho)"></span></span>
+        <span style="flex: 1; display: flex; flex-direction: column;
+                     justify-content: flex-end; gap: 2px; height: 66%">
+          <span style="flex: 1.1; background: var(--pn-verde);
+                       border-radius: 3px 3px 0 0"></span>
+          <span style="flex: 1.9; background: var(--pn-azul)"></span>
+          <span style="flex: 3.0; background: var(--pn-vermelho)"></span></span>
+        <span style="flex: 1; display: flex; flex-direction: column;
+                     justify-content: flex-end; gap: 2px; height: 74%">
+          <span style="flex: 1.3; background: var(--pn-verde);
+                       border-radius: 3px 3px 0 0"></span>
+          <span style="flex: 2.1; background: var(--pn-azul)"></span>
+          <span style="flex: 3.1; background: var(--pn-vermelho)"></span></span>
+        <span style="flex: 1; display: flex; flex-direction: column;
+                     justify-content: flex-end; gap: 2px; height: 83%">
+          <span style="flex: 1.1; background: var(--pn-verde);
+                       border-radius: 3px 3px 0 0"></span>
+          <span style="flex: 2.2; background: var(--pn-azul)"></span>
+          <span style="flex: 3.0; background: var(--pn-vermelho)"></span></span>
+        <span style="flex: 1; display: flex; flex-direction: column;
+                     justify-content: flex-end; gap: 2px; height: 93%">
+          <span style="flex: 1.4; background: var(--pn-verde);
+                       border-radius: 3px 3px 0 0"></span>
+          <span style="flex: 2.1; background: var(--pn-azul)"></span>
+          <span style="flex: 3.3; background: var(--pn-vermelho)"></span></span>
+      </div>
+    </div>
+  </div>
+</div>

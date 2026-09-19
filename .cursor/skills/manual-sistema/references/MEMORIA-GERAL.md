@@ -20,7 +20,7 @@ numerada, não imagem no FAQ**. Mais a regra de asserção: *nenhum/sempre/nunca
 no código, não medir prints — o #117 escreveu que o número do pedido não aparecia em tela nenhuma
 do aplicativo, e ele estava numa imagem já publicada do #116);
 2026-09-17 (o repositório virou **duas skills**, `manual-sistema`
-e `carrossel-novidades`: o processo de manual saiu da raiz e passou a morar em
+e `carrossel`: o processo de manual saiu da raiz e passou a morar em
 `.cursor/skills/manual-sistema/`, com esta memória, o checklist, os planos e o
 `validar-imagens.py` dentro dela — ver seção 2);
 2026-09-17 (**#103** Venda Sugestiva (UpSell) — três caminhos que
@@ -111,7 +111,7 @@ beefood-web-react-manual/
 │  │  ├─ CHECKLIST-MANUAIS.md        <- fila, status e histórico
 │  │  └─ planos/PLANO-*.md           <- estudo de bloco antes de virar manual
 │  └─ scripts/validar-imagens.py
-├─ .cursor/skills/carrossel-novidades/   <- a outra skill; lê isto e não escreve aqui
+├─ .cursor/skills/carrossel/   <- a outra skill; lê isto e não escreve aqui
 └─ manuais/
    └─ <nome-do-manual>/        <- UMA PASTA POR MANUAL (ex.: caixa, delivery, pdv...)
       ├─ MEMORIA.md                 <- memória detalhada do manual (fluxo, uso, decisões, estado)
