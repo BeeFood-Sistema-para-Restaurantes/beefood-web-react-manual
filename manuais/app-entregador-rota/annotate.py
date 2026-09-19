@@ -22,6 +22,7 @@ armadilha que o #112 registrou.
 import math
 import os
 import shutil
+import sys
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -33,6 +34,16 @@ SRC = "imagens-puras"
 OUT = "imagens-tratadas"
 os.makedirs(SRC, exist_ok=True)
 os.makedirs(OUT, exist_ok=True)
+
+# As três telas de rota com problema vieram da segunda rodada de capturas, dois dias depois das
+# outras, e a lista mostra a data em letras vermelhas. `relogio` transplanta a linha de data de um
+# print da primeira rodada para dentro delas, com os glifos do próprio aplicativo. Só a linha da
+# data muda; o resto da tela é o que o emulador mostrou.
+sys.path.insert(0, "../gestao-entregas/scripts")
+import relogio  # noqa: E402
+
+# A data de referência é a da lista com a rota A, na seção 2: `18/09/2026 00:18`.
+DATA = relogio.tinta(f"{MATERIAL}/06-rota-do-restaurante/prints/01-rota-na-lista.png")
 
 GREEN = (22, 150, 78)
 WHITE = (255, 255, 255)
@@ -74,16 +85,21 @@ def com_margem(nome, esq=0.0, topo=0.0, dire=0.0, fundo=FUNDO):
     print("MARGEM", nome, tela.size)
 
 
-def copiar(origem, nome, caixa=None, largura=None):
+def copiar(origem, nome, caixa=None, largura=None, data=False):
     """Traz um print do material para `imagens-puras/`.
 
     `caixa` é em **fração** (esq, topo, dir, base) da imagem original: o print do celular tem
     1440x3120 e quase sempre sobra faixa preta em cima e embaixo, que só encolhe o que
     interessa. `largura` reamostra para um tamanho fixo, para as imagens do manual ficarem do
     mesmo tamanho na página.
+
+    `data=True` passa o print pelo `relogio`, que troca a linha de *Previsão Entrega* pela do
+    print de referência. Vale para os prints da segunda rodada, tirados dois dias depois.
     """
     caminho = os.path.join(MATERIAL, origem)
     img = Image.open(caminho).convert("RGB")
+    if data:
+        print("RELOGIO", nome, relogio.ajustar(img, DATA), "linha(s) de data")
     if caixa:
         W, H = img.size
         img = img.crop((int(caixa[0] * W), int(caixa[1] * H),
@@ -323,7 +339,7 @@ ETQ_DIR = 0.94
 # O recorte guarda o botão de propósito: a janela sozinha não diz **de onde** ela veio.
 C10, M10, MD10 = (0, 0.113, 1, 0.645), 0.24, 0.13
 copiar("capturas-2/23-rota-com-problema/prints/01-despacho-nao-confirmado.png",
-       "10-despacho-nao-confirmado.png", caixa=C10, largura=700)
+       "10-despacho-nao-confirmado.png", caixa=C10, largura=700, data=True)
 margem("10-despacho-nao-confirmado.png", m=M10, md=MD10)
 a = rec(C10, m=M10, md=MD10)
 annotate("10-despacho-nao-confirmado.png", [
@@ -339,7 +355,7 @@ annotate("10-despacho-nao-confirmado.png", [
 # sem precisar de frase.
 C11, M11 = (0, 0.045, 1, 0.918), 0.28
 copiar("capturas-2/23-rota-com-problema/prints/03-duas-rotas.png",
-       "11-duas-rotas.png", caixa=C11, largura=640)
+       "11-duas-rotas.png", caixa=C11, largura=640, data=True)
 margem("11-duas-rotas.png", m=M11)
 a = rec(C11, m=M11)
 annotate("11-duas-rotas.png", [
