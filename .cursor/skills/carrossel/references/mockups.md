@@ -386,6 +386,54 @@ Duas armadilhas que custaram render:
 O notebook **aceita 3D** (tampa tem espessura, e o giro valoriza). O monitor
 também, mas tem menos a ganhar: a peça é uma chapa.
 
+### `.monitor--parede`: a televisão, que é o monitor sem o que o faz monitor
+
+Tela de parede é outro produto, e o Painel para Entregadores é o caso: ele fica
+numa TV perto da retirada, não na mesa de ninguém. O modificador tira o queixo,
+afina a moldura e **o `.monitor__pe` não entra no HTML**.
+
+```html
+<!-- a luz que põe uma parede atrás do aparelho -->
+<div class="luz" style="left: 50%; top: 500px; width: 1360px; height: 900px;
+                        margin-left: -680px; filter: blur(70px);
+                        background: radial-gradient(ellipse 46% 50% at 50% 47%,
+                                    rgba(255, 244, 232, 0.9) 0%,
+                                    rgba(255, 216, 186, 0.38) 62%,
+                                    rgba(0, 0, 0, 0) 82%)"></div>
+
+<div class="monitor monitor--parede" style="width: 944px">
+  <div class="monitor__tela"><img src="../imagens-puras/painel-claro.png" alt="…"></div>
+</div>
+```
+
+A primeira versão deste mockup voltou do dono — *"não é só uma imagem, precisa
+ter um mockup"* —, e o diagnóstico vale para qualquer aparelho novo daqui:
+**moldura fina e uniforme em volta de um print é o desenho de uma borda, não de
+um objeto.** O que faz o olho ver aparelho:
+
+- **massa, e assimétrica.** A moldura precisa ser mais grossa que a do produto
+  real (televisão de hoje é quase só painel, e 0,65% fiel a isso vira 6 px em
+  1000), e a **borda de baixo maior que as outras três** — 4,2% contra 2,2%. A
+  assimetria é o que toda TV tem e nenhuma moldura de imagem tem;
+- **volume na moldura:** fio de luz no topo, sombra no pé, e cinza mais claro
+  que o do monitor de mesa. Moldura escura em capa escura some, e o que sobra na
+  tela é o print;
+- **o detalhe barato:** o LED no meio da faixa de baixo, e um reflexo diagonal
+  fraco sobre o vidro. Custam duas regras e dizem "aparelho ligado" e "aqui tem
+  vidro" — sem lavar o print;
+- **luz na parede, que é a camada que mais rende.** Uma `.luz` branca e quente
+  atrás do aparelho. O `box-shadow` sozinho não dá conta: ele desenha contorno,
+  e o que falta é **fundo**. Sem ela a TV flutua no preto; com ela existe uma
+  parede, e a tela está acesa nela.
+
+E por isso a imagem que entra na moldura é a do tema **claro**, mesmo numa capa
+escura: tela acesa e branca sobre fundo escuro é televisão ligada. O tema escuro
+do painel vai no slide que fala de tema, onde ele tem função.
+
+A imagem precisa ser **16/9 de verdade**: o `object-fit: cover` do
+`.monitor__tela` come uma faixa de qualquer captura fora da proporção. Capture
+em 1280×720 em vez de recortar depois.
+
 ## Estúdio de mídia: quando a novidade é a mídia
 
 Tem novidade em que o recurso **é o conteúdo que o lojista sobe** — banner de

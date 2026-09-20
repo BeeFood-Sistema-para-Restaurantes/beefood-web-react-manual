@@ -85,6 +85,34 @@ def fichas(xml: bytes) -> list[dict]:
     return saida
 
 
+def mesma_raiz(a: str, b: str) -> bool:
+    """`entregadores` e `entregador` são a mesma palavra para esta busca.
+
+    A comparação exata deixou passar o manual do Painel para Entregadores: o
+    release diz "Entregadores" e a pasta se chama `painel-entregador`, então só
+    `painel` casava e a nota ficava em 1, abaixo do corte. Prefixo de 5 letras
+    resolve plural e flexão sem abrir a porta para qualquer coisa.
+    """
+    return a == b or (len(min(a, b, key=len)) >= 5
+                      and (a.startswith(b) or b.startswith(a)))
+
+
+def notas_dos_manuais(titulo: str) -> list[tuple[int, Path]]:
+    """Quantas palavras cada pasta de manual tem em comum com o título."""
+    alvo = {p for p in normalizar(titulo).replace("-", " ").split()
+            if len(p) > 3 and p not in VAZIAS}
+    if not alvo:
+        return []
+
+    notas = []
+    for pasta in sorted(p for p in MANUAIS.iterdir() if p.is_dir()):
+        palavras = [p for p in normalizar(pasta.name).split("-") if len(p) > 3]
+        nota = sum(1 for a in alvo if any(mesma_raiz(a, p) for p in palavras))
+        if nota:
+            notas.append((nota, pasta))
+    return sorted(notas, key=lambda x: (-x[0], x[1].name))
+
+
 def manual_de(ficha: dict) -> Path | None:
     """Acha a pasta de manual que fala da mesma funcionalidade, se houver.
 
@@ -99,18 +127,8 @@ def manual_de(ficha: dict) -> Path | None:
     if direto.is_dir():
         return direto
 
-    alvo = {p for p in normalizar(ficha["titulo"]).replace("-", " ").split()
-            if len(p) > 3 and p not in VAZIAS}
-    if not alvo:
-        return None
-
-    melhor, nota_melhor = None, 0
-    for pasta in sorted(p for p in MANUAIS.iterdir() if p.is_dir()):
-        palavras = {p for p in normalizar(pasta.name).split("-") if len(p) > 3}
-        nota = len(alvo & palavras)
-        if nota > nota_melhor:
-            melhor, nota_melhor = pasta, nota
-    return melhor if nota_melhor >= 2 else None
+    notas = notas_dos_manuais(ficha["titulo"])
+    return notas[0][1] if notas and notas[0][0] >= 2 else None
 
 
 # --- pauta de função: uma página do site -------------------------------------
@@ -356,7 +374,16 @@ def imprimir_ficha(ficha: dict) -> None:
             qtd = len(list(puras.glob("*.png")))
             print(f"  - capturas prontas: {qtd} em {puras.relative_to(RAIZ)}/")
     else:
-        print("- Manual relacionado: nenhum (as capturas terão de ser novas)")
+        # "Nenhum" é um palpite, e um palpite que já errou: o casamento é por
+        # nome de pasta, e um manual pode existir chamado de outro jeito. Então
+        # o script mostra em quem ele quase acreditou, para a conferência
+        # custar um `ls` em vez de uma peça inteira capturada do zero.
+        print("- Manual relacionado: não achei pelo nome — confira à mão antes"
+              " de capturar do zero")
+        quase = notas_dos_manuais(ficha["titulo"])[:3]
+        if quase:
+            print("  Pastas mais próximas: "
+                  + ", ".join(f"`manuais/{p.name}/`" for _, p in quase))
     print(f"\n## Texto publicado\n\n{ficha['texto']}")
 
 

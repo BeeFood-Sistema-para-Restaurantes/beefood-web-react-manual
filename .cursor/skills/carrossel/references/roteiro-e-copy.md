@@ -383,10 +383,13 @@ forma de pagamento com o seu preço"**. Tem os três eixos, não copia o release
 não inventa nada sobre o leitor — e não diz o nome de coisa nenhuma. O dono leu
 e devolveu: *"isso foge da funcionalidade"*.
 
-É o que acontece quando *concisão corta palavra, não corta eixo* encontra *a capa
-não anuncia a funcionalidade*: para caber todo mundo sem dizer o nome de
-ninguém, a frase sobe um degrau de abstração e vira conceito. Conceito é bonito,
-é verdadeiro, e o leitor não sabe o que o sistema passou a fazer.
+É o que acontece quando *concisão corta palavra, não corta eixo* encontra a
+regra que esta skill tinha então — *a capa não anuncia a funcionalidade, ela
+nomeia um incômodo*: para caber todo mundo sem dizer o nome de ninguém, a frase
+sobe um degrau de abstração e vira conceito. Conceito é bonito, é verdadeiro, e
+o leitor não sabe o que o sistema passou a fazer. Aquela regra **caiu** — hoje
+a capa de novidade anuncia, e o começo desta seção diz como —, mas o caminho
+que ela abria continua tentador, e é por isso que o caso fica registrado.
 
 > **Fugir do changelog nunca foi esconder o nome do recurso.** Changelog é
 > recortar o texto do release nos oito slides. Dizer na capa o que o recurso faz
@@ -502,30 +505,105 @@ enquanto a gente escreve.
 
 ## A regra do primeiro segundo
 
-O slide 1 **diz o nome do recurso** e leva **uma imagem**. Capa só de texto perde
-para capa com imagem, e a imagem certa é o resultado da novidade (o papel
-impresso, a tela nova), não um ícone decorativo.
+### Em peça de novidade, a capa ANUNCIA — e anunciar tem duas obrigações
 
-Nome do recurso é o que ele **faz**, não onde ele mora:
+Anunciar não é uma fórmula, é um resultado: quem leu só o slide 1 sai sabendo
+**o nome da coisa que chegou** e **o que ela faz**. A primeira obrigação é do
+título, a segunda é do subtítulo. A **forma** de dizer varia peça a peça, e tem
+de variar — os moldes estão logo abaixo, e a regra de não repetir a forma
+continua valendo.
 
-| Nome do campo (changelog) | Nome do recurso (capa) |
+O que não varia é o nome. Ele importa depois do post: é a palavra que o leitor
+vai procurar no menu, digitar no suporte e ouvir do vendedor. A capa é onde ele
+aprende essa palavra, e é o nome próprio mesmo — "Painel para Entregadores",
+"Destaque na impressão" —, não uma paráfrase bonita da capacidade.
+
+**O subtítulo tem obrigação, e a obrigação é explicar.** Não é onde a frase
+"respira" nem onde o tom se recupera: é a linha em que o leitor descobre o que
+a coisa anunciada faz. Uma frase, concreta, sem metáfora.
+
+#### O erro do meio, que é o que esta skill vinha produzindo
+
+Há três degraus, e o vício mora no segundo — o mais difícil de ver, porque ele
+tem cara de texto bem escrito:
+
+| Degrau | Exemplo | Por que falha |
+|---|---|---|
+| changelog | "Nova etapa Pronto no Delivery" | nomeia a tela: só entende quem já usa |
+| **enigma** | "O entregador chega e vê sozinho se o pedido já saiu" | descreve a cena e **não diz o nome de nada** |
+| anúncio | "Chegou o Painel para Entregadores" | diz o que chegou; o subtítulo diz o que faz |
+
+O enigma engana porque é a frase mais gostosa das três. Ela é concreta, tem
+cena, tem promessa, passa no teste de "não soa como changelog" — e o leitor
+termina o carrossel sem saber o nome do que foi anunciado.
+
+**Cena do release é matéria-prima do slide 2, não da capa.** Quase todo release
+abre com uma: o entregador que interrompe a cozinha, a bebida esquecida na
+sacola. Ela é boa e vai ser usada — na introdução, onde há espaço para
+contá-la. Na capa, ela ocupa o lugar do nome.
+
+#### O nome atravessa os seis moldes; nenhum deles dispensa
+
+Os moldes estão em *o quarto vício* e *o sétimo vício* da
+[`MEMORIA-CARROSSEIS.md`](MEMORIA-CARROSSEIS.md), com o placar de uso. O que
+faltava era isto: **a escolha do molde é livre, a presença do nome não é.**
+
+| Molde | Como ele nomeia |
 |---|---|
-| "Novo campo Destaque na impressão" | "Destaque a bebida no cupom da cozinha" |
-| "Nova etapa Pronto no Delivery" | "Saiba quem já saiu para entregar" |
-| "Aba nova: Ajuste no pagamento" | "Acréscimo e desconto por forma de pagamento" |
+| nome do recurso como ganho | o título **é** o nome ("Acréscimo e desconto por forma de pagamento") |
+| anúncio de chegada | o verbo de chegada mais o nome ("Chegou o Painel para Entregadores") |
+| afirmação do fato | o nome entra na frase, ou vai para o chapéu |
+| ordem direta | idem — e só quando o recurso tem um objeto só |
+| antes × agora | idem |
+| pergunta | o título não comporta o nome: ele vai para a pílula ou para o chapéu |
 
-A coluna da esquerda nomeia a tela: o leitor teria que já usar o sistema para
-entender. A da direita nomeia a capacidade, com as palavras do dono — e é o que
-vende.
+**Quando o título não comporta o nome, a pílula leva** — e é aqui que os dois
+gêneros se separam, o que explica por que o vício só acontece em novidade:
 
-**A capa pode abrir pelo incômodo, mas o nome tem de estar nela.** "Cansou de
-esquecer a bebida?" prende, e prende porque o subtítulo logo abaixo diz o que o
-sistema passou a fazer. O incômodo é a porta; o nome é o que o leitor leva se
-não arrastar.
+- em **peça de função**, a pílula é o tema, e o tema é o nome: `Totem de
+  Autoatendimento`, `Cardápio Digital no Tablet`, `Dark Kitchen`. O leitor já
+  tem o nome antes de ler o título, e o título fica livre para vender o uso;
+- em **novidade**, a pílula está ocupada pela palavra `Novidade`, que anuncia o
+  gênero e não nomeia coisa nenhuma. **Não há para onde empurrar o nome:** ou
+  ele está no título, ou a capa não tem nome.
 
-**Teste da capa:** quem leu **só** a capa sabe dizer o que entrou no sistema? Se
-a resposta depende de arrastar, a capa é conceito, não notícia. E leia em voz
-alta: se soa como changelog ("Novo campo X na tela Y"), reescreva.
+Por isso a exigência pesa mais na novidade, e por isso ela falhou lá — três das
+quatro primeiras novidades saíram sem o nome em lugar nenhum, enquanto as três
+peças de função saíram todas nomeadas, sem ninguém ter combinado isso.
+
+**Condição de uso do anúncio de chegada:** ele pede um recurso **batizado**, com
+nome próprio que vira item de menu. "Chegou o Painel para Entregadores"
+funciona; "Chegou o acréscimo por forma de pagamento" soa torto, porque ali não
+chegou um objeto, mudou uma capacidade — e para esse caso o molde certo é o
+nome do recurso como ganho.
+
+#### O teste da capa, agora com duas perguntas
+
+Tape o resto do carrossel e leia só o slide 1:
+
+1. **Qual é o nome da coisa que chegou?** Se você não consegue repetir o nome,
+   a capa não anuncia nada.
+2. **O que ela faz?** Se a resposta depende de arrastar, o subtítulo não
+   cumpriu a parte dele.
+
+Uma resposta só não basta — foram capas que respondiam a segunda e não a
+primeira que motivaram esta seção. E leia em voz alta: se soa como changelog
+("Novo campo X na tela Y"), reescreva; se soa como enigma, também.
+
+### E a capa leva uma imagem, dentro de um aparelho
+
+Capa só de texto perde para capa com imagem, e a imagem certa é o resultado da
+novidade (o papel impresso, a tela nova), não um ícone decorativo.
+
+**E ela entra num mockup, não solta.** Print com borda arredondada é um arquivo
+colado no slide; o aparelho desenhado em volta diz **onde aquilo vive** — no
+celular do cliente, no tablet da mesa, na TV da retirada. Numa capa isso vale
+mais que legibilidade: o leitor não vai ler os cartões, vai reconhecer a cena.
+Os aparelhos e as regras de cada um estão em [`mockups.md`](mockups.md); se o
+que a novidade pede não existe lá, desenhe e **suba para a skill**.
+
+O resto do carrossel é o contrário: o slide que precisa ser lido usa `.recorte`,
+sem aparelho — ver *aparelho ou recorte: quem decide é o que precisa ser lido*.
 
 **É a frase mais curta do carrossel.** "Cansou de bebida esquecida na sacola?"
 tem seis palavras e está correta; "Cansou de esquecer a bebida?" tem cinco, diz o
@@ -538,12 +616,18 @@ assunto ("a **bebida**") dá o ponto de entrada do olho. Duas palavras vermelhas
 na mesma frase não destacam nada, e emoji junto do vermelho é grifo em cima de
 grifo — escolha um.
 
-**O subtítulo é onde a frase respira.** O título corta até o osso; o subtítulo
-recupera o tom, e pode ocupar duas linhas: "Sem canetinha na lata, sem grito na
-cozinha. O cupom marca sozinho." A versão de uma linha só ("Agora o cupom já sai
-com ela marcada") tinha sido encurtada para abrir espaço para a imagem — e a
-imagem, centralizada, coube junto com as duas linhas. Aperte a imagem antes de
-apertar o subtítulo.
+A exceção é o **nome do recurso**, que vai inteiro mesmo tendo três palavras:
+"Chegou o **Painel para Entregadores**". Grifar meio nome é pior que grifar
+três palavras, e num anúncio o ponto de entrada do olho **é** o nome.
+
+**O subtítulo explica, e é explicando que a frase respira.** O título corta até
+o osso; o subtítulo diz o que o recurso faz, e nisso recupera o tom. Pode
+ocupar duas linhas: "Sem canetinha na lata, sem grito na cozinha. O cupom marca
+sozinho." A versão de uma linha só ("Agora o cupom já sai com ela marcada")
+tinha sido encurtada para abrir espaço para a imagem — e a imagem,
+centralizada, coube junto com as duas linhas. Aperte a imagem antes de apertar
+o subtítulo. O que ele não pode é virar só tom: subtítulo que não explica deixa
+a capa com metade do anúncio.
 
 **A imagem da capa mostra UM destaque.** A primeira versão desta capa usava o
 cupom inteiro, com duas linhas em fundo preto — e aí a imagem dizia o contrário
@@ -557,11 +641,14 @@ paga quando tem conteúdo do outro lado.
 
 ## Estrutura que funciona (6 a 8 slides)
 
-1. **Capa** — o nome do recurso em no máximo oito palavras, com imagem.
+1. **Capa** — o anúncio: o nome do recurso no título (ou no chapéu, se o molde
+   escolhido não o comportar), o subtítulo dizendo o que ele faz, e a imagem
+   dentro de um aparelho.
 2. **A introdução** — explique o recurso que a capa nomeou: o que se marca,
    sobre o que a conta incide, onde o cliente vê. Duas ou três frases, e acabou.
-   Não é o slide da história ("você já faz isso no balcão"), e explicar **não é
-   ensinar a mexer**: nome de campo, ordem de tela e passo a passo continuam no
+   Aqui, sim, cabe a cena do release que a capa não podia carregar. Não é o
+   slide da história ("você já faz isso no balcão"), e explicar **não é ensinar
+   a mexer**: nome de campo, ordem de tela e passo a passo continuam no
    manual — ver *explicar o recurso não é ensinar a mexer*.
 3. **A virada** — o que muda, mostrado. Antes × depois é o slide mais
    compartilhado do carrossel.

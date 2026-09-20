@@ -93,6 +93,13 @@ Sem argumento, lê o RSS de `beefood.app/novidades` (título, data, tipo, áreas
 texto completo) e indica o manual relacionado, com a contagem de capturas que já
 existem lá.
 
+**Quando ele disser que não achou manual, confira à mão.** O casamento é por
+nome de pasta, e nome de pasta não segue o título do release — o do Painel para
+Entregadores mora em `manuais/painel-entregador/` e passou batido por uma letra
+de plural. O script lista as pastas mais próximas justamente para isso; um
+`ls manuais/ | grep <palavra>` custa segundos e o manual costuma trazer o
+recurso lido no código-fonte, que é fato mais duro que o release.
+
 Com `--pagina`, lê uma página de `beefood.com.br` e devolve a mesma coisa para o
 gênero *função*: os blocos da página, a lista de funcionalidades, o FAQ — e o
 cruzamento com `manuais/`, que é o que separa **o que tem manual** (fato
@@ -182,7 +189,8 @@ nova, escrita a partir do fato**:
 A ordem dos três primeiros slides é fixa nos dois gêneros: a capa **nomeia** o
 recurso, o slide 2 **explica** o recurso e o slide 3 **mostra** o recurso na
 tela. Conceito na capa e história no slide 2 são os dois jeitos de perder o
-leitor antes da prova.
+leitor antes da prova — e **cena na capa é um terceiro**, que passa despercebido
+porque a frase sai boa.
 
 **A pasta nasce numerada.** O nome é `NN-<slug>`, com `NN` sendo a **ordem de
 entrega** — o próximo número livre em `carrosseis/`. É o que faz a listagem do
@@ -277,6 +285,38 @@ um `cupons.json` da pasta. Três cuidados:
   embaixo de marca real lê como promoção anunciada por um cliente nosso. E
   avise no `copy-instagram.txt` que aquele dado é exemplo.
 
+**E o terceiro uso: o dado real existe e desmente o produto.** Os dois casos
+acima são de falta — recurso desligado, lista vazia. Aqui a tela abria e
+funcionava: o Painel para Entregadores da sandbox mostrava **sete cartões
+vermelhos**, todos "Atrasado • 1h38min", porque os pedidos de teste são da
+manhã e ninguém os moveu. Tudo verdade, e a peça montada com aquilo vende "o
+sistema que atrasa tudo".
+
+Antes de fotografar, pergunte **o que esta tela diz sobre o produto para quem
+não conhece o produto**. Se a resposta for o contrário do que a peça promete, a
+cena se monta — e monta-se o mínimo:
+
+- **o que é prova fica.** Pedidos, origens, números de marketplace: são reais e
+  é deles que vem a credibilidade da imagem.
+- **muda-se o que o tempo parado estragou** — situação e relógio —, e **um
+  problema fica de pé**: tela boa demais não é turno, e o slide do alerta
+  precisa ter o que provar.
+- **o que sobra da cena, some.** Um pedido antigo fora do arquivo de cena
+  continuava entrando vermelho ao lado dos ajustados, e uma coluna com dois
+  regimes de tempo é pior que qualquer um dos dois.
+- **registre**: um `cena.json` na pasta diz o que mudou e por quê, o script
+  ganha `--cru` para mostrar a tela como ela está, e o `copy-instagram.txt`
+  avisa quem publica.
+
+Duas armadilhas de relógio, que custaram duas rodadas de captura: o front pode
+ler a data **ignorando o fuso** (meça `new Date(<o que vai injetar>)` contra
+`Date.now()` no navegador da captura, em vez de confiar no sufixo `Z`), e o
+mesmo cartão pode ter **duas contas** — o tempo de etapa e o alerta de atraso
+vinham de campos diferentes, e mexer em um só produzia um estado que o sistema
+nunca geraria. Detalhe em
+[`references/MEMORIA-CARROSSEIS.md`](references/MEMORIA-CARROSSEIS.md), seção
+*a cena honesta pode ser a pior peça de venda*.
+
 **Quando o recurso é a mídia que o lojista sobe, você faz a mídia.** Capa e
 vitrine em vídeo não têm captura: o cardápio modelo está vazio e o de produção
 tem a campanha de um cliente. O `fazer-midia.py` renderiza as artes de
@@ -322,6 +362,16 @@ Prefira fechar a borda do recorte em área vazia — corte no meio de uma palavr
 parece defeito. O viewport de captura é **1440×900 com DPR 2**, então a fração
 que você passa em `--recorte` vira pixels sobre 900 de altura, não sobre 1350:
 confira a medida do arquivo com Pillow antes de calcular porcentagem de realce.
+
+**E o layout mais rico da tela não é o melhor para o slide.** O Painel para
+Entregadores passa a duas colunas internas por etapa acima de 1500 px, e cabe
+quase o dobro de pedido — é para isso que existe TV grande. Capturado assim, o
+cartão estreita e `2740 - Coleta 6118` sai cortado no meio da palavra: na TV de
+50 polegadas ninguém repara, num slide lido no celular aquilo lê como **bug**.
+A captura foi refeita mais estreita, e a vantagem do modo largo virou uma linha
+de legenda. O critério da arte é um só — *o que precisa ser lido está
+legível?* — e vantagem de operação que não sobrevive à miniatura se escreve,
+não se fotografa.
 
 **O print do manual é referência, não imagem do carrossel.** Ele existe para
 ensinar um caminho: traz a tela inteira, o estado que o manual precisava e o
@@ -649,12 +699,25 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
 5. A capa diz o fato **inteiro**? Nenhum eixo da novidade (o "ou" e o "e" do
    título) ficou de fora, e nenhum **exemplo** do release virou manchete. E o
    carrossel tem **um** jogo de números, o mesmo em todos os slides.
-6. A capa diz o **nome do recurso**? Leia só ela: dá para saber o que o sistema
-   passou a fazer, ou a frase é conceito ("Cada forma de pagamento com o seu
-   preço")? E o slide 2 **explica** esse recurso, em vez de contar história?
+6. A capa diz o **nome do recurso**, e o subtítulo diz o que ele faz? Leia só
+   ela e responda às duas: *qual é o nome?* e *o que aquilo faz?* Falha nas
+   duas pontas — em conceito ("Cada forma de pagamento com o seu preço") e em
+   cena ("O entregador chega e vê sozinho se o pedido já saiu"): as duas são
+   boas frases e nenhuma nomeia. Em peça de **função** a pílula é o tema e já
+   nomeia; em **novidade** ela diz "Novidade", então o nome só tem o título.
+   E o slide 2 **explica** esse recurso, em vez
+   de contar história — a cena do release cabe ali, em uma frase.
 7. Alguma imagem da arte veio de `manuais/`? Sai: print de manual é referência,
    e a arte usa captura feita para o carrossel. E o sandbox voltou à
    configuração em que você o encontrou?
+7a. Olhe as capturas como quem **não conhece o produto**: elas dizem o que a
+   peça promete, ou o contrário? Sandbox parada gera estado verdadeiro e
+   péssimo (o painel com sete pedidos atrasados há 1h38min). Se a cena precisou
+   ser montada, existe `cena.json` na pasta, `--cru` no script e aviso no
+   `copy-instagram.txt`? E duas capturas da mesma peça concordam na **cena** —
+   mesmos pedidos, mesmas colunas, mesmos contadores? (O relógio pode variar um
+   minuto entre capturas; o que não pode é o painel ter sete itens num slide e
+   seis no outro.)
 8. Alguma frase explica enfeite de tela ("a bolinha verde marca…")? Algum
    diminutivo? Algum "ele" que não é o leitor nem o cliente dele? Os três saem
    — e o que fica no lugar é a consequência para o negócio.
@@ -771,21 +834,27 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   tradução mostra o resultado e não promete traduzir), e o slide reusado entra
   pela **função que cumpre no arco**, não pela ordem em que o cliente encontra
   aquilo na tela.
-- **A capa diz o nome do recurso**, e nome é o que ele **faz**, não onde mora.
-  "Acréscimo e desconto por forma de pagamento" é a notícia; "Aba nova: Ajuste no
-  pagamento" é changelog. E conceito é o terceiro erro, o mais difícil de ver:
-  "Cada forma de pagamento com o seu preço" tem todos os eixos, não copia o
-  release e não diz o nome de nada. Teste: **quem leu só a capa sabe o que
-  entrou no sistema?**
+- **Em novidade, a capa ANUNCIA: o título diz o nome do recurso e o subtítulo
+  diz o que ele faz.** A forma varia (são seis moldes, e repetir a forma da
+  peça anterior é o quarto vício); o **nome** não varia. Em peça de função ele
+  costuma caber na pílula, que é o tema; em novidade a pílula diz "Novidade" e
+  não nomeia nada, então **o título é o único lugar**. Três degraus, e o vício mora
+  no do meio: "Nova etapa Pronto no Delivery" é changelog; "O entregador chega
+  e vê sozinho se o pedido já saiu" é **enigma** — concreto, com cena, e sem o
+  nome de nada; "Chegou o Painel para Entregadores" é a notícia. A cena do
+  release vai para o slide 2, que é onde há espaço para contá-la. Teste, com
+  **duas** perguntas: quem leu só a capa sabe dizer **o nome** do que chegou, e
+  **o que aquilo faz**?
 - **O slide 2 explica o recurso que a capa nomeou** — o que se marca, sobre o que
   a conta incide, onde o cliente vê. Não é história ("você já faz isso no
   balcão") e não é manual: caminho de menu só no CTA.
 - **Palavra concreta ganha de metáfora.** Se o recurso chama desconto, acréscimo
   e ajuste, é isso que o slide escreve — "preço", "o que mais entra" e parentes
   soam bem e não dizem o que a coisa é.
-- **O gancho pode falar do salão, desde que a capa nomeie.** "Cansou de bebida
-  esquecida na sacola?" prende, e funciona porque o subtítulo logo abaixo diz o
-  que o sistema passou a fazer.
+- **Pergunta de incômodo cabe no chapéu, não no título.** "Cansou de bebida
+  esquecida na sacola?" prende — e as capas que abriram assim saíram sem dizer
+  o nome de nada. Se o incômodo é mesmo a melhor porta, ele vira o chapéu e o
+  título continua sendo o anúncio.
 - **Cada slide entrega uma ideia de uso, com o verbo na frente.** A pergunta na
   cabeça de quem lê é "isso serve pra quê na minha loja?". "Destaque o combo do
   dia no meio do cardápio" entrega a ideia; "Você pode pôr um banner no meio do
