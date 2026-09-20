@@ -383,10 +383,13 @@ forma de pagamento com o seu preço"**. Tem os três eixos, não copia o release
 não inventa nada sobre o leitor — e não diz o nome de coisa nenhuma. O dono leu
 e devolveu: *"isso foge da funcionalidade"*.
 
-É o que acontece quando *concisão corta palavra, não corta eixo* encontra *a capa
-não anuncia a funcionalidade*: para caber todo mundo sem dizer o nome de
-ninguém, a frase sobe um degrau de abstração e vira conceito. Conceito é bonito,
-é verdadeiro, e o leitor não sabe o que o sistema passou a fazer.
+É o que acontece quando *concisão corta palavra, não corta eixo* encontra a
+regra que esta skill tinha então — *a capa não anuncia a funcionalidade, ela
+nomeia um incômodo*: para caber todo mundo sem dizer o nome de ninguém, a frase
+sobe um degrau de abstração e vira conceito. Conceito é bonito, é verdadeiro, e
+o leitor não sabe o que o sistema passou a fazer. Aquela regra **caiu** — hoje
+a capa de novidade anuncia, e o começo desta seção diz como —, mas o caminho
+que ela abria continua tentador, e é por isso que o caso fica registrado.
 
 > **Fugir do changelog nunca foi esconder o nome do recurso.** Changelog é
 > recortar o texto do release nos oito slides. Dizer na capa o que o recurso faz
@@ -613,12 +616,18 @@ assunto ("a **bebida**") dá o ponto de entrada do olho. Duas palavras vermelhas
 na mesma frase não destacam nada, e emoji junto do vermelho é grifo em cima de
 grifo — escolha um.
 
-**O subtítulo é onde a frase respira.** O título corta até o osso; o subtítulo
-recupera o tom, e pode ocupar duas linhas: "Sem canetinha na lata, sem grito na
-cozinha. O cupom marca sozinho." A versão de uma linha só ("Agora o cupom já sai
-com ela marcada") tinha sido encurtada para abrir espaço para a imagem — e a
-imagem, centralizada, coube junto com as duas linhas. Aperte a imagem antes de
-apertar o subtítulo.
+A exceção é o **nome do recurso**, que vai inteiro mesmo tendo três palavras:
+"Chegou o **Painel para Entregadores**". Grifar meio nome é pior que grifar
+três palavras, e num anúncio o ponto de entrada do olho **é** o nome.
+
+**O subtítulo explica, e é explicando que a frase respira.** O título corta até
+o osso; o subtítulo diz o que o recurso faz, e nisso recupera o tom. Pode
+ocupar duas linhas: "Sem canetinha na lata, sem grito na cozinha. O cupom marca
+sozinho." A versão de uma linha só ("Agora o cupom já sai com ela marcada")
+tinha sido encurtada para abrir espaço para a imagem — e a imagem,
+centralizada, coube junto com as duas linhas. Aperte a imagem antes de apertar
+o subtítulo. O que ele não pode é virar só tom: subtítulo que não explica deixa
+a capa com metade do anúncio.
 
 **A imagem da capa mostra UM destaque.** A primeira versão desta capa usava o
 cupom inteiro, com duas linhas em fundo preto — e aí a imagem dizia o contrário
