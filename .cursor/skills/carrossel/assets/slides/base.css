@@ -1293,24 +1293,83 @@ body {
  *
  * É o que o Painel para Entregadores pede — ele não é tela de trabalho, é uma
  * tela de parede na área de retirada, e desenhá-lo com pescoço e pé colocava
- * um monitor de escritório no lugar de uma TV. Some o queixo (que é justamente
- * o que dizia "monitor", ver `.monitor`), a moldura afina para a borda fina da
- * televisão de hoje, e o `.monitor__pe` **não entra** no HTML.
+ * um monitor de escritório no lugar de uma TV. O `.monitor__pe` **não entra**
+ * no HTML.
  *
- * O brilho de tela acesa é o que faz o desenho ler como ligado: na capa
- * escura, uma TV sem halo lê como aparelho desligado pendurado na parede. */
+ * A primeira versão só afinava a moldura e apagava o queixo, e voltou do dono
+ * como *"não é só uma imagem, precisa ter um mockup"*: moldura fina e uniforme
+ * em volta de um print é o desenho de uma **borda**, não de um aparelho. O que
+ * faz o olho ver aparelho são quatro coisas, e nenhuma delas é a espessura:
+ *
+ * 1. **a borda de baixo é maior que as outras três.** É a assimetria que toda
+ *    TV tem e nenhuma moldura de imagem tem. Não é o queixo de 4% do monitor
+ *    (aquilo é painel de controle de mesa), é a faixa estreita onde moram o
+ *    sensor e a marca — 2.6% contra 1.3%;
+ * 2. **volume na moldura.** Luz no fio de cima, sombra no de baixo: sem isso a
+ *    caixa é chapada e volta a ler como borda desenhada;
+ * 3. **o LED**, um ponto de 8 px no meio da faixa de baixo. É o detalhe mais
+ *    barato daqui e o que mais diz "isto é um aparelho, e está ligado";
+ * 4. **a sombra cai para baixo, e a parede recebe luz.** Pendurado é isso: a
+ *    sombra projetada abaixo do aparelho, e o halo da tela acesa lambendo a
+ *    parede em volta. Sem o halo, na capa escura, a TV lê como desligada. */
 .monitor--parede {
-  /* 1.5% e não 0.65%: a moldura fina de televisão real, desenhada em 1000 px,
+  /* 1.3% e não 0.65%: a moldura fina de televisão real, desenhada em 1000 px,
    * vira um fio de 6 px que o olho lê como borda de print, não como aparelho.
    * Em slide o desenho precisa de espessura para dizer "isto é uma TV". */
-  padding: 1.5%;
-  border-radius: 14px;
-  box-shadow: 0 0 0 1px #14161a, 0 0 140px 10px rgba(255, 255, 255, 0.16),
-              0 34px 70px -24px rgba(0, 0, 0, 0.6);
+  /* 2.2% em cima e nas laterais, 4.2% embaixo. Em 1000 px isso é 22 px e 42 px,
+   * e é grosso para uma TV de verdade — de propósito. Medido na tela do slide,
+   * 13 px de moldura é um fio que o olho desconta como borda da imagem; a
+   * massa é o que faz o desenho virar objeto. */
+  padding: 2.2% 2.2% 4.2%;
+  border-radius: 18px;
+  /* Cinza bem mais claro que o do monitor de mesa. Não é cor de plástico: é
+   * contraste com a parede. Em capa escura, moldura #26292e sobre fundo
+   * #1a1a1d some, e o que sobra na tela é um print com borda. */
+  background: linear-gradient(168deg, #5d626b, #33373d 34%, #1c1f23);
+  box-shadow:
+    /* fio de luz no topo e sombra no pé da moldura: volume */
+    inset 0 2px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.55),
+    0 0 0 1px #0c0e11,
+    /* a tela acesa lambe a parede: é o halo que recorta o aparelho do fundo,
+     * e por isso ele é curto e forte, e não largo e fraco — halo espalhado
+     * clareia o slide inteiro e não desenha silhueta nenhuma */
+    0 0 60px 2px rgba(255, 255, 255, 0.22),
+    0 0 180px 40px rgba(255, 255, 255, 0.07),
+    /* pendurada: a sombra cai para baixo */
+    0 46px 72px -30px rgba(0, 0, 0, 0.85);
 }
 
 .monitor--parede .monitor__tela {
   border-radius: 6px;
+  position: relative;
+}
+
+/* O vidro: um reflexo diagonal de canto, fraco o bastante para não atrapalhar
+ * a leitura do print e forte o bastante para dizer que ali tem vidro, e não
+ * uma imagem colada na moldura. */
+.monitor--parede .monitor__tela::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(118deg, rgba(255, 255, 255, 0.16) 0 14%,
+                              rgba(255, 255, 255, 0.04) 22%,
+                              transparent 40%);
+}
+
+/* O LED de standby, no meio da faixa de baixo. */
+.monitor--parede::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0.85%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.35);
 }
 
 /* Recorte de print sem moldura, para destacar um detalhe da tela. */

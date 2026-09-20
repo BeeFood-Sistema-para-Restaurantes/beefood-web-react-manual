@@ -34,13 +34,13 @@ para ligar a tela.
 LEGENDA — cole no campo de legenda
 ========================================================================
 
-O entregador chega e vê sozinho se o pedido já saiu
+Chegou o Painel para Entregadores
 
 A cena é sempre a mesma: o entregador entra, procura alguém e pergunta pela
 entrega dele. Quem está na chapa larga o que estava fazendo para responder — e
-responde de novo dez minutos depois. O Painel para Entregadores é uma tela de
-parede para acabar com isso: numa TV perto da retirada, quem chega descobre
-sozinho.
+responde de novo dez minutos depois. O painel é uma tela de parede para acabar
+com isso: numa TV perto da retirada, quem chega descobre sozinho se a entrega
+dele ainda está na cozinha ou se já pode sair.
 
 São duas colunas, Em preparo e Pronto, e em cada cartão o número vem em corpo
 grande. A tela é feita para ser lida em pé e de longe, e não para alguém
@@ -82,20 +82,22 @@ Quantas vezes por noite alguém para a cozinha para perguntar de um pedido? 👇
 TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
 ========================================================================
 
-01  Fundo escuro com a pílula "Novidade", o título "O entregador chega e vê
-    sozinho se o pedido já saiu", com a palavra sozinho em vermelho, e a linha
-    "A cozinha segue no que estava fazendo". Embaixo, uma televisão de parede
-    mostrando o painel: barra de busca no alto e duas colunas, Em preparo com
-    quatro pedidos e Pronto com três, cada cartão com a marca do canal e o
-    número em fonte grande.
+01  Fundo escuro com a pílula "Novidade", o título "Chegou o Painel para
+    Entregadores", com o nome do recurso em vermelho, e a linha "Uma tela na
+    área de retirada mostra os pedidos que ainda estão na cozinha e os que já
+    podem sair".
+    Embaixo, uma televisão de parede acesa mostrando o painel: barra de busca
+    no alto e duas colunas, Em preparo com quatro pedidos e Pronto com três,
+    cada cartão com a marca do canal e o número em fonte grande.
 
 02  Chapéu "Painel para Entregadores" e título "Em preparo de um lado, Pronto
-    do outro", com as duas etapas em vermelho. O texto diz que o número do
+    do outro", com as duas etapas em vermelho. O texto diz que o entregador
+    chega, olha a tela e não precisa interromper ninguém, e que o número do
     pedido sai em letra grande, para ser lido em pé e do outro lado da
-    retirada, e que a tela é feita para ficar ligada numa TV. Abaixo, as duas
-    colunas do painel: à esquerda, o pedido 53 com alerta vermelho, o 7412 da
-    Keeta, o 392011 da 99Food e o 2740 - Coleta 6118 do iFood; à direita, o
-    2846 da Keeta, o 392012 da 99Food e o 5391 - Coleta 0472 do iFood.
+    retirada. Abaixo, as duas colunas do painel: à esquerda, o pedido 53 com
+    alerta vermelho, o 7412 da Keeta, o 392011 da 99Food e o 2740 - Coleta
+    6118 do iFood; à direita, o 2846 da Keeta, o 392012 da 99Food e o 5391 -
+    Coleta 0472 do iFood.
 
 03  Chapéu "Cada cartão" e título "O número que o entregador procura no app
     dele", com as três últimas palavras em vermelho. O texto diz que pedido de

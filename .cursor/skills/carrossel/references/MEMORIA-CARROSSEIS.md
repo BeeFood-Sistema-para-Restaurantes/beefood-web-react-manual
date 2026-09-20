@@ -5,7 +5,17 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-19 (30ª rodada: a sandbox do Painel para
+Última atualização: 2026-09-20 (31ª rodada: a capa do Painel para Entregadores
+voltou por **não dizer o nome do recurso** — o mesmo vício da 20ª rodada com
+outra fantasia, cena concreta no lugar de conceito abstrato. A causa é
+estrutural e está em *e voltou dez rodadas depois, porque a regra ficou presa a
+um caso*: o nome era conclusão de **um** caso, e a lista de moldes de capa
+seguia com três formas que não obrigam nome. Agora o nome é **requisito dos
+seis moldes** — título ou chapéu —, o teste da capa tem duas perguntas, e o
+*anúncio de chegada* entrou como molde com condição de uso, não como fórmula
+única).
+
+30ª rodada: a sandbox do Painel para
 Entregadores mostrava **a verdade e vendia o contrário** — sete cartões
 vermelhos, atrasados há 1h38min, porque a loja de teste está parada. Daí o
 terceiro uso da interceptação de API, que não é mais "ligar recurso desligado"
@@ -321,6 +331,11 @@ sequência. Se a forma repetir, troque a forma — pergunta, afirmação do fato
 ordem direta ("Suba o seu primeiro vídeo hoje") e antes × agora são quatro moldes
 diferentes, e a pergunta é só um deles.
 
+Hoje a lista tem seis, com o *nome do recurso como ganho* e o *anúncio de
+chegada*, e uma exigência que vale para todos: **o nome do recurso aparece na
+capa**, no título ou no chapéu — ver *o sétimo vício*, que é onde essa
+exigência nasceu solta e onde ela foi amarrada aos moldes.
+
 A quarta capa tentou a ordem direta e **não passou**: *"Dê 5% de desconto no
 Pix"* cabia no molde e amputava o recurso, porque ordem direta precisa de um
 objeto único e a novidade tinha quatro combinações. Refeita como afirmação, saiu
@@ -439,6 +454,56 @@ outro assunto, e o assunto que sobra é enredo.
 
 E o *teste da capa*, que é o que pega isto antes do render: **quem leu só a capa
 sabe dizer o que entrou no sistema?**
+
+#### E voltou dez rodadas depois, porque a regra ficou presa a um caso
+
+A 31ª rodada devolveu a capa do Painel para Entregadores — *"no fim o cara lê o
+slide inteiro e não entende do que estamos falando"* —, e a frase devolvida era
+*"O entregador chega e vê **sozinho** se o pedido já saiu"*. Ela passa em tudo
+que estava escrito: concreta, com cena, sem changelog, sem metáfora, sem
+pergunta. E não diz o nome de nada. É o mesmo vício de dez rodadas antes com
+outra fantasia — lá era conceito abstrato, aqui é cena concreta, e os dois
+escondem o nome.
+
+*Por que voltou:* o que ficou registrado na 20ª rodada foi **"a capa diz o nome
+do recurso"** como conclusão de um caso, e o caso tinha escolhido o molde *nome
+do recurso como ganho* — em que o nome está no título por construção. A lista
+de moldes do *quarto vício* ficou intocada, com cinco formas, três das quais
+(pergunta, afirmação do fato, ordem direta) não obrigam nome nenhum. Ou seja: a
+regra existia, e bastava escolher outro molde para sair dela sem infringir
+nada. **Regra que mora num caso não atravessa a lista de opções.**
+
+*O que ficou:* o nome virou **requisito dos seis moldes**, não conclusão de um.
+A escolha da forma continua livre e continua tendo de variar entre peças; o que
+não é opcional é o nome estar na capa — no título, ou **no chapéu** quando o
+título escolhido não o comportar (que é a saída da pergunta e da afirmação
+curta). E o teste da capa passou a ter duas perguntas, porque a antiga
+respondia sozinha ao enigma: *qual é o nome da coisa que chegou?* e *o que ela
+faz?*.
+
+*E por que o vício é só de novidade:* olhando as sete capas entregues, as três
+de **função** nomeiam todas, e nenhuma por esforço de redação — o nome está na
+**pílula**, porque em peça de função a pílula é o tema (`Totem de
+Autoatendimento`, `Cardápio Digital no Tablet`, `Dark Kitchen`). Em novidade a
+pílula diz `Novidade`, que anuncia o gênero e não nomeia nada, e aí **não há
+para onde empurrar o nome**: ou ele está no título, ou a capa não tem nome. Três
+das quatro novidades não tinham.
+
+*O sexto molde:* **anúncio de chegada** — "Chegou o `<nome>`". Nasceu aqui, e
+nasce com condição de uso para não virar cacoete (o sexto vício é exatamente o
+molde que vira tique ao fugir de outro): ele pede recurso **batizado**, com nome
+próprio que vira item de menu. "Chegou o Painel para Entregadores" funciona;
+"Chegou o acréscimo por forma de pagamento" soa torto, porque ali não chegou um
+objeto, mudou uma capacidade — e nesse caso o molde certo continua sendo o nome
+do recurso como ganho. Placar dos moldes: pergunta 2, afirmação 1, nome do
+recurso 1, **anúncio de chegada 1**, ordem direta 0, antes × agora 0.
+
+*E o que o dono corrigiu na própria correção:* a primeira versão desta seção
+escreveu "Chegou o `<nome>`" como **o** molde da novidade, e voltou —
+*"queremos algo dinâmico que anuncia uma novidade e não algo fixo"*. Vale
+guardar como forma de errar, porque é a terceira vez: ao consertar um vício, a
+mão transforma o conserto em molde único e cria o vício seguinte. **Anunciar é
+o resultado exigido; "Chegou o" é só uma das formas de chegar nele.**
 
 ### O segundo gênero: função do sistema
 
@@ -2091,13 +2156,38 @@ entra no HTML. E acrescenta duas coisas que só se descobrem renderizando:
 - **a moldura precisa de espessura que o produto real não tem.** A borda de uma
   televisão de hoje é quase só o painel, e a primeira versão usou 0,65% fiel a
   isso. Em 1000 px viraram 6 px, que o olho lê como **borda de print**, não como
-  aparelho. Em 1,5% a mesma caixa lê como TV. O desenho não copia a medida, ele
-  entrega a leitura.
+  aparelho. O desenho não copia a medida, ele entrega a leitura — e a medida que
+  entrega ficou em 2,2%, depois de 1,5% ainda voltar (ver abaixo).
 - **na capa escura, TV sem halo lê como aparelho desligado.** O halo branco
   difuso atrás da moldura é o que diz "ligada" — e é também por isso que a tela
   que entra na moldura é a do tema **claro**, mesmo a capa sendo escura: tela
   acesa e branca sobre fundo escuro é televisão ligada num salão. A versão
   escura tem o slide do tema, onde ela tem função.
+
+E mesmo assim **voltou**, na rodada seguinte: *"não é só uma imagem, precisa ter
+um mockup"*. Os dois achados acima estavam certos e eram **pouco** — os dois
+tratam de contorno, e o que faltava era objeto. A lição é generalizável para o
+próximo aparelho que esta skill desenhar: **moldura fina e uniforme em volta de
+um print é o desenho de uma borda, e o olho a desconta.** O que virou aparelho:
+
+| O que faltava | Por que resolve |
+|---|---|
+| a borda de baixo maior que as outras três (4,2% × 2,2%) | assimetria é o que TV tem e moldura de imagem não tem |
+| fio de luz no topo, sombra no pé, cinza mais claro | sem volume a caixa é chapada, e em capa escura ela ainda some no fundo |
+| LED na faixa de baixo, reflexo diagonal no vidro | duas regras de CSS, e são elas que dizem "ligado" e "tem vidro" |
+| uma `.luz` atrás do aparelho | **a que mais rende**: `box-shadow` desenha contorno, e o que faltava era **fundo** |
+
+A última é a que vale guardar. O halo do `box-shadow` recorta a silhueta; a
+`.luz` põe uma **parede** atrás — e um aparelho sem parede fica boiando no
+preto, que é exatamente a leitura de "imagem com moldura". A camada já existia
+na casa desde o totem (*a tela acesa derrama no escuro*), e não tinha ocorrido
+usá-la aqui porque o aparelho é quase do tamanho do slide. É o contrário: quanto
+maior o aparelho, mais o fundo precisa existir.
+
+E ela é **forte e curta**. A primeira tentativa foi larga e fraca (0,34 de
+branco espalhado em 1180 px), clareou o slide inteiro e não desenhou nada; a que
+funcionou tem 0,9 no núcleo e morre em 82%, com o pico caindo logo fora da
+borda da TV.
 
 ### Realce, e por que medir
 

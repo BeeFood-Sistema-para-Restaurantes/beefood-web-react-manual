@@ -253,7 +253,7 @@ PECAS: list[tuple[str, str, str, str]] = [
      f'<div class="monitor__tela">{VAZIO}</div>'
      '<div class="monitor__pe"></div></div>'),
     ("monitor-parede", "Televisão de parede",
-     "o mesmo monitor sem queixo e sem pé; tela 16/9",
+     "sem pé, faixa fina com LED embaixo; peça uma .luz atrás",
      '<div class="monitor monitor--parede" style="width: 920px">'
      f'<div class="monitor__tela">{VAZIO}</div></div>'),
     ("navegador", "Janela de navegador",

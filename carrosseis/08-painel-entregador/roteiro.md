@@ -11,8 +11,14 @@
 
 As sete peças anteriores são de **cardápio, totem, tablet e dark kitchen**: o lado
 do cliente pedindo. Nenhuma fala de **entrega**, e nenhuma tem uma captura de
-Delivery, de KDS ou de cartão de pedido. Então não há prova para reusar, e
-nenhuma capa vizinha para desencostar — é a primeira peça deste módulo.
+Delivery, de KDS ou de cartão de pedido. Então não há prova para reusar — é a
+primeira peça deste módulo.
+
+Das capas, porém, há o que desencostar: sete entregues e **só uma diz o nome do
+recurso**. As outras seis são pergunta ou cena, e a desta peça saiu cena também,
+e voltou. Aqui o molde é o **anúncio de chegada**, que ainda não tinha sido
+usado, e cabe porque o recurso é batizado — "Painel para Entregadores" é o nome
+no release, no menu e no suporte.
 
 O que se aproveitou do acervo foi **método**, não imagem:
 
@@ -28,7 +34,8 @@ mais duros que o release.
 
 | Fato (release / manual) | Ângulo | O que vira slide |
 |---|---|---|
-| "O entregador chega e pergunta para a cozinha se o pedido dele já saiu. A cozinha para o que está fazendo para responder." | A cena é do release e é boa: o custo não é o pedido, é a **interrupção** | Capa |
+| O recurso se chama **Painel para Entregadores**, é o nome do release e do menu | Em novidade a capa anuncia: o nome no título, o que ele faz no subtítulo | Capa |
+| "O entregador chega e pergunta para a cozinha se o pedido dele já saiu. A cozinha para o que está fazendo para responder." | A cena é do release e é boa: o custo não é o pedido, é a **interrupção** | 2 (abre o slide) |
 | Colunas **Em preparo** e **Pronto**, número em fonte grande, legível de longe | Tela de parede é um gênero de tela: ela é lida **em pé, de longe** | 2 |
 | Cada cartão traz origem (iFood, 99Food, Keeta, Cardápio Digital) e tempo decorrido | O entregador de marketplace procura o número **do app dele**, não o do caixa | 3 |
 | Pedido fora do prazo ganha alerta, com o mesmo critério da tela de Delivery | O atraso aparece **sem ninguém conferir relógio** | 4 |
@@ -45,13 +52,13 @@ fatos verdadeiros e nenhum deles é motivo para ligar o painel.
 
 | # | Tipo | Ideia única | Imagem |
 |---|---|---|---|
-| 1 | Capa | O entregador chega e descobre sozinho se o pedido saiu | `painel-claro.png` numa TV de parede |
+| 1 | Capa | Chegou o Painel para Entregadores, e ele mostra o que está em preparo e o que já ficou pronto | `painel-claro.png` numa TV de parede |
 | 2 | Como funciona | Duas colunas e o número grande, para ler de longe e em pé | `colunas.png` |
 | 3 | O cartão | O cartão diz de que canal veio e há quanto tempo está lá | `cartoes-origens.png` |
-| 4 | Alerta | O que passou do prazo fica vermelho sozinho | `cartao-atrasado.png` |
+| 4 | Alerta | O que passou do prazo fica vermelho sozinho | `coluna-preparo.png` |
 | 5 | Sem operação | O cartão muda de coluna sozinho, e nada na tela é clicável para mudar pedido | `andou-antes.png` + `andou-depois.png` |
-| 6 | Onde ligar | Janela separada para arrastar até a TV, clara ou escura conforme o lugar | `painel-claro.png` + `painel-escuro.png` |
-| 7 | CTA | Já está no módulo Entrega, e o manual tem o passo a passo | `card-aplicativos.png` |
+| 6 | Onde ligar | Janela separada para arrastar até a TV, clara ou escura conforme o lugar | `tema-claro.png` + `tema-escuro.png` |
+| 7 | CTA | Já está no módulo Entrega, e o manual tem o passo a passo | `novidades-celular.png` |
 
 ## Decisões de arte
 
@@ -109,9 +116,23 @@ embaixo da tela é justamente **o que separa monitor de televisão de parede**. 
 produto é uma tela de parede: desenhá-lo com pescoço e pé colocava um monitor de
 escritório na área de retirada.
 
-Daí o `.monitor--parede`: some o queixo e o pé, a moldura afina, e entra um halo
-branco atrás. O halo não é enfeite — na capa escura, uma TV sem brilho lê como
-aparelho **desligado** pendurado na parede.
+Daí o `.monitor--parede`: some o pé, e a caixa passa a ter o que uma TV tem e uma
+moldura de imagem não tem.
+
+A **primeira versão voltou** — *"não é só uma imagem, precisa ter um mockup"* — e
+ela era exatamente isto: um fio de moldura de 13 px em volta do print, sem massa,
+sem volume e sem contexto. O que consertou foram quatro coisas, e nenhuma delas é
+a espessura sozinha:
+
+- **a borda de baixo é o dobro das outras três** (4,2% contra 2,2%). É a
+  assimetria de qualquer televisão, e nenhuma moldura de imagem tem;
+- **volume:** fio de luz no topo da moldura, sombra no pé, e cinza bem mais claro
+  que o do monitor de mesa — em capa escura, moldura escura some no fundo;
+- **o LED** no meio da faixa de baixo, e um reflexo diagonal fraco sobre o vidro,
+  que é o que diz "aqui tem vidro" sem lavar o print;
+- **a luz na parede:** uma `.luz` branca e quente atrás do aparelho. É a camada
+  que faz mais diferença — sem ela a TV flutua no preto; com ela há uma parede
+  atrás, e a tela está claramente acesa.
 
 E a tela que entra na moldura é a **clara**, não a escura, apesar de a capa ser
 escura: tela acesa e branca sobre fundo escuro é o que lê como televisão ligada.
