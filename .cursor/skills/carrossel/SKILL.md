@@ -308,6 +308,29 @@ cena se monta — e monta-se o mínimo:
   ganha `--cru` para mostrar a tela como ela está, e o `copy-instagram.txt`
   avisa quem publica.
 
+**E há o caso em que montar a cena seria mentir: aí quem decide é o recorte.**
+Os cartões das Campanhas Inteligentes declaram `R$ 0,00 de receita gerada` em
+quatro das seis, e o estrago é o mesmo do painel — só que **receita não se
+monta**. Relógio e situação são o estado que o tempo parado estragou; receita,
+conversão e pedidos são o que o produto ainda não fez, e escrevê-los é prometer
+resultado. Sem cena, sobra escolher o quadro: leia o título do slide, ache na
+tela a linha em que ele **para de afirmar** e corte ali (no caso, logo abaixo do
+selo do gatilho). O número que existe de verdade fica para o slide que fala de
+resultado.
+
+**A largura do viewport é decisão de arte.** A grade de campanhas tem três
+colunas acima de 1500 px e duas abaixo; capturada larga, o nome da campanha
+chega ao slide com 9 px. A conta é uma divisão — largura do recorte ÷ largura
+que ele terá no slide —, e abaixo de 1 alguma coisa some. Capture na largura em
+que o recorte sai em escala 1, e escolha a medida do viewport pela proporção da
+moldura que vai recebê-lo (1600 × 1000 é 16/10, a tela do `.notebook`).
+
+**Duas partes da mesma captura podem se desmentir.** O quadro do produto dizia
+"dispara ~15 min" e o campo logo abaixo mostrava 5, porque a loja de teste
+ajustou. O campo voltou ao padrão só para a foto — o editor só grava no
+`SALVAR (F2)` — e o foco saiu antes do print, senão o campo sai com anel
+vermelho e lê como erro de validação.
+
 Duas armadilhas de relógio, que custaram duas rodadas de captura: o front pode
 ler a data **ignorando o fuso** (meça `new Date(<o que vai injetar>)` contra
 `Date.now()` no navegador da captura, em vez de confiar no sufixo `Z`), e o

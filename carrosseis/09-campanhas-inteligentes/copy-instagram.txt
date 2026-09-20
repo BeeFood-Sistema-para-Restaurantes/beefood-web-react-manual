@@ -1,0 +1,140 @@
+CARROSSEL — CAMPANHAS INTELIGENTES NO WHATSAPP
+Gênero: novidade
+Fonte: beefood.app/novidades/whatsapp-campanhas-inteligentes (28/07/2026)
+Manual: ajuda.beefood.com.br/campanhas-inteligentes-whatsapp
+
+Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-quem-marca-a-hora, 03-as-seis, 04-texto-unico,
+05-anti-banimento, 06-o-que-voltou, 07-cta.
+
+Todas as telas são captura nova, tirada em produção para esta peça, na conta
+de testes dos manuais. Nada foi salvo: o editor da campanha só grava no
+SALVAR (F2), então as telas dos três passos foram abertas, fotografadas e
+fechadas por ESC. As quatro campanhas ativas continuaram ativas.
+
+DOIS DETALHES DA CAPTURA, PARA QUEM FOR CONFERIR:
+
+1. Os cartões das campanhas aparecem cortados logo abaixo do selo do gatilho.
+   Abaixo dessa linha vem a receita gerada, e na loja de teste quatro das seis
+   marcam R$ 0,00 — verdade de conta nova e leitura ruim numa peça de
+   marketing. O número que existe de verdade (1 envio, 1 pedido, R$ 34,02)
+   está no slide 6, que é o slide que fala de resultado. Nada foi inventado:
+   receita de campanha é resultado, e resultado a gente não desenha. Na capa a
+   tela aparece inteira, com os zeros: é o que qualquer conta mostra no dia em
+   que as campanhas chegam, e é isso que a peça está anunciando.
+
+2. No slide 2, o campo "Esperar antes de enviar" aparece com 15 minutos, que
+   é o valor de fábrica. A loja de teste tinha 5, e o quadro logo acima diz
+   "dispara ~15 min após o abandono" — os dois na mesma imagem se desmentiam.
+   O campo foi preenchido só para o print, e a tela foi fechada sem salvar.
+
+O texto do slide 4 mostra uma variação com o nome de exemplo "Maria" e o link
+seucardapio.com: é a prévia que o próprio sistema monta, não é cliente real.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+As Campanhas Inteligentes já estão trabalhando
+
+Abra Food Marketing → Campanhas WhatsApp e vá até a terceira aba. Tem seis
+campanhas lá dentro, montadas pela equipe da BeeFood, e quatro delas já estão
+ligadas — falando com os seus clientes pelo seu número, todo dia, sem você
+ter apertado nada.
+
+Cada uma espera um momento. Quem monta a sacola no cardápio e não fecha
+recebe um lembrete pouco depois. Quem chamou no WhatsApp, pegou o link e
+sumiu recebe outro. Quem tem cashback parado é avisado antes de esquecer que
+tinha. Quem não pede há semanas volta a ouvir de você. E tem aniversário e
+segunda compra esperando um clique para começar.
+
+O texto não sai igual para todo mundo. O primeiro nome, o saldo de cashback e
+o link do seu cardápio entram sozinhos na frase, e o que você escreve entre
+chaves é sorteado no envio: um cliente lê "Olá", o outro lê "Oi". Cada
+campanha já vem com várias versões da mesma mensagem, e você reescreve todas
+se quiser.
+
+Sobre o medo de perder o número: a proteção Anti Banimento vem ligada nas
+seis. A mensagem só vai para conversas que o cliente começou, dentro da
+janela de dias que você definir, e num ritmo com limite por dia.
+
+E dá para ver o que voltou. O cartão mostra a receita que veio de quem clicou
+no link, quantas mensagens saíram e quantos pedidos entraram; no Histórico, a
+mensagem aparece do jeito exato em que o cliente leu.
+
+Abra hoje e leia o que as quatro ligadas estão dizendo. Tudo que entra de
+novo está em beefood.app/novidades 🐝❤️
+
+#beefood #whatsapp #marketingparadelivery #restaurante
+#gestaoderestaurante #delivery #fidelizacao #automacao
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Qual dessas seis você ligaria primeiro na sua loja? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com a pílula "Novidade", o título "As Campanhas Inteligentes
+    já estão trabalhando", com o nome do recurso em vermelho, e a linha "Seis
+    vêm prontas no seu WhatsApp e quatro já chegam ligadas, falando com quem
+    largou a sacola, sumiu ou tem cashback parado".
+    Embaixo, um notebook mostrando a tela do sistema com as seis campanhas em
+    cartões: quatro marcadas como Ativo, uma como Pausado e uma como
+    Rascunho.
+
+02  Chapéu "Como funciona" e título "Quem marca a hora de falar é o cliente",
+    com "cliente" em vermelho. O texto diz que você configura uma vez quem
+    recebe, o que a mensagem diz e a que horas ela pode sair, e que daí em
+    diante a campanha observa e dispara sozinha. Abaixo, o primeiro passo de
+    uma campanha: o quadro "Como esta automação funciona" explica que entra
+    quem adicionou itens ou iniciou o checkout no cardápio digital e não
+    finalizou o pedido, e que ela para quando o cliente conclui a compra. Nos
+    campos, origem do público "Carrinho abandonado", espera de 15 minutos, e
+    o resumo "Envia para quem abandonou entre 15 min e 3 h atrás".
+
+03  Chapéu "Já estão na sua conta" e título "Seis campanhas prontas, uma para
+    cada momento", com "momento" em vermelho. O texto diz que elas chegaram
+    com texto, público e horário já testados. Abaixo, os seis cartões em três
+    pares: Cashback parado e Recuperador de vendas, os dois ativos e com
+    gatilho por público de clientes; Recebeu o cardápio e não pediu, com
+    gatilho WhatsApp / BeeBot, ao lado de Carrinho abandonado, com gatilho
+    Cardápio digital; e Boas-vindas / 2ª compra, pausada, ao lado de
+    Aniversário, em rascunho.
+
+04  Chapéu "A mensagem" e título "O texto muda de cliente para cliente", com
+    "muda" em vermelho. O texto diz que o primeiro nome, o saldo de cashback e
+    o link do cardápio entram sozinhos na frase, e que o trecho entre chaves é
+    sorteado no envio. Abaixo, o editor da mensagem com a variação 1 escrita
+    como "{Olá|Oi}, {{primeiro_nome}}! O seu pedido está {quase pronto|quase
+    completo}. {Conclua|Finalize} agora para não perder o que você escolheu:
+    {{meu_link}}", e a prévia mostrando a frase com o nome Maria e o endereço
+    do cardápio.
+
+05  Chapéu "Proteção do seu número" e título "A campanha só fala com quem já
+    te chamou", com "te chamou" em vermelho. O texto diz que a mensagem sai
+    para conversas que o cliente começou, dentro da janela de dias escolhida e
+    num ritmo com limite diário. Abaixo, o bloco Anti Banimento ligado, com a
+    frase "Só enviar para quem já me mandou mensagem" e o campo "Considerar
+    mensagens recebidas nos últimos (dias)" preenchido com 90.
+
+06  Chapéu "Dá para medir" e título "Você vê quanto cada campanha trouxe de
+    volta", com "trouxe de volta" em vermelho. O texto diz que o cartão mostra
+    a receita de quem clicou no link, quantas mensagens saíram e quantos
+    pedidos entraram, e que o Histórico guarda a mensagem como o cliente leu.
+    Abaixo, o cartão da campanha Carrinho abandonado, ativo, com R$ 34,02 de
+    receita gerada, 100% de conversão, 1 envio e 1 pedido, e os botões
+    Resultado e Histórico.
+
+07  Fundo escuro com o chapéu "Já está no ar", o pedido "Abra hoje e leia o
+    que elas já estão dizendo", com "estão dizendo" em vermelho, e a linha "As
+    quatro que vieram ligadas falam pelo seu número; ajuste o texto até ficar
+    com a cara da sua loja". Embaixo, a etiqueta de caminho "Food Marketing →
+    Campanhas WhatsApp" e um celular com a página de novidades do BeeFood
+    aberta nesta publicação.

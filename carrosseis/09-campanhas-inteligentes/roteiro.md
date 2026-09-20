@@ -62,12 +62,16 @@ configuração abaixo são mais duros que o release.
 | # | Tipo | Ideia única | Imagem |
 |---|---|---|---|
 | 1 | Capa | As Campanhas Inteligentes já estão trabalhando: seis prontas, quatro ligadas | `lista-campanhas.png` num notebook |
-| 2 | Como funciona | Quem escolhe a hora de falar é o cliente, não o seu calendário | `cards-gatilho.png` |
-| 3 | As seis | Cada campanha pega um momento em que o cliente já demonstrou interesse | `seis-campanhas.png` |
-| 4 | A mensagem | Cada cliente recebe um texto diferente, com o nome dele dentro | `variacao.png` |
+| 2 | Como funciona | Quem marca a hora de falar é o cliente, não o seu calendário | `passo-gatilho.png` |
+| 3 | As seis | Cada campanha pega um momento em que o cliente já demonstrou interesse | `fileira-1/2/3.png` |
+| 4 | A mensagem | O texto muda de cliente para cliente | `variacao.png` |
 | 5 | Proteção | Só fala com quem já te chamou, e no ritmo que não queima o número | `anti-banimento.png` |
-| 6 | Medida | Dá para ver o caminho até o pedido | `roi.png` |
-| 7 | CTA | Quatro já estão ligadas: abra e revise o texto hoje | `novidades-celular.png` |
+| 6 | Medida | Dá para ver quanto cada campanha trouxe de volta | `card-resultado.png` |
+| 7 | CTA | Quatro já estão ligadas: abra e leia o texto delas hoje | `novidades-celular.png` |
+
+O slide 4 nasceu com o título "Cada cliente recebe um texto diferente", e o
+`conferir-texto.py` acusou: junto com o chapéu, a frase repetia seis palavras
+do release. Virou "O texto muda de cliente para cliente".
 
 ## Decisões de arte
 
@@ -79,10 +83,35 @@ vende —, mas aqui a saída **não** pode ser montar a cena: receita de campanh
 inventada é promessa de resultado, e a skill proíbe número que não esteja no
 release ou no manual.
 
-Então o recorte é que muda. O que a peça mostra é a **régua** (as etapas de
-acessos → sacola → checkout → pedidos), e não o valor; e os cards entram
-cortados acima da linha de receita, onde moram o estado, o selo e o gatilho —
-que é o que os slides afirmam.
+Então o recorte é que muda. Os cartões do slide 3 entram cortados logo abaixo
+do selo do gatilho, que é onde acaba o que aquele slide afirma — nome, gatilho
+e estado. E o número que existe de verdade ficou para o slide 6, que é o único
+que fala de resultado.
+
+A tela de **Resultado** entrou na conta e saiu dela: o ROI é medido nos últimos
+31 dias, e o único envio da loja de teste é de julho, então hoje aquele modal
+está inteiro zerado. O cartão da campanha guarda o acumulado e por isso é ele
+que prova a régua.
+
+### A largura da captura foi escolhida pela escala no slide
+
+A grade de campanhas tem três colunas acima de 1500 px e duas abaixo. Capturada
+a 1600, a fileira de três cartões reduzida para a largura do slide deixa o nome
+da campanha com 9 px — e o nome é o que o leitor vai procurar na tela depois. A
+1150 a mesma grade vira duas colunas, e o par sai em escala 1.
+
+A capa segue a mesma conta pelo outro lado: 1600 × 1000 é 16/10, a proporção
+exata da tela do `.notebook`, então a moldura não corta faixa nenhuma.
+
+### O quadro dizia 15 minutos, e o campo mostrava 5
+
+No passo 1, o texto do modelo afirma que a campanha "dispara ~15 min após o
+abandono" — o padrão de fábrica, lido no código pelo manual — e a loja de teste
+tinha ajustado o campo para 5. Juntos na mesma imagem, os dois se desmentem.
+
+O campo foi devolvido ao valor de fábrica **só para a foto**, e a tela fechada
+por ESC. Não é montar cena: é desfazer, na imagem, um ajuste local que o manual
+já registra como fora do padrão.
 
 ### A tela é de computador, e o aparelho é o notebook
 

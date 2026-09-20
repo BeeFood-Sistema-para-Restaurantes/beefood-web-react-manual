@@ -117,44 +117,16 @@ def main() -> None:
         pagina.screenshot(path=str(SAIDA / "lista-campanhas.png"), type="png")
         print("OK  lista-campanhas.png  1600x1000")
 
-        # 2. a grade das seis, sem o menu lateral
-        primeiro = pagina.evaluate(CAIXA_DO_CARD, "Cashback parado")
-        ultimo = pagina.evaluate(CAIXA_DO_CARD, "Aniversário")
-        recortar(pagina, {
-            "x": primeiro["x"],
-            "y": primeiro["y"],
-            "width": ultimo["x"] + ultimo["width"] - primeiro["x"],
-            "height": ultimo["y"] + ultimo["height"] - primeiro["y"],
-        }, "seis-campanhas", folga=16)
-
-        # 3. o card que tem número de verdade: 1 envio, 1 pedido, R$ 34,02
+        # 2. o card que tem número de verdade: 1 envio, 1 pedido, R$ 34,02.
+        # A tela de Resultado não serve para isso: o ROI dela é dos últimos 31
+        # dias, e o único envio da loja de teste é de julho.
         recortar(pagina, pagina.evaluate(CAIXA_DO_CARD, "Carrinho abandonado"),
                  "card-resultado", folga=14)
-
-        # 5. dois cards lado a lado, para mostrar que cada um tem o seu gatilho
-        esquerdo = pagina.evaluate(CAIXA_DO_CARD, "Recuperador de vendas")
-        direito = pagina.evaluate(CAIXA_DO_CARD, "Recebeu o cardápio")
-        recortar(pagina, {
-            "x": esquerdo["x"],
-            "y": esquerdo["y"],
-            "width": direito["x"] + direito["width"] - esquerdo["x"],
-            "height": esquerdo["height"],
-        }, "dois-gatilhos", folga=14)
 
         # ------------------------------------------------ dentro da campanha
         pagina.get_by_text("Carrinho abandonado", exact=True).first.click()
         pagina.wait_for_timeout(9000)
         limpar(pagina)
-
-        # 6. o quadro que explica o gatilho com as palavras do produto
-        recortar(pagina, pagina.evaluate(CAIXA_DO_TEXTO,
-                                         "Como esta automação funciona"),
-                 "como-funciona", folga=10)
-
-        # 7. a espera antes de enviar, com a frase-resumo que a tela monta
-        recortar(pagina, pagina.evaluate(CAIXA_DO_TEXTO,
-                                         "Esperar antes de enviar"),
-                 "espera-envio", folga=10)
 
         # A loja de teste ajustou a espera para 5 min, e o quadro logo acima
         # diz "dispara ~15 min após o abandono", que é o padrão de fábrica
@@ -179,7 +151,7 @@ def main() -> None:
             pagina.mouse.move(20, 20)
             pagina.wait_for_timeout(1500)
 
-        # 8. o passo 1 inteiro: o quadro do gatilho, a origem do público e a
+        # 3. o passo 1 inteiro: o quadro do gatilho, a origem do público e a
         # frase-resumo que a tela monta com os dois campos de tempo. É a prova
         # de que é o cliente quem marca a hora — uma faixa fina não sustenta
         # o slide sozinha.
@@ -192,27 +164,24 @@ def main() -> None:
             "height": baixo["y"] + baixo["height"] - alto["y"],
         }, "passo-gatilho", folga=10)
 
-        # 8. a variação com variação automática, no passo 2
+        # 4. a variação com variação automática, no passo 2
         pagina.get_by_text("Mensagem (com variaç", exact=False).first.click()
         pagina.wait_for_timeout(4000)
         recortar(pagina, pagina.evaluate(CAIXA_DO_TEXTO, "Variação 1"),
                  "variacao", folga=10)
 
-        # 9. o anti-banimento, no passo 3
+        # 5. o anti-banimento, no passo 3
         pagina.get_by_text("Agenda e anti-spam", exact=False).first.click()
         pagina.wait_for_timeout(4000)
         recortar(pagina, pagina.evaluate(CAIXA_DO_TEXTO,
                                          "Só enviar para quem já me mandou"),
                  "anti-banimento", folga=10)
-        recortar(pagina, pagina.evaluate(CAIXA_DO_TEXTO,
-                                         "Ritmo: envios por dia"),
-                 "ritmo", folga=10)
 
         # sai sem salvar
         pagina.keyboard.press("Escape")
         pagina.wait_for_timeout(3000)
 
-        # ------------------------------------------------- as seis, em pares
+        # ---------------------------------------- 6. as seis, em pares
         # A 1600 px a grade tem três colunas, e três cartões lado a lado num
         # slide de 1080 deixam o nome da campanha com 9 px. A 1150 a mesma
         # grade passa a duas colunas: o par exibido a 960 px sai em escala 1,
@@ -236,7 +205,7 @@ def main() -> None:
                 "height": max(a["height"], b["height"]),
             }, f"fileira-{indice}", folga=12, subir_base=12)
 
-    # 10. a página da novidade no celular, para o CTA (convenção da casa)
+    # 7. a página da novidade no celular, para o CTA (convenção da casa)
     with sessao("celular", publico=True) as pagina:
         pagina.goto(NOVIDADE, wait_until="domcontentloaded", timeout=90000)
         esperar(pagina)

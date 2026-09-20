@@ -5,7 +5,16 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-20 (31ª rodada: a capa do Painel para Entregadores
+Última atualização: 2026-09-20 (32ª rodada: as Campanhas Inteligentes trouxeram
+de volta o problema da 30ª — tela verdadeira que vende o contrário — e a
+resposta de lá **não servia**. Relógio e situação se reescrevem porque o tempo
+parado os estragou; receita e pedidos, não, porque são o que o produto ainda
+não fez. Sem cena para montar, quem decide é o recorte, e ele acaba na linha em
+que o slide para de afirmar. A rodada também fechou que **a largura do viewport
+é decisão de arte** e que **duas partes da mesma tela podem se desmentir** — ver
+*nem toda tela pobre se monta*).
+
+31ª rodada: a capa do Painel para Entregadores
 voltou por **não dizer o nome do recurso** — o mesmo vício da 20ª rodada com
 outra fantasia, cena concreta no lugar de conceito abstrato. A causa é
 estrutural e está em *e voltou dez rodadas depois, porque a regra ficou presa a
@@ -985,6 +994,81 @@ cena muda e a página recarrega. Restaurar a cena em memória não basta: sem um
 segundo `reload`, as capturas seguintes saíram marcando "4 pedidos / 3" enquanto
 as anteriores marcavam "3 / 4" — dois slides da mesma peça discordando sobre a
 mesma tela, no mesmo instante.
+
+### Nem toda tela pobre se monta: o limite é o que o produto ainda não fez
+
+A rodada seguinte trouxe o mesmo problema com outra resposta, e é a diferença
+entre os dois casos que vale guardar.
+
+As Campanhas Inteligentes da loja de teste abrem bonitas — seis cartões, quatro
+verdes marcando `Ativo` — e logo abaixo do selo cada uma declara `R$ 0,00 de
+receita gerada`. Quatro das seis. É o mesmo tipo de estrago do painel do
+entregador: tela verdadeira que vende o contrário do produto. Só que aqui a
+saída da 30ª rodada **não serve**:
+
+> Reescrever o que o tempo parado estragou é montar cena. Escrever o resultado
+> que a campanha ainda não deu é **prometer resultado** — e número de venda que
+> não está no release nem no manual é invenção, mesmo quando sai renderizado
+> dentro de um print de verdade.
+
+O corte é esse: **relógio, situação e ordem de lista** são o estado do momento,
+e o momento é o que a loja parada estragou. **Receita, conversão e pedidos** são
+o que o produto produziu — não há versão "de turno normal" disso para montar.
+
+#### O recorte acaba onde a afirmação do slide acaba
+
+Sem poder montar, sobrou escolher o que entra no quadro. E a régua não é
+estética, é a frase: o slide das seis campanhas afirma **nome, gatilho e
+estado**, e o recorte foi cortado exatamente na linha em que essas três coisas
+acabam — logo abaixo do selo do gatilho, antes da receita. O número que existe
+de verdade (1 envio, 1 pedido, R$ 34,02) ficou para o slide que fala de medida,
+que é o único que o afirma.
+
+> Antes de recortar, leia o título do slide e ache na tela a linha em que ele
+> para de afirmar. É ali que o recorte termina. Corte curto demais esconde
+> prova; corte generoso traz junto o dado que contradiz a peça.
+
+E o corte se mede no DOM, não no olho: o script pede o `bottom` do selo do
+gatilho e desconta dali. Foram três rodadas de captura até fechar — com o topo
+do bloco de receita ainda entrava um filete de `R$ 0,00`, e com a descrição
+inteira as três fileiras não cabiam no slide.
+
+#### A largura da captura é decisão de arte, não do monitor
+
+A 30ª rodada aprendeu que o layout mais rico da tela não é o melhor para o
+slide. Aqui a mesma regra apareceu do outro lado: a grade de campanhas usa
+**três colunas** a partir de 1500 px e **duas** abaixo disso. Capturada a 1600,
+a fileira de três cartões reduzida para a largura do slide deixa o nome da
+campanha com 9 px — ilegível, e o nome é justamente o que o leitor vai procurar
+na tela depois. A 1150 a mesma grade vira duas colunas, e o par sai no slide em
+escala 1.
+
+> Escolha o viewport pela escala final do recorte, não pela tela onde você está
+> olhando. A conta é uma divisão: largura do recorte ÷ largura que ele terá no
+> slide. Abaixo de 1, alguma coisa some.
+
+A mesma conta decidiu a capa: 1600 × 1000 é 16/10, a proporção exata da tela do
+`.notebook`, e assim o `object-fit: cover` da moldura não come faixa nenhuma.
+
+#### Duas partes da mesma tela podem se desmentir
+
+No passo 1 da campanha, o quadro do produto diz "dispara ~15 min após o
+abandono" — texto do modelo, fixo — e o campo logo abaixo mostrava **5**, porque
+a loja de teste ajustou. Fotografado junto, o slide publica uma tela que discorda
+de si mesma.
+
+O campo voltou ao valor de fábrica **só para a foto**: o editor não tem
+auto-save, grava apenas no `SALVAR (F2)`, e a saída foi por `ESC`. Isso não é
+montar cena — é desfazer, na imagem, um ajuste que a conta de teste fez e que o
+manual documenta como fora do padrão.
+
+> Quando dois elementos da mesma captura falam do mesmo número, leia os dois
+> antes de apertar o obturador. Um deles costuma ser texto de modelo, e texto de
+> modelo não se ajusta junto com o campo.
+
+E **tire o foco antes do print**: preenchido pelo Playwright, o campo fica com
+anel vermelho e setas de spinner, que na arte leem como erro de validação. Um
+`blur()` e um `mouse.move` para um canto vazio resolvem.
 
 ### Menos pixels na captura, mais texto no slide
 
