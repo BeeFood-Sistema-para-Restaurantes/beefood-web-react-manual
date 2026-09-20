@@ -718,7 +718,9 @@ paga quando tem conteúdo do outro lado.
 
 1. **Capa** — o anúncio: o nome do recurso no título (ou no chapéu, se o molde
    escolhido não o comportar), o subtítulo dizendo o que ele faz, e a imagem
-   dentro de um aparelho.
+   dentro de um aparelho — ou no recorte, quando a prova da capa é para ser
+   lida. Ela leva a prova mais forte da peça, o que às vezes só se descobre na
+   folha de contato.
 2. **A introdução** — explique o recurso que a capa nomeou: o que se marca,
    sobre o que a conta incide, onde o cliente vê. Duas ou três frases, e acabou.
    Aqui, sim, cabe a cena do release que a capa não podia carregar. Não é o
