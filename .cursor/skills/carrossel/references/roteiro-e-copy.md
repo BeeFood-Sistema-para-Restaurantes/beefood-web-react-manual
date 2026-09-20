@@ -405,6 +405,22 @@ Os três pecados são o mesmo: metáfora ("preço", "o que mais entra") no lugar
 palavra que o recurso usa ("desconto", "acréscimo", "ajuste"). Quando existir
 uma palavra concreta para a coisa, ela ganha da imagem poética — **sempre**.
 
+### O nome vai inteiro, e o canal faz parte do nome
+
+"As **Campanhas Inteligentes** já estão trabalhando" tem nome próprio no título
+e passa nas duas perguntas do teste da capa. Voltou assim mesmo: *"faltou
+clareza, são campanhas inteligentes no whatsapp"*.
+
+O que faltava é **onde**. "Campanhas Inteligentes" não diz o meio — podia ser
+e-mail, push, SMS, cartaz na porta —, e o meio é o que explica por que a
+mensagem chega e por que ela é lida. O release chama a coisa de "Campanhas
+Inteligentes no WhatsApp"; o "no WhatsApp" é eixo, e concisão corta palavra,
+nunca eixo. Deixar o canal para o subtítulo não resolve: subtítulo se lê depois,
+e quem passa o dedo leu só a primeira linha.
+
+> Leia só o título e pergunte: **onde isso acontece?** Recurso que roda num
+> canal só e não nomeia o canal deixa a pergunta em pé.
+
 ## O alvo de cada slide: a utilidade
 
 Leia isto antes de escrever a primeira palavra. Tudo o que vem depois neste
@@ -503,6 +519,34 @@ redação, é a **string da interface** do cardápio, que aparece doze vezes na
 página. Sem declarar quem fala, quem fala é o sistema — ele é o que está na tela
 enquanto a gente escreve.
 
+### "O cliente" é quem lê — o comprador dele precisa de outro nome
+
+"Quem marca a hora de falar é **o cliente**" quer dizer que o disparo é o
+comportamento de quem compra, e não a agenda do dono. O que ela diz é outra
+coisa, e o retorno foi imediato: *"mas quem tá lendo já é o cliente"*.
+
+Nas peças em que o recurso fala com o consumidor final — campanha, cardápio,
+tradução, totem —, a palavra **cliente tem dois donos**: quem lê é cliente da
+BeeFood, e quem larga a sacola é cliente dele. Solta, com artigo definido, ela
+cai no leitor.
+
+Duas saídas, e a segunda é melhor:
+
+| Ambíguo | Com dono | Nomeado pela ação |
+|---|---|---|
+| "o cliente escolhe a hora" | "seu cliente escolhe a hora" | "quem largou a sacola" |
+| "avisa o cliente que sumiu" | "avisa o seu cliente que sumiu" | "quem não pede há trinta dias" |
+
+A ação ganha porque paga duas dívidas com a mesma palavra: sai a ambiguidade e
+entra prova — "quem recebeu o cardápio e não pediu" é, palavra por palavra, o
+nome do cartão na tela. E ela tem limite: nomear pela ação é dizer o que a
+pessoa **fez no sistema**, não narrar a pessoa. "Quem está com o dedo no
+carrinho" é a vala do cinema outra vez.
+
+> Procure "o cliente", "os clientes" e "do cliente" antes de renderizar. Em cada
+> aparição, responda: **cliente de quem?** Se a resposta é "do leitor", falta o
+> possessivo ou falta a ação.
+
 ## A regra do primeiro segundo
 
 ### Em peça de novidade, a capa ANUNCIA — e anunciar tem duas obrigações
@@ -590,6 +634,29 @@ Uma resposta só não basta — foram capas que respondiam a segunda e não a
 primeira que motivaram esta seção. E leia em voz alta: se soa como changelog
 ("Novo campo X na tela Y"), reescreva; se soa como enigma, também.
 
+#### E tem uma terceira pergunta, que só a folha de contato responde
+
+As duas acima se fazem no texto. Esta se faz com a peça inteira renderizada:
+
+> **Se você só pudesse publicar um slide, qual seria?**
+
+Se não for o 1, a capa está entregando o segundo melhor. É o que aconteceu nas
+Campanhas Inteligentes: *"slide 3 é o mais legal, deveria ser o 1"* — e era, os
+seis cartões com nome, gatilho e estado são a única imagem que dá o tamanho do
+recurso de uma vez.
+
+A causa é de ordem de trabalho, não de gosto: **a capa se escreve no roteiro,
+antes de existir uma captura para comparar.** Ela é a melhor ideia que se tinha
+no começo, e a melhor prova aparece depois.
+
+Promover não é trocar dois arquivos de lugar. A capa tem obrigações que o slide
+do meio não tem — nome do recurso, subtítulo que explica, pílula, nenhum bloco
+de corpo —, então o que sobe é **a prova**: a imagem forte vai para a capa e o
+texto dela se reescreve em volta. O slide que ficou sem prova quase nunca tem
+assunto próprio para continuar, e sai. Peça de seis slides com o mais forte na
+frente vale mais que sete com o mais forte no meio; é para isso que o intervalo
+vai de 6 a 8.
+
 ### E a capa leva uma imagem, dentro de um aparelho
 
 Capa só de texto perde para capa com imagem, e a imagem certa é o resultado da
@@ -604,6 +671,14 @@ que a novidade pede não existe lá, desenhe e **suba para a skill**.
 
 O resto do carrossel é o contrário: o slide que precisa ser lido usa `.recorte`,
 sem aparelho — ver *aparelho ou recorte: quem decide é o que precisa ser lido*.
+
+**E a capa entra nessa conta quando a imagem dela é prova de leitura.** O
+aparelho ganha da legibilidade porque, em geral, a capa quer reconhecimento: a
+tela dentro do notebook diz "isso é no computador" e ninguém precisa ler os
+cartões. Quando a prova promovida para a capa é o texto que está nela — o nome
+de cada campanha, o rótulo de cada gatilho —, a premissa se inverte, e o
+aparelho passa a ser exatamente o que come a largura de que esses nomes
+precisam. Aí a capa fica com o recorte, como o slide interno.
 
 **É a frase mais curta do carrossel.** "Cansou de bebida esquecida na sacola?"
 tem seis palavras e está correta; "Cansou de esquecer a bebida?" tem cinco, diz o

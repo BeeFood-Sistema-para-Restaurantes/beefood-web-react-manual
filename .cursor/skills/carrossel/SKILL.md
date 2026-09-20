@@ -708,6 +708,12 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
 
 1. Abra a folha de contato: o conjunto tem ritmo, ou três slides de texto seguidos?
    A capa tem imagem?
+1a. E, com tudo renderizado, **se você só pudesse publicar um slide, qual
+   seria?** Se não for o 1, a capa está entregando o segundo melhor: a prova
+   forte sobe, o texto da capa se reescreve em volta dela, e o slide que ficou
+   sem prova costuma sair — peça de seis com o mais forte na frente vale mais
+   que sete com ele no meio. Se a imagem promovida é prova de **leitura**, a
+   capa perde o aparelho e fica com o recorte.
 2. Abra em **tamanho real** os slides com print. Miniatura esconde texto ilegível
    e esconde realce fora de lugar — os dois erros mais comuns.
 3. Confira que o mockup em sangria não cobriu nenhuma linha de texto nem os
@@ -728,6 +734,9 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
    cena ("O entregador chega e vê sozinho se o pedido já saiu"): as duas são
    boas frases e nenhuma nomeia. Em peça de **função** a pílula é o tema e já
    nomeia; em **novidade** ela diz "Novidade", então o nome só tem o título.
+   O nome vai **inteiro**: se o release o batiza com um canal ("Campanhas
+   Inteligentes **no WhatsApp**"), o canal é eixo e não sai por concisão —
+   pergunte ao título *onde isso acontece?*.
    E o slide 2 **explica** esse recurso, em vez
    de contar história — a cena do release cabe ali, em uma frase.
 7. Alguma imagem da arte veio de `manuais/`? Sai: print de manual é referência,
@@ -744,6 +753,11 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
 8. Alguma frase explica enfeite de tela ("a bolinha verde marca…")? Algum
    diminutivo? Algum "ele" que não é o leitor nem o cliente dele? Os três saem
    — e o que fica no lugar é a consequência para o negócio.
+8a. Procure **"o cliente"** na copy e responda, em cada aparição: *cliente de
+   quem?* Quem lê é cliente da BeeFood, então "o cliente" sozinho é o leitor.
+   Quando a frase fala de quem compra dele, ou entra o possessivo ("seu
+   cliente") ou — melhor — a pessoa é nomeada pela ação: "quem largou a
+   sacola", "quem tem cashback parado", que é como o cartão da tela se chama.
 9. Algum slide alivia um trabalho ("não precisa traduzir tudo hoje", "aos
    poucos")? Sai: é aviso de limite, e ele planta a objeção justo antes do CTA.
    E o slide do problema — normalmente o 2 — elogia o leitor antes de mostrar o
@@ -868,6 +882,26 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   release vai para o slide 2, que é onde há espaço para contá-la. Teste, com
   **duas** perguntas: quem leu só a capa sabe dizer **o nome** do que chegou, e
   **o que aquilo faz**?
+- **O nome do recurso vai inteiro, e o canal faz parte dele.** "As Campanhas
+  Inteligentes já estão trabalhando" tem nome próprio, passa nas duas perguntas
+  e voltou: falta **onde**. Se o release batiza o recurso com o canal ("no
+  WhatsApp", "na impressão", "no Tablet"), o canal é eixo, e concisão corta
+  palavra, nunca eixo — o subtítulo não cobre isso, porque se lê depois.
+  Terceira pergunta do teste: **onde isso acontece?**
+- **A capa leva o melhor slide da peça, e isso se decide na folha de contato.**
+  A capa se escreve no roteiro, antes de existir captura; a melhor prova
+  aparece depois. Com tudo renderizado, pergunte *se eu só pudesse publicar um
+  slide, qual seria?* — se não for o 1, o que sobe é a **prova**, e o texto da
+  capa se reescreve em volta dela. O slide que ficou sem prova normalmente sai,
+  e encurtar a peça é ganho. Quando a imagem promovida é prova de **leitura**
+  (o nome de cada campanha, o rótulo de cada gatilho), a capa perde o aparelho
+  e fica com o recorte: ali o mockup é justamente o que come a largura.
+- **"O cliente" é quem lê.** Quem abre o post é cliente da BeeFood, então "o
+  cliente" sozinho aponta para ele — "quem marca a hora de falar é o cliente"
+  voltou por isso. Para falar de quem compra dele, use o possessivo ("seu
+  cliente") ou, melhor, nomeie pela ação: "quem largou a sacola", "quem tem
+  cashback parado", que é como o cartão da tela se chama. Nomear pela ação é
+  dizer o que a pessoa fez no sistema; narrar a pessoa é a vala do cinema.
 - **O slide 2 explica o recurso que a capa nomeou** — o que se marca, sobre o que
   a conta incide, onde o cliente vê. Não é história ("você já faz isso no
   balcão") e não é manual: caminho de menu só no CTA.
@@ -1043,6 +1077,9 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   frase é dirigida a ele. Mas corrigir isso narrando o cliente em close é a vala
   do lado oposto: "seu cliente rola o dedo e acha o combo" tem o dono na frase e
   soa igualmente estranho.
+- **Escrever "o cliente" quando o cliente é o leitor.** Sem possessivo, a
+  palavra volta para quem está lendo o post. Ou "seu cliente", ou o nome da
+  ação ("quem largou a sacola").
 - **Entregar permissão em vez de ideia.** "Você pode ___" avisa que o recurso
   existe; o slide precisa dizer o que vale a pena fazer com ele.
 - **Batizar o chapéu com o nome do campo.** "Destaques da capa", "Aba nova:

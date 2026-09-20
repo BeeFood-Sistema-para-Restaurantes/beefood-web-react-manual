@@ -5,7 +5,16 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-20 (32ª rodada: as Campanhas Inteligentes trouxeram
+Última atualização: 2026-09-20 (33ª rodada: três retornos na mesma peça, e os
+três são de mentalidade. **"O cliente" é quem lê** — a palavra tem dois donos
+quando o recurso fala com o consumidor final, e a saída é nomear pela ação
+("quem largou a sacola"), ver *o oitavo vício*. **A capa é o melhor slide que
+você tem**, e isso só se sabe na folha de contato: o slide 3 era a peça mais
+forte, subiu para capa, e o carrossel caiu de sete para seis — ver *a capa é o
+melhor slide*. E **o nome do recurso inclui o canal**: "Campanhas Inteligentes"
+sem "no WhatsApp" deixa em pé a pergunta *onde isso acontece?*).
+
+32ª rodada: as Campanhas Inteligentes trouxeram
 de volta o problema da 30ª — tela verdadeira que vende o contrário — e a
 resposta de lá **não servia**. Relógio e situação se reescrevem porque o tempo
 parado os estragou; receita e pedidos, não, porque são o que o produto ainda
@@ -513,6 +522,99 @@ escreveu "Chegou o `<nome>`" como **o** molde da novidade, e voltou —
 guardar como forma de errar, porque é a terceira vez: ao consertar um vício, a
 mão transforma o conserto em molde único e cria o vício seguinte. **Anunciar é
 o resultado exigido; "Chegou o" é só uma das formas de chegar nele.**
+
+### O oitavo vício: "o cliente" é quem lê, e o comprador dele ficou sem nome
+
+A 33ª rodada devolveu o slide 2 das Campanhas Inteligentes em uma linha:
+*"'quem marca a hora de falar é o cliente'. Mas quem tá lendo já é o cliente."*
+
+O conteúdo do título estava certo — o disparo é o comportamento de quem compra,
+não a agenda do dono — e o vocabulário, errado, porque **nesta peça a palavra
+"cliente" tem dois donos**: quem lê é cliente da BeeFood, e quem larga a sacola
+é cliente dele. Com artigo definido e sem posse, ela cai no leitor: ele lê "o
+cliente" e se reconhece, e a frase passa a dizer o contrário do que queria.
+
+Não é problema de toda peça. Acontece quando o recurso fala com o consumidor
+final — campanha, cardápio, tradução, totem —, e é justamente aí que a palavra
+mais aparece.
+
+*O conserto tem duas saídas, e a segunda é melhor:*
+
+1. **o possessivo.** "Seu cliente" devolve o dono da palavra e desfaz a
+   ambiguidade em uma sílaba. O terceiro vício já pedia isso por outro motivo
+   (fugir do "ele" solto), e continua valendo;
+2. **nomear pela ação.** "Quem largou a sacola", "quem recebeu o cardápio e não
+   pediu", "quem tem cashback parado" — que é, palavra por palavra, como os
+   cartões da tela se chamam.
+
+A segunda ganha porque paga duas dívidas com a mesma palavra: sai a confusão e
+entra prova. E o limite dela é conhecido: nomear pela ação é dizer o que a
+pessoa **fez no sistema**, não narrar a pessoa — "quem está com o dedo no
+carrinho" é a vala do cinema de novo.
+
+> Antes de renderizar, procure "o cliente", "os clientes" e "do cliente" na
+> copy. Cada aparição responde a uma pergunta: **cliente de quem?** Se a
+> resposta é "do leitor", falta o possessivo ou falta a ação.
+
+### A capa é o melhor slide que você tem, e isso se sabe depois de montar
+
+A mesma rodada devolveu: *"slide 3 é o mais legal, deveria ser o 1"*.
+
+O slide 3 mostrava as seis campanhas com nome, gatilho e estado — a única imagem
+da peça que dá o tamanho do recurso de uma vez. A capa mostrava a mesma tela
+inteira dentro de um `.notebook`, onde o nome de cada campanha tem 9 px. As duas
+decisões foram tomadas no roteiro, **antes de qualquer captura existir**, e é aí
+que está a causa: a capa se escreve quando ainda não há com o que comparar. Ela
+é a melhor frase que se tinha no começo, não o melhor slide da peça pronta.
+
+*O que ficou:* a revisão ganhou uma pergunta, e ela se faz na folha de contato,
+com tudo renderizado:
+
+> **Se você só pudesse publicar um slide, qual seria?** Se não for o 1, a capa
+> está entregando o segundo melhor.
+
+Promover não é trocar dois arquivos de lugar. A capa tem obrigações que o slide
+do meio não tem (nome do recurso, subtítulo que explica, pílula, sem corpo de
+texto), então o que se move é **a prova**: a imagem forte sobe e o texto da capa
+se reescreve em volta dela. O slide que ficou sem prova costuma não ter mais
+assunto próprio — aqui ele saiu, e a peça caiu de sete para seis slides.
+
+**Encurtar foi ganho.** Seis slides com o mais forte na frente valem mais que
+sete com o mais forte no meio, e o intervalo de 6 a 8 existe para isso.
+
+#### E a capa pode perder o aparelho, quando o que ela mostra precisa ser lido
+
+A regra da capa é aparelho em sangria: o mockup diz **onde aquilo vive**, e isso
+vale mais que legibilidade porque na capa o leitor reconhece a cena em vez de
+ler. A promoção do slide 3 inverte a premissa — a prova promovida é prova de
+**leitura**, o valor dela está nos nomes das campanhas, e o aparelho é o que
+come a largura de que esses nomes precisam.
+
+Então o aparelho saiu e a capa ficou com os recortes, do mesmo jeito que o slide
+interno faz. Não é regra nova: é *moldura de aparelho ou recorte* chegando à
+capa. O padrão continua sendo o mockup; a exceção é a capa cuja imagem só
+funciona se for lida.
+
+#### O nome do recurso inclui o canal, quando é o canal que situa
+
+O terceiro retorno foi na capa: *"faltou clareza, são campanhas inteligentes no
+whatsapp"*. Ela dizia *"As Campanhas Inteligentes já estão trabalhando"* — nome
+próprio no título, as duas perguntas do teste respondidas, e ainda faltava.
+
+Faltava **onde**. "Campanhas Inteligentes" é um nome que não diz o meio: podia
+ser e-mail, push, SMS, cartaz na porta. O release chama a coisa de "Campanhas
+Inteligentes no WhatsApp", e o "no WhatsApp" não é enfeite do título — é o que
+explica por que a mensagem chega e por que ela é lida. O subtítulo dizia o
+canal, e não bastou: subtítulo se lê depois, e quem passa o dedo leu só a
+primeira linha.
+
+> Ao levar o nome do release para a capa, **leve inteiro**. Se o nome tem um "no
+> `<lugar>`", o lugar é eixo — e cortar eixo por concisão é o mesmo erro de
+> cortar um "ou" (ver *concisão corta palavra, nunca eixo*).
+
+O teste é a pergunta inversa: leia só o título e pergunte **onde isso
+acontece?**. Recurso que roda num canal só e não nomeia o canal deixa a pergunta
+em pé.
 
 ### O segundo gênero: função do sistema
 
