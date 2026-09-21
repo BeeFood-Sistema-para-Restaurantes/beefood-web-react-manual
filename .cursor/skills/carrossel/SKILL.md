@@ -219,9 +219,52 @@ Método completo em [`references/roteiro-e-copy.md`](references/roteiro-e-copy.m
 Roteiro aprovado primeiro; captura depois. Print tirado antes do roteiro quase
 sempre é print que não entra.
 
-### 3. Capturas
+### 3. Imagens
 
-Primeiro decida **onde a tela mora** — é isso que define se existe captura:
+**A primeira pergunta não é de onde vem a imagem. É se ela mostra o resultado ou
+o painel de controle.**
+
+Durante nove peças esta seção começava por *onde a tela mora*, e ordenava a
+imagem por facilidade de captura — desenho no último degrau, como pobreza. O
+efeito foi o que o dono nomeou na décima: *"nossos carrosséis ficam só com imagem
+de configuração de campos e printscreen das telas"*. A causa está na ordem, não
+no descuido de quem executou: quando captura é o degrau mais alto, ganha a tela
+que se captura mais fácil — e a mais fácil é sempre o formulário, que abre com um
+clique, não precisa de cena montada e fica pronto sem dado nenhum dentro.
+
+**Tela de configuração não é imagem de carrossel.** Campo, formulário,
+interruptor, janela de ajuste, modal de regras, lista de parâmetros com um
+marcado: tudo isso mostra **onde se mexe**, e carrossel não ensina a mexer —
+carrossel mostra **o que passa a acontecer**. Quem precisa do campo abre o
+manual, onde aquele print já está, com seta e número.
+
+A ordem é esta, e substitui a antiga:
+
+| Degrau | O que é | Quando |
+|---|---|---|
+| 1 | **tela de resultado, capturada** | a tela mostra o recurso funcionando: o mapa com as rotas correndo, o cardápio montado, o cupom impresso, o painel operando |
+| 2 | **tela de resultado, desenhada pela peça** | o resultado existe e a captura não o alcança: aparelho que não roda aqui, cenário que o sandbox não tem, ou resultado espalhado por três telas |
+| — | **tela de configuração** | **nunca** — nem capturada, nem desenhada |
+
+O degrau 2 não é o porão. É onde a peça **constrói** a prova que a tela solta não
+dá, e as imagens mais fortes das nove primeiras peças saíram dele: o cupom
+térmico, as três marcas da dark kitchen, a rota dentro do app do entregador.
+
+**Quando o fato é uma regra de configuração, a arte é o efeito da regra.** O
+despacho automático tem sete campos numa janela; o slide não mostra os sete
+campos, mostra a rota nascendo — *pedidos sem rota* → *Rota A · sem entregador ·
+Montando* → *Rota A · Diego Souza · Pronta para sair*. As duas etapas estão no
+manual, então o desenho não inventa produto: ele troca o painel de controle pelo
+que o painel de controle produz.
+
+**O teste, slide por slide: tampe a copy e olhe só a imagem — acontece alguma
+coisa ali?** Se o que aparece é um campo com número dentro, um interruptor verde
+ou uma lista de opções com um tique, a imagem é de manual e o slide está sem
+prova. Isso vale também para a revisão da folha de contato (passo 6): imagem de
+configuração é motivo de refazer, no mesmo nível de texto ilegível.
+
+Decidido que a imagem é de resultado, **aí** vem onde a tela mora — é isso que
+define se existe captura:
 
 | Tela | O que fazer |
 |------|-------------|
@@ -229,19 +272,19 @@ Primeiro decida **onde a tela mora** — é isso que define se existe captura:
 | cardápio digital público | `capturar.py --url <link> --publico --dispositivo celular` |
 | cardápio digital com mídia nossa dentro | `capturar-cardapio.py --conteudo midias.json` (banner, vídeo e cartaz de aviso entregues na resposta da API) |
 | Totem de Autoatendimento | é **web**. `capturar-totem.py` faz o caminho da tradução; para outro caminho, escreva o roteiro em `carrosseis/<slug>/capturar-telas.py` — o aplicativo vai do cardápio ao pagamento, passando por cupom e cashback. **Não finalize pedido e não aplique cupom** (os dois são gravação no servidor da loja) |
-| app Android (Garçom, Entregador, Tablet) | não roda no Cloud Agent: **peça o print ao dono** (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) e, enquanto ele não vem, desenhe a tela em CSS copiando o print de produção (passo 4) |
+| app Android (Garçom, Entregador, Tablet) | não roda no Cloud Agent: **peça o print ao dono** (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) e, enquanto ele não vem, desenhe a tela em CSS copiando layout e paleta do print de produção (passo 4) |
+| regra de configuração (despacho automático, avisos, formas de pagamento) | a janela de campos **não** entra: desenhe o **efeito** da regra, com os rótulos que o sistema usa nos dois lados dela |
 | cupom impresso | `ganchar_cupom` + `salvar_cupom`: o cupom nasce num iframe que vai para a impressora, então não dá para fotografar a tela |
-| coisa que não é tela (impressora, balança) | print do manual, se existir; senão desenho em CSS |
+| coisa que não é tela (impressora, balança) | desenho em CSS, copiando o aparelho do print de produção |
 | cenário que a conta de teste não tem (segunda marca, pedido de marketplace chegando) | **desenhe a tela**: `carrosseis/<slug>/telas/*.html` + `desenhar-telas.py` |
 
 **Antes de desenhar, ande no aplicativo.** A pergunta não é "existe captura
-desta tela?", é "até onde esse aplicativo me deixa ir clicando?" — o script que
-já existe costuma parar bem antes do fim. Desenho é o terceiro degrau, e a peça
-do totem provou que dá para fazer uma peça de função inteira no segundo.
+desta tela?", é "até onde esse aplicativo me deixa ir clicando até chegar no
+resultado?" — o script que já existe costuma parar bem antes do fim, e a peça do
+totem provou que dá para levar uma peça inteira até o fim clicando.
 
-**Cenário que o sandbox não tem: desenhe a tela.** É o terceiro degrau da
-ancoragem — *manual > tela capturada > tela desenhada* — e ele apareceu inteiro
-na peça de dark kitchen: o sandbox é uma loja, e o assunto eram três marcas.
+**Cenário que o sandbox não tem: desenhe a tela.** Apareceu inteiro na peça de
+dark kitchen: o sandbox é uma loja, e o assunto eram três marcas.
 O fragmento fica em `carrosseis/<slug>/telas/`, declara a medida no elemento raiz
 (`<div class="tela" data-medida="1080x480">`) e sai em `imagens-puras/` pelo
 `desenhar-telas.py`, com `assets/telas/painel.css` — o cinza de página, o cartão
@@ -409,11 +452,16 @@ não se fotografa.
 **O print do manual é referência, não imagem do carrossel.** Ele existe para
 ensinar um caminho: traz a tela inteira, o estado que o manual precisava e o
 ruído do momento. Leia-o para saber quais campos existem, que valores são reais
-e qual tela prova o quê — e então **capture a sua**, com o exemplo do carrossel
+e qual tela prova o quê — e então **faça a sua**, com o exemplo do carrossel
 montado. A ordem de preferência é:
 
-> **captura feita para o carrossel > print de produção do manual > print pedido
-> ao dono > desenho em CSS.**
+> **captura de resultado feita para o carrossel > tela de resultado desenhada
+> pela peça > print de resultado pedido ao dono.**
+
+O print do manual não está na lista, e é de propósito: ele não é degrau nenhum da
+arte, nem recortado. Quando o único print que existe é de configuração — e no
+manual é o caso mais comum, porque manual ensina caminho —, ele serve para você
+saber o que a tela faz, e a imagem do slide sai desenhada mostrando o efeito.
 
 Duas coisas acontecem quando o carrossel se serve do print do manual, e as duas
 aconteceram na peça de *desconto por forma de pagamento*:
@@ -584,16 +632,19 @@ fora da arte.
 
 #### Quando a tela não existe: ilustrar
 
-Ordem de preferência: **captura real > print de produção que já está no
-repositório > print pedido ao dono > ilustração**.
+Ordem de preferência: **captura de resultado > desenho do resultado > print de
+resultado pedido ao dono**, e nenhum print de configuração em nenhum dos três
+(passo 3, em *a imagem do slide*).
 
-Os degraus 2 a 4 são para tela que **esta skill não consegue capturar** — app
-Android, impressora, balança. Tela que roda no navegador o carrossel captura
-sozinho, e aí o print do manual é referência, não imagem (acima, em *o print do
-manual é referência*).
+Desenhar é o degrau de quem **não consegue capturar o resultado** — app Android,
+impressora, balança, cenário que a conta de teste não tem, regra cujo efeito
+mora em três telas. Não é o degrau de quem não conseguiu capturar *a tela*: se a
+tela existe no navegador mas é um formulário, capturar não resolve nada, porque o
+problema não era o acesso, era o assunto da imagem.
 
-Para o que não se captura, o segundo degrau é o mais esquecido: o **manual da
-mesma novidade** costuma ter o print do aparelho, e ele pode estar só no `main`
+Quando o desenho é do aparelho, vale procurar o print de produção antes — não
+para recortar, para **copiar layout, paleta e hierarquia**. O **manual da mesma
+novidade** costuma ter o print do aparelho, e ele pode estar só no `main`
 (o Cloud Agent parte de um snapshot). Antes de concluir que não existe, rode
 `git fetch origin main` e
 `git ls-tree -r --name-only origin/main -- manuais/<slug>`.
@@ -641,6 +692,24 @@ interface em `rgba(30,30,30,…)`, faça a versão clara antes de usá-la ali.
 Cupom desenhado em `.cupom` é o caso mais tranquilo: bobina térmica em
 monoespaçada é claramente desenho, e é a única forma de mostrar o "antes", que
 não existe como captura.
+
+**Relatório desenhado: o número é exemplo, e a copy não o repete.** Relatório é
+onde o desenho compensa mais, porque o sandbox nunca tem volume para ele —
+média que pede vinte pedidos sai *Poucos pedidos*, e traço em toda parte é a
+prova de que a loja não usou o recurso, não de que ele funciona. O que o desenho
+precisa entregar é a **estrutura**, que está toda no manual: os cartões do topo,
+as etapas na ordem, as colunas da tabela, o gráfico por hora. Três regras seguram
+a honestidade:
+
+- **um jogo de números, e as somas fecham.** Se o cartão diz 128 entregas, a soma
+  da coluna por entregador dá 128; se o modo é KM, `86,3 km × R$ 1,50` tem de dar
+  o total da linha. É a primeira coisa que o lojista confere, e conta errada numa
+  imagem nossa desmente a peça inteira.
+- **a copy não cita o número.** O relatório responde *quanto é cozinha e quanto é
+  rua*; a divisão de uma loja é dela. Escrito na copy, o exemplo vira promessa de
+  resultado nosso.
+- **a legenda diz que o dado é de exemplo**, uma vez, no texto do post — não
+  carimbado na arte.
 
 ### 5. Render
 
@@ -741,6 +810,11 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
    sem prova costuma sair — peça de seis com o mais forte na frente vale mais
    que sete com ele no meio. Se a imagem promovida é prova de **leitura**, a
    capa perde o aparelho e fica com o recorte.
+1b. **Tampe a copy e passe só pelas imagens.** Em quantas acontece alguma coisa?
+   Imagem em que o que aparece é campo, interruptor ou lista de opções é tela de
+   configuração, e tela de configuração se refaz — é motivo de voltar ao passo 3,
+   no mesmo nível de texto ilegível. Peça inteira de configuração é o defeito que
+   o dono reclamou três vezes antes de a skill mudar a ordem.
 2. Abra em **tamanho real** os slides com print. Miniatura esconde texto ilegível
    e esconde realce fora de lugar — os dois erros mais comuns.
 3. Confira que o mockup em sangria não cobriu nenhuma linha de texto nem os
@@ -1093,6 +1167,11 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
 
 ## O que nunca fazer
 
+- **Pôr tela de configuração na arte.** Campo, formulário, interruptor, janela de
+  regras, lista de opções com um tique: mostra onde se mexe, e o slide precisa
+  mostrar o que acontece. Vale capturada e vale desenhada — o defeito é o assunto
+  da imagem, não a técnica. Quando o fato **é** a configuração, a arte é o efeito
+  dela (passo 3, em *a imagem do slide*).
 - **Carimbar "ILUSTRAÇÃO" na arte.** A pílula existiu e foi removida da skill: é
   a única palavra da peça que o leitor não esperava ler, e avisa que aquilo não
   é o produto justo no slide que devia vender.
@@ -1120,7 +1199,9 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   (ele é do produto) e pare aí.
 - **Servir-se do print do manual para a arte.** Ele vem com o estado e o ruído de
   que o manual precisava — cashback, cupom, a tela inteira — e com o exemplo do
-  manual, não o seu. Leia o print, capture a sua tela.
+  manual, não o seu. E como manual ensina caminho, o print que ele tem é quase
+  sempre de configuração. Leia o print para entender a tela; a imagem do slide
+  você captura ou desenha.
 - **Deixar o sandbox configurado do seu jeito.** Os manuais capturam no mesmo
   sandbox. Anote o que encontrou, capture, restaure.
 - **Publicar dado pessoal.** Este repositório é público; nome, telefone e e-mail

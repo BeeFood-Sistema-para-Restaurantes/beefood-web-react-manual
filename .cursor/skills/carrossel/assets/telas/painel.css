@@ -1,9 +1,11 @@
 /* Tela do sistema, desenhada.
  *
  * Injetado pelo desenhar-telas.py em todo fragmento de `carrosseis/<slug>/telas/`.
- * Serve ao terceiro degrau da ancoragem — manual > tela capturada > tela
- * desenhada — que existe para o cenário que o sandbox não tem (uma segunda
- * marca, um pedido de marketplace chegando).
+ * Serve ao segundo degrau da imagem — resultado capturado > resultado desenhado,
+ * e nunca tela de configuração —, que existe para o resultado que a captura não
+ * alcança: cenário que o sandbox não tem (uma segunda marca, um pedido de
+ * marketplace chegando), relatório sem volume para encher, e regra de
+ * configuração, cujo efeito é o que vira imagem no lugar da janela de campos.
  *
  * Ele NÃO é o `base.css`: ali mora o sistema visual do slide (título de 92 px,
  * margem de 88, fundo de marca). Aqui mora a aparência do **painel**: cinza de

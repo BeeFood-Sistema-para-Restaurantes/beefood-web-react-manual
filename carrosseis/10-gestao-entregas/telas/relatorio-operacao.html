@@ -1,0 +1,286 @@
+<!-- O relatório Operação de Entrega inteiro, desenhado, para entrar num notebook.
+
+     Por que desenhado, e não capturado: o sandbox não tem volume. A captura
+     que estava aqui antes mostrava dois cartões e uma barra de "87% na loja,
+     13% na rua" — que não é a leitura de uma operação, é o retrato de uma loja
+     de teste com quatro entregas. E as médias do relatório só saem com vinte
+     pedidos no período, então o que a captura tinha para mostrar era
+     "Poucos pedidos" e traço. Traço prova que a loja não usou o recurso, não
+     que o recurso funciona.
+
+     A ESTRUTURA é a do manual, na ordem em que ele a descreve
+     (manuais/relatorio-operacao-entrega/, seções 3 a 6): os seis indicadores
+     do topo, as quatro etapas de tempo na ordem em que acontecem, a divisão
+     entre loja e rua, os quatro cartões de prazo e o gráfico por hora do dia,
+     com as barras de pedidos e a linha de tempo médio, as 24 horas aparecendo
+     mesmo vazias. Os rótulos são os dele, palavra por palavra, porque rótulo
+     inventado é produto inventado.
+
+     Os NÚMEROS são de exemplo, e existe um jogo só — o mesmo do slide 8. As
+     somas fecham, que é a primeira coisa que um lojista confere:
+
+       128 entregas × R$ 8,00 de frete            = R$ 1.024,00 de taxas
+       118 pedidos com valor gravado × R$ 3,50    = R$   413,00 do entregador
+       R$ 9.478,40 de faturamento ÷ 128           = R$    74,05 de ticket
+       18 + 9 + 20 min das três etapas medidas    =        47 min de total
+       27 min na loja + 20 min na rua = 47 min    →     57% e 43%
+       100 no prazo + 23 atrasadas                =       123, que é 96% de 128
+       as 13 barras do gráfico somam                        128
+
+     A legenda do post diz, uma vez, que o dado é de exemplo. Na arte não vai
+     carimbo: a copy do slide 7 também não repete nenhum destes números, porque
+     a divisão entre cozinha e rua é a leitura de cada loja, não promessa nossa.
+
+     1440x900 é 16/10, que é a proporção exata do `.notebook__tela` — fora dela
+     o `object-fit: cover` comeria uma faixa do relatório. -->
+<div class="tela" data-medida="1440x900" style="background: #f4f5f9">
+
+  <!-- ------------------------------------------------------------ topo -->
+  <div style="flex: none; background: #fff; border-bottom: 1px solid var(--pn-borda);
+              padding: 14px 26px; display: flex; align-items: center; gap: 18px">
+    <div style="flex: 1">
+      <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.8px;
+                  color: var(--pn-fraco)">DESEMPENHO &middot; DELIVERY</div>
+      <div style="margin-top: 3px; font-size: 25px; font-weight: 900">Operação de Entrega</div>
+    </div>
+    <span style="display: inline-flex; align-items: center; gap: 8px;
+                 border: 1px solid var(--pn-borda); border-radius: 10px;
+                 padding: 9px 14px; font-size: 15px; font-weight: 800">
+      &#128197; Hoje
+    </span>
+    <span style="display: inline-flex; align-items: center; gap: 9px;
+                 font-size: 15px; font-weight: 700; color: var(--pn-suave)">
+      <span class="chave chave--on" style="transform: scale(.9)"></span>Comparativo
+    </span>
+    <span style="border: 1px solid var(--pn-borda); border-radius: 10px;
+                 padding: 9px 14px; font-size: 15px; font-weight: 800;
+                 color: var(--pn-suave)">Filtros</span>
+    <span style="border: 1px solid var(--pn-borda); border-radius: 10px;
+                 padding: 9px 14px; font-size: 15px; font-weight: 800;
+                 color: var(--pn-suave)">Dados</span>
+    <span style="background: var(--pn-verde); color: #fff; border-radius: 10px;
+                 padding: 10px 15px; font-size: 15px; font-weight: 800">Excel</span>
+  </div>
+
+  <div style="flex: 1; padding: 18px 26px 20px; display: flex;
+              flex-direction: column; gap: 16px">
+
+    <!-- ------------------------------------------------ os seis do topo -->
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 13px">
+
+      <div style="background: #fff; border: 1px solid var(--pn-borda);
+                  border-radius: 14px; padding: 14px 16px">
+        <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Entregas</div>
+        <div style="margin-top: 5px; font-size: 34px; font-weight: 900;
+                    letter-spacing: -1px">128</div>
+        <div style="margin-top: 3px; font-size: 12px; font-weight: 800;
+                    color: var(--pn-verde)">&#9650; 7,6% &middot; <span style="color: var(--pn-fraco)">antes 119</span></div>
+      </div>
+
+      <div style="background: #fff; border: 1px solid var(--pn-borda);
+                  border-radius: 14px; padding: 14px 16px">
+        <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Taxas de entrega</div>
+        <div style="margin-top: 5px; font-size: 27px; font-weight: 900;
+                    letter-spacing: -0.6px">R$ 1.024,00</div>
+        <div style="margin-top: 3px; font-size: 12px; font-weight: 800;
+                    color: var(--pn-verde)">&#9650; 7,6% &middot; <span style="color: var(--pn-fraco)">antes R$ 952,00</span></div>
+      </div>
+
+      <div style="background: #fff; border: 1px solid var(--pn-borda);
+                  border-radius: 14px; padding: 14px 16px">
+        <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Taxas do entregador</div>
+        <div style="margin-top: 5px; font-size: 27px; font-weight: 900;
+                    letter-spacing: -0.6px">R$ 413,00</div>
+        <div style="margin-top: 3px; font-size: 12px; font-weight: 700;
+                    color: var(--pn-fraco)">118 pedidos com valor gravado</div>
+      </div>
+
+      <div style="background: #fff; border: 1px solid var(--pn-borda);
+                  border-radius: 14px; padding: 14px 16px">
+        <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Faturamento</div>
+        <div style="margin-top: 5px; font-size: 27px; font-weight: 900;
+                    letter-spacing: -0.6px">R$ 9.478,40</div>
+        <div style="margin-top: 3px; font-size: 12px; font-weight: 800;
+                    color: var(--pn-verde)">&#9650; 7,6% &middot; <span style="color: var(--pn-fraco)">antes R$ 8.806,10</span></div>
+      </div>
+
+      <div style="background: #fff; border: 1px solid var(--pn-borda);
+                  border-radius: 14px; padding: 14px 16px">
+        <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Ticket médio</div>
+        <div style="margin-top: 5px; font-size: 27px; font-weight: 900;
+                    letter-spacing: -0.6px">R$ 74,05</div>
+        <div style="margin-top: 3px; font-size: 12px; font-weight: 700;
+                    color: var(--pn-fraco)">antes R$ 74,00</div>
+      </div>
+
+      <div style="background: #fff; border: 1px solid var(--pn-borda);
+                  border-radius: 14px; padding: 14px 16px">
+        <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Duração média</div>
+        <div style="margin-top: 5px; font-size: 34px; font-weight: 900;
+                    letter-spacing: -1px">47 <span style="font-size: 18px">min</span></div>
+        <div style="margin-top: 3px; font-size: 12px; font-weight: 800;
+                    color: var(--pn-verde)">&#9660; 4 min &middot; <span style="color: var(--pn-fraco)">antes 51 min</span></div>
+      </div>
+    </div>
+
+    <!-- ------------------------------------------- as quatro etapas -->
+    <div>
+      <div style="display: flex; align-items: baseline; gap: 12px;
+                  margin-bottom: 9px">
+        <span style="font-size: 18px; font-weight: 900">Métricas de tempo</span>
+        <span style="font-size: 13px; font-weight: 700; color: var(--pn-fraco)">
+          Com base em 96% dos pedidos &middot; 2 entregas acima de 4 h ficaram fora
+        </span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px">
+        <div style="background: #fff; border: 1px solid var(--pn-borda);
+                    border-radius: 14px; padding: 13px 16px">
+          <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Confirmação até pronto &#9432;</div>
+          <div style="margin-top: 4px; font-size: 30px; font-weight: 900">18 <span style="font-size: 16px">min</span></div>
+        </div>
+        <div style="background: #fff; border: 1px solid var(--pn-borda);
+                    border-radius: 14px; padding: 13px 16px">
+          <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Pronto até sair &#9432;</div>
+          <div style="margin-top: 4px; font-size: 30px; font-weight: 900">9 <span style="font-size: 16px">min</span></div>
+        </div>
+        <div style="background: #fff; border: 1px solid var(--pn-borda);
+                    border-radius: 14px; padding: 13px 16px">
+          <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Saída até entrega &#9432;</div>
+          <div style="margin-top: 4px; font-size: 30px; font-weight: 900">20 <span style="font-size: 16px">min</span></div>
+        </div>
+        <div style="background: #fff; border: 2px solid var(--pn-vermelho);
+                    border-radius: 14px; padding: 12px 15px">
+          <div style="font-size: 13px; font-weight: 800; color: var(--pn-vermelho)">Pedido até entrega &#9432;</div>
+          <div style="margin-top: 4px; font-size: 30px; font-weight: 900">47 <span style="font-size: 16px">min</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- --------------------------------- onde o tempo é investido -->
+    <div style="background: #fff; border: 1px solid var(--pn-borda);
+                border-radius: 14px; padding: 14px 18px">
+      <div style="display: flex; align-items: baseline; justify-content: space-between">
+        <span style="font-size: 17px; font-weight: 900">Onde o tempo é investido</span>
+        <span style="font-size: 14px; font-weight: 800; color: var(--pn-suave)">
+          <span style="color: var(--pn-roxo)">&#9679;</span> Na loja 27 min
+          &nbsp;&nbsp;<span style="color: var(--pn-verde)">&#9679;</span> Na rua 20 min
+        </span>
+      </div>
+      <div style="margin-top: 11px; display: flex; height: 30px;
+                  border-radius: 8px; overflow: hidden; font-size: 14px;
+                  font-weight: 900; color: #fff">
+        <div style="width: 57%; background: var(--pn-roxo); display: flex;
+                    align-items: center; padding-left: 13px">57% na loja</div>
+        <div style="width: 43%; background: var(--pn-verde); display: flex;
+                    align-items: center; padding-left: 13px">43% na rua</div>
+      </div>
+    </div>
+
+    <!-- ----------------------------------- análise dos prazos -->
+    <div>
+      <div style="display: flex; align-items: baseline; gap: 12px;
+                  margin-bottom: 9px">
+        <span style="font-size: 18px; font-weight: 900">Análise dos prazos de entrega</span>
+        <span style="font-size: 13px; font-weight: 700; color: var(--pn-fraco)">
+          123 de 128 entregas tinham prazo prometido pelo canal
+        </span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px">
+        <div style="background: #fff; border: 1px solid var(--pn-borda);
+                    border-radius: 14px; padding: 12px 16px">
+          <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Entregas no prazo</div>
+          <div style="margin-top: 3px; font-size: 26px; font-weight: 900;
+                      color: var(--pn-verde)">100 <span style="font-size: 15px">&middot; 81%</span></div>
+        </div>
+        <div style="background: #fff; border: 1px solid var(--pn-borda);
+                    border-radius: 14px; padding: 12px 16px">
+          <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Entregas atrasadas</div>
+          <div style="margin-top: 3px; font-size: 26px; font-weight: 900;
+                      color: var(--pn-vermelho)">23 <span style="font-size: 15px">&middot; 19%</span></div>
+        </div>
+        <div style="background: #fff; border: 1px solid var(--pn-borda);
+                    border-radius: 14px; padding: 12px 16px">
+          <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Atraso médio</div>
+          <div style="margin-top: 3px; font-size: 26px; font-weight: 900">12 <span style="font-size: 15px">min</span></div>
+        </div>
+        <div style="background: #fff; border: 1px solid var(--pn-borda);
+                    border-radius: 14px; padding: 12px 16px">
+          <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Maior atraso</div>
+          <div style="margin-top: 3px; font-size: 26px; font-weight: 900">34 <span style="font-size: 15px">min</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- --------------------------------------- por hora do dia -->
+    <div style="background: #fff; border: 1px solid var(--pn-borda);
+                border-radius: 14px; padding: 14px 18px 10px; flex: 1;
+                display: flex; flex-direction: column">
+      <div style="display: flex; align-items: baseline; justify-content: space-between">
+        <span style="font-size: 17px; font-weight: 900">Entregas por hora do dia</span>
+        <span style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">
+          <span style="color: var(--pn-azul)">&#9644;</span> Entregas
+          &nbsp;&nbsp;<span style="color: var(--pn-vermelho)">&#9472;</span> Tempo médio
+        </span>
+      </div>
+
+      <!-- A área do gráfico: as barras em CSS, a linha do tempo médio num SVG
+           esticado por cima. O SVG usa passo de 100 no viewBox e
+           `preserveAspectRatio: none`, então a conta da linha não depende da
+           largura final. -->
+      <div style="position: relative; flex: 1; margin-top: 10px">
+        <div style="position: absolute; inset: 0; display: flex;
+                    align-items: stretch; gap: 0">
+          <!-- 0h às 10h: as horas vazias aparecem, porque é a comparação entre
+               elas que mostra o pico -->
+          <span style="flex: 1"></span><span style="flex: 1"></span>
+          <span style="flex: 1"></span><span style="flex: 1"></span>
+          <span style="flex: 1"></span><span style="flex: 1"></span>
+          <span style="flex: 1"></span><span style="flex: 1"></span>
+          <span style="flex: 1"></span><span style="flex: 1"></span>
+          <span style="flex: 1"></span>
+          <span style="flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center"><span style="width: 62%; height: 13.5%; background: var(--pn-azul); border-radius: 3px 3px 0 0"></span></span>
+          <span style="flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center"><span style="width: 62%; height: 47.3%; background: var(--pn-azul); border-radius: 3px 3px 0 0"></span></span>
+          <span style="flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center"><span style="width: 62%; height: 37.2%; background: var(--pn-azul); border-radius: 3px 3px 0 0"></span></span>
+          <span style="flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center"><span style="width: 62%; height: 16.9%; background: var(--pn-azul); border-radius: 3px 3px 0 0"></span></span>
+          <span style="flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center"><span style="width: 62%; height: 6.8%; background: var(--pn-azul); border-radius: 3px 3px 0 0"></span></span>
+          <span style="flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center"><span style="width: 62%; height: 3.3%; background: var(--pn-azul); border-radius: 3px 3px 0 0"></span></span>
+          <span style="flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center"><span style="width: 62%; height: 10.1%; background: var(--pn-azul); border-radius: 3px 3px 0 0"></span></span>
+          <span style="flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center"><span style="width: 62%; height: 30.4%; background: var(--pn-azul); border-radius: 3px 3px 0 0"></span></span>
+          <span style="flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center"><span style="width: 62%; height: 74.4%; background: var(--pn-azul); border-radius: 3px 3px 0 0"></span></span>
+          <span style="flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center"><span style="width: 62%; height: 88%; background: var(--pn-azul); border-radius: 3px 3px 0 0"></span></span>
+          <span style="flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center"><span style="width: 62%; height: 60.9%; background: var(--pn-azul); border-radius: 3px 3px 0 0"></span></span>
+          <span style="flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center"><span style="width: 62%; height: 33.9%; background: var(--pn-azul); border-radius: 3px 3px 0 0"></span></span>
+          <span style="flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center"><span style="width: 62%; height: 10.1%; background: var(--pn-azul); border-radius: 3px 3px 0 0"></span></span>
+        </div>
+
+        <svg viewBox="0 0 2400 150" preserveAspectRatio="none"
+             style="position: absolute; inset: 0; width: 100%; height: 100%">
+          <polyline fill="none" stroke="#ef4239" stroke-width="7"
+                    stroke-linejoin="round" stroke-linecap="round"
+                    vector-effect="non-scaling-stroke"
+                    points="1150,64.3 1250,55.7 1350,60.0 1450,68.6 1550,75.0
+                            1650,79.3 1750,72.9 1850,53.6 1950,25.7 2050,15.0
+                            2150,38.6 2250,55.7 2350,66.4"></polyline>
+        </svg>
+
+      </div>
+
+      <div style="flex: none; display: flex; margin-top: 6px; font-size: 11px;
+                  font-weight: 700; color: var(--pn-fraco); text-align: center">
+        <span style="flex: 1">0</span><span style="flex: 1">1</span>
+        <span style="flex: 1">2</span><span style="flex: 1">3</span>
+        <span style="flex: 1">4</span><span style="flex: 1">5</span>
+        <span style="flex: 1">6</span><span style="flex: 1">7</span>
+        <span style="flex: 1">8</span><span style="flex: 1">9</span>
+        <span style="flex: 1">10</span><span style="flex: 1">11</span>
+        <span style="flex: 1">12</span><span style="flex: 1">13</span>
+        <span style="flex: 1">14</span><span style="flex: 1">15</span>
+        <span style="flex: 1">16</span><span style="flex: 1">17</span>
+        <span style="flex: 1">18</span><span style="flex: 1">19</span>
+        <span style="flex: 1">20</span><span style="flex: 1">21</span>
+        <span style="flex: 1">22</span><span style="flex: 1">23</span>
+      </div>
+    </div>
+  </div>
+</div>

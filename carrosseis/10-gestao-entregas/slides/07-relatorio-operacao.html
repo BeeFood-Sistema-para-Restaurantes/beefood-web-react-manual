@@ -1,22 +1,29 @@
-<!-- Slide 7: o relatório Operação de Entrega.
+<!-- Slide 7: o relatório de operação da entrega.
 
-     O ângulo é a discussão que toda loja com delivery tem, e que quase sempre
-     começa errada: "o motoboy é devagar". O relatório quebra a entrega em
-     etapas e separa o tempo de dentro da loja do tempo de rua — e na loja de
-     exemplo a rua responde por 13%.
+     O ângulo é a discussão que toda loja tem e ninguém ganha: a cozinha diz
+     que o motoboy demora, o motoboy diz que o pedido nunca está pronto. O
+     relatório quebra a entrega em etapas e a discussão passa a ter número.
 
-     O recorte é onde o slide para de afirmar: as duas etapas medidas e a barra
-     "Onde o tempo é investido". A linha seguinte da tela é a ressalva de
-     amostra ("medido em 56 de 210 pedidos"), e ela enfraquece a própria barra
-     que sustenta — ver `roteiro.md`.
+     A IMAGEM FOI REFEITA, e é a mudança que o dono pediu: relatório inteiro,
+     num computador. Antes eram dois cartões recortados de uma captura do
+     sandbox, com "87% na loja, 13% na rua" — que é o retrato de uma loja de
+     teste com quatro entregas, não a leitura de uma operação. As médias deste
+     relatório só saem com vinte pedidos no período, então captura de sandbox
+     só tinha "Poucos pedidos" e traço para mostrar.
 
-     Os números são os da sandbox, de verdade. Por isso a copy não os repete:
-     eles são a leitura de uma loja, não uma promessa nossa.
+     Agora é telas/relatorio-operacao.html: a estrutura inteira do manual, na
+     ordem dele, com um jogo de números de exemplo que fecha nas somas. A
+     conferência da aritmética está no comentário do desenho.
 
-     O recorte é largo e baixo (1812 × 580), então ele sobra altura na faixa.
-     Um `.empurra` de cada lado da figura a centraliza no vão em vez de
-     deixá-la colada no texto com uma tarja morta em cima do rodapé. -->
+     A copy NÃO repete nenhum número da imagem, de propósito: quanto da entrega
+     é cozinha e quanto é rua é a leitura de cada loja. Escrito aqui, o exemplo
+     viraria promessa de resultado nosso. Que o dado é de exemplo está dito uma
+     vez, na legenda do post.
 
+     Notebook em vez de navegador: a moldura conta que aquilo é a mesa de
+     trabalho do dono, que é de onde se lê relatório. 1440x900 é a proporção
+     exata do `.notebook__tela`, então nada do relatório é comido pelo
+     `object-fit: cover`. -->
 <div class="slide slide--suave">
   <div class="topo">
     <span class="logo"></span>
@@ -30,18 +37,20 @@
       e quanto é rua
     </h2>
     <p class="corpo">
-      O relatório quebra a entrega em quatro etapas e separa o tempo de
-      dentro da loja do tempo de rua. A discussão sobre quem está segurando
-      a entrega passa a ter número.
+      Quatro etapas medidas uma por uma, o tempo de dentro da loja separado do
+      tempo de rua e o pico do dia hora por hora.
     </p>
   </div>
 
   <div class="empurra"></div>
 
-  <div class="figura" style="margin-top: 0; width: 1004px">
-    <div class="recorte">
-      <img src="../imagens-puras/relatorio-operacao.png"
-           alt="Relatório Operação de Entrega: os cartões Saída até entrega, com 5,3 min, e Pedido até entrega, com 22,6 min; abaixo, a barra Onde o tempo é investido, com 35,1 min na loja (87%) e 5,3 min na rua (13%)">
+  <div class="figura" style="margin: 0 0 48px; width: 952px">
+    <div class="notebook" style="width: 952px">
+      <div class="notebook__tela">
+        <img src="../imagens-puras/relatorio-operacao.png"
+             alt="Relatório Operação de Entrega aberto num notebook, com dados de exemplo: os seis indicadores do topo — entregas, taxas de entrega, taxas do entregador, faturamento, ticket médio e duração média —, as quatro etapas de tempo em cartões, a barra que divide o tempo entre loja e rua, os quatro cartões de prazo com entregas no prazo e atrasadas, e o gráfico de entregas por hora do dia, com as barras de pedidos e a linha de tempo médio subindo juntas no jantar">
+      </div>
+      <div class="notebook__base"></div>
     </div>
   </div>
 

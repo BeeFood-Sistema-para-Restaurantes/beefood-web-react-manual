@@ -1,0 +1,231 @@
+<!-- O relatório Entregador (Taxa / KM) inteiro, desenhado, para entrar num
+     notebook.
+
+     Por que desenhado, e não capturado: no sandbox não há o que fechar. A
+     captura que estava aqui antes era o CABEÇALHO do relatório — os três modos
+     de cálculo e a caixa do ida e volta —, ou seja, a parte que se configura,
+     e não a conta. Era o defeito que o dono nomeou, e é o que o passo 3 da
+     SKILL.md agora proíbe. Aqui o assunto da imagem é o fechamento: a linha de
+     cada pessoa e o total a pagar.
+
+     A ESTRUTURA é a do manual (manuais/entregador-quanto-recebe/, seções 4 e
+     5): os cinco indicadores do topo, a aba Resumo por Entregador, a coluna de
+     valor que muda de nome com o modo — aqui KM (Ida), KM (Volta) e KM (I+V),
+     que é o modo do cadastro de funcionário com a volta ligada —, a diária
+     somada por cima, o Total Geral e a linha "Sem entregador", que é pedido
+     que ninguém pegou. Os rótulos são os dele.
+
+     O seletor de modo entra como controle de aba, não como formulário: são
+     três pastilhas com uma ativa, do jeito que cabeçalho de relatório é. Sem
+     ele a imagem não se explica — o leitor não saberia por que a coluna se
+     chama KM (I+V). O que NÃO entra é a janela de campos onde se configura o
+     valor por KM: aquilo é manual.
+
+     Os NÚMEROS são de exemplo, e são o mesmo jogo do slide 7. Tudo fecha, nas
+     linhas e nas colunas:
+
+       148,6 km × R$ 1,50/km = R$ 222,90 de ida, e a volta repete o valor
+       R$ 222,90 + R$ 222,90 = R$ 445,80, e + R$ 60,00 de diária = R$ 505,80
+       ida:   222,90 + 182,10 + 154,20 + 126,90            = R$   686,10
+       I+V:   445,80 + 364,20 + 308,40 + 253,80            = R$ 1.372,20
+       total: R$ 1.372,20 + 4 diárias de R$ 60,00          = R$ 1.612,20
+       km:    148,6 + 121,4 + 102,8 + 84,6 + 28,8          =     486,2 km
+       entregas: 38 + 31 + 27 + 22 + 10                    =       128
+
+     O 128 e o R$ 1.024,00 são os mesmos do relatório de operação, e o
+     R$ 413,00 também: 118 dos 128 pedidos com valor gravado × R$ 3,50. Os 10
+     que faltam são a linha "Sem entregador". Tiago Nunes não aparece porque
+     não entregou nada — diária é por dia com entrega.
+
+     1440x900 é 16/10, a proporção do `.notebook__tela`. -->
+<div class="tela" data-medida="1440x900" style="background: #f4f5f9">
+
+  <!-- ------------------------------------------------------------ topo -->
+  <div style="flex: none; background: #fff; border-bottom: 1px solid var(--pn-borda);
+              padding: 14px 26px; display: flex; align-items: center; gap: 14px">
+    <div style="flex: 1">
+      <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.8px;
+                  color: var(--pn-fraco)">DESEMPENHO &middot; DELIVERY</div>
+      <div style="margin-top: 3px; font-size: 25px; font-weight: 900">Entregador (Taxa / KM)</div>
+    </div>
+    <span style="display: inline-flex; align-items: center; gap: 8px;
+                 border: 1px solid var(--pn-borda); border-radius: 10px;
+                 padding: 9px 14px; font-size: 15px; font-weight: 800">
+      &#128197; Hoje
+    </span>
+    <span style="border: 1px solid var(--pn-borda); border-radius: 10px;
+                 padding: 9px 14px; font-size: 15px; font-weight: 800;
+                 color: var(--pn-suave)">Imprimir A4</span>
+    <span style="border: 1px solid var(--pn-borda); border-radius: 10px;
+                 padding: 9px 14px; font-size: 15px; font-weight: 800;
+                 color: var(--pn-suave)">Imprimir Cupom</span>
+    <span style="background: var(--pn-verde); color: #fff; border-radius: 10px;
+                 padding: 10px 15px; font-size: 15px; font-weight: 800">Excel</span>
+  </div>
+
+  <div style="flex: 1; padding: 16px 26px 20px; display: flex;
+              flex-direction: column; gap: 14px">
+
+    <!-- ------------------------------------------- de onde vem o valor -->
+    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: nowrap">
+      <span style="font-size: 14px; font-weight: 800; color: var(--pn-suave);
+                   flex: none">Como pagar</span>
+      <span style="display: inline-flex; background: #e9eaf1; border-radius: 11px;
+                   padding: 4px; gap: 3px; font-size: 14px; font-weight: 800">
+        <span style="padding: 7px 13px; border-radius: 8px;
+                     color: var(--pn-suave)">Taxa do cliente</span>
+        <span style="padding: 7px 13px; border-radius: 8px;
+                     color: var(--pn-suave)">Valor da área de atendimento</span>
+        <span style="padding: 7px 13px; border-radius: 8px; background: #fff;
+                     color: var(--pn-texto);
+                     box-shadow: 0 1px 3px rgba(0,0,0,.14)">Valor por KM do funcionário</span>
+      </span>
+      <span style="display: inline-flex; align-items: center; gap: 8px;
+                   background: var(--pn-verde-claro); color: var(--pn-verde);
+                   border-radius: 999px; padding: 8px 15px; font-size: 14px;
+                   font-weight: 800; flex: none">
+        &#10003; Pagar KM de ida e volta
+      </span>
+      <span style="flex: 1"></span>
+      <span style="font-size: 14px; font-weight: 700; color: var(--pn-fraco);
+                   flex: none">R$ 1,50 por KM &middot; diária de R$ 60,00</span>
+    </div>
+
+    <!-- ------------------------------------------- os cinco do topo -->
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 13px">
+      <div style="background: #fff; border: 1px solid var(--pn-borda);
+                  border-radius: 14px; padding: 14px 17px">
+        <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Total Entregas</div>
+        <div style="margin-top: 4px; font-size: 34px; font-weight: 900;
+                    letter-spacing: -1px">128</div>
+      </div>
+      <div style="background: #fff; border: 1px solid var(--pn-borda);
+                  border-radius: 14px; padding: 14px 17px">
+        <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">KM Total</div>
+        <div style="margin-top: 4px; font-size: 34px; font-weight: 900;
+                    letter-spacing: -1px">486,2 <span style="font-size: 18px">km</span></div>
+      </div>
+      <div style="background: #fff; border: 1px solid var(--pn-borda);
+                  border-radius: 14px; padding: 14px 17px">
+        <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Taxa Cliente Total</div>
+        <div style="margin-top: 4px; font-size: 29px; font-weight: 900;
+                    letter-spacing: -0.6px">R$ 1.024,00</div>
+      </div>
+      <div style="background: #fff; border: 1px solid var(--pn-borda);
+                  border-radius: 14px; padding: 14px 17px">
+        <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Taxa Entregador Total</div>
+        <div style="margin-top: 4px; font-size: 29px; font-weight: 900;
+                    letter-spacing: -0.6px">R$ 413,00</div>
+      </div>
+      <div style="background: #fff; border: 1px solid var(--pn-borda);
+                  border-radius: 14px; padding: 14px 17px">
+        <div style="font-size: 13px; font-weight: 800; color: var(--pn-suave)">Diárias</div>
+        <div style="margin-top: 4px; font-size: 29px; font-weight: 900;
+                    letter-spacing: -0.6px">4 &middot; R$ 240,00</div>
+      </div>
+    </div>
+
+    <!-- ---------------------------------------- o fechamento -->
+    <div style="background: #fff; border: 1px solid var(--pn-borda);
+                border-radius: 14px; flex: 1; display: flex;
+                flex-direction: column; overflow: hidden">
+
+      <div style="flex: none; display: flex; align-items: center; gap: 24px;
+                  padding: 0 20px; border-bottom: 1px solid var(--pn-borda)">
+        <span style="padding: 15px 2px; font-size: 16px; font-weight: 900;
+                     border-bottom: 3px solid var(--pn-vermelho)">Resumo por Entregador</span>
+        <span style="padding: 15px 2px; font-size: 16px; font-weight: 800;
+                     color: var(--pn-suave)">Todos os Detalhes</span>
+      </div>
+
+      <table style="width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums">
+        <thead>
+          <tr style="font-size: 13px; font-weight: 800; color: var(--pn-suave);
+                     text-align: right">
+            <th style="text-align: left; padding: 16px 20px">Entregador</th>
+            <th style="padding: 16px 10px">Entregas</th>
+            <th style="padding: 16px 10px">KM</th>
+            <th style="padding: 16px 10px">KM (Ida)</th>
+            <th style="padding: 16px 10px">KM (Volta)</th>
+            <th style="padding: 16px 10px">KM (I+V)</th>
+            <th style="padding: 16px 10px">Diária</th>
+            <th style="padding: 16px 20px 16px 10px">Total</th>
+          </tr>
+        </thead>
+        <tbody style="font-size: 17px; font-weight: 700; text-align: right">
+          <tr style="border-top: 1px solid var(--pn-borda)">
+            <td style="text-align: left; padding: 23px 20px; font-weight: 800">Diego Souza</td>
+            <td style="padding: 23px 10px">38</td>
+            <td style="padding: 23px 10px">148,6</td>
+            <td style="padding: 23px 10px">R$ 222,90</td>
+            <td style="padding: 23px 10px">R$ 222,90</td>
+            <td style="padding: 23px 10px">R$ 445,80</td>
+            <td style="padding: 23px 10px">R$ 60,00</td>
+            <td style="padding: 23px 20px 23px 10px; font-weight: 900">R$ 505,80</td>
+          </tr>
+          <tr style="border-top: 1px solid var(--pn-borda)">
+            <td style="text-align: left; padding: 23px 20px; font-weight: 800">Marcos Vieira</td>
+            <td style="padding: 23px 10px">31</td>
+            <td style="padding: 23px 10px">121,4</td>
+            <td style="padding: 23px 10px">R$ 182,10</td>
+            <td style="padding: 23px 10px">R$ 182,10</td>
+            <td style="padding: 23px 10px">R$ 364,20</td>
+            <td style="padding: 23px 10px">R$ 60,00</td>
+            <td style="padding: 23px 20px 23px 10px; font-weight: 900">R$ 424,20</td>
+          </tr>
+          <tr style="border-top: 1px solid var(--pn-borda)">
+            <td style="text-align: left; padding: 23px 20px; font-weight: 800">Rafael Lima</td>
+            <td style="padding: 23px 10px">27</td>
+            <td style="padding: 23px 10px">102,8</td>
+            <td style="padding: 23px 10px">R$ 154,20</td>
+            <td style="padding: 23px 10px">R$ 154,20</td>
+            <td style="padding: 23px 10px">R$ 308,40</td>
+            <td style="padding: 23px 10px">R$ 60,00</td>
+            <td style="padding: 23px 20px 23px 10px; font-weight: 900">R$ 368,40</td>
+          </tr>
+          <tr style="border-top: 1px solid var(--pn-borda)">
+            <td style="text-align: left; padding: 23px 20px; font-weight: 800">Paulo Henrique</td>
+            <td style="padding: 23px 10px">22</td>
+            <td style="padding: 23px 10px">84,6</td>
+            <td style="padding: 23px 10px">R$ 126,90</td>
+            <td style="padding: 23px 10px">R$ 126,90</td>
+            <td style="padding: 23px 10px">R$ 253,80</td>
+            <td style="padding: 23px 10px">R$ 60,00</td>
+            <td style="padding: 23px 20px 23px 10px; font-weight: 900">R$ 313,80</td>
+          </tr>
+          <tr style="border-top: 1px solid var(--pn-borda); color: var(--pn-suave)">
+            <td style="text-align: left; padding: 23px 20px; font-weight: 800;
+                       font-style: italic">Sem entregador</td>
+            <td style="padding: 23px 10px">10</td>
+            <td style="padding: 23px 10px">28,8</td>
+            <td style="padding: 23px 10px">&mdash;</td>
+            <td style="padding: 23px 10px">&mdash;</td>
+            <td style="padding: 23px 10px">&mdash;</td>
+            <td style="padding: 23px 10px">&mdash;</td>
+            <td style="padding: 23px 20px 23px 10px">&mdash;</td>
+          </tr>
+          <tr style="border-top: 2px solid var(--pn-texto); font-size: 18px">
+            <td style="text-align: left; padding: 22px 20px; font-weight: 900">Total Geral</td>
+            <td style="padding: 22px 10px; font-weight: 900">128</td>
+            <td style="padding: 22px 10px; font-weight: 900">486,2</td>
+            <td style="padding: 22px 10px; font-weight: 900">R$ 686,10</td>
+            <td style="padding: 22px 10px; font-weight: 900">R$ 686,10</td>
+            <td style="padding: 22px 10px; font-weight: 900">R$ 1.372,20</td>
+            <td style="padding: 22px 10px; font-weight: 900">R$ 240,00</td>
+            <td style="padding: 22px 20px 22px 10px; font-weight: 900;
+                       color: var(--pn-verde); font-size: 22px">R$ 1.612,20</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="flex: 1"></div>
+
+      <div style="flex: none; padding: 12px 20px 14px; font-size: 13px;
+                  font-weight: 700; color: var(--pn-fraco);
+                  border-top: 1px solid #f1f2f6">
+        Clique no nome para abrir a conta de uma pessoa só, com a lista dos
+        pedidos dela e as diárias registradas.
+      </div>
+    </div>
+  </div>
+</div>
