@@ -98,6 +98,19 @@ perdida.
 
 ## Decisões de arte
 
+### O que a pasta guarda de sondagem, e por quê
+
+Nenhum carrossel anterior guarda saída de sonda, e esta guarda três arquivos
+porque eles sustentam as duas decisões mais contestáveis da peça:
+
+| Arquivo | Que decisão ele prova |
+|---|---|
+| `sonda-painel.png` e `sonda-painel.json` | o painel **como foi encontrado**: `0 em rota`, `0 disponíveis`, `4 offline`, despacho desligado e nenhum motoboy no mapa. É o que justifica o `cena.json` |
+| `sonda/operacao-1.png` e `sonda/entregador-0.png` | os dois relatórios **inteiros**, na rolagem de onde os recortes foram medidos. Quem quiser conferir que o corte não escondeu nada inconveniente confere aqui |
+
+As outras oito tiras de rolagem saíram: `sondar-relatorios.py` as refaz, e
+3 MB de print que ninguém vai abrir não é acervo, é andaime.
+
 ### A cena das capturas é montada, e o `cena.json` diz o que
 
 A sonda (`sondar.py`, e o `sonda-painel.json` ao lado) encontrou o painel assim:
