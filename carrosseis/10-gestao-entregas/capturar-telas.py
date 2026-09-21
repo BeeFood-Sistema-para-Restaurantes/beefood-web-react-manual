@@ -279,7 +279,9 @@ CORTES = {
     # loja de teste) e a coluna de ícones da esquerda. O que sobra é 16/10, que
     # é a proporção da tela do `.navegador` em sangria.
     "painel-inteiro": (101, 87, 2880, 1800),
-    "despacho-regras": (674, 298, 2208, 2038),
+    # Sem a faixa de FECHAR / SALVAR: a janela é alta, e o que ela precisa
+    # mostrar no slide são as regras, não os botões de gravar.
+    "despacho-regras": (674, 298, 2208, 1890),
     # A janela inteira, com o grupo `Offline` no pé. Cortar ali deixava o título
     # `Entregadores (5)` em cima de quatro linhas, e contador que não fecha com a
     # lista é o tipo de detalhe que o leitor pega.
