@@ -239,8 +239,7 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     rota hoje", com "hoje" em vermelho, e o texto "Quem tem o módulo Entrega já
     tem a Gestão de Entregas e o aplicativo do entregador. Tudo que entra de
     novo está em beefood.app/novidades". Embaixo, a etiqueta de caminho
-    "Delivery → Entregas" e a lista de rotas do painel: a rota A de Diego
-    Souza, que está na rua, com as três paradas e a primeira marcada como
-    "Entregando agora"; abaixo, a rota B de Marcos Vieira, "Pronta para sair",
-    com o avião de despachar ao lado; no rodapé, os contadores de entregador
-    por situação e o selo de despacho automático ligado.
+    "Delivery → Entregas" e o mesmo notebook da capa, com o mapa da Gestão de
+    Entregas: as duas rotas tracejadas com as paradas numeradas, os pinos dos
+    pedidos que ainda esperam e os entregadores Diego e Marcos com o nome ao
+    lado da moto.

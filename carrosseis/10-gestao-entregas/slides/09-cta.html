@@ -27,26 +27,25 @@
      `Delivery → Entregas`: o CTA aponta para o módulo que a peça vendeu, e não
      para o aplicativo, que é assunto de um slide do meio.
 
-     A IMAGEM também trocou, pelo teste de imagem da revisão: a anterior era o
-     aplicativo VAZIO, com "Nenhuma entrega agora". Tela em que não acontece
-     nada é a pior arte possível para fechar uma venda. Agora é a lista de
-     rotas do painel — captura de produção que até aqui só tinha servido de
-     referência para o desenho do slide 3 —, e ela mostra o que o título pede:
-     a rota A na rua com a primeira parada em "Entregando agora", a rota B
-     "Pronta para sair" com o avião de despachar, e o rodapé com os contadores
-     de entregador e o despacho automático ligado.
+     A IMAGEM também trocou, pelo teste de imagem da revisão: a primeira era o
+     aplicativo VAZIO, com "Nenhuma entrega agora", e ela só existia porque a
+     copy velha precisava dela ("lista vazia é sinal de que deu certo"). Tela em
+     que não acontece nada é a pior arte possível para fechar uma venda.
 
-     O CORTE É FEITO AQUI, e não no arquivo puro. `lista-rotas.png` tem 760 ×
-     1680 e começa pelo cabeçalho e pelos pedidos sem rota, que são o assunto
-     do slide 3; o que este slide quer é a parte de baixo, das duas rotas. A
-     imagem entra a 640 px de largura (fator 0,842) e sobe 621 px, que é o
-     y = 738 do arquivo, a borda de cima do cartão da rota A. O `.recorte`
-     ganha a altura do que sobra — 793 px —, e
-     por isso o cartão aparece inteiro, encostado na base. É o mesmo princípio
-     do `.recorte--topo` do `base.css`: ajustar na arte sem editar a pura.
+     A SEGUNDA tentativa foi a lista de rotas cortada, e ela provava o título —
+     mas de perto demais. Ficou o MAPA NO NOTEBOOK, o mesmo da capa, no mesmo
+     lugar e no mesmo tamanho: a peça abre e fecha na mesma cena, e o último
+     slide devolve inteira a imagem que fez o leitor parar de rolar. A capa
+     apresenta a tela; aqui ela volta com um imperativo em cima.
 
-     Sem aparelho de propósito: é painel de computador, e enfiá-lo num celular
-     seria mentir sobre onde ele mora. -->
+     Repetir a arte da capa no CTA não é economia, é forma: o leitor que chegou
+     ao nono slide vê de novo o que quer ter, agora sabendo ler cada coisa dali
+     — a rota A tracejada, as paradas numeradas, o Diego e o Marcos com nome no
+     mapa. É o único slide da peça em que repetir prova é a decisão certa,
+     porque o assunto dele é justamente "abra isto".
+
+     A luz quente atrás é a mesma da capa, pelo mesmo motivo: sem ela o
+     aparelho flutua no preto e a tela não lê como acesa. -->
 <div class="slide slide--capa">
   <div class="topo">
     <span class="logo"></span>
@@ -65,11 +64,21 @@
     <span class="caminho">Delivery → Entregas</span>
   </div>
 
-  <div class="sangria" style="top: 570px; left: 50%; transform: translateX(-50%);
-                              width: 640px">
-    <div class="recorte" style="height: 793px">
-      <img src="../imagens-puras/lista-rotas.png" style="margin-top: -621px"
-           alt="A lista de rotas do painel: a rota A de Diego Souza, que está na rua, com as três paradas e a primeira marcada como Entregando agora; abaixo, a rota B de Marcos Vieira, Pronta para sair, com o avião de despachar ao lado; no rodapé, os contadores de entregador por situação e o selo de despacho automático ligado">
+  <div class="luz" style="left: 50%; top: 690px; width: 1300px; height: 820px;
+                          margin-left: -650px; filter: blur(72px);
+                          background: radial-gradient(ellipse 46% 50% at 50% 47%,
+                                      rgba(255, 246, 236, 0.85) 0%,
+                                      rgba(255, 214, 184, 0.34) 62%,
+                                      rgba(0, 0, 0, 0) 82%)"></div>
+
+  <div class="sangria" style="top: 690px; left: 50%; transform: translateX(-50%);
+                              width: 936px">
+    <div class="notebook" style="width: 936px">
+      <div class="notebook__tela">
+        <img src="../imagens-puras/mapa-rotas.png"
+             alt="O mapa da Gestão de Entregas aberto no computador da loja: as duas rotas tracejadas com as paradas numeradas, os pinos dos pedidos que ainda esperam e os entregadores Diego e Marcos com o nome ao lado da moto">
+      </div>
+      <div class="notebook__base"></div>
     </div>
   </div>
 </div>

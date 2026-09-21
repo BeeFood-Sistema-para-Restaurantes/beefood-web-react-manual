@@ -956,6 +956,28 @@ vazia é sinal de que deu certo"). Tela em que não acontece nada é a pior arte
 possível para fechar uma venda — e ela só passou na revisão de imagem porque o
 texto a justificava. Trocado o texto, a imagem vira órfã na hora.
 
+#### E a arte do CTA pode ser a da capa, de propósito
+
+A substituta que eu tinha escolhido era um recorte da lista de rotas: prova o
+título, mostra a rota pronta para sair. O dono resolveu por outro caminho —
+*"coloque a foto do mapa e o pc na última com essa frase"* —, e a peça ficou
+com **a mesma arte da capa, no mesmo lugar e no mesmo tamanho**.
+
+É melhor, e o motivo é de forma: a peça **abre e fecha na mesma cena**. A capa
+apresenta a tela e faz o leitor parar de rolar; o último slide devolve a mesma
+imagem inteira, com um imperativo em cima, para alguém que agora sabe ler cada
+coisa dali. Fechar num recorte é terminar olhando para um detalhe, logo depois
+de oito slides de detalhe.
+
+A regra geral desta skill continua sendo **não repetir prova dentro da mesma
+peça** — repetição ali quase sempre é falta de arte. A exceção é uma, e é
+estreita:
+
+| Vale | Não vale |
+|---|---|
+| a arte da **capa**, repetida no **CTA** | a prova de um slide do meio, repetida em qualquer lugar |
+| porque o assunto do CTA é literalmente *abra isto*, e o que ele manda abrir é o que a capa mostrou | porque aí é só falta de imagem nova |
+
 ### Frase de venda se procura no site antes de inventar
 
 A página de vendas já foi escrita para vender aquilo, por quem decide como a

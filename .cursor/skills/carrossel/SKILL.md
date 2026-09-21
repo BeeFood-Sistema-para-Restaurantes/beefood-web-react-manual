@@ -932,9 +932,12 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
    venda. Em peça de novidade o molde da série é chapéu **Já está no ar**,
    título no imperativo com **hoje**, subtítulo com o primeiro passo mais a
    linha de fechamento, e a pílula apontando para o **módulo que a peça
-   vendeu** — não para um acessório de um slide do meio. Detalhe em
-   [`references/roteiro-e-copy.md`](references/roteiro-e-copy.md), em *o CTA de
-   novidade não ensina a ligar o recurso*.
+   vendeu** — não para um acessório de um slide do meio. E a arte dele pode ser
+   **a mesma da capa**, no mesmo lugar e no mesmo tamanho: é a única repetição
+   de prova que a skill aprova dentro de uma peça, porque o CTA manda abrir
+   justamente o que a capa mostrou, e a peça abre e fecha na mesma cena.
+   Detalhe em [`references/roteiro-e-copy.md`](references/roteiro-e-copy.md),
+   em *o CTA de novidade não ensina a ligar o recurso*.
 10. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE"
     em branco, contorno branco no selo, tarja amarela e "food" vermelho?
 11. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa

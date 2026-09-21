@@ -19,7 +19,11 @@ não para um acessório de slide do meio; e **a linha de disponibilidade é fato
 publicado e condicional** ("quem tem o módulo Entrega já tem"), porque módulo em
 liberação não sustenta "todo mundo já tem". E **a imagem cai junto com a copy**:
 a arte do CTA velho era o aplicativo vazio, que só passava porque o texto a
-justificava — trocado o texto, ela virou órfã na hora e saiu da pasta.
+justificava — trocado o texto, ela virou órfã na hora e saiu da pasta. A
+substituta foi resolvida pelo dono, e virou regra: **a arte do CTA pode ser a
+da capa**, no mesmo lugar e no mesmo tamanho, e essa é a única repetição de
+prova que a skill aprova dentro de uma peça — a peça abre e fecha na mesma
+cena, e o CTA manda abrir justamente o que a capa mostrou.
 
 36ª rodada: com a imagem consertada, o dono leu
 o **texto** slide por slide e devolveu seis linhas — *"por que nossa skill não

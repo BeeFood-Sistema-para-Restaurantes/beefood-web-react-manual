@@ -96,7 +96,7 @@ perdida.
 | 6 | Avisos no WhatsApp | Quatro avisos prontos: três para o entregador, um para quem está esperando | `zap-avisos.png` (desenho) |
 | 7 | Relatório de Operação de Entrega | Quanto do tempo é cozinha e quanto é rua | `relatorio-operacao.png` (desenho) num `.notebook` |
 | 8 | Relatório do Entregador | Três modos de pagar, e o fechamento por pessoa | `relatorio-entregador.png` (desenho) num `.notebook` |
-| 9 | CTA | Já está no ar, em Delivery → Entregas: monte a primeira rota hoje | `lista-rotas.png` (captura), cortada nas duas rotas |
+| 9 | CTA | Já está no ar, em Delivery → Entregas: monte a primeira rota hoje | `mapa-rotas.png` num `.notebook` — a mesma arte da capa, fechando a peça |
 
 ## Decisões de arte
 
@@ -395,24 +395,33 @@ da Gestão de Entregas"*. Por isso a frase é condicional — quem **tem** o mó
 Entrega já tem isto — em vez de "todo mundo já tem", que o módulo em liberação
 não sustenta.
 
-**A imagem caiu junto**, e pelo teste de imagem da revisão: a anterior era o
+**A imagem caiu junto**, e pelo teste de imagem da revisão: a primeira era o
 aplicativo **vazio**, com "Nenhuma entrega agora". Tela em que não acontece nada
 é a pior arte possível para fechar uma venda — e ela só existia porque a copy
-velha precisava dela ("lista vazia é sinal de que deu certo"). Entrou no lugar a
-lista de rotas do painel, que até aqui só tinha servido de referência para o
-desenho do slide 3: a rota A na rua com a primeira parada em *Entregando agora*,
-a rota B *Pronta para sair* com o avião de despachar, e o rodapé com os
-contadores de entregador e o despacho automático ligado. É o que o título pede.
+velha precisava dela ("lista vazia é sinal de que deu certo"). Trocado o texto,
+a arte virou órfã na hora.
 
-O corte é feito **na arte**, não no arquivo puro: `lista-rotas.png` tem 760 ×
-1680 e começa pelo cabeçalho e pelos pedidos sem rota, que são assunto do slide
-3. A imagem entra a 640 px (fator 0,842) e sobe 621 px, que é o y = 738 do
-arquivo — a borda de cima do cartão da rota A. Mesmo princípio do
-`.recorte--topo` do `base.css`: ajustar na arte sem editar a pura.
+A segunda tentativa foi a **lista de rotas** cortada nas duas rotas. Ela prova o
+título, e o dono resolveu por outro caminho: *"coloque a foto do mapa e o pc na
+última com essa frase"*. Ficou o **mapa no notebook — o mesmo da capa**, no
+mesmo lugar e no mesmo tamanho.
+
+A decisão é melhor do que a minha, e o motivo é de forma: **a peça abre e fecha
+na mesma cena.** A capa apresenta a tela e faz o leitor parar de rolar; o nono
+slide devolve a mesma imagem inteira, agora com um imperativo em cima, para quem
+já sabe ler cada coisa dali — a rota A tracejada, as paradas numeradas, o Diego
+e o Marcos com nome no mapa. A lista de rotas provava o título de perto demais,
+e fechar a peça num recorte é terminar olhando para um detalhe.
+
+É a única vez em que **repetir a prova dentro da mesma peça** é a decisão certa,
+e a condição é estreita: vale no CTA, porque o assunto dele é literalmente "abra
+isto", e vale com a imagem da **capa**, que é a que o leitor reconhece. Repetir
+a prova de um slide do meio seria só falta de arte.
 
 Com isso `app-pronto.png` e `telas/app-pronto.html` **saíram da pasta**. Desenho
 que nenhum slide usa não é acervo, é andaime — é o mesmo critério que tirou as
-oito tiras de rolagem da sondagem.
+oito tiras de rolagem da sondagem. `lista-rotas.png` fica: ela continua sendo a
+referência do desenho do slide 3.
 
 ### O notebook da capa alternativa não diminui
 
