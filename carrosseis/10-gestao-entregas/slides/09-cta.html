@@ -1,49 +1,75 @@
-<!-- Slide 9: o CTA, com um pedido só — deixar o entregador entrar no mapa.
+<!-- Slide 9: o CTA.
 
-     O pedido é barato de atender, e é esse o argumento: são dois cadastros que
-     já existem no painel (o funcionário e o usuário), mais o aplicativo, que é
-     gratuito nas duas lojas. Nada a contratar.
+     ESTE SLIDE FOI REFEITO INTEIRO, copy e imagem, e o retorno foi de uma
+     linha: *"não é sobre isso, venda a novidade"*.
 
-     A IMAGEM FOI TROCADA. Antes era a janela do painel que ensina os dois
-     cadastros, com o caminho de cada um escrito dentro dela. Tela de instrução
-     é o que a regra nova do passo 3 da SKILL.md tirou da arte — e aqui doía
-     duas vezes, porque o CTA é o slide que menos pode parecer documentação.
+     Ele estava certo, e o defeito é fácil de descrever: as duas versões
+     anteriores eram sobre CADASTRO. A primeira mostrava a janela que ensina
+     onde criar o funcionário e o usuário; a segunda trocou a imagem e manteve
+     o assunto ("dois cadastros que você já tem"). Nenhuma das duas vende o
+     módulo — as duas explicam a burocracia de ligá-lo, que é trabalho, não
+     motivo. Fechar peça de novidade com trabalho é perder a venda no último
+     slide.
 
-     Agora é o resultado dos dois cadastros: o aplicativo dele aberto, a pílula
-     verde e a lista ainda vazia. Tela vazia num CTA só funciona porque o
-     manual diz por que ela é boa notícia — "é sinal de que deu tudo certo, não
-     de problema" —, e o subtítulo passa esse recado adiante. É o que o lojista
-     vai ver no celular do primeiro motoboy que ele cadastrar.
+     O que a série faz em CTA de novidade, e que esta peça tinha abandonado:
+     chapéu "Já está no ar", título no imperativo com "hoje", subtítulo com o
+     primeiro passo mais a linha de fechamento da casa, e a pílula de caminho.
+     É assim na #3 ("Suba o seu primeiro vídeo hoje"), na #4 ("Ligue o primeiro
+     ajuste hoje") e na #8 ("Abra o painel e deixe ligado hoje") — que é a peça
+     irmã, do mesmo módulo.
 
-     Aparelho em sangria pela base é a convenção de fechamento da casa: nove das
-     dez peças terminam assim. -->
+     A linha de disponibilidade é fato publicado, não promessa nossa: a novidade
+     do Painel para Entregadores diz que ele "está incluso no módulo Entrega,
+     junto da Gestão de Entregas". Por isso a frase é condicional — quem TEM o
+     módulo Entrega já tem isto — em vez de "todo mundo já tem".
+
+     O caminho mudou de `Aplicativos → Entrega → BeeFood Entregador` para
+     `Delivery → Entregas`: o CTA aponta para o módulo que a peça vendeu, e não
+     para o aplicativo, que é assunto de um slide do meio.
+
+     A IMAGEM também trocou, pelo teste de imagem da revisão: a anterior era o
+     aplicativo VAZIO, com "Nenhuma entrega agora". Tela em que não acontece
+     nada é a pior arte possível para fechar uma venda. Agora é a lista de
+     rotas do painel — captura de produção que até aqui só tinha servido de
+     referência para o desenho do slide 3 —, e ela mostra o que o título pede:
+     a rota A na rua com a primeira parada em "Entregando agora", a rota B
+     "Pronta para sair" com o avião de despachar, e o rodapé com os contadores
+     de entregador e o despacho automático ligado.
+
+     O CORTE É FEITO AQUI, e não no arquivo puro. `lista-rotas.png` tem 760 ×
+     1680 e começa pelo cabeçalho e pelos pedidos sem rota, que são o assunto
+     do slide 3; o que este slide quer é a parte de baixo, das duas rotas. A
+     imagem entra a 640 px de largura (fator 0,842) e sobe 621 px, que é o
+     y = 738 do arquivo, a borda de cima do cartão da rota A. O `.recorte`
+     ganha a altura do que sobra — 793 px —, e
+     por isso o cartão aparece inteiro, encostado na base. É o mesmo princípio
+     do `.recorte--topo` do `base.css`: ajustar na arte sem editar a pura.
+
+     Sem aparelho de propósito: é painel de computador, e enfiá-lo num celular
+     seria mentir sobre onde ele mora. -->
 <div class="slide slide--capa">
   <div class="topo">
     <span class="logo"></span>
     <span class="contador">9 de 9</span>
   </div>
 
-  <div class="pilha g24" style="margin-top: 36px; max-width: 920px">
-    <span class="chapeu">Como começar</span>
+  <div class="pilha g24" style="margin-top: 34px; max-width: 920px">
+    <span class="chapeu">Já está no ar</span>
     <h2 class="titulo titulo--pequeno">
-      O entregador entra no mapa com<br>
-      <span class="destaque">dois cadastros que você já tem</span>
+      Monte a sua primeira rota <span class="destaque">hoje</span>
     </h2>
     <p class="subtitulo">
-      São o funcionário e o usuário dele, os dois no painel. No celular, o
-      BeeFood Entregador é gratuito nas duas lojas — e a lista vazia do
-      primeiro acesso quer dizer que deu tudo certo.
+      Quem tem o módulo Entrega já tem a Gestão de Entregas e o aplicativo do
+      entregador. Tudo que entra de novo está em <b>beefood.app/novidades</b>.
     </p>
-    <span class="caminho">Aplicativos → Entrega → BeeFood Entregador</span>
+    <span class="caminho">Delivery → Entregas</span>
   </div>
 
-  <div class="sangria" style="top: 690px; left: 50%; transform: translateX(-50%);
-                              width: 620px">
-    <div class="celular" style="width: 620px">
-      <div class="celular__tela">
-        <img src="../imagens-puras/app-pronto.png"
-             alt="Aplicativo do entregador aberto logo depois do primeiro acesso: o cabeçalho escuro com ENTREGAS e a pílula verde de ONLINE no canto, a lista ainda sem nenhuma entrega no nome dele, o botão ATUALIZAR e as quatro abas Entregas, Histórico, Código barras e Ajustes">
-      </div>
+  <div class="sangria" style="top: 570px; left: 50%; transform: translateX(-50%);
+                              width: 640px">
+    <div class="recorte" style="height: 793px">
+      <img src="../imagens-puras/lista-rotas.png" style="margin-top: -621px"
+           alt="A lista de rotas do painel: a rota A de Diego Souza, que está na rua, com as três paradas e a primeira marcada como Entregando agora; abaixo, a rota B de Marcos Vieira, Pronta para sair, com o avião de despachar ao lado; no rodapé, os contadores de entregador por situação e o selo de despacho automático ligado">
     </div>
   </div>
 </div>

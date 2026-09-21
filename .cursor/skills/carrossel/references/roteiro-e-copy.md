@@ -909,6 +909,53 @@ coisa que o leitor não viu.
 > precisa saber o que fazer com a frase sem explicação, e frase convencional é
 > justamente a que ele já sabe ler. Gaste a criatividade na capa.
 
+### E o CTA de novidade não ensina a ligar o recurso
+
+O CTA da décima peça saiu **"O entregador entra no mapa com dois cadastros que
+você já tem"**, com o caminho apontando para o cadastro do aplicativo. Voltou em
+uma linha: *"refaça a copy inteira do último slide, não é sobre isso, venda a
+novidade"*.
+
+O defeito não é de frase, é de **assunto**: o slide era sobre trabalho. Criar o
+funcionário, criar o usuário, instalar o aplicativo — tudo verdade, tudo o que o
+leitor vai ter de fazer, e nada disso é motivo para ele querer fazer. Depois de
+oito slides de argumento, fechar com a burocracia de ligar o módulo é entregar a
+fatura antes da venda. É primo do *slide do problema que cobra* e do *alívio
+antes do CTA*: os três põem o custo na frente do ganho, no pior lugar possível.
+
+A saída não precisou ser inventada, porque a série já tinha molde, e ele se lê
+de fora, na fila das peças:
+
+| Peça | Chapéu | Título |
+|---|---|---|
+| #3 | Já está no ar | Suba o seu primeiro vídeo **hoje** |
+| #4 | Já está no ar | Ligue o primeiro **ajuste** hoje |
+| #8 | Já está no ar | Abra o painel e **deixe ligado** hoje |
+| #9 | Já está no ar | Abra hoje e leia o que elas já **estão dizendo** |
+| #10 (era) | Como começar | O entregador entra no mapa com dois cadastros |
+
+**Chapéu "Já está no ar", título no imperativo com "hoje", subtítulo com o
+primeiro passo mais a linha de fechamento da série, pílula de caminho.** Quatro
+peças seguidas, e a quinta abandonou os quatro de uma vez — sinal de que o molde
+estava no acervo e não no documento. Agora está nos dois. O CTA é o slide em que
+*ser convencional é vantagem*, e convenção só funciona se alguém a escrever.
+
+Duas regras finas que a mesma rodada fixou:
+
+- **o caminho aponta para o módulo que a peça vendeu**, não para um acessório.
+  Estava em `Aplicativos → Entrega → BeeFood Entregador`, que é assunto de um
+  slide do meio; virou `Delivery → Entregas`;
+- **a linha de disponibilidade é fato publicado, e é condicional.** "Quem tem o
+  módulo Entrega já tem a Gestão de Entregas" sai da novidade da peça irmã, que
+  diz o mesmo com as palavras do produto. "Todo mundo já tem" seria promessa
+  nossa, e módulo em liberação não a sustenta.
+
+E a imagem cai junto com a copy, sempre: a do CTA velho era o aplicativo
+**vazio**, com "Nenhuma entrega agora", porque a frase precisava dela ("lista
+vazia é sinal de que deu certo"). Tela em que não acontece nada é a pior arte
+possível para fechar uma venda — e ela só passou na revisão de imagem porque o
+texto a justificava. Trocado o texto, a imagem vira órfã na hora.
+
 ### Frase de venda se procura no site antes de inventar
 
 A página de vendas já foi escrita para vender aquilo, por quem decide como a
@@ -1156,6 +1203,12 @@ Vai no fim do `roteiro.md`, pronta para copiar:
       `aquilo` nos títulos: o título é a única parte da peça que se lê fora de
       ordem, então antecedente no chapéu, na legenda ou no slide anterior não
       resolve. No corpo, o substantivo vem antes do pronome, no mesmo slide.
+- [ ] **O CTA de novidade segue o molde da série?** Chapéu "Já está no ar",
+      título no imperativo com "hoje", subtítulo com o primeiro passo mais a
+      linha de fechamento, pílula apontando para o **módulo que a peça vendeu**.
+      E ele vende, em vez de ensinar a ligar o recurso: cadastro, instalação e
+      permissão são trabalho, e trabalho no último slide é a fatura antes da
+      venda.
 - [ ] **Leia cada slide em voz alta.** Onde a respiração tropeça falta palavra:
       artigo cortado ("lista vazia" por "a lista vazia"), `de que` comido ("é
       sinal que deu certo") e corpo sem verbo principal ("Na ordem que a loja

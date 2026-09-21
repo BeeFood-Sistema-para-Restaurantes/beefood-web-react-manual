@@ -5,7 +5,23 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-21 (36ª rodada: com a imagem consertada, o dono leu
+Última atualização: 2026-09-21 (37ª rodada: *"refaça a copy inteira do último
+slide, não é sobre isso, venda a novidade"*. O CTA da décima peça era sobre
+**cadastro** — criar o funcionário, criar o usuário, instalar o aplicativo —, e
+isso é trabalho, não motivo: depois de oito slides de argumento, é a fatura
+antes da venda. A série já tinha molde em quatro peças seguidas (#3, #4, #8,
+#9): chapéu **Já está no ar**, título no imperativo com **hoje**, subtítulo com
+o primeiro passo mais a linha de fechamento, pílula de caminho. Estava no
+acervo e não no documento, e por isso a quinta peça abandonou os quatro de uma
+vez. Agora está escrito — ver *o CTA de novidade não ensina a ligar o recurso*.
+Duas regras finas junto: **o caminho aponta para o módulo que a peça vendeu**,
+não para um acessório de slide do meio; e **a linha de disponibilidade é fato
+publicado e condicional** ("quem tem o módulo Entrega já tem"), porque módulo em
+liberação não sustenta "todo mundo já tem". E **a imagem cai junto com a copy**:
+a arte do CTA velho era o aplicativo vazio, que só passava porque o texto a
+justificava — trocado o texto, ela virou órfã na hora e saiu da pasta.
+
+36ª rodada: com a imagem consertada, o dono leu
 o **texto** slide por slide e devolveu seis linhas — *"por que nossa skill não
 consegue montar títulos corretos dos slides? Estamos inventando frases com a
 concordância toda errada"*. A causa é gêmea da 35ª: **nomear era regra da capa

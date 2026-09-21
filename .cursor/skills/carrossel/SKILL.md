@@ -927,6 +927,14 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
    poucos")? Sai: é aviso de limite, e ele planta a objeção justo antes do CTA.
    E o slide do problema — normalmente o 2 — elogia o leitor antes de mostrar o
    furo, ou entrega uma fatura na cara dele?
+9a. **O CTA vende, ou ensina a ligar o recurso?** Cadastro, instalação e
+   permissão são trabalho, e trabalho no último slide é a fatura antes da
+   venda. Em peça de novidade o molde da série é chapéu **Já está no ar**,
+   título no imperativo com **hoje**, subtítulo com o primeiro passo mais a
+   linha de fechamento, e a pílula apontando para o **módulo que a peça
+   vendeu** — não para um acessório de um slide do meio. Detalhe em
+   [`references/roteiro-e-copy.md`](references/roteiro-e-copy.md), em *o CTA de
+   novidade não ensina a ligar o recurso*.
 10. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE"
     em branco, contorno branco no selo, tarja amarela e "food" vermelho?
 11. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa

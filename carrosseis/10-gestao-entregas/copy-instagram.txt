@@ -38,10 +38,10 @@ entraram para encher a rota B e a fila sem rota. O arquivo `cena.json` registra
 linha por linha o que mudou e por quê, e o script tem `--cru` para ver a tela
 como ela está hoje.
 
-SEIS DAS NOVE IMAGENS SÃO TELA DESENHADA, por três motivos diferentes.
+CINCO DAS NOVE IMAGENS SÃO TELA DESENHADA, por três motivos diferentes.
 O aplicativo do entregador é de celular e não há como fotografá-lo daqui, então
-a lista da rota, o app em pausa e o app recém-instalado foram desenhados a
-partir de prints de produção dos manuais, com os dados da cena. As conversas de
+a lista da rota e o app em pausa foram desenhados a partir de prints de
+produção dos manuais, com os dados da cena. As conversas de
 WhatsApp foram desenhadas porque não há número conectado na sandbox, e o texto
 das mensagens não foi escrito à mão: é o de fábrica do sistema, com os
 marcadores já substituídos. E os dois relatórios foram desenhados porque a loja
@@ -112,9 +112,9 @@ rodado, com a diária somando por cima, e sai em cupom, A4 ou Excel, um por
 pessoa. Os números que aparecem nas duas telas dos slides são de exemplo: o que
 está ali é a estrutura do relatório, não o resultado de ninguém.
 
-Para o entregador entrar no mapa são dois cadastros que já existem no painel: o
-funcionário e o usuário dele. Depois é o aplicativo no celular — e quando ele
-abrir com a pílula verde e a lista vazia, está tudo certo: é só faltar trabalho.
+Quem tem o módulo Entrega já tem a Gestão de Entregas, junto do Painel para
+Entregadores. Do lado de cá o que falta é abrir a tela e montar a primeira
+rota; do lado do entregador, baixar o aplicativo e ficar online.
 
 O mapa fica em Delivery → Entregas, e o aplicativo em Aplicativos → Entrega 🛵
 Tudo que entra de novo está em beefood.app/novidades
@@ -235,12 +235,12 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     total individual, a linha em itálico "Sem entregador" com traços no lugar
     dos valores, e a linha de Total Geral fechando a conta em verde.
 
-09  Fundo escuro com o chapéu "Como começar", o título "O entregador entra no
-    mapa com dois cadastros que você já tem", com a segunda linha em vermelho,
-    e o texto "São o funcionário e o usuário dele, os dois no painel. No
-    celular, o BeeFood Entregador é gratuito nas duas lojas — e a lista vazia
-    do primeiro acesso quer dizer que deu tudo certo". Embaixo, a etiqueta de caminho
-    "Aplicativos → Entrega → BeeFood Entregador" e um celular com o aplicativo
-    do entregador aberto logo depois do primeiro acesso: cabeçalho escuro com
-    "ENTREGAS" e a pílula verde "ONLINE" no canto, e o corpo com "Nenhuma
-    entrega agora" e o botão ATUALIZAR.
+09  Fundo escuro com o chapéu "Já está no ar", o título "Monte a sua primeira
+    rota hoje", com "hoje" em vermelho, e o texto "Quem tem o módulo Entrega já
+    tem a Gestão de Entregas e o aplicativo do entregador. Tudo que entra de
+    novo está em beefood.app/novidades". Embaixo, a etiqueta de caminho
+    "Delivery → Entregas" e a lista de rotas do painel: a rota A de Diego
+    Souza, que está na rua, com as três paradas e a primeira marcada como
+    "Entregando agora"; abaixo, a rota B de Marcos Vieira, "Pronta para sair",
+    com o avião de despachar ao lado; no rodapé, os contadores de entregador
+    por situação e o selo de despacho automático ligado.

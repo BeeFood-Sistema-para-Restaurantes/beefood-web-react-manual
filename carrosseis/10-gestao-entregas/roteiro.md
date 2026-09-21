@@ -67,7 +67,7 @@ perdida.
 | O relatório **Operação de Entrega** quebra a entrega em quatro etapas e mostra **onde o tempo é investido**, separando loja e rua | A conversa "o motoboy é devagar" costuma terminar na cozinha | 7 |
 | O relatório **Entregador (Taxa / KM)** fecha quanto pagar, em **três modos** — taxa do cliente, valor gravado no pedido, KM rodado do cadastro —, com a opção de **pagar o KM de ida e volta**, e a diária somada por cima | Fechamento de motoboy é discussão semanal, e ela acaba com a lista na mão | 8 |
 | Sai em **Imprimir Cupom**, Imprimir A4 e Excel, um por entregador | O comprovante mais barato de encerrar discussão | 8 |
-| Está em **Delivery → Entregas**, e o app do entregador em **Aplicativos → Entrega** | Já está lá; o que falta é o cadastro do entregador e o app no celular dele | 9 (CTA) |
+| A Gestão de Entregas **está incluso no módulo Entrega**, junto do Painel para Entregadores, e fica em **Delivery → Entregas** | Quem já paga o módulo já tem isto — não há o que contratar, há o que abrir | 9 (CTA) |
 
 **Ficou de fora, de propósito:**
 
@@ -96,7 +96,7 @@ perdida.
 | 6 | Avisos no WhatsApp | Quatro avisos prontos: três para o entregador, um para quem está esperando | `zap-avisos.png` (desenho) |
 | 7 | Relatório de Operação de Entrega | Quanto do tempo é cozinha e quanto é rua | `relatorio-operacao.png` (desenho) num `.notebook` |
 | 8 | Relatório do Entregador | Três modos de pagar, e o fechamento por pessoa | `relatorio-entregador.png` (desenho) num `.notebook` |
-| 9 | CTA | Está em Delivery → Entregas, e o app em Aplicativos → Entrega | `app-pronto.png` (desenho): o app no primeiro minuto |
+| 9 | CTA | Já está no ar, em Delivery → Entregas: monte a primeira rota hoje | `lista-rotas.png` (captura), cortada nas duas rotas |
 
 ## Decisões de arte
 
@@ -226,14 +226,13 @@ sentado, e a moldura deitada conta isso.
 
 ### O que é desenho, e por quê
 
-Seis das nove imagens da peça são **tela desenhada**, e são três motivos
+Cinco das nove imagens da peça são **tela desenhada**, e são três motivos
 diferentes:
 
 | Imagem | Por que desenhada | De onde saiu o desenho |
 |---|---|---|
 | `app-rota.png` | o app é Android/iOS e não roda no Cloud Agent | `manuais/app-entregador-rota/imagens-puras/03-rota-na-lista.png` e `manuais/app-entregador-entregas-do-dia/imagens-puras/01-lista.png` (prints de produção) |
-| `app-pronto.png` | idem | `manuais/gestao-entregas/material-recebido/app-entregador/02-disponibilidade/prints/02-pilula-pausa.png`, que é a mesma tela com a pílula laranja |
-| `situacao-entregador.png` | o app e o painel precisavam ficar na **mesma** imagem: é o encontro dos dois que prova o fato | o print acima, mais `imagens-puras/lista-entregadores.png`, que é captura de produção desta peça |
+| `situacao-entregador.png` | o app e o painel precisavam ficar na **mesma** imagem: é o encontro dos dois que prova o fato | `manuais/gestao-entregas/material-recebido/app-entregador/02-disponibilidade/prints/02-pilula-pausa.png`, mais `imagens-puras/lista-entregadores.png`, que é captura de produção desta peça |
 | `zap-avisos.png` | não há número conectado na sandbox | o **texto de fábrica** dos avisos, com os marcadores substituídos |
 | `roteirizacao.png` | o fato é uma **regra**, e a janela da regra é tela de configuração — então a imagem é o efeito dela | `imagens-puras/lista-rotas.png` (captura de produção) e as seções 4 e 5 do manual do despacho automático |
 | `relatorio-operacao.png` e `relatorio-entregador.png` | o sandbox não tem volume (acima) | a estrutura dos dois manuais de relatório, seção por seção |
@@ -362,6 +361,58 @@ Os corpos foram atrás. Três começavam sem verbo principal — "Na ordem que a
 definiu…", "Pela taxa cobrada na entrega…", "Quatro etapas medidas uma por
 uma…" —, que é legenda de foto no lugar de parágrafo, e é isso que produz a
 sensação de texto telegráfico mesmo quando cada palavra está certa.
+
+### O CTA era sobre cadastro, e CTA de novidade vende
+
+*"Refaça a copy inteira do último slide, não é sobre isso, venda a novidade."*
+
+As duas versões anteriores eram sobre **trabalho**. A primeira mostrava a janela
+do painel que ensina onde criar o funcionário e o usuário; a segunda trocou a
+imagem e manteve o assunto — "dois cadastros que você já tem". Nenhuma vende o
+módulo: as duas explicam a burocracia de ligá-lo. Fechar peça de novidade com
+trabalho é perder a venda no último slide, depois de oito slides de argumento.
+
+E o defeito era fácil de ver de fora, porque **a série inteira faz diferente**:
+
+| Peça | CTA |
+|---|---|
+| #3 | *Já está no ar* · "Suba o seu primeiro vídeo hoje" |
+| #4 | *Já está no ar* · "Ligue o primeiro ajuste hoje" |
+| #8 (peça irmã, mesmo módulo) | *Já está no ar* · "Abra o painel e deixe ligado hoje" |
+| #10 (era) | *Como começar* · "O entregador entra no mapa com dois cadastros" |
+
+O molde da casa é chapéu **Já está no ar**, título no imperativo com **hoje**,
+subtítulo com o primeiro passo mais a linha de fechamento da série, e a pílula
+de caminho. Esta peça tinha abandonado os quatro.
+
+Ficou: **"Monte a sua primeira rota hoje"**, com o caminho apontando para
+`Delivery → Entregas` — o módulo que a peça vendeu — e não mais para
+`Aplicativos → Entrega → BeeFood Entregador`, que é assunto de um slide do meio.
+
+A linha de disponibilidade é **fato publicado**, não promessa nossa: a novidade
+do Painel para Entregadores diz que ele *"está incluso no módulo Entrega, junto
+da Gestão de Entregas"*. Por isso a frase é condicional — quem **tem** o módulo
+Entrega já tem isto — em vez de "todo mundo já tem", que o módulo em liberação
+não sustenta.
+
+**A imagem caiu junto**, e pelo teste de imagem da revisão: a anterior era o
+aplicativo **vazio**, com "Nenhuma entrega agora". Tela em que não acontece nada
+é a pior arte possível para fechar uma venda — e ela só existia porque a copy
+velha precisava dela ("lista vazia é sinal de que deu certo"). Entrou no lugar a
+lista de rotas do painel, que até aqui só tinha servido de referência para o
+desenho do slide 3: a rota A na rua com a primeira parada em *Entregando agora*,
+a rota B *Pronta para sair* com o avião de despachar, e o rodapé com os
+contadores de entregador e o despacho automático ligado. É o que o título pede.
+
+O corte é feito **na arte**, não no arquivo puro: `lista-rotas.png` tem 760 ×
+1680 e começa pelo cabeçalho e pelos pedidos sem rota, que são assunto do slide
+3. A imagem entra a 640 px (fator 0,842) e sobe 621 px, que é o y = 738 do
+arquivo — a borda de cima do cartão da rota A. Mesmo princípio do
+`.recorte--topo` do `base.css`: ajustar na arte sem editar a pura.
+
+Com isso `app-pronto.png` e `telas/app-pronto.html` **saíram da pasta**. Desenho
+que nenhum slide usa não é acervo, é andaime — é o mesmo critério que tirou as
+oito tiras de rolagem da sondagem.
 
 ### O notebook da capa alternativa não diminui
 
