@@ -57,9 +57,17 @@ NN-<slug>/
 ├── imagens-puras/        # prints como saíram do navegador, nunca editados
 ├── slides/               # NN-nome.html (fragmentos de body)
 ├── png/                  # a arte final, 1080x1350
+├── capa-alternativa/     # só quando a capa tem duas versões: slides/ e png/ próprios
 ├── entrega/NN-<slug>.zip # png + copy, o arquivo que vai para quem publica
 └── folha-de-contato.png  # todos os slides numa imagem
 ```
+
+`capa-alternativa/` é uma pasta de carrossel inteira em miniatura — `slides/` e
+`png/` dentro dela —, e o `renderizar.py` a trata como tal: aponte para ela e
+sai o PNG. Serve à capa que muda a imagem e mantém o texto, para quem publica
+escolher. No `.zip` ela vai numa subpasta de mesmo nome, fora da raiz, para que
+arrastar tudo de uma vez leve só o carrossel; a `copy-instagram.txt` diz qual é
+a diferença entre as duas.
 
 ## Comandos
 

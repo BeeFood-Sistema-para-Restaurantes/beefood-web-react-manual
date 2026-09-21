@@ -5,7 +5,21 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-21 (34ª rodada: a Gestão de Entregas é a primeira
+Última atualização: 2026-09-21 (35ª rodada: o dono olhou as dez peças juntas e
+nomeou o defeito que nenhuma revisão isolada tinha pego — *"nossos carrosséis
+ficam só com imagem de configuração de campos e printscreen das telas"*. A
+causa não era descuido de execução: era a **ordem** do passo 3 desta skill, que
+começava por *onde a tela mora* e classificava a imagem por facilidade de
+captura, com desenho no último degrau. Quando captura é o degrau mais alto,
+ganha a tela mais fácil de capturar — e a mais fácil é sempre o formulário. A
+hierarquia foi trocada por **resultado capturado > resultado desenhado**, com
+tela de configuração fora dos dois degraus, e quatro imagens da décima peça
+foram refeitas por causa disso — ver *a imagem do slide é o resultado, nunca o
+painel de controle*. A rodada também fechou que **a capa pode ter duas
+versões**, em `capa-alternativa/`, e que **relatório sem volume se desenha
+inteiro**, com dado de exemplo que fecha em linha e em coluna.
+
+34ª rodada: a Gestão de Entregas é a primeira
 peça **sem release** — módulo em liberação, dezoito manuais conferidos e zero
 linha no feed. Ela abriu a **terceira fonte de pauta**, que é a mais perigosa
 das três porque o texto é nosso: `conferir-texto.py --fonte` passou a aceitar
@@ -167,6 +181,8 @@ a posição na fila.
 | 6 | O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — endereço público é **casca**; a página vem de um app externo | `carrosseis/06-totem-autoatendimento/` | 4:5, 9 slides | `entrega/06-totem-autoatendimento.zip` (9 PNG + copy) |
 | 7 | O cliente pede no tablet, sem esperar o garçom | **função**, de [`beefood.com.br/cardapio-digital-tablet`](https://beefood.com.br/cardapio-digital-tablet/) — página inteira, servida pelo próprio site | `carrosseis/07-cardapio-digital-tablet/` | 4:5, 9 slides | `entrega/07-cardapio-digital-tablet.zip` (9 PNG + copy) |
 | 8 | Painel para Entregadores | [19/09/2026](https://beefood.app/novidades/painel-para-entregadores) — manual em `manuais/painel-entregador/`, com **slug diferente** do release | `carrosseis/08-painel-entregador/` | 4:5, 7 slides | `entrega/08-painel-entregador.zip` (7 PNG + copy) |
+| 9 | Campanhas Inteligentes no WhatsApp | [28/07/2026](https://beefood.app/novidades/whatsapp-campanhas-inteligentes) | `carrosseis/09-campanhas-inteligentes/` | 4:5, 6 slides | `entrega/09-campanhas-inteligentes.zip` (6 PNG + copy) |
+| 10 | Gestão de Entregas | **sem release** — módulo em liberação, pauta tirada dos 18 manuais do grupo | `carrosseis/10-gestao-entregas/` | 4:5, 9 slides (+ capa alternativa) | `entrega/10-gestao-entregas.zip` (9 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -2697,14 +2713,110 @@ Cupom desenhado em CSS (`.cupom`) não precisa de selo: bobina térmica em
 monoespaçada é claramente desenho, e é a única forma de mostrar o "antes" — que
 não existe como captura.
 
+## A imagem do slide é o resultado, nunca o painel de controle
+
+Este é o defeito que mais durou nesta memória: nove peças, e ele só apareceu
+quando o dono olhou as dez juntas — *"nossos carrosséis ficam só com imagem de
+configuração de campos e printscreen das telas"*. Nenhuma revisão de peça
+isolada pega isso, porque em cada peça sozinha a tela de configuração parece
+uma escolha razoável: ela é a tela onde o recurso mora.
+
+**A causa estava na ordem do passo 3, não na execução.** A seção começava por
+*onde a tela mora* e ordenava a imagem por facilidade de captura — captura no
+degrau de cima, desenho no de baixo, como último recurso. Hierarquia por
+facilidade escolhe o mais fácil, e o mais fácil é sempre o formulário: ele abre
+com um clique, não precisa de cena montada, não depende de a sandbox ter volume
+e fica pronto sem dado nenhum dentro. A tela de resultado precisa das três
+coisas. O incentivo estava escrito, e por isso o erro se repetiu dez vezes com
+dez pessoas diferentes fazendo a mesma escolha.
+
+A hierarquia nova, que substituiu a antiga na `SKILL.md`:
+
+| Degrau | O que é | Quando |
+|---|---|---|
+| 1 | **tela de resultado, capturada** | a tela mostra o recurso funcionando |
+| 2 | **tela de resultado, desenhada** | o resultado existe e a captura não o alcança |
+| — | **tela de configuração** | **nunca** — nem capturada, nem desenhada |
+
+Campo, formulário, interruptor, janela de ajuste, modal de regras, lista de
+parâmetros com um marcado: tudo isso mostra **onde se mexe**, e carrossel não
+ensina a mexer. Quem precisa do campo abre o manual, onde aquele print já está,
+com seta e número.
+
+**Quando o fato é uma regra de configuração, a arte é o efeito da regra.** O
+despacho automático da décima peça tem sete campos numa janela, e o slide dele
+mostrava a janela. Virou a rota nascendo, em três colunas: *pedidos sem rota* →
+*Rota C · Sem entregador · Montando* → *Rota C · Rafael Lima · Pronta para
+sair*. As duas etapas estão no manual, então o desenho não inventa produto —
+ele troca o painel de controle pelo que o painel de controle produz.
+
+**O teste, slide por slide: tampe a copy e olhe só a imagem — acontece alguma
+coisa ali?** Campo com número dentro, interruptor verde, lista de opções com um
+tique: imagem de manual, slide sem prova. Isso entrou também na revisão da
+folha de contato, no mesmo nível de texto ilegível.
+
+O que o degrau 2 deixou de ser: o porão. Quatro imagens da décima peça nasceram
+dele nesta rodada, e são as quatro mais fortes da peça.
+
+### Relatório sem volume se desenha inteiro, e o dado de exemplo tem de fechar
+
+Os dois relatórios da Gestão de Entregas não tinham captura possível: as médias
+do relatório de operação só saem com vinte pedidos no período, e no de acerto
+quase nenhuma entrega da loja de teste tem entregador identificado. O que a
+sandbox dava era *Poucos pedidos* e coluna de traço — que prova que a loja não
+usou o recurso, não que o recurso funciona. A captura recortada que estava lá
+mostrava dois cartões e uma barra de "87% na loja", que é o retrato de uma loja
+de teste com quatro entregas.
+
+Desenhar o relatório inteiro resolve, com três amarras:
+
+- **A estrutura é a do manual, seção por seção, rótulo por rótulo.** Rótulo
+  inventado é produto inventado. Os seis indicadores do topo, as quatro etapas
+  de tempo na ordem em que acontecem, a divisão loja/rua, os cartões de prazo,
+  o gráfico por hora — tudo na ordem em que o manual os descreve.
+- **O número é de exemplo e tem de fechar em linha e em coluna.** Lojista
+  confere soma: 128 entregas × R$ 8,00 = R$ 1.024,00; 18 + 9 + 20 min = 47 min;
+  27 min na loja + 20 na rua = 47, que são os 57% e 43% da barra. Duas
+  incoerências escaparam da primeira leitura e caíram na segunda — uma cobertura
+  de 96% ao lado de "2 entregas ficaram fora", que só fecha com 5. O jogo de
+  números é **um só** na peça inteira, e os dois relatórios usam o mesmo.
+- **A copy não cita nenhum desses números.** Eles são estrutura, não promessa: a
+  divisão entre cozinha e rua é a leitura de cada loja. A legenda diz uma vez
+  que o dado é de exemplo, e a arte não leva carimbo.
+
+A medida do desenho sai do mockup: `1440x900` é 16/10, a proporção exata do
+`.notebook__tela`. Fora dela o `object-fit: cover` come uma faixa do relatório.
+
+### A capa pode ter duas versões, e elas moram em `capa-alternativa/`
+
+A décima peça saiu com duas capas de mesmo texto e imagem diferente: uma com o
+notebook grande, em que o mapa se lê inteiro, e outra com o notebook menor e o
+celular do aplicativo na frente, que diz "tem painel e tem aplicativo" sem
+gastar linha. Quem publica escolhe.
+
+A pasta é um carrossel em miniatura — `capa-alternativa/slides/` e
+`capa-alternativa/png/` —, e o `renderizar.py` a trata como tal sem nenhuma
+mudança: aponte para ela e sai o PNG. No `.zip` o `empacotar.py` já a põe numa
+subpasta de mesmo nome, fora da raiz, para que arrastar tudo de uma vez leve só
+o carrossel. A `copy-instagram.txt` explica a diferença entre as duas.
+
+A alternativa não é rascunho guardado por apego. Se as duas não estiverem
+prontas para publicar, a que está pior não fica: capa fraca no repositório vira
+capa fraca publicada no dia em que alguém tem pressa.
+
 ## Onde a tela mora
+
+Isto só se pergunta **depois** de a imagem ser de resultado — a tabela responde
+de onde vem a captura, não se ela deve existir. Ver *a imagem do slide é o
+resultado*, acima.
 
 | Tela | Como capturar |
 |------|---------------|
 | painel web (`beefood.app`) | `capturar.py --rota /cardapio` |
 | cardápio digital público | `capturar.py --url <link> --publico --dispositivo celular` |
 | **totem de autoatendimento** | é **web**: `totem.beefood.app/?empresaID=&filialID=&token=`. Roda aqui, e é captura de verdade. Veja *O totem é web* |
-| app Android (Garçom, Entregador, Tablet) | não roda aqui. Nesta ordem: procure o print de produção no manual da mesma novidade (`git fetch origin main` antes de concluir que não existe); senão peça ao dono (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`); senão ilustre com selo |
+| app Android (Garçom, Entregador, Tablet) | não roda aqui. Nesta ordem: procure o print de produção no manual da mesma novidade (`git fetch origin main` antes de concluir que não existe); senão peça ao dono (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`); senão desenhe a tela em CSS copiando layout e paleta do print |
+| **regra de configuração** (despacho automático, avisos, formas de pagamento) | a janela de campos não entra. Desenhe o **efeito** da regra, com os rótulos que o sistema usa dos dois lados dela |
 | coisa que não é tela (cupom, impressora) | print do manual, se existir; senão desenho em CSS |
 
 ### O totem é web, e a tela do cliente pode ser captura
@@ -3054,6 +3166,11 @@ imagem fica centralizada no que sobrou, seja quanto for. É a mesma ideia do
 Se depois disso ainda sobra vão, o problema não é layout: é que o recorte está
 estreito para a faixa. Suba a largura até a da sangria (1004 px) antes de mexer
 em margem.
+
+Nota da rodada seguinte: estes dois recortes não existem mais — os relatórios
+foram redesenhados inteiros, dentro de notebook, porque eram tela de
+configuração e retrato de loja vazia. A regra do `.empurra` dos dois lados
+continua valendo para qualquer recorte largo e baixo; o que caiu foi o exemplo.
 
 ### Onde medir a borda de um recorte
 
