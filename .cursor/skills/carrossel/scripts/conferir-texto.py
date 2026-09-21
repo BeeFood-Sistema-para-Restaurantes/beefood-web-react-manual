@@ -5,6 +5,7 @@
     python ... <slug> --janela 6
     python ... <pasta> --novidade <slug-da-novidade>
     python ... <pasta> --fonte https://beefood.com.br/sistema-dark-kitchen/
+    python ... <pasta> --fonte manuais/gestao-entregas-mapa-painel
 
 A pasta do carrossel costuma ter o mesmo nome da novidade. Quando o slug
 publicado é comprido demais para virar nome de pasta
@@ -12,6 +13,12 @@ publicado é comprido demais para virar nome de pasta
 do feed é a fonte. Em peça do gênero **função do sistema** não existe feed:
 `--fonte` aponta a página do site, que é copy pronta e por isso ainda mais fácil
 de recortar sem perceber.
+
+E há o terceiro caso: **módulo em liberação**, sem release e sem página de
+vendas — o fato vive só no manual. Aí `--fonte` recebe um caminho do
+repositório em vez de uma URL, e pode ser repetido; pasta vale como o
+`.md` de dentro dela. É o cenário mais perigoso dos três, porque o manual foi
+escrito pela casa: o texto é bom, está à mão, e recortá-lo não soa como cópia.
 
 Compara o texto visível dos slides com o texto da fonte e acusa qualquer
 sequência de N palavras que apareça igual nos dois. Termo de tela ("Destaque na
@@ -149,6 +156,29 @@ def sequencias(lista: list[str], n: int) -> set[tuple[str, ...]]:
 MARCA_DE_LINHA = re.compile(r"^ *\d+\|")
 
 
+def ler_fonte_local(caminho: str) -> tuple[str, str]:
+    """O texto de um manual do repositório, e como ele se chama na saída.
+
+    Pasta de manual vale pelo `.md` de dentro dela, que é onde o passo a passo
+    mora; `MEMORIA.md` e `fluxo-codigo.md` ficam de fora porque são nota de
+    produção e ninguém recorta slide deles.
+    """
+    alvo = (RAIZ / caminho) if not Path(caminho).is_absolute() else Path(caminho)
+    if alvo.is_dir():
+        arquivos = [alvo / f"{alvo.name}.md"]
+        if not arquivos[0].is_file():
+            arquivos = sorted(alvo.glob("*.md"))
+    else:
+        arquivos = [alvo]
+
+    partes = []
+    for arquivo in arquivos:
+        if not arquivo.is_file():
+            raise FileNotFoundError(arquivo)
+        partes.append(arquivo.read_text(encoding="utf-8"))
+    return " ".join(partes), caminho
+
+
 def conferir_marcas(pasta: Path) -> int:
     achados = 0
     for arquivo in sorted(pasta.rglob("*")):
@@ -225,9 +255,10 @@ def main() -> None:
     p.add_argument("slug", help="pasta em carrosseis/")
     p.add_argument("--novidade",
                    help="slug da novidade no feed, quando difere do da pasta")
-    p.add_argument("--fonte",
+    p.add_argument("--fonte", action="append",
                    help="URL da página de origem, quando a pauta não é o feed "
-                        "(gênero função do sistema)")
+                        "(gênero função do sistema), ou caminho de manual no "
+                        "repositório; pode repetir")
     p.add_argument("--janela", type=int, default=6,
                    help="tamanho da sequência considerada cópia (padrão 6)")
     args = p.parse_args()
@@ -239,12 +270,21 @@ def main() -> None:
     # Peça de função não tem release: a fonte é a página do site, que é copy
     # pronta e por isso ainda mais fácil de recortar sem perceber.
     if args.fonte:
-        try:
-            pagina = ler_pagina(args.fonte)
-        except Exception as erro:
-            sys.exit(f"ERRO ao ler {args.fonte}: {erro}")
-        origem = args.fonte
-        bruto = f"{pagina['titulo']} {pagina['texto']}"
+        pedacos, nomes = [], []
+        for fonte in args.fonte:
+            try:
+                if fonte.startswith(("http://", "https://")):
+                    pagina = ler_pagina(fonte)
+                    pedacos.append(f"{pagina['titulo']} {pagina['texto']}")
+                    nomes.append(fonte)
+                else:
+                    texto, nome = ler_fonte_local(fonte)
+                    pedacos.append(texto)
+                    nomes.append(nome)
+            except Exception as erro:
+                sys.exit(f"ERRO ao ler {fonte}: {erro}")
+        origem = ", ".join(nomes)
+        bruto = " ".join(pedacos)
     else:
         alvo = args.novidade or args.slug
         ficha = next((f for f in fichas(baixar(FEED)) if f["slug"] == alvo), None)

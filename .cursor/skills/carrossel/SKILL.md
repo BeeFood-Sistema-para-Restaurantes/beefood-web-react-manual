@@ -39,6 +39,16 @@ marca tem cardápio, canais e relatórios próprios") — mas **não** o que ela
 empresa: "+100 mil negócios", "melhor avaliação no Google", "melhor suporte do
 Brasil" são claim institucional e não entram na arte.
 
+**E a novidade pode não ter release nenhum.** Módulo **em liberação** chega ao
+sistema antes de chegar ao feed: a Gestão de Entregas tinha dezoito manuais
+conferidos no código e zero linha em `beefood.app/novidades`. A peça continua
+sendo do gênero *novidade* — o leitor é cliente, a pílula diz `Novidade`, o CTA
+é caminho de menu —, e o que muda é só de onde vem a pauta: o **manual** passa a
+ser fonte única, e é o material do qual é mais fácil recortar sem perceber (ver
+passo 6). Sem release não há data para amarrar, então o `copy-instagram.txt`
+pede a quem publica que confirme a liberação antes de postar — a arte não leva
+data de todo jeito, e por isso ela pode esperar na fila.
+
 **E a página pode estar vazia, sem que isso derrube a peça.** A do totem só tem
 menu, rodapé e um `Carregando…`; o que sobrou foi a descrição de busca, uma
 afirmação funcional, e ela bastou para o ângulo. Pauta é a parte substituível —
@@ -687,12 +697,29 @@ margem, ou o slide é parado.
 ```bash
 python .cursor/skills/carrossel/scripts/conferir-texto.py <slug>
 python ... <pasta> --novidade <slug-publicado>   # pasta com nome mais curto
+python ... <pasta> --fonte <url>                 # gênero função: a página do site
+python ... <pasta> --fonte manuais/<slug> --fonte manuais/<outro>   # e quando a fonte é o manual
 ```
 
 Acusa qualquer sequência de seis palavras que apareça igual no texto (ou no
 título) da novidade — nenhum rótulo do sistema chega a seis palavras, então o que
 ele pega é cópia. Ele não julga o roteiro; para isso existe a tabela
 fato → ângulo → slide.
+
+**O manual é a fonte mais perigosa das três, e por isso `--fonte` também
+recebe caminho.** Módulo em liberação não tem release nem página de vendas: o
+fato vive só em `manuais/`, e ali o texto foi escrito pela casa. É bom, está à
+mão, e recortá-lo não soa como cópia — soa como usar o que já existe. Passe
+todos os manuais do grupo, repetindo `--fonte`; pasta vale pelo `.md` de dentro
+dela. Na peça da Gestão de Entregas, dezoito manuais pegaram três frases, e as
+três eram as **melhores** do roteiro, que é justamente o motivo de elas terem
+sobrevivido a duas leituras: a frase do sistema no alto da janela do despacho
+estava também **na imagem do mesmo slide**, e reescrevê-la devolveu uma linha
+inteira de copy que estava sendo gasta duas vezes.
+
+E há a armadilha da inflexão: `manda a rota para a rua` passa e `mandar a rota
+para a rua` não. Quando o conferidor pega a versão do texto alternativo e deixa
+a do slide, as duas são a frase do manual — troque as duas, não só a acusada.
 
 **Ele também compara a peça com os outros carrosséis**, e isso é `AVISO`, não
 erro. Prova se reusa entre peças de propósito; **a copy, não** — o slide

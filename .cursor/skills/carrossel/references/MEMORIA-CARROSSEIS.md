@@ -5,7 +5,17 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-20 (33ª rodada: três retornos na mesma peça, e os
+Última atualização: 2026-09-21 (34ª rodada: a Gestão de Entregas é a primeira
+peça **sem release** — módulo em liberação, dezoito manuais conferidos e zero
+linha no feed. Ela abriu a **terceira fonte de pauta**, que é a mais perigosa
+das três porque o texto é nosso: `conferir-texto.py --fonte` passou a aceitar
+caminho de manual, e pegou três frases que duas leituras humanas deixaram
+passar — uma delas estava também **na imagem do próprio slide**. A rodada também
+fechou que **recorte largo e baixo pede `.empurra` dos dois lados** e que
+**borda de recorte se mede pelo pixel, não pelo palpite** — ver *o manual é
+pauta, e é a pauta mais fácil de recortar* e *recorte largo e baixo*).
+
+33ª rodada: três retornos na mesma peça, e os
 três são de mentalidade. **"O cliente" é quem lê** — a palavra tem dois donos
 quando o recurso fala com o consumidor final, e a saída é nomear pela ação
 ("quem largou a sacola"), ver *o oitavo vício*. **A capa é o melhor slide que
@@ -2991,6 +3001,60 @@ liste `manuais/` pelas palavras do assunto — aqui, `*desconto*`, `*pagamento*`
 `*recebimento*` devolviam cinco pastas, três delas úteis. O manual achado vira
 leitura obrigatória; a imagem dele, não.
 
+## O manual é pauta, e é a pauta mais fácil de recortar
+
+A 34ª rodada (Gestão de Entregas) pediu uma peça de **novidade sem novidade**:
+o módulo está em liberação, tem dezoito manuais conferidos no código e na
+sandbox, e nenhuma linha em `beefood.app/novidades`. Isso não muda o gênero — o
+leitor é cliente, a pílula diz `Novidade`, o CTA é caminho de menu — e muda só
+de onde vem a pauta. O manual passa a ser fonte única.
+
+**E ele é a fonte mais perigosa das três.** Release é registro de produto e
+página de vendas é copy alheia: as duas soam "de fora", e a gente desconfia
+delas por reflexo. Manual é nosso, está a um `cat` de distância, foi escrito com
+cuidado e diz a coisa certa — recortá-lo não parece cópia, parece aproveitar o
+que já existe. Duas leituras humanas do roteiro não pegaram nada; o
+`conferir-texto.py --fonte manuais/<slug>` pegou três frases.
+
+O que as três tinham em comum é o que interessa: **eram as melhores linhas do
+roteiro**. Boa frase do manual é exatamente a que sobrevive à revisão, porque
+ela lê bem. Duas descobertas concretas:
+
+- **A frase copiada pode estar também na imagem do slide.** "Despachar continua
+  sendo um clique seu" é o texto que o sistema escreve no alto da janela do
+  despacho automático — e a janela é a imagem daquele slide. Escrevê-la na copy
+  gastava duas vezes a única linha de texto que o slide tinha, e o conferidor
+  apontou um problema de cópia que era, antes disso, um problema de arte.
+- **Inflexão engana.** `manda a rota para a rua` passa; `mandar a rota para a
+  rua` não. O conferidor acusou o texto alternativo e deixou o slide, e as duas
+  frases eram a do manual. Quando ele pega uma versão, procure as irmãs.
+
+Como rodar: repita `--fonte` uma vez por manual do grupo (pasta vale pelo `.md`
+de dentro dela). Dezoito fontes rodam em menos de um segundo, porque é leitura
+de arquivo e não de rede.
+
+E o que a peça deve a quem publica: **sem release não há data para amarrar**. O
+`copy-instagram.txt` abre pedindo que se confirme a liberação do módulo antes de
+postar. A arte não leva data de todo jeito (ver *nada de data na arte*), e é
+isso que deixa a peça esperar na fila de conteúdo sem envelhecer.
+
+### Recorte largo e baixo: `.empurra` dos dois lados
+
+Os dois relatórios desta rodada rendem recortes de proporção ~3/1 e ~3,8/1. Na
+largura de 1004 px do slide eles têm 320 e 264 px de altura, e a faixa
+disponível tem cerca de 400 — sobra uma tarja morta de 150 a 200 px, que numa
+peça de nove slides aparece em dois seguidos e lê como slide inacabado.
+
+`margin-top` resolve por acidente e quebra quando o título muda de duas para
+três linhas. O que resolve de verdade é `<div class="empurra"></div>` **antes e
+depois** da `.figura`: os dois `flex: 1` dividem o vão em partes iguais e a
+imagem fica centralizada no que sobrou, seja quanto for. É a mesma ideia do
+`.empurra` único que empurra o rodapé para baixo, com um segundo de contrapeso.
+
+Se depois disso ainda sobra vão, o problema não é layout: é que o recorte está
+estreito para a faixa. Suba a largura até a da sangria (1004 px) antes de mexer
+em margem.
+
 ### Onde medir a borda de um recorte
 
 Recortar continua sendo necessário — em captura própria, porque tela de painel
@@ -3010,6 +3074,19 @@ que mais custou refazer. As duas medidas que resolveram:
   dois borrões. Recontando abaixo de 250, aquelas mesmas colunas tinham de 31 a
   61 pixels — a **sombra** da pílula, que o limiar duro não via e o olho vê. A
   borda que serve é a do cartão, em 1293.
+
+- **relatório dentro de iframe de outro domínio:** não há elemento para medir e
+  não há DOM para consultar, mas a página inteira é cinza e o painel do
+  relatório é branco puro. Uma varredura de linha procurando `(255,255,255)`
+  devolveu `x 962` e `x 2813` em qualquer altura, e esses dois números são a
+  borda do painel. O corte da 34ª rodada estava em `1004 → 2816`: entrava 42 px
+  dentro do painel à esquerda e sobrava 3 px à direita. A diferença chegou ao
+  slide como um **cartão pela metade** encostado na borda direita, e o
+  diagnóstico levou mais tempo que a medida, porque o defeito parecia da tela.
+
+O erro dos três casos é o mesmo: **borda estimada na miniatura**. Meça sempre no
+arquivo, com Pillow, e prefira uma propriedade do desenho (branco puro, vão sem
+tinta) a um número lembrado da rodada anterior.
 
 Melhor ainda é **não precisar da medida**: em captura própria dá para fotografar
 o elemento (`locator.screenshot()`) em vez de a página, e aí a borda é a do
