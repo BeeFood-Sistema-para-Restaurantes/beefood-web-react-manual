@@ -292,8 +292,13 @@ CORTES = {
     # O pé fecha logo abaixo de "A rua responde por 13% do tempo até a entrega":
     # a linha seguinte é "medido em 56 de 210 pedidos (27%)", que é ressalva de
     # amostra e lê como dado fraco ao lado da barra que ela mesma sustenta.
-    "relatorio-operacao": (1004, 765, 2816, 1345),
-    "relatorio-entregador": (965, 273, 2816, 759),
+    #
+    # A lateral dos dois é a borda do painel branco, medida pelo pixel branco na
+    # linha (x 962 e 2813 nos dois relatórios): o corte anterior entrava 42 px
+    # dentro do painel à esquerda e sobrava 3 px à direita, e essa diferença
+    # chegava ao slide como um cartão pela metade encostado na borda.
+    "relatorio-operacao": (962, 735, 2814, 1358),
+    "relatorio-entregador": (962, 262, 2814, 756),
 }
 
 

@@ -1,0 +1,199 @@
+CARROSSEL — GESTÃO DE ENTREGAS
+Gênero: novidade
+Fonte: não há release em beefood.app/novidades. O módulo está EM LIBERAÇÃO, e o
+fato veio dos 18 manuais do grupo — os nove de gestao-entregas, os seis do app
+do entregador, relatorio-operacao-entrega e entregador-quanto-recebe.
+Manual: ajuda.beefood.com.br/painel-de-entregas/gestao-entregas-mapa-painel
+
+Publicar como carrossel de feed, 9 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-uma-tela-so, 03-despacho-automatico,
+04-tempo-real, 05-app-do-entregador, 06-avisos-whatsapp,
+07-relatorio-operacao, 08-acerto-do-entregador, 09-cta.
+
+CONFIRA A LIBERAÇÃO ANTES DE PUBLICAR. A peça foi escrita do manual, que está
+conferido no sistema, mas não existe novidade publicada para amarrar a data:
+quem publica precisa saber do produto se o módulo já está no ar para a base
+toda. Se ainda não estiver, a peça não tem data na arte e pode esperar — é o
+motivo de a arte nunca levar data.
+
+A CENA DAS CAPTURAS É MONTADA, e vale saber o quê. O painel da sandbox foi
+encontrado com quatro pedidos prontos, ZERO rota e ZERO entregador com posição:
+o GPS mais novo tinha três dias. O mapa desenhava a loja e quatro pinos cinzas,
+e a peça inteira fala de rota, de despacho e de acompanhamento ao vivo — não
+havia o que fotografar.
+
+O que ficou de verdade: os pedidos 1140, 1141 e 1142 são do banco da loja de
+teste, com o número, o cliente, o endereço, a forma de pagamento, o valor e a
+coordenada que estão lá. O que foi reescrito na resposta da API, sem gravar nada
+no servidor: a idade em minutos de cada pedido (o seeder rodou de manhã), a
+posição e a bateria dos entregadores, e as duas rotas. Seis pedidos de exemplo
+entraram para encher a rota B e a fila sem rota. O arquivo `cena.json` registra
+linha por linha o que mudou e por quê, e o script tem `--cru` para ver a tela
+como ela está hoje.
+
+UM ENTREGADOR APARECE COM 14% DE BATERIA de propósito, no slide 4: é o que o
+manual diz que acontece abaixo de 15%, e slide que afirma precisa do que provar.
+
+TRÊS IMAGENS SÃO TELA DESENHADA, todas pelo mesmo motivo: o BeeFood Entregador é
+aplicativo de celular e não há como fotografá-lo daqui. A lista da rota no app e
+as duas conversas de WhatsApp foram redesenhadas a partir de prints de produção
+dos manuais, com os dados da cena. O texto das mensagens não foi escrito à mão:
+é o de fábrica do próprio sistema, com os marcadores já substituídos.
+
+OS NÚMEROS DOS DOIS RELATÓRIOS SÃO REAIS, medidos na loja de teste em 31 dias.
+Eles não são promessa nossa, e por isso a legenda não os repete: são a leitura
+de uma operação. Os recortes param onde a tela para de sustentar o título do
+slide — a tabela por entregador ficou fora porque naquela loja quase ninguém se
+identifica no painel, e isso é hábito de loja de teste, não do produto.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+Gestão de Entregas: rota, entregador e mapa numa tela só
+
+Quem tem delivery conhece a hora em que a cozinha despeja seis sacolas na
+bancada ao mesmo tempo. Alguém decide o que vai junto, alguém decide quem leva,
+alguém anota, e a decisão inteira mora na cabeça dessa pessoa. Se ela sai para
+atender o balcão, a fila para.
+
+A Gestão de Entregas tira isso da cabeça e põe numa tela. À esquerda um mapa com
+os pedidos prontos, as rotas em andamento e a moto de cada entregador. À direita
+a lista, com quem está levando o quê. A tela de Delivery continua servindo para
+resolver um pedido; aqui você resolve a viagem.
+
+Com o despacho automático ligado, a rota chega pronta. O sistema olha o que cabe
+na mesma viagem — quantos pedidos, quanta distância entre eles, quanto tempo de
+espera — e escolhe quem sai: a moto mais próxima do primeiro endereço, com GPS
+recente. O que ele não faz é mandar embora: esse clique continua sendo seu.
+
+O acompanhamento é o outro lado. A lista de entregadores diz de quando é a
+última posição de cada um, a que distância da loja ele está e quanta carga sobrou
+no celular. Abaixo de 15% o aparelho costuma cortar o GPS, então pino parado nem
+sempre é moto parada — e saber disso é a diferença entre ligar e não ligar.
+
+No celular dele, o aplicativo abre a rota na ordem que você montou: o número do
+pedido, a previsão, o endereço completo e quanto cobrar em cada porta. É gratuito
+no Google Play e na App Store.
+
+E o WhatsApp faz as duas ligações que sobravam. O entregador recebe endereço,
+pagamento e valor no instante em que a rota sai. Quem está esperando recebe um
+aviso quando a moto entra nos 2 km da casa dele. Os quatro textos já vêm
+escritos de fábrica.
+
+No fim do mês sobram os dois relatórios. O de operação quebra a entrega em
+quatro etapas e mostra quanto do tempo foi dentro da loja e quanto foi rua —
+é onde a conversa "o motoboy é devagar" costuma mudar de lado. O de acerto fecha
+quanto pagar: pela taxa cobrada na entrega, pelo valor gravado no pedido ou pelo
+quilômetro rodado, com a diária somando por cima, e sai em cupom, A4 ou Excel,
+um por pessoa.
+
+Para o entregador entrar no mapa são dois cadastros que já existem no painel: o
+funcionário e o usuário dele. Depois é o aplicativo no celular.
+
+O mapa fica em Delivery → Entregas, e o aplicativo em Aplicativos → Entrega 🛵
+Tudo que entra de novo está em beefood.app/novidades
+
+#beefood #delivery #gestaodeentregas #entregadores #restaurante
+#gestaoderestaurante #motoboy #roteirizacao
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Hoje, quem decide qual pedido vai com qual moto na sua loja? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com a pílula "Novidade", o título "Gestão de Entregas: rota,
+    entregador e mapa numa tela só", com o nome do recurso em vermelho, e a
+    linha "O sistema agrupa os pedidos e escolhe quem sai".
+    Embaixo, um notebook aberto com o mapa da Gestão de Entregas: os selos de
+    contagem no alto (1 em preparação, 4 prontos, 3 em rota, 1 entregues) e o
+    selo "Despacho ligado"; no mapa, a rota A tracejada em rosa ligando as
+    paradas A1, A2 e A3 dos pedidos 1140, 1141 e 1142, a rota B em verde
+    ligando B1 e B2, os pinos dos pedidos sem rota e duas motos com o nome do
+    entregador ao lado, Diego e Marcos.
+
+02  Chapéu "Como funciona" e título "O mapa mostra onde. A lista mostra quem
+    leva", com "quem leva" em vermelho. O texto diz que cada pedido pronto vira
+    um pino no mapa e uma parada dentro da rota de alguém, e que a tela de
+    Delivery resolve um pedido por vez enquanto esta resolve a viagem inteira.
+    Abaixo, a tela inteira numa janela de navegador: à esquerda o mapa com as
+    duas rotas; à direita o painel "Rotas de entrega", com o grupo "Pedidos sem
+    rota" e três pedidos, e em seguida a rota A de Diego Souza com as três
+    paradas e a rota B de Marcos Vieira.
+
+03  Chapéu "Despacho automático" e título "No pico, a rota já chega montada",
+    com "montada" em vermelho. O texto diz que o sistema junta os pedidos que
+    cabem na mesma viagem e escolhe quem vai levar, e que nada sai da loja sem
+    o clique do operador. Abaixo, a janela de configuração do
+    despacho automático com o interruptor verde ligado, a coluna "Agrupamento
+    dos pedidos" (máximo de entregas por viagem 3, distância máxima 1500 metros
+    e tempo máximo em branco) e a coluna "Escolha do entregador" (liberar
+    quando os pedidos estiverem finalizados, raio do restaurante 500 metros,
+    considerar a posição do entregador ligado e tolerância de GPS de 5 minutos).
+
+04  Chapéu "Acompanhamento ao vivo" e título "Antes de ligar para o entregador,
+    olhe a bateria", com "bateria" em vermelho. O texto diz que a lista informa
+    de quando é a última posição, a distância até a loja e a carga que sobrou, e
+    que abaixo de 15% o celular costuma parar de mandar GPS. Abaixo, a janela
+    "Entregadores (5)" agrupada por situação: Disponível com Rafael Lima
+    (há 2 min, 430 m do restaurante, bateria 64%); Em rota com Diego Souza
+    (há 1 min, 1,1 km, bateria 14%) e Marcos Vieira (há 1 min, 110 m, bateria
+    91%); Em pausa com Paulo Henrique; e Offline com Tiago Nunes, que nunca
+    usou o app.
+
+05  Chapéu "App do entregador · Android e iOS" e título "A rota que você montou
+    abre no celular dele", com "abre no celular dele" em vermelho. O texto diz
+    que ela chega na ordem que a loja definiu, com o número do pedido, a
+    previsão e quanto cobrar na porta de cada um. Abaixo, um celular com o
+    aplicativo aberto: cabeçalho escuro com o disco amarelo da letra A, o
+    título "ROTA A", o contador "0 de 3 entregas" e o botão verde "INICIAR
+    ROTA"; em seguida as paradas numeradas — 1, pedido 1140, previsão 19:40,
+    Rua Padre Luiz 235 no Centro, cobrar R$ 19,90; e 2, pedido 1141, previsão
+    19:55, Rua Dom Antônio Alvarenga 410 na Vila Santo Antônio, cobrar R$ 42,80.
+
+06  Chapéu "Avisos no WhatsApp" e título "Dois telefonemas a menos em cada
+    entrega", com "menos" em vermelho. O texto diz que o entregador recebe
+    endereço, pagamento e valor no instante em que a rota sai, que quem está
+    esperando é avisado quando a moto chega a 2 km da porta, e que os quatro
+    textos já vêm escritos. Abaixo, duas conversas de WhatsApp lado a lado. No
+    celular do entregador: "Nova entrega" com o pedido 1140, a cliente Ana
+    Beatriz Moraes, o endereço na Rua Padre Luiz, pagamento em dinheiro e total
+    de R$ 19,90; e "Entrega cancelada", avisando que o pedido 1144 não é mais
+    dele. No celular de quem pediu: o aviso de que o pedido saiu para entrega e
+    o aviso de que o entregador Diego está chegando com ele.
+
+07  Chapéu "Operação de entrega" e título "Quanto da entrega é cozinha, e quanto
+    é rua", com "cozinha" em vermelho. O texto diz que o relatório quebra a
+    entrega em quatro etapas e separa o tempo de dentro da loja do tempo de rua.
+    Abaixo, o recorte do relatório: o cartão "Saída até entrega" com 5,3 min, o
+    cartão "Pedido até entrega" com 22,6 min e a barra "Onde o tempo é
+    investido", com 35,1 min na loja valendo 87% e 5,3 min na rua valendo 13%,
+    seguida da linha "A rua responde por 13% do tempo até a entrega".
+
+08  Chapéu "Acerto do entregador" e título "Escolha como pagar, e o relatório
+    fecha a conta", com "fecha a conta" em vermelho. O texto diz que o cálculo
+    pode ser pela taxa cobrada na entrega, pelo valor gravado no pedido ou pelo
+    quilômetro rodado, com a volta se for o combinado, que a diária soma por
+    cima e que o fechamento sai em cupom, A4 ou Excel. Abaixo, o cabeçalho do
+    relatório Entregador (Taxa / KM): a caixa que soma o quilômetro da volta e
+    os três modos de cálculo, com os botões Imprimir A4, Imprimir Cupom e Excel; e
+    os cinco cartões de total do período — 195 entregas, 604,76 km, taxa do
+    cliente de R$ 1.367,45, taxa do entregador de R$ 92,00 e quatro diárias de
+    R$ 240,00.
+
+09  Fundo escuro com o chapéu "Como começar", o título "Dois cadastros, e o
+    entregador já entra no mapa", com "já entra no mapa" em vermelho, e a linha
+    "O aplicativo é gratuito, no Google Play e na App Store. O mapa com as rotas
+    fica em Delivery → Entregas". Embaixo, a etiqueta de caminho "Aplicativos →
+    Entrega → BeeFood Entregador" e a janela do sistema que explica os dois
+    cadastros necessários — criar o funcionário entregador em Cadastro →
+    Funcionário e criar o usuário em Configuração → Usuário — com os botões de
+    download do Google Play e da App Store.

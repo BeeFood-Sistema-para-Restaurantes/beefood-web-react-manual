@@ -217,6 +217,43 @@ reusa é a ideia da prova, não o arquivo**.
 E o print do manual não entra recortado em slide nenhum: ele é referência de
 layout, como manda a skill.
 
+### O que a revisão mudou
+
+A folha de contato e a leitura em tamanho real pegaram quatro coisas, e nenhuma
+delas aparece na miniatura:
+
+- **a borda dos dois recortes de relatório estava torta.** O corte vinha de
+  `1004 → 2816` e o painel branco do relatório vai de `962` a `2813`: sobrava
+  uma faixa de 3 px do lado de fora à direita e faltavam 42 px à esquerda. No
+  slide aquilo lia como cartão pela metade encostado na borda. A medida saiu da
+  varredura do pixel branco puro na linha, e não de estimativa na miniatura;
+- **os slides 7 e 8 tinham tarja morta entre a imagem e o rodapé.** Recorte de
+  ~3/1 na largura do slide tem 320 px de altura numa faixa de 400, e
+  `margin-top` acerta por acidente. Um `.empurra` de cada lado da `.figura`
+  centraliza a imagem no vão, e a largura subiu para os 1004 px da sangria;
+- **o título do slide 7 tinha três linhas**, a terceira com a palavra `rua`
+  sozinha. Saiu *"O relatório diz"* — o chapéu já diz que é relatório — e o
+  corpo passou a nomear o relatório, no lugar de um `ele` solto;
+- **a frase do slide 3 era a do sistema, palavra por palavra.** Ver abaixo.
+
+### A cópia que estava também na imagem
+
+O `conferir-texto.py` ganhou `--fonte <caminho>` nesta peça, justamente porque
+não há release para medir contra: as dezoito fontes são os manuais. Ele acusou
+três frases, e a mais instrutiva é a do slide 3 — *"despachar continua sendo um
+clique seu"*, que é o texto que o sistema escreve no alto da janela do despacho
+**e que está na imagem daquele mesmo slide**. Era cópia do manual e era desenho
+repetido: a única linha de copy do slide estava sendo gasta duas vezes.
+
+A segunda versão (*"quem manda a rota para a rua continua sendo você"*) passou
+no slide por inflexão e foi pega no texto alternativo, porque *"mandar a rota
+para a rua"* é do manual. Ficou *"Nada sai da loja sem o seu clique"*.
+
+Os avisos de repetição contra os outros carrosséis são todos a linha de
+fechamento da série (*"Tudo que entra de novo está em beefood.app/novidades"*).
+Ela repete de propósito: é convenção de CTA, e a frase mais comum possível é a
+que funciona.
+
 ### A capa
 
 O molde é novo na série: **nome, dois-pontos, e o fato**. As nove capas
