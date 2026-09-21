@@ -1,0 +1,108 @@
+<!-- O aplicativo do entregador no primeiro minuto: logado, ONLINE e sem nada
+     para entregar ainda.
+
+     Por que desenhada: o BeeFood Entregador é Android/iOS e não roda no Cloud
+     Agent.
+
+     Por que ESTA tela no CTA: antes o slide 9 usava a janela do painel que
+     ensina os dois cadastros — "criar um funcionário em Cadastro → Funcionário,
+     criar um usuário em Configuração → Usuário". Isso é tela de instrução, que
+     é o que a regra nova do passo 3 da SKILL.md tirou da arte. O resultado dos
+     dois cadastros é este: o entregador entra, a pílula fica verde, e a lista
+     está vazia porque ainda não despacharam nada para ele. O manual é explícito
+     de que a tela assim "é sinal de que deu tudo certo, não de problema"
+     (manuais/app-entregador-entrar/, seção 3) — e é isso que faz uma tela vazia
+     poder ser a imagem de um CTA.
+
+     Copia layout, paleta e hierarquia de um print de PRODUÇÃO, sem recortar
+     nada dele:
+       manuais/gestao-entregas/material-recebido/app-entregador/
+         02-disponibilidade/prints/02-pilula-pausa.png
+     que é a mesma tela com a pílula laranja. O verde do ONLINE é o de
+     manuais/app-entregador-entrar/imagens-puras/10-tres-pilulas.png.
+
+     390x844 é a medida do `.celular`, e ele entra no slide com ~620 px.
+
+     Uma diferença do print, e é de enquadramento: no aparelho o bloco vazio
+     fica no meio da tela, com muito branco em cima. O slide sangra pela base e
+     mostra só a metade de cima do aparelho, então ali o bloco subiu — senão o
+     que o leitor vê é um retângulo branco. Nada do conteúdo mudou. -->
+<div class="tela" data-medida="390x844" style="background: #fff">
+
+  <!-- Barra de status do sistema -->
+  <div style="display: flex; align-items: center; justify-content: space-between;
+              background: #242424; color: #fff; padding: 9px 17px 5px;
+              font-size: 13px; font-weight: 700; flex: none">
+    <span>18:12</span>
+    <span style="letter-spacing: 3px">&#9679;&#9679;&#9679;</span>
+  </div>
+
+  <!-- Cabeçalho, com a pílula verde -->
+  <div style="display: flex; align-items: center; background: #242424;
+              padding: 13px 15px 15px; flex: none">
+    <span style="flex: none; width: 29px">
+      <span style="display: block; height: 3px; background: #fff;
+                   border-radius: 2px; margin-bottom: 6px"></span>
+      <span style="display: block; height: 3px; background: #fff;
+                   border-radius: 2px; margin-bottom: 6px"></span>
+      <span style="display: block; height: 3px; background: #fff;
+                   border-radius: 2px"></span>
+    </span>
+    <span style="flex: 1; text-align: center; color: #fff; font-size: 19px;
+                 font-weight: 900; letter-spacing: 0.9px;
+                 margin-left: -6px">ENTREGAS</span>
+    <span style="flex: none; display: inline-flex; align-items: center; gap: 6px;
+                 border: 2px solid #2ea44f; border-radius: 999px;
+                 padding: 6px 12px 6px 10px; color: #2ea44f; font-size: 14px;
+                 font-weight: 900; letter-spacing: 0.5px">
+      <span style="width: 10px; height: 10px; border-radius: 50%;
+                   background: #2ea44f"></span>ONLINE
+    </span>
+  </div>
+
+  <!-- Nada no nome dele ainda, e é isso que prova que o acesso funcionou -->
+  <div style="flex: 1; display: flex; flex-direction: column; align-items: center;
+              justify-content: flex-start; padding: 46px 30px 0; text-align: center">
+    <span style="font-size: 62px; color: #c9c9c9; line-height: 1">&#127949;</span>
+    <span style="margin-top: 20px; font-size: 21px; font-weight: 800;
+                 color: #333">Nenhuma entrega agora</span>
+    <span style="margin-top: 11px; font-size: 15px; font-weight: 600;
+                 color: #8b8b8b; line-height: 1.55">
+      Quando o restaurante te enviar um pedido,<br>ele aparece aqui.<br>
+      Arraste a tela para baixo para atualizar.
+    </span>
+    <span style="margin-top: 26px; background: #2323c8; color: #fff;
+                 border-radius: 999px; padding: 14px 30px; font-size: 17px;
+                 font-weight: 900; letter-spacing: 0.6px">
+      &#8635;&nbsp; ATUALIZAR
+    </span>
+  </div>
+
+  <!-- As quatro abas -->
+  <div style="flex: none; display: flex; background: #242424; color: #9a9a9a;
+              font-size: 11px; font-weight: 700; text-align: center;
+              padding: 10px 0 14px">
+    <span style="flex: 1; color: #e8362c">
+      <span style="display: block; font-size: 19px; line-height: 1.2">&#127949;</span>
+      Entregas
+    </span>
+    <span style="flex: 1; border-left: 1px solid #3a3a3a">
+      <span style="display: block; font-size: 19px; line-height: 1.2">&#8634;</span>
+      Histórico
+    </span>
+    <span style="flex: 1; border-left: 1px solid #3a3a3a">
+      <span style="display: block; font-size: 19px; line-height: 1.2;
+                   letter-spacing: -1px">&#9612;&#9612;&#9612;</span>
+      Código barras
+    </span>
+    <span style="flex: 1; border-left: 1px solid #3a3a3a">
+      <span style="display: block; font-size: 19px; line-height: 1.2">&#9881;</span>
+      Ajustes
+    </span>
+  </div>
+  <div style="flex: none; background: #242424; padding: 0 0 8px;
+              text-align: center">
+    <span style="display: inline-block; width: 120px; height: 5px;
+                 border-radius: 3px; background: #6d6d6d"></span>
+  </div>
+</div>

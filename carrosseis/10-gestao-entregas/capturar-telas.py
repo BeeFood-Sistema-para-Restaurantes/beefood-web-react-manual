@@ -13,6 +13,26 @@ não tem. Nada é escrito no servidor.
     python capturar-telas.py                 # todas as telas
     python capturar-telas.py --só mapa       # uma etapa
     python capturar-telas.py --cru           # sem a cena, para comparar
+
+Quatro etapas foram REMOVIDAS na revisão, e as quatro pela mesma razão: o que
+elas capturavam era tela de configuração, e a skill deixou de aceitar isso como
+imagem de slide (SKILL.md, passo 3). São elas:
+
+  despacho   a janela das sete regras do despacho automático. O slide 3 agora
+             desenha o efeito da regra, em `telas/roteirizacao.html`.
+  app        a janela do BeeFood Entregador, que ensina os dois cadastros. O
+             slide 9 agora mostra o aplicativo já funcionando.
+  operacao   e
+  acerto     os dois relatórios. Aqui o problema é outro, e é mais simples: o
+             sandbox não tem volume. As médias só saem com vinte pedidos no
+             período, então o que havia para capturar era "Poucos pedidos" e
+             traço. Os dois relatórios agora são desenhados inteiros, em
+             `telas/relatorio-*.html`, com dado de exemplo. A prova de que o
+             sandbox não tinha o que mostrar ficou em `sonda/`.
+
+A etapa `entregadores` continua aqui mesmo sem ir para slide nenhum: é dela que
+`telas/situacao-entregador.html` copia layout, paleta e hierarquia, e imagem de
+referência que se apaga é desenho que ninguém consegue conferir depois.
 """
 from __future__ import annotations
 
@@ -29,8 +49,6 @@ PURAS = PASTA / "imagens-puras"
 CENA = json.loads((PASTA / "cena.json").read_text(encoding="utf-8"))
 
 PAINEL = "https://beefood.app/gestao-entregas"
-APLICATIVOS = "https://beefood.app/aplicativos"
-DESEMPENHO = "https://beefood.app/desempenho"
 ROTA_PAINEL = "**/entrega2/gestao/painel/**"
 ROTA_POSICOES = "**/entrega2/gestao/posicoes/**"
 ROTA_DESPACHO = "**/entrega2/gestao/despacho/config/**"
@@ -279,26 +297,10 @@ CORTES = {
     # loja de teste) e a coluna de ícones da esquerda. O que sobra é 16/10, que
     # é a proporção da tela do `.navegador` em sangria.
     "painel-inteiro": (101, 87, 2880, 1800),
-    # Sem a faixa de FECHAR / SALVAR: a janela é alta, e o que ela precisa
-    # mostrar no slide são as regras, não os botões de gravar.
-    "despacho-regras": (674, 298, 2208, 1890),
     # A janela inteira, com o grupo `Offline` no pé. Cortar ali deixava o título
     # `Entregadores (5)` em cima de quatro linhas, e contador que não fecha com a
     # lista é o tipo de detalhe que o leitor pega.
     "lista-entregadores": (928, 386, 1950, 1416),
-    "app-lojas": (930, 441, 1950, 1359),
-    # Os dois relatórios param de afirmar em pontos diferentes, e o corte é onde
-    # eles param — ver `roteiro.md`, seção *o recorte do relatório de acerto*.
-    # O pé fecha logo abaixo de "A rua responde por 13% do tempo até a entrega":
-    # a linha seguinte é "medido em 56 de 210 pedidos (27%)", que é ressalva de
-    # amostra e lê como dado fraco ao lado da barra que ela mesma sustenta.
-    #
-    # A lateral dos dois é a borda do painel branco, medida pelo pixel branco na
-    # linha (x 962 e 2813 nos dois relatórios): o corte anterior entrava 42 px
-    # dentro do painel à esquerda e sobrava 3 px à direita, e essa diferença
-    # chegava ao slide como um cartão pela metade encostado na borda.
-    "relatorio-operacao": (962, 735, 2814, 1358),
-    "relatorio-entregador": (962, 262, 2814, 756),
 }
 
 
@@ -332,22 +334,6 @@ def recortar(nome: str) -> None:
         imagem.crop(caixa).save(destino)
 
 
-def despacho(pagina, cru: bool) -> None:
-    """A janela do despacho automático, com as regras do agrupamento."""
-    # A janela tem 700 px de altura e o teto dela é `90vh`: nos 900 px do
-    # dispositivo `painel` ela abre rolada, sem o título em cima e sem a
-    # tolerância de GPS embaixo — recorte nenhum devolve o que não foi desenhado.
-    pagina.set_viewport_size({"width": 1440, "height": 1160})
-    abrir_painel(pagina, cru)
-    pagina.click('button:has-text("Despacho automático")')
-    pagina.wait_for_timeout(3000)
-    tirar_foco(pagina)
-    salvar(pagina, "despacho-regras")
-    recortar("despacho-regras")
-    pagina.keyboard.press("Escape")
-    pagina.wait_for_timeout(1200)
-    pagina.set_viewport_size({"width": 1440, "height": 900})
-
 
 def entregadores(pagina, cru: bool) -> None:
     """A lista completa de entregadores: posição, distância e bateria."""
@@ -379,73 +365,12 @@ def avisos(pagina, cru: bool) -> None:
     salvar(pagina, "avisos-whatsapp")
 
 
-def app_lojas(pagina, cru: bool) -> None:
-    """A janela do BeeFood Entregador: Android e iOS, com as duas lojas."""
-    pagina.goto(APLICATIVOS)
-    esperar(pagina, 7000)
-    limpar(pagina)
-    pagina.click("text=BeeFood Entregador")
-    pagina.wait_for_timeout(2500)
-    tirar_foco(pagina)
-    salvar(pagina, "app-lojas")
-    recortar("app-lojas")
-    pagina.keyboard.press("Escape")
-    pagina.wait_for_timeout(1000)
-
-
-def abrir_relatorio(pagina, item: str) -> None:
-    """Desempenho → Delivery → `item`, dentro do iframe dos relatórios.
-
-    O relatório vive num iframe de `relatorios.beefood.com.br`, que é outro
-    domínio: `contentDocument` é `null` e não há como medir nem rolar por dentro.
-    O clique passa pelo `frame_locator` e a rolagem pela roda do mouse, que é
-    evento de navegador e atravessa a fronteira.
-    """
-    pagina.goto(DESEMPENHO)
-    esperar(pagina, 9000)
-    limpar(pagina)
-    quadro = pagina.frame_locator("iframe")
-    quadro.locator('button:has-text("Delivery")').first.click()
-    pagina.wait_for_timeout(1500)
-    quadro.locator(f'button:has-text("{item}")').first.click()
-    pagina.wait_for_timeout(10000)
-
-
-def rolar_relatorio(pagina, quanto: int) -> None:
-    pagina.mouse.move(1000, 600)
-    pagina.mouse.wheel(0, quanto)
-    pagina.wait_for_timeout(1500)
-    # A roda deixa o cursor sobre o gráfico, e o gráfico abre a caixinha de
-    # valor debaixo do ponteiro — que no print lê como clique de alguém.
-    pagina.mouse.move(180, 820)
-    pagina.wait_for_timeout(1200)
-
-
-def relatorio_operacao(pagina, cru: bool) -> None:
-    """Operação de Entrega: as etapas de tempo e a divisão loja × rua."""
-    abrir_relatorio(pagina, "Operação de Entrega")
-    rolar_relatorio(pagina, 500)
-    salvar(pagina, "relatorio-operacao")
-    recortar("relatorio-operacao")
-
-
-def relatorio_entregador(pagina, cru: bool) -> None:
-    """Entregador (Taxa / KM): os quatro modos de pagar e o total do período."""
-    abrir_relatorio(pagina, "Entregador (Taxa / KM)")
-    salvar(pagina, "relatorio-entregador")
-    recortar("relatorio-entregador")
-
-
 ETAPAS = {
     "painel": tela_inteira,
     "mapa": mapa,
     "lista": lista_rotas,
-    "despacho": despacho,
     "entregadores": entregadores,
     "avisos": avisos,
-    "app": app_lojas,
-    "operacao": relatorio_operacao,
-    "acerto": relatorio_entregador,
 }
 
 
