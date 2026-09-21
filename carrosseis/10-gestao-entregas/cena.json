@@ -1,0 +1,113 @@
+{
+  "por_que": [
+    "O painel da sandbox abre com quatro pedidos PRONTO, ZERO rota e os cinco entregadores",
+    "OFFLINE — o ultimo ping de GPS tem 3 dias (4273 min) num e 8 dias (11388 min) noutro.",
+    "Nesse estado o mapa desenha a loja e quatro pinos cinzas: nenhuma rota, nenhuma linha,",
+    "nenhum motoboy. E a peca inteira fala de rota, de despacho automatico e de",
+    "acompanhamento ao vivo.",
+    "",
+    "A cena monta o que o tempo parado desfez, e so isso:",
+    "  - os tres pedidos reais do seeder (1140, 1141, 1142) ficam com numero, cliente,",
+    "    endereco, forma de pagamento e COORDENADA REAL. Eles caem em linha ao norte da",
+    "    loja e viraram as tres paradas da rota A. So a idade em minutos foi encurtada,",
+    "    porque o seeder rodou de manha;",
+    "  - o quarto pedido real (1143, Avenida Itavuvu 3040) saiu da cena: ele fica a 10 km",
+    "    ao norte e, com ele na tela, o enquadramento do mapa abre tanto que as linhas das",
+    "    rotas encostam nos pinos e nada se le;",
+    "  - seis pedidos de exemplo entram para a rota B, para a fila e para os selos do topo",
+    "    (1139, 1143 renumerado nao, 1144 a 1147). As coordenadas deles ficam dentro de",
+    "    1,7 km da loja, na direcao do bairro que o endereco diz;",
+    "  - quatro entregadores voltam a ter posicao recente e bateria: um na rua com a rota A,",
+    "    um na loja com a rota B pronta para sair, um disponivel e um em pausa. O quinto",
+    "    continua sem app, que e o estado real dele;",
+    "  - duas rotas passam a existir, A na rua e B pronta para sair, as duas com origem",
+    "    AUTOMATICO, e o despacho automatico aparece ligado — sem isso a rota automatica",
+    "    estaria na tela com o recurso que a criou desligado no selo do topo.",
+    "",
+    "Nada e escrito no servidor: as respostas de GET /entrega2/gestao/painel, /posicoes e",
+    "/despacho/config sao reescritas no navegador da captura. `--cru` mostra a tela como",
+    "ela esta agora."
+  ],
+
+  "loja": { "filialID": 39202, "nome": "BeeFood3 - Manual", "latitude": -23.5061438, "longitude": -47.4657927 },
+
+  "pedidos": [
+    { "preVendaID": 59782024, "numero": 1140, "cliente": "Ana Beatriz Moraes", "status": "EM_ROTA",
+      "latitude": -23.5015, "longitude": -47.461, "enderecoResumo": "Rua Padre Luiz, 235, Centro",
+      "formaPagamento": "Dinheiro", "origem": "Cardápio Digital", "idadeMinutos": 38, "valorTotal": 63.9, "real": true },
+    { "preVendaID": 59782025, "numero": 1141, "cliente": "Carlos Eduardo Prado", "status": "EM_ROTA",
+      "latitude": -23.4985, "longitude": -47.4565, "enderecoResumo": "Rua Dom Antônio Alvarenga, 410, Vila Santo Antônio",
+      "formaPagamento": "PIX", "origem": "Cardápio Digital", "idadeMinutos": 31, "valorTotal": 42.8, "real": true },
+    { "preVendaID": 59782026, "numero": 1142, "cliente": "Fernanda Ribeiro Lima", "status": "EM_ROTA",
+      "latitude": -23.4962, "longitude": -47.4548, "enderecoResumo": "Rua Aparecida, 318, Vila Santana",
+      "formaPagamento": "Cartão de Débito", "origem": "iFood", "idadeMinutos": 26, "valorTotal": 55.4, "real": true },
+
+    { "preVendaID": 59782044, "numero": 1144, "cliente": "Juliana Campos", "status": "PRONTO",
+      "latitude": -23.5105, "longitude": -47.4705, "enderecoResumo": "Rua Cesário Mota, 122, Vila Hortência",
+      "formaPagamento": "PIX", "origem": "Cardápio Digital", "idadeMinutos": 17, "valorTotal": 48.5, "real": false },
+    { "preVendaID": 59782045, "numero": 1145, "cliente": "Rodrigo Teixeira", "status": "PRONTO",
+      "latitude": -23.5138, "longitude": -47.475, "enderecoResumo": "Avenida Barão de Tatuí, 780, Santa Rosália",
+      "formaPagamento": "Cartão de Crédito", "origem": "99Food", "idadeMinutos": 12, "valorTotal": 37.2, "real": false },
+
+    { "preVendaID": 59782046, "numero": 1146, "cliente": "Marina Prado", "status": "PRONTO",
+      "latitude": -23.5075, "longitude": -47.454, "enderecoResumo": "Rua Souza Pereira, 90, Jardim Vergueiro",
+      "formaPagamento": "Dinheiro", "origem": "iFood", "idadeMinutos": 9, "valorTotal": 71.3, "real": false },
+    { "preVendaID": 59782047, "numero": 1147, "cliente": "Bruno Sampaio", "status": "PRONTO",
+      "latitude": -23.514, "longitude": -47.461, "enderecoResumo": "Rua Ministro Coelho de Almeida, 51, Vila Jardini",
+      "formaPagamento": "PIX", "origem": "Cardápio Digital", "idadeMinutos": 4, "valorTotal": 52.0, "real": false },
+    { "preVendaID": 59782049, "numero": 1148, "cliente": "Eduardo Bastos", "status": "EM_PREPARO",
+      "latitude": -23.502, "longitude": -47.4735, "enderecoResumo": "Rua Osvaldo Rimoldi, 240, Vila Carvalho",
+      "formaPagamento": "Cartão de Crédito", "origem": "Cardápio Digital", "idadeMinutos": 2, "valorTotal": 44.9, "real": false },
+    { "preVendaID": 59782048, "numero": 1139, "cliente": "Letícia Ramos", "status": "ENTREGUE",
+      "latitude": -23.5008, "longitude": -47.469, "enderecoResumo": "Rua Salvador Correa, 60, Centro",
+      "formaPagamento": "PIX", "origem": "99Food", "idadeMinutos": 74, "valorTotal": 33.6, "real": false }
+  ],
+
+  "entregadores": [
+    { "funcionarioID": 194116, "nome": "Diego Souza", "status": "EM_ROTA", "online": true, "rotaIDAtual": 501,
+      "latitude": -23.5, "longitude": -47.4588, "posicaoIdadeMinutos": 1, "distanciaLojaMetros": 1150, "bateria": 76 },
+    { "funcionarioID": 264465, "nome": "Marcos Vieira", "status": "EM_ROTA", "online": true, "rotaIDAtual": 502,
+      "latitude": -23.5066, "longitude": -47.4664, "posicaoIdadeMinutos": 1, "distanciaLojaMetros": 110, "bateria": 91 },
+    { "funcionarioID": 194115, "nome": "Rafael Lima", "status": "DISPONIVEL", "online": true, "rotaIDAtual": null,
+      "latitude": -23.5055, "longitude": -47.4648, "posicaoIdadeMinutos": 2, "distanciaLojaMetros": 170, "bateria": 64 },
+    { "funcionarioID": 203273, "nome": "Paulo Henrique", "status": "PAUSA", "online": true, "rotaIDAtual": null,
+      "latitude": -23.5085, "longitude": -47.4685, "posicaoIdadeMinutos": 4, "distanciaLojaMetros": 620, "bateria": 38 },
+    { "funcionarioID": 203272, "nome": "Tiago Nunes", "status": "OFFLINE", "online": false, "rotaIDAtual": null,
+      "latitude": null, "longitude": null, "posicaoIdadeMinutos": null, "distanciaLojaMetros": null, "bateria": null,
+      "semRegistroDeUso": true }
+  ],
+
+  "rotas": [
+    { "rotaID": 501, "codigo": "A", "funcionarioID": 194116, "status": "EM_ROTA", "origem": "AUTOMATICO",
+      "distanciaTotalMetros": 4200, "idadeMinutos": 12, "qtdEntregues": 0,
+      "paradas": [
+        { "preVendaID": 59782024, "ordem": 1, "status": "EM_ROTA" },
+        { "preVendaID": 59782025, "ordem": 2, "status": "DESPACHADO" },
+        { "preVendaID": 59782026, "ordem": 3, "status": "DESPACHADO" }
+      ] },
+    { "rotaID": 502, "codigo": "B", "funcionarioID": 264465, "status": "ASSOCIADA", "origem": "AUTOMATICO",
+      "distanciaTotalMetros": 3100, "idadeMinutos": 2, "qtdEntregues": 0,
+      "paradas": [
+        { "preVendaID": 59782044, "ordem": 1, "status": "PENDENTE" },
+        { "preVendaID": 59782045, "ordem": 2, "status": "PENDENTE" }
+      ] }
+  ],
+
+  "despacho": {
+    "ativo": true,
+    "maxEntregasPorViagem": 3,
+    "distanciaMaxAgrupamentoMetros": 1500,
+    "tempoMaxAgrupamentoMinutos": null,
+    "liberarEntregadorQuando": "FINALIZADOS",
+    "raioLojaMetros": 500,
+    "considerarPosicaoEntregador": true,
+    "toleranciaGpsMinutos": 5,
+    "nota": [
+      "A sandbox tem a configuracao gravada e o interruptor DESLIGADO (ativo: false), com",
+      "maximo 2 e 3000 m. O slide fala das regras do despacho automatico e as duas rotas",
+      "da cena nasceram dele, entao aqui ele aparece ligado. Os valores sao os da",
+      "sandbox com dois ajustes de exemplo: 3 entregas por viagem e 1500 m de",
+      "agrupamento — a regra apertada que o proprio manual recomenda para comecar."
+    ]
+  }
+}
