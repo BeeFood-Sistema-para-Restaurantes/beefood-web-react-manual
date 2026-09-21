@@ -55,6 +55,10 @@ NOMES_DE_PRODUTO = (
     "Destaque na impressão",
     "Salvar e Sair",
     "Capas e Destaques",
+    # Nome de campanha padrão das Campanhas Inteligentes. Este tem seis
+    # palavras e estoura a janela sozinho — e é rótulo de cartão na tela, o
+    # que o leitor procura quando abre a aba.
+    "Recebeu o cardápio e não pediu",
 )
 
 
