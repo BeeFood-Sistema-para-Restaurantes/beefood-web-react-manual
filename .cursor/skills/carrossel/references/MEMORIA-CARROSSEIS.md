@@ -5,7 +5,24 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-21 (35ª rodada: o dono olhou as dez peças juntas e
+Última atualização: 2026-09-21 (36ª rodada: com a imagem consertada, o dono leu
+o **texto** slide por slide e devolveu seis linhas — *"por que nossa skill não
+consegue montar títulos corretos dos slides? Estamos inventando frases com a
+concordância toda errada"*. A causa é gêmea da 35ª: **nomear era regra da capa
+só**, e por nove peças os títulos de dentro ficaram livres para ser espertos.
+Três regras novas no passo 2, e as três valem para todo título de todo slide:
+**nome, dois-pontos, o que ele te dá**; **pronome no título é sempre erro**,
+porque o título é a única parte da peça que se lê fora de ordem; e **frase de
+manchete de jornal não é frase de carrossel** — artigo cortado, `de que` comido
+e corpo sem verbo principal são estilo telegráfico, que só faz sentido em
+página que paga por centímetro de coluna. Sete títulos da décima peça foram
+reescritos, e entrou na revisão a leitura dos títulos **em fila e em voz alta**
+— ver *a regra do nome vale para os slides de dentro*, *pronome no título* e
+*frase de manchete de jornal*, na `roteiro-e-copy.md`. A rodada também fechou
+que **capa alternativa não muda o tamanho do aparelho**: a alternativa é a mesma
+capa com uma coisa a mais, e aparelho menor faz dela outra composição.
+
+35ª rodada: o dono olhou as dez peças juntas e
 nomeou o defeito que nenhuma revisão isolada tinha pego — *"nossos carrosséis
 ficam só com imagem de configuração de campos e printscreen das telas"*. A
 causa não era descuido de execução: era a **ordem** do passo 3 desta skill, que
@@ -581,6 +598,107 @@ carrinho" é a vala do cinema de novo.
 > Antes de renderizar, procure "o cliente", "os clientes" e "do cliente" na
 > copy. Cada aparição responde a uma pergunta: **cliente de quem?** Se a
 > resposta é "do leitor", falta o possessivo ou falta a ação.
+
+### O nono vício: o título esperto que não nomeia, e os dois erros que vêm com ele
+
+Este é o irmão gêmeo do defeito de imagem da 35ª rodada, e apareceu na rodada
+seguinte pelo mesmo motivo estrutural: **a regra existia para um slide só.**
+Nomear o recurso era obrigação da capa — há seção inteira sobre isso, com o caso
+de "Cada forma de pagamento com o seu preço" —, e do slide 2 em diante o título
+ficava livre. Nove peças depois, o dono leu a décima slide por slide:
+
+> *"Por que nossa skill não consegue montar títulos corretos dos slides? Estamos
+> inventando frases com a concordância toda errada."*
+
+Seis linhas de retorno, e elas se separam em três defeitos distintos. O primeiro
+é o vício propriamente:
+
+| Título devolvido | O retorno |
+|---|---|
+| "No pico, a rota já chega montada" | *"'Roteirização automática de pedidos' — por que não usamos isso?"* |
+| "Quanto da entrega é cozinha, e quanto é rua" | *"Relatórios… deveria ser esse o título vendedor"* |
+| "Escolha como pagar, e o relatório fecha a conta" | *"também igual 7"* |
+
+As três são boas frases. Nenhuma copia a fonte, todas dizem verdade do produto e
+todas têm ângulo — e nenhuma diz o nome da coisa. **O ângulo não se procura no
+menu; o nome se procura.** "A rota já chega montada" não é o que o leitor digita
+na busca nem o que ele repete para o sócio; "Roteirização automática" é.
+
+O molde que resolveu, e que virou padrão: **nome, dois-pontos, o que ele te dá.**
+O ângulo não foi jogado fora em nenhum dos sete títulos reescritos — virou a
+segunda metade, que é onde ele sempre devia estar. Dois-pontos custa duas letras
+e paga o nome inteiro.
+
+Dois efeitos colaterais, os dois bons:
+
+- **o chapéu ficou livre.** Enquanto o nome não tinha lugar no título, ele
+  escorregava para o chapéu, e o chapéu virava nome de janela ("Despacho
+  automático") ou de item de menu ("Operação de entrega") — que a checagem desta
+  skill já proibia e que passou nove peças por falta de alternativa. Agora o
+  chapéu diz **quando**: *na hora do pico*, *quem está na rua agora*, *no fim do
+  dia*, *no dia do acerto*;
+- **a fila de títulos virou índice.** Lidos em sequência, sem imagem, os nove
+  títulos agora montam a lista do que o módulo passou a fazer. Antes montavam
+  uma sequência de frases bonitas sobre entrega.
+
+A exceção é **uma**, e é estrutural: o slide 2 explica o recurso que a capa
+acabou de nomear, então ali o título é a explicação e não repete o nome.
+
+#### Pronome no título é sempre erro
+
+O segundo defeito do mesmo retorno:
+
+| Título devolvido | O retorno |
+|---|---|
+| "Online, em pausa ou offline — quem marca é ele" | *"quem marca é ele, ele quem?"* |
+| "A rota que você montou abre no celular dele" | *"abre no celular dele quem? que frase estranha"* |
+
+O antecedente existia nos dois casos — "o entregador" estava no chapéu, na
+legenda e no slide anterior — e não serviu de nada. **O título é a única parte do
+carrossel que se lê fora de ordem:** sozinho na miniatura do feed, sozinho na
+folha de contato, sozinho para quem passa o dedo e para no meio. Um slide não é
+parágrafo de texto corrido; é unidade que fecha em si.
+
+Então: `ele`, `dele`, `dela`, `isso`, `aquilo` não entram em título, e a pessoa é
+nomeada ali mesmo. No corpo o pronome continua permitido, com uma condição — o
+substantivo vem antes dele, **no mesmo slide**.
+
+Isto não revoga o terceiro vício ("ele" que não é o leitor), acrescenta um andar:
+lá o problema era *de quem* a frase falava; aqui é que o título não pode depender
+de nada que esteja fora dele.
+
+#### Frase de manchete de jornal não é frase de carrossel
+
+O terceiro defeito foi o mais duro, e é o que o dono chamou de *"texto tão tosco
+assim"*. O CTA dizia:
+
+> "Dois cadastros, e o entregador já entra no mapa" · "Lista vazia com a pílula
+> verde é sinal que deu certo"
+
+O defeito tem nome em jornalismo: **estilo telegráfico**. Manchete de primeira
+página corta artigo, come verbo de ligação e empilha substantivo porque paga por
+centímetro de coluna. Carrossel não paga por centímetro, e a voz dele é a de uma
+empresa conversando com um cliente — cortar artigo naquela voz não soa
+econômico, soa mal escrito.
+
+Três coisas concretas, e as três estavam na peça:
+
+- **artigo não se corta para ganhar linha.** "Lista vazia" pede "a lista vazia".
+  Se com o artigo a frase estoura o bloco, o problema é o tamanho da frase, e o
+  conserto é cortar conteúdo — nunca gramática;
+- **`de que` não se come.** "é sinal **que** deu certo" quer "é sinal **de que**
+  deu certo", e a saída melhor é trocar o substantivo por verbo: "quer dizer que
+  deu certo";
+- **corpo sem verbo principal não é parágrafo.** Três corpos desta peça começavam
+  em "Na ordem que a loja definiu…", "Pela taxa cobrada na entrega…" e "Quatro
+  etapas medidas uma por uma…". São legendas de foto coladas no lugar de frases,
+  e é isso que produz a sensação de texto telegráfico mesmo quando cada palavra
+  está certa.
+
+> **O teste é a leitura em voz alta, e é o único que pega os três.** Na leitura
+> silenciosa quem escreveu já sabe o que quis dizer, e a frase se completa na
+> cabeça dele. Leia os títulos em fila, depois cada slide inteiro, no ritmo de
+> quem conversa. Onde a respiração tropeça, falta palavra.
 
 ### A capa é o melhor slide que você tem, e isso se sabe depois de montar
 
@@ -2803,6 +2921,20 @@ o carrossel. A `copy-instagram.txt` explica a diferença entre as duas.
 A alternativa não é rascunho guardado por apego. Se as duas não estiverem
 prontas para publicar, a que está pior não fica: capa fraca no repositório vira
 capa fraca publicada no dia em que alguém tem pressa.
+
+**E o aparelho não muda de tamanho entre as duas.** A primeira versão desta
+capa reduziu o notebook de 936 para 776 px para abrir espaço lateral ao
+celular, e o retorno foi de uma linha: *"o pc diminuiu pq? apenas incluir o
+celular"*. O contrato da capa alternativa é ser **a mesma capa com uma coisa a
+mais** — texto igual palavra por palavra, aparelho igual, mesmo lugar. Aparelho
+menor muda o peso do slide inteiro e transforma a alternativa em outra
+composição, que é justamente o que quem publica não pediu.
+
+O segundo aparelho entra, então, **na frente**, sobrepondo o primeiro. Isso
+custa um pedaço da tela de baixo, e a escolha do pedaço é decisão de arte: aqui
+o celular cobre o canto direito do mapa, onde não passa rota desenhada. A
+sobreposição também paga um bônus — dois aparelhos que se tocam leem como uma
+mesa; dois lado a lado leem como dois recortes colados.
 
 ## Onde a tela mora
 

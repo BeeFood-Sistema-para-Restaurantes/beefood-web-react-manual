@@ -202,6 +202,60 @@ tela. Conceito na capa e história no slide 2 são os dois jeitos de perder o
 leitor antes da prova — e **cena na capa é um terceiro**, que passa despercebido
 porque a frase sai boa.
 
+#### Três regras de título, e as três vieram do mesmo retorno
+
+Nomear era regra da **capa**, e por nove peças os slides de dentro ficaram
+livres para ser espertos. Na décima o dono leu slide por slide e devolveu seis
+linhas; elas fecham em três regras, que valem para todo título de todo slide.
+
+**1. Nome, dois-pontos, o que ele te dá.** Cada slide de dentro nomeia o recurso
+que ele mostra — não o módulo, que é da capa, mas a coisa daquele slide, com o
+nome que o leitor vai procurar no menu depois. O ângulo não sai: ele vira a
+segunda metade do título.
+
+| Recusado | Publicado |
+|---|---|
+| "No pico, a rota já chega montada" | "**Roteirização automática**: a rota já chega montada" |
+| "Quanto da entrega é cozinha, e quanto é rua" | "**Relatório de Operação**: quanto é cozinha, quanto é rua" |
+| "Escolha como pagar, e o relatório fecha a conta" | "**Relatório do Entregador**: quanto pagar a cada um" |
+
+Nome no **chapéu não conta**: chapéu é versalete pequeno, lido depois do título
+quando é lido, e a checagem de três leituras passa só pelos títulos porque é
+assim que o feed se lê.
+
+A exceção é **uma**, e é estrutural: o slide 2 explica o recurso que a capa
+acabou de nomear, então ele não repete o nome — ali o título é a explicação.
+Nos outros, quem lê os títulos em fila tem de conseguir montar a lista do que o
+módulo passou a fazer.
+
+**2. Pronome no título é sempre erro.** *"quem marca é ele — ele quem?"* e
+*"abre no celular dele — dele quem?"* O antecedente existia nos dois casos, no
+chapéu e no slide anterior, e não serviu de nada: **o título é a única parte da
+peça que se lê fora de ordem** — sozinho na miniatura, sozinho na folha de
+contato, sozinho para quem passa o dedo e para no meio. `ele`, `dele`, `dela`,
+`isso`, `aquilo` não entram em título; a pessoa é nomeada ali mesmo ("quem marca
+é **o entregador**"). No corpo o pronome exige o substantivo antes dele, no
+mesmo slide.
+
+**3. Frase de manchete de jornal não é frase de carrossel.** *"Como estamos
+chegando num texto tão tosco assim?"* — sobre "Lista vazia com a pílula verde é
+sinal que deu certo". O defeito é o **estilo telegráfico**: manchete de jornal
+corta artigo, come `de que` e empilha substantivo porque paga por centímetro de
+coluna. Aqui a voz é de uma empresa conversando com um cliente, e o corte não
+soa econômico, soa mal escrito. Artigo não se corta para ganhar linha; se a
+frase estoura com ele, corte conteúdo, não gramática. E corpo que começa em "Na
+ordem que…", "Pela taxa cobrada…", "Quatro etapas medidas…" é legenda de foto no
+lugar de parágrafo — falta o verbo principal.
+
+> **Leia cada slide em voz alta, no ritmo de quem conversa.** É o único teste
+> que pega os três defeitos, porque na leitura silenciosa quem escreveu já sabe
+> o que quis dizer. Onde a respiração tropeça, falta palavra.
+
+O raciocínio inteiro, com o retorno na íntegra, está em
+[`references/roteiro-e-copy.md`](references/roteiro-e-copy.md) — *a regra do nome
+vale para os slides de dentro*, *pronome no título é sempre erro* e *frase de
+manchete de jornal não é frase de carrossel*.
+
 **A pasta nasce numerada.** O nome é `NN-<slug>`, com `NN` sendo a **ordem de
 entrega** — o próximo número livre em `carrosseis/`. É o que faz a listagem do
 diretório sair na ordem em que as peças foram publicadas, e o `.zip` chegar ao
@@ -829,6 +883,16 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
 5. A capa diz o fato **inteiro**? Nenhum eixo da novidade (o "ou" e o "e" do
    título) ficou de fora, e nenhum **exemplo** do release virou manchete. E o
    carrossel tem **um** jogo de números, o mesmo em todos os slides.
+5a. **Leia só os títulos, em fila, e em voz alta.** Três perguntas, e cada uma
+   pega um defeito que a leitura silenciosa do slide inteiro não pega:
+   *(a)* dá para montar a lista do que o módulo passou a fazer? Título que só
+   tem o ângulo ("a rota já chega montada") não nomeia nada — o nome entra antes
+   dos dois-pontos, e nome no chapéu não conta;
+   *(b)* sobrou algum `ele`, `dele`, `dela`, `isso`? Título se lê fora de ordem,
+   então antecedente no chapéu ou no slide anterior não resolve;
+   *(c)* a respiração tropeçou em algum? Ali falta palavra — artigo cortado
+   ("lista vazia"), `de que` comido ("é sinal que deu certo") ou corpo sem verbo
+   principal. Estilo telegráfico é de manchete de jornal, não de carrossel.
 6. A capa diz o **nome do recurso**, e o subtítulo diz o que ele faz? Leia só
    ela e responda às duas: *qual é o nome?* e *o que aquilo faz?* Falha nas
    duas pontas — em conceito ("Cada forma de pagamento com o seu preço") e em
@@ -1190,7 +1254,18 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   existe; o slide precisa dizer o que vale a pena fazer com ele.
 - **Batizar o chapéu com o nome do campo.** "Destaques da capa", "Aba nova:
   Avisos", "Agendamento": o chapéu é o que se diz antes da frase, e ninguém diz
-  isso em voz alta.
+  isso em voz alta. Isso não é motivo para o nome do recurso ficar **só** no
+  chapéu: ele vai no título, que é o que se lê.
+- **Deixar o título sem o nome do recurso.** "No pico, a rota já chega montada"
+  é frase boa e não se procura no menu. O molde é *nome, dois-pontos, o que ele
+  te dá* — o ângulo fica na segunda metade.
+- **Pôr pronome no título.** "quem marca é ele", "abre no celular dele": o
+  título se lê fora de ordem, então antecedente no chapéu ou no slide anterior
+  não vale. Nomeie a pessoa no próprio título.
+- **Cortar artigo, comer o `de que`, deixar o corpo sem verbo.** "Lista vazia
+  com a pílula verde é sinal que deu certo" é manchete de jornal, que paga por
+  centímetro de coluna. Aqui lê como texto mal escrito, e o teste que pega isso
+  é a leitura em voz alta.
 - **Recortar a novidade em slides.** O carrossel se escreve a partir do fato; o
   texto do release não vai para a arte.
 - **Afirmar o que o leitor faz, tem ou sente.** "Você já faz isso no balcão", "no
