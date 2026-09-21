@@ -31,10 +31,18 @@ um acervo assim, e "entregue" escrito por extenso em toda linha também não.
 | 7 | [`07-cardapio-digital-tablet/`](07-cardapio-digital-tablet/roteiro.md) | **Função** | [Cardápio Digital no Tablet](https://beefood.com.br/cardapio-digital-tablet/) — página inteira, servida pelo próprio site | 4:5 | 9 | [`.zip`](07-cardapio-digital-tablet/entrega/07-cardapio-digital-tablet.zip) · [copy](07-cardapio-digital-tablet/copy-instagram.txt) |
 | 8 | [`08-painel-entregador/`](08-painel-entregador/roteiro.md) | Novidade | [Painel para Entregadores](https://beefood.app/novidades/painel-para-entregadores) — 19/09/2026 · [manual](https://ajuda.beefood.com.br/manual-painel-entregador) | 4:5 | 7 | [`.zip`](08-painel-entregador/entrega/08-painel-entregador.zip) · [copy](08-painel-entregador/copy-instagram.txt) |
 | 9 | [`09-campanhas-inteligentes/`](09-campanhas-inteligentes/roteiro.md) | Novidade | [Campanhas Inteligentes no WhatsApp](https://beefood.app/novidades/whatsapp-campanhas-inteligentes) — 28/07/2026 · [manual](https://ajuda.beefood.com.br/campanhas-inteligentes-whatsapp) | 4:5 | 6 | [`.zip`](09-campanhas-inteligentes/entrega/09-campanhas-inteligentes.zip) · [copy](09-campanhas-inteligentes/copy-instagram.txt) |
+| 10 | [`10-gestao-entregas/`](10-gestao-entregas/roteiro.md) | Novidade | **sem release** — módulo em liberação; o fato veio dos 18 [manuais](https://ajuda.beefood.com.br/painel-de-entregas/gestao-entregas-mapa-painel) do grupo | 4:5 | 9 | [`.zip`](10-gestao-entregas/entrega/10-gestao-entregas.zip) · [copy](10-gestao-entregas/copy-instagram.txt) |
 
 O número de slides é o que o assunto pede, entre 6 e 9 — não é uma medida fixa.
 Peça de função não leva data nem pílula de novidade: ela é perene, e pode ser
 republicada.
+
+A décima peça abriu uma terceira fonte de pauta: **nem feed, nem página de
+vendas — só o manual**. Módulo em liberação não tem release para citar, e o
+manual é o material mais perigoso de todos para escrever a partir dele, porque
+foi escrito pela casa: o texto é bom, está à mão, e recortá-lo não soa como
+cópia. O `conferir-texto.py` passou a aceitar caminho de manual em `--fonte`
+justamente por isso, e pegou três frases na primeira rodada.
 
 ## Estrutura de cada pasta
 
@@ -49,9 +57,17 @@ NN-<slug>/
 ├── imagens-puras/        # prints como saíram do navegador, nunca editados
 ├── slides/               # NN-nome.html (fragmentos de body)
 ├── png/                  # a arte final, 1080x1350
+├── capa-alternativa/     # só quando a capa tem duas versões: slides/ e png/ próprios
 ├── entrega/NN-<slug>.zip # png + copy, o arquivo que vai para quem publica
 └── folha-de-contato.png  # todos os slides numa imagem
 ```
+
+`capa-alternativa/` é uma pasta de carrossel inteira em miniatura — `slides/` e
+`png/` dentro dela —, e o `renderizar.py` a trata como tal: aponte para ela e
+sai o PNG. Serve à capa que muda a imagem e mantém o texto, para quem publica
+escolher. No `.zip` ela vai numa subpasta de mesmo nome, fora da raiz, para que
+arrastar tudo de uma vez leve só o carrossel; a `copy-instagram.txt` diz qual é
+a diferença entre as duas.
 
 ## Comandos
 
@@ -66,5 +82,6 @@ python $SKILL/renderizar.py carrosseis/<slug> --contato
 python $SKILL/desenhar-telas.py <slug>          # telas/*.html -> imagens-puras/*.png
 python $SKILL/conferir-texto.py <slug>          # o texto foi reescrito?
 python $SKILL/conferir-texto.py <slug> --fonte <url>   # quando a fonte é o site
+python $SKILL/conferir-texto.py <slug> --fonte manuais/<slug-do-manual>  # e repita por manual
 python $SKILL/empacotar.py <slug>               # zip de entrega (png + copy)
 ```

@@ -1,0 +1,278 @@
+<!-- As duas etapas do despacho automático, desenhadas.
+
+     Por que desenhada, e não a janela de campos: a janela das sete regras é
+     tela de CONFIGURAÇÃO — ela mostra onde se mexe, e o slide precisa mostrar
+     o que acontece. Foi o defeito que o dono nomeou na décima peça, e a regra
+     virou a primeira coisa do passo 3 da SKILL.md: quando o fato é uma regra,
+     a arte é o efeito da regra.
+
+     O efeito está inteiro no manual, nas seções 4 e 5 de
+     manuais/gestao-entregas-despacho-automatico/: a rota nasce SEM DONO,
+     em "Montando", e o entregador entra depois, quando as regras de entregador
+     são satisfeitas — aí ela vira "Pronta para sair" e o avião aparece. São
+     duas etapas separadas, e o manual diz por que: dá tempo de intervir.
+
+     O layout, a paleta e a hierarquia vêm da captura de produção da própria
+     peça (imagens-puras/lista-rotas.png): o cabeçalho "Pedidos sem rota" com
+     o contador cinza, o cartão de pedido com a bolinha de situação e o número
+     precedido de "#", a faixa colorida na borda esquerda da rota, o disco da
+     letra, o selo de situação e o disco do avião. Nada foi recortado dela.
+
+     Os DADOS são os da cena (cena.json), e por isso este slide concorda com o
+     2 e com a capa: os três pedidos sem rota são 1146 Marina Prado, 1147 Bruno
+     Sampaio e 1148 Eduardo Bastos, as rotas A e B já são de Diego e Marcos, e
+     quem está "Disponível" na lista de entregadores é o Rafael Lima — então é
+     ele que o sistema escolhe. A rota nova é a C porque A e B existem.
+
+     A ordem das paradas muda entre a etapa 1 e a 2 de propósito? Não: o manual
+     diz que a ordem é refeita quando o grupo fecha, o que acontece na etapa 1.
+     Por isso ela já sai 1148 → 1146 → 1147 nas duas, e o que muda da esquerda
+     para a direita é só o dono e a situação.
+
+     1240x466 entra no slide com ~1000 px de largura. O tipo daqui é o do
+     painel (15-17 px sobre 1280), então em 1240 ele fica quase 1:1 com a
+     captura — as três colunas leem no feed. -->
+<div class="tela" data-medida="1240x466" style="padding: 26px 24px">
+
+  <div style="display: flex; align-items: stretch; gap: 0">
+
+    <!-- ETAPA 0: os pedidos soltos, como chegaram. -->
+    <div style="width: 352px; display: flex; flex-direction: column; flex: none">
+      <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 11px">
+        <span style="width: 28px; height: 28px; border-radius: 50%;
+                     background: #dfe1ea; color: #5c5d66; font-size: 15px;
+                     font-weight: 900; display: flex; align-items: center;
+                     justify-content: center; flex: none">1</span>
+        <span style="font-size: 19px; font-weight: 900; letter-spacing: 0.6px;
+                     color: var(--pn-suave)">OS PEDIDOS PRONTOS</span>
+      </div>
+
+      <div style="background: var(--pn-cartao); border: 1px solid var(--pn-borda);
+                  border-radius: 14px; overflow: hidden">
+        <div style="display: flex; align-items: center; gap: 9px;
+                    padding: 13px 16px; border-bottom: 1px solid var(--pn-borda)">
+          <span style="font-size: 21px; font-weight: 800">Pedidos sem rota</span>
+          <span style="width: 22px; height: 22px; border-radius: 50%;
+                       background: var(--pn-cinza-chip); color: var(--pn-suave);
+                       font-size: 12px; font-weight: 800; display: flex;
+                       align-items: center; justify-content: center">3</span>
+        </div>
+
+        <div style="padding: 11px 16px; border-bottom: 1px solid #f1f2f6">
+          <div style="display: flex; align-items: center; gap: 8px">
+            <span class="ponto" style="background: #f59e0b"></span>
+            <span style="font-size: 18px; font-weight: 800">#1146</span>
+            <span style="font-size: 18px; font-weight: 700;
+                         color: var(--pn-texto)">Marina Prado</span>
+          </div>
+          <div style="font-size: 15px; color: var(--pn-suave); font-weight: 600;
+                      margin: 3px 0 0 20px">Jardim Verqueiro &middot; há 9 min</div>
+        </div>
+
+        <div style="padding: 11px 16px; border-bottom: 1px solid #f1f2f6">
+          <div style="display: flex; align-items: center; gap: 8px">
+            <span class="ponto" style="background: #f59e0b"></span>
+            <span style="font-size: 18px; font-weight: 800">#1147</span>
+            <span style="font-size: 18px; font-weight: 700">Bruno Sampaio</span>
+          </div>
+          <div style="font-size: 15px; color: var(--pn-suave); font-weight: 600;
+                      margin: 3px 0 0 20px">Vila Jardini &middot; há 4 min</div>
+        </div>
+
+        <div style="padding: 11px 16px">
+          <div style="display: flex; align-items: center; gap: 8px">
+            <span class="ponto ponto--verde"></span>
+            <span style="font-size: 18px; font-weight: 800">#1148</span>
+            <span style="font-size: 18px; font-weight: 700">Eduardo Bastos</span>
+          </div>
+          <div style="font-size: 15px; color: var(--pn-suave); font-weight: 600;
+                      margin: 3px 0 0 20px">Vila Carvalho &middot; há 2 min</div>
+        </div>
+
+        <div style="margin: 14px 16px 0; border-top: 1px dashed var(--pn-borda);
+                    padding: 13px 0 16px; font-size: 15px; color: var(--pn-fraco);
+                    font-weight: 700; line-height: 1.5">
+          Três bairros, três horários<br>de espera diferentes.
+        </div>
+      </div>
+    </div>
+
+    <!-- Seta 1 -->
+    <div style="width: 44px; display: flex; align-items: center;
+                justify-content: center; flex: none">
+      <span style="color: #c7c9d4; font-size: 30px; font-weight: 300">&#10142;</span>
+    </div>
+
+    <!-- ETAPA 1: a rota existe e não tem dono. -->
+    <div style="width: 352px; display: flex; flex-direction: column; flex: none">
+      <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 11px">
+        <span style="width: 28px; height: 28px; border-radius: 50%;
+                     background: #dfe1ea; color: #5c5d66; font-size: 15px;
+                     font-weight: 900; display: flex; align-items: center;
+                     justify-content: center; flex: none">2</span>
+        <span style="font-size: 19px; font-weight: 900; letter-spacing: 0.6px;
+                     color: var(--pn-suave)">O SISTEMA AGRUPA</span>
+      </div>
+
+      <div style="background: var(--pn-cartao); border: 1px solid var(--pn-borda);
+                  border-radius: 14px; overflow: hidden;
+                  position: relative">
+        <span style="position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+                     background: #c7c9d4"></span>
+
+        <div style="padding: 13px 16px 13px 21px;
+                    border-bottom: 1px solid var(--pn-borda)">
+          <div style="display: flex; align-items: center; gap: 10px">
+            <span style="width: 40px; height: 40px; border-radius: 50%;
+                         background: #dfe1ea; color: #5c5d66; font-size: 19px;
+                         font-weight: 900; display: flex; align-items: center;
+                         justify-content: center; flex: none">C</span>
+            <span style="flex: 1">
+              <span style="display: flex; align-items: center; gap: 6px;
+                           font-size: 20px; font-style: italic; font-weight: 700;
+                           color: var(--pn-suave)">
+                <span style="font-style: normal">&#9881;</span> Sem entregador
+              </span>
+              <span style="display: inline-flex; margin-top: 5px; font-size: 15px;
+                           font-weight: 800; padding: 4px 11px; border-radius: 999px;
+                           background: var(--pn-amarelo-claro);
+                           color: var(--pn-amarelo)">Montando</span>
+            </span>
+          </div>
+        </div>
+
+        <div style="padding: 12px 16px 12px 21px">
+          <div style="display: flex; align-items: center; gap: 10px;
+                      padding: 7px 0">
+            <span style="width: 30px; height: 30px; border-radius: 50%;
+                         background: var(--pn-vermelho); color: #fff;
+                         font-size: 15px; font-weight: 800; display: flex;
+                         align-items: center; justify-content: center;
+                         flex: none">1</span>
+            <span style="font-size: 18px; font-weight: 800">#1148</span>
+            <span style="font-size: 16px; color: var(--pn-suave);
+                         font-weight: 600">Vila Carvalho</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;
+                      padding: 7px 0">
+            <span style="width: 30px; height: 30px; border-radius: 50%;
+                         background: var(--pn-vermelho); color: #fff;
+                         font-size: 15px; font-weight: 800; display: flex;
+                         align-items: center; justify-content: center;
+                         flex: none">2</span>
+            <span style="font-size: 18px; font-weight: 800">#1146</span>
+            <span style="font-size: 16px; color: var(--pn-suave);
+                         font-weight: 600">Jardim Verqueiro</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;
+                      padding: 7px 0">
+            <span style="width: 30px; height: 30px; border-radius: 50%;
+                         background: var(--pn-vermelho); color: #fff;
+                         font-size: 15px; font-weight: 800; display: flex;
+                         align-items: center; justify-content: center;
+                         flex: none">3</span>
+            <span style="font-size: 18px; font-weight: 800">#1147</span>
+            <span style="font-size: 16px; color: var(--pn-suave);
+                         font-weight: 600">Vila Jardini</span>
+          </div>
+        </div>
+
+        <div style="margin: 0 16px 0 21px; border-top: 1px dashed var(--pn-borda);
+                    padding: 13px 0 16px; font-size: 15px; color: var(--pn-fraco);
+                    font-weight: 700; line-height: 1.5">
+          Uma viagem só, na ordem<br>mais curta saindo da loja.
+        </div>
+      </div>
+    </div>
+
+    <!-- Seta 2 -->
+    <div style="width: 44px; display: flex; align-items: center;
+                justify-content: center; flex: none">
+      <span style="color: #c7c9d4; font-size: 30px; font-weight: 300">&#10142;</span>
+    </div>
+
+    <!-- ETAPA 2: o entregador entra, e o avião aparece. -->
+    <div style="width: 352px; display: flex; flex-direction: column; flex: none">
+      <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 11px">
+        <span style="width: 28px; height: 28px; border-radius: 50%;
+                     background: var(--pn-verde); color: #fff; font-size: 15px;
+                     font-weight: 900; display: flex; align-items: center;
+                     justify-content: center; flex: none">3</span>
+        <span style="font-size: 19px; font-weight: 900; letter-spacing: 0.6px;
+                     color: var(--pn-verde)">E ESCOLHE QUEM LEVA</span>
+      </div>
+
+      <div style="background: var(--pn-cartao); border: 1px solid var(--pn-borda);
+                  border-radius: 14px; overflow: hidden;
+                  position: relative; box-shadow: 0 10px 24px -14px rgba(28,154,83,.45)">
+        <span style="position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+                     background: var(--pn-verde)"></span>
+
+        <div style="padding: 13px 16px 13px 21px;
+                    border-bottom: 1px solid var(--pn-borda);
+                    display: flex; align-items: center; gap: 10px">
+          <span style="width: 40px; height: 40px; border-radius: 50%;
+                       background: #0f766e; color: #fff; font-size: 19px;
+                       font-weight: 900; display: flex; align-items: center;
+                       justify-content: center; flex: none">C</span>
+          <span style="flex: 1">
+            <span style="display: block; font-size: 22px; font-weight: 800">Rafael Lima</span>
+            <span style="display: inline-flex; margin-top: 5px; font-size: 15px;
+                         font-weight: 800; padding: 4px 11px; border-radius: 999px;
+                         background: var(--pn-verde-claro);
+                         color: var(--pn-verde)">Pronta para sair</span>
+          </span>
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
+               stroke="#3f4d8a" stroke-width="1.7" stroke-linecap="round"
+               stroke-linejoin="round" style="flex: none">
+            <path d="M21.5 2.5 2.8 9.6a.6.6 0 0 0 .05 1.13l7.3 2.3 2.3 7.3a.6.6 0 0 0 1.13.05z"/>
+            <path d="M21.5 2.5 10.15 13.03"/>
+          </svg>
+        </div>
+
+        <div style="padding: 12px 16px 12px 21px">
+          <div style="display: flex; align-items: center; gap: 10px;
+                      padding: 7px 0">
+            <span style="width: 30px; height: 30px; border-radius: 50%;
+                         background: var(--pn-vermelho); color: #fff;
+                         font-size: 15px; font-weight: 800; display: flex;
+                         align-items: center; justify-content: center;
+                         flex: none">1</span>
+            <span style="font-size: 18px; font-weight: 800">#1148</span>
+            <span style="font-size: 16px; color: var(--pn-suave);
+                         font-weight: 600">Vila Carvalho</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;
+                      padding: 7px 0">
+            <span style="width: 30px; height: 30px; border-radius: 50%;
+                         background: var(--pn-vermelho); color: #fff;
+                         font-size: 15px; font-weight: 800; display: flex;
+                         align-items: center; justify-content: center;
+                         flex: none">2</span>
+            <span style="font-size: 18px; font-weight: 800">#1146</span>
+            <span style="font-size: 16px; color: var(--pn-suave);
+                         font-weight: 600">Jardim Verqueiro</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;
+                      padding: 7px 0">
+            <span style="width: 30px; height: 30px; border-radius: 50%;
+                         background: var(--pn-vermelho); color: #fff;
+                         font-size: 15px; font-weight: 800; display: flex;
+                         align-items: center; justify-content: center;
+                         flex: none">3</span>
+            <span style="font-size: 18px; font-weight: 800">#1147</span>
+            <span style="font-size: 16px; color: var(--pn-suave);
+                         font-weight: 600">Vila Jardini</span>
+          </div>
+        </div>
+
+        <div style="margin: 0 16px 0 21px; border-top: 1px dashed var(--pn-borda);
+                    padding: 13px 0 16px; font-size: 15px; font-weight: 800;
+                    color: var(--pn-verde); line-height: 1.5">
+          Ela ganhou dono, e o avião<br>de despachar apareceu.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

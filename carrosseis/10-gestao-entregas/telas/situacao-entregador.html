@@ -1,0 +1,210 @@
+<!-- A situação do entregador nos dois lugares onde ela aparece: o aplicativo,
+     onde ele declara, e o painel, onde a loja lê.
+
+     Por que desenhada: o BeeFood Entregador é Android/iOS e não roda no Cloud
+     Agent, e o painel precisava ficar do lado dele na MESMA imagem — é o
+     encontro das duas telas que prova o fato. Capturar o painel e desenhar o
+     telefone daria duas imagens e nenhuma prova.
+
+     O aplicativo copia layout, paleta e hierarquia de um print de PRODUÇÃO, e
+     nada dele foi recortado:
+       manuais/gestao-entregas/material-recebido/app-entregador/
+         02-disponibilidade/prints/02-pilula-pausa.png
+     De lá vêm: a barra escura com ENTREGAS centralizado e os três riscos à
+     esquerda, a pílula vazada de PAUSA em laranja no canto direito, o bloco
+     vazio com a moto cinza, "Nenhuma entrega agora" e as duas linhas de
+     explicação, o botão azul ATUALIZAR e a barra das quatro abas com Entregas
+     em vermelho. As cores das pílulas são as de
+     manuais/app-entregador-entrar/imagens-puras/10-tres-pilulas.png.
+
+     O painel copia imagens-puras/lista-entregadores.png, que é captura de
+     produção desta mesma peça: o título com a contagem, a linha cinza de
+     explicação, o grupo com a bolinha colorida e o contador, o cartão de borda
+     fina com o nome em cima e a linha de idade da posição, distância e bateria
+     embaixo.
+
+     Uma coisa do painel NÃO entra, e é decisão de leitura: a pílula
+     Online/Offline da direita de cada linha. Ela é outra informação — se o
+     aplicativo está falando com o servidor —, e ao lado do grupo "Em pausa"
+     ela lê como contradição ("em pausa" com "Online" do lado). O slide fala de
+     situação declarada; a conectividade é assunto do manual.
+
+     Os DADOS são os da cena, os mesmos do resto da peça: Rafael disponível,
+     Diego e Marcos em rota com as rotas A e B, Paulo Henrique em pausa e Tiago
+     que nunca usou o app. O telefone é o do Paulo — por isso ele está em PAUSA
+     e por isso a lista dele está vazia: quem está em pausa não recebeu rota
+     nesta rodada. O encontro entre o laranja do telefone e o grupo "Em pausa
+     (1)" do painel é o que a imagem tem de prova.
+
+     1240x772 entra no slide com ~1000 px. -->
+<div class="tela" data-medida="1240x772" style="padding: 22px 20px;
+     flex-direction: row; align-items: center; gap: 34px">
+
+  <!-- ------------------------------------------------- o aplicativo dele -->
+  <div style="width: 358px; height: 728px; flex: none; border-radius: 34px;
+              background: #101012; padding: 7px;
+              box-shadow: 0 24px 48px -22px rgba(0, 0, 0, 0.45)">
+    <div style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden;
+                background: #fff; display: flex; flex-direction: column">
+
+      <!-- Barra de status do sistema -->
+      <div style="display: flex; align-items: center; justify-content: space-between;
+                  background: #242424; color: #fff; padding: 8px 15px 4px;
+                  font-size: 12px; font-weight: 700; flex: none">
+        <span>19:04</span>
+        <span style="letter-spacing: 2px">&#9679;&#9679;&#9679;</span>
+      </div>
+
+      <!-- Cabeçalho do aplicativo, com a pílula da situação -->
+      <div style="display: flex; align-items: center; background: #242424;
+                  padding: 11px 14px 13px; flex: none">
+        <span style="flex: none; width: 26px">
+          <span style="display: block; height: 3px; background: #fff;
+                       border-radius: 2px; margin-bottom: 5px"></span>
+          <span style="display: block; height: 3px; background: #fff;
+                       border-radius: 2px; margin-bottom: 5px"></span>
+          <span style="display: block; height: 3px; background: #fff;
+                       border-radius: 2px"></span>
+        </span>
+        <span style="flex: 1; text-align: center; color: #fff; font-size: 17px;
+                     font-weight: 900; letter-spacing: 0.8px;
+                     margin-left: -4px">ENTREGAS</span>
+        <span style="flex: none; display: inline-flex; align-items: center; gap: 6px;
+                     border: 2px solid #f59e0b; border-radius: 999px;
+                     padding: 5px 11px 5px 9px; color: #f59e0b; font-size: 13px;
+                     font-weight: 900; letter-spacing: 0.5px">
+          <span style="width: 9px; height: 9px; border-radius: 50%;
+                       background: #f59e0b"></span>PAUSA
+        </span>
+      </div>
+
+      <!-- O corpo: nada no nome dele neste momento -->
+      <div style="flex: 1; display: flex; flex-direction: column;
+                  align-items: center; justify-content: center;
+                  padding: 0 26px 70px; text-align: center">
+        <span style="font-size: 52px; color: #c9c9c9; line-height: 1">&#127949;</span>
+        <span style="margin-top: 16px; font-size: 18px; font-weight: 800;
+                     color: #333">Nenhuma entrega agora</span>
+        <span style="margin-top: 9px; font-size: 13px; font-weight: 600;
+                     color: #8b8b8b; line-height: 1.55">
+          Quando o restaurante te enviar um pedido,<br>ele aparece aqui.<br>
+          Arraste a tela para baixo para atualizar.
+        </span>
+        <span style="margin-top: 22px; background: #2323c8; color: #fff;
+                     border-radius: 999px; padding: 12px 26px; font-size: 15px;
+                     font-weight: 900; letter-spacing: 0.6px">
+          &#8635;&nbsp; ATUALIZAR
+        </span>
+      </div>
+
+      <!-- As quatro abas -->
+      <div style="flex: none; display: flex; background: #242424; color: #9a9a9a;
+                  font-size: 10px; font-weight: 700; text-align: center;
+                  padding: 9px 0 13px">
+        <span style="flex: 1; color: #e8362c">
+          <span style="display: block; font-size: 17px; line-height: 1.2">&#127949;</span>
+          Entregas
+        </span>
+        <span style="flex: 1; border-left: 1px solid #3a3a3a">
+          <span style="display: block; font-size: 17px; line-height: 1.2">&#8634;</span>
+          Histórico
+        </span>
+        <span style="flex: 1; border-left: 1px solid #3a3a3a">
+          <span style="display: block; font-size: 17px; line-height: 1.2; letter-spacing: -1px">&#9612;&#9612;&#9612;</span>
+          Código barras
+        </span>
+        <span style="flex: 1; border-left: 1px solid #3a3a3a">
+          <span style="display: block; font-size: 17px; line-height: 1.2">&#9881;</span>
+          Ajustes
+        </span>
+      </div>
+      <div style="flex: none; background: #242424; padding: 0 0 7px;
+                  text-align: center">
+        <span style="display: inline-block; width: 108px; height: 4px;
+                     border-radius: 2px; background: #6d6d6d"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ------------------------------------------------ o painel da loja -->
+  <div style="flex: 1; align-self: stretch; background: var(--pn-cartao);
+              border: 1px solid var(--pn-borda); border-radius: 18px;
+              padding: 26px 26px 24px; display: flex; flex-direction: column;
+              justify-content: space-between;
+              box-shadow: 0 18px 40px -26px rgba(0, 0, 0, 0.28)">
+
+    <div>
+      <div style="font-size: 26px; font-weight: 800">Entregadores (5)</div>
+      <div style="margin-top: 5px; font-size: 15px; font-weight: 600;
+                  color: var(--pn-suave)">
+        Situação atual de cada entregador, agrupada por status.
+      </div>
+    </div>
+
+    <!-- Disponível -->
+    <div>
+    <div style="display: flex; align-items: center; gap: 9px">
+      <span class="ponto ponto--verde"></span>
+      <span style="font-size: 15px; font-weight: 800">Disponível (1)</span>
+    </div>
+    <div style="margin-top: 8px; border: 1px solid var(--pn-borda);
+                border-radius: 13px; padding: 12px 16px">
+      <div style="font-size: 18px; font-weight: 700">Rafael Lima</div>
+      <div style="margin-top: 2px; font-size: 14px; font-weight: 600;
+                  color: var(--pn-suave)">há 2 min &middot; 430 m do restaurante &middot; bateria 64%</div>
+    </div>
+
+    <!-- Em rota -->
+    </div>
+
+    <div>
+    <div style="display: flex; align-items: center; gap: 9px">
+      <span class="ponto ponto--roxo"></span>
+      <span style="font-size: 15px; font-weight: 800">Em rota (2)</span>
+    </div>
+    <div style="margin-top: 8px; border: 1px solid var(--pn-borda);
+                border-radius: 13px; overflow: hidden">
+      <div style="padding: 12px 16px">
+        <div style="font-size: 18px; font-weight: 700">Diego Souza</div>
+        <div style="margin-top: 2px; font-size: 14px; font-weight: 600;
+                    color: var(--pn-suave)">há 1 min &middot; 1,1 km do restaurante &middot; bateria 14%</div>
+      </div>
+      <div style="padding: 12px 16px; border-top: 1px solid var(--pn-borda)">
+        <div style="font-size: 18px; font-weight: 700">Marcos Vieira</div>
+        <div style="margin-top: 2px; font-size: 14px; font-weight: 600;
+                    color: var(--pn-suave)">há 1 min &middot; 110 m do restaurante &middot; bateria 91%</div>
+      </div>
+    </div>
+
+    <!-- Em pausa: é o Paulo do telefone ao lado -->
+    </div>
+
+    <div>
+    <div style="display: flex; align-items: center; gap: 9px">
+      <span class="ponto" style="background: #f59e0b"></span>
+      <span style="font-size: 15px; font-weight: 800">Em pausa (1)</span>
+    </div>
+    <div style="margin-top: 8px; border: 2px solid #f59e0b; border-radius: 13px;
+                padding: 11px 15px; background: #fffaf1">
+      <div style="font-size: 18px; font-weight: 700">Paulo Henrique</div>
+      <div style="margin-top: 2px; font-size: 14px; font-weight: 600;
+                  color: var(--pn-suave)">há 4 min &middot; 620 m do restaurante &middot; bateria 38%</div>
+    </div>
+
+    <!-- Offline -->
+    </div>
+
+    <div>
+    <div style="display: flex; align-items: center; gap: 9px">
+      <span class="ponto" style="background: #9ca3af"></span>
+      <span style="font-size: 15px; font-weight: 800">Offline (1)</span>
+    </div>
+    <div style="margin-top: 8px; border: 1px solid var(--pn-borda);
+                border-radius: 13px; padding: 12px 16px">
+      <div style="font-size: 18px; font-weight: 700">Tiago Nunes</div>
+      <div style="margin-top: 2px; font-size: 14px; font-weight: 600;
+                  color: var(--pn-suave)">Nunca usou o app</div>
+    </div>
+    </div>
+  </div>
+</div>

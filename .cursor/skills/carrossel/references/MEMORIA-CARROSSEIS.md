@@ -5,7 +5,68 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-20 (33ª rodada: três retornos na mesma peça, e os
+Última atualização: 2026-09-21 (37ª rodada: *"refaça a copy inteira do último
+slide, não é sobre isso, venda a novidade"*. O CTA da décima peça era sobre
+**cadastro** — criar o funcionário, criar o usuário, instalar o aplicativo —, e
+isso é trabalho, não motivo: depois de oito slides de argumento, é a fatura
+antes da venda. A série já tinha molde em quatro peças seguidas (#3, #4, #8,
+#9): chapéu **Já está no ar**, título no imperativo com **hoje**, subtítulo com
+o primeiro passo mais a linha de fechamento, pílula de caminho. Estava no
+acervo e não no documento, e por isso a quinta peça abandonou os quatro de uma
+vez. Agora está escrito — ver *o CTA de novidade não ensina a ligar o recurso*.
+Duas regras finas junto: **o caminho aponta para o módulo que a peça vendeu**,
+não para um acessório de slide do meio; e **a linha de disponibilidade é fato
+publicado e condicional** ("quem tem o módulo Entrega já tem"), porque módulo em
+liberação não sustenta "todo mundo já tem". E **a imagem cai junto com a copy**:
+a arte do CTA velho era o aplicativo vazio, que só passava porque o texto a
+justificava — trocado o texto, ela virou órfã na hora e saiu da pasta. A
+substituta foi resolvida pelo dono, e virou regra: **a arte do CTA pode ser a
+da capa**, no mesmo lugar e no mesmo tamanho, e essa é a única repetição de
+prova que a skill aprova dentro de uma peça — a peça abre e fecha na mesma
+cena, e o CTA manda abrir justamente o que a capa mostrou.
+
+36ª rodada: com a imagem consertada, o dono leu
+o **texto** slide por slide e devolveu seis linhas — *"por que nossa skill não
+consegue montar títulos corretos dos slides? Estamos inventando frases com a
+concordância toda errada"*. A causa é gêmea da 35ª: **nomear era regra da capa
+só**, e por nove peças os títulos de dentro ficaram livres para ser espertos.
+Três regras novas no passo 2, e as três valem para todo título de todo slide:
+**nome, dois-pontos, o que ele te dá**; **pronome no título é sempre erro**,
+porque o título é a única parte da peça que se lê fora de ordem; e **frase de
+manchete de jornal não é frase de carrossel** — artigo cortado, `de que` comido
+e corpo sem verbo principal são estilo telegráfico, que só faz sentido em
+página que paga por centímetro de coluna. Sete títulos da décima peça foram
+reescritos, e entrou na revisão a leitura dos títulos **em fila e em voz alta**
+— ver *a regra do nome vale para os slides de dentro*, *pronome no título* e
+*frase de manchete de jornal*, na `roteiro-e-copy.md`. A rodada também fechou
+que **capa alternativa não muda o tamanho do aparelho**: a alternativa é a mesma
+capa com uma coisa a mais, e aparelho menor faz dela outra composição.
+
+35ª rodada: o dono olhou as dez peças juntas e
+nomeou o defeito que nenhuma revisão isolada tinha pego — *"nossos carrosséis
+ficam só com imagem de configuração de campos e printscreen das telas"*. A
+causa não era descuido de execução: era a **ordem** do passo 3 desta skill, que
+começava por *onde a tela mora* e classificava a imagem por facilidade de
+captura, com desenho no último degrau. Quando captura é o degrau mais alto,
+ganha a tela mais fácil de capturar — e a mais fácil é sempre o formulário. A
+hierarquia foi trocada por **resultado capturado > resultado desenhado**, com
+tela de configuração fora dos dois degraus, e quatro imagens da décima peça
+foram refeitas por causa disso — ver *a imagem do slide é o resultado, nunca o
+painel de controle*. A rodada também fechou que **a capa pode ter duas
+versões**, em `capa-alternativa/`, e que **relatório sem volume se desenha
+inteiro**, com dado de exemplo que fecha em linha e em coluna.
+
+34ª rodada: a Gestão de Entregas é a primeira
+peça **sem release** — módulo em liberação, dezoito manuais conferidos e zero
+linha no feed. Ela abriu a **terceira fonte de pauta**, que é a mais perigosa
+das três porque o texto é nosso: `conferir-texto.py --fonte` passou a aceitar
+caminho de manual, e pegou três frases que duas leituras humanas deixaram
+passar — uma delas estava também **na imagem do próprio slide**. A rodada também
+fechou que **recorte largo e baixo pede `.empurra` dos dois lados** e que
+**borda de recorte se mede pelo pixel, não pelo palpite** — ver *o manual é
+pauta, e é a pauta mais fácil de recortar* e *recorte largo e baixo*).
+
+33ª rodada: três retornos na mesma peça, e os
 três são de mentalidade. **"O cliente" é quem lê** — a palavra tem dois donos
 quando o recurso fala com o consumidor final, e a saída é nomear pela ação
 ("quem largou a sacola"), ver *o oitavo vício*. **A capa é o melhor slide que
@@ -157,6 +218,8 @@ a posição na fila.
 | 6 | O cliente pede e paga sozinho no totem | **função**, de [`beefood.com.br/totem-de-autoatendimento`](https://beefood.com.br/totem-de-autoatendimento/) — endereço público é **casca**; a página vem de um app externo | `carrosseis/06-totem-autoatendimento/` | 4:5, 9 slides | `entrega/06-totem-autoatendimento.zip` (9 PNG + copy) |
 | 7 | O cliente pede no tablet, sem esperar o garçom | **função**, de [`beefood.com.br/cardapio-digital-tablet`](https://beefood.com.br/cardapio-digital-tablet/) — página inteira, servida pelo próprio site | `carrosseis/07-cardapio-digital-tablet/` | 4:5, 9 slides | `entrega/07-cardapio-digital-tablet.zip` (9 PNG + copy) |
 | 8 | Painel para Entregadores | [19/09/2026](https://beefood.app/novidades/painel-para-entregadores) — manual em `manuais/painel-entregador/`, com **slug diferente** do release | `carrosseis/08-painel-entregador/` | 4:5, 7 slides | `entrega/08-painel-entregador.zip` (7 PNG + copy) |
+| 9 | Campanhas Inteligentes no WhatsApp | [28/07/2026](https://beefood.app/novidades/whatsapp-campanhas-inteligentes) | `carrosseis/09-campanhas-inteligentes/` | 4:5, 6 slides | `entrega/09-campanhas-inteligentes.zip` (6 PNG + copy) |
+| 10 | Gestão de Entregas | **sem release** — módulo em liberação, pauta tirada dos 18 manuais do grupo | `carrosseis/10-gestao-entregas/` | 4:5, 9 slides (+ capa alternativa) | `entrega/10-gestao-entregas.zip` (9 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -555,6 +618,107 @@ carrinho" é a vala do cinema de novo.
 > Antes de renderizar, procure "o cliente", "os clientes" e "do cliente" na
 > copy. Cada aparição responde a uma pergunta: **cliente de quem?** Se a
 > resposta é "do leitor", falta o possessivo ou falta a ação.
+
+### O nono vício: o título esperto que não nomeia, e os dois erros que vêm com ele
+
+Este é o irmão gêmeo do defeito de imagem da 35ª rodada, e apareceu na rodada
+seguinte pelo mesmo motivo estrutural: **a regra existia para um slide só.**
+Nomear o recurso era obrigação da capa — há seção inteira sobre isso, com o caso
+de "Cada forma de pagamento com o seu preço" —, e do slide 2 em diante o título
+ficava livre. Nove peças depois, o dono leu a décima slide por slide:
+
+> *"Por que nossa skill não consegue montar títulos corretos dos slides? Estamos
+> inventando frases com a concordância toda errada."*
+
+Seis linhas de retorno, e elas se separam em três defeitos distintos. O primeiro
+é o vício propriamente:
+
+| Título devolvido | O retorno |
+|---|---|
+| "No pico, a rota já chega montada" | *"'Roteirização automática de pedidos' — por que não usamos isso?"* |
+| "Quanto da entrega é cozinha, e quanto é rua" | *"Relatórios… deveria ser esse o título vendedor"* |
+| "Escolha como pagar, e o relatório fecha a conta" | *"também igual 7"* |
+
+As três são boas frases. Nenhuma copia a fonte, todas dizem verdade do produto e
+todas têm ângulo — e nenhuma diz o nome da coisa. **O ângulo não se procura no
+menu; o nome se procura.** "A rota já chega montada" não é o que o leitor digita
+na busca nem o que ele repete para o sócio; "Roteirização automática" é.
+
+O molde que resolveu, e que virou padrão: **nome, dois-pontos, o que ele te dá.**
+O ângulo não foi jogado fora em nenhum dos sete títulos reescritos — virou a
+segunda metade, que é onde ele sempre devia estar. Dois-pontos custa duas letras
+e paga o nome inteiro.
+
+Dois efeitos colaterais, os dois bons:
+
+- **o chapéu ficou livre.** Enquanto o nome não tinha lugar no título, ele
+  escorregava para o chapéu, e o chapéu virava nome de janela ("Despacho
+  automático") ou de item de menu ("Operação de entrega") — que a checagem desta
+  skill já proibia e que passou nove peças por falta de alternativa. Agora o
+  chapéu diz **quando**: *na hora do pico*, *quem está na rua agora*, *no fim do
+  dia*, *no dia do acerto*;
+- **a fila de títulos virou índice.** Lidos em sequência, sem imagem, os nove
+  títulos agora montam a lista do que o módulo passou a fazer. Antes montavam
+  uma sequência de frases bonitas sobre entrega.
+
+A exceção é **uma**, e é estrutural: o slide 2 explica o recurso que a capa
+acabou de nomear, então ali o título é a explicação e não repete o nome.
+
+#### Pronome no título é sempre erro
+
+O segundo defeito do mesmo retorno:
+
+| Título devolvido | O retorno |
+|---|---|
+| "Online, em pausa ou offline — quem marca é ele" | *"quem marca é ele, ele quem?"* |
+| "A rota que você montou abre no celular dele" | *"abre no celular dele quem? que frase estranha"* |
+
+O antecedente existia nos dois casos — "o entregador" estava no chapéu, na
+legenda e no slide anterior — e não serviu de nada. **O título é a única parte do
+carrossel que se lê fora de ordem:** sozinho na miniatura do feed, sozinho na
+folha de contato, sozinho para quem passa o dedo e para no meio. Um slide não é
+parágrafo de texto corrido; é unidade que fecha em si.
+
+Então: `ele`, `dele`, `dela`, `isso`, `aquilo` não entram em título, e a pessoa é
+nomeada ali mesmo. No corpo o pronome continua permitido, com uma condição — o
+substantivo vem antes dele, **no mesmo slide**.
+
+Isto não revoga o terceiro vício ("ele" que não é o leitor), acrescenta um andar:
+lá o problema era *de quem* a frase falava; aqui é que o título não pode depender
+de nada que esteja fora dele.
+
+#### Frase de manchete de jornal não é frase de carrossel
+
+O terceiro defeito foi o mais duro, e é o que o dono chamou de *"texto tão tosco
+assim"*. O CTA dizia:
+
+> "Dois cadastros, e o entregador já entra no mapa" · "Lista vazia com a pílula
+> verde é sinal que deu certo"
+
+O defeito tem nome em jornalismo: **estilo telegráfico**. Manchete de primeira
+página corta artigo, come verbo de ligação e empilha substantivo porque paga por
+centímetro de coluna. Carrossel não paga por centímetro, e a voz dele é a de uma
+empresa conversando com um cliente — cortar artigo naquela voz não soa
+econômico, soa mal escrito.
+
+Três coisas concretas, e as três estavam na peça:
+
+- **artigo não se corta para ganhar linha.** "Lista vazia" pede "a lista vazia".
+  Se com o artigo a frase estoura o bloco, o problema é o tamanho da frase, e o
+  conserto é cortar conteúdo — nunca gramática;
+- **`de que` não se come.** "é sinal **que** deu certo" quer "é sinal **de que**
+  deu certo", e a saída melhor é trocar o substantivo por verbo: "quer dizer que
+  deu certo";
+- **corpo sem verbo principal não é parágrafo.** Três corpos desta peça começavam
+  em "Na ordem que a loja definiu…", "Pela taxa cobrada na entrega…" e "Quatro
+  etapas medidas uma por uma…". São legendas de foto coladas no lugar de frases,
+  e é isso que produz a sensação de texto telegráfico mesmo quando cada palavra
+  está certa.
+
+> **O teste é a leitura em voz alta, e é o único que pega os três.** Na leitura
+> silenciosa quem escreveu já sabe o que quis dizer, e a frase se completa na
+> cabeça dele. Leia os títulos em fila, depois cada slide inteiro, no ritmo de
+> quem conversa. Onde a respiração tropeça, falta palavra.
 
 ### A capa é o melhor slide que você tem, e isso se sabe depois de montar
 
@@ -2687,14 +2851,124 @@ Cupom desenhado em CSS (`.cupom`) não precisa de selo: bobina térmica em
 monoespaçada é claramente desenho, e é a única forma de mostrar o "antes" — que
 não existe como captura.
 
+## A imagem do slide é o resultado, nunca o painel de controle
+
+Este é o defeito que mais durou nesta memória: nove peças, e ele só apareceu
+quando o dono olhou as dez juntas — *"nossos carrosséis ficam só com imagem de
+configuração de campos e printscreen das telas"*. Nenhuma revisão de peça
+isolada pega isso, porque em cada peça sozinha a tela de configuração parece
+uma escolha razoável: ela é a tela onde o recurso mora.
+
+**A causa estava na ordem do passo 3, não na execução.** A seção começava por
+*onde a tela mora* e ordenava a imagem por facilidade de captura — captura no
+degrau de cima, desenho no de baixo, como último recurso. Hierarquia por
+facilidade escolhe o mais fácil, e o mais fácil é sempre o formulário: ele abre
+com um clique, não precisa de cena montada, não depende de a sandbox ter volume
+e fica pronto sem dado nenhum dentro. A tela de resultado precisa das três
+coisas. O incentivo estava escrito, e por isso o erro se repetiu dez vezes com
+dez pessoas diferentes fazendo a mesma escolha.
+
+A hierarquia nova, que substituiu a antiga na `SKILL.md`:
+
+| Degrau | O que é | Quando |
+|---|---|---|
+| 1 | **tela de resultado, capturada** | a tela mostra o recurso funcionando |
+| 2 | **tela de resultado, desenhada** | o resultado existe e a captura não o alcança |
+| — | **tela de configuração** | **nunca** — nem capturada, nem desenhada |
+
+Campo, formulário, interruptor, janela de ajuste, modal de regras, lista de
+parâmetros com um marcado: tudo isso mostra **onde se mexe**, e carrossel não
+ensina a mexer. Quem precisa do campo abre o manual, onde aquele print já está,
+com seta e número.
+
+**Quando o fato é uma regra de configuração, a arte é o efeito da regra.** O
+despacho automático da décima peça tem sete campos numa janela, e o slide dele
+mostrava a janela. Virou a rota nascendo, em três colunas: *pedidos sem rota* →
+*Rota C · Sem entregador · Montando* → *Rota C · Rafael Lima · Pronta para
+sair*. As duas etapas estão no manual, então o desenho não inventa produto —
+ele troca o painel de controle pelo que o painel de controle produz.
+
+**O teste, slide por slide: tampe a copy e olhe só a imagem — acontece alguma
+coisa ali?** Campo com número dentro, interruptor verde, lista de opções com um
+tique: imagem de manual, slide sem prova. Isso entrou também na revisão da
+folha de contato, no mesmo nível de texto ilegível.
+
+O que o degrau 2 deixou de ser: o porão. Quatro imagens da décima peça nasceram
+dele nesta rodada, e são as quatro mais fortes da peça.
+
+### Relatório sem volume se desenha inteiro, e o dado de exemplo tem de fechar
+
+Os dois relatórios da Gestão de Entregas não tinham captura possível: as médias
+do relatório de operação só saem com vinte pedidos no período, e no de acerto
+quase nenhuma entrega da loja de teste tem entregador identificado. O que a
+sandbox dava era *Poucos pedidos* e coluna de traço — que prova que a loja não
+usou o recurso, não que o recurso funciona. A captura recortada que estava lá
+mostrava dois cartões e uma barra de "87% na loja", que é o retrato de uma loja
+de teste com quatro entregas.
+
+Desenhar o relatório inteiro resolve, com três amarras:
+
+- **A estrutura é a do manual, seção por seção, rótulo por rótulo.** Rótulo
+  inventado é produto inventado. Os seis indicadores do topo, as quatro etapas
+  de tempo na ordem em que acontecem, a divisão loja/rua, os cartões de prazo,
+  o gráfico por hora — tudo na ordem em que o manual os descreve.
+- **O número é de exemplo e tem de fechar em linha e em coluna.** Lojista
+  confere soma: 128 entregas × R$ 8,00 = R$ 1.024,00; 18 + 9 + 20 min = 47 min;
+  27 min na loja + 20 na rua = 47, que são os 57% e 43% da barra. Duas
+  incoerências escaparam da primeira leitura e caíram na segunda — uma cobertura
+  de 96% ao lado de "2 entregas ficaram fora", que só fecha com 5. O jogo de
+  números é **um só** na peça inteira, e os dois relatórios usam o mesmo.
+- **A copy não cita nenhum desses números.** Eles são estrutura, não promessa: a
+  divisão entre cozinha e rua é a leitura de cada loja. A legenda diz uma vez
+  que o dado é de exemplo, e a arte não leva carimbo.
+
+A medida do desenho sai do mockup: `1440x900` é 16/10, a proporção exata do
+`.notebook__tela`. Fora dela o `object-fit: cover` come uma faixa do relatório.
+
+### A capa pode ter duas versões, e elas moram em `capa-alternativa/`
+
+A décima peça saiu com duas capas de mesmo texto e imagem diferente: uma com o
+notebook grande, em que o mapa se lê inteiro, e outra com o notebook menor e o
+celular do aplicativo na frente, que diz "tem painel e tem aplicativo" sem
+gastar linha. Quem publica escolhe.
+
+A pasta é um carrossel em miniatura — `capa-alternativa/slides/` e
+`capa-alternativa/png/` —, e o `renderizar.py` a trata como tal sem nenhuma
+mudança: aponte para ela e sai o PNG. No `.zip` o `empacotar.py` já a põe numa
+subpasta de mesmo nome, fora da raiz, para que arrastar tudo de uma vez leve só
+o carrossel. A `copy-instagram.txt` explica a diferença entre as duas.
+
+A alternativa não é rascunho guardado por apego. Se as duas não estiverem
+prontas para publicar, a que está pior não fica: capa fraca no repositório vira
+capa fraca publicada no dia em que alguém tem pressa.
+
+**E o aparelho não muda de tamanho entre as duas.** A primeira versão desta
+capa reduziu o notebook de 936 para 776 px para abrir espaço lateral ao
+celular, e o retorno foi de uma linha: *"o pc diminuiu pq? apenas incluir o
+celular"*. O contrato da capa alternativa é ser **a mesma capa com uma coisa a
+mais** — texto igual palavra por palavra, aparelho igual, mesmo lugar. Aparelho
+menor muda o peso do slide inteiro e transforma a alternativa em outra
+composição, que é justamente o que quem publica não pediu.
+
+O segundo aparelho entra, então, **na frente**, sobrepondo o primeiro. Isso
+custa um pedaço da tela de baixo, e a escolha do pedaço é decisão de arte: aqui
+o celular cobre o canto direito do mapa, onde não passa rota desenhada. A
+sobreposição também paga um bônus — dois aparelhos que se tocam leem como uma
+mesa; dois lado a lado leem como dois recortes colados.
+
 ## Onde a tela mora
+
+Isto só se pergunta **depois** de a imagem ser de resultado — a tabela responde
+de onde vem a captura, não se ela deve existir. Ver *a imagem do slide é o
+resultado*, acima.
 
 | Tela | Como capturar |
 |------|---------------|
 | painel web (`beefood.app`) | `capturar.py --rota /cardapio` |
 | cardápio digital público | `capturar.py --url <link> --publico --dispositivo celular` |
 | **totem de autoatendimento** | é **web**: `totem.beefood.app/?empresaID=&filialID=&token=`. Roda aqui, e é captura de verdade. Veja *O totem é web* |
-| app Android (Garçom, Entregador, Tablet) | não roda aqui. Nesta ordem: procure o print de produção no manual da mesma novidade (`git fetch origin main` antes de concluir que não existe); senão peça ao dono (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`); senão ilustre com selo |
+| app Android (Garçom, Entregador, Tablet) | não roda aqui. Nesta ordem: procure o print de produção no manual da mesma novidade (`git fetch origin main` antes de concluir que não existe); senão peça ao dono (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`); senão desenhe a tela em CSS copiando layout e paleta do print |
+| **regra de configuração** (despacho automático, avisos, formas de pagamento) | a janela de campos não entra. Desenhe o **efeito** da regra, com os rótulos que o sistema usa dos dois lados dela |
 | coisa que não é tela (cupom, impressora) | print do manual, se existir; senão desenho em CSS |
 
 ### O totem é web, e a tela do cliente pode ser captura
@@ -2991,6 +3265,65 @@ liste `manuais/` pelas palavras do assunto — aqui, `*desconto*`, `*pagamento*`
 `*recebimento*` devolviam cinco pastas, três delas úteis. O manual achado vira
 leitura obrigatória; a imagem dele, não.
 
+## O manual é pauta, e é a pauta mais fácil de recortar
+
+A 34ª rodada (Gestão de Entregas) pediu uma peça de **novidade sem novidade**:
+o módulo está em liberação, tem dezoito manuais conferidos no código e na
+sandbox, e nenhuma linha em `beefood.app/novidades`. Isso não muda o gênero — o
+leitor é cliente, a pílula diz `Novidade`, o CTA é caminho de menu — e muda só
+de onde vem a pauta. O manual passa a ser fonte única.
+
+**E ele é a fonte mais perigosa das três.** Release é registro de produto e
+página de vendas é copy alheia: as duas soam "de fora", e a gente desconfia
+delas por reflexo. Manual é nosso, está a um `cat` de distância, foi escrito com
+cuidado e diz a coisa certa — recortá-lo não parece cópia, parece aproveitar o
+que já existe. Duas leituras humanas do roteiro não pegaram nada; o
+`conferir-texto.py --fonte manuais/<slug>` pegou três frases.
+
+O que as três tinham em comum é o que interessa: **eram as melhores linhas do
+roteiro**. Boa frase do manual é exatamente a que sobrevive à revisão, porque
+ela lê bem. Duas descobertas concretas:
+
+- **A frase copiada pode estar também na imagem do slide.** "Despachar continua
+  sendo um clique seu" é o texto que o sistema escreve no alto da janela do
+  despacho automático — e a janela é a imagem daquele slide. Escrevê-la na copy
+  gastava duas vezes a única linha de texto que o slide tinha, e o conferidor
+  apontou um problema de cópia que era, antes disso, um problema de arte.
+- **Inflexão engana.** `manda a rota para a rua` passa; `mandar a rota para a
+  rua` não. O conferidor acusou o texto alternativo e deixou o slide, e as duas
+  frases eram a do manual. Quando ele pega uma versão, procure as irmãs.
+
+Como rodar: repita `--fonte` uma vez por manual do grupo (pasta vale pelo `.md`
+de dentro dela). Dezoito fontes rodam em menos de um segundo, porque é leitura
+de arquivo e não de rede.
+
+E o que a peça deve a quem publica: **sem release não há data para amarrar**. O
+`copy-instagram.txt` abre pedindo que se confirme a liberação do módulo antes de
+postar. A arte não leva data de todo jeito (ver *nada de data na arte*), e é
+isso que deixa a peça esperar na fila de conteúdo sem envelhecer.
+
+### Recorte largo e baixo: `.empurra` dos dois lados
+
+Os dois relatórios desta rodada rendem recortes de proporção ~3/1 e ~3,8/1. Na
+largura de 1004 px do slide eles têm 320 e 264 px de altura, e a faixa
+disponível tem cerca de 400 — sobra uma tarja morta de 150 a 200 px, que numa
+peça de nove slides aparece em dois seguidos e lê como slide inacabado.
+
+`margin-top` resolve por acidente e quebra quando o título muda de duas para
+três linhas. O que resolve de verdade é `<div class="empurra"></div>` **antes e
+depois** da `.figura`: os dois `flex: 1` dividem o vão em partes iguais e a
+imagem fica centralizada no que sobrou, seja quanto for. É a mesma ideia do
+`.empurra` único que empurra o rodapé para baixo, com um segundo de contrapeso.
+
+Se depois disso ainda sobra vão, o problema não é layout: é que o recorte está
+estreito para a faixa. Suba a largura até a da sangria (1004 px) antes de mexer
+em margem.
+
+Nota da rodada seguinte: estes dois recortes não existem mais — os relatórios
+foram redesenhados inteiros, dentro de notebook, porque eram tela de
+configuração e retrato de loja vazia. A regra do `.empurra` dos dois lados
+continua valendo para qualquer recorte largo e baixo; o que caiu foi o exemplo.
+
 ### Onde medir a borda de um recorte
 
 Recortar continua sendo necessário — em captura própria, porque tela de painel
@@ -3010,6 +3343,19 @@ que mais custou refazer. As duas medidas que resolveram:
   dois borrões. Recontando abaixo de 250, aquelas mesmas colunas tinham de 31 a
   61 pixels — a **sombra** da pílula, que o limiar duro não via e o olho vê. A
   borda que serve é a do cartão, em 1293.
+
+- **relatório dentro de iframe de outro domínio:** não há elemento para medir e
+  não há DOM para consultar, mas a página inteira é cinza e o painel do
+  relatório é branco puro. Uma varredura de linha procurando `(255,255,255)`
+  devolveu `x 962` e `x 2813` em qualquer altura, e esses dois números são a
+  borda do painel. O corte da 34ª rodada estava em `1004 → 2816`: entrava 42 px
+  dentro do painel à esquerda e sobrava 3 px à direita. A diferença chegou ao
+  slide como um **cartão pela metade** encostado na borda direita, e o
+  diagnóstico levou mais tempo que a medida, porque o defeito parecia da tela.
+
+O erro dos três casos é o mesmo: **borda estimada na miniatura**. Meça sempre no
+arquivo, com Pillow, e prefira uma propriedade do desenho (branco puro, vão sem
+tinta) a um número lembrado da rodada anterior.
 
 Melhor ainda é **não precisar da medida**: em captura própria dá para fotografar
 o elemento (`locator.screenshot()`) em vez de a página, e aí a borda é a do

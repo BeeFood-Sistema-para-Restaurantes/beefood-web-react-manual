@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
-"""Desenha a tela do sistema que o sandbox não consegue mostrar.
+"""Desenha a tela de resultado que o sandbox não consegue mostrar.
 
-Terceiro degrau da ancoragem de imagem — **manual > tela capturada > tela
-desenhada** — e ele existe por um caso concreto: a peça de dark kitchen precisa
-de uma operação com três marcas, e o sandbox é uma loja só. Sem este degrau, a
-saída seria recortar a ilustração da página de vendas, que é marketing, ou não
-fazer a peça.
+Segundo degrau da imagem — **resultado capturado > resultado desenhado**, e
+nunca tela de configuração — e ele existe por casos concretos: a peça de dark
+kitchen precisa de uma operação com três marcas e o sandbox é uma loja só; a
+Gestão de Entregas precisa de um relatório com volume e o sandbox só tem traço.
+Sem este degrau, a saída seria recortar a ilustração da página de vendas, que é
+marketing, ou publicar o formulário de configuração, que é manual.
+
+Desenhar **não** é o porão. Quando o fato é uma regra — sete campos numa
+janela —, este script é o único caminho para a imagem mostrar o efeito da regra
+em vez do painel de controle dela.
 
 Desenhar **não** é inventar produto. O que entra no fragmento é o que o sistema
 mostra: `Aguardando`, `Preparo`, `Pronto/Entrega`, `Entregue` e `Cancelado` são

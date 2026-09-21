@@ -421,6 +421,146 @@ e quem passa o dedo leu só a primeira linha.
 > Leia só o título e pergunte: **onde isso acontece?** Recurso que roda num
 > canal só e não nomeia o canal deixa a pergunta em pé.
 
+### E a regra do nome vale para os slides de dentro, não só para a capa
+
+Esta seção existia inteira e endereçada só à capa. O efeito apareceu na décima
+peça, num retorno de seis linhas em que o dono leu slide por slide:
+
+| O que o slide dizia | O que ele devolveu |
+|---|---|
+| 3 · "No pico, a rota já chega montada" | *"Roteirização automática de pedidos — por que não usamos isso?"* |
+| 7 · "Quanto da entrega é cozinha, e quanto é rua" | *"Relatórios… deveria ser esse o título vendedor"* |
+| 8 · "Escolha como pagar, e o relatório fecha a conta" | *"também igual 7"* |
+
+As três frases recusadas são boas frases. Nenhuma copia a fonte, todas dizem
+uma verdade do produto e todas têm ângulo. O que falta nas três é a **mesma
+coisa que faltava na capa de "Cada forma de pagamento com o seu preço"**: o
+nome. Eu tinha escrito a regra e aplicado a um slide só — a capa —, e nos
+outros oito continuei livre para ser esperto.
+
+**A capa nomeia o módulo; cada slide de dentro nomeia o recurso que ele mostra.**
+São nomes diferentes, e o de dentro é o que o leitor vai procurar no menu na
+segunda-feira. "A rota já chega montada" não se procura; "Roteirização
+automática" se procura. E é ele, não o ângulo, que o leitor repete quando conta
+para o sócio o que viu no Instagram.
+
+O molde que resolveu, e que serve como padrão: **nome, dois-pontos, o que ele te
+dá.**
+
+| Recusado | Publicado |
+|---|---|
+| "No pico, a rota já chega montada" | "**Roteirização automática**: a rota já chega montada" |
+| "Quanto da entrega é cozinha, e quanto é rua" | "**Relatório de Operação**: quanto é cozinha, quanto é rua" |
+| "Escolha como pagar, e o relatório fecha a conta" | "**Relatório do Entregador**: quanto pagar a cada um" |
+
+O ângulo não foi jogado fora em nenhuma das três: ele virou a segunda metade do
+título, que é onde ele sempre devia estar. Dois-pontos custa duas letras e paga
+o nome inteiro.
+
+> **O chapéu não conta como nome.** Ele é o rótulo pequeno em versalete, lido
+> depois do título quando é lido, e a checagem de três leituras desta skill
+> passa *só pelos títulos* justamente porque é assim que o feed se lê. Nome que
+> está só no chapéu é nome que não foi dito.
+
+A exceção é **uma**, e ela é estrutural: o **slide 2 explica** o recurso que a
+capa acabou de nomear, e repetir o nome duas telas depois soa como gagueira.
+Ali o título é a explicação — "O mapa mostra onde. A lista mostra quem leva."
+Do slide 3 em diante, cada um mostra uma coisa diferente, e cada coisa tem nome
+próprio.
+
+O teste que fecha a regra: **leia os títulos em fila, sem as imagens.** Sai uma
+lista do que o módulo passou a fazer, ou sai uma sequência de frases bonitas
+sobre entrega?
+
+| Só ângulos (a peça devolvida) | Com nome (a peça que foi) |
+|---|---|
+| No pico, a rota já chega montada | Roteirização automática |
+| Online, em pausa ou offline — quem marca é ele | Situação do entregador, declarada por ele |
+| A rota que você montou abre no celular dele | BeeFood Entregador |
+| Dois telefonemas a menos em cada entrega | Avisos no WhatsApp |
+| Quanto da entrega é cozinha, e quanto é rua | Relatório de Operação de Entrega |
+| Escolha como pagar, e o relatório fecha a conta | Relatório do Entregador |
+
+A coluna da direita é o que o leitor vai procurar no menu, e é o que ele repete
+quando conta para o sócio o que viu. A da esquerda não se procura.
+
+E um efeito colateral bom: com o nome no título, o chapéu para de ser
+obrigado a carregá-lo — e para de virar nome de janela ("Despacho automático")
+ou de item de menu ("Operação de entrega"), que a checagem já proibia e que
+passou nove peças porque não havia para onde mover o nome.
+
+### Pronome no título é sempre erro
+
+Do mesmo retorno, outras duas linhas:
+
+| O que o slide dizia | O que ele devolveu |
+|---|---|
+| 4 · "Online, em pausa ou offline — quem marca é ele" | *"quem marca é ele, ele quem?"* |
+| 5 · "A rota que você montou abre no celular dele" | *"abre no celular dele quem? que frase estranha"* |
+
+Nos dois casos o antecedente existia — "o entregador" estava no chapéu do slide
+4 e no do 5, e estava na legenda, e estava no slide anterior. E não serve de
+nada, porque **o título é a única parte do carrossel que se lê fora de ordem**.
+Ele aparece sozinho na miniatura do feed, sozinho na folha de contato, sozinho
+quando alguém passa o dedo rápido e para no meio. Um slide não é um parágrafo de
+um texto corrido: é uma unidade que precisa fechar em si.
+
+Daí a regra, sem exceção que valha o risco:
+
+- **no título, nenhum `ele`, `dele`, `dela`, `isso`, `aquilo`, `o dele`.** Se a
+  frase precisa da pessoa, a pessoa é nomeada ali: "quem marca é **o
+  entregador**", "chega ao **celular do entregador**";
+- **no corpo, o pronome exige o substantivo antes dele, no mesmo slide.** "Ele
+  escolhe a situação no aplicativo" funciona embaixo de um título que diz *o
+  entregador*; a mesma frase embaixo de um título que diz *a rota* troca de
+  sujeito sem avisar;
+- **`você` é o leitor, e só ele.** Essa parte a skill já tinha, e continua: o
+  dono do restaurante é `você`, quem compra dele é nomeado pela ação.
+
+> Leia cada título em voz alta, sozinho, sem o chapéu e sem o slide anterior.
+> Se sobra uma pergunta de *quem?* ou de *o quê?*, o título está incompleto —
+> não ambíguo, incompleto.
+
+### Frase de manchete de jornal não é frase de carrossel
+
+A terceira linha do retorno foi a mais dura, e é sobre gramática:
+
+> *"a copy ficou estranha: título 'dois cadastros e o entregador já entra no
+> mapa' e 'lista vazia com a pílula verde é sinal que deu certo'. Como estamos
+> chegando num texto tão tosco assim?"*
+
+O defeito tem nome em jornalismo: **estilo telegráfico**. Manchete de primeira
+página corta artigo, corta verbo de ligação e empilha substantivo, porque ela
+paga por centímetro de coluna. Carrossel não paga por centímetro, e a voz dele é
+a de uma empresa conversando com um cliente — a mesma que a seção *fale como
+gente fala* descreve. Cortar artigo naquela voz não soa econômico, soa mal
+escrito.
+
+| Telegráfico | Como gente fala |
+|---|---|
+| "Lista vazia com a pílula verde é sinal que deu certo" | "A lista vazia do primeiro acesso quer dizer que deu certo" |
+| "Dois cadastros, e o entregador já entra no mapa" | "O entregador entra no mapa com dois cadastros que já existem" |
+| "Na ordem que a loja definiu, com o número do pedido e a previsão" | "Ela chega na ordem que a loja definiu, com o número do pedido e a previsão" |
+| "Quatro etapas medidas uma por uma, o tempo de loja separado do de rua" | "A entrega vem quebrada em quatro etapas, com o tempo de loja separado do de rua" |
+
+Três coisas concretas, e as três aparecem na tabela:
+
+- **artigo não se corta para ganhar linha.** "Lista vazia" pede "a lista vazia".
+  Se com o artigo a frase estoura o bloco, o problema é o tamanho da frase, e o
+  conserto é cortar conteúdo — nunca gramática;
+- **`que` de ligação não se come.** "é sinal **que** deu certo" quer "é sinal
+  **de que** deu certo", e a saída melhor é trocar o substantivo por verbo:
+  "quer dizer que deu certo";
+- **frase sem verbo principal não é frase.** Corpo que começa em "Na ordem
+  que…", "Pela taxa cobrada…", "Quatro etapas medidas…" é uma legenda de foto
+  colada no lugar de um parágrafo. Ele lê como anotação, e anotação é o que
+  produz a sensação de "texto tosco".
+
+> **O teste é a voz alta, e é o único que pega isto.** Erro de concordância e
+> frase sem verbo passam batidos na leitura silenciosa, porque quem escreveu
+> sabe o que quis dizer. Leia o slide inteiro em voz alta, no ritmo de quem
+> conversa. Onde a respiração tropeça, falta palavra.
+
 ## O alvo de cada slide: a utilidade
 
 Leia isto antes de escrever a primeira palavra. Tudo o que vem depois neste
@@ -769,6 +909,75 @@ coisa que o leitor não viu.
 > precisa saber o que fazer com a frase sem explicação, e frase convencional é
 > justamente a que ele já sabe ler. Gaste a criatividade na capa.
 
+### E o CTA de novidade não ensina a ligar o recurso
+
+O CTA da décima peça saiu **"O entregador entra no mapa com dois cadastros que
+você já tem"**, com o caminho apontando para o cadastro do aplicativo. Voltou em
+uma linha: *"refaça a copy inteira do último slide, não é sobre isso, venda a
+novidade"*.
+
+O defeito não é de frase, é de **assunto**: o slide era sobre trabalho. Criar o
+funcionário, criar o usuário, instalar o aplicativo — tudo verdade, tudo o que o
+leitor vai ter de fazer, e nada disso é motivo para ele querer fazer. Depois de
+oito slides de argumento, fechar com a burocracia de ligar o módulo é entregar a
+fatura antes da venda. É primo do *slide do problema que cobra* e do *alívio
+antes do CTA*: os três põem o custo na frente do ganho, no pior lugar possível.
+
+A saída não precisou ser inventada, porque a série já tinha molde, e ele se lê
+de fora, na fila das peças:
+
+| Peça | Chapéu | Título |
+|---|---|---|
+| #3 | Já está no ar | Suba o seu primeiro vídeo **hoje** |
+| #4 | Já está no ar | Ligue o primeiro **ajuste** hoje |
+| #8 | Já está no ar | Abra o painel e **deixe ligado** hoje |
+| #9 | Já está no ar | Abra hoje e leia o que elas já **estão dizendo** |
+| #10 (era) | Como começar | O entregador entra no mapa com dois cadastros |
+
+**Chapéu "Já está no ar", título no imperativo com "hoje", subtítulo com o
+primeiro passo mais a linha de fechamento da série, pílula de caminho.** Quatro
+peças seguidas, e a quinta abandonou os quatro de uma vez — sinal de que o molde
+estava no acervo e não no documento. Agora está nos dois. O CTA é o slide em que
+*ser convencional é vantagem*, e convenção só funciona se alguém a escrever.
+
+Duas regras finas que a mesma rodada fixou:
+
+- **o caminho aponta para o módulo que a peça vendeu**, não para um acessório.
+  Estava em `Aplicativos → Entrega → BeeFood Entregador`, que é assunto de um
+  slide do meio; virou `Delivery → Entregas`;
+- **a linha de disponibilidade é fato publicado, e é condicional.** "Quem tem o
+  módulo Entrega já tem a Gestão de Entregas" sai da novidade da peça irmã, que
+  diz o mesmo com as palavras do produto. "Todo mundo já tem" seria promessa
+  nossa, e módulo em liberação não a sustenta.
+
+E a imagem cai junto com a copy, sempre: a do CTA velho era o aplicativo
+**vazio**, com "Nenhuma entrega agora", porque a frase precisava dela ("lista
+vazia é sinal de que deu certo"). Tela em que não acontece nada é a pior arte
+possível para fechar uma venda — e ela só passou na revisão de imagem porque o
+texto a justificava. Trocado o texto, a imagem vira órfã na hora.
+
+#### E a arte do CTA pode ser a da capa, de propósito
+
+A substituta que eu tinha escolhido era um recorte da lista de rotas: prova o
+título, mostra a rota pronta para sair. O dono resolveu por outro caminho —
+*"coloque a foto do mapa e o pc na última com essa frase"* —, e a peça ficou
+com **a mesma arte da capa, no mesmo lugar e no mesmo tamanho**.
+
+É melhor, e o motivo é de forma: a peça **abre e fecha na mesma cena**. A capa
+apresenta a tela e faz o leitor parar de rolar; o último slide devolve a mesma
+imagem inteira, com um imperativo em cima, para alguém que agora sabe ler cada
+coisa dali. Fechar num recorte é terminar olhando para um detalhe, logo depois
+de oito slides de detalhe.
+
+A regra geral desta skill continua sendo **não repetir prova dentro da mesma
+peça** — repetição ali quase sempre é falta de arte. A exceção é uma, e é
+estreita:
+
+| Vale | Não vale |
+|---|---|
+| a arte da **capa**, repetida no **CTA** | a prova de um slide do meio, repetida em qualquer lugar |
+| porque o assunto do CTA é literalmente *abra isto*, e o que ele manda abrir é o que a capa mostrou | porque aí é só falta de imagem nova |
+
 ### Frase de venda se procura no site antes de inventar
 
 A página de vendas já foi escrita para vender aquilo, por quem decide como a
@@ -1007,6 +1216,26 @@ Vai no fim do `roteiro.md`, pronta para copiar:
 
 - [ ] **A capa diz o nome do recurso?** Quem lê só ela sabe o que entrou no
       sistema — e o nome é o que o recurso faz, não o nome do campo.
+- [ ] **Cada slide de dentro diz o nome do recurso que ele mostra?** Leia só os
+      títulos, em fila: dá para montar a lista do que o módulo passou a fazer?
+      Se um título só tem o ângulo ("a rota já chega montada"), falta o nome —
+      ele entra antes dos dois-pontos, e o ângulo fica depois. Nome no chapéu
+      não conta: chapéu se lê depois do título, quando é lido.
+- [ ] **Nenhum título tem pronome.** Procure `ele`, `dele`, `dela`, `isso`,
+      `aquilo` nos títulos: o título é a única parte da peça que se lê fora de
+      ordem, então antecedente no chapéu, na legenda ou no slide anterior não
+      resolve. No corpo, o substantivo vem antes do pronome, no mesmo slide.
+- [ ] **O CTA de novidade segue o molde da série?** Chapéu "Já está no ar",
+      título no imperativo com "hoje", subtítulo com o primeiro passo mais a
+      linha de fechamento, pílula apontando para o **módulo que a peça vendeu**.
+      E ele vende, em vez de ensinar a ligar o recurso: cadastro, instalação e
+      permissão são trabalho, e trabalho no último slide é a fatura antes da
+      venda.
+- [ ] **Leia cada slide em voz alta.** Onde a respiração tropeça falta palavra:
+      artigo cortado ("lista vazia" por "a lista vazia"), `de que` comido ("é
+      sinal que deu certo") e corpo sem verbo principal ("Na ordem que a loja
+      definiu, com o número do pedido"). Estilo telegráfico é de manchete de
+      jornal, que paga por centímetro; aqui ele lê como texto mal escrito.
 - [ ] **O gênero está certo do começo ao fim?** Em peça de função: nenhuma
       pílula `Novidade`, nenhum "agora", CTA que serve para quem ainda não tem
       painel, e nenhum número institucional na arte.

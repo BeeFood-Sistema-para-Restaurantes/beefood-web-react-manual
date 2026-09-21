@@ -39,6 +39,16 @@ marca tem cardápio, canais e relatórios próprios") — mas **não** o que ela
 empresa: "+100 mil negócios", "melhor avaliação no Google", "melhor suporte do
 Brasil" são claim institucional e não entram na arte.
 
+**E a novidade pode não ter release nenhum.** Módulo **em liberação** chega ao
+sistema antes de chegar ao feed: a Gestão de Entregas tinha dezoito manuais
+conferidos no código e zero linha em `beefood.app/novidades`. A peça continua
+sendo do gênero *novidade* — o leitor é cliente, a pílula diz `Novidade`, o CTA
+é caminho de menu —, e o que muda é só de onde vem a pauta: o **manual** passa a
+ser fonte única, e é o material do qual é mais fácil recortar sem perceber (ver
+passo 6). Sem release não há data para amarrar, então o `copy-instagram.txt`
+pede a quem publica que confirme a liberação antes de postar — a arte não leva
+data de todo jeito, e por isso ela pode esperar na fila.
+
 **E a página pode estar vazia, sem que isso derrube a peça.** A do totem só tem
 menu, rodapé e um `Carregando…`; o que sobrou foi a descrição de busca, uma
 afirmação funcional, e ela bastou para o ângulo. Pauta é a parte substituível —
@@ -192,6 +202,60 @@ tela. Conceito na capa e história no slide 2 são os dois jeitos de perder o
 leitor antes da prova — e **cena na capa é um terceiro**, que passa despercebido
 porque a frase sai boa.
 
+#### Três regras de título, e as três vieram do mesmo retorno
+
+Nomear era regra da **capa**, e por nove peças os slides de dentro ficaram
+livres para ser espertos. Na décima o dono leu slide por slide e devolveu seis
+linhas; elas fecham em três regras, que valem para todo título de todo slide.
+
+**1. Nome, dois-pontos, o que ele te dá.** Cada slide de dentro nomeia o recurso
+que ele mostra — não o módulo, que é da capa, mas a coisa daquele slide, com o
+nome que o leitor vai procurar no menu depois. O ângulo não sai: ele vira a
+segunda metade do título.
+
+| Recusado | Publicado |
+|---|---|
+| "No pico, a rota já chega montada" | "**Roteirização automática**: a rota já chega montada" |
+| "Quanto da entrega é cozinha, e quanto é rua" | "**Relatório de Operação**: quanto é cozinha, quanto é rua" |
+| "Escolha como pagar, e o relatório fecha a conta" | "**Relatório do Entregador**: quanto pagar a cada um" |
+
+Nome no **chapéu não conta**: chapéu é versalete pequeno, lido depois do título
+quando é lido, e a checagem de três leituras passa só pelos títulos porque é
+assim que o feed se lê.
+
+A exceção é **uma**, e é estrutural: o slide 2 explica o recurso que a capa
+acabou de nomear, então ele não repete o nome — ali o título é a explicação.
+Nos outros, quem lê os títulos em fila tem de conseguir montar a lista do que o
+módulo passou a fazer.
+
+**2. Pronome no título é sempre erro.** *"quem marca é ele — ele quem?"* e
+*"abre no celular dele — dele quem?"* O antecedente existia nos dois casos, no
+chapéu e no slide anterior, e não serviu de nada: **o título é a única parte da
+peça que se lê fora de ordem** — sozinho na miniatura, sozinho na folha de
+contato, sozinho para quem passa o dedo e para no meio. `ele`, `dele`, `dela`,
+`isso`, `aquilo` não entram em título; a pessoa é nomeada ali mesmo ("quem marca
+é **o entregador**"). No corpo o pronome exige o substantivo antes dele, no
+mesmo slide.
+
+**3. Frase de manchete de jornal não é frase de carrossel.** *"Como estamos
+chegando num texto tão tosco assim?"* — sobre "Lista vazia com a pílula verde é
+sinal que deu certo". O defeito é o **estilo telegráfico**: manchete de jornal
+corta artigo, come `de que` e empilha substantivo porque paga por centímetro de
+coluna. Aqui a voz é de uma empresa conversando com um cliente, e o corte não
+soa econômico, soa mal escrito. Artigo não se corta para ganhar linha; se a
+frase estoura com ele, corte conteúdo, não gramática. E corpo que começa em "Na
+ordem que…", "Pela taxa cobrada…", "Quatro etapas medidas…" é legenda de foto no
+lugar de parágrafo — falta o verbo principal.
+
+> **Leia cada slide em voz alta, no ritmo de quem conversa.** É o único teste
+> que pega os três defeitos, porque na leitura silenciosa quem escreveu já sabe
+> o que quis dizer. Onde a respiração tropeça, falta palavra.
+
+O raciocínio inteiro, com o retorno na íntegra, está em
+[`references/roteiro-e-copy.md`](references/roteiro-e-copy.md) — *a regra do nome
+vale para os slides de dentro*, *pronome no título é sempre erro* e *frase de
+manchete de jornal não é frase de carrossel*.
+
 **A pasta nasce numerada.** O nome é `NN-<slug>`, com `NN` sendo a **ordem de
 entrega** — o próximo número livre em `carrosseis/`. É o que faz a listagem do
 diretório sair na ordem em que as peças foram publicadas, e o `.zip` chegar ao
@@ -209,9 +273,52 @@ Método completo em [`references/roteiro-e-copy.md`](references/roteiro-e-copy.m
 Roteiro aprovado primeiro; captura depois. Print tirado antes do roteiro quase
 sempre é print que não entra.
 
-### 3. Capturas
+### 3. Imagens
 
-Primeiro decida **onde a tela mora** — é isso que define se existe captura:
+**A primeira pergunta não é de onde vem a imagem. É se ela mostra o resultado ou
+o painel de controle.**
+
+Durante nove peças esta seção começava por *onde a tela mora*, e ordenava a
+imagem por facilidade de captura — desenho no último degrau, como pobreza. O
+efeito foi o que o dono nomeou na décima: *"nossos carrosséis ficam só com imagem
+de configuração de campos e printscreen das telas"*. A causa está na ordem, não
+no descuido de quem executou: quando captura é o degrau mais alto, ganha a tela
+que se captura mais fácil — e a mais fácil é sempre o formulário, que abre com um
+clique, não precisa de cena montada e fica pronto sem dado nenhum dentro.
+
+**Tela de configuração não é imagem de carrossel.** Campo, formulário,
+interruptor, janela de ajuste, modal de regras, lista de parâmetros com um
+marcado: tudo isso mostra **onde se mexe**, e carrossel não ensina a mexer —
+carrossel mostra **o que passa a acontecer**. Quem precisa do campo abre o
+manual, onde aquele print já está, com seta e número.
+
+A ordem é esta, e substitui a antiga:
+
+| Degrau | O que é | Quando |
+|---|---|---|
+| 1 | **tela de resultado, capturada** | a tela mostra o recurso funcionando: o mapa com as rotas correndo, o cardápio montado, o cupom impresso, o painel operando |
+| 2 | **tela de resultado, desenhada pela peça** | o resultado existe e a captura não o alcança: aparelho que não roda aqui, cenário que o sandbox não tem, ou resultado espalhado por três telas |
+| — | **tela de configuração** | **nunca** — nem capturada, nem desenhada |
+
+O degrau 2 não é o porão. É onde a peça **constrói** a prova que a tela solta não
+dá, e as imagens mais fortes das nove primeiras peças saíram dele: o cupom
+térmico, as três marcas da dark kitchen, a rota dentro do app do entregador.
+
+**Quando o fato é uma regra de configuração, a arte é o efeito da regra.** O
+despacho automático tem sete campos numa janela; o slide não mostra os sete
+campos, mostra a rota nascendo — *pedidos sem rota* → *Rota A · sem entregador ·
+Montando* → *Rota A · Diego Souza · Pronta para sair*. As duas etapas estão no
+manual, então o desenho não inventa produto: ele troca o painel de controle pelo
+que o painel de controle produz.
+
+**O teste, slide por slide: tampe a copy e olhe só a imagem — acontece alguma
+coisa ali?** Se o que aparece é um campo com número dentro, um interruptor verde
+ou uma lista de opções com um tique, a imagem é de manual e o slide está sem
+prova. Isso vale também para a revisão da folha de contato (passo 6): imagem de
+configuração é motivo de refazer, no mesmo nível de texto ilegível.
+
+Decidido que a imagem é de resultado, **aí** vem onde a tela mora — é isso que
+define se existe captura:
 
 | Tela | O que fazer |
 |------|-------------|
@@ -219,19 +326,19 @@ Primeiro decida **onde a tela mora** — é isso que define se existe captura:
 | cardápio digital público | `capturar.py --url <link> --publico --dispositivo celular` |
 | cardápio digital com mídia nossa dentro | `capturar-cardapio.py --conteudo midias.json` (banner, vídeo e cartaz de aviso entregues na resposta da API) |
 | Totem de Autoatendimento | é **web**. `capturar-totem.py` faz o caminho da tradução; para outro caminho, escreva o roteiro em `carrosseis/<slug>/capturar-telas.py` — o aplicativo vai do cardápio ao pagamento, passando por cupom e cashback. **Não finalize pedido e não aplique cupom** (os dois são gravação no servidor da loja) |
-| app Android (Garçom, Entregador, Tablet) | não roda no Cloud Agent: **peça o print ao dono** (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) e, enquanto ele não vem, desenhe a tela em CSS copiando o print de produção (passo 4) |
+| app Android (Garçom, Entregador, Tablet) | não roda no Cloud Agent: **peça o print ao dono** (zip em URL pública, seção 6 da `MEMORIA-GERAL.md`) e, enquanto ele não vem, desenhe a tela em CSS copiando layout e paleta do print de produção (passo 4) |
+| regra de configuração (despacho automático, avisos, formas de pagamento) | a janela de campos **não** entra: desenhe o **efeito** da regra, com os rótulos que o sistema usa nos dois lados dela |
 | cupom impresso | `ganchar_cupom` + `salvar_cupom`: o cupom nasce num iframe que vai para a impressora, então não dá para fotografar a tela |
-| coisa que não é tela (impressora, balança) | print do manual, se existir; senão desenho em CSS |
+| coisa que não é tela (impressora, balança) | desenho em CSS, copiando o aparelho do print de produção |
 | cenário que a conta de teste não tem (segunda marca, pedido de marketplace chegando) | **desenhe a tela**: `carrosseis/<slug>/telas/*.html` + `desenhar-telas.py` |
 
 **Antes de desenhar, ande no aplicativo.** A pergunta não é "existe captura
-desta tela?", é "até onde esse aplicativo me deixa ir clicando?" — o script que
-já existe costuma parar bem antes do fim. Desenho é o terceiro degrau, e a peça
-do totem provou que dá para fazer uma peça de função inteira no segundo.
+desta tela?", é "até onde esse aplicativo me deixa ir clicando até chegar no
+resultado?" — o script que já existe costuma parar bem antes do fim, e a peça do
+totem provou que dá para levar uma peça inteira até o fim clicando.
 
-**Cenário que o sandbox não tem: desenhe a tela.** É o terceiro degrau da
-ancoragem — *manual > tela capturada > tela desenhada* — e ele apareceu inteiro
-na peça de dark kitchen: o sandbox é uma loja, e o assunto eram três marcas.
+**Cenário que o sandbox não tem: desenhe a tela.** Apareceu inteiro na peça de
+dark kitchen: o sandbox é uma loja, e o assunto eram três marcas.
 O fragmento fica em `carrosseis/<slug>/telas/`, declara a medida no elemento raiz
 (`<div class="tela" data-medida="1080x480">`) e sai em `imagens-puras/` pelo
 `desenhar-telas.py`, com `assets/telas/painel.css` — o cinza de página, o cartão
@@ -399,11 +506,16 @@ não se fotografa.
 **O print do manual é referência, não imagem do carrossel.** Ele existe para
 ensinar um caminho: traz a tela inteira, o estado que o manual precisava e o
 ruído do momento. Leia-o para saber quais campos existem, que valores são reais
-e qual tela prova o quê — e então **capture a sua**, com o exemplo do carrossel
+e qual tela prova o quê — e então **faça a sua**, com o exemplo do carrossel
 montado. A ordem de preferência é:
 
-> **captura feita para o carrossel > print de produção do manual > print pedido
-> ao dono > desenho em CSS.**
+> **captura de resultado feita para o carrossel > tela de resultado desenhada
+> pela peça > print de resultado pedido ao dono.**
+
+O print do manual não está na lista, e é de propósito: ele não é degrau nenhum da
+arte, nem recortado. Quando o único print que existe é de configuração — e no
+manual é o caso mais comum, porque manual ensina caminho —, ele serve para você
+saber o que a tela faz, e a imagem do slide sai desenhada mostrando o efeito.
 
 Duas coisas acontecem quando o carrossel se serve do print do manual, e as duas
 aconteceram na peça de *desconto por forma de pagamento*:
@@ -574,16 +686,19 @@ fora da arte.
 
 #### Quando a tela não existe: ilustrar
 
-Ordem de preferência: **captura real > print de produção que já está no
-repositório > print pedido ao dono > ilustração**.
+Ordem de preferência: **captura de resultado > desenho do resultado > print de
+resultado pedido ao dono**, e nenhum print de configuração em nenhum dos três
+(passo 3, em *a imagem do slide*).
 
-Os degraus 2 a 4 são para tela que **esta skill não consegue capturar** — app
-Android, impressora, balança. Tela que roda no navegador o carrossel captura
-sozinho, e aí o print do manual é referência, não imagem (acima, em *o print do
-manual é referência*).
+Desenhar é o degrau de quem **não consegue capturar o resultado** — app Android,
+impressora, balança, cenário que a conta de teste não tem, regra cujo efeito
+mora em três telas. Não é o degrau de quem não conseguiu capturar *a tela*: se a
+tela existe no navegador mas é um formulário, capturar não resolve nada, porque o
+problema não era o acesso, era o assunto da imagem.
 
-Para o que não se captura, o segundo degrau é o mais esquecido: o **manual da
-mesma novidade** costuma ter o print do aparelho, e ele pode estar só no `main`
+Quando o desenho é do aparelho, vale procurar o print de produção antes — não
+para recortar, para **copiar layout, paleta e hierarquia**. O **manual da mesma
+novidade** costuma ter o print do aparelho, e ele pode estar só no `main`
 (o Cloud Agent parte de um snapshot). Antes de concluir que não existe, rode
 `git fetch origin main` e
 `git ls-tree -r --name-only origin/main -- manuais/<slug>`.
@@ -631,6 +746,24 @@ interface em `rgba(30,30,30,…)`, faça a versão clara antes de usá-la ali.
 Cupom desenhado em `.cupom` é o caso mais tranquilo: bobina térmica em
 monoespaçada é claramente desenho, e é a única forma de mostrar o "antes", que
 não existe como captura.
+
+**Relatório desenhado: o número é exemplo, e a copy não o repete.** Relatório é
+onde o desenho compensa mais, porque o sandbox nunca tem volume para ele —
+média que pede vinte pedidos sai *Poucos pedidos*, e traço em toda parte é a
+prova de que a loja não usou o recurso, não de que ele funciona. O que o desenho
+precisa entregar é a **estrutura**, que está toda no manual: os cartões do topo,
+as etapas na ordem, as colunas da tabela, o gráfico por hora. Três regras seguram
+a honestidade:
+
+- **um jogo de números, e as somas fecham.** Se o cartão diz 128 entregas, a soma
+  da coluna por entregador dá 128; se o modo é KM, `86,3 km × R$ 1,50` tem de dar
+  o total da linha. É a primeira coisa que o lojista confere, e conta errada numa
+  imagem nossa desmente a peça inteira.
+- **a copy não cita o número.** O relatório responde *quanto é cozinha e quanto é
+  rua*; a divisão de uma loja é dela. Escrito na copy, o exemplo vira promessa de
+  resultado nosso.
+- **a legenda diz que o dado é de exemplo**, uma vez, no texto do post — não
+  carimbado na arte.
 
 ### 5. Render
 
@@ -687,12 +820,29 @@ margem, ou o slide é parado.
 ```bash
 python .cursor/skills/carrossel/scripts/conferir-texto.py <slug>
 python ... <pasta> --novidade <slug-publicado>   # pasta com nome mais curto
+python ... <pasta> --fonte <url>                 # gênero função: a página do site
+python ... <pasta> --fonte manuais/<slug> --fonte manuais/<outro>   # e quando a fonte é o manual
 ```
 
 Acusa qualquer sequência de seis palavras que apareça igual no texto (ou no
 título) da novidade — nenhum rótulo do sistema chega a seis palavras, então o que
 ele pega é cópia. Ele não julga o roteiro; para isso existe a tabela
 fato → ângulo → slide.
+
+**O manual é a fonte mais perigosa das três, e por isso `--fonte` também
+recebe caminho.** Módulo em liberação não tem release nem página de vendas: o
+fato vive só em `manuais/`, e ali o texto foi escrito pela casa. É bom, está à
+mão, e recortá-lo não soa como cópia — soa como usar o que já existe. Passe
+todos os manuais do grupo, repetindo `--fonte`; pasta vale pelo `.md` de dentro
+dela. Na peça da Gestão de Entregas, dezoito manuais pegaram três frases, e as
+três eram as **melhores** do roteiro, que é justamente o motivo de elas terem
+sobrevivido a duas leituras: a frase do sistema no alto da janela do despacho
+estava também **na imagem do mesmo slide**, e reescrevê-la devolveu uma linha
+inteira de copy que estava sendo gasta duas vezes.
+
+E há a armadilha da inflexão: `manda a rota para a rua` passa e `mandar a rota
+para a rua` não. Quando o conferidor pega a versão do texto alternativo e deixa
+a do slide, as duas são a frase do manual — troque as duas, não só a acusada.
 
 **Ele também compara a peça com os outros carrosséis**, e isso é `AVISO`, não
 erro. Prova se reusa entre peças de propósito; **a copy, não** — o slide
@@ -714,6 +864,11 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
    sem prova costuma sair — peça de seis com o mais forte na frente vale mais
    que sete com ele no meio. Se a imagem promovida é prova de **leitura**, a
    capa perde o aparelho e fica com o recorte.
+1b. **Tampe a copy e passe só pelas imagens.** Em quantas acontece alguma coisa?
+   Imagem em que o que aparece é campo, interruptor ou lista de opções é tela de
+   configuração, e tela de configuração se refaz — é motivo de voltar ao passo 3,
+   no mesmo nível de texto ilegível. Peça inteira de configuração é o defeito que
+   o dono reclamou três vezes antes de a skill mudar a ordem.
 2. Abra em **tamanho real** os slides com print. Miniatura esconde texto ilegível
    e esconde realce fora de lugar — os dois erros mais comuns.
 3. Confira que o mockup em sangria não cobriu nenhuma linha de texto nem os
@@ -728,6 +883,16 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
 5. A capa diz o fato **inteiro**? Nenhum eixo da novidade (o "ou" e o "e" do
    título) ficou de fora, e nenhum **exemplo** do release virou manchete. E o
    carrossel tem **um** jogo de números, o mesmo em todos os slides.
+5a. **Leia só os títulos, em fila, e em voz alta.** Três perguntas, e cada uma
+   pega um defeito que a leitura silenciosa do slide inteiro não pega:
+   *(a)* dá para montar a lista do que o módulo passou a fazer? Título que só
+   tem o ângulo ("a rota já chega montada") não nomeia nada — o nome entra antes
+   dos dois-pontos, e nome no chapéu não conta;
+   *(b)* sobrou algum `ele`, `dele`, `dela`, `isso`? Título se lê fora de ordem,
+   então antecedente no chapéu ou no slide anterior não resolve;
+   *(c)* a respiração tropeçou em algum? Ali falta palavra — artigo cortado
+   ("lista vazia"), `de que` comido ("é sinal que deu certo") ou corpo sem verbo
+   principal. Estilo telegráfico é de manchete de jornal, não de carrossel.
 6. A capa diz o **nome do recurso**, e o subtítulo diz o que ele faz? Leia só
    ela e responda às duas: *qual é o nome?* e *o que aquilo faz?* Falha nas
    duas pontas — em conceito ("Cada forma de pagamento com o seu preço") e em
@@ -762,6 +927,17 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
    poucos")? Sai: é aviso de limite, e ele planta a objeção justo antes do CTA.
    E o slide do problema — normalmente o 2 — elogia o leitor antes de mostrar o
    furo, ou entrega uma fatura na cara dele?
+9a. **O CTA vende, ou ensina a ligar o recurso?** Cadastro, instalação e
+   permissão são trabalho, e trabalho no último slide é a fatura antes da
+   venda. Em peça de novidade o molde da série é chapéu **Já está no ar**,
+   título no imperativo com **hoje**, subtítulo com o primeiro passo mais a
+   linha de fechamento, e a pílula apontando para o **módulo que a peça
+   vendeu** — não para um acessório de um slide do meio. E a arte dele pode ser
+   **a mesma da capa**, no mesmo lugar e no mesmo tamanho: é a única repetição
+   de prova que a skill aprova dentro de uma peça, porque o CTA manda abrir
+   justamente o que a capa mostrou, e a peça abre e fecha na mesma cena.
+   Detalhe em [`references/roteiro-e-copy.md`](references/roteiro-e-copy.md),
+   em *o CTA de novidade não ensina a ligar o recurso*.
 10. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE"
     em branco, contorno branco no selo, tarja amarela e "food" vermelho?
 11. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa
@@ -1066,6 +1242,11 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
 
 ## O que nunca fazer
 
+- **Pôr tela de configuração na arte.** Campo, formulário, interruptor, janela de
+  regras, lista de opções com um tique: mostra onde se mexe, e o slide precisa
+  mostrar o que acontece. Vale capturada e vale desenhada — o defeito é o assunto
+  da imagem, não a técnica. Quando o fato **é** a configuração, a arte é o efeito
+  dela (passo 3, em *a imagem do slide*).
 - **Carimbar "ILUSTRAÇÃO" na arte.** A pílula existiu e foi removida da skill: é
   a única palavra da peça que o leitor não esperava ler, e avisa que aquilo não
   é o produto justo no slide que devia vender.
@@ -1084,7 +1265,18 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   existe; o slide precisa dizer o que vale a pena fazer com ele.
 - **Batizar o chapéu com o nome do campo.** "Destaques da capa", "Aba nova:
   Avisos", "Agendamento": o chapéu é o que se diz antes da frase, e ninguém diz
-  isso em voz alta.
+  isso em voz alta. Isso não é motivo para o nome do recurso ficar **só** no
+  chapéu: ele vai no título, que é o que se lê.
+- **Deixar o título sem o nome do recurso.** "No pico, a rota já chega montada"
+  é frase boa e não se procura no menu. O molde é *nome, dois-pontos, o que ele
+  te dá* — o ângulo fica na segunda metade.
+- **Pôr pronome no título.** "quem marca é ele", "abre no celular dele": o
+  título se lê fora de ordem, então antecedente no chapéu ou no slide anterior
+  não vale. Nomeie a pessoa no próprio título.
+- **Cortar artigo, comer o `de que`, deixar o corpo sem verbo.** "Lista vazia
+  com a pílula verde é sinal que deu certo" é manchete de jornal, que paga por
+  centímetro de coluna. Aqui lê como texto mal escrito, e o teste que pega isso
+  é a leitura em voz alta.
 - **Recortar a novidade em slides.** O carrossel se escreve a partir do fato; o
   texto do release não vai para a arte.
 - **Afirmar o que o leitor faz, tem ou sente.** "Você já faz isso no balcão", "no
@@ -1093,7 +1285,9 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   (ele é do produto) e pare aí.
 - **Servir-se do print do manual para a arte.** Ele vem com o estado e o ruído de
   que o manual precisava — cashback, cupom, a tela inteira — e com o exemplo do
-  manual, não o seu. Leia o print, capture a sua tela.
+  manual, não o seu. E como manual ensina caminho, o print que ele tem é quase
+  sempre de configuração. Leia o print para entender a tela; a imagem do slide
+  você captura ou desenha.
 - **Deixar o sandbox configurado do seu jeito.** Os manuais capturam no mesmo
   sandbox. Anote o que encontrou, capture, restaure.
 - **Publicar dado pessoal.** Este repositório é público; nome, telefone e e-mail
