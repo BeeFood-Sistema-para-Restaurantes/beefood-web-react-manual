@@ -1,0 +1,123 @@
+<!-- Os avisos de WhatsApp da entrega, nos dois celulares.
+
+     Por que desenhada: o WhatsApp da sandbox não tem número conectado, então a
+     mensagem não sai — não existe conversa para fotografar. O manual dos avisos
+     resolve do mesmo jeito (seção 6), e esta tela é a mesma ideia de prova
+     redesenhada no vocabulário do carrossel, com os dados da cena.
+
+     O TEXTO NÃO FOI ESCRITO À MÃO: é o texto de fábrica dos próprios avisos,
+     lido em WhatsApp → Notificações e transcrito com os marcadores substituídos
+     pelos dados da cena. Os de fábrica estão em
+     manuais/gestao-entregas-avisos-whatsapp/imagens-puras/03-modal-nova-entrega.png
+     e 05-modal-entregador-proximo.png:
+
+       🛵 *Nova entrega* · **MEU_NOME_FANTASIA**
+       *Pedido:* **VENDA_NUMERO** … **VENDA_TOTAIS**
+
+       🛵💨 O entregador **ENTREGADOR_NOME** está {chegando|quase chegando}
+       com o seu pedido! … {Já pode ir se preparando para receber}! 😊
+
+     O que trocou: os marcadores. Pedido 1140, Ana Beatriz Moraes, Rua Padre
+     Luiz 235, Dinheiro, R$ 63,90 — os mesmos do painel e da tela do aplicativo.
+     O entregador é o Diego Souza, que no painel é quem está com a rota A.
+
+     904 px é a largura útil do slide (1080 menos as duas margens de 88), então
+     a tela entra em escala 1 e o corpo de 16 px chega ao feed como 16 px.
+     Sem data na arte: as mensagens levam hora, que é o que o celular mostra. -->
+<div class="tela" data-medida="904x500" style="background: transparent">
+  <div style="display: flex; gap: 26px; height: 100%">
+
+    <!-- ----------------------------------------- o celular do entregador -->
+    <div style="flex: 1; display: flex; flex-direction: column">
+      <p style="font-size: 13px; font-weight: 900; letter-spacing: 1.4px;
+                color: #74757d; margin-bottom: 9px">NO WHATSAPP DO ENTREGADOR</p>
+      <div style="flex: 1; border-radius: 18px; overflow: hidden;
+                  border: 1px solid #e3e3dd; background: #ece5dd">
+        <div style="background: #075e54; color: #fff; padding: 11px 14px;
+                    display: flex; align-items: center; gap: 10px">
+          <span style="width: 34px; height: 34px; border-radius: 50%;
+                       background: #1a8f80; display: flex; align-items: center;
+                       justify-content: center; font-size: 17px">&#127829;</span>
+          <span>
+            <span style="display: block; font-size: 15px; font-weight: 800">Pizzaria do Bairro</span>
+            <span style="display: block; font-size: 12px; color: #bfe0da">restaurante</span>
+          </span>
+        </div>
+
+        <div style="padding: 12px 12px 0">
+          <div style="background: #fff; border-radius: 12px; padding: 12px 13px 8px;
+                      box-shadow: 0 1px 1px rgba(0,0,0,.08); font-size: 15px;
+                      line-height: 1.42">
+            <p style="font-weight: 800">&#128757; Nova entrega
+              <span style="font-weight: 600; color: #4c4c4c">· Pizzaria do Bairro</span></p>
+            <p style="margin-top: 9px"><b>Pedido:</b> 1140</p>
+            <p><b>Cliente:</b> Ana Beatriz Moraes</p>
+            <p><b>Endereço:</b> Rua Padre Luiz, 235 - Centro</p>
+            <p><b>Pagamento:</b> Dinheiro</p>
+            <p style="margin-top: 9px"><b>Total do pedido:</b> R$ 63,90</p>
+            <p><b>Taxa de entrega:</b> R$ 8,00</p>
+            <p style="text-align: right; font-size: 12px; color: #8e9095;
+                      margin-top: 2px">19:04</p>
+          </div>
+
+          <!-- O segundo aviso usa o pedido 1144, que na cena está na rota B com
+               o Marcos: é exatamente o caso que o manual descreve — o pedido
+               trocou de entregador, e quem perdeu recebe este texto. Nenhum
+               número novo entra na peça por causa dele. -->
+          <div style="background: #fff; border-radius: 12px; padding: 12px 13px 8px;
+                      box-shadow: 0 1px 1px rgba(0,0,0,.08); font-size: 15px;
+                      line-height: 1.42; margin-top: 9px">
+            <p style="font-weight: 800">&#9888;&#65039; Entrega cancelada</p>
+            <p style="margin-top: 7px">O pedido 1144 (Juliana Campos)
+              <b>não é mais sua entrega</b>.</p>
+            <p style="margin-top: 7px">Se você já estava a caminho, volte para o
+              restaurante.</p>
+            <p style="text-align: right; font-size: 12px; color: #8e9095;
+                      margin-top: 2px">19:11</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -------------------------------------------- o celular do cliente -->
+    <div style="flex: 1; display: flex; flex-direction: column">
+      <p style="font-size: 13px; font-weight: 900; letter-spacing: 1.4px;
+                color: #74757d; margin-bottom: 9px">NO WHATSAPP DE QUEM PEDIU</p>
+      <div style="flex: 1; border-radius: 18px; overflow: hidden;
+                  border: 1px solid #e3e3dd; background: #ece5dd">
+        <div style="background: #075e54; color: #fff; padding: 11px 14px;
+                    display: flex; align-items: center; gap: 10px">
+          <span style="width: 34px; height: 34px; border-radius: 50%;
+                       background: #1a8f80; display: flex; align-items: center;
+                       justify-content: center; font-size: 17px">&#127829;</span>
+          <span>
+            <span style="display: block; font-size: 15px; font-weight: 800">Pizzaria do Bairro</span>
+            <span style="display: block; font-size: 12px; color: #bfe0da">restaurante</span>
+          </span>
+        </div>
+
+        <div style="padding: 12px 12px 0">
+          <div style="background: #fff; border-radius: 12px; padding: 11px 13px 7px;
+                      box-shadow: 0 1px 1px rgba(0,0,0,.08); font-size: 15px;
+                      line-height: 1.42">
+            <p>&#128757; Seu pedido está pronto e sairá para entrega.</p>
+            <p style="text-align: right; font-size: 12px; color: #8e9095;
+                      margin-top: 2px">19:05</p>
+          </div>
+
+          <div style="background: #fff; border-radius: 12px; padding: 12px 13px 8px;
+                      box-shadow: 0 1px 1px rgba(0,0,0,.08); font-size: 15px;
+                      line-height: 1.42; margin-top: 9px">
+            <p>&#128757;&#128168; O entregador Diego está chegando com o seu pedido!</p>
+            <p style="margin-top: 9px"><b>Endereço informado:</b> Rua Padre Luiz,
+              235 - Centro</p>
+            <p style="margin-top: 9px">Já pode ir se preparando para receber!
+              &#128522;</p>
+            <p style="text-align: right; font-size: 12px; color: #8e9095;
+                      margin-top: 2px">19:12</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

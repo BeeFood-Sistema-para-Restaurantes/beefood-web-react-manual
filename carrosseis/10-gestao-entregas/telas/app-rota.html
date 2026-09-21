@@ -1,0 +1,155 @@
+<!-- A rota A na lista do aplicativo do entregador.
+
+     Por que desenhada: o BeeFood Entregador é aplicativo Android/iOS e não roda
+     no Cloud Agent. É o terceiro degrau da ancoragem — manual > tela capturada >
+     tela desenhada.
+
+     O desenho copia layout, paleta e hierarquia de dois prints de PRODUÇÃO dos
+     manuais, e nada deles foi recortado:
+       manuais/app-entregador-rota/imagens-puras/03-rota-na-lista.png
+       manuais/app-entregador-entregas-do-dia/imagens-puras/01-lista.png
+     De lá vêm: a barra escura com o título da rota, o disco amarelo da letra, o
+     contador `0 de 3 entregas`, o botão verde INICIAR ROTA, a faixa vermelha à
+     esquerda ligando os círculos numerados, a etiqueta laranja do número do
+     pedido, `Previsão Entrega` com o relógio em vermelho, o endereço em preto
+     grande e `Cobrar R$` em verde.
+
+     Os DADOS são os da cena (`cena.json`), que são os mesmos do painel: 1140 Ana
+     Beatriz na Rua Padre Luiz, 1141 Carlos Eduardo na Rua Dom Antônio Alvarenga
+     e 1142 Fernanda na Rua Aparecida, com os valores dos pedidos. É isso que faz
+     o slide 5 concordar com a capa.
+
+     Sem data na arte: a previsão sai como hora, que é o que o motoboy lê. O
+     print do manual traz a data porque o manual precisava provar o dia.
+
+     390x844 é a medida do `.celular`. Ele entra no slide com ~440 px, então o
+     tipo daqui é o do aparelho e o conteúdo para na terceira parada — cortar
+     dentro do cartão da quarta leria como render pela metade. -->
+<div class="tela" data-medida="390x844" style="background: #f2f2f2">
+
+  <!-- Barra de status do sistema: hora à esquerda, ícones à direita. -->
+  <div style="display: flex; align-items: center; justify-content: space-between;
+              background: #1b1b1b; color: #fff; padding: 7px 16px 5px;
+              font-size: 13px; font-weight: 700; flex: none">
+    <span>19:04</span>
+    <span style="letter-spacing: 3px">&#9679;&#9679;&#9679;</span>
+  </div>
+
+  <!-- Cabeçalho da rota. -->
+  <div style="background: #1b1b1b; color: #fff; padding: 14px 16px 16px; flex: none">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <span style="width: 42px; height: 42px; border-radius: 50%; background: #f5cf2a;
+                   color: #1b1b1b; font-size: 21px; font-weight: 900; display: flex;
+                   align-items: center; justify-content: center">A</span>
+      <span>
+        <span style="display: block; font-size: 20px; font-weight: 900;
+                     letter-spacing: 0.4px">ROTA A</span>
+        <span style="display: block; font-size: 14px; font-weight: 600; color: #b9b9b9;
+                     margin-top: 2px">&#128230;&nbsp; 0 de 3 entregas</span>
+      </span>
+    </div>
+    <div style="margin-top: 14px; background: #2ea44f; color: #fff; border-radius: 999px;
+                padding: 13px 0; text-align: center; font-size: 17px; font-weight: 900;
+                letter-spacing: 0.6px">&#9654;&nbsp; INICIAR ROTA</div>
+  </div>
+
+  <!-- A lista. A faixa vermelha da esquerda e a linha dos círculos desenham a
+       sequência de cima para baixo. -->
+  <div style="position: relative; flex: 1; background: #fff; overflow: hidden">
+    <span style="position: absolute; left: 0; top: 0; bottom: 0; width: 7px;
+                 background: #e8362c"></span>
+    <span style="position: absolute; left: 33px; top: 0; bottom: 0; width: 1px;
+                 background: #e2e2e2"></span>
+
+    <!-- Parada 1 -->
+    <div style="position: relative; padding: 17px 44px 17px 62px;
+                border-bottom: 1px solid #ededed">
+      <span style="position: absolute; left: 15px; top: 54px; width: 37px; height: 37px;
+                   border-radius: 50%; border: 1.5px solid #bdbdbd; background: #fff;
+                   color: #4a4a4a; font-size: 18px; font-weight: 700; display: flex;
+                   align-items: center; justify-content: center">1</span>
+      <div style="display: flex; align-items: flex-start; gap: 10px">
+        <span style="background: #f5901e; color: #fff; border-radius: 6px;
+                     padding: 4px 9px; font-size: 16px; font-weight: 900;
+                     flex: none">#1140</span>
+        <span>
+          <span style="display: block; font-size: 12px; font-weight: 700;
+                       color: #6b6b6b">Previsão Entrega</span>
+          <span style="display: block; font-size: 16px; font-weight: 700; color: #e8362c;
+                       margin-top: 1px">&#9201;&nbsp; 19:40</span>
+        </span>
+      </div>
+      <p style="font-size: 20px; font-weight: 600; line-height: 1.28; margin-top: 9px">
+        Rua Padre Luiz, 235 - Centro, Sorocaba - SP</p>
+      <p style="font-size: 17px; font-weight: 800; color: #1c9a53; margin-top: 8px">
+        Cobrar R$ 63,90</p>
+      <span style="position: absolute; right: 14px; top: 68px; font-size: 22px;
+                   color: #9a9a9a">&#8250;</span>
+    </div>
+
+    <!-- Parada 2 -->
+    <div style="position: relative; padding: 17px 44px 17px 62px;
+                border-bottom: 1px solid #ededed">
+      <span style="position: absolute; left: 15px; top: 54px; width: 37px; height: 37px;
+                   border-radius: 50%; border: 1.5px solid #bdbdbd; background: #fff;
+                   color: #4a4a4a; font-size: 18px; font-weight: 700; display: flex;
+                   align-items: center; justify-content: center">2</span>
+      <div style="display: flex; align-items: flex-start; gap: 10px">
+        <span style="background: #f5901e; color: #fff; border-radius: 6px;
+                     padding: 4px 9px; font-size: 16px; font-weight: 900;
+                     flex: none">#1141</span>
+        <span>
+          <span style="display: block; font-size: 12px; font-weight: 700;
+                       color: #6b6b6b">Previsão Entrega</span>
+          <span style="display: block; font-size: 16px; font-weight: 700; color: #e8362c;
+                       margin-top: 1px">&#9201;&nbsp; 19:55</span>
+        </span>
+      </div>
+      <p style="font-size: 20px; font-weight: 600; line-height: 1.28; margin-top: 9px">
+        Rua Dom Antônio Alvarenga, 410 - Vila Santo Antônio</p>
+      <p style="font-size: 17px; font-weight: 800; color: #1c9a53; margin-top: 8px">
+        Cobrar R$ 42,80</p>
+      <span style="position: absolute; right: 14px; top: 68px; font-size: 22px;
+                   color: #9a9a9a">&#8250;</span>
+    </div>
+
+    <!-- Parada 3 -->
+    <div style="position: relative; padding: 17px 44px 17px 62px">
+      <span style="position: absolute; left: 15px; top: 54px; width: 37px; height: 37px;
+                   border-radius: 50%; border: 1.5px solid #bdbdbd; background: #fff;
+                   color: #4a4a4a; font-size: 18px; font-weight: 700; display: flex;
+                   align-items: center; justify-content: center">3</span>
+      <div style="display: flex; align-items: flex-start; gap: 10px">
+        <span style="background: #f5901e; color: #fff; border-radius: 6px;
+                     padding: 4px 9px; font-size: 16px; font-weight: 900;
+                     flex: none">#1142</span>
+        <span>
+          <span style="display: block; font-size: 12px; font-weight: 700;
+                       color: #6b6b6b">Previsão Entrega</span>
+          <span style="display: block; font-size: 16px; font-weight: 700; color: #e8362c;
+                       margin-top: 1px">&#9201;&nbsp; 20:10</span>
+        </span>
+      </div>
+      <p style="font-size: 20px; font-weight: 600; line-height: 1.28; margin-top: 9px">
+        Rua Aparecida, 318 - Vila Santana, Sorocaba - SP</p>
+      <p style="font-size: 17px; font-weight: 800; color: #1c9a53; margin-top: 8px">
+        Cobrar R$ 55,40</p>
+      <span style="position: absolute; right: 14px; top: 68px; font-size: 22px;
+                   color: #9a9a9a">&#8250;</span>
+    </div>
+  </div>
+
+  <!-- A barra de abas do aplicativo, com Entregas em vermelho. -->
+  <div style="display: flex; background: #1b1b1b; color: #8d8d8d; flex: none;
+              padding: 9px 0 13px; font-size: 12px; font-weight: 700;
+              text-align: center">
+    <span style="flex: 1; color: #e8362c">
+      <span style="display: block; font-size: 20px">&#128757;</span>Entregas</span>
+    <span style="flex: 1"><span style="display: block; font-size: 20px">&#8987;</span>
+      Histórico</span>
+    <span style="flex: 1"><span style="display: block; font-size: 20px; letter-spacing: -1px">&#9612;&#9612;&#9612;</span>
+      Código barras</span>
+    <span style="flex: 1"><span style="display: block; font-size: 20px">&#9881;</span>
+      Ajustes</span>
+  </div>
+</div>

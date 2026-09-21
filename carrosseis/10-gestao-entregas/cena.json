@@ -69,7 +69,7 @@
     { "funcionarioID": 264465, "nome": "Marcos Vieira", "status": "EM_ROTA", "online": true, "rotaIDAtual": 502,
       "latitude": -23.5066, "longitude": -47.4664, "posicaoIdadeMinutos": 1, "distanciaLojaMetros": 110, "bateria": 91 },
     { "funcionarioID": 194115, "nome": "Rafael Lima", "status": "DISPONIVEL", "online": true, "rotaIDAtual": null,
-      "latitude": -23.5055, "longitude": -47.4648, "posicaoIdadeMinutos": 2, "distanciaLojaMetros": 170, "bateria": 64 },
+      "latitude": -23.5042, "longitude": -47.4692, "posicaoIdadeMinutos": 2, "distanciaLojaMetros": 430, "bateria": 64 },
     { "funcionarioID": 203273, "nome": "Paulo Henrique", "status": "PAUSA", "online": true, "rotaIDAtual": null,
       "latitude": -23.5085, "longitude": -47.4685, "posicaoIdadeMinutos": 4, "distanciaLojaMetros": 620, "bateria": 38 },
     { "funcionarioID": 203272, "nome": "Tiago Nunes", "status": "OFFLINE", "online": false, "rotaIDAtual": null,
