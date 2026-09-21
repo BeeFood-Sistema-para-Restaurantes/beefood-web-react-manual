@@ -3,12 +3,23 @@
 
      Qual usar é escolha de quem publica, e a troca é real:
 
-     - **só notebook** — o mapa vai grande, e dá para ver as duas rotas
-       tracejadas, as paradas numeradas e o nome dos entregadores ao lado do
-       pino. É a capa que prova melhor a frase "numa tela só".
+     - **só notebook** — o mapa fica limpo de ponta a ponta.
      - **notebook + celular** — a capa já diz "tem painel e tem aplicativo" sem
-       gastar linha de texto, e o preço é o mapa ficar 20% menor. Vale quando o
-       post vai para um público que ainda não sabe que existe app do entregador.
+       gastar linha de texto. Vale quando o post vai para um público que ainda
+       não sabe que existe app do entregador.
+
+     O NOTEBOOK NÃO DIMINUI. A primeira versão desta capa reduziu o aparelho de
+     936 para 776 px para abrir espaço ao lado, e o retorno do dono foi direto:
+     *"o pc diminuiu pq? apenas incluir o celular"*. Ele está certo, e o motivo
+     é de arte: as duas capas precisam ser trocáveis, e aparelho de tamanho
+     diferente muda o peso do slide inteiro — a alternativa parava de ser a
+     mesma capa com uma coisa a mais e virava outra composição.
+
+     Então o notebook é o mesmo, no mesmo lugar, e o celular entra NA FRENTE,
+     encostado na quina direita dele. Ele cobre um pedaço do canto do mapa, e
+     esse é o preço certo a pagar: o canto direito do mapa é área sem rota
+     desenhada, e sobreposição é o que faz os dois aparelhos lerem como uma
+     mesa, em vez de dois recortes lado a lado.
 
      Mora numa pasta separada de propósito: o `renderizar.py` transforma em PNG
      todo `.html` de `slides/`, e duas capas na mesma pasta virariam um carrossel
@@ -48,8 +59,9 @@
                                       rgba(255, 214, 184, 0.34) 62%,
                                       rgba(0, 0, 0, 0) 82%)"></div>
 
-  <div class="sangria" style="top: 800px; left: 26px; width: 776px">
-    <div class="notebook" style="width: 776px">
+  <div class="sangria" style="top: 690px; left: 50%; transform: translateX(-50%);
+                              width: 936px">
+    <div class="notebook" style="width: 936px">
       <div class="notebook__tela">
         <img src="../../imagens-puras/mapa-rotas.png"
              alt="Mapa da Gestão de Entregas: duas rotas tracejadas com paradas numeradas, os pinos dos pedidos e os entregadores Diego e Marcos com o nome ao lado">
@@ -58,8 +70,8 @@
     </div>
   </div>
 
-  <div class="sangria" style="top: 786px; left: 782px; width: 262px">
-    <div class="celular">
+  <div class="sangria" style="top: 796px; left: 752px; width: 296px">
+    <div class="celular" style="width: 296px">
       <div class="celular__tela">
         <img src="../../imagens-puras/app-rota.png"
              alt="A mesma rota no aplicativo do entregador: o cabeçalho escuro com o disco da letra A, o botão INICIAR ROTA e as paradas numeradas com o endereço e quanto cobrar">
