@@ -11,10 +11,11 @@ nomes de arquivo: 01-capa, 02-uma-tela-so, 03-despacho-automatico,
 07-relatorio-operacao, 08-acerto-do-entregador, 09-cta.
 
 A CAPA TEM DUAS VERSÕES, e a escolha é sua. A da pasta principal traz só o
-notebook, com o mapa grande: dá para ver as duas rotas, as paradas numeradas e o
-nome dos motoboys. A de capa-alternativa/ traz o notebook menor com o celular da
-rota na frente, e diz "tem painel e tem aplicativo" sem gastar linha de texto. O
-texto das duas é igual, palavra por palavra — troque o arquivo e nada mais.
+notebook: o mapa fica limpo de ponta a ponta, com as duas rotas, as paradas
+numeradas e o nome dos motoboys. A de capa-alternativa/ tem o notebook do mesmo
+tamanho e um celular na frente, e diz "tem painel e tem aplicativo" sem gastar
+linha de texto — o preço é o celular cobrir o canto direito do mapa. O texto das
+duas é igual, palavra por palavra: troque o arquivo e nada mais.
 
 CONFIRA A LIBERAÇÃO ANTES DE PUBLICAR. A peça foi escrita do manual, que está
 conferido no sistema, mas não existe novidade publicada para amarrar a data:
@@ -143,9 +144,9 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     ligando B1 e B2, os pinos dos pedidos sem rota e duas motos com o nome do
     entregador ao lado, Diego e Marcos.
 
-01b O mesmo slide na versão alternativa, com o mesmo texto: o notebook do mapa
-    um pouco menor e, na frente da quina direita dele, um celular com a rota A
-    aberta no aplicativo do entregador.
+01b O mesmo slide na versão alternativa, com o mesmo texto e o notebook do mesmo
+    tamanho: na frente da quina direita dele, um celular com a rota A aberta no
+    aplicativo do entregador, cobrindo o canto direito do mapa.
 
 02  Chapéu "Como funciona" e título "O mapa mostra onde. A lista mostra quem
     leva", com "quem leva" em vermelho. O texto diz que cada pedido pronto vira
@@ -156,10 +157,11 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     rota" e três pedidos, e em seguida a rota A de Diego Souza com as três
     paradas e a rota B de Marcos Vieira.
 
-03  Chapéu "Despacho automático" e título "No pico, a rota já chega montada",
-    com "montada" em vermelho. O texto diz que o sistema junta os pedidos que
-    cabem na mesma viagem e escolhe quem vai levar, e que nada sai da loja sem
-    o clique do operador. Abaixo, os três passos do agrupamento, lado a lado.
+03  Chapéu "Na hora do pico" e título "Roteirização automática: a rota já chega
+    montada", com a segunda linha em vermelho. O texto diz que o sistema junta
+    os pedidos que cabem na mesma viagem e escolhe quem vai levar, e que nada
+    sai da loja sem o clique do operador. Abaixo, os três passos do
+    agrupamento, lado a lado.
     No primeiro, o grupo "Pedidos sem rota" com três pedidos em três bairros
     diferentes: 1146 Marina Prado, 1147 Bruno Sampaio e 1148 Eduardo Bastos.
     No segundo, a rota C já fechada pelo sistema, ainda em itálico como "Sem
@@ -168,10 +170,10 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     Rafael Lima, o selo verde "Pronta para sair" e, no canto do cartão, o
     aviãozinho de papel que o operador aperta para mandar a moto embora.
 
-04  Chapéu "Situação do entregador" e título "Online, em pausa ou offline —
-    quem marca é ele", com "quem marca é ele" em vermelho. O texto diz que a
-    pílula do canto do aplicativo muda no toque dele, que o painel reagrupa na
-    hora, e que "Em rota" é o único que o sistema marca sozinho, quando a loja
+04  Chapéu "Quem está na rua agora" e título "Online, em pausa ou offline: quem
+    marca é o entregador", com a segunda linha em vermelho. O texto diz que ele
+    toca na pílula do aplicativo e a lista do painel reagrupa na hora, e que
+    "Em rota" é a única situação que o sistema marca sozinho, quando a loja
     despacha. Abaixo, duas telas juntas. À esquerda, o aplicativo do entregador
     Paulo Henrique: cabeçalho escuro com "ENTREGAS" no meio e, no canto, a
     pílula laranja "PAUSA"; no corpo, "Nenhuma entrega agora" e o botão
@@ -182,18 +184,18 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     laranja, com Paulo Henrique; e Offline com Tiago Nunes, que nunca usou o
     app.
 
-05  Chapéu "App do entregador · Android e iOS" e título "A rota que você montou
-    abre no celular dele", com "abre no celular dele" em vermelho. O texto diz
-    que ela chega na ordem que a loja definiu, com o número do pedido, a
-    previsão e quanto cobrar na porta de cada um. Abaixo, um celular com o
+05  Chapéu "Android e iOS" e título "BeeFood Entregador: a rota no celular do
+    entregador", com a segunda linha em vermelho. O texto diz que ela chega na
+    ordem que a loja montou, com a previsão de entrega e quanto cobrar em cada
+    porta. Abaixo, um celular com o
     aplicativo aberto: cabeçalho escuro com o disco amarelo da letra A, o
     título "ROTA A", o contador "0 de 3 entregas" e o botão verde "INICIAR
     ROTA"; em seguida as paradas numeradas — 1, pedido 1140, previsão 19:40,
     Rua Padre Luiz 235 no Centro, cobrar R$ 19,90; e 2, pedido 1141, previsão
     19:55, Rua Dom Antônio Alvarenga 410 na Vila Santo Antônio, cobrar R$ 42,80.
 
-06  Chapéu "Avisos no WhatsApp" e título "Dois telefonemas a menos em cada
-    entrega", com "menos" em vermelho. O texto diz que o entregador recebe
+06  Chapéu "Em cada entrega" e título "Avisos no WhatsApp: dois telefonemas a
+    menos", com a segunda linha em vermelho. O texto diz que o entregador recebe
     endereço, pagamento e valor no instante em que a rota sai, que quem está
     esperando é avisado quando a moto chega a 2 km da porta, e que os quatro
     textos já vêm escritos. Abaixo, duas conversas de WhatsApp lado a lado. No
@@ -203,10 +205,11 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     dele. No celular de quem pediu: o aviso de que o pedido saiu para entrega e
     o aviso de que o entregador Diego está chegando com ele.
 
-07  Chapéu "Operação de entrega" e título "Quanto da entrega é cozinha, e quanto
-    é rua", com "cozinha" em vermelho. O texto diz que são quatro etapas
-    medidas uma por uma, o tempo de dentro da loja separado do tempo de rua e o
-    pico do dia hora por hora. Abaixo, o relatório inteiro aberto num notebook,
+07  Chapéu "No fim do dia" e título "Relatório de Operação de Entrega: quanto é
+    cozinha, quanto é rua", com a segunda linha em vermelho. O texto diz que o
+    relatório quebra a entrega em quatro etapas, separa o tempo de dentro da
+    loja do tempo de rua e desenha o dia hora por hora. Abaixo, o relatório
+    inteiro aberto num notebook,
     com dados de exemplo: a faixa de cima com o nome do relatório, o período e
     os botões de filtro e de Excel; seis cartões de indicador — entregas, taxas
     de entrega, taxas do entregador, faturamento, ticket médio e duração média;
@@ -217,11 +220,11 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     gráfico de entregas por hora do dia, com as barras azuis dos pedidos e a
     linha vermelha do tempo médio subindo juntas na hora do jantar.
 
-08  Chapéu "Acerto do entregador" e título "Escolha como pagar, e o relatório
-    fecha a conta", com "fecha a conta" em vermelho. O texto diz que o cálculo
-    pode ser pela taxa cobrada na entrega, pelo valor gravado no pedido ou pelo
-    quilômetro rodado, com a volta se for o combinado, e que a diária soma por
-    cima. Abaixo, o relatório inteiro aberto num notebook, com dados de
+08  Chapéu "No dia do acerto" e título "Relatório do Entregador: quanto pagar a
+    cada um", com a segunda linha em vermelho. O texto diz que o critério é
+    escolhido pela loja — a taxa cobrada na entrega, o valor gravado no pedido
+    ou o quilômetro rodado, ida e volta — e que a diária soma por cima.
+    Abaixo, o relatório inteiro aberto num notebook, com dados de
     exemplo: a faixa de cima com o nome do relatório, o período e os botões de
     Imprimir A4, Imprimir Cupom e Excel; a linha de modo de cálculo, com o
     quilômetro do cadastro do funcionário selecionado e a etiqueta verde de
@@ -232,10 +235,11 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     total individual, a linha em itálico "Sem entregador" com traços no lugar
     dos valores, e a linha de Total Geral fechando a conta em verde.
 
-09  Fundo escuro com o chapéu "Como começar", o título "Dois cadastros, e o
-    entregador já entra no mapa", com "já entra no mapa" em vermelho, e a linha
-    "O aplicativo é gratuito, no Google Play e na App Store. Lista vazia com a
-    pílula verde é o sinal de que deu certo". Embaixo, a etiqueta de caminho
+09  Fundo escuro com o chapéu "Como começar", o título "O entregador entra no
+    mapa com dois cadastros que você já tem", com a segunda linha em vermelho,
+    e o texto "São o funcionário e o usuário dele, os dois no painel. No
+    celular, o BeeFood Entregador é gratuito nas duas lojas — e a lista vazia
+    do primeiro acesso quer dizer que deu tudo certo". Embaixo, a etiqueta de caminho
     "Aplicativos → Entrega → BeeFood Entregador" e um celular com o aplicativo
     do entregador aberto logo depois do primeiro acesso: cabeçalho escuro com
     "ENTREGAS" e a pílula verde "ONLINE" no canto, e o corpo com "Nenhuma

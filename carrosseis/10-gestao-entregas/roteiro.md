@@ -88,14 +88,14 @@ perdida.
 | # | Tipo | Ideia única | Imagem |
 |---|---|---|---|
 | 1 | Capa | Chegou a Gestão de Entregas: você organiza a viagem, não o pedido | `mapa-rotas.png` num `.notebook` |
-| 1b | Capa, versão alternativa | idem | o mesmo `.notebook`, menor, com o `.celular` do `app-rota.png` na frente — em `capa-alternativa/` |
+| 1b | Capa, versão alternativa | idem | o **mesmo** `.notebook`, no mesmo tamanho, com o `.celular` do `app-rota.png` na frente — em `capa-alternativa/` |
 | 2 | Explica o recurso | Uma tela só: o mapa diz onde, a lista diz quem leva | `painel-inteiro.png` em `.navegador` sangrando |
 | 3 | Roteirização automática | O sistema junta os pedidos e escolhe quem sai; despachar continua sendo seu | `roteirizacao.png` (desenho): os três passos do agrupamento |
-| 4 | Situação do entregador | Online, em pausa ou offline — quem marca é ele, no app | `situacao-entregador.png` (desenho): o app dele e o painel da loja juntos |
-| 5 | App do entregador | A rota chega no celular dele, no Android e no iPhone | `app-rota.png` (desenho) |
-| 6 | WhatsApp | Quatro avisos prontos: três para o entregador, um para quem está esperando | `zap-avisos.png` (desenho) |
-| 7 | Operação de Entrega | O relatório mostra quanto do tempo é cozinha e quanto é rua | `relatorio-operacao.png` (desenho) num `.notebook` |
-| 8 | Acerto do entregador | Três modos de pagar, e o fechamento por pessoa | `relatorio-entregador.png` (desenho) num `.notebook` |
+| 4 | Situação do entregador | Online, em pausa ou offline: quem marca é o entregador, no app dele | `situacao-entregador.png` (desenho): o app dele e o painel da loja juntos |
+| 5 | BeeFood Entregador | A rota montada no painel aparece no celular de quem vai levar | `app-rota.png` (desenho) |
+| 6 | Avisos no WhatsApp | Quatro avisos prontos: três para o entregador, um para quem está esperando | `zap-avisos.png` (desenho) |
+| 7 | Relatório de Operação de Entrega | Quanto do tempo é cozinha e quanto é rua | `relatorio-operacao.png` (desenho) num `.notebook` |
+| 8 | Relatório do Entregador | Três modos de pagar, e o fechamento por pessoa | `relatorio-entregador.png` (desenho) num `.notebook` |
 | 9 | CTA | Está em Delivery → Entregas, e o app em Aplicativos → Entrega | `app-pronto.png` (desenho): o app no primeiro minuto |
 
 ## Decisões de arte
@@ -315,6 +315,68 @@ tranca* —, e a loja consegue despachar para quem está em pausa ou offline. A
 versão anterior do roteiro afirmava que o painel "recusa dar rota a quem não
 está", e aquilo era invenção.
 
+### A terceira revisão, que reescreveu sete títulos
+
+A imagem tinha sido consertada e o texto, não. O dono leu slide por slide e
+devolveu seis linhas; cinco delas são de redação e a sexta é de arte. Vale
+transcrever, porque a peça é o caso que mudou a skill pela segunda vez:
+
+| Slide | O retorno | O que estava errado |
+|---|---|---|
+| 3 | *"'Roteirização automática de pedidos' — por que não usamos isso?"* | o título tinha só o ângulo ("No pico, a rota já chega montada"), e o nome do recurso estava em nenhum lugar do tipo grande |
+| 4 | *"quem marca é ele, ele quem?"* | pronome no título, com o antecedente no chapéu |
+| 5 | *"abre no celular dele quem? que frase estranha"* | o mesmo pronome, e uma construção que ninguém fala |
+| 7 | *"Relatórios… deveria ser esse o título vendedor"* | o título vendia o ângulo e escondia que aquilo é um relatório com nome |
+| 8 | *"também igual 7"* | idem |
+| 9 | *"a copy ficou estranha… como estamos chegando num texto tão tosco assim?"* | artigo cortado e `de que` comido: "Lista vazia com a pílula verde é sinal que deu certo" |
+
+A causa é uma, e ela estava na skill: **nomear era regra da capa, e os slides de
+dentro ficaram livres para ser espertos.** Nove peças passaram assim. As três
+regras novas do passo 2 da `SKILL.md` saíram daqui — *nome, dois-pontos, o que
+ele te dá*, *pronome no título é sempre erro* e *frase de manchete de jornal não
+é frase de carrossel* —, e com elas os títulos ficaram:
+
+| # | Era | É |
+|---|---|---|
+| 3 | No pico, a rota já chega montada | **Roteirização automática**: a rota já chega montada |
+| 4 | Online, em pausa ou offline — quem marca é ele | Online, em pausa ou offline: **quem marca é o entregador** |
+| 5 | A rota que você montou abre no celular dele | **BeeFood Entregador**: a rota no celular do entregador |
+| 6 | Dois telefonemas a menos em cada entrega | **Avisos no WhatsApp**: dois telefonemas a menos |
+| 7 | Quanto da entrega é cozinha, e quanto é rua | **Relatório de Operação de Entrega**: quanto é cozinha, quanto é rua |
+| 8 | Escolha como pagar, e o relatório fecha a conta | **Relatório do Entregador**: quanto pagar a cada um |
+| 9 | Dois cadastros, e o entregador já entra no mapa | O entregador entra no mapa com **dois cadastros que você já tem** |
+
+O 6 não tinha sido reclamado e entrou na leva de propósito: o defeito era o
+mesmo — "Avisos no WhatsApp" existia só no chapéu — e consertar cinco de seis
+deixaria a fila de títulos sem ritmo.
+
+Nenhum ângulo foi perdido. Todos viraram a segunda metade do título, que é onde
+eles sempre deviam estar, e o chapéu ficou livre para dizer **quando** a coisa
+acontece: *na hora do pico*, *quem está na rua agora*, *em cada entrega*, *no
+fim do dia*, *no dia do acerto*. Antes ele era nome de janela ("Despacho
+automático") ou de item de menu ("Operação de entrega"), que a própria checagem
+da skill já proibia — e que passou nove peças porque não havia para onde mover o
+nome do recurso.
+
+Os corpos foram atrás. Três começavam sem verbo principal — "Na ordem que a loja
+definiu…", "Pela taxa cobrada na entrega…", "Quatro etapas medidas uma por
+uma…" —, que é legenda de foto no lugar de parágrafo, e é isso que produz a
+sensação de texto telegráfico mesmo quando cada palavra está certa.
+
+### O notebook da capa alternativa não diminui
+
+A sexta linha do retorno: *"slide 1 com celular + pc — o pc diminuiu pq? apenas
+incluir o celular"*. A primeira versão reduziu o aparelho de 936 para 776 px
+para abrir espaço lateral, e isso quebra o contrato da capa alternativa: as duas
+versões precisam ser **trocáveis**, e aparelho de tamanho diferente muda o peso
+do slide inteiro — deixa de ser a mesma capa com uma coisa a mais e vira outra
+composição.
+
+O notebook voltou aos 936 px, no mesmo lugar, e o celular entra **na frente**,
+encostado na quina direita dele. Ele cobre o canto direito do mapa, e esse é o
+preço certo: ali não passa rota desenhada, e a sobreposição é justamente o que
+faz os dois aparelhos lerem como uma mesa em vez de dois recortes lado a lado.
+
 ### Duas coisas que só a releitura das imagens novas pegou
 
 Desenhar seis telas cria um tipo de erro que a captura não tem: o desenho
@@ -376,17 +438,17 @@ e os motoboys com nome.
 
 ### A capa tem duas versões
 
-`capa-alternativa/slides/01-capa-pc-e-celular.html` traz o mesmo notebook, 20%
-menor, com o celular da rota na frente, encostado na quina direita dele. O texto
-é **igual palavra por palavra** ao da capa principal, para as duas serem
-trocáveis sem reescrever nada, e a escolha é de quem publica:
+`capa-alternativa/slides/01-capa-pc-e-celular.html` traz o notebook **no mesmo
+tamanho e no mesmo lugar** da capa principal, com o celular da rota na frente,
+encostado na quina direita dele. O texto é **igual palavra por palavra**, para
+as duas serem trocáveis sem reescrever nada, e a escolha é de quem publica:
 
-- **só notebook** — o mapa vai grande, e dá para ver as duas rotas tracejadas,
-  as paradas numeradas e o nome dos motoboys ao lado do pino. É a capa que prova
-  melhor a frase *numa tela só*;
+- **só notebook** — o mapa fica limpo de ponta a ponta: as duas rotas
+  tracejadas, as paradas numeradas e o nome dos motoboys ao lado do pino. É a
+  capa que prova melhor a frase *numa tela só*;
 - **notebook + celular** — a capa já diz "tem painel e tem aplicativo" sem
-  gastar linha de texto, e o preço é o mapa ficar menor. Vale quando o post vai
-  para quem ainda não sabe que existe app do entregador.
+  gastar linha de texto, e o preço é o celular cobrir o canto direito do mapa.
+  Vale quando o post vai para quem ainda não sabe que existe app do entregador.
 
 É a mesma troca da #2, que tem `capa-alternativa/01-capa-so-totem.html` pelo
 motivo inverso: lá a alternativa **tira** um aparelho para o outro respirar.
