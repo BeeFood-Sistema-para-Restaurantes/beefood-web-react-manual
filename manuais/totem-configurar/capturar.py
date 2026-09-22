@@ -10,9 +10,14 @@ resolução do aparelho. Depois de cada clique: spinner some e só então 5 s.
 
 O aparelho é uma página web — a URL é a mesma que a aba Download entrega, com o
 token da filial (sandbox descartável, pode ficar versionado).
+
+Duas imagens deste manual são as mesmas do #123 (a tela de pagamento e a de pedido
+feito), copiadas de lá: quem as gera é o `capturar.py` daquele manual, porque é ele
+que fecha o pedido de verdade.
 """
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -158,48 +163,100 @@ def cap_aparencia(page):
     abrir_modal(page)
     aba(page, "Aparência")
     texto_modal(page)
-    shot(page, "06-modal-aparencia.png")
+    shot(page, "07-modal-aparencia.png")
 
 
 def cap_cardapios(page):
     abrir_modal(page)
     aba(page, "Cardápios")
     texto_modal(page)
-    shot(page, "07-modal-cardapios.png")
+    shot(page, "modal-cardapios-contexto.png")
 
 
 def cap_download(page):
     abrir_modal(page)
     aba(page, "Download")
     texto_modal(page)
-    shot(page, "08-modal-download.png")
+    shot(page, "09-modal-download.png")
 
 
 def cap_setor_foto(page):
     """Cardápio → menu do setor → Editar: é onde a foto do setor é subida."""
+    abrir_setor(page, "Bebidas")
+    texto_modal(page, 400)
+    shot(page, "11-painel-setor-foto.png")
+
+
+FOTOS_SETOR = {
+    "Combos": "combo",
+    "Burgers": "hamburguer",
+    "Bebidas": "refrigerante",
+    "Molhos": "molho",
+    "Acompanhamentos": "batata frita",
+    "Milk Shakes": "milk shake",
+    "Sobremesas": "sobremesa",
+}
+
+
+def abrir_setor(page, prefixo: str):
     page.goto("https://beefood.app/cardapio?tab=produtos", wait_until="domcontentloaded")
-    after_click(page, 8000)
+    after_click(page, 9000)
     limpar(page)
     alvo = None
     for cand in page.locator('div[class*="group"]').all():
         txt = (cand.inner_text() or "").strip()
-        if txt.startswith("Bebidas") and cand.locator("svg.lucide-ellipsis-vertical").count():
+        if txt.startswith(prefixo) and cand.locator("svg.lucide-ellipsis-vertical").count():
             alvo = cand
             break
     if alvo is None:
-        raise RuntimeError("linha do setor Bebidas não encontrada")
+        raise RuntimeError(f"linha do setor {prefixo!r} não encontrada")
     alvo.locator("button").filter(
         has=page.locator("svg.lucide-ellipsis-vertical")).first.click()
     after_click(page, 1500)
     page.get_by_role("menuitem", name="Editar").first.click()
     after_click(page, 6000)
     limpar(page)
-    texto_modal(page, 400)
-    shot(page, "12-painel-setor-foto.png")
+
+
+def cap_foto_setores(page):
+    """Sobe a foto de cada setor pelo Banco de imagens do próprio sistema.
+
+    A foto do setor é o que troca o layout da coluna da esquerda do totem: sem
+    foto, listagem de texto; com foto, tira de miniaturas."""
+    so = os.environ.get("SETORES")
+    alvos = {k: v for k, v in FOTOS_SETOR.items()
+             if not so or k in so.split(",")}
+    primeiro = True
+    for prefixo, termo in alvos.items():
+        abrir_setor(page, prefixo)
+        page.get_by_text("ADICIONAR FOTO", exact=False).first.click()
+        after_click(page, 5000)
+        dlg = page.locator('[role="dialog"]').last
+        busca = dlg.locator('input[placeholder*="Buscar"]')
+        busca.first.fill(termo)
+        after_click(page, 4000)
+        fotos = dlg.locator("img")
+        print(f"  {prefixo}: busca {termo!r} → {fotos.count()} imagens")
+        if fotos.count() == 0:
+            busca.first.fill("")
+            after_click(page, 4000)
+            fotos = dlg.locator("img")
+        if primeiro:
+            shot(page, "12-painel-foto-setor-banco.png")
+            primeiro = False
+        fotos.first.click()
+        after_click(page, 3000)
+        dlg.get_by_text("SALVAR", exact=False).first.click()
+        after_click(page, 6000)
+        setor = page.locator('[role="dialog"]').last
+        setor.get_by_text("SALVAR E SAIR", exact=False).first.click()
+        after_click(page, 7000)
+        print(f"  {prefixo}: foto gravada")
 
 
 PAINEL = {
     "aplicativos": cap_aplicativos,
+    "fotos": cap_foto_setores,
     "configuracao": cap_configuracao,
     "pagamentos": cap_pagamentos,
     "aparencia": cap_aparencia,
@@ -233,17 +290,33 @@ def digitar(pg, texto):
         pg.wait_for_timeout(150)
 
 
-def cap_aparelho(pg):
+def esperar_imagens(pg, ms=20000):
+    """Foto de setor recém-subida chega do S3 depois do texto: sem esperar, a
+    miniatura sai como o ícone de imagem quebrada."""
+    try:
+        pg.wait_for_function(
+            "() => [...document.images].every(i => i.complete && i.naturalWidth > 0)",
+            timeout=ms)
+    except Exception:
+        print("  aviso: alguma imagem não terminou de carregar")
+    pg.wait_for_timeout(3000)
+
+
+def cap_aparelho(pg, nome_cardapio="10-totem-cardapio-sem-foto-setor.png"):
     pg.goto(TOTEM_URL, wait_until="networkidle", timeout=90000)
     pg.wait_for_timeout(12000)
-    shot(pg, "09-totem-espera.png")
+    esperar_imagens(pg)
+    shot(pg, "08-totem-espera.png")
     tocar(pg, "FAÇA SEU PEDIDO")
-    pg.wait_for_timeout(4000)
-    shot(pg, "10-totem-cardapio-sem-foto-setor.png")
+    pg.wait_for_timeout(5000)
+    esperar_imagens(pg)
+    shot(pg, nome_cardapio)
 
 
 def main():
     pedidos = sys.argv[1:] or list(PAINEL) + ["aparelho"]
+    # "aparelho" fotografa a coluna de texto (setor sem foto) e
+    # "aparelho-com-foto", a tira de miniaturas (depois da etapa fotos)
     with sync_playwright() as p:
         nav = p.chromium.launch(headless=True)
         if [x for x in pedidos if x in PAINEL]:
@@ -259,12 +332,16 @@ def main():
                     PAINEL[nome](page)
             ctx.storage_state(path=str(STATE))
             ctx.close()
-        if "aparelho" in pedidos:
-            print("== aparelho")
-            ctx = nav.new_context(viewport={"width": 1080, "height": 1920},
-                                  locale="pt-BR", service_workers="block")
-            cap_aparelho(ctx.new_page())
-            ctx.close()
+        for nome in ("aparelho", "aparelho-com-foto"):
+            if nome in pedidos:
+                print("==", nome)
+                ctx = nav.new_context(viewport={"width": 1080, "height": 1920},
+                                      locale="pt-BR", service_workers="block")
+                if nome == "aparelho":
+                    cap_aparelho(ctx.new_page())
+                else:
+                    cap_aparelho(ctx.new_page(), "13-totem-cardapio-com-foto-setor.png")
+                ctx.close()
         nav.close()
     print("rode o annotate.py para gerar imagens-tratadas")
 
