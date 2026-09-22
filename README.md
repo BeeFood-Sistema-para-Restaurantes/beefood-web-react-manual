@@ -158,6 +158,9 @@ O **status** e a fila ficam no
 | Taxas das formas de recebimento (faturado e realizado) | [`taxas-formas-pagamento/`](manuais/taxas-formas-pagamento/taxas-formas-pagamento.md) |
 | TEF PayGo (Client PayGo) — instalar no Windows e cadastrar no BeeFood | [`tef-paygo/`](manuais/tef-paygo/tef-paygo.md) |
 | TEF Stone (AutoTEF) — configurar no Windows e no BeeFood | [`tef-stone/`](manuais/tef-stone/tef-stone.md) |
+| Totem de Autoatendimento: como pôr o totem no ar e configurar | [`totem-configurar/`](manuais/totem-configurar/totem-configurar.md) |
+| Cupom e cashback no totem: como o CRM aparece na tela do autoatendimento | [`totem-cupom-cashback/`](manuais/totem-cupom-cashback/totem-cupom-cashback.md) |
+| O pedido do totem no painel: onde a venda do autoatendimento aparece | [`totem-venda-no-painel/`](manuais/totem-venda-no-painel/totem-venda-no-painel.md) |
 | Tradução do cardápio presencial: como traduzir o cardápio do tablet e do totem | [`traducao-cardapio-presencial/`](manuais/traducao-cardapio-presencial/traducao-cardapio-presencial.md) |
 | Transferir item entre mesas e comandas | [`transferencia-itens-mesas/`](manuais/transferencia-itens-mesas/transferencia-itens-mesas.md) |
 | Criar usuário e montar grupo de acesso | [`usuarios-criar/`](manuais/usuarios-criar/usuarios-criar.md) |

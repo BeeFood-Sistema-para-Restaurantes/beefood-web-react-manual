@@ -668,6 +668,12 @@ Vale para qualquer estudo que precise saber **o que cada switch faz**:
 
 ### Aplicativos Android — o emulador NÃO funciona no Cloud Agent (testado em 2026-08-19)
 
+> **Isto vale para o que é APK de verdade — e o totem não é** (descoberto em 21/09/2026,
+> bloco #121 a #123). O **Totem de Autoatendimento** é uma página web servida em
+> `totem.beefood.app` e **abre no Playwright**, com viewport de 1080×1920. Quem continua
+> fora de alcance é o **tablet** (`com.cardapiodigitalmesacomanda`) e os dois apps de celular.
+> Detalhes da captura do totem na seção 9, em *Totem de Autoatendimento — bloco #121 a #123*.
+
 Investigação completa, para não se repetir o teste:
 
 **O que o ambiente tem de sobra:**
@@ -1233,6 +1239,53 @@ escrito de propósito bateria.
 | Relatório Operação de Entrega | `manuais/relatorio-operacao-entrega/` | ✅ Concluído (#118) |
 | Quanto o entregador recebe (Taxa / KM) | `manuais/entregador-quanto-recebe/` | ✅ Concluído (#119) |
 | Painel para Entregadores | `manuais/painel-entregador/` | ✅ Concluído (#120) |
+| Totem: pôr no ar e configurar | `manuais/totem-configurar/` | ✅ Concluído (#121) |
+| Cupom e cashback no totem | `manuais/totem-cupom-cashback/` | ✅ Concluído (#122) |
+| O pedido do totem no painel | `manuais/totem-venda-no-painel/` | ✅ Concluído (#123) |
+
+### Totem de Autoatendimento — bloco #121 a #123
+
+**A regra antiga estava meio errada: o totem abre no Cloud Agent.** "Totem e tablet são
+APK, não dá para fotografar" vale só para o **tablet**. O totem é uma página web (PWA), e
+a própria aba *Download* do painel entrega a URL:
+
+```
+https://totem.beefood.app/?empresaID=<empresa>&filialID=<filial>&token=<aaToken>
+```
+
+O `aaToken` sai do `config_cache` do painel (ou do botão **Copiar** da aba Download). Com
+viewport de **1080×1920**, `locale="pt-BR"` e `service_workers="block"` (sem isso o PWA
+serve tela cacheada), o Chromium desenha o aparelho inteiro. Isso destrava o padrão que os
+três manuais usam: **cada configuração fotografada em par — a chave no painel e o efeito
+na tela do cliente.**
+
+Duas manhas do aparelho, que valem para qualquer captura de totem:
+
+- os botões respondem a `click()` por JavaScript, mas **o teclado numérico não** (ele
+  escuta evento de ponteiro): telefone e mesa precisam de
+  `get_by_role("button", name=c, exact=True).click(force=True)`;
+- os seletores não são estáveis. O que funciona é achar botão **pelo texto** e filtrar por
+  **altura/posição** quando o texto repete (cartão e cabeçalho).
+
+E uma terceira, de imagem: **foto recém-subida chega do S3 depois do texto**. Sem esperar
+`document.images` completarem, a miniatura sai como ícone de imagem quebrada — daí o
+`esperar_imagens()` dos três `capturar.py`.
+
+O recorte do aparelho tira a **barra de cima**: o logotipo da loja é retangular (350×112)
+e ela o desenha num espaço quadrado, então ele sai cortado.
+
+Três descobertas de produto que ficaram documentadas:
+
+- **foto de setor muda o layout** da coluna da esquerda do totem (texto × tira de
+  miniaturas); **foto de produto não muda layout nenhum** — produto sem foto vira cartão
+  com o ícone de imagem quebrada;
+- o desconto que o totem mostra na forma de pagamento **não é do totem**: *Dinheiro* 1% vem
+  de **Cadastros → Formas Recebimento** e *PIX* 5% de **Cardápio Digital → Pagamento
+  Online**. Cuidado: a mesma forma em *Cardápio Digital → Formas Recebimento* tinha 5% e
+  **não** foi o valor aplicado;
+- a venda do totem é `tipo` DELIVERY + `codigoServico = 'A'`, e tem **três nomes** na
+  interface: **AutoAtendimento** no card da venda, **Totem** nos chips e filtros,
+  **Autoatendimento** no Desempenho.
 
 ### Painel para Entregadores — #120
 

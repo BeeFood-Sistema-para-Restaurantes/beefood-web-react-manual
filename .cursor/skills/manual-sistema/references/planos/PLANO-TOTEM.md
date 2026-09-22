@@ -5,7 +5,11 @@
 > e a regra da foto do setor entram; a lista de seis manuais sai. O pedido foi
 > *"precisamos ser mais diretos… podemos agrupar, falar menos, ser mais objetivos"*.
 
-Status: ☑️ **aprovado — três manuais** (`pode fazer, sem parar`, 22/09/2026).
+Status: ✅ **entregue — os três manuais estão prontos** (22/09/2026), com 29 imagens:
+`manuais/totem-configurar/` (14), `manuais/totem-cupom-cashback/` (8) e
+`manuais/totem-venda-no-painel/` (7). O que cada um decidiu está na `MEMORIA.md` da
+própria pasta; o aprendizado de captura do aparelho está na seção 9 da
+`MEMORIA-GERAL.md`.
 
 Tudo abaixo foi **medido no sandbox BeeFood3 - Manual** (empresa 38311, filial 39202) com
 Playwright, e o registro bruto das medições está em `estudo-totem-medicoes.log` (artefato da
