@@ -96,26 +96,57 @@ def cap_cupons(page):
     shot(page, "01-crm-cupons-canal-totem.png")
 
 
-def cap_cupom(page):
-    """O modal de um cupom: canais à esquerda, regras à direita."""
+def abrir_cupom(page, codigo="SMS"):
     page.goto("https://beefood.app/cupom-desconto", wait_until="domcontentloaded")
     after_click(page, 9000)
     limpar(page)
-    page.get_by_text("SMS", exact=True).first.click()
+    page.get_by_text(codigo, exact=True).first.click()
     after_click(page, 6000)
     limpar(page)
-    page.evaluate("""() => {
+    return page.locator('[role="dialog"]').last
+
+
+def centralizar(page, texto):
+    """Rola o modal até deixar `texto` no meio da tela."""
+    page.evaluate("""(texto) => {
       const dlg = [...document.querySelectorAll('[role=dialog]')].pop();
       const ler = e => (e.innerText || '').replace(/\\s+/g, ' ').trim();
-      const alvo = [...dlg.querySelectorAll('div,p,span,h3')]
-        .filter(e => ler(e) === 'Canais de Visibilidade').pop();
+      const alvo = [...dlg.querySelectorAll('div,p,span,h3,label')]
+        .filter(e => ler(e) === texto).pop();
       if (alvo) alvo.scrollIntoView({block: 'center'});
+    }""", texto)
+    page.wait_for_timeout(3000)
+
+
+def cap_cupom(page):
+    """O modal de um cupom: o canal Totem à esquerda e a coluna Regras à direita.
+
+    Uma rolagem só entrega as duas colunas: cada chave ligada em Regras vira uma
+    frase na tela do totem.
+    """
+    dlg = abrir_cupom(page)
+    centralizar(page, "Não aplicar em produtos em promoção")
+    print("  modal:", " | ".join(
+        [l.strip() for l in (dlg.inner_text() or "").split("\n") if l.strip()])[:600])
+    shot(page, "02-crm-cupom-canais-regras.png")
+    page.keyboard.press("Escape")
+    after_click(page, 2000)
+
+
+def cap_cupom_avancadas(page):
+    """Configurações avançadas: forma de pagamento, setor e produto que liberam o cupom."""
+    dlg = abrir_cupom(page)
+    page.evaluate("""() => {
+      const dlg = [...document.querySelectorAll('[role=dialog]')].pop();
+      const rolavel = [...dlg.querySelectorAll('*')].find(
+        e => e.scrollHeight > e.clientHeight + 40);
+      (rolavel || dlg).scrollTop = (rolavel || dlg).scrollHeight;
     }""")
     page.wait_for_timeout(3000)
-    dlg = page.locator('[role="dialog"]').last
-    print("  modal:", " | ".join(
-        [l.strip() for l in (dlg.inner_text() or "").split("\n") if l.strip()])[:700])
-    shot(page, "02-crm-cupom-canais-regras.png")
+    limpar(page)
+    print("  avancadas:", " | ".join(
+        [l.strip() for l in (dlg.inner_text() or "").split("\n") if l.strip()])[:600])
+    shot(page, "03-crm-cupom-avancadas.png")
     page.keyboard.press("Escape")
     after_click(page, 2000)
 
@@ -128,10 +159,26 @@ def cap_cashback(page):
     alvo.scroll_into_view_if_needed()
     page.wait_for_timeout(2500)
     limpar(page)
-    shot(page, "03-crm-cashback-modalidade-totem.png")
+    shot(page, "04-crm-cashback-modalidades.png")
 
 
-PAINEL = {"cupons": cap_cupons, "cupom": cap_cupom, "cashback": cap_cashback}
+def cap_cashback_percentual(page):
+    """Onde mora o percentual que o totem anuncia (3% no sandbox)."""
+    page.goto("https://beefood.app/cashback", wait_until="domcontentloaded")
+    after_click(page, 9000)
+    limpar(page)
+    alvo = page.get_by_text("Definir percentual por dia da semana", exact=False).first
+    alvo.scroll_into_view_if_needed()
+    page.wait_for_timeout(1500)
+    page.mouse.wheel(0, 320)
+    page.wait_for_timeout(2500)
+    limpar(page)
+    shot(page, "05-crm-cashback-percentual.png")
+
+
+PAINEL = {"cupons": cap_cupons, "cupom": cap_cupom,
+          "avancadas": cap_cupom_avancadas, "cashback": cap_cashback,
+          "percentual": cap_cashback_percentual}
 
 
 # ----------------------------------------------------------------- aparelho
@@ -195,7 +242,7 @@ def cap_aparelho(pg):
     pg.wait_for_timeout(4000)
     esperar_imagens(pg)
     resumo(pg, "identificacao")
-    shot(pg, "04-totem-identificacao-cashback.png")
+    shot(pg, "06-totem-identificacao-cashback.png")
 
     digitar(pg, "15999998888")
     tocar(pg, "CONFIRMAR", obrigatorio=False)
@@ -207,13 +254,13 @@ def cap_aparelho(pg):
         pg.wait_for_timeout(6000)
     esperar_imagens(pg)
     resumo(pg, "confirmacao")
-    shot(pg, "05-totem-confirmacao-cupom-cashback.png")
+    shot(pg, "07-totem-confirmacao-cupom-cashback.png")
 
     tocar(pg, "CUPOM DE DESCONTO", 200)
     pg.wait_for_timeout(5000)
     esperar_imagens(pg)
     resumo(pg, "cupons")
-    shot(pg, "06-totem-cupons-regras.png")
+    shot(pg, "08-totem-cupons-regras.png")
 
 
 def main():
