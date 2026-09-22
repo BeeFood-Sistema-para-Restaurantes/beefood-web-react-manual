@@ -204,6 +204,10 @@ Filial sem **Cardápio Digital habilitado** aparece na lista apagada, com o
 aviso *Cardápio Digital não habilitado*: ela não pode entrar no totem enquanto
 o cardápio dela não for liberado.
 
+Com dois cardápios ligados, o aparelho ganha uma tela nova: ele passa a
+**perguntar ao cliente em qual cardápio ele quer pedir**, ou mostra os dois numa
+tela só. Esse é o assunto do manual **Mais de um cardápio no mesmo totem**.
+
 ---
 
 ## 6. Aba Download — pôr o totem no ar
@@ -295,8 +299,11 @@ foi só a foto no cadastro dos sete setores.
 |----|------|-----------|
 | 1. | **Coluna com miniaturas** | Cada setor vira foto com o nome embaixo. Só aparece assim quando o setor tem foto cadastrada. |
 
-**A regra prática: ou todos os setores têm foto, ou nenhum.** Setor sem foto no
-meio de setores fotografados fica com um espaço vazio no lugar da miniatura.
+**A regra prática: ou todos os setores têm foto, ou nenhum.** Basta **um** setor
+com foto para a coluna inteira virar miniatura — e aí o setor que ficou sem foto
+entra com o **logotipo da loja** no lugar da miniatura dele. Não fica um buraco
+na coluna, fica o seu logotipo repetido, o que também não ajuda o cliente a
+achar o setor.
 
 E atenção a uma diferença: **foto de produto não muda layout nenhum**. A grade
 de três colunas continua igual, e o produto sem foto aparece como **cartão com
@@ -336,6 +343,7 @@ relatórios — está no manual **O pedido do totem no painel**.
 | Mudei um campo e não achei o botão Salvar | Não existe. A tela grava a cada clique; os campos de texto gravam pouco depois de você parar de digitar |
 | Um setor não aparece no totem | A chave **Presencial** do setor está desligada, ou o setor não está no cardápio usado pelo aparelho |
 | A coluna de setores está sem as fotos | Falta foto no cadastro do setor (seção 7.2). Sem foto em nenhum setor, a coluna é de texto por regra |
+| Um setor aparece com o logotipo da loja no lugar da foto | Aquele setor está sem foto e outros da mesma coluna têm (seção 7.3). Cadastre a foto dele |
 | Aparece o ícone de imagem quebrada nos produtos | É produto **sem foto**. Cadastre a foto do produto no Cardápio |
 | O totem não oferece cartão nem Pix da maquininha | Os meios TEF exigem pinpad ligado no aparelho e forma de recebimento escolhida na aba Pagamentos |
 | Apareceu desconto que eu não pedi na tela de pagamento | É o desconto da **forma de pagamento**: veja **Cadastros → Formas Recebimento** e **Cardápio Digital → Pagamento Online** |
@@ -398,6 +406,7 @@ totem** mostra como.
 
 | Manual | O que traz |
 |--------|------------|
+| **Mais de um cardápio no mesmo totem** | A aba Cardápios em detalhe: o cliente escolhendo o cardápio, os dois juntos numa tela e o pedido misto |
 | **Cupom e cashback no totem** | O canal *Totem* no cupom, a modalidade *Pedidos via Totem* no cashback e o que o cliente vê |
 | **O pedido do totem no painel** | A venda do totem no Delivery, no Histórico e no Desempenho por origem |
 | **Tradução do cardápio presencial** | Como escrever o cardápio em inglês e espanhol para o totem |

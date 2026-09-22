@@ -153,6 +153,14 @@ Medido por interceptação das respostas no próprio aparelho (21/09/2026):
 subidas de verdade pelo Banco de imagens, e o par de capturas (10 e 13) é o
 mesmo cardápio antes e depois.
 
+**Correção de 22/09/2026 (feita no #124).** A regra completa do trilho é
+`const p = setores.some(s => !!s.s3Link)` e, quando `p` é verdadeiro,
+`src = setor.s3Link || logotipoDaLoja`. Ou seja: **basta um** setor com foto para
+a coluna inteira virar miniatura, e o setor sem foto entra com o **logotipo da
+loja** — não com espaço vazio, como este manual afirmava. A prova está na captura
+03 do #124, em que os setores próprios do cardápio adicional saem todos com o
+mesmo logotipo.
+
 ## O que o aparelho pede ao abrir
 
 Capturado no navegador, para quem for mexer nisso depois:
