@@ -1242,8 +1242,9 @@ escrito de propósito bateria.
 | Totem: pôr no ar e configurar | `manuais/totem-configurar/` | ✅ Concluído (#121) |
 | Cupom e cashback no totem | `manuais/totem-cupom-cashback/` | ✅ Concluído (#122) |
 | O pedido do totem no painel | `manuais/totem-venda-no-painel/` | ✅ Concluído (#123) |
+| Mais de um cardápio no mesmo totem | `manuais/totem-multicardapio/` | ✅ Concluído (#124) |
 
-### Totem de Autoatendimento — bloco #121 a #123
+### Totem de Autoatendimento — bloco #121 a #123 (e o #124)
 
 **A regra antiga estava meio errada: o totem abre no Cloud Agent.** "Totem e tablet são
 APK, não dá para fotografar" vale só para o **tablet**. O totem é uma página web (PWA), e
@@ -1261,9 +1262,13 @@ na tela do cliente.**
 
 Duas manhas do aparelho, que valem para qualquer captura de totem:
 
-- os botões respondem a `click()` por JavaScript, mas **o teclado numérico não** (ele
-  escuta evento de ponteiro): telefone e mesa precisam de
-  `get_by_role("button", name=c, exact=True).click(force=True)`;
+- os botões respondem a `click()` por JavaScript, mas **o teclado numérico e o seletor de
+  cardápio não** (eles escutam evento de ponteiro): telefone e mesa precisam de
+  `get_by_role("button", name=c, exact=True).click(force=True)`, e os cartões do seletor
+  precisam de `page.mouse.click(x, y)` na caixa medida por `getBoundingClientRect`
+  (#124). Clique em camada por cima do cardápio também tem de ser **escopado no diálogo**
+  (`[role=dialog][aria-labelledby="menu-picker-title"]`), senão o seletor por texto acha um
+  produto atrás da camada e o clique morre;
 - os seletores não são estáveis. O que funciona é achar botão **pelo texto** e filtrar por
   **altura/posição** quando o texto repete (cartão e cabeçalho).
 
@@ -1278,7 +1283,11 @@ Três descobertas de produto que ficaram documentadas:
 
 - **foto de setor muda o layout** da coluna da esquerda do totem (texto × tira de
   miniaturas); **foto de produto não muda layout nenhum** — produto sem foto vira cartão
-  com o ícone de imagem quebrada;
+  com o ícone de imagem quebrada. A regra completa é
+  `algum setor com s3Link ? miniatura : texto` e, na miniatura,
+  `src = setor.s3Link || logotipoDaLoja`: **basta um** setor com foto para a coluna toda
+  virar miniatura, e o setor sem foto sai com o **logotipo da loja**, não com espaço vazio
+  (o #121 dizia espaço vazio e foi corrigido pelo #124);
 - o desconto que o totem mostra na forma de pagamento **não é do totem**: *Dinheiro* 1% vem
   de **Cadastros → Formas Recebimento** e *PIX* 5% de **Cardápio Digital → Pagamento
   Online**. Cuidado: a mesma forma em *Cardápio Digital → Formas Recebimento* tinha 5% e
@@ -1286,6 +1295,19 @@ Três descobertas de produto que ficaram documentadas:
 - a venda do totem é `tipo` DELIVERY + `codigoServico = 'A'`, e tem **três nomes** na
   interface: **AutoAtendimento** no card da venda, **Totem** nos chips e filtros,
   **Autoatendimento** no Desempenho.
+
+**O #124 entrou depois, porque o dono montou o cenário.** Ele contratou um cardápio
+adicional na empresa 38311 (filial 50502) e pediu o manual do multicardápio — a aba
+*Cardápios* do #121 era três parágrafos de texto justamente porque não havia segundo
+cardápio para fotografar. **Cenário criado pelo dono é gatilho de manual novo:** vale
+perguntar o que mais a tela passa a mostrar quando o dado existe. O que o aparelho ganha
+com dois cardápios: a tela *Escolha um cardápio* (só a partir do segundo —
+`if (menus.length > 1)`), o *Ver todos os cardápios* (produtos concatenados, setores
+**deduplicados por `produtoSetorID`**) e o botão *Trocar* no cabeçalho, sem perder a
+sacola. O pedido continua sendo **um**, na loja do totem: `totem2/pedido/processar` não
+tem `filialID` por item. No painel, `CardapioSelector` e a faixa *EDITANDO CARDÁPIO* só
+existem com `filiais.length > 1` — ou seja, capturas de painel que dependem do seletor
+**não existiam** antes deste cenário.
 
 ### Painel para Entregadores — #120
 
