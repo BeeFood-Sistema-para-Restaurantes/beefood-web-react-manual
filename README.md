@@ -120,6 +120,7 @@ O **status** e a fila ficam no
 | Liberar o entregador: cadastro, acesso ao app e código de barras | [`gestao-entregas-liberar-entregador/`](manuais/gestao-entregas-liberar-entregador/gestao-entregas-liberar-entregador.md) |
 | Ler o mapa e o painel de entregas | [`gestao-entregas-mapa-painel/`](manuais/gestao-entregas-mapa-painel/gestao-entregas-mapa-painel.md) |
 | Montar a rota: agrupar pedidos e escolher o entregador | [`gestao-entregas-montar-rota/`](manuais/gestao-entregas-montar-rota/gestao-entregas-montar-rota.md) |
+| O cliente acompanha a entrega no mapa | [`gestao-entregas-rastreio-cliente/`](manuais/gestao-entregas-rastreio-cliente/gestao-entregas-rastreio-cliente.md) |
 | Estudo completo dos grupos de acesso | [`grupos-acesso/`](manuais/grupos-acesso/grupos-acesso.md) |
 | Manual do Horário de Atendimento | [`horario-atendimento/`](manuais/horario-atendimento/horario-atendimento.md) |
 | Inteligência Artificial do ChatGPT no WhatsApp | [`ia-chatgpt-whatsapp/`](manuais/ia-chatgpt-whatsapp/ia-chatgpt-whatsapp.md) |
