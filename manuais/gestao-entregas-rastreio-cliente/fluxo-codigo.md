@@ -186,6 +186,20 @@ A seta para baixo ao lado do estado alterna `expandOrderStatus`, e a lista é fi
 já cumpridas**, cada uma com a sua hora (`statusList` monta `time` de `dataSitu3`,
 `dataSituPronto`, `dataSitu2` e `dataSitu1`, e filtra por `situ >= situNumber`).
 
+Outras três frases conferidas na mesma varredura, porque o manual as afirma:
+
+```js
+resumoItens = produtos.reduce((t, a) => t + (Number(a.qtd) || 0), 0)   // soma QUANTIDADE
+            === 1 ? '1 item do pedido' : `${n} itens do pedido`
+situ === 5  ? 'Pedido cancelado' (faixa #FFCDD2, mdi-close vermelho)
+            : 'Pedido concluído' (faixa #E0E0E0, mdi-check-circle verde)
+order.nota  ? 'Pedido avaliado' : 'Avalie seu pedido'
+```
+
+O contador de itens soma a **quantidade**, não o número de linhas — dois do mesmo lanche dão
+*2 itens do pedido*. E o cartão de avaliação só aparece com `situacaoPedido === 'ENTREGUE'` ou em
+pedido presencial.
+
 E o cabeçalho do pedido troca de número conforme o estado: em andamento é
 `Pedido nº{numeroPedido} ({numeroPreVenda})`; no cartão de avaliação do pedido concluído é
 `Pedido nº{numeroPreVenda} | {data}`, **só o interno**.

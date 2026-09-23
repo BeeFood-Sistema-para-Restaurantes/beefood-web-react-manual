@@ -212,7 +212,7 @@ cartão do entregador (1) com o horário da última posição (2).
 |----|------|---------|
 | 1. | **Carlos** | O primeiro nome do entregador, o mesmo do título |
 | 2. | **Posição de 1 min atrás** | Quando aquela posição foi capturada. Com menos de um minuto, a frase é *Posição atualizada agora* |
-| 3. | **1 item do pedido** | Abre e fecha a lista. Com mais de um item, o texto vira *3 itens do pedido* |
+| 3. | **1 item do pedido** | Abre e fecha a lista. Ele conta a **quantidade**, não o número de produtos: dois do mesmo lanche já aparecem como *2 itens do pedido* |
 | 4. | O item | Quantidade, nome, os complementos escolhidos e o valor |
 
 É para o cliente conferir se está tudo certo **antes** de o motoboy chegar — não depois, na porta.
