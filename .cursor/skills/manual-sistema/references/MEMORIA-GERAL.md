@@ -4,7 +4,14 @@
 > A porta de entrada, com o fluxo resumido, é o [`SKILL.md`](../SKILL.md) — este
 > arquivo é o conteúdo. Cada manual tem ainda sua própria `MEMORIA.md` na pasta dele.
 
-Última atualização: 2026-09-19 (**regra 0 das imagens: o manual não é inventário do aplicativo** —
+Última atualização: 2026-09-23 (**tela de front público se lê no bundle publicado, sem clone** —
+o rastreio do #121 mora no cardápio digital, um Nuxt 2 em repositório que não se consegue clonar, e
+o `curl` de `menu.beefood.com.br` entregou rota, componentes, todas as frases de todos os estados,
+os intervalos de atualização e o `noindex`. Primeiro manual **sem nenhuma captura própria**: o
+material veio pronto do dono, e o importador do `annotate.py` segue o padrão do #24 — avisa e segue
+quando o caminho do upload já não existe. Duas armadilhas de seta confirmadas na quarta rodada de
+conferência: **mire o vão antes da primeira letra**, e pino de mapa aceita seta na borda);
+2026-09-19 (**regra 0 das imagens: o manual não é inventário do aplicativo** —
 um pedido de capturas inteiro foi recusado pelo dono na leitura, porque pedia tela vazia e app sem
 rede; *"o manual deve ser util e não ter um monte de conteudo sem sentido"*. O critério passou a
 abrir a seção 3: **imagem entra se o leitor sair dela fazendo algo diferente**. Custou uma imagem já
@@ -391,6 +398,15 @@ Tela de celular é **estreita e cheia**, e é isso que muda tudo em relação ao
   Moraes* e *Rafael Monteiro Dias* são clientes criados por script (repetidos na base, sem
   telefone nem e-mail, origem *Delivery Manual*). Conferir antes de decidir se desfoca —
   desfocar o que é fake só deixa a imagem pior.
+
+**O mesmo padrão serve para print de navegador de celular** (cardápio público, totem, página de
+rastreio), e foi o que o #121 usou: as capturas chegaram em **780x1688** (viewport 390x844 em
+DPR 2) e **2000x1250**, e o `annotate.py` dele é o padrão enxuto — `preparar()` para importar e
+recortar, `margem()` com esquerda e direita, `rec()` para converter pixel da captura original em
+fração da imagem final. **Meça em pixel da captura inteira, não em fração do resultado:** medir
+uma vez na tela cheia é o que permite mexer no recorte depois sem remedir nada. E, no #121, o
+dono liberou o print inteiro por escrito (*"todas imagens são dados falsos"*) — **pergunte antes
+de borrar**, porque a primeira versão saiu com borrão desnecessário sobre o link.
 
 ### Quando o print vem de outra máquina, em outro dia — #111 a #117
 
@@ -1075,6 +1091,17 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 > documentos, 13 prompts de frontend e 14 scripts SQL, ~17.100 linhas. **Procure por caminho de
 > documentação antes de concluir que falta repositório.**
 
+> **O cardápio digital é um terceiro repositório, e ele não precisa de clone.** Descoberto no
+> #121: o cardápio público (`menu.beefood.com.br`) é um **Nuxt 2** próprio, que não está no
+> `beefood-web-react` nem no `beetech-server-node-2.0`. Clone não há, mas o **bundle publicado
+> tem o código-fonte de tela**: componentes, todas as frases de todos os estados, intervalos de
+> atualização e as metatags. O caminho é `curl` da página → listar os `/_nuxt/*.js` → procurar o
+> termo no chunk grande, que traz o mapa de rotas **e** o mapa de hashes de chunk → traduzir o
+> número do chunk em nome de arquivo. Os hashes mudam a cada publicação; o caminho não. A base
+> da API dele é `https://cardapio-digital.beetechapi.be`, em caminhos
+> `api/rest/tempresaDelivery/...`. Vale para qualquer manual de tela do cardápio, do totem ou
+> de outro front público.
+
 ### Ler os bancos e a API do app direto do Cloud Agent (#104)
 
 Descoberto no estudo da Gestão de Entregas, e vale para qualquer manual que precise **provar** o
@@ -1233,6 +1260,50 @@ escrito de propósito bateria.
 | Relatório Operação de Entrega | `manuais/relatorio-operacao-entrega/` | ✅ Concluído (#118) |
 | Quanto o entregador recebe (Taxa / KM) | `manuais/entregador-quanto-recebe/` | ✅ Concluído (#119) |
 | Painel para Entregadores | `manuais/painel-entregador/` | ✅ Concluído (#120) |
+| O cliente acompanha a entrega no mapa | `manuais/gestao-entregas-rastreio-cliente/` | ✅ Concluído (#121) |
+
+### O cliente acompanha a entrega no mapa — #121
+
+O rastreio do lado do **cliente**: link no WhatsApp que abre mapa ao vivo, com o primeiro
+nome do entregador, a moto andando e a distância em linha reta. O manual é para o lojista,
+e o assunto é o que o cliente dele vê. Detalhes em
+[`MEMORIA.md`](../../../../manuais/gestao-entregas-rastreio-cliente/MEMORIA.md) e
+[`fluxo-codigo.md`](../../../../manuais/gestao-entregas-rastreio-cliente/fluxo-codigo.md).
+
+Três aprendizados que **não** são deste manual só:
+
+- **Tela do cardápio público? O código está a um `curl` de distância.** O rastreio mora no
+  cardápio digital, que é um Nuxt 2 em repositório separado — e os tokens do Bitbucket
+  continuam inválidos (seção 8). Mas `menu.beefood.com.br` **serve o bundle**, e nele estão
+  a rota, os componentes, todas as frases de todos os estados, os intervalos e o
+  `noindex, nofollow`. O caminho: `curl` da página → achar os `/_nuxt/*.js` de entrada →
+  procurar o termo no chunk grande, que tem o mapa de rotas e o **mapa de hashes de chunk**
+  → traduzir o número do chunk em arquivo. Os hashes mudam a cada publicação; o caminho não.
+  **Vale sempre que o manual é de tela do cardápio, do totem ou de qualquer front público.**
+- **Primeiro manual sem captura própria, e o importador segue o padrão do #24.** Quando o
+  material vem pronto do dono, o `annotate.py` ganha uma função `preparar()` que traz a
+  captura do caminho de upload do chat e recorta — e ela **avisa e segue** quando o caminho
+  já não existe, usando a pura versionada. O importador **nunca** escreve em
+  `imagens-tratadas/`, senão a próxima execução apaga as setas.
+- **A margem à direita não é exclusiva de print de app.** Ela já estava documentada para os
+  manuais #111 a #116 e reapareceu aqui, em print de **navegador** de celular, pelo mesmo
+  motivo: o alvo era a hora do despacho, no canto direito da linha do estado. `md=0.13`
+  resolveu. Print de cardápio público tem a mesma anatomia de print de app — coluna
+  esquerda com texto, coluna direita com hora, selo e flecha.
+
+Duas armadilhas de anotação que se repetiram até a quarta rodada de conferência:
+
+- **Texto: mire o vão antes da primeira letra, nunca a letra.** As pontas caíam sobre o
+  *P* de *Pedido*, o *C* de *Carlos*, o *A* de *Acompanhe* e o *1* de *1 item*. Onde há
+  ícone antes do texto, o vão entre ícone e texto é o alvo certo.
+- **Pino de mapa aceita seta na borda.** Ícone não é texto: apontar para a borda do pino é
+  mais claro que apontar para o vazio ao lado dele.
+
+E uma decisão de conteúdo que serve para qualquer recurso novo: **honestidade do produto é
+assunto de manual.** A tela não estima horário de chegada e mostra distância *em linha
+reta*; o manual explica **por quê**, em vez de esconder. Um "8 minutos" que vira 25 gera
+exatamente a ligação que o recurso existe para evitar — e essa é a mentalidade que o dono
+pede que os manuais documentem.
 
 ### Painel para Entregadores — #120
 
