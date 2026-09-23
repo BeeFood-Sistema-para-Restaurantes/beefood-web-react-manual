@@ -3022,6 +3022,78 @@ As **fotos dos produtos** vêm do `s3Link` da própria API (`pagina.request.get`
 em WEBP — converta com Pillow antes de usar no slide. Foto real na tela desenhada
 é o detalhe que mais separa desenho convincente de wireframe.
 
+### A tela de quem COMPRA também é captura, e ela tem um endereço
+
+Por dez peças, resultado que morava fora do painel virava desenho: o aplicativo
+do entregador é Android, o cupom sai na impressora, o relatório não tem volume.
+A peça do rastreio (#11) quebrou essa regra por um motivo simples — **a tela do
+cliente era uma página pública**, com endereço próprio:
+
+```
+https://menu.beefood.com.br/<cardapio>/rastreio/<token de 22 caracteres>
+```
+
+Ela lê **uma** rota (`GET .../tempresaDelivery/rastreio/{token}`), e trocar a
+resposta dessa rota basta para o cardápio digital de produção desenhar a cena
+inteira: o Leaflet com a camada da ArcGIS, o pino com a logo da loja, a moto com
+o anel pulsando, o traço pontilhado e a barra de quatro etapas. Seis das sete
+imagens da peça são captura, e a única desenhada é a conversa de WhatsApp.
+
+A pergunta que faltava fazer, e que vale para toda peça de novidade: **o que o
+cliente do meu cliente vê tem URL?** Cardápio, acompanhamento, cupom digital,
+página de avaliação — se tem, é captura, e captura é o degrau 1.
+
+Quatro coisas custaram rodada aqui, e as quatro são de uso geral:
+
+- **`networkidle` não serve em tela que se atualiza sozinha.** A página consulta
+  o servidor a cada 15 s, então a rede nunca fica parada e o `goto` estoura o
+  tempo. Espere o **estado da tela**: conte `.leaflet-tile-loaded` até o número
+  parar de crescer três vezes seguidas, e só então fotografe.
+- **Congele a animação antes do print.** A etapa atual da barra pisca num ciclo
+  de 1,4 s; sem congelar, duas execuções do mesmo script devolvem duas barras
+  diferentes. Um `<style>` com `animation-play-state: paused` e
+  `animation-delay: -0.7s` fixa o mesmo quadro sempre.
+- **O Playwright inspeciona a aridade do interceptador.** `lambda r, corpo=x:`
+  não recebe `x` no segundo parâmetro: recebe o `Request`, e o `fulfill` sai com
+  o objeto errado dentro. Use uma fábrica que devolva um interceptador de **um**
+  parâmetro.
+- **Marcador de Leaflet tem mais de uma classe.** `className.split(' ')[0]`
+  devolveu `pino` para os três pinos; o certo é procurar a classe esperada com
+  `classList.contains`.
+
+E o recorte: a captura **mede as caixas no DOM** (cabeçalho, título, barra,
+cartão, mapa, e o centro de cada pino) e grava tudo num `medidas.json` da pasta,
+com a escala. O corte é feito daí, com Pillow. É o que permite refazer o mesmo
+enquadramento em quatro estados de tela que têm **alturas diferentes** — sem a
+linha de detalhe, *Pedido entregue às 20:12* sobe a barra de etapas.
+
+### Meça a cor na tela antes de prometer a cor no slide
+
+O manual do rastreio afirma, a partir do código, que o pino da loja e a moto
+saem na cor primária do cardápio. Na captura pelo link do WhatsApp eles saem
+**verdes** — e não é defeito da captura.
+
+O CSS daquela tela pede `var(--v-corPrimariaEmp, #4caf50)`, **sem** o sufixo
+`-base` que o Vuetify escreve no `:root`. Quem preenche a variável sem sufixo é
+o layout padrão do cardápio, num `style` inline no `.v-application`; o layout da
+página de rastreio não a preenche, então vale o verde do fallback. Medido nas
+duas telas da mesma loja:
+
+| Onde | `--v-corPrimariaEmp` | `--v-corPrimariaEmp-base` |
+|---|---|---|
+| `/<cardapio>/` | `#C52E1D`, inline no `.v-application` | `#c52e1d` |
+| `/<cardapio>/rastreio/<token>` | vazio | `#ef3f37`, o tema padrão |
+
+As capturas coloridas do manual eram da tela cheia aberta **de dentro do**
+cardápio, onde o tema já estava carregado. Duas lições:
+
+- **o que a peça mostra é o caminho que ela vende.** A arte ficou com o verde,
+  porque é o que abre quando se toca no link. Injetar a cor da loja no navegador
+  da captura seria fotografar um comportamento que aquele caminho não tem.
+- **o slide afirma só o que a imagem prova.** *"A sua marca no mapa"* virou *"o
+  pino da loja é a sua logo"*. Um `getComputedStyle` no navegador da captura
+  custa segundos e evita uma promessa que o cliente não vai encontrar.
+
 ### A promoção da loja de exemplo não pode virar o assunto da arte
 
 O totem de exemplo é de um cliente de verdade, e a arte de espera dele era um
