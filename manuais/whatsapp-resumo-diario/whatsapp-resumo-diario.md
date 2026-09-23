@@ -74,9 +74,4 @@ Não. Notificação é para o **cliente**, a cada etapa. O boletim é para a
 
 ---
 
-## Referências internas (não publicar)
-
-`WhatsAppBoletim` (`/whatsapp-boletim`), API `/api/whatsapp2/boletim`. Pasta
-`manuais/whatsapp-resumo-diario/`.
-
 *Última atualização: setembro/2026 — BeeFood · Resumo diário*

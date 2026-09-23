@@ -57,9 +57,4 @@ explica o horário.
 
 ---
 
-## Referências internas (não publicar)
-
-`WhatsAppHistoricoTab`, `useWhatsAppMensagens`. Pasta
-`manuais/whatsapp-historico/`.
-
 *Última atualização: setembro/2026 — BeeFood · Histórico WhatsApp*

@@ -145,9 +145,4 @@ Não. Inteligente é a terceira aba — manual **#16**.
 
 ---
 
-## Referências internas (não publicar)
-
-`WhatsAppEnviosMassaTab` + `ModalEditarCampanha`. Permissão: item Campanhas do
-WhatsApp. Pasta `manuais/campanhas-whatsapp/`. **Não publicar** no sandbox.
-
 *Última atualização: setembro/2026 — BeeFood · Campanhas de WhatsApp*

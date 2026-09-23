@@ -421,9 +421,3 @@ campanha. É uma forma de guardar sem apagar.
 - **Não tente ser exato demais.** Segmentação boa é a que separa grupos com conversas diferentes,
   não a que acerta o cliente perfeito.
 - **Revise de vez em quando.** As regras continuam valendo, mas o seu restaurante muda.
-
----
-
-### Referências internas (não publicar)
-
-Estudo, evidências e mapeamento técnico: `MEMORIA.md` e `fluxo-codigo.md` desta pasta.

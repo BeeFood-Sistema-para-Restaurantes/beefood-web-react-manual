@@ -430,9 +430,3 @@ Usuário**, descrito como *"Cada usuário tem e só consegue ver seu próprio ca
 - **Anote o que desligou.** Não existe histórico de "o que estava ligado antes" nesta tela.
 - **Se algo sumiu e ninguém sabe por quê**, comece por aqui: quase toda tela que "desapareceu"
   do BeeFood é permissão de grupo, não erro.
-
----
-
-### Referências internas (não publicar)
-
-Estudo, evidências e mapeamento técnico: `MEMORIA.md` e `fluxo-codigo.md` desta pasta.

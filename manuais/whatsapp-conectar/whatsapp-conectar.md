@@ -81,9 +81,4 @@ gerar o QR de novo.
 
 ---
 
-## Referências internas (não publicar)
-
-Código: `WhatsAppConexaoCard` (`POST …/whatsapp/instancia/{empresa}/{filial}`),
-polling em `WhatsAppConexaoContent`. Pasta `manuais/whatsapp-conectar/`.
-
 *Última atualização: setembro/2026 — BeeFood · Conectar WhatsApp*
