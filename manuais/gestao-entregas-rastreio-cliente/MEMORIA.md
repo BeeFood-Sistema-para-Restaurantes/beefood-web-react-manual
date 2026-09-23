@@ -80,6 +80,27 @@ para `imagens-puras/` e recorta. **Esse caminho não sobrevive à sessão**, e �
 script funcione sem ele: `preparar()` avisa e segue, usando a pura já versionada. Mesma regra do
 `copiar-imagens.py` do #24 — o importador nunca escreve em `imagens-tratadas/`.
 
+### O defeito que isso escondia: margem gravada na pura
+
+A primeira versão copiava o `com_margem()` dos manuais do app, que **grava a margem dentro de
+`imagens-puras/`**. Ali funciona, porque o material daqueles manuais é versionado
+(`gestao-entregas/material-recebido/app-entregador`, 181 arquivos) e o `copiar()` reconstrói a pura
+a cada execução — conferido: rodar o `annotate.py` do #111 duas vezes dá as 15 tratadas idênticas.
+
+Aqui o material **não** é versionado, então a segunda execução não reconstruía nada: ela pegava a
+pura que já tinha margem e acrescentava outra. Descoberto rodando o script com `MATERIAL` apontando
+para uma pasta inexistente — as puras foram de 780 para 1026 px de largura e as tratadas para 1350,
+com toda seta deslocada.
+
+A correção é a regra geral: **pura é o print, e só.** A margem passou a ser montada dentro do
+`annotate()`, a partir de `m` e `md`, e nada mais escreve em `imagens-puras/` depois do
+`preparar()`. Agora as sete tratadas saem **byte a byte iguais** com ou sem o material na máquina,
+e as puras não são tocadas.
+
+**Onde isso morde de novo:** qualquer manual cujo material venha de upload de chat, e-mail ou pasta
+temporária. Se a fonte não está versionada, a pura é a única fonte — e transformação que se acumula
+sobre ela quebra a repetição.
+
 Duas coisas de anotação que valem para o próximo manual feito de print de celular do **cardápio
 público** (não do aplicativo):
 

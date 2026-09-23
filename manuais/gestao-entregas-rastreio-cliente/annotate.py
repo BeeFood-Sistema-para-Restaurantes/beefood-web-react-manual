@@ -69,37 +69,10 @@ def preparar(origem, nome, caixa=None):
     print("PURA", nome, img.size)
 
 
-def com_margem(nome, esq=0.0, dire=0.0):
-    """Acrescenta margem clara ao lado da pura, **fora** da tela.
-
-    Tela de celular é estreita e cheia: etiqueta desenhada dentro dela cobre texto. Com margem,
-    a etiqueta mora fora e a seta entra pela borda — o print continua inteiro visível. `esq` e
-    `dire` são frações da largura original.
-
-    A margem da direita existe pelo motivo oposto à da esquerda: na tela do pedido, a coluna
-    direita é onde moram a hora do despacho e a flecha que abre a linha do tempo. Alcançá-las
-    pela esquerda obriga a seta a atravessar a tela inteira por cima do nome do estado.
-    """
-    caminho = os.path.join(SRC, nome)
-    img = Image.open(caminho).convert("RGB")
-    W, H = img.size
-    dx, dd = int(W * esq), int(W * dire)
-    tela = Image.new("RGB", (W + dx + dd, H), FUNDO)
-    tela.paste(img, (dx, 0))
-    tela.save(caminho)
-    print("MARGEM", nome, tela.size)
-
-
-def margem(nome, m, md=0.0):
-    """Margem em fração **do resultado** — `com_margem()` pede em fração do print."""
-    dentro = 1 - m - md
-    com_margem(nome, esq=m / dentro if m else 0.0, dire=md / dentro if md else 0.0)
-
-
 def rec(caixa, m=0.0, md=0.0):
     """Converte pixel da captura original em fração da imagem final.
 
-    `caixa` é o mesmo recorte passado ao `preparar()`; `m` e `md` são as margens que `margem()`
+    `caixa` é o mesmo recorte passado ao `preparar()`; `m` e `md` são as margens que `annotate()`
     acrescentou, em fração da imagem final.
     """
     x0, y0, x1, y1 = caixa
@@ -129,13 +102,31 @@ def etiqueta(d, cx, cy, r, num, fnt):
            t, fill=BRANCO, font=fnt)
 
 
-def annotate(nome, marcadores=(), molduras=(), r=None, w=None):
+def annotate(nome, marcadores=(), molduras=(), r=None, w=None, m=0.0, md=0.0):
     """`marcadores`: (número, alvo_x, alvo_y, etiqueta_x, etiqueta_y) — tudo em **fração**.
+
+    `m` e `md` são as margens claras à esquerda e à direita, em fração da imagem **final**.
+    Tela de celular é estreita e cheia: etiqueta desenhada dentro dela cobre texto. Com margem,
+    a etiqueta mora fora do print e a seta entra pela borda — a tela continua inteira visível.
+    A da direita existe pelo motivo oposto à da esquerda: a coluna direita é onde moram a hora
+    do despacho e a flecha que abre a linha do tempo, e alcançá-las pela esquerda obriga a seta
+    a atravessar a tela por cima do nome do estado.
+
+    **A margem é montada aqui, não gravada na pura.** Gravá-la em `imagens-puras/` tornava o
+    script não repetível: a segunda execução acrescentava margem sobre margem e deslocava todas
+    as setas. Pura é o print, e só.
 
     Mire a **borda** do elemento quando ele tem texto: seta apontada para o meio de um rótulo
     cobre uma letra, e isso só aparece na conferência em tamanho real.
     """
-    img = Image.open(os.path.join(SRC, nome)).convert("RGBA")
+    pura = Image.open(os.path.join(SRC, nome)).convert("RGB")
+    if m or md:
+        Wp, Hp = pura.size
+        largura = round(Wp / (1 - m - md))
+        tela = Image.new("RGB", (largura, Hp), FUNDO)
+        tela.paste(pura, (round(largura * m), 0))
+        pura = tela
+    img = pura.convert("RGBA")
     W, H = img.size
     over = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(over)
@@ -162,13 +153,12 @@ def annotate(nome, marcadores=(), molduras=(), r=None, w=None):
 # em todas as outras imagens.
 C1, M1 = (0, 0, 780, 950), 0.24
 preparar("b16f5cc0-a2cb-479f-b1b8-41ab617ee5b2.png", "01-whatsapp-link.png", C1)
-margem("01-whatsapp-link.png", M1)
 a = rec(C1, M1)
 annotate("01-whatsapp-link.png", [
     (1, *a(78, 724), 0.09, a(0, 724)[1]),        # "Seu pedido saiu para entrega." — o texto é seu
     (2, *a(58, 806), 0.09, a(0, 790)[1]),        # "Acompanhe a entrega", acrescentado pelo sistema
     (3, *a(48, 889), 0.09, a(0, 905)[1]),        # o código de 22 caracteres, só deste pedido
-], r=30, w=4)
+], m=M1, r=30, w=4)
 
 # ---------------------------------------------------------------------------------------
 # 02 — o pedido em preparo, no celular do cliente
@@ -178,7 +168,6 @@ annotate("01-whatsapp-link.png", [
 # pinos do mapa. O recorte tira a barra de abas do cardápio no pé.
 C2, M2 = (0, 25, 780, 1598), 0.24
 preparar("447fc54f-10d8-4784-bde8-10e89baeeab5.png", "02-pedido-em-preparo.png", C2)
-margem("02-pedido-em-preparo.png", M2)
 a = rec(C2, M2)
 annotate("02-pedido-em-preparo.png", [
     (1, *a(28, 219), 0.08, a(0, 219)[1]),        # Pedido nº78 (1173)
@@ -187,7 +176,7 @@ annotate("02-pedido-em-preparo.png", [
     (4, *a(112, 450), 0.08, a(0, 460)[1]),       # "Acompanhar entrega" + o aviso honesto
     (5, *a(352, 690), 0.08, a(0, 660)[1]),       # o pino da loja, com a logo
     (6, *a(372, 795), 0.08, a(0, 830)[1]),       # o pino do endereço do cliente
-], r=32, w=4)
+], m=M2, r=32, w=4)
 
 # ---------------------------------------------------------------------------------------
 # 03 — saiu para entrega: o motoboy aparece
@@ -197,7 +186,6 @@ annotate("02-pedido-em-preparo.png", [
 # para entrega".
 C3, M3, MD3 = (0, 25, 780, 1598), 0.24, 0.13
 preparar("68ac2b96-11a5-41fd-8d7b-767d16081814.png", "03-saiu-para-entrega.png", C3)
-margem("03-saiu-para-entrega.png", M3, MD3)
 a = rec(C3, M3, MD3)
 annotate("03-saiu-para-entrega.png", [
     (1, *a(46, 363), 0.07, a(0, 380)[1]),        # "Pedido saiu para entrega"
@@ -205,7 +193,7 @@ annotate("03-saiu-para-entrega.png", [
     (3, *a(118, 448), 0.07, a(0, 470)[1]),       # "Carlos está indo até você"
     (4, *a(118, 488), 0.07, a(0, 560)[1]),       # "A 640 m de você, em linha reta."
     (5, *a(360, 768), 0.07, a(0, 790)[1]),       # a moto, entre a loja e o destino
-], r=32, w=4)
+], m=M3, md=MD3, r=32, w=4)
 
 # ---------------------------------------------------------------------------------------
 # 04 — a tela cheia do acompanhamento, no celular
@@ -215,7 +203,6 @@ annotate("03-saiu-para-entrega.png", [
 # pontos e a folha deslizante.
 C4, M4 = (0, 0, 780, 1688), 0.24
 preparar("b21e0e55-5982-4636-99a6-fea58463f475.png", "04-mapa-tela-cheia.png", C4)
-margem("04-mapa-tela-cheia.png", M4)
 a = rec(C4, M4)
 annotate("04-mapa-tela-cheia.png", [
     (1, *a(30, 58), 0.08, a(0, 58)[1]),          # "Ir para o pedido"
@@ -224,7 +211,7 @@ annotate("04-mapa-tela-cheia.png", [
     (4, *a(358, 831), 0.08, a(0, 830)[1]),       # a moto, que anda
     (5, *a(374, 930), 0.08, a(0, 1010)[1]),      # o endereço do cliente
     (6, *a(148, 1275), 0.08, a(0, 1275)[1]),     # a folha deslizante, com nome e horário
-], r=32, w=4)
+], m=M4, r=32, w=4)
 
 # ---------------------------------------------------------------------------------------
 # 05 — a folha de baixo, com os itens abertos
@@ -234,14 +221,13 @@ annotate("04-mapa-tela-cheia.png", [
 # e continua reconhecível porque vem com a alça, o cartão do entregador e o endereço.
 C5, M5 = (0, 1020, 780, 1688), 0.24
 preparar("5d332bb0-c0b0-47b3-a42c-a2c2c85f156e.png", "05-itens-do-pedido.png", C5)
-margem("05-itens-do-pedido.png", M5)
 a = rec(C5, M5)
 annotate("05-itens-do-pedido.png", [
     (1, *a(145, 1160), 0.08, a(0, 1140)[1]),     # o nome do entregador
     (2, *a(148, 1200), 0.08, a(0, 1240)[1]),     # "Posição de 1 min atrás"
     (3, *a(76, 1497), 0.08, a(0, 1480)[1]),      # "1 item do pedido", que abre e fecha
     (4, *a(32, 1585), 0.08, a(0, 1610)[1]),      # o item, com os complementos e o valor
-], r=30, w=4)
+], m=M5, r=30, w=4)
 
 # ---------------------------------------------------------------------------------------
 # 06 — a mesma tela cheia, no computador
@@ -267,10 +253,9 @@ annotate("06-mapa-no-computador.png", [
 # quase 400 px, que na página publicada só empurra o texto para baixo.
 C7, M7 = (0, 25, 780, 1270), 0.24
 preparar("4c51cfaa-11c5-47cf-a3e7-cc6bc43c1dc4.png", "07-pedido-concluido.png", C7)
-margem("07-pedido-concluido.png", M7)
 a = rec(C7, M7)
 annotate("07-pedido-concluido.png", [
     (1, *a(119, 176), 0.08, a(0, 215)[1]),       # o cabeçalho, agora com a data e a hora
     (2, *a(284, 260), 0.08, a(0, 300)[1]),       # "Pedido concluído"
     (3, *a(56, 1083), 0.08, a(0, 1083)[1]),      # "Avalie seu pedido"
-], r=30, w=4)
+], m=M7, r=30, w=4)

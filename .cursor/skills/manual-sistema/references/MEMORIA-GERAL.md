@@ -1285,6 +1285,16 @@ Três aprendizados que **não** são deste manual só:
   captura do caminho de upload do chat e recorta — e ela **avisa e segue** quando o caminho
   já não existe, usando a pura versionada. O importador **nunca** escreve em
   `imagens-tratadas/`, senão a próxima execução apaga as setas.
+- **Material não versionado? Então nada pode transformar a pura depois do importador.** O
+  `com_margem()` dos manuais do app **grava a margem dentro de `imagens-puras/`**, e ali isso
+  é inofensivo: o material daqueles manuais é versionado, o `copiar()` reconstrói a pura a
+  cada execução (conferido — o `annotate.py` do #111 rodado duas vezes dá as 15 tratadas
+  idênticas). No #121 o material é um upload de chat, que **desaparece**: a segunda execução
+  pegava a pura que já tinha margem e somava outra, levando 780 px para 1026 e as tratadas
+  para 1350, com toda seta deslocada. A correção é a regra: **pura é o print, e só** — a
+  margem passou a ser montada dentro do `annotate()`, a partir de `m` e `md`. **Teste que
+  pega isso:** rode o script com o caminho do material trocado por uma pasta inexistente e
+  confira que as tratadas saem byte a byte iguais e as puras não mudam.
 - **A margem à direita não é exclusiva de print de app.** Ela já estava documentada para os
   manuais #111 a #116 e reapareceu aqui, em print de **navegador** de celular, pelo mesmo
   motivo: o alvo era a hora do despacho, no canto direito da linha do estado. `md=0.13`
