@@ -780,6 +780,134 @@ O teste é a pergunta inversa: leia só o título e pergunte **onde isso
 acontece?**. Recurso que roda num canal só e não nomeia o canal deixa a pergunta
 em pé.
 
+### O décimo vício: a capa anuncia o meio, e com o nome do release
+
+Rodada 38, a peça do acompanhamento em tempo real. A capa foi escrita com todas
+as regras acima na mão, e voltou assim: *"a hero do slide 1 ainda não estamos
+conseguindo vender de forma correta. 'Acompanhamento em tempo real pelo
+cliente' seria o correto."*
+
+O que estava no slide:
+
+> A mesma mensagem, agora com **rastreio da entrega**
+> No WhatsApp, quem pediu abre o mapa ao vivo
+
+Passa em tudo o que a skill sabia pedir. Tem nome próprio, o subtítulo explica,
+o canal está dito, o molde (antes × agora) não se repetia havia dez peças e a
+imagem é a prova mais forte da peça. São **dois** defeitos, e os dois são de
+sujeito — categoria que nenhuma checagem olhava.
+
+**Primeiro: o sujeito é o meio.** "A mesma mensagem" é o WhatsApp, e o WhatsApp
+é por onde o recurso chega, não o recurso. No papel parece fino; no feed é
+enorme, porque título se lê da esquerda para a direita e a leitura do feed para
+no meio o tempo todo. Quem leu "A mesma mensagem" foi informado de que **nada
+mudou** — a novidade inteira estava depois da vírgula.
+
+E há uma lição sobre o molde: **antes × agora carrega essa armadilha embutida**,
+porque o "antes" é sempre a coisa velha e ele ocupa a primeira metade da linha.
+Onde o "antes" for o canal, ou o aparelho, ou a mensagem, o molde está pondo o
+meio no lugar do herói. Não é motivo para aposentar o molde — é motivo para
+conferir o sujeito antes de escolhê-lo.
+
+Isto **não revoga** *o nome do recurso inclui o canal*: lá o canal é parte do
+nome ("Campanhas Inteligentes no WhatsApp") e continua obrigatório. A diferença
+é de função sintática. Adjunto, sim; sujeito, não. Na segunda versão o canal
+desceu para o subtítulo e continuou respondendo *onde isso acontece?*.
+
+**Segundo: o nome veio do release.** "Rastreio da entrega pelo cliente" é o
+título da publicação de novidades, e título de release é escrito do lado de
+quem construiu, para descrever o que foi construído. Quem compra compra
+**acompanhamento em tempo real**.
+
+Este é o achado que vale guardar, porque explica por que o defeito atravessou
+tudo: **os dois nomes são verdade.** A troca não é erro de fato, então não cai
+no `conferir-texto.py` (que procura cópia, e aqui o problema era o contrário —
+fidelidade demais), não cai na pergunta "isto está no manual?", não cai na
+leitura em voz alta e não cai no teste das duas perguntas da capa, porque "qual
+é o nome?" tem resposta. O release é a fonte do que é **verdade**; nunca foi a
+fonte do que é **nome**.
+
+Divergindo os dois, a capa fica com o nome de venda e o `copy-instagram.txt`
+anota o do release em nota de produção — quem leu a publicação vai procurar por
+aquele nome nos comentários.
+
+A segunda versão, com o destaque mudando de lugar junto:
+
+> Acompanhamento **em tempo real**, pelo seu cliente
+> O mapa da entrega chega pelo WhatsApp.
+
+Molde novo na série: **nome + para quem**. Placar das dez capas anteriores —
+afirmação do fato 5, pergunta 2, anúncio de chegada 1, nome + canal 1, nome +
+dois-pontos 1.
+
+E o vermelho caiu em "em tempo real", não no nome inteiro como na #8, na #9 e na
+#10. Nessas, a palavra destacada era a que o leitor ia **procurar no menu**
+depois; aqui não existe menu para procurar, porque o recurso é automático e não
+tem tela de configuração. Sem essa função, o destaque volta a ser o que é num
+cartaz: a marca do que é notícia.
+
+### O décimo primeiro vício: a copy legenda a prova, em vez de vendê-la
+
+O mesmo retorno trouxe o segundo defeito, e ele é maior que a capa: *"tem slide
+que estamos explicando o funcionamento da tela. não é um manual de usuário, e
+sim falando da novidade."*
+
+Três corpos da peça, como foram entregues:
+
+| Slide | O corpo devolvido |
+|---|---|
+| 3 | "A tela escreve o primeiro nome do entregador e a distância até a porta, e se refaz sozinha a cada poucos segundos." |
+| 4 | "São quatro etapas, e a frase embaixo muda junto com elas." |
+| 6 | "No computador o mapa ocupa a tela e as informações passam para a coluna da esquerda." |
+
+Os três são verdade, os três estão no manual, nenhum copia a fonte, nenhum
+ensina caminho de menu — a checagem *explicar o recurso não é ensinar a mexer*
+aprova os três, porque ela separa explicação de **instrução** e estes não são
+instrução. São **descrição**, que é o vizinho que faltava na tabela.
+
+O teste que pega é gramatical, e por isso é conferível: **qual é o sujeito das
+orações do corpo?** "A tela", "quatro etapas", "o mapa", "o sistema" são
+interface. O sujeito tem de ser gente ("quem espera", "quem pediu") ou dinheiro
+("a ligação", "a demora", "a reclamação").
+
+O mecanismo do escorregão é o que mais vale guardar, porque ele ataca
+justamente os slides **bons**: o slide tem uma captura forte, a captura já diz
+tudo, a copy fica sem assunto próprio e, para não ficar vazia, legenda a prova.
+Repare que os três corpos acima descrevem a imagem que está logo abaixo deles.
+Legenda de captura é literalmente o formato de um manual — imagem da tela, uma
+frase embaixo dizendo o que a tela faz.
+
+A divisão de trabalho que resolveu: a imagem diz o **quê**, o corpo diz o **e
+daí**. Contagem de etapas, disposição de colunas, nome de componente e ritmo de
+atualização saem do texto, porque a imagem entrega isso sozinha. Ao corpo fica
+o que nenhuma captura sabe dizer.
+
+| Antes | Depois |
+|---|---|
+| "A tela escreve o primeiro nome do entregador e a distância até a porta" | "A ligação mais cara da noite é a de 'quanto tempo falta'. Ela perde o motivo quando quem pediu vê o entregador andando" |
+| "São quatro etapas, e a frase embaixo muda junto com elas" | "Quem espera acompanha o pedido andar da cozinha até a porta. E quando há uma entrega na frente da dele, a demora ganha explicação antes de virar reclamação" |
+| "No computador o mapa ocupa a tela e as informações passam para a coluna da esquerda" | "O mesmo endereço abre no computador, e não há outra página para você divulgar" |
+
+Dois títulos caíram junto, pelo mesmo motivo: "Mapa ao vivo: quem está levando e
+a que distância" e "Uma página só: o mesmo link abre em qualquer tela" cumprem o
+molde *nome, dois-pontos, o que ele te dá* — e a segunda metade, que devia ser o
+ganho, estava descrevendo a tela. Viraram "quem espera deixa de telefonar" e
+"nada de segunda versão para manter".
+
+**O detalhe de tela fica quando ele é o argumento**, dentro de uma frase cujo
+sujeito continua sendo gente. A distância medida é o exemplo: em "a tela mostra
+a distância em linha reta" é descrição; em "o que ele lê é distância medida, não
+um horário chutado que volta como reclamação" o mesmo fato virou a razão de a
+resposta ser confiável.
+
+*O que ficou na skill:* a revisão ganhou o passo **1c**, espelho exato do 1b.
+O 1b tampa a copy e olha só as imagens, procurando tela de configuração; o 1c
+tampa as imagens e olha só a copy, procurando sujeito de interface. As duas
+regras são a mesma regra em dois materiais — a imagem mostra o resultado e nunca
+o painel de controle; a copy diz a consequência e nunca o funcionamento. Uma
+peça em que os dois deslizam ao mesmo tempo não parece errada: parece um manual
+bem feito, e foi por isso que esta passou.
+
 ### O segundo gênero: função do sistema
 
 Até a 20ª rodada, tudo aqui pressupunha um **release**: o `pauta.py` só lia o RSS
@@ -3368,6 +3496,18 @@ ela lê bem. Duas descobertas concretas:
 Como rodar: repita `--fonte` uma vez por manual do grupo (pasta vale pelo `.md`
 de dentro dela). Dezoito fontes rodam em menos de um segundo, porque é leitura
 de arquivo e não de rede.
+
+**E `--fonte` soma ao feed, desde a 38ª rodada.** Ele substituía: quem passasse
+os dois argumentos ficava **sem** a conferência contra o release, em silêncio.
+Isso é o pior tipo de defeito de ferramenta, porque o `OK` no fim continuava
+aparecendo. A peça do acompanhamento em tempo real é o caso: ela é novidade
+**com** release e **com** manuais, foi rodada com `--novidade` e quatro
+`--fonte`, deu `OK` em três rodadas de revisão e tinha duas sequências do
+release na legenda. Rodar só com `--novidade` as encontrou. Regra de leitura do
+script: quem passa `--fonte` está **ampliando** a régua, não trocando de régua;
+só o gênero função do sistema — `--fonte` sozinho, sem `--novidade` — fica fora
+do feed, porque ali release não existe. A linha de saída lista todas as fontes
+conferidas, e conferir essa lista é o jeito rápido de ver se faltou uma.
 
 E o que a peça deve a quem publica: **sem release não há data para amarrar**. O
 `copy-instagram.txt` abre pedindo que se confirme a liberação do módulo antes de

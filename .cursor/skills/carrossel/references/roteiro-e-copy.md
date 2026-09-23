@@ -797,6 +797,58 @@ assunto próprio para continuar, e sai. Peça de seis slides com o mais forte na
 frente vale mais que sete com o mais forte no meio; é para isso que o intervalo
 vai de 6 a 8.
 
+#### A quarta e a quinta: quem é o sujeito, e de onde veio o nome
+
+As três perguntas acima aprovaram uma capa que voltou mesmo assim. A do
+acompanhamento em tempo real dizia:
+
+> A mesma mensagem, agora com **rastreio da entrega**
+> No WhatsApp, quem pediu abre o mapa ao vivo
+
+Ela tem nome, o subtítulo explica, o molde (antes × agora) não se repetia havia
+dez peças e a prova da capa era a melhor da peça. O retorno foi seco: *"a hero
+do slide 1 ainda não estamos conseguindo vender de forma correta"*. São dois
+defeitos, e nenhuma das três perguntas alcança nenhum dos dois.
+
+**Quarta pergunta: qual é o sujeito do título?** Ali é *a mensagem* — o
+WhatsApp. E o WhatsApp é **por onde o recurso chega**, não o recurso. A
+diferença parece fina no papel e é enorme no feed, porque título se lê da
+esquerda para a direita e a leitura do feed muitas vezes para no meio: quem lê
+"A mesma mensagem" foi informado de que **nada mudou**, e a novidade estava
+depois da vírgula. O molde antes × agora tem essa armadilha embutida, porque o
+"antes" ocupa a primeira metade da linha e o "antes" é sempre a coisa velha.
+
+Não confunda com a regra do canal. O canal **faz parte do nome** e não sai por
+concisão — "Campanhas Inteligentes no WhatsApp" está certo. O que ele não pode
+ser é o sujeito: ali o canal é adjunto de um nome, aqui ele era o herói da
+frase. Em posição de adjunto ("pelo WhatsApp", no subtítulo) ele cumpre a
+terceira obrigação sem roubar a primeira.
+
+**Quinta pergunta: de onde veio o nome?** "Rastreio da entrega pelo cliente" é
+o título do release, e título de release é escrito do lado de quem construiu,
+para descrever **o que foi construído**. O nome pelo qual o recurso se vende é
+outro: *acompanhamento em tempo real*. Os dois são verdade, e é exatamente por
+isso que a troca é invisível — ela não é erro de fato, então não cai no
+`conferir-texto.py`, não cai na checagem "isto está no manual?" e não cai na
+leitura em voz alta. O release é a fonte do que é **verdade**; não é a fonte do
+que é **nome**.
+
+Quando os dois divergem, a capa fica com o nome de venda e o
+`copy-instagram.txt` registra o outro, em nota de produção, para quem for
+responder comentário — porque o cliente que leu o release vai procurar pelo
+nome dele.
+
+A segunda versão ficou assim, e o destaque mudou de lugar junto:
+
+> Acompanhamento **em tempo real**, pelo seu cliente
+> O mapa da entrega chega pelo WhatsApp.
+
+O vermelho caiu em "em tempo real" e não no nome inteiro. Nas peças anteriores
+a palavra destacada era a que o leitor ia **procurar no menu** depois; aqui não
+há menu para procurar, porque o recurso é automático e não tem tela de
+configuração. Sem essa função, o destaque volta a fazer o que faz num cartaz:
+marca o que é notícia.
+
 ### E a capa leva uma imagem, dentro de um aparelho
 
 Capa só de texto perde para capa com imagem, e a imagem certa é o resultado da
@@ -1091,6 +1143,54 @@ E explicação não é enredo. "Você já faz isso no balcão", "no caixa você 
 na hora" é história, e história no slide 2 gasta o lugar de quem ainda não
 entendeu o recurso que a capa acabou de anunciar.
 
+### O corpo é a consequência: olhe o sujeito de cada oração
+
+A tabela acima separa explicação de **instrução** — o que o recurso faz contra
+onde clicar. Falta o vizinho dela, que passou por onze peças: a **descrição**.
+Ela não ensina caminho nenhum, não tem nome de campo, não fala em clicar, e
+mesmo assim é manual. O retorno que a nomeou: *"tem slide que estamos
+explicando o funcionamento da tela; não é um manual de usuário, e sim falar da
+novidade"*.
+
+O teste não é de tom nem de vocabulário, é **gramatical**: qual é o sujeito das
+orações do corpo?
+
+| Sujeito é a interface | Sujeito é gente, ou é dinheiro |
+|---|---|
+| "A tela escreve o primeiro nome do entregador e a distância até a porta, e se refaz sozinha a cada poucos segundos" | "A ligação mais cara da noite é a de 'quanto tempo falta'. Ela perde o motivo quando quem pediu vê o entregador andando" |
+| "São quatro etapas, e a frase embaixo muda junto com elas" | "Quem espera acompanha o pedido andar da cozinha até a porta. E quando há uma entrega na frente da dele, a demora ganha explicação antes de virar reclamação" |
+| "No computador o mapa ocupa a tela e as informações passam para a coluna da esquerda" | "O mesmo endereço abre no computador, e não há outra página para você divulgar" |
+| "O sistema anexa o endereço do acompanhamento ao aviso de saída" | "Não há campo novo para preencher, tela nova para aprender nem mensagem a mais na conta" |
+
+As frases da esquerda são todas verdadeiras, todas bem escritas e todas passam
+na leitura em voz alta. E há uma coisa em comum entre elas que é o **mecanismo
+do defeito**: cada uma descreve a imagem que está logo abaixo dela.
+
+É assim que o escorregão acontece, e ele acontece justamente nos slides
+melhores. O slide tem uma captura forte; a captura já diz tudo; a copy fica sem
+assunto e, para não ficar vazia, **legenda a prova**. Legenda de captura é o
+texto de um manual — um manual é exatamente isto: uma imagem da tela com uma
+frase embaixo dizendo o que a tela faz.
+
+A saída é dividir o trabalho. A imagem mostra o **quê**; o corpo diz o **e
+daí**. Contagem de etapas, disposição de colunas, nome de componente, ritmo de
+atualização: tudo isso a imagem entrega sozinha, e por isso sai do texto. Ao
+corpo sobra o que nenhuma captura sabe dizer — o telefonema que não toca, a
+reclamação que não chega, a segunda página que ninguém precisa manter, o campo
+que ninguém precisa preencher.
+
+**Quando o detalhe da tela é o argumento, ele fica** — mas dentro de uma frase
+cujo sujeito ainda é gente ou dinheiro. A distância medida é um bom exemplo: em
+"a tela mostra a distância em linha reta" é descrição, e em "o que ele lê é
+distância medida, não um horário chutado que volta como reclamação" o mesmo
+fato virou argumento, porque agora ele está ali para explicar por que a
+resposta é confiável.
+
+É o espelho exato da regra das imagens (passo 3 da skill): a imagem mostra o
+**resultado** e nunca o painel de controle; a copy diz a **consequência** e
+nunca o funcionamento. Uma peça em que os dois deslizam ao mesmo tempo não
+parece errada — parece um manual bem feito.
+
 ### O slide do problema elogia antes de cobrar
 
 Vale para a peça que **abre pelo incômodo** — e, quando a capa nomeia o recurso,
@@ -1258,6 +1358,22 @@ Vai no fim do `roteiro.md`, pronta para copiar:
       gancho da peça vizinha num ponto em que este canal é mais fraco.
 - [ ] **O slide 2 explica o recurso?** Não conta história, não cobra, e não
       ensina onde clicar.
+- [ ] **Qual é o sujeito do título da capa?** Se for o canal, o aparelho ou a
+      mensagem, a capa está anunciando o **meio** e não o recurso. O canal faz
+      parte do nome, mas entra como adjunto ("pelo WhatsApp") — nunca como
+      herói da frase. Cuidado redobrado no molde antes × agora, em que a
+      primeira metade da linha é ocupada pela coisa velha.
+- [ ] **O nome da capa é o nome que vende, ou o título do release?** Release é
+      escrito do lado de quem construiu. Os dois nomes são verdade, então
+      nenhuma conferência de fato pega a troca: "rastreio da entrega pelo
+      cliente" virou "acompanhamento em tempo real". O do release fica anotado
+      no `copy-instagram.txt`, para responder comentário.
+- [ ] **Qual é o sujeito de cada oração do corpo?** Interface ("a tela
+      escreve", "são quatro etapas", "o mapa ocupa a tela", "o sistema anexa")
+      é manual de usuário. Tem de ser gente ("quem espera", "quem pediu") ou
+      dinheiro ("a ligação", "a demora", "a reclamação"). O sinal de alerta é a
+      copy **descrever a imagem que está embaixo dela**: ali a prova está sendo
+      legendada em vez de vendida.
 - [ ] **Alguma frase trocou a palavra concreta por metáfora?** "Preço" no lugar
       de desconto e acréscimo, "o que mais entra" no lugar da forma de
       pagamento. A palavra do recurso ganha da imagem poética.
