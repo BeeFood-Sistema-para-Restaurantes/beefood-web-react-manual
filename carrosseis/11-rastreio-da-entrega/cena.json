@@ -1,0 +1,82 @@
+{
+  "por_que": [
+    "O acompanhamento so existe enquanto uma entrega esta acontecendo: o link vale por",
+    "duas horas depois da baixa e some depois disso. O token da captura do manual",
+    "(7Kq2XbVn4pHs9dTmRcJw1e) ja respondia {\"encontrado\": false} no fim do mesmo dia da",
+    "entrega, e nenhuma loja de teste tem motoboy na rua com GPS ligado num Cloud Agent.",
+    "Nao ha entrega em andamento para fotografar.",
+    "",
+    "A cena monta UMA entrega, e quem desenha a tela e o cardapio digital de producao:",
+    "a resposta de GET .../tempresaDelivery/rastreio/{token} e trocada dentro do",
+    "Chromium da captura, e o Nuxt renderiza o Leaflet de verdade, o pino com a logo, a",
+    "moto com o anel pulsando, o traco pontilhado e a barra de quatro etapas.",
+    "",
+    "O que e real na cena:",
+    "  - a LOJA. E o cardapio modelo da casa (menu.beefood.com.br/oneburger, ONE STAND",
+    "    HAMBURGUERIA), com a coordenada e a URL de logo que o proprio cardapio publica.",
+    "    Nao e loja de cliente — e por isso a logo pode aparecer no pino;",
+    "  - as RUAS. Destino e posicao do entregador caem em ruas de verdade em volta da",
+    "    loja, conferidas no Nominatim: Rua Luis Reis Santos (Cidade Dutra) e Rua",
+    "    Idalisio Soares Aranha Filho (Cidade Dutra);",
+    "  - a DISTANCIA. distanciaMetros nao foi escolhida: e a distancia grande-circulo",
+    "    entre a posicao do entregador e o destino, calculada pelo proprio script. O",
+    "    front arredonda de dez em dez metros e escreve 'A 420 m de voce, em linha reta.'",
+    "    O numero do texto concorda com o lugar dos pinos no mapa.",
+    "",
+    "O que e exemplo:",
+    "  - o numero do pedido (42, interno 1188), o primeiro nome do entregador (Diego — o",
+    "    mesmo da rota A da peca #10, para as duas peças mostrarem a mesma pessoa dos dois",
+    "    lados do despacho), a hora da entrega (20:12) e a posicao da fila (2 de 3).",
+    "",
+    "O que NAO foi mexido:",
+    "  - a cor. O link abre a tela com os pinos VERDES, porque o layout _rastreio nao",
+    "    preenche --v-corPrimariaEmp e o CSS cai no fallback #4caf50. E o que todo cliente",
+    "    ve ao tocar no link do WhatsApp, entao e o que a arte mostra. Injetar a cor da",
+    "    loja seria fotografar um comportamento que esse caminho nao tem.",
+    "",
+    "Nada e gravado em servidor nenhum: a unica chamada alterada e um GET. `--cru` mostra",
+    "o que o endereco responde hoje."
+  ],
+
+  "loja": {
+    "cardapio": "oneburger",
+    "nome": "ONE STAND HAMBURGUERIA",
+    "latitude": -23.7345933,
+    "longitude": -46.6889459,
+    "logo": "https://beetech-imagens.beefood-r2.work/350/e/logo360/empresa_filial_3_380_mqp71fovlogo360.webp",
+    "real": true,
+    "nota": "coordenada, nome e logo publicados pelo proprio cardapio modelo"
+  },
+
+  "destino": {
+    "resumo": "Rua Luis Reis Santos, 320 - Cidade Dutra",
+    "latitude": -23.7285933,
+    "longitude": -46.6849459,
+    "real": "a rua e o bairro; o numero 320 e exemplo",
+    "distanciaDaLoja_m": 782
+  },
+
+  "entregador": {
+    "nome": "Diego",
+    "latitude": -23.7318,
+    "longitude": -46.6871,
+    "rua": "Rua Idalisio Soares Aranha Filho - Cidade Dutra",
+    "atualizadoHaSegundos": 20,
+    "distanciaAteODestino_m": 419,
+    "exibido": "A 420 m de voce, em linha reta."
+  },
+
+  "pedido": {
+    "numero": "42",
+    "preVendaID": 1188,
+    "entregueEm": "2026-09-23T20:12:00",
+    "fila": { "posicao": 2, "total": 3 }
+  },
+
+  "estados_capturados": [
+    { "nome": "a-caminho", "estado": "A_CAMINHO", "escreve": "Diego esta indo ate voce / A 420 m de voce, em linha reta." },
+    { "nome": "preparo", "estado": "PREPARANDO", "escreve": "Seu pedido esta sendo preparado / Avisaremos assim que sair para entrega." },
+    { "nome": "fila", "estado": "NA_FILA", "escreve": "Diego saiu para entrega / Voce e a 2a de 3 paradas desta viagem." },
+    { "nome": "entregue", "estado": "ENTREGUE", "escreve": "Pedido entregue as 20:12" }
+  ]
+}
