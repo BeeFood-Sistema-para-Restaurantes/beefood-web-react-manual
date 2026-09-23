@@ -78,6 +78,12 @@ conferir o estado da funcionalidade no sistema antes de fotografar.
    prompt pronto para o dono colar no construtor de documentação do app. Ele
    começa pela **REGRA ZERO** e só então lista os arquivos exatos a ler.
 
+8. **Entrega.** Fechado o merge na `main`, a resposta ao dono termina com **a lista
+   das pastas entregues e a instrução de leitura** — o que colar no construtor, o
+   que ele pode ler e o que ele **não** pode. É isso que o dono repassa na hora de
+   publicar. Forma exata na seção 11 da
+   [`MEMORIA-GERAL.md`](references/MEMORIA-GERAL.md).
+
 > **O manual é "como eu uso", nunca "como o sistema faz".** Rota de API, nome de
 > campo, nome de arquivo e jargão de programador moram no `fluxo-codigo.md` e
 > **não** entram no `<nome>.md` — nem num rodapé "não publicar", porque é o

@@ -1925,7 +1925,38 @@ Fluxo Caixa (*Em breve!*).
   > descartáveis). Portanto as senhas PODEM ficar versionadas e o repositório PODE ser
   > **público** sem problema. Não tratar essas credenciais como segredo crítico.
 
----
+### Depois de todo merge: a lista de pastas + a instrução de leitura (OBRIGATÓRIO)
+
+Pedido do dono em 23/09/2026: *"sempre que fizer um merge de PR me mande as pastas +
+instrução"*. Ele é quem publica, e o que ele repassa ao construtor de documentação é
+justamente isso — **onde está o manual e o que pode ser lido**. Sem a lista, o
+construtor lê a pasta inteira, e foi exatamente assim que a rota da API do cupom saiu
+publicada na página do #122.
+
+Fechado o merge na `main`, a resposta ao dono termina com **uma linha por manual
+entregue**, nesta forma:
+
+```
+manuais/<pasta>/
+  Colar no construtor : manuais/<pasta>/texto-documentation.ia.md
+  Ler                 : manuais/<pasta>/<pasta>.md (na íntegra)
+                        manuais/<pasta>/imagens-tratadas/ (na ordem do prompt)
+  NÃO ler             : fluxo-codigo.md, MEMORIA.md, annotate.py, capturar.py,
+                        imagens-puras/
+```
+
+Três coisas que essa entrega sempre diz, e que não são decorativas:
+
+- **o arquivo publicável é o `<pasta>.md`**, e o nome dele é o da pasta — é o único que
+  vira página;
+- **`imagens-tratadas/` é a única pasta de imagem**, porque `imagens-puras/` é backup e
+  tem print sem seta;
+- **o que não se lê, listado por nome.** "Leia só o manual" não basta: o construtor
+  entende "leia a pasta do manual".
+
+Quando o merge entrega **um bloco** (vários manuais irmãos), as pastas vão na ordem da
+numeração `#NN`, e o bloco leva uma frase dizendo o que cada uma cobre — o dono publica
+um item de menu por manual, na ordem.
 
 ## 12. `texto-documentation.ia.md` — PROMPT pronto por manual (OBRIGATÓRIO)
 
