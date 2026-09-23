@@ -32,7 +32,7 @@ um acervo assim, e "entregue" escrito por extenso em toda linha também não.
 | 8 | [`08-painel-entregador/`](08-painel-entregador/roteiro.md) | Novidade | [Painel para Entregadores](https://beefood.app/novidades/painel-para-entregadores) — 19/09/2026 · [manual](https://ajuda.beefood.com.br/manual-painel-entregador) | 4:5 | 7 | [`.zip`](08-painel-entregador/entrega/08-painel-entregador.zip) · [copy](08-painel-entregador/copy-instagram.txt) |
 | 9 | [`09-campanhas-inteligentes/`](09-campanhas-inteligentes/roteiro.md) | Novidade | [Campanhas Inteligentes no WhatsApp](https://beefood.app/novidades/whatsapp-campanhas-inteligentes) — 28/07/2026 · [manual](https://ajuda.beefood.com.br/campanhas-inteligentes-whatsapp) | 4:5 | 6 | [`.zip`](09-campanhas-inteligentes/entrega/09-campanhas-inteligentes.zip) · [copy](09-campanhas-inteligentes/copy-instagram.txt) |
 | 10 | [`10-gestao-entregas/`](10-gestao-entregas/roteiro.md) | Novidade | **sem release** — módulo em liberação; o fato veio dos 18 [manuais](https://ajuda.beefood.com.br/painel-de-entregas/gestao-entregas-mapa-painel) do grupo | 4:5 | 9 | [`.zip`](10-gestao-entregas/entrega/10-gestao-entregas.zip) · [copy](10-gestao-entregas/copy-instagram.txt) |
-| 11 | [`11-rastreio-da-entrega/`](11-rastreio-da-entrega/roteiro.md) | Novidade | [Rastreio da entrega pelo cliente](https://beefood.app/novidades/gestao-entregas-rastreio-pelo-cliente) — 23/09/2026 · [manual](https://ajuda.beefood.com.br/manuais/gestao-entregas-rastreio-cliente) | 4:5 | 7 | [`.zip`](11-rastreio-da-entrega/entrega/11-rastreio-da-entrega.zip) · [copy](11-rastreio-da-entrega/copy-instagram.txt) |
+| 11 | [`11-rastreio-da-entrega/`](11-rastreio-da-entrega/roteiro.md) | Novidade | Acompanhamento em tempo real, pelo cliente — release [Rastreio da entrega pelo cliente](https://beefood.app/novidades/gestao-entregas-rastreio-pelo-cliente), 23/09/2026 · [manual](https://ajuda.beefood.com.br/manuais/gestao-entregas-rastreio-cliente) | 4:5 | 7 | [`.zip`](11-rastreio-da-entrega/entrega/11-rastreio-da-entrega.zip) · [copy](11-rastreio-da-entrega/copy-instagram.txt) |
 
 O número de slides é o que o assunto pede, entre 6 e 9 — não é uma medida fixa.
 Peça de função não leva data nem pílula de novidade: ela é perene, e pode ser
@@ -51,6 +51,14 @@ no celular de quem pediu. Ela também mudou o degrau da imagem em peça de
 resultado fora do painel — a tela do cliente é **captura**, e não desenho,
 porque a página de acompanhamento é pública e aceita a mesma interceptação de
 API que o totem e o tablet já usavam.
+
+E foi ela que ensinou duas regras de **sujeito**, as duas num retorno só. A capa
+anuncia o recurso e não o meio por onde ele chega, com o nome pelo qual o
+recurso se **vende** — que nem sempre é o título do release: "rastreio da
+entrega pelo cliente" virou *acompanhamento em tempo real*, sem que nenhum fato
+mudasse. E o corpo de cada slide diz a **consequência**, nunca o funcionamento
+da tela; o teste é olhar o sujeito das orações, porque copy que descreve a
+imagem logo abaixo dela está legendando a prova em vez de vendê-la.
 
 ## Estrutura de cada pasta
 

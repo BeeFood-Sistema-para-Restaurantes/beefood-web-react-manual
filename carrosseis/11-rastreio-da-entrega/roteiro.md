@@ -1,5 +1,10 @@
-# Rastreio da entrega, pelo cliente
+# Acompanhamento em tempo real, pelo cliente
 
+- **Nome de venda × nome do release:** a peça vende **acompanhamento em tempo
+  real**. O release se chama *"rastreio da entrega pelo cliente"*, que é o nome
+  escrito do lado de quem construiu; os dois são o mesmo recurso, e o segundo
+  fica registrado aqui e no `copy-instagram.txt` porque é por ele que quem leu a
+  publicação vai perguntar. O caso está na skill, em *o décimo vício*.
 - **Gênero:** novidade
 - **Fonte:** [Gestão de Entregas: rastreio da entrega pelo
   cliente](https://beefood.app/novidades/gestao-entregas-rastreio-pelo-cliente)
@@ -95,12 +100,12 @@ o que configurar. Todas as imagens são resultado.
 
 | # | Arquivo | Título | Imagem |
 |---|---|---|---|
-| 1 | `01-capa.html` | A mesma mensagem, agora com **rastreio da entrega** | `cel-a-caminho.png` num `.celular` sangrando pela base — **captura** |
+| 1 | `01-capa.html` | Acompanhamento **em tempo real**, pelo seu cliente | `cel-a-caminho.png` num `.celular` sangrando pela base — **captura** |
 | 2 | `02-o-link-vai-junto.html` | O link entra **sozinho** na mensagem que a sua loja já manda | `zap-rastreio.png` — **desenho** da conversa, com `.realce` no bloco que o sistema anexa |
-| 3 | `03-mapa-ao-vivo.html` | **Mapa ao vivo**: quem está levando e a que distância | `recorte-cabecalho.png` + `recorte-cartao.png` — **captura**, dois recortes |
+| 3 | `03-mapa-ao-vivo.html` | **Mapa ao vivo**: quem espera deixa de telefonar | `recorte-cabecalho.png` + `recorte-cartao.png` — **captura**, dois recortes |
 | 4 | `04-barra-de-etapas.html` | **Barra de etapas**: onde o pedido está, sem ninguém perguntar | `recorte-preparo.png`, `recorte-fila.png`, `recorte-entregue.png` — **captura**, três recortes |
 | 5 | `05-pino-da-loja.html` | **Pino da loja**: a sua logo no meio do mapa | `recorte-mapa.png` — **captura**, recorte fechado |
-| 6 | `06-no-computador.html` | **Uma página só**: o mesmo link abre em qualquer tela | `pc-a-caminho.png` num `.notebook` — **captura** |
+| 6 | `06-no-computador.html` | **Uma página só**: nada de segunda versão para manter | `pc-a-caminho.png` num `.notebook` — **captura** |
 | 7 | `07-cta.html` | Despache a próxima rota **hoje** | `cel-a-caminho.png` no mesmo `.celular` da capa — a peça abre e fecha na mesma cena |
 
 Lidos em fila, os sete títulos montam a lista do que o módulo passou a fazer, e
@@ -256,29 +261,115 @@ Aqui vale ainda melhor, porque a imagem **é** o assunto do pedido: o último
 slide diz "despache a próxima rota" e mostra o que chega do outro lado quando
 ela sai.
 
-### A capa: antes × agora, o molde que faltava
+### A capa: três versões, e a terceira é a que anuncia o recurso
 
-Placar dos moldes nas dez peças: pergunta 2, afirmação do fato 5, anúncio de
-chegada 1, nome + canal 1, nome + dois-pontos 1 — **antes × agora 0**.
+**Primeira:** *"Antes, o telefone. Agora, o rastreio da entrega"*. Caiu na
+própria revisão, porque afirma que os clientes dele ligam — e quem pode
+desmentir isso é ele.
 
-Ele é o molde certo aqui, e não só por rodízio: o recurso **é** um antes e um
-agora da mesma mensagem. A loja não passou a mandar nada novo; o aviso que já
-saía ganhou um bloco no fim.
+**Segunda, a que foi entregue:** *"A mesma mensagem, agora com **rastreio da
+entrega**"*, com o subtítulo *"No WhatsApp, quem pediu abre o mapa ao vivo"*. O
+molde é antes × agora, que faltava no placar (pergunta 2, afirmação do fato 5,
+anúncio de chegada 1, nome + canal 1, nome + dois-pontos 1 — antes × agora 0), e
+o par de perguntas da skill passa inteiro: tem nome, tem o que faz, tem onde
+acontece.
 
-> **A mesma mensagem, agora com rastreio da entrega**
+Voltou assim: *"a hero do slide 1 ainda não estamos conseguindo vender de forma
+correta. 'Acompanhamento em tempo real pelo cliente' seria o correto."* São dois
+defeitos, e os dois são de **sujeito**:
 
-O par de perguntas passa: **qual é o nome?** Rastreio da entrega. **O que aquilo
-faz?** Abre um mapa ao vivo no celular de quem pediu, e o subtítulo diz isso.
-**Onde acontece?** No aviso de saiu para entrega, no WhatsApp.
+1. **o sujeito era o meio.** "A mesma mensagem" é o WhatsApp, e o WhatsApp é por
+   onde o recurso chega, não o recurso. Título se lê da esquerda para a direita
+   e a leitura do feed para no meio: quem leu a primeira metade foi informado de
+   que **nada mudou**, e a novidade estava depois da vírgula. O molde antes ×
+   agora carrega essa armadilha, porque o "antes" é sempre a coisa velha e ocupa
+   a primeira metade da linha;
+2. **o nome era o do release.** "Rastreio da entrega pelo cliente" é o título da
+   publicação, escrito do lado de quem construiu. Quem compra compra
+   *acompanhamento em tempo real*. Os dois são verdade, e é por isso que a troca
+   não caiu em conferência nenhuma.
 
-E a capa não afirma nada sobre o leitor. A primeira versão do título era
-*"Antes, o telefone. Agora, o rastreio da entrega"* — boa frase, e ela afirma
-que os clientes dele ligam. Quem poderia desmentir? Ele. O antes virou o da
-**mensagem**, que é do produto.
+**Terceira, a publicada:**
+
+> Acompanhamento **em tempo real**, pelo seu cliente
+> O mapa da entrega chega pelo WhatsApp.
+
+Molde novo na série: **nome + para quem**. O canal continua respondendo *onde
+isso acontece?*, agora no subtítulo e como adjunto — que é o lugar dele quando
+não é o nome do recurso (na #9 era: "Campanhas Inteligentes no WhatsApp").
+
+O destaque mudou de lugar junto. Na #8, na #9 e na #10 o vermelho pegava o nome
+inteiro, porque era a palavra que o leitor ia **procurar no menu** depois. Aqui
+não há menu: o recurso é automático e não tem tela de configuração. Sem essa
+função, o vermelho volta a marcar o que é notícia — *em tempo real*.
+
+Três linhas curtas porque o nome tem 28 caracteres e em `titulo--medio` (68 px)
+cabem cerca de 22 por linha. Quebrado em *Acompanhamento / em tempo real / pelo
+seu cliente*, cada linha fecha inteira e o cartaz fica de pé.
+
+As duas regras subiram para a skill, em *o décimo vício*.
+
+### O segundo retorno: cinco slides explicavam a tela
+
+A mesma leitura devolveu: *"tem slide que estamos explicando o funcionamento da
+tela. não é um manual de usuário, e sim falando da novidade."*
+
+Nenhum dos corpos acusados copiava a fonte, nenhum ensinava caminho de menu e
+todos eram verdade conferida no manual. O que eles tinham era **sujeito de
+interface**:
+
+| Slide | Antes | Depois |
+|---|---|---|
+| 2 | "O sistema anexa o endereço do acompanhamento ao aviso de saída" | "Não há campo novo para preencher, tela nova para aprender nem mensagem a mais na conta" |
+| 3 | "A tela escreve o primeiro nome do entregador e a distância até a porta" | "A ligação mais cara da noite é a de 'quanto tempo falta'. Ela perde o motivo quando quem pediu vê o entregador andando" |
+| 4 | "São quatro etapas, e a frase embaixo muda junto com elas" | "Quem espera acompanha o pedido andar da cozinha até a porta" |
+| 5 | "É a mesma logo do seu cardápio" | "Mapa de entrega é o que os aplicativos gigantes ensinaram o país a esperar" |
+| 6 | "No computador o mapa ocupa a tela e as informações passam para a coluna da esquerda" | "O mesmo endereço abre no computador, e não há outra página para você divulgar" |
+
+O padrão que explica todos: **cada corpo da esquerda descreve a imagem que está
+logo abaixo dele.** O slide tinha captura forte, a captura já dizia tudo, e a
+copy — sem assunto próprio — legendou a prova. Legenda de captura é exatamente
+o formato de um manual.
+
+Dois títulos caíram junto, pelo mesmo motivo: o 3 e o 6 cumpriam o molde *nome,
+dois-pontos, o que ele te dá*, e a segunda metade estava descrevendo a tela em
+vez de dizer o ganho. Viraram "quem espera deixa de telefonar" e "nada de
+segunda versão para manter".
+
+O que saiu do texto não se perdeu: contagem de etapas, disposição de colunas e
+ritmo de atualização continuam nas imagens, que fazem esse trabalho melhor. E o
+detalhe que **é** argumento ficou, dentro de frase com sujeito de gente — a
+distância medida agora está no slide 3 como a razão de a resposta ser
+confiável, e não como descrição do que a tela escreve.
+
+A regra subiu para a skill como *o décimo primeiro vício*, e a revisão ganhou o
+passo **1c**: tampe as imagens, leia só a copy e olhe o sujeito de cada oração.
+
+### O conferidor estava cego para o release
+
+Ao reescrever a legenda, o `conferir-texto.py` rodado só com `--novidade` acusou
+duas sequências do release que **três rodadas anteriores tinham aprovado**. A
+causa é do script: `--fonte` **substituía** o feed em vez de somar, e esta peça
+foi conferida com `--novidade` e quatro `--fonte` desde o começo. O `OK` saía,
+e o release nunca tinha sido conferido.
+
+O script foi corrigido na skill: as fontes se somam, e a linha de saída lista
+todas — conferir essa lista é o jeito rápido de ver se faltou uma. A linha de
+comando desta peça:
+
+```bash
+python .cursor/skills/carrossel/scripts/conferir-texto.py 11-rastreio-da-entrega \
+  --novidade gestao-entregas-rastreio-pelo-cliente \
+  --fonte manuais/gestao-entregas-rastreio-cliente \
+  --fonte manuais/gestao-entregas-avisos-whatsapp \
+  --fonte manuais/gestao-entregas-despachar \
+  --fonte manuais/gestao-entregas-liberar-entregador
+```
 
 ## O que a revisão mudou
 
-**A capa perdeu uma linha de subtítulo.** Na primeira renderização o subtítulo
+**A capa perdeu uma linha de subtítulo** (isto foi na segunda versão do título,
+e a medida continua valendo para a terceira). Na primeira renderização o subtítulo
 quebrou em duas e o celular, em `top: 585px`, passou por cima da segunda — o
 `z-index` do texto salvou a leitura e não salvou a arte. *"Quem pediu abre o
 mapa ao vivo pelo WhatsApp"* virou *"No WhatsApp, quem pediu abre o mapa ao
