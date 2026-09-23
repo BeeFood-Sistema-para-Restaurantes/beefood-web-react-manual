@@ -34,8 +34,8 @@ mensagem. O link vai junto do aviso de *saiu para entrega* que a sua loja já ma
 
 O recurso é automático, mas ele depende de quatro coisas que já existem na sua operação:
 
-1. **Aplicativo do entregador aberto e com GPS liberado.** É a única condição obrigatória: sem
-   posição recente do celular dele, não há link.
+1. **Aplicativo do entregador aberto e com GPS liberado.** É a condição que liga o recurso: sem
+   posição recente do celular dele, não há link. As outras três só melhoram o que o cliente vê.
 2. **Nome do entregador cadastrado como nome de gente.** É o que o cliente lê na tela.
 3. **Endereço do cliente com localização no mapa.** Sem isso o mapa ainda abre (mostra a loja e a
    moto), mas somem o pino de destino e a distância.
@@ -115,8 +115,8 @@ loja (5) e o endereço dele (6).
 | Nº | Onde | O que é |
 |----|------|---------|
 | 1. | **Pedido nº78 (1173)** | O número que ele ouve de você ao telefone. O primeiro é o número do dia; o entre parênteses é o interno |
-| 2. | A barra de progresso | Quatro etapas: enviado ao restaurante, em preparo, pronto aguardando o entregador, saiu para entrega. A etapa atual pisca |
-| 3. | **Pedido sendo preparado** | O estado, escrito. A flecha à direita abre a linha do tempo com a hora de cada etapa |
+| 2. | A barra de progresso | Quatro etapas: enviado ao restaurante, em preparo, pronto aguardando o entregador, saiu para entrega. As já cumpridas ficam cheias, **a atual pisca** e as futuras ficam cinzas. Aqui: a primeira cheia e a segunda piscando |
+| 3. | **Pedido sendo preparado** | O estado, escrito. A seta para baixo abre a linha do tempo: as etapas **já cumpridas**, com a hora de cada uma |
 | 4. | **Acompanhar entrega** | Ainda não é um botão: é o aviso *"Avisaremos assim que sair para entrega."* |
 | 5. | O pino com a sua logo | A loja. Se a logo não carregar, aparece um ícone genérico de loja |
 | 6. | O pino escuro | O endereço do cliente |
@@ -144,7 +144,7 @@ distância embaixo (4), e no mapa surge a **moto** (5) — que anda.
 
 | Nº | Onde | O que é |
 |----|------|---------|
-| 1. | **Pedido saiu para entrega** | A terceira barra acendeu. A partir daqui a linha de acompanhamento vira clicável |
+| 1. | **Pedido saiu para entrega** | A **quarta e última** etapa é a que está piscando agora — as três anteriores já ficaram cheias. A partir daqui a linha de acompanhamento vira clicável |
 | 2. | **16:34** | A hora do despacho, ao lado do estado |
 | 3. | **Carlos está indo até você** | Só o **primeiro nome** do entregador, como está no cadastro de funcionário. É o bastante para o cliente saber quem vai bater na porta, sem expor o funcionário |
 | 4. | **A 640 m de você, em linha reta.** | A distância, arredondada de dez em dez metros. Acima de um quilômetro ela vira *"A 1,2 km de você, em linha reta."* |
@@ -248,7 +248,7 @@ pedido (1), o estado vira **Pedido concluído** (2) e a avaliação aparece logo
 
 | Nº | Onde | O que é |
 |----|------|---------|
-| 1. | **Pedido nº1173 \| 23/09/2026 às 13:31** | Sai a barra de progresso, entra a data e a hora do pedido |
+| 1. | **Pedido nº1173 \| 23/09/2026 às 13:31** | Sai a barra de progresso, entra a data e a hora do pedido. Aqui o número é o **interno** (o 1173 que antes vinha entre parênteses), sem o número do dia |
 | 2. | **Pedido concluído** | A faixa cinza com o certo verde. Em pedido cancelado, ela fica vermelha e diz *Pedido cancelado* |
 | 3. | **Avalie seu pedido** | As cinco estrelas. Depois de avaliado, o texto vira *Pedido avaliado* |
 

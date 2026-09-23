@@ -168,8 +168,27 @@ Quatro etapas, com a situação numérica do ERP (`AGUARDANDO 1`, `PREPARO 2`, `
 | 3 | Pronto, aguardando o entregador | Pronto para retirada |
 | 4 | Saiu para entrega | Aguardando você |
 
-A etapa atual tem animação de opacidade (`progresso-pedido-atual`, 1,4 s) — é o "piscando" que o
-manual descreve.
+Cada etapa recebe duas classes por dois testes, e é isso que explica a leitura das barras nas
+capturas:
+
+```js
+feita: situ > etapa.situ      // cheia
+atual: situ === etapa.situ    // piscando (animação de opacidade, 1,4 s)
+```
+
+Ou seja, **a etapa atual é a que pisca, não a última cheia**. Em *Saiu para entrega* (`situ` 3) as
+três primeiras estão `feita` e a quarta está `atual` — três barras cheias e a quarta piscando, que
+foi exatamente o que a captura mostrou e o que a primeira versão do manual leu errado ("a terceira
+barra acendeu").
+
+A seta para baixo ao lado do estado alterna `expandOrderStatus`, e a lista é filtrada por
+`!!expandOrderStatus || 1 == e.current`: **fechada mostra só a etapa atual, aberta mostra todas as
+já cumpridas**, cada uma com a sua hora (`statusList` monta `time` de `dataSitu3`,
+`dataSituPronto`, `dataSitu2` e `dataSitu1`, e filtra por `situ >= situNumber`).
+
+E o cabeçalho do pedido troca de número conforme o estado: em andamento é
+`Pedido nº{numeroPedido} ({numeroPreVenda})`; no cartão de avaliação do pedido concluído é
+`Pedido nº{numeroPreVenda} | {data}`, **só o interno**.
 
 ## Onde o acompanhamento aparece dentro do pedido
 

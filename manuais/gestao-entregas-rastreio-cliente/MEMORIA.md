@@ -44,6 +44,22 @@ $ curl -s https://cardapio-digital.beetechapi.be/api/rest/tempresaDelivery/rastr
 `expirado: true`. Quando ele já não conhece, o cliente vê `Esse pedido não tem rastreio`. As duas
 frases estão no manual e no FAQ, porque quem atende o telefone vai ouvir as duas.
 
+## Duas leituras de imagem que o código desmentiu
+
+A conferência final cruzou cada afirmação de legenda com o bundle, e duas não passaram:
+
+- **"A terceira barra acendeu"** estava errado. As classes são `feita: situ > etapa.situ` e
+  `atual: situ === etapa.situ`, então em *Saiu para entrega* as **três primeiras** estão cheias e a
+  **quarta** é a que pisca. Contar barras coloridas na imagem dá o número errado, porque cheia e
+  piscando são estados diferentes com cores parecidas.
+- **A seta ao lado do estado** eu tinha descrito como "abre a linha do tempo com a hora de cada
+  etapa". O filtro é `!!expandOrderStatus || 1 == e.current` sobre uma lista já filtrada por
+  `situ >= situNumber`: fechada mostra **só a etapa atual**, aberta mostra as **já cumpridas**. A
+  correção é pequena e muda o que o lojista espera ver.
+
+Vale como método: **legenda de imagem é asserção, e asserção se confere no código.** É a mesma
+regra que o #117 aprendeu por outro caminho.
+
 ## Como o código foi lido, sem clone
 
 O rastreio **não** está no `beefood-web-react` nem no `beetech-server-node-2.0`: ele mora no
