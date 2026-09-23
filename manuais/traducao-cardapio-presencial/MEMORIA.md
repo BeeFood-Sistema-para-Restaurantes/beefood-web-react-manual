@@ -1,5 +1,10 @@
 # MEMORIA.md — #100 Tradução Cardápio Presencial
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `traducao-cardapio-presencial.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Pedido do dono (16/09/2026)
 
 > "faça um git pull em beefood-web-react e veja a ultima atualização de

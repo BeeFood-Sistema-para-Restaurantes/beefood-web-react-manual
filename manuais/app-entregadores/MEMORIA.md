@@ -1,5 +1,10 @@
 # MEMORIA.md — #57 BeeFood Entregador (aplicativo para motoboy)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `app-entregadores.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 > 🗄️ **Este manual vai ser aposentado.** Decisão do dono em 18/09/2026, ao abrir o **#104
 > Gestão de Entregas**: os prints do celular aqui são de uma **versão anterior** do app
 > (cabeçalho branco, *FUNCIONÁRIO 1*, datas de 2024), e o app de hoje é outro. O material que

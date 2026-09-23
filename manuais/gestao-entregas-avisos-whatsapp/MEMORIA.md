@@ -1,5 +1,10 @@
 # MEMÓRIA — #110 Avisos de WhatsApp da entrega
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `gestao-entregas-avisos-whatsapp.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## O que este manual é
 
 O quarto bloco do plano da Gestão de Entregas: a tela de notificações automáticas vista pelo

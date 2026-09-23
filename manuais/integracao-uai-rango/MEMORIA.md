@@ -1,5 +1,10 @@
 # MEMORIA.md — #63 Ativar integração Uai Rango
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `integracao-uai-rango.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Escopo
 Migração do artigo [Ativar integração Uai Rango](https://ajuda.beefood.com.br/baseconhecimento/ativar-integracao-uai-rango/).
 Mesma mentalidade da fila #49–#57: print do **painel Uai Rango** copiado do artigo;

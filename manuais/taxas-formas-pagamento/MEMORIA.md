@@ -1,5 +1,10 @@
 # MEMORIA.md — #65 Taxas das formas de recebimento
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `taxas-formas-pagamento.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Escopo
 Taxa e dias em **Financeiro → Formas Pagamento → Formas de Recebimento
 das Vendas**. Prova: débito geral 2,50% D+0, **Visa 2,19%** e

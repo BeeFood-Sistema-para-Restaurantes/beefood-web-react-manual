@@ -1,5 +1,10 @@
 # Fluxo de código — Capas e Destaques do cardápio digital
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cardapio-digital-capas-destaques.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 > Mapeamento técnico do que o manual **#48 Capas e Destaques** documenta.
 > Fonte: `beefood-web-react` e `beetech-server-node-2.0` (branch `beefood-web-react`),
 > somente leitura. Levantado em 22/08/2026.

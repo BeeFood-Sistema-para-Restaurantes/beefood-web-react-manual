@@ -1,5 +1,10 @@
 # MEMORIA.md — #77 Cardápio digital presencial e QR Code
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cardapio-digital-presencial-qrcode.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Manual **#77**. Ligar o canal presencial, os parâmetros e gerar o QR
 Code — na **Configurações** e em **Meus Links**.
 

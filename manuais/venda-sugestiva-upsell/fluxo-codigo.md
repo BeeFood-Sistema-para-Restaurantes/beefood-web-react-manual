@@ -1,5 +1,10 @@
 # fluxo-codigo.md — Venda Sugestiva (UpSell) (#103)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `venda-sugestiva-upsell.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Mapeamento técnico feito no `beefood-web-react` (commit `029145e`, 17/09/2026), no
 `beefood-reports-hub` e no bundle do cardápio público (`menu.beefood.com.br`).
 **Documento interno — não publicar.**

@@ -1,5 +1,10 @@
 # MEMÓRIA — #104 Liberar o entregador
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `gestao-entregas-liberar-entregador.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Pasta: `manuais/gestao-entregas-liberar-entregador/` · Numeração: **#104** ·
 Escrito em 18/09/2026 na sandbox **BeeFood3 - Manual** (`empresaID 38311`,
 `filialID 39202`).

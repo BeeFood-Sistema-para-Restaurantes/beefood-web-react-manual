@@ -1,5 +1,10 @@
 # MEMÓRIA — #114 Código de barras
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `app-entregador-codigo-barras.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Por que este manual existe, mesmo com o #104 já falando de código de barras
 
 O dono pediu, em 18/09/2026: *"falta incluir a leitura de código de barras → como ativar o

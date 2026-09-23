@@ -1,5 +1,10 @@
 # fluxo-codigo.md — Criar usuário e montar grupo de acesso
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `usuarios-criar.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Mapeamento técnico da tela **Configuração → Usuários** (`/usuarios`): criação de usuário,
 criação de grupo, senha, limite do plano e o que acontece com usuário **sem grupo**.
 Documento interno — **não publicar**.

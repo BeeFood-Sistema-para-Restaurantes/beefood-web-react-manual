@@ -1,5 +1,10 @@
 # O que a tela faz de verdade — #105 Gestão de Entregas (mapa e painel)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `gestao-entregas-mapa-painel.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Lido em `beefood-web-react` e em `beetech-server-node-2.0/docs/gestao-entrega-2.0`, e
 confirmado contra a API do sandbox. Serve para não escrever no manual coisa que a tela não
 faz, e para explicar os números que o cliente vai ver.

@@ -1,5 +1,10 @@
 # Bastidores — #117 Uma entrega do começo ao fim
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `gestao-entregas-ciclo-completo.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 O que sustenta o texto do manual: os estados por onde o pedido passa, quem escreve cada um, e o que
 cada escrita dispara. Este arquivo existe porque o #117 afirma coisas sobre **as duas telas ao mesmo
 tempo**, e afirmação dessas só se defende olhando o que é gravado.

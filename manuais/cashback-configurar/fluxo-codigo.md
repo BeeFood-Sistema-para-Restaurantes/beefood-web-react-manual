@@ -1,5 +1,10 @@
 # fluxo-codigo.md — #19 Cashback configurar (uso interno, NÃO publicar)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cashback-configurar.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 - Página canônica: `Cashback.desktop.tsx` → aba `configuracao` → `CashbackConfiguracaoCRMTab`.
 - API: `GET/PUT /api/empresaDelivery2/cardapioDigital/cashback2/{empresaID}/{usuarioID}`.
 - Hook: `useCashbackCRM` — percentuais na API são decimal (0.03 = 3%); a UI converte ×100.

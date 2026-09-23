@@ -1,5 +1,10 @@
 # fluxo-codigo.md — #101 Domínio próprio e subdomínio pela tela
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `dominio-proprio-configurar.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Mapeamento técnico da tela nova de **Domínio Próprio** (autoatendimento). Leitura de
 `beefood-web-react` com `git pull` em 16/09/2026 — `72fa5c3`. A tela nasceu nos
 commits de 16/09 (`6b923d7` *Adicionou nova tela de Domínio* e seguintes).

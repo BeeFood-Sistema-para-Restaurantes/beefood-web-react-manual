@@ -1,5 +1,10 @@
 # MEMORIA.md — #99 Destaque na impressão
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `destaque-impressao.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Escopo
 
 Campo **Destaque na impressão** (`destaqueImpressao`) no cadastro de produto e

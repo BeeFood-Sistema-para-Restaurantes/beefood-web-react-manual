@@ -1,5 +1,10 @@
 # MEMÓRIA — Manual de Restrições de Caixa (por grupo de acesso)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `caixa-restricoes.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 > Memória detalhada deste manual. **O estudo está concluído**; falta produzir.
 > Ver também: `../../MEMORIA-GERAL.md`, `../caixa-fechar/` e `../caixa-conferencia-2/`.
 

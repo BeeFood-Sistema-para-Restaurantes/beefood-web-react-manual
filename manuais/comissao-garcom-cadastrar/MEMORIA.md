@@ -1,5 +1,10 @@
 # MEMORIA.md — Comissão do garçom: cadastrar e lançar
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `comissao-garcom-cadastrar.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Manual **#83**. Produzido em 06/09/2026 com os #84 e #85. Sandbox BeeFood3.
 
 Última atualização: 06/09/2026.

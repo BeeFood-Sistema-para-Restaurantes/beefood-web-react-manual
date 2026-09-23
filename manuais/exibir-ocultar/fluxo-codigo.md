@@ -1,5 +1,10 @@
 # fluxo-codigo.md — #68 Exibir / Ocultar (uso interno, NÃO publicar)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `exibir-ocultar.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 - Página: `src/pages/ExibirOcultar.tsx` — rota `/exibir-ocultar`.
 - Permissão: `exibirOcultar` (sidebar `AppSidebar.tsx`).
 - Lista: `CardapioTabelasPrecoTab` com `isRodizio=false`.

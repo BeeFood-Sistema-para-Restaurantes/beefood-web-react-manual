@@ -1,5 +1,10 @@
 # fluxo-codigo.md — Cardápio Digital Tablet (mapeamento técnico do painel)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cardapio-digital-tablet-modo-kiosk.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 > **Não publicar** — material interno.
 >
 > **Atenção ao escopo.** O manual `cardapio-digital-tablet-modo-kiosk.md` é **só do aplicativo

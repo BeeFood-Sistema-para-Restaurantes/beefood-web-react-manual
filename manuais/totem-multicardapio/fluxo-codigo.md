@@ -1,5 +1,10 @@
 # fluxo-codigo.md — #124 Mais de um cardápio no totem
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `totem-multicardapio.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Leitura do `beefood-web-react` e do bundle do totem em 22/09/2026, mais o
 **pedido misto real** feito no aparelho no mesmo dia (venda 1168, pedido 73).
 

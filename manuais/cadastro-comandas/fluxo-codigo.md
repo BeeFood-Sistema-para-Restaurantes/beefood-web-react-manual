@@ -1,5 +1,10 @@
 # Fluxo de código — Cadastro de comandas e QR Code (#81)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cadastro-comandas.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Levantado em 03/09/2026 em `~/refs/beefood-web-react` (leitura) e no sandbox.
 **Não publicar nada daqui no manual.** O irmão deste arquivo é
 [`../cadastro-mesas/fluxo-codigo.md`](../cadastro-mesas/fluxo-codigo.md) — a tela é a mesma, com

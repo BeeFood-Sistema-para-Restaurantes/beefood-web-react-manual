@@ -1,5 +1,10 @@
 # MEMÓRIA — #115 App do entregador: pedido de iFood e de 99Food
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `app-entregador-marketplace.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## O recorte
 
 Capítulos 09 (iFood) e 10 (99Food) do material do dono, num manual só. O material os separa, e o

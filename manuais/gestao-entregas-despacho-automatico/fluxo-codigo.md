@@ -1,5 +1,10 @@
 # O que a tela faz de verdade — #109 Despacho automático
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `gestao-entregas-despacho-automatico.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Lido em `beetech-server-node-2.0/docs/gestao-entrega-2.0/13-despacho-automatico.md` e
 conferido na sandbox ligando, agrupando e associando de verdade.
 

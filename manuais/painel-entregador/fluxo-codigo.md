@@ -1,5 +1,10 @@
 # O que o Painel para Entregadores faz de verdade — lido no código
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `painel-entregador.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Fonte: `beefood-web-react`, commit `63098fc` *"Restrinziu painel entregador"* (19/09/2026),
 o commit que fechou o recurso. Tudo aqui foi conferido no código e, quando dá, medido na
 API de produção da sandbox 38311/39202.

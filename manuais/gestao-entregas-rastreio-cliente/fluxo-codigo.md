@@ -1,5 +1,10 @@
 # O que o acompanhamento do cliente faz de verdade — lido no código
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `gestao-entregas-rastreio-cliente.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 **A fonte não é um clone.** O rastreio mora no **cardápio digital**, que é um projeto Nuxt 2
 próprio, em repositório separado — e não é nem o `beefood-web-react` nem o backend
 `beetech-server-node-2.0` (este continua inacessível nesta VM: as quatro combinações de token do

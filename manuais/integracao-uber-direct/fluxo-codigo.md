@@ -1,5 +1,10 @@
 # fluxo-codigo.md — Integração Uber Direct (uso interno / técnico)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `integracao-uber-direct.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 > Documento técnico de apoio. **Não** é o manual do usuário. Mapeia onde a integração vive no
 > código, as rotas do servidor e o modelo de dados. Base: `beefood-web-react` (git pull 04/08/2026)
 > e `beefood3-server-entregas/docs/uber-direct`.

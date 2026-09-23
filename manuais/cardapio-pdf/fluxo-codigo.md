@@ -1,5 +1,10 @@
 # Fluxo de código — Gerar Cardápio em PDF (#102)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cardapio-pdf.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Referência interna. Nada daqui vai para o manual do usuário.
 
 ## Onde fica

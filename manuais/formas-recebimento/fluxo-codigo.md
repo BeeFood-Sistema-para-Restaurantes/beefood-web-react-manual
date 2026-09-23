@@ -1,5 +1,10 @@
 # Fluxo de código — Cadastrar forma de recebimento (#82)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `formas-recebimento.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Levantado em 03/09/2026 em `~/refs/beefood-web-react` (leitura) e no sandbox.
 **Não publicar nada daqui no manual.**
 

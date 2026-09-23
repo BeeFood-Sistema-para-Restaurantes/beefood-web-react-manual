@@ -1,5 +1,10 @@
 # MEMÓRIA — #112 App do entregador: as entregas do dia e o histórico
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `app-entregador-entregas-do-dia.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## O recorte
 
 Capítulos 03 (lista), 04 (detalhes) e 14 (histórico) do material do dono, num manual só. São as

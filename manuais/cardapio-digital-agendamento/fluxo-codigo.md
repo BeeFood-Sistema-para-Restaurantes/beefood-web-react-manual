@@ -1,5 +1,10 @@
 # fluxo-codigo.md — #70 Agendamento do cardápio digital (uso interno, NÃO publicar)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cardapio-digital-agendamento.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 - Aba: `CardapioDigital.tsx` `tab=agendamento`.
 - UI: `src/components/cardapio-digital/AgendamentoTab.tsx`.
 - Mobile: `MobileAgendamentoTab.tsx`.

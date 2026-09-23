@@ -1,5 +1,10 @@
 # O que a tela faz de verdade — Relatório Operação de Entrega
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `relatorio-operacao-entrega.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Lido em `beefood-reports-hub/src/components/reports/OperacaoEntrega.tsx` (910 linhas),
 `OperacaoMapa.tsx`, `OperacaoDados.tsx` e `OperacaoFiltrosBar.tsx`, mais o plano de origem em
 `.lovable/plan/novo-relatório-delivery-operação-de-entrega-2026-09-15.md`. Conferido na

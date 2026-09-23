@@ -1,5 +1,10 @@
 # MEMÓRIA — #72 Ficha Técnica
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `ficha-tecnica.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Status: ✅ Concluído em 01/09/2026. **15 imagens**, 41 setas.
 Estudo que originou: [`PLANO-FICHA-TECNICA.md`](../../.cursor/skills/manual-sistema/references/planos/PLANO-FICHA-TECNICA.md).
 

@@ -1,5 +1,10 @@
 # MEMORIA.md — #20 Cashback operar
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cashback-operar.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Escopo
 Histórico, saldo por cliente, **ajuste manual (Adicionar e Remover)**,
 fila da madrugada, **Usar cashback** no PDV (modal aberto e **cancelado**) e

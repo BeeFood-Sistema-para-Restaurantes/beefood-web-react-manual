@@ -1,5 +1,10 @@
 # fluxo-codigo.md — Restrições de caixa
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `caixa-restricoes.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Mapeamento técnico das sete restrições, no front (`beefood-web-react`) e no backend
 (`beetech-server-node-2.0`, branch `beefood-web-react`). Documento interno — **não publicar**.
 

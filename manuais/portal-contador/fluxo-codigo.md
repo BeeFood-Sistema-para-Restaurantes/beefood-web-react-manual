@@ -1,5 +1,10 @@
 # fluxo-codigo.md — #96 Portal do contador (uso interno, NÃO publicar)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `portal-contador.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Sessão **separada** do painel. Token assinado com outro segredo, 12 h.
 `contadorAuthMiddleware` + `exigirVinculo` em cada CNPJ.
 
