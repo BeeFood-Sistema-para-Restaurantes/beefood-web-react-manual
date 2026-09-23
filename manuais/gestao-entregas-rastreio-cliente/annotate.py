@@ -1,4 +1,4 @@
-"""Anota as capturas do #121 — o cliente acompanha a entrega no mapa.
+"""Anota as capturas do #125 — o cliente acompanha a entrega no mapa.
 
 As sete imagens deste manual **não** foram capturadas aqui: elas vêm de um pedido real que o
 dono fez e entregou no cardápio `menu.beefood.com.br/beefood3`, com um entregador percorrendo o
