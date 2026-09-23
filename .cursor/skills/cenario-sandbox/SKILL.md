@@ -119,6 +119,51 @@ identificador.** Não existe, e não precisa existir, rota que aceite `origem`.
 | `POST app/datasnap/rest/tmesa/pedido` | o cardápio público | sempre **Cardápio Digital** | itens, cliente, pagamento, frete — e **exige** o `Authorization: Basic` do cardápio |
 | `POST app3/api/venda2/atualizaSituacaoDelivery` | o kanban | — | move entre AGUARDANDO / PREPARO / PRONTO / ENTREGA |
 
+### O totem dispensa banco: ele grava venda pela tela do cliente
+
+Descoberto no bloco #121 a #123 (22/09/2026). O **Totem de Autoatendimento** é uma página
+web (`totem.beefood.app`, com `empresaID`, `filialID` e o `aaToken` na URL) e roda no
+Playwright. Com **Dinheiro** ligado na aba *Pagamentos* do totem, o roteiro fecha pedido
+**sem pinpad e sem banco** — ou seja, dá para semear venda de autoatendimento com o próprio
+produto, que é sempre melhor do que `UPDATE`.
+
+| O que o cenário ganha | Como |
+|---|---|
+| venda com `origem` de totem | pedido fechado no aparelho: nasce `tipo` DELIVERY + `codigoServico = 'A'` |
+| a venda **de hoje** nos relatórios | o totem cria pedido novo, e as telas de fila só olham pedido novo (abaixo) |
+| mesa/pager no pedido | configuração *Informar Número da Mesa* + o número digitado no aparelho |
+| cliente identificado, com cashback | o telefone de teste (15) 99999-8888 na tela de identificação |
+
+Três travas que o roteiro do #123 usa, e que valem copiar (`manuais/totem-venda-no-painel/capturar.py`):
+
+- **ensaio por padrão**: `capturar.py ensaio` percorre o fluxo inteiro e para na tela de
+  pagamento; o clique que grava só sai com `VALENDO=1`;
+- **confere o texto antes de clicar**: o script lê a tela e só confirma se achar
+  *"SIM, VOU PAGAR"* — se a modal mudar, ele aborta em vez de clicar no escuro;
+- **paga em dinheiro, com NFC-e desligada**: nenhum documento fiscal é emitido, e a venda
+  fica *Aberto / Não pago*, do jeito que o manual descreve.
+
+O teclado numérico do aparelho **ignora** `click()` por JavaScript (escuta evento de
+ponteiro): telefone e mesa precisam de `click(force=True)`.
+
+### Foto de setor: cenário que se monta pelo Banco de imagens
+
+Ainda no #121, o par de capturas "coluna de texto × tira de miniaturas" exigia foto nos
+setores. Não precisou de arquivo nem de upload externo: o **Banco de imagens** do próprio
+sistema (Cardápio → setor → **ADICIONAR FOTO** → buscar por *combo*, *refrigerante*…)
+resolve os sete setores num laço de Playwright.
+
+Duas coisas para não perder tempo:
+
+- gravar é **dois** salvamentos: `SALVAR` na janela da imagem e `SALVAR E SAIR (F2)` no
+  cadastro do setor;
+- a foto recém-gravada chega do S3 **depois** do texto na tela do cliente. Sem esperar
+  `document.images` completarem, a miniatura sai como ícone de imagem quebrada.
+
+E o oposto também é cenário: **interceptar a resposta da API** (injetar ou remover `s3Link`
+em `/api/totem2/setores` e `/api/totem2/produtos`) prova o comportamento em segundos — mas
+serve para **medir**, não para publicar. Imagem de manual sai de dado gravado de verdade.
+
 ### A janela de tempo das telas de fila
 
 A tela `/delivery` e o Painel para Entregadores pedem a listagem com uma **janela em

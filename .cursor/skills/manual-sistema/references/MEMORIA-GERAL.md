@@ -684,6 +684,12 @@ Vale para qualquer estudo que precise saber **o que cada switch faz**:
 
 ### Aplicativos Android — o emulador NÃO funciona no Cloud Agent (testado em 2026-08-19)
 
+> **Isto vale para o que é APK de verdade — e o totem não é** (descoberto em 21/09/2026,
+> bloco #121 a #123). O **Totem de Autoatendimento** é uma página web servida em
+> `totem.beefood.app` e **abre no Playwright**, com viewport de 1080×1920. Quem continua
+> fora de alcance é o **tablet** (`com.cardapiodigitalmesacomanda`) e os dois apps de celular.
+> Detalhes da captura do totem na seção 9, em *Totem de Autoatendimento — bloco #121 a #123*.
+
 Investigação completa, para não se repetir o teste:
 
 **O que o ambiente tem de sobra:**
@@ -1260,7 +1266,19 @@ escrito de propósito bateria.
 | Relatório Operação de Entrega | `manuais/relatorio-operacao-entrega/` | ✅ Concluído (#118) |
 | Quanto o entregador recebe (Taxa / KM) | `manuais/entregador-quanto-recebe/` | ✅ Concluído (#119) |
 | Painel para Entregadores | `manuais/painel-entregador/` | ✅ Concluído (#120) |
+| Totem: pôr no ar e configurar | `manuais/totem-configurar/` | ✅ Concluído (#121) |
+| Cupom e cashback no totem | `manuais/totem-cupom-cashback/` | ✅ Concluído (#122) |
+| O pedido do totem no painel | `manuais/totem-venda-no-painel/` | ✅ Concluído (#123) |
+| Mais de um cardápio no mesmo totem | `manuais/totem-multicardapio/` | ✅ Concluído (#124) |
 | O cliente acompanha a entrega no mapa | `manuais/gestao-entregas-rastreio-cliente/` | ✅ Concluído (#121) |
+
+> ⚠️ **O #121 está repetido nesta tabela, e é de propósito até o dono decidir.** O bloco do
+> totem e o rastreio do cliente foram escritos em paralelo, em branches diferentes, e os dois
+> pegaram o mesmo número — a colisão só apareceu quando as duas branches entraram na `main`.
+> O detalhe e a recomendação (renumerar o **rastreio** para **#125**, que é o lado barato)
+> estão no [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md), logo abaixo da tabela de manuais.
+> **Lição de processo: número de manual se escolhe lendo o checklist, não contando o último
+> que você mesmo escreveu** — trabalho paralelo não vê a numeração do vizinho.
 
 ### O cliente acompanha a entrega no mapa — #121
 
@@ -1314,6 +1332,71 @@ assunto de manual.** A tela não estima horário de chegada e mostra distância 
 reta*; o manual explica **por quê**, em vez de esconder. Um "8 minutos" que vira 25 gera
 exatamente a ligação que o recurso existe para evitar — e essa é a mentalidade que o dono
 pede que os manuais documentem.
+
+### Totem de Autoatendimento — bloco #121 a #123 (e o #124)
+
+**A regra antiga estava meio errada: o totem abre no Cloud Agent.** "Totem e tablet são
+APK, não dá para fotografar" vale só para o **tablet**. O totem é uma página web (PWA), e
+a própria aba *Download* do painel entrega a URL:
+
+```
+https://totem.beefood.app/?empresaID=<empresa>&filialID=<filial>&token=<aaToken>
+```
+
+O `aaToken` sai do `config_cache` do painel (ou do botão **Copiar** da aba Download). Com
+viewport de **1080×1920**, `locale="pt-BR"` e `service_workers="block"` (sem isso o PWA
+serve tela cacheada), o Chromium desenha o aparelho inteiro. Isso destrava o padrão que os
+três manuais usam: **cada configuração fotografada em par — a chave no painel e o efeito
+na tela do cliente.**
+
+Duas manhas do aparelho, que valem para qualquer captura de totem:
+
+- os botões respondem a `click()` por JavaScript, mas **o teclado numérico e o seletor de
+  cardápio não** (eles escutam evento de ponteiro): telefone e mesa precisam de
+  `get_by_role("button", name=c, exact=True).click(force=True)`, e os cartões do seletor
+  precisam de `page.mouse.click(x, y)` na caixa medida por `getBoundingClientRect`
+  (#124). Clique em camada por cima do cardápio também tem de ser **escopado no diálogo**
+  (`[role=dialog][aria-labelledby="menu-picker-title"]`), senão o seletor por texto acha um
+  produto atrás da camada e o clique morre;
+- os seletores não são estáveis. O que funciona é achar botão **pelo texto** e filtrar por
+  **altura/posição** quando o texto repete (cartão e cabeçalho).
+
+E uma terceira, de imagem: **foto recém-subida chega do S3 depois do texto**. Sem esperar
+`document.images` completarem, a miniatura sai como ícone de imagem quebrada — daí o
+`esperar_imagens()` dos três `capturar.py`.
+
+O recorte do aparelho tira a **barra de cima**: o logotipo da loja é retangular (350×112)
+e ela o desenha num espaço quadrado, então ele sai cortado.
+
+Três descobertas de produto que ficaram documentadas:
+
+- **foto de setor muda o layout** da coluna da esquerda do totem (texto × tira de
+  miniaturas); **foto de produto não muda layout nenhum** — produto sem foto vira cartão
+  com o ícone de imagem quebrada. A regra completa é
+  `algum setor com s3Link ? miniatura : texto` e, na miniatura,
+  `src = setor.s3Link || logotipoDaLoja`: **basta um** setor com foto para a coluna toda
+  virar miniatura, e o setor sem foto sai com o **logotipo da loja**, não com espaço vazio
+  (o #121 dizia espaço vazio e foi corrigido pelo #124);
+- o desconto que o totem mostra na forma de pagamento **não é do totem**: *Dinheiro* 1% vem
+  de **Cadastros → Formas Recebimento** e *PIX* 5% de **Cardápio Digital → Pagamento
+  Online**. Cuidado: a mesma forma em *Cardápio Digital → Formas Recebimento* tinha 5% e
+  **não** foi o valor aplicado;
+- a venda do totem é `tipo` DELIVERY + `codigoServico = 'A'`, e tem **três nomes** na
+  interface: **AutoAtendimento** no card da venda, **Totem** nos chips e filtros,
+  **Autoatendimento** no Desempenho.
+
+**O #124 entrou depois, porque o dono montou o cenário.** Ele contratou um cardápio
+adicional na empresa 38311 (filial 50502) e pediu o manual do multicardápio — a aba
+*Cardápios* do #121 era três parágrafos de texto justamente porque não havia segundo
+cardápio para fotografar. **Cenário criado pelo dono é gatilho de manual novo:** vale
+perguntar o que mais a tela passa a mostrar quando o dado existe. O que o aparelho ganha
+com dois cardápios: a tela *Escolha um cardápio* (só a partir do segundo —
+`if (menus.length > 1)`), o *Ver todos os cardápios* (produtos concatenados, setores
+**deduplicados por `produtoSetorID`**) e o botão *Trocar* no cabeçalho, sem perder a
+sacola. O pedido continua sendo **um**, na loja do totem: `totem2/pedido/processar` não
+tem `filialID` por item. No painel, `CardapioSelector` e a faixa *EDITANDO CARDÁPIO* só
+existem com `filiais.length > 1` — ou seja, capturas de painel que dependem do seletor
+**não existiam** antes deste cenário.
 
 ### Painel para Entregadores — #120
 
