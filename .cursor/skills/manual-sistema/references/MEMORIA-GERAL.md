@@ -5,7 +5,7 @@
 > arquivo é o conteúdo. Cada manual tem ainda sua própria `MEMORIA.md` na pasta dele.
 
 Última atualização: 2026-09-23 (**tela de front público se lê no bundle publicado, sem clone** —
-o rastreio do #121 mora no cardápio digital, um Nuxt 2 em repositório que não se consegue clonar, e
+o rastreio do #125 mora no cardápio digital, um Nuxt 2 em repositório que não se consegue clonar, e
 o `curl` de `menu.beefood.com.br` entregou rota, componentes, todas as frases de todos os estados,
 os intervalos de atualização e o `noindex`. Primeiro manual **sem nenhuma captura própria**: o
 material veio pronto do dono, e o importador do `annotate.py` segue o padrão do #24 — avisa e segue
@@ -400,11 +400,11 @@ Tela de celular é **estreita e cheia**, e é isso que muda tudo em relação ao
   desfocar o que é fake só deixa a imagem pior.
 
 **O mesmo padrão serve para print de navegador de celular** (cardápio público, totem, página de
-rastreio), e foi o que o #121 usou: as capturas chegaram em **780x1688** (viewport 390x844 em
+rastreio), e foi o que o #125 usou: as capturas chegaram em **780x1688** (viewport 390x844 em
 DPR 2) e **2000x1250**, e o `annotate.py` dele é o padrão enxuto — `preparar()` para importar e
 recortar, `margem()` com esquerda e direita, `rec()` para converter pixel da captura original em
 fração da imagem final. **Meça em pixel da captura inteira, não em fração do resultado:** medir
-uma vez na tela cheia é o que permite mexer no recorte depois sem remedir nada. E, no #121, o
+uma vez na tela cheia é o que permite mexer no recorte depois sem remedir nada. E, no #125, o
 dono liberou o print inteiro por escrito (*"todas imagens são dados falsos"*) — **pergunte antes
 de borrar**, porque a primeira versão saiu com borrão desnecessário sobre o link.
 
@@ -1098,7 +1098,7 @@ Sem o secret, o bloco é ignorado e o setup segue normalmente.
 > documentação antes de concluir que falta repositório.**
 
 > **O cardápio digital é um terceiro repositório, e ele não precisa de clone.** Descoberto no
-> #121: o cardápio público (`menu.beefood.com.br`) é um **Nuxt 2** próprio, que não está no
+> #125: o cardápio público (`menu.beefood.com.br`) é um **Nuxt 2** próprio, que não está no
 > `beefood-web-react` nem no `beetech-server-node-2.0`. Clone não há, mas o **bundle publicado
 > tem o código-fonte de tela**: componentes, todas as frases de todos os estados, intervalos de
 > atualização e as metatags. O caminho é `curl` da página → listar os `/_nuxt/*.js` → procurar o
@@ -1270,17 +1270,17 @@ escrito de propósito bateria.
 | Cupom e cashback no totem | `manuais/totem-cupom-cashback/` | ✅ Concluído (#122) |
 | O pedido do totem no painel | `manuais/totem-venda-no-painel/` | ✅ Concluído (#123) |
 | Mais de um cardápio no mesmo totem | `manuais/totem-multicardapio/` | ✅ Concluído (#124) |
-| O cliente acompanha a entrega no mapa | `manuais/gestao-entregas-rastreio-cliente/` | ✅ Concluído (#121) |
+| O cliente acompanha a entrega no mapa | `manuais/gestao-entregas-rastreio-cliente/` | ✅ Concluído (#125) |
 
-> ⚠️ **O #121 está repetido nesta tabela, e é de propósito até o dono decidir.** O bloco do
-> totem e o rastreio do cliente foram escritos em paralelo, em branches diferentes, e os dois
-> pegaram o mesmo número — a colisão só apareceu quando as duas branches entraram na `main`.
-> O detalhe e a recomendação (renumerar o **rastreio** para **#125**, que é o lado barato)
-> estão no [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md), logo abaixo da tabela de manuais.
-> **Lição de processo: número de manual se escolhe lendo o checklist, não contando o último
-> que você mesmo escreveu** — trabalho paralelo não vê a numeração do vizinho.
+> **Número de manual se escolhe lendo esta tabela, não contando o último que você escreveu.**
+> O rastreio do cliente e o bloco do totem foram produzidos em paralelo, em branches que não
+> se viam, e os dois pegaram o **#121**. A colisão só apareceu no merge das duas na `main`, em
+> 2026-09-23, e o dono decidiu renumerar o **rastreio para #125** — o lado barato, com 4
+> cabeçalhos de arquivo e nenhuma citação cruzada, contra 15 menções ao #121 espalhadas pelos
+> quatro manuais do totem, que se citam entre si. Histórico em
+> [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md).
 
-### O cliente acompanha a entrega no mapa — #121
+### O cliente acompanha a entrega no mapa — #125
 
 O rastreio do lado do **cliente**: link no WhatsApp que abre mapa ao vivo, com o primeiro
 nome do entregador, a moto andando e a distância em linha reta. O manual é para o lojista,
@@ -1307,7 +1307,7 @@ Três aprendizados que **não** são deste manual só:
   `com_margem()` dos manuais do app **grava a margem dentro de `imagens-puras/`**, e ali isso
   é inofensivo: o material daqueles manuais é versionado, o `copiar()` reconstrói a pura a
   cada execução (conferido — o `annotate.py` do #111 rodado duas vezes dá as 15 tratadas
-  idênticas). No #121 o material é um upload de chat, que **desaparece**: a segunda execução
+  idênticas). No #125 o material é um upload de chat, que **desaparece**: a segunda execução
   pegava a pura que já tinha margem e somava outra, levando 780 px para 1026 e as tratadas
   para 1350, com toda seta deslocada. A correção é a regra: **pura é o print, e só** — a
   margem passou a ser montada dentro do `annotate()`, a partir de `m` e `md`. **Teste que

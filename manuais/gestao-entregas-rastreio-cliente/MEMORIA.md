@@ -1,4 +1,4 @@
-# MEMÓRIA — #121 O cliente acompanha a entrega no mapa
+# MEMÓRIA — #125 O cliente acompanha a entrega no mapa
 
 Status: **concluído** em 23/09/2026. Pasta `manuais/gestao-entregas-rastreio-cliente/`,
 7 imagens. O estudo do código está em [`fluxo-codigo.md`](fluxo-codigo.md).
