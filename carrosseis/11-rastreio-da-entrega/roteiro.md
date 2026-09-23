@@ -93,15 +93,19 @@ o que configurar. Todas as imagens são resultado.
 
 ## Slide a slide
 
-| # | Tipo | Ideia única | Imagem |
+| # | Arquivo | Título | Imagem |
 |---|---|---|---|
-| 1 | Capa | A mensagem de sempre agora abre um mapa ao vivo no celular de quem pediu | `cel-a-caminho.png` num `.celular` sangrando pela base — **captura** |
-| 2 | Explica o recurso | O link entra sozinho no aviso que a loja já mandava | `zap-rastreio.png` — **desenho** da conversa, com o bloco *Acompanhe a entrega* |
-| 3 | O mapa ao vivo | O nome de quem está levando e a distância até a porta | `recorte-a-caminho.png` + `recorte-cartao.png` — **captura**, dois recortes |
-| 4 | A barra de etapas | Onde o pedido está em cada momento, sem ninguém perguntar | `recorte-preparo.png`, `recorte-fila.png`, `recorte-entregue.png` — **captura**, três recortes |
-| 5 | O pino da loja | A logo do restaurante no meio do mapa, e nenhuma marca nossa | `recorte-mapa.png` — **captura**, recorte fechado |
-| 6 | No computador | A mesma página e o mesmo link, em duas colunas | `pc-a-caminho.png` num `.notebook` — **captura** |
-| 7 | CTA | Já está no ar, e não há nada para ligar: despache a próxima rota | `cel-a-caminho.png` no mesmo `.celular` da capa — a peça abre e fecha na mesma cena |
+| 1 | `01-capa.html` | A mesma mensagem, agora com **rastreio da entrega** | `cel-a-caminho.png` num `.celular` sangrando pela base — **captura** |
+| 2 | `02-o-link-vai-junto.html` | O link entra **sozinho** na mensagem que a sua loja já manda | `zap-rastreio.png` — **desenho** da conversa, com `.realce` no bloco que o sistema anexa |
+| 3 | `03-mapa-ao-vivo.html` | **Mapa ao vivo**: quem está levando e a que distância | `recorte-cabecalho.png` + `recorte-cartao.png` — **captura**, dois recortes |
+| 4 | `04-barra-de-etapas.html` | **Barra de etapas**: onde o pedido está, sem ninguém perguntar | `recorte-preparo.png`, `recorte-fila.png`, `recorte-entregue.png` — **captura**, três recortes |
+| 5 | `05-pino-da-loja.html` | **Pino da loja**: a sua logo no meio do mapa | `recorte-mapa.png` — **captura**, recorte fechado |
+| 6 | `06-no-computador.html` | **Uma página só**: o mesmo link abre em qualquer tela | `pc-a-caminho.png` num `.notebook` — **captura** |
+| 7 | `07-cta.html` | Despache a próxima rota **hoje** | `cel-a-caminho.png` no mesmo `.celular` da capa — a peça abre e fecha na mesma cena |
+
+Lidos em fila, os sete títulos montam a lista do que o módulo passou a fazer, e
+nenhum deles tem pronome. O slide 2 é a exceção estrutural da regra do nome: ele
+explica o recurso que a capa acabou de nomear, então o título ali é a explicação.
 
 ## Decisões de arte
 
@@ -222,6 +226,26 @@ dos três pinos para que a logo no pino tenha tamanho de leitura.
 Todos os cortes são **medidos no arquivo** com Pillow, não estimados na
 miniatura. É a regra herdada da #7 e da #10.
 
+### A captura do computador foi refeita mais estreita
+
+A primeira saiu em 1440 × 900. A página põe as informações numa coluna fixa e
+dá o resto ao mapa, então em 1440 a coluna fica com 19% da tela — e reduzida
+para os 936 px do `.notebook`, *Diego está indo até você* chegava ao slide com
+10 px de letra. É o defeito que a #9 e a #8 já tinham documentado: **a largura
+do viewport é decisão de arte**, e a conta é largura do recorte ÷ largura no
+slide.
+
+Refeita em **1152 × 720** — que é 16/10, a proporção da tela do `.notebook` —,
+a coluna sobe para 29% e o nome do entregador continua legível depois da
+redução. Nada mais mudou: é a mesma cena, a mesma resposta interceptada.
+
+### O `.realce` do slide 2, e por que ele não está no arquivo
+
+A captura do manual traz o bloco *Acompanhe a entrega* **marcado em amarelo**,
+e copiar isso seria assar a anotação dentro da imagem — linguagem de manual, que
+a skill proíbe na arte. O desenho saiu limpo, e quem dirige o olhar é o slide,
+com o `.realce` posicionado em porcentagem sobre a figura.
+
 ### O celular da capa e o do CTA são o mesmo
 
 A skill aprova **uma** repetição de prova dentro de uma peça, e é esta: o CTA
@@ -251,3 +275,34 @@ E a capa não afirma nada sobre o leitor. A primeira versão do título era
 *"Antes, o telefone. Agora, o rastreio da entrega"* — boa frase, e ela afirma
 que os clientes dele ligam. Quem poderia desmentir? Ele. O antes virou o da
 **mensagem**, que é do produto.
+
+## O que a revisão mudou
+
+**A capa perdeu uma linha de subtítulo.** Na primeira renderização o subtítulo
+quebrou em duas e o celular, em `top: 585px`, passou por cima da segunda — o
+`z-index` do texto salvou a leitura e não salvou a arte. *"Quem pediu abre o
+mapa ao vivo pelo WhatsApp"* virou *"No WhatsApp, quem pediu abre o mapa ao
+vivo"*, que cabe em uma linha e diz a mesma coisa.
+
+**O título do slide 2 desceu de tamanho.** Em `titulo--medio` ele ocupava três
+linhas e empurrava a conversa de WhatsApp para uma largura em que o link não se
+lia; em `titulo--pequeno` são duas linhas, e a figura subiu de 760 para 904 px,
+que é a largura útil do slide.
+
+**O `conferir-texto.py` pegou nove frases, e as nove eram do manual.** Duas em
+slide (*"quando o entregador tem outra parada antes, a tela diz isso"* e *"o
+link vai junto do aviso"*) e sete na legenda e nos textos alternativos. Vale
+registrar o padrão: as frases que ele pega são as **mais bem escritas** do
+rascunho, e é por isso que elas atravessam duas leituras sem levantar suspeita.
+
+Uma decisão dentro dessa rodada: os textos alternativos descrevem uma tela, e
+descrever uma tela é citar o que ela escreve. Onde a frase da tela é curta ela
+ficou entre aspas (*"Pedido entregue às 20:12"*); onde ela é longa o suficiente
+para o conferidor acusar, o texto alternativo **descreve em vez de citar** (a
+linha da fila virou *"a linha que põe quem espera como a segunda de três
+paradas da viagem"*). Acessibilidade não perde nada, e a peça não carrega
+parágrafo do manual.
+
+**Os 36 avisos de repetição entre carrosséis são um só.** Todos são a linha de
+fechamento da série — *tudo que entra de novo está em beefood.app/novidades* —
+mais a pílula de caminho. É convenção, e convenção repete de propósito.
