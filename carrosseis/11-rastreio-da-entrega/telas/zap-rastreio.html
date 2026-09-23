@@ -1,0 +1,64 @@
+<!-- A mensagem de saiu para entrega, no celular de quem pediu, com o bloco que
+     o sistema anexa no fim dela.
+
+     Por que desenhada: não há número de WhatsApp conectado na sandbox, então a
+     mensagem não sai e não existe conversa para fotografar. É o mesmo motivo
+     da peça #10 — e é a única imagem desenhada desta peça, porque a tela de
+     rastreio em si foi capturada do cardápio de produção.
+
+     O DESENHO NÃO É O DA #10. Lá são duas conversas lado a lado, a do
+     entregador e a de quem pediu, com quatro avisos; aqui é uma conversa só,
+     e o que precisa ser lido é o bloco do fim da segunda mensagem.
+
+     O TEXTO NÃO FOI ESCRITO À MÃO. A forma das duas mensagens é a da captura
+     do manual (imagens-puras/01-whatsapp-link.png, um pedido real feito no
+     cardápio de demonstração): o pedido recebido com o bloco de entrega, e o
+     "Seu pedido saiu para entrega." com o "🏍️ Acompanhe a entrega" e o
+     endereço embaixo. O que trocou são os dados, que são os da cena — pedido
+     42 (1188), ONE STAND HAMBURGUERIA, Rua Luis Reis Santos, 320, e o token de
+     22 caracteres do `capturar-telas.py`, que é sorteado e não existe no
+     servidor.
+
+     Sem realce amarelo por cima do link: quem dirige o olhar é o slide, com
+     `.realce`, e não pixel assado no arquivo. -->
+<div class="tela" data-medida="760x380" style="background: transparent">
+  <p style="font-size: 13px; font-weight: 900; letter-spacing: 1.4px;
+            color: #74757d; margin-bottom: 9px">NO WHATSAPP DE QUEM PEDIU</p>
+
+  <div style="border-radius: 18px; overflow: hidden; border: 1px solid #e3e3dd;
+              background: #ece5dd">
+    <div style="background: #075e54; color: #fff; padding: 11px 15px;
+                display: flex; align-items: center; gap: 11px">
+      <img src="logo-loja.png" alt=""
+           style="width: 38px; height: 38px; border-radius: 50%; display: block">
+      <span>
+        <span style="display: block; font-size: 16px; font-weight: 800">ONE STAND HAMBURGUERIA</span>
+        <span style="display: block; font-size: 12px; color: #bfe0da">restaurante</span>
+      </span>
+    </div>
+
+    <div style="padding: 13px 13px 15px">
+      <div style="background: #fff; border-radius: 12px; padding: 12px 14px 8px;
+                  box-shadow: 0 1px 1px rgba(0,0,0,.08); font-size: 16px;
+                  line-height: 1.42; margin-right: 66px">
+        <p>&#128722; <b>Pedido nº 42 (1188)</b> recebido com sucesso.</p>
+        <p style="margin-top: 10px">&#9654;&#65039; <b>Entrega</b></p>
+        <p>Rua Luis Reis Santos, 320 - Cidade Dutra</p>
+        <p>Previsão: 40 a 60 min</p>
+        <p style="text-align: right; font-size: 12px; color: #8e9095;
+                  margin-top: 2px">19:21</p>
+      </div>
+
+      <div style="background: #fff; border-radius: 12px; padding: 12px 14px 8px;
+                  box-shadow: 0 1px 1px rgba(0,0,0,.08); font-size: 16px;
+                  line-height: 1.42; margin-top: 10px; margin-right: 66px">
+        <p>&#128757; Seu pedido saiu para entrega.</p>
+        <p style="margin-top: 10px">&#127949;&#65039; <b>Acompanhe a entrega</b></p>
+        <p style="color: #027eb5; text-decoration: underline; word-break: break-all">
+          https://menu.beefood.com.br/oneburger/rastreio/Kq7Xb2Vn4pHs9dTmRcJw1e</p>
+        <p style="text-align: right; font-size: 12px; color: #8e9095;
+                  margin-top: 2px">19:58</p>
+      </div>
+    </div>
+  </div>
+</div>

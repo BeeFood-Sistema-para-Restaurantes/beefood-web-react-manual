@@ -54,7 +54,9 @@ ROTA = "**/tempresaDelivery/rastreio/**"
 APARELHOS = {
     "celular": {"viewport": {"width": 390, "height": 844}, "device_scale_factor": 3,
                 "is_mobile": True, "has_touch": True},
-    "pc": {"viewport": {"width": 1440, "height": 900}, "device_scale_factor": 2},
+    # 1152x720 é 16/10, a proporção da tela do `.notebook` — e é a largura em
+    # que a coluna da esquerda ainda se lê depois de reduzida para o slide.
+    "pc": {"viewport": {"width": 1152, "height": 720}, "device_scale_factor": 2},
 }
 
 # As caixas dos recortes não são estimadas na miniatura nem chutadas em pixel:

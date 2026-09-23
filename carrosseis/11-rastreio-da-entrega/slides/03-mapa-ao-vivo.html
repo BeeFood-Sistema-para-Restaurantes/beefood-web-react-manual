@@ -1,0 +1,52 @@
+<!-- Slide 3: MOSTRA o recurso na tela, e o que precisa ser lido e o texto que
+     a tela escreve — por isso recorte, e nao aparelho. A moldura do celular
+     comeria justamente a largura de que a frase precisa.
+
+     Sao dois recortes do MESMO print da capa, medidos no DOM pela captura
+     (`medidas.json`), nunca estimados na miniatura: o cabecalho, que diz quem
+     esta levando e a que distancia, e o cartao do entregador, que diz quando
+     aquela posicao foi capturada.
+
+     O cartao esta aqui por causa do titulo: "ao vivo" e afirmacao, e a prova
+     dela e a linha *Posicao atualizada agora*. A tela nunca estima horario de
+     chegada, e o corpo por isso fala de distancia e de atualizacao, que sao as
+     duas coisas verdadeiras.
+
+     Os 420 m sao medidos, e nao escolhidos: e a distancia grande-circulo entre
+     a moto e o destino da cena, calculada pelo script da captura. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">3 de 7</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 900px">
+    <span class="chapeu">Enquanto a moto anda</span>
+    <h2 class="titulo titulo--pequeno">
+      <span class="destaque">Mapa ao vivo</span>: quem está levando,
+      e a que distância
+    </h2>
+    <p class="corpo">
+      A tela escreve o primeiro nome do entregador e a distância até a porta, e
+      se refaz sozinha a cada poucos segundos. Ninguém recarrega nada.
+    </p>
+  </div>
+
+  <div class="pilha g24" style="margin: 40px auto 0; width: 852px">
+    <div class="recorte">
+      <img src="../imagens-puras/recorte-cabecalho.png"
+           alt="O alto da tela de acompanhamento: a logo e o nome ONE STAND HAMBURGUERIA, Pedido nº 42, a frase Diego está indo até você, A 420 m de você em linha reta e a barra de quatro etapas">
+    </div>
+    <div class="recorte">
+      <img src="../imagens-puras/recorte-cartao.png"
+           alt="O cartão do entregador dentro do acompanhamento: o ícone da moto, o nome Diego e a linha Posição atualizada agora">
+    </div>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="pontos"><span></span><span></span><span class="on"></span><span></span><span></span><span></span><span></span></span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>
