@@ -76,8 +76,16 @@ conferir o estado da funcionalidade no sistema antes de fotografar.
    imagem anterior, escrever "a seta N da imagem acima".
 7. **Publicação.** Todo manual concluído leva um `texto-documentation.ia.md`: o
    prompt pronto para o dono colar no construtor de documentação do app. Ele
-   lista os arquivos exatos a ler e diz explicitamente para **não** varrer o
-   resto do projeto.
+   começa pela **REGRA ZERO** e só então lista os arquivos exatos a ler.
+
+> **O manual é "como eu uso", nunca "como o sistema faz".** Rota de API, nome de
+> campo, nome de arquivo e jargão de programador moram no `fluxo-codigo.md` e
+> **não** entram no `<nome>.md` — nem num rodapé "não publicar", porque é o
+> arquivo que o construtor lê na íntegra. Em 23/09/2026 uma página publicada saiu
+> com a rota da API do cupom porque o construtor leu o `fluxo-codigo.md` da pasta
+> por conta própria. Daí a REGRA ZERO na primeira linha do prompt, o aviso
+> `⛔ DOCUMENTO INTERNO` no alto de cada arquivo interno, e o
+> `conferir-vazamento.py`.
 
 ## Antes de dar por concluído
 
@@ -85,6 +93,7 @@ conferir o estado da funcionalidade no sistema antes de fotografar.
 SK=.cursor/skills/manual-sistema/scripts
 
 python $SK/validar-imagens.py                    # ou com <pasta-do-manual>
+python $SK/conferir-vazamento.py                 # ou com <prefixo-de-pasta>
 python $SK/indice-manuais.py                     # reescreve o índice do README
 python $SK/indice-manuais.py --conferir          # só acusa, não escreve
 ```
@@ -94,6 +103,12 @@ existe em `imagens-tratadas/`, se o prompt de publicação não lista imagem que
 manual não usa, e se há órfão na pasta. **Sai com código 1 quando falta imagem**,
 porque manual com imagem faltando quebra em silêncio: o markdown continua válido,
 o texto continua legível, e só quem abre a página publicada descobre.
+
+O `conferir-vazamento.py` lê **só o arquivo publicável** de cada pasta e acusa rota
+de API, nome de arquivo de código, `campo=true` e jargão de programador. Sai com
+código 1 quando acha algo. Ele sabe poupar o que é conteúdo do lojista: URL de
+webhook que se cola no painel do parceiro, "Resumo do caminho" dentro de bloco
+cercado e jargão que é rótulo de tela.
 
 O `indice-manuais.py` reescreve a tabela do `README.md` a partir das pastas,
 lendo o título no H1 de cada manual. Ele existe porque a tabela era mantida à mão
@@ -113,6 +128,8 @@ sai do script.
 - **Número circulado** (①②③) em lugar nenhum — só `1.`, `2.`, `3.`.
 - **Referenciar `imagens-puras/`** no `.md` ou no prompt de publicação. Ela é
   backup.
+- **Falar de código no `<nome>.md`**: rota de API, nome de campo, nome de arquivo,
+  *backend*, *endpoint*, *payload*. Nem num rodapé marcado "não publicar".
 - **Ação destrutiva sem confirmar** com o dono, e venda ou pagamento real em
   conta que não seja o sandbox.
 - **Desligar a permissão "Usuários"** do grupo `Administrador2`: o usuário
