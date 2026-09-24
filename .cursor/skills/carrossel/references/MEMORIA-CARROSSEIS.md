@@ -877,36 +877,141 @@ Repare que os três corpos acima descrevem a imagem que está logo abaixo deles.
 Legenda de captura é literalmente o formato de um manual — imagem da tela, uma
 frase embaixo dizendo o que a tela faz.
 
-A divisão de trabalho que resolveu: a imagem diz o **quê**, o corpo diz o **e
-daí**. Contagem de etapas, disposição de colunas, nome de componente e ritmo de
-atualização saem do texto, porque a imagem entrega isso sozinha. Ao corpo fica
-o que nenhuma captura sabe dizer.
+> **A primeira divisão de trabalho que escrevi aqui estava errada**, e o
+> décimo segundo vício é a conta dela. Ela dizia: *"a imagem diz o quê, o corpo
+> diz o e daí — contagem de etapas, disposição de colunas, nome de componente e
+> ritmo de atualização saem do texto"*. Com isso, o corpo ficou sem fato nenhum
+> e a peça voltou de novo. O que sai é **como a tela se comporta**; o que o
+> cliente **lê** ali fica, porque é a novidade. A tabela correta, de três
+> colunas, está na seção seguinte.
 
-| Antes | Depois |
+O que a primeira correção produziu, para ficar registrado como forma de errar:
+
+| Devolvido (manual) | Primeira correção (retórica, também devolvida) |
 |---|---|
 | "A tela escreve o primeiro nome do entregador e a distância até a porta" | "A ligação mais cara da noite é a de 'quanto tempo falta'. Ela perde o motivo quando quem pediu vê o entregador andando" |
 | "São quatro etapas, e a frase embaixo muda junto com elas" | "Quem espera acompanha o pedido andar da cozinha até a porta. E quando há uma entrega na frente da dele, a demora ganha explicação antes de virar reclamação" |
 | "No computador o mapa ocupa a tela e as informações passam para a coluna da esquerda" | "O mesmo endereço abre no computador, e não há outra página para você divulgar" |
 
-Dois títulos caíram junto, pelo mesmo motivo: "Mapa ao vivo: quem está levando e
-a que distância" e "Uma página só: o mesmo link abre em qualquer tela" cumprem o
-molde *nome, dois-pontos, o que ele te dá* — e a segunda metade, que devia ser o
-ganho, estava descrevendo a tela. Viraram "quem espera deixa de telefonar" e
-"nada de segunda versão para manter".
+Dois títulos caíram junto — "Mapa ao vivo: quem está levando e a que distância"
+e "Uma página só: o mesmo link abre em qualquer tela" —, e **esses dois foram
+erro meu**: eles cumpriam o molde *nome, dois-pontos, o que ele te dá* e a
+segunda metade era o ganho, não descrição. Viraram "quem espera deixa de
+telefonar" e "nada de segunda versão para manter", perderam a prova na imagem, e
+depois voltaram ao que eram.
 
 **O detalhe de tela fica quando ele é o argumento**, dentro de uma frase cujo
-sujeito continua sendo gente. A distância medida é o exemplo: em "a tela mostra
-a distância em linha reta" é descrição; em "o que ele lê é distância medida, não
-um horário chutado que volta como reclamação" o mesmo fato virou a razão de a
-resposta ser confiável.
+sujeito é gente. A distância é o exemplo: "a tela mostra a distância em linha
+reta" é descrição, e "quem pediu lê quantos metros faltam até a porta, em linha
+reta" é o mesmo fato com dono. (A versão do meio — "o que ele lê é distância
+medida, não um horário chutado que volta como reclamação" — também caiu, por
+inventar um vilão; está no décimo segundo vício.)
 
-*O que ficou na skill:* a revisão ganhou o passo **1c**, espelho exato do 1b.
-O 1b tampa a copy e olha só as imagens, procurando tela de configuração; o 1c
-tampa as imagens e olha só a copy, procurando sujeito de interface. As duas
-regras são a mesma regra em dois materiais — a imagem mostra o resultado e nunca
-o painel de controle; a copy diz a consequência e nunca o funcionamento. Uma
-peça em que os dois deslizam ao mesmo tempo não parece errada: parece um manual
-bem feito, e foi por isso que esta passou.
+*O que ficou na skill:* a revisão ganhou o passo **1c**, espelho do 1b. O 1b
+tampa a copy e olha só as imagens, procurando tela de configuração; o 1c tampa
+as imagens e olha só a copy. Uma peça em que os dois deslizam ao mesmo tempo não
+parece errada: parece um manual bem feito, e foi por isso que esta passou.
+
+**Leia a seção seguinte antes de aplicar esta.** O conserto acima, do jeito como
+foi escrito na primeira vez, produziu o vício número doze na mesma peça.
+
+### O décimo segundo vício: tirar o fato junto com a descrição
+
+Rodada 39, a mesma peça, o retorno imediatamente seguinte:
+
+> *"O texto dos slides está sem sentido nenhum. Simplesmente falando frases
+> estranhas sem sentido, tentando vender uma ideia que deveria ser simples —
+> explicar a novidade."*
+
+Ele está certo, e a causa está na regra que eu tinha acabado de escrever. A
+tabela do décimo primeiro vício tinha **duas colunas** — sujeito de interface
+contra sujeito de gente — e todos os exemplos da coluna certa estavam **sem
+fato nenhum dentro**. A tabela não ensinava a reescrever; ensinava a apagar.
+
+Isto é o *quinto vício* (proibição não produz texto) acontecendo pela terceira
+vez, e é o aviso que esta memória já dava: ao consertar um vício, a mão
+transforma o conserto em molde único e cria o vício seguinte.
+
+#### A prova de que o defeito é de posição, não de invenção
+
+Nenhuma das frases estranhas era invenção. Todas estão no manual — e no manual
+todas são o **complemento** de um fato que eu removi:
+
+| O que o manual escreve | O que sobrou no slide |
+|---|---|
+| "É a mesma página, o mesmo link. **Não há 'versão para PC' para você manter nem divulgar**" | só a segunda frase, e ela virou título |
+| "Você não precisa configurar nada. Nenhum campo novo, nenhuma tela nova… **O link vai junto do aviso de saiu para entrega**" | só as ausências |
+| "Carlos está indo até você / A 640 m de você, em linha reta" … "**O cliente que vê a moto se mexendo não pergunta**" | só a última frase |
+| "Quando a entrega atrasa de verdade, **o cliente vê por quê** — outra parada antes da dele" | só "a demora ganha explicação" |
+
+O manual escreve sempre **fato + e daí**. Eu fiquei com o "e daí", e benefício
+sem o fato a que se prende não tem onde se apoiar: lê como frase de efeito.
+
+#### A distinção que faltava
+
+**Como a tela se comporta** — com que frequência atualiza, onde ficam as
+colunas, que a frase muda junto com a barra — é manual, e sai.
+
+**O que o cliente lê ali é a novidade.** O primeiro nome do entregador, os
+metros em linha reta, as quatro etapas, a frase que diz em que lugar da fila
+ele está: isso é o produto, não descrição de tela. Foi isso que eu apaguei.
+
+| Comportamento (sai) | Conteúdo (fica) |
+|---|---|
+| "a tela se refaz sozinha a cada poucos segundos" | "ele vê a moto se mexer sem tocar em nada" |
+| "a frase embaixo da barra muda junto com a etapa" | "ele lê em que lugar da viagem está" |
+| "no computador vira duas colunas com o mapa à direita" | "é o mesmo endereço no celular e no computador" |
+
+#### Três sintomas de corpo sem fato, todos desta peça
+
+- **cabe em qualquer slide.** "A demora ganha explicação antes de virar
+  reclamação" serviria ao 3, ao 4 e ao 6. Fato é o que amarra o parágrafo
+  àquele slide, e é o teste mais rápido dos três;
+- **vira tese de colunista.** "Mapa de entrega é o que os aplicativos gigantes
+  ensinaram o país a esperar" — o manual diz que é o que **ele**, o cliente
+  daquela loja, já conhece. "O país" é inflação de quem escreve para
+  impressionar;
+- **inventa um vilão.** "Não um horário chutado que volta como reclamação",
+  "nada de segunda versão para manter": o produto nunca prometeu horário e
+  ninguém cogitou manter duas páginas. No manual essas frases têm seção e
+  contexto; soltas no slide, plantam a suspeita de um problema que não existe.
+
+#### E dois títulos que eu quebrei consertando
+
+"Mapa ao vivo: quem está levando e a que distância" e "Uma página só: o mesmo
+link abre em qualquer tela" estavam **certos**, e eu os li como descrição de
+tela. Viraram "quem espera deixa de telefonar" e "nada de segunda versão para
+manter" — e os dois deixaram de ser provados pela imagem, que é regra antiga da
+skill. O notebook prova que abre no computador; ele não prova que não há nada
+para manter.
+
+Dizer o que o cliente **ganha** na tela não é descrever a tela. Descrever a tela
+é contar como ela se comporta.
+
+#### A raiz é de gênero: em novidade, explicar bem É vender
+
+Quem lê uma peça de novidade já é cliente e já paga. Ele não precisa ser
+convencido de que rastreio é bom — precisa saber o que chegou e o que aparece
+na tela do cliente dele. Eu escrevi como se precisasse convencer, e o resultado
+argumenta o tempo todo e informa em lugar nenhum.
+
+O registro persuasivo pertence à peça de **função**, cujo leitor ainda não
+comprou. Regra prática: **o esforço de venda é proporcional à distância do
+leitor**, e em novidade essa distância é zero.
+
+*O que ficou na skill:* a tabela do décimo primeiro vício passou a ter **três
+colunas** (manual / retórica / certo); o passo 1c ganhou a pergunta *"o que o
+cliente vê na tela?"* antes da pergunta do sujeito; e entraram três proibições
+novas — corpo sem fato conferível, vilão inventado e corpo que abre por negação.
+
+#### Nota de produção: devolver fato ao texto é quando se recorta o manual
+
+As sete frases reescritas foram conferidas contra o release e os quatro manuais
+**antes** de entrar nos slides. Duas tropeçaram na janela de seis palavras — "do
+aviso de saiu para entrega" e "todo pedido de entrega em andamento mostra o
+acompanhamento" — e as duas eram justamente as que traziam o fato de volta. É
+previsível: o fato está no manual, e a formulação vem junto com ele. Confira
+antes de renderizar, não depois.
 
 ### O segundo gênero: função do sistema
 

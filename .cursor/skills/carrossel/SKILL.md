@@ -281,29 +281,37 @@ fato — o release é a fonte do que é **verdade**, não do que é **nome**. Qu
 os dois divergem, a capa usa o nome de venda e o `copy-instagram.txt` registra o
 outro, para quem for responder comentário.
 
-**3. O corpo é a CONSEQUÊNCIA, nunca o funcionamento da tela.** O retorno veio
-assim: *"tem slide que estamos explicando o funcionamento da tela; não é um
-manual de usuário, e sim falar da novidade"*. O teste é mecânico — **olhe o
-sujeito de cada oração do corpo**. Se é a interface, o slide virou manual.
+**3. O corpo diz O QUE A PESSOA VÊ, e só então o que isso resolve.** O retorno
+veio assim: *"tem slide que estamos explicando o funcionamento da tela; não é
+um manual de usuário, e sim falar da novidade"*. E a primeira correção errou
+para o outro lado, o que rendeu a rodada seguinte: *"o texto dos slides está
+sem sentido nenhum, frases estranhas tentando vender uma ideia que deveria ser
+simples — explicar a novidade"*. São **três** registros, e só o terceiro serve:
 
-| Sujeito é a interface | Sujeito é gente, ou é dinheiro |
-|---|---|
-| "A tela escreve o primeiro nome do entregador e a distância até a porta" | "A ligação mais cara da noite é a de 'quanto tempo falta'. Ela perde o motivo quando quem pediu vê o entregador andando" |
-| "São quatro etapas, e a frase embaixo muda junto com elas" | "Quem espera acompanha o pedido andar da cozinha até a porta" |
-| "No computador o mapa ocupa a tela e as informações passam para a coluna da esquerda" | "O mesmo endereço abre no computador, e não há outra página para você divulgar" |
+| Manual (sujeito é a interface) | Retórica (não sobrou fato) | Certo (gente + fato + consequência) |
+|---|---|---|
+| "A tela escreve o primeiro nome do entregador e a distância até a porta, e se refaz sozinha" | "A ligação mais cara da noite é a de 'quanto tempo falta'. Ela perde o motivo quando quem pediu vê o entregador andando" | "Quem pediu lê o primeiro nome do entregador e quantos metros faltam até a porta, em linha reta, e vê a moto se mexer sem tocar em nada. É mais do que qualquer um do seu balcão conseguiria responder no telefone" |
+| "São quatro etapas, e a frase embaixo muda junto com elas" | "Quem espera acompanha o pedido andar da cozinha até a porta. E a demora ganha explicação antes de virar reclamação" | "Quem pediu vê as quatro etapas se completarem, de **enviado** até **saiu para entrega**. E quando há outra parada antes da dele, ele lê em que lugar da viagem está" |
+| "No computador o mapa ocupa a tela e as informações passam para a coluna da esquerda" | "Uma página só: nada de segunda versão para manter" | "É o mesmo endereço no celular e no computador — não há versão à parte para você divulgar" |
 
-As três linhas da esquerda têm uma coisa em comum, e ela é o mecanismo do
-defeito: **todas são verdadeiras, e todas descrevem a imagem logo abaixo
-delas**. O slide já tem a prova; a copy, sem assunto próprio, escorrega para
-legendar a prova — e legenda de captura é texto de manual. Contagem de etapas,
-disposição de colunas e nome de componente saem do corpo e ficam por conta da
-imagem, que faz esse trabalho melhor. Ao corpo fica o que a imagem não sabe
-dizer: o telefonema que não toca, a reclamação que não chega, a segunda página
-que ninguém precisa manter.
+**A distinção que resolve as duas valas:** como a tela se **comporta** (com que
+frequência atualiza, onde ficam as colunas, que a frase muda junto com a barra)
+é manual, e sai. **O que o cliente lê ali é a novidade**, e é a única coisa que
+o leitor quer saber — tirar isso não conserta nada, esvazia o slide.
 
-É o espelho da regra das imagens: a imagem mostra o **resultado** e nunca o
-painel de controle; a copy diz a **consequência** e nunca o funcionamento. Peça
-em que os dois deslizam juntos é um manual bonito.
+Duas obrigações, e as duas se conferem:
+
+- **todo corpo carrega pelo menos um fato conferível no manual.** Tampe a
+  imagem, leia só a copy e responda: *o que o cliente vê na tela?* Se não sai
+  resposta, o slide não explicou a novidade;
+- **a consequência vem grudada no fato, na mesma frase, e depois dele.** Ela é
+  o fecho do parágrafo, nunca a tese que o abre. No manual o benefício sempre
+  aparece como complemento de um fato; promovê-lo a primeira frase é o erro que
+  produziu a coluna do meio.
+
+E o sinal de alerta continua valendo, agora dos dois lados: a copy que
+**descreve a imagem logo abaixo dela** está legendando a prova, e a copy que
+**poderia estar em qualquer slide da peça** não tem fato dentro.
 
 **A pasta nasce numerada.** O nome é `NN-<slug>`, com `NN` sendo a **ordem de
 entrega** — o próximo número livre em `carrosseis/`. É o que faz a listagem do
@@ -919,13 +927,15 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
    no mesmo nível de texto ilegível. Peça inteira de configuração é o defeito que
    o dono reclamou três vezes antes de a skill mudar a ordem.
 1c. **Agora tampe as imagens e leia só a copy** — é o mesmo teste pelo outro
-   lado, e pega o defeito simétrico. Em cada corpo, **qual é o sujeito das
-   orações?** "A tela escreve…", "São quatro etapas…", "No computador o mapa
-   ocupa…": sujeito de interface é manual de usuário, e sai. O sujeito tem de
-   ser gente ("quem espera", "quem pediu") ou dinheiro ("a ligação", "a
-   demora", "a reclamação"). O sinal de alerta é a copy **descrever a imagem
-   que está embaixo dela**: quando isso acontece, o slide está gastando o texto
-   para legendar a prova, e o argumento não foi escrito em lugar nenhum.
+   lado, e ele tem duas perguntas, porque aqui há duas valas.
+   *(a)* **O que o cliente vê na tela?** Se a copy sozinha não responde, o slide
+   não explicou a novidade: ele está vendendo uma conclusão sem premissa, e é
+   assim que nasce a frase que parece bonita e não diz nada.
+   *(b)* **Qual é o sujeito das orações?** "A tela escreve…", "São quatro
+   etapas…", "No computador o mapa ocupa…" é manual de usuário. O sujeito é
+   gente ("quem pediu", "quem espera"), e o fato entra como objeto dela.
+   Passar em uma só não basta — foi corrigindo a *(b)* sem olhar a *(a)* que a
+   peça #11 virou um punhado de teses sem informação.
 2. Abra em **tamanho real** os slides com print. Miniatura esconde texto ilegível
    e esconde realce fora de lugar — os dois erros mais comuns.
 3. Confira que o mockup em sangria não cobriu nenhuma linha de texto nem os
@@ -1135,13 +1145,23 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   "acompanhamento em tempo real". Os dois nomes são verdade, então nenhuma
   conferência de fato pega a troca — a capa fica com o de venda e o
   `copy-instagram.txt` anota o outro.
-- **O corpo do slide é a consequência, não o funcionamento da tela.** Olhe o
-  sujeito de cada oração: se é a interface ("a tela escreve", "são quatro
-  etapas", "o mapa ocupa a tela"), o slide virou manual de usuário. O sujeito é
-  gente ("quem espera", "quem pediu") ou dinheiro ("a ligação", "a demora").
-  O escorregão tem uma assinatura: a copy **descreve a imagem que está logo
-  abaixo dela**. Quando isso acontece, a prova está sendo legendada em vez de
-  vendida, e o argumento do slide não chegou a ser escrito.
+- **O corpo diz o que a pessoa vê, e depois o que isso resolve.** Duas valas, e
+  a segunda é a que se cai ao fugir da primeira. Manual é descrever como a tela
+  se **comporta** ("a tela escreve", "são quatro etapas", "o mapa ocupa a
+  tela"): o sujeito é a interface, e sai. Retórica é o que sobra quando se tira
+  o fato junto ("a ligação mais cara da noite", "a demora ganha explicação"):
+  soa a venda e não informa nada. O certo tem os dois — sujeito de gente, fato
+  como objeto, consequência grudada depois. **Em peça de novidade o leitor já é
+  cliente: explicar bem é vender.**
+- **Todo corpo carrega um fato conferível.** Tampe a imagem, leia só a copy e
+  pergunte *o que o cliente vê?*. Corpo que caberia em qualquer slide da peça
+  está sem fato dentro. E corpo que **descreve a imagem logo abaixo dele** está
+  legendando a prova: são os dois extremos da mesma régua.
+- **Não invente um defeito para dizer que ele não acontece.** "Não um horário
+  chutado que volta como reclamação", "nada de segunda versão para manter": o
+  produto nunca prometeu horário e ninguém cogitou manter duas páginas. No
+  manual essas frases têm seção e contexto; soltas num slide, plantam no leitor
+  a suspeita de um problema que ele não tinha.
 - **O nome do recurso vai inteiro, e o canal faz parte dele.** "As Campanhas
   Inteligentes já estão trabalhando" tem nome próprio, passa nas duas perguntas
   e voltou: falta **onde**. Se o release batiza o recurso com o canal ("no
@@ -1360,11 +1380,19 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
 - **Copiar o título do release para a capa.** Ele é o nome do lado de quem
   construiu. Pergunte como o recurso se **vende** e escreva esse nome; o do
   release fica no `copy-instagram.txt`, para responder comentário.
-- **Explicar o funcionamento da tela no corpo.** "A tela escreve o nome do
-  entregador", "são quatro etapas", "no computador o mapa ocupa a tela": é
-  legenda da imagem que está logo abaixo, e legenda de captura é manual de
-  usuário. O corpo diz o que a imagem não sabe dizer — a ligação que não toca,
-  a reclamação que não chega.
+- **Explicar como a tela se comporta.** "A tela escreve o nome do entregador",
+  "são quatro etapas e a frase embaixo muda junto", "no computador o mapa ocupa
+  a tela": é legenda da imagem que está logo abaixo, e legenda de captura é
+  manual de usuário.
+- **Tirar o fato junto com a descrição.** É a vala do outro lado, e ela custou
+  uma rodada inteira. O que o cliente **lê na tela** é a novidade; o que sai é
+  só a mecânica. Corpo sem fato vira tese ("a ligação mais cara da noite", "mapa
+  de entrega é o que os aplicativos gigantes ensinaram o país a esperar") e o
+  leitor termina a peça sem saber o que chegou.
+- **Abrir o corpo por negação.** "Não há campo novo, tela nova nem mensagem a
+  mais" antes de qualquer informação obriga o leitor a montar sozinho o fato, e
+  ainda sugere que poderia haver trabalho. Uma construção negativa por corpo, no
+  máximo, e nunca na primeira frase.
 - **Pôr pronome no título.** "quem marca é ele", "abre no celular dele": o
   título se lê fora de ordem, então antecedente no chapéu ou no slide anterior
   não vale. Nomeie a pessoa no próprio título.

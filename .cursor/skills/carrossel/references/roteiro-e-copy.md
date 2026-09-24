@@ -1143,7 +1143,7 @@ E explicação não é enredo. "Você já faz isso no balcão", "no caixa você 
 na hora" é história, e história no slide 2 gasta o lugar de quem ainda não
 entendeu o recurso que a capa acabou de anunciar.
 
-### O corpo é a consequência: olhe o sujeito de cada oração
+### O corpo: o que a pessoa vê, e só então o que isso resolve
 
 A tabela acima separa explicação de **instrução** — o que o recurso faz contra
 onde clicar. Falta o vizinho dela, que passou por onze peças: a **descrição**.
@@ -1152,44 +1152,88 @@ mesmo assim é manual. O retorno que a nomeou: *"tem slide que estamos
 explicando o funcionamento da tela; não é um manual de usuário, e sim falar da
 novidade"*.
 
-O teste não é de tom nem de vocabulário, é **gramatical**: qual é o sujeito das
-orações do corpo?
+**E a primeira correção caiu na vala do outro lado**, o que rendeu um segundo
+retorno na rodada seguinte: *"o texto dos slides está sem sentido nenhum,
+simplesmente frases estranhas, tentando vender uma ideia que deveria ser
+simples — explicar a novidade"*. Por isso esta seção tem três colunas e não
+duas. Com duas, o conserto vira "apague a descrição", e o que sobra é retórica.
 
-| Sujeito é a interface | Sujeito é gente, ou é dinheiro |
+| Manual — sujeito é a interface | Retórica — não sobrou fato | Certo — gente + fato + consequência |
+|---|---|---|
+| "A tela escreve o primeiro nome do entregador e a distância até a porta, e se refaz sozinha a cada poucos segundos" | "A ligação mais cara da noite é a de 'quanto tempo falta'. Ela perde o motivo quando quem pediu vê o entregador andando" | "Quem pediu lê o primeiro nome do entregador e quantos metros faltam até a porta, em linha reta, e vê a moto se mexer sem tocar em nada. É mais do que qualquer um do seu balcão conseguiria responder no telefone" |
+| "São quatro etapas, e a frase embaixo muda junto com elas" | "Quem espera acompanha o pedido andar da cozinha até a porta. E a demora ganha explicação antes de virar reclamação" | "Quem pediu vê as quatro etapas se completarem, de **enviado** até **saiu para entrega**. E quando há outra parada antes da dele, ele lê em que lugar da viagem está" |
+| "No computador o mapa ocupa a tela e as informações passam para a coluna da esquerda" | "Uma página só: nada de segunda versão para manter" | "É o mesmo endereço no celular e no computador — não há versão à parte para você divulgar" |
+| "O sistema anexa o endereço do acompanhamento ao aviso de saída" | "Não há campo novo para preencher, tela nova para aprender nem mensagem a mais na conta" | "Na mensagem que avisa a saída, o sistema acrescenta o bloco **Acompanhe a entrega** e um endereço que vale só para aquele pedido" |
+
+#### A distinção que separa as duas valas
+
+Como a tela **se comporta** — com que frequência atualiza, onde ficam as
+colunas, que a frase muda junto com a barra, quantos componentes existem — é
+manual, e sai.
+
+**O que o cliente lê ali é a novidade.** O primeiro nome do entregador, os
+metros em linha reta, as quatro etapas, a frase que diz em que lugar da fila
+ele está: isso não é descrição de tela, é o produto. Tirar isso não conserta o
+defeito, esvazia o slide.
+
+A diferença é fácil de ver em pares do mesmo fato:
+
+| Comportamento (sai) | Conteúdo (fica) |
 |---|---|
-| "A tela escreve o primeiro nome do entregador e a distância até a porta, e se refaz sozinha a cada poucos segundos" | "A ligação mais cara da noite é a de 'quanto tempo falta'. Ela perde o motivo quando quem pediu vê o entregador andando" |
-| "São quatro etapas, e a frase embaixo muda junto com elas" | "Quem espera acompanha o pedido andar da cozinha até a porta. E quando há uma entrega na frente da dele, a demora ganha explicação antes de virar reclamação" |
-| "No computador o mapa ocupa a tela e as informações passam para a coluna da esquerda" | "O mesmo endereço abre no computador, e não há outra página para você divulgar" |
-| "O sistema anexa o endereço do acompanhamento ao aviso de saída" | "Não há campo novo para preencher, tela nova para aprender nem mensagem a mais na conta" |
+| "a tela se refaz sozinha a cada poucos segundos" | "ele vê a moto se mexer sem tocar em nada" |
+| "a frase embaixo da barra muda junto com a etapa" | "ele lê em que lugar da viagem está" |
+| "no computador vira duas colunas com o mapa à direita" | "é o mesmo endereço no celular e no computador" |
 
-As frases da esquerda são todas verdadeiras, todas bem escritas e todas passam
-na leitura em voz alta. E há uma coisa em comum entre elas que é o **mecanismo
-do defeito**: cada uma descreve a imagem que está logo abaixo dela.
+#### Por que a retórica é a vala mais perigosa das duas
 
-É assim que o escorregão acontece, e ele acontece justamente nos slides
-melhores. O slide tem uma captura forte; a captura já diz tudo; a copy fica sem
-assunto e, para não ficar vazia, **legenda a prova**. Legenda de captura é o
-texto de um manual — um manual é exatamente isto: uma imagem da tela com uma
-frase embaixo dizendo o que a tela faz.
+O manual escreve sempre **fato + e daí**: "Carlos está indo até você / A 640 m
+de você, em linha reta" e, páginas antes, "o cliente que vê a moto se mexendo
+não pergunta". Ao corrigir a descrição, a mão promove o "e daí" a primeira
+frase e apaga o fato que ele complementava. A frase resultante é verdadeira,
+está no manual e **soa melhor** que a original — e por isso passa.
 
-A saída é dividir o trabalho. A imagem mostra o **quê**; o corpo diz o **e
-daí**. Contagem de etapas, disposição de colunas, nome de componente, ritmo de
-atualização: tudo isso a imagem entrega sozinha, e por isso sai do texto. Ao
-corpo sobra o que nenhuma captura sabe dizer — o telefonema que não toca, a
-reclamação que não chega, a segunda página que ninguém precisa manter, o campo
-que ninguém precisa preencher.
+Mas benefício sem o fato a que se prende não tem onde se apoiar. Três sintomas,
+todos da peça #11:
 
-**Quando o detalhe da tela é o argumento, ele fica** — mas dentro de uma frase
-cujo sujeito ainda é gente ou dinheiro. A distância medida é um bom exemplo: em
-"a tela mostra a distância em linha reta" é descrição, e em "o que ele lê é
-distância medida, não um horário chutado que volta como reclamação" o mesmo
-fato virou argumento, porque agora ele está ali para explicar por que a
-resposta é confiável.
+- **cabe em qualquer slide.** "A demora ganha explicação antes de virar
+  reclamação" serviria igualmente ao slide 3, ao 4 e ao 6. Fato é o que amarra
+  o parágrafo àquele slide;
+- **vira tese de colunista.** "Mapa de entrega é o que os aplicativos gigantes
+  ensinaram o país a esperar" — o manual diz que é o que **ele**, o cliente
+  daquela loja, já conhece. "O país" é inflação de quem está escrevendo para
+  impressionar;
+- **inventa um vilão.** "Não um horário chutado que volta como reclamação",
+  "nada de segunda versão para manter": o produto nunca prometeu horário e
+  ninguém cogitou manter duas páginas. No manual essas frases têm seção e
+  contexto; soltas no slide, plantam a suspeita de um problema que o leitor não
+  tinha.
 
-É o espelho exato da regra das imagens (passo 3 da skill): a imagem mostra o
-**resultado** e nunca o painel de controle; a copy diz a **consequência** e
-nunca o funcionamento. Uma peça em que os dois deslizam ao mesmo tempo não
-parece errada — parece um manual bem feito.
+#### Em peça de novidade, explicar bem É vender
+
+A raiz do erro é de gênero. Quem lê uma novidade **já é cliente e já paga**:
+ele não precisa ser convencido de que rastreio é bom, precisa saber o que
+chegou e o que aparece na tela do cliente dele. O registro persuasivo pertence
+à peça de **função**, cujo leitor ainda não comprou nada.
+
+Regra prática: o esforço de venda é proporcional à distância do leitor. Em
+novidade essa distância é zero, e o texto que argumenta demais está gastando
+espaço que devia estar informando.
+
+#### As duas obrigações, e como conferir
+
+1. **Todo corpo carrega pelo menos um fato conferível no manual.** Tampe a
+   imagem, leia só a copy da peça inteira e responda: *o que o cliente vê na
+   tela?* Se a resposta não sai, a peça não explicou a novidade — e esse era
+   exatamente o estado da #11 depois da primeira correção.
+2. **A consequência vem depois do fato, na mesma frase ou na seguinte, nunca
+   abrindo o parágrafo.** Ela é o fecho. "É mais do que qualquer um do seu
+   balcão conseguiria responder no telefone" vale como última linha e não vale
+   como primeira.
+
+E uma restrição de forma que caiu junto: **no máximo uma construção negativa
+por corpo, e nunca na abertura**. Corpo que começa em "Não há campo novo, tela
+nova nem mensagem a mais" obriga o leitor a montar sozinho o fato positivo, e
+ainda sugere que poderia haver trabalho.
 
 ### O slide do problema elogia antes de cobrar
 
@@ -1370,10 +1414,20 @@ Vai no fim do `roteiro.md`, pronta para copiar:
       no `copy-instagram.txt`, para responder comentário.
 - [ ] **Qual é o sujeito de cada oração do corpo?** Interface ("a tela
       escreve", "são quatro etapas", "o mapa ocupa a tela", "o sistema anexa")
-      é manual de usuário. Tem de ser gente ("quem espera", "quem pediu") ou
-      dinheiro ("a ligação", "a demora", "a reclamação"). O sinal de alerta é a
-      copy **descrever a imagem que está embaixo dela**: ali a prova está sendo
-      legendada em vez de vendida.
+      é manual de usuário. Tem de ser gente ("quem pediu", "quem espera"), com
+      o fato como objeto dela.
+- [ ] **Tampando a imagem, a copy diz o que o cliente vê na tela?** Se não diz,
+      o slide virou tese: "a ligação mais cara da noite", "a demora ganha
+      explicação", "nada de segunda versão para manter". Todo corpo carrega ao
+      menos um fato conferível no manual, e a consequência vem **depois** dele,
+      como fecho — nunca abrindo o parágrafo.
+- [ ] **O corpo caberia em outro slide da mesma peça?** Se caberia, está sem
+      fato dentro. É o teste mais rápido dos três.
+- [ ] **Alguma frase inventa um defeito para dizer que ele não acontece?**
+      "Horário chutado", "segunda versão para manter": no manual isso tem seção
+      e contexto; no slide, planta a suspeita de um problema que não existe.
+- [ ] **Algum corpo abre por negação?** Uma construção negativa por corpo, no
+      máximo, e nunca na primeira frase. O fato positivo vem antes.
 - [ ] **Alguma frase trocou a palavra concreta por metáfora?** "Preço" no lugar
       de desconto e acréscimo, "o que mais entra" no lugar da forma de
       pagamento. A palavra do recurso ganha da imagem poética.
