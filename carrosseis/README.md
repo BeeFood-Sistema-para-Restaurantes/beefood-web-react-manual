@@ -52,13 +52,18 @@ resultado fora do painel — a tela do cliente é **captura**, e não desenho,
 porque a página de acompanhamento é pública e aceita a mesma interceptação de
 API que o totem e o tablet já usavam.
 
-E foi ela que ensinou duas regras de **sujeito**, as duas num retorno só. A capa
-anuncia o recurso e não o meio por onde ele chega, com o nome pelo qual o
+E foi ela que ensinou as regras de **sujeito**, em três retornos seguidos. A
+capa anuncia o recurso e não o meio por onde ele chega, com o nome pelo qual o
 recurso se **vende** — que nem sempre é o título do release: "rastreio da
 entrega pelo cliente" virou *acompanhamento em tempo real*, sem que nenhum fato
-mudasse. E o corpo de cada slide diz a **consequência**, nunca o funcionamento
-da tela; o teste é olhar o sujeito das orações, porque copy que descreve a
-imagem logo abaixo dela está legendando a prova em vez de vendê-la.
+mudasse.
+
+E o corpo de cada slide diz **o que a pessoa vê, e só então o que isso
+resolve** — nessa ordem, e as duas coisas. Descrever como a tela se comporta é
+manual de usuário; tirar o fato junto com a descrição é pior, porque a peça
+passa a vender uma conclusão que o leitor não tem como conferir. O que o cliente
+lê na tela **é** a novidade, e em peça de novidade explicar bem já é vender: o
+leitor ali já é cliente e já paga.
 
 ## Estrutura de cada pasta
 

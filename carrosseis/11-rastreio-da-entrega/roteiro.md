@@ -102,10 +102,10 @@ o que configurar. Todas as imagens são resultado.
 |---|---|---|---|
 | 1 | `01-capa.html` | Acompanhamento **em tempo real**, pelo seu cliente | `cel-a-caminho.png` num `.celular` sangrando pela base — **captura** |
 | 2 | `02-o-link-vai-junto.html` | O link entra **sozinho** na mensagem que a sua loja já manda | `zap-rastreio.png` — **desenho** da conversa, com `.realce` no bloco que o sistema anexa |
-| 3 | `03-mapa-ao-vivo.html` | **Mapa ao vivo**: quem espera deixa de telefonar | `recorte-cabecalho.png` + `recorte-cartao.png` — **captura**, dois recortes |
+| 3 | `03-mapa-ao-vivo.html` | **Mapa ao vivo**: quem está levando e quanto falta | `recorte-cabecalho.png` + `recorte-cartao.png` — **captura**, dois recortes |
 | 4 | `04-barra-de-etapas.html` | **Barra de etapas**: onde o pedido está, sem ninguém perguntar | `recorte-preparo.png`, `recorte-fila.png`, `recorte-entregue.png` — **captura**, três recortes |
 | 5 | `05-pino-da-loja.html` | **Pino da loja**: a sua logo no meio do mapa | `recorte-mapa.png` — **captura**, recorte fechado |
-| 6 | `06-no-computador.html` | **Uma página só**: nada de segunda versão para manter | `pc-a-caminho.png` num `.notebook` — **captura** |
+| 6 | `06-no-computador.html` | **Uma página só**: o mesmo endereço, em qualquer aparelho | `pc-a-caminho.png` num `.notebook` — **captura** |
 | 7 | `07-cta.html` | Despache a próxima rota **hoje** | `cel-a-caminho.png` no mesmo `.celular` da capa — a peça abre e fecha na mesma cena |
 
 Lidos em fila, os sete títulos montam a lista do que o módulo passou a fazer, e
@@ -316,34 +316,76 @@ tela. não é um manual de usuário, e sim falando da novidade."*
 
 Nenhum dos corpos acusados copiava a fonte, nenhum ensinava caminho de menu e
 todos eram verdade conferida no manual. O que eles tinham era **sujeito de
-interface**:
-
-| Slide | Antes | Depois |
-|---|---|---|
-| 2 | "O sistema anexa o endereço do acompanhamento ao aviso de saída" | "Não há campo novo para preencher, tela nova para aprender nem mensagem a mais na conta" |
-| 3 | "A tela escreve o primeiro nome do entregador e a distância até a porta" | "A ligação mais cara da noite é a de 'quanto tempo falta'. Ela perde o motivo quando quem pediu vê o entregador andando" |
-| 4 | "São quatro etapas, e a frase embaixo muda junto com elas" | "Quem espera acompanha o pedido andar da cozinha até a porta" |
-| 5 | "É a mesma logo do seu cardápio" | "Mapa de entrega é o que os aplicativos gigantes ensinaram o país a esperar" |
-| 6 | "No computador o mapa ocupa a tela e as informações passam para a coluna da esquerda" | "O mesmo endereço abre no computador, e não há outra página para você divulgar" |
-
-O padrão que explica todos: **cada corpo da esquerda descreve a imagem que está
-logo abaixo dele.** O slide tinha captura forte, a captura já dizia tudo, e a
-copy — sem assunto próprio — legendou a prova. Legenda de captura é exatamente
-o formato de um manual.
-
-Dois títulos caíram junto, pelo mesmo motivo: o 3 e o 6 cumpriam o molde *nome,
-dois-pontos, o que ele te dá*, e a segunda metade estava descrevendo a tela em
-vez de dizer o ganho. Viraram "quem espera deixa de telefonar" e "nada de
-segunda versão para manter".
-
-O que saiu do texto não se perdeu: contagem de etapas, disposição de colunas e
-ritmo de atualização continuam nas imagens, que fazem esse trabalho melhor. E o
-detalhe que **é** argumento ficou, dentro de frase com sujeito de gente — a
-distância medida agora está no slide 3 como a razão de a resposta ser
-confiável, e não como descrição do que a tela escreve.
+interface** — "a tela escreve", "são quatro etapas", "o mapa ocupa a tela", "o
+sistema anexa" —, e cada um descrevia a imagem que estava logo abaixo dele. O
+slide tinha captura forte, a captura já dizia tudo, e a copy, sem assunto
+próprio, legendou a prova. Legenda de captura é o formato de um manual.
 
 A regra subiu para a skill como *o décimo primeiro vício*, e a revisão ganhou o
-passo **1c**: tampe as imagens, leia só a copy e olhe o sujeito de cada oração.
+passo **1c**.
+
+### O terceiro retorno: o conserto anterior esvaziou os slides
+
+> *"O texto dos slides está sem sentido nenhum. Simplesmente falando frases
+> estranhas sem sentido, tentando vender uma ideia que deveria ser simples —
+> explicar a novidade."*
+
+Certo, e a causa é a correção anterior. Ao tirar o sujeito de interface, tirei
+o **fato** junto: os corpos ficaram só com a conclusão, e conclusão sem
+premissa lê como frase de efeito.
+
+A prova de que o defeito é de posição, e não de invenção: todas as frases
+estranhas estão no manual, e no manual todas são complemento de um fato.
+
+| O manual escreve | Ficou no slide |
+|---|---|
+| "É a mesma página, o mesmo link. **Não há 'versão para PC' para você manter nem divulgar**" | só a segunda frase, promovida a título |
+| "Você não precisa configurar nada. Nenhum campo novo… **O link vai junto do aviso de saiu para entrega**" | só as ausências |
+| "Carlos está indo até você / A 640 m de você, em linha reta" … "**O cliente que vê a moto se mexendo não pergunta**" | só a última frase |
+| "Quando a entrega atrasa de verdade, **o cliente vê por quê**" | só "a demora ganha explicação" |
+
+**A distinção que faltava:** como a tela se *comporta* é manual e sai; o que o
+cliente *lê* ali é a novidade e fica. Tirar isso não conserta nada, esvazia o
+slide.
+
+As sete frases da terceira versão:
+
+| Slide | Versão devolvida | Versão publicada |
+|---|---|---|
+| 2 corpo | "Não há campo novo para preencher, tela nova para aprender nem mensagem a mais na conta…" | "Na mensagem que avisa a saída, o sistema acrescenta o bloco **Acompanhe a entrega** e um endereço que vale só para aquele pedido…" |
+| 3 título | "**Mapa ao vivo**: quem espera deixa de telefonar" | "**Mapa ao vivo**: quem está levando e quanto falta" |
+| 3 corpo | "A ligação mais cara da noite é a de 'quanto tempo falta'…" | "Quem pediu lê o primeiro nome do entregador e quantos metros faltam até a porta, em linha reta…" |
+| 4 corpo | "…a demora ganha explicação antes de virar reclamação" | "Quem pediu vê as quatro etapas se completarem, de **enviado** até **saiu para entrega**…" |
+| 5 corpo | "Mapa de entrega é o que os aplicativos gigantes ensinaram o país a esperar…" | "O pino no meio do mapa carrega a logo do seu cardápio, e o nome da loja fica no alto da tela…" |
+| 6 título | "**Uma página só**: nada de segunda versão para manter" | "**Uma página só**: o mesmo endereço, em qualquer aparelho" |
+| 6 corpo | "…sem passar pelo seu telefone" | "…enquanto a entrega acontece, o acompanhamento também mora em **Pedidos**" |
+
+Três correções de fato entraram junto, e as três valem registro:
+
+- **a condição do slide 2 estava errada.** "Com o entregador em rota" não é a
+  condição; o manual exige **posição enviada pelo celular dele nos últimos 15
+  minutos**. Rota despachada não basta;
+- **os títulos do 3 e do 6 eram corretos desde a primeira versão**, e fui eu que
+  os quebrei lendo ganho como descrição. Voltaram, e voltaram a ser provados
+  pela imagem;
+- **a segunda porta do slide 6 ganhou a condição de volta**: ela vale enquanto a
+  entrega está acontecendo, não para sempre.
+
+E uma decisão de forma no slide 4: a frase da fila **não vai entre aspas**.
+Citada ao pé da letra ela estoura a janela de seis palavras do conferidor contra
+o manual; descrita ("ele lê em que lugar da viagem está") diz a mesma coisa sem
+carregar parágrafo do manual. É a mesma decisão que os textos alternativos
+tomaram na revisão anterior.
+
+A pilha do slide 4 desceu de 820 para 740 px, com a margem de cima de 40 para
+28: o corpo que devolve o fato ocupa cinco linhas em vez de três, e na largura
+antiga o terceiro recorte batia nos pontos do rodapé. Encolher a imagem custa
+menos que cortar informação.
+
+Tudo isto subiu para a skill como *o décimo segundo vício*, e a tabela do
+décimo primeiro foi corrigida de duas para **três** colunas — manual, retórica e
+certo. Com duas colunas, o conserto vira "apague a descrição", e foi assim que
+esta peça chegou ao terceiro retorno.
 
 ### O conferidor estava cego para o release
 
