@@ -159,7 +159,7 @@ erro de captura, para ninguém "consertar" a imagem depois.
 **O `annotate.py` ganhou margem em memória** para esta imagem. O ajudante antigo, `margem()`, grava
 a margem dentro da pura — inofensivo nas dezenove do aplicativo, porque o `copiar()` reconstrói a
 pura do material versionado a cada execução, e defeito nesta, que é capturada e não se reconstrói. É
-o mesmo defeito encontrado no #121.
+o mesmo defeito encontrado no #125.
 
 ## O que falta
 

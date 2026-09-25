@@ -167,7 +167,7 @@ def annotate(nome, marcadores=(), molduras=(), r=None, w=None, m=0.0, md=0.0):
     aplicativo usam o `margem()`, que grava — e ali isso é inofensivo, porque o `copiar()`
     reconstrói a pura do material versionado a cada execução. A imagem `20` é diferente: ela é
     **capturada** pelo `capturar-parametro.py` e não se reconstrói, então margem gravada nela se
-    acumularia a cada execução e deslocaria as setas. Foi o defeito encontrado no #121.
+    acumularia a cada execução e deslocaria as setas. Foi o defeito encontrado no #125.
     """
     pura = Image.open(os.path.join(SRC, nome)).convert("RGB")
     if m or md:
@@ -493,7 +493,7 @@ annotate("19-nao-foi-possivel-dar-baixa.png", [
 # * **Não passa pelo `margem()`.** Aquele ajudante grava a margem dentro da pura, o que só é
 #   inofensivo quando o `copiar()` reconstrói a pura do material a cada execução. Esta pura é
 #   capturada e não se reconstrói: margem gravada nela se somaria a cada rodada e deslocaria as
-#   setas — o defeito encontrado no #121. Aqui a margem é montada em memória, pelo `annotate()`.
+#   setas — o defeito encontrado no #125. Aqui a margem é montada em memória, pelo `annotate()`.
 # * **A medição é em pixel do próprio print**, e não na grade de 473x1024: este print não é uma
 #   tela de celular, é um recorte de um card do navegador, e não existe prévia comum para
 #   converter.
