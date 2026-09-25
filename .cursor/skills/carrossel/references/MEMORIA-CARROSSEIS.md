@@ -780,6 +780,239 @@ O teste é a pergunta inversa: leia só o título e pergunte **onde isso
 acontece?**. Recurso que roda num canal só e não nomeia o canal deixa a pergunta
 em pé.
 
+### O décimo vício: a capa anuncia o meio, e com o nome do release
+
+Rodada 38, a peça do acompanhamento em tempo real. A capa foi escrita com todas
+as regras acima na mão, e voltou assim: *"a hero do slide 1 ainda não estamos
+conseguindo vender de forma correta. 'Acompanhamento em tempo real pelo
+cliente' seria o correto."*
+
+O que estava no slide:
+
+> A mesma mensagem, agora com **rastreio da entrega**
+> No WhatsApp, quem pediu abre o mapa ao vivo
+
+Passa em tudo o que a skill sabia pedir. Tem nome próprio, o subtítulo explica,
+o canal está dito, o molde (antes × agora) não se repetia havia dez peças e a
+imagem é a prova mais forte da peça. São **dois** defeitos, e os dois são de
+sujeito — categoria que nenhuma checagem olhava.
+
+**Primeiro: o sujeito é o meio.** "A mesma mensagem" é o WhatsApp, e o WhatsApp
+é por onde o recurso chega, não o recurso. No papel parece fino; no feed é
+enorme, porque título se lê da esquerda para a direita e a leitura do feed para
+no meio o tempo todo. Quem leu "A mesma mensagem" foi informado de que **nada
+mudou** — a novidade inteira estava depois da vírgula.
+
+E há uma lição sobre o molde: **antes × agora carrega essa armadilha embutida**,
+porque o "antes" é sempre a coisa velha e ele ocupa a primeira metade da linha.
+Onde o "antes" for o canal, ou o aparelho, ou a mensagem, o molde está pondo o
+meio no lugar do herói. Não é motivo para aposentar o molde — é motivo para
+conferir o sujeito antes de escolhê-lo.
+
+Isto **não revoga** *o nome do recurso inclui o canal*: lá o canal é parte do
+nome ("Campanhas Inteligentes no WhatsApp") e continua obrigatório. A diferença
+é de função sintática. Adjunto, sim; sujeito, não. Na segunda versão o canal
+desceu para o subtítulo e continuou respondendo *onde isso acontece?*.
+
+**Segundo: o nome veio do release.** "Rastreio da entrega pelo cliente" é o
+título da publicação de novidades, e título de release é escrito do lado de
+quem construiu, para descrever o que foi construído. Quem compra compra
+**acompanhamento em tempo real**.
+
+Este é o achado que vale guardar, porque explica por que o defeito atravessou
+tudo: **os dois nomes são verdade.** A troca não é erro de fato, então não cai
+no `conferir-texto.py` (que procura cópia, e aqui o problema era o contrário —
+fidelidade demais), não cai na pergunta "isto está no manual?", não cai na
+leitura em voz alta e não cai no teste das duas perguntas da capa, porque "qual
+é o nome?" tem resposta. O release é a fonte do que é **verdade**; nunca foi a
+fonte do que é **nome**.
+
+Divergindo os dois, a capa fica com o nome de venda e o `copy-instagram.txt`
+anota o do release em nota de produção — quem leu a publicação vai procurar por
+aquele nome nos comentários.
+
+A segunda versão, com o destaque mudando de lugar junto:
+
+> Acompanhamento **em tempo real**, pelo seu cliente
+> O mapa da entrega chega pelo WhatsApp.
+
+Molde novo na série: **nome + para quem**. Placar das dez capas anteriores —
+afirmação do fato 5, pergunta 2, anúncio de chegada 1, nome + canal 1, nome +
+dois-pontos 1.
+
+E o vermelho caiu em "em tempo real", não no nome inteiro como na #8, na #9 e na
+#10. Nessas, a palavra destacada era a que o leitor ia **procurar no menu**
+depois; aqui não existe menu para procurar, porque o recurso é automático e não
+tem tela de configuração. Sem essa função, o destaque volta a ser o que é num
+cartaz: a marca do que é notícia.
+
+### O décimo primeiro vício: a copy legenda a prova, em vez de vendê-la
+
+O mesmo retorno trouxe o segundo defeito, e ele é maior que a capa: *"tem slide
+que estamos explicando o funcionamento da tela. não é um manual de usuário, e
+sim falando da novidade."*
+
+Três corpos da peça, como foram entregues:
+
+| Slide | O corpo devolvido |
+|---|---|
+| 3 | "A tela escreve o primeiro nome do entregador e a distância até a porta, e se refaz sozinha a cada poucos segundos." |
+| 4 | "São quatro etapas, e a frase embaixo muda junto com elas." |
+| 6 | "No computador o mapa ocupa a tela e as informações passam para a coluna da esquerda." |
+
+Os três são verdade, os três estão no manual, nenhum copia a fonte, nenhum
+ensina caminho de menu — a checagem *explicar o recurso não é ensinar a mexer*
+aprova os três, porque ela separa explicação de **instrução** e estes não são
+instrução. São **descrição**, que é o vizinho que faltava na tabela.
+
+O teste que pega é gramatical, e por isso é conferível: **qual é o sujeito das
+orações do corpo?** "A tela", "quatro etapas", "o mapa", "o sistema" são
+interface. O sujeito tem de ser gente ("quem espera", "quem pediu") ou dinheiro
+("a ligação", "a demora", "a reclamação").
+
+O mecanismo do escorregão é o que mais vale guardar, porque ele ataca
+justamente os slides **bons**: o slide tem uma captura forte, a captura já diz
+tudo, a copy fica sem assunto próprio e, para não ficar vazia, legenda a prova.
+Repare que os três corpos acima descrevem a imagem que está logo abaixo deles.
+Legenda de captura é literalmente o formato de um manual — imagem da tela, uma
+frase embaixo dizendo o que a tela faz.
+
+> **A primeira divisão de trabalho que escrevi aqui estava errada**, e o
+> décimo segundo vício é a conta dela. Ela dizia: *"a imagem diz o quê, o corpo
+> diz o e daí — contagem de etapas, disposição de colunas, nome de componente e
+> ritmo de atualização saem do texto"*. Com isso, o corpo ficou sem fato nenhum
+> e a peça voltou de novo. O que sai é **como a tela se comporta**; o que o
+> cliente **lê** ali fica, porque é a novidade. A tabela correta, de três
+> colunas, está na seção seguinte.
+
+O que a primeira correção produziu, para ficar registrado como forma de errar:
+
+| Devolvido (manual) | Primeira correção (retórica, também devolvida) |
+|---|---|
+| "A tela escreve o primeiro nome do entregador e a distância até a porta" | "A ligação mais cara da noite é a de 'quanto tempo falta'. Ela perde o motivo quando quem pediu vê o entregador andando" |
+| "São quatro etapas, e a frase embaixo muda junto com elas" | "Quem espera acompanha o pedido andar da cozinha até a porta. E quando há uma entrega na frente da dele, a demora ganha explicação antes de virar reclamação" |
+| "No computador o mapa ocupa a tela e as informações passam para a coluna da esquerda" | "O mesmo endereço abre no computador, e não há outra página para você divulgar" |
+
+Dois títulos caíram junto — "Mapa ao vivo: quem está levando e a que distância"
+e "Uma página só: o mesmo link abre em qualquer tela" —, e **esses dois foram
+erro meu**: eles cumpriam o molde *nome, dois-pontos, o que ele te dá* e a
+segunda metade era o ganho, não descrição. Viraram "quem espera deixa de
+telefonar" e "nada de segunda versão para manter", perderam a prova na imagem, e
+depois voltaram ao que eram.
+
+**O detalhe de tela fica quando ele é o argumento**, dentro de uma frase cujo
+sujeito é gente. A distância é o exemplo: "a tela mostra a distância em linha
+reta" é descrição, e "quem pediu lê quantos metros faltam até a porta, em linha
+reta" é o mesmo fato com dono. (A versão do meio — "o que ele lê é distância
+medida, não um horário chutado que volta como reclamação" — também caiu, por
+inventar um vilão; está no décimo segundo vício.)
+
+*O que ficou na skill:* a revisão ganhou o passo **1c**, espelho do 1b. O 1b
+tampa a copy e olha só as imagens, procurando tela de configuração; o 1c tampa
+as imagens e olha só a copy. Uma peça em que os dois deslizam ao mesmo tempo não
+parece errada: parece um manual bem feito, e foi por isso que esta passou.
+
+**Leia a seção seguinte antes de aplicar esta.** O conserto acima, do jeito como
+foi escrito na primeira vez, produziu o vício número doze na mesma peça.
+
+### O décimo segundo vício: tirar o fato junto com a descrição
+
+Rodada 39, a mesma peça, o retorno imediatamente seguinte:
+
+> *"O texto dos slides está sem sentido nenhum. Simplesmente falando frases
+> estranhas sem sentido, tentando vender uma ideia que deveria ser simples —
+> explicar a novidade."*
+
+Ele está certo, e a causa está na regra que eu tinha acabado de escrever. A
+tabela do décimo primeiro vício tinha **duas colunas** — sujeito de interface
+contra sujeito de gente — e todos os exemplos da coluna certa estavam **sem
+fato nenhum dentro**. A tabela não ensinava a reescrever; ensinava a apagar.
+
+Isto é o *quinto vício* (proibição não produz texto) acontecendo pela terceira
+vez, e é o aviso que esta memória já dava: ao consertar um vício, a mão
+transforma o conserto em molde único e cria o vício seguinte.
+
+#### A prova de que o defeito é de posição, não de invenção
+
+Nenhuma das frases estranhas era invenção. Todas estão no manual — e no manual
+todas são o **complemento** de um fato que eu removi:
+
+| O que o manual escreve | O que sobrou no slide |
+|---|---|
+| "É a mesma página, o mesmo link. **Não há 'versão para PC' para você manter nem divulgar**" | só a segunda frase, e ela virou título |
+| "Você não precisa configurar nada. Nenhum campo novo, nenhuma tela nova… **O link vai junto do aviso de saiu para entrega**" | só as ausências |
+| "Carlos está indo até você / A 640 m de você, em linha reta" … "**O cliente que vê a moto se mexendo não pergunta**" | só a última frase |
+| "Quando a entrega atrasa de verdade, **o cliente vê por quê** — outra parada antes da dele" | só "a demora ganha explicação" |
+
+O manual escreve sempre **fato + e daí**. Eu fiquei com o "e daí", e benefício
+sem o fato a que se prende não tem onde se apoiar: lê como frase de efeito.
+
+#### A distinção que faltava
+
+**Como a tela se comporta** — com que frequência atualiza, onde ficam as
+colunas, que a frase muda junto com a barra — é manual, e sai.
+
+**O que o cliente lê ali é a novidade.** O primeiro nome do entregador, os
+metros em linha reta, as quatro etapas, a frase que diz em que lugar da fila
+ele está: isso é o produto, não descrição de tela. Foi isso que eu apaguei.
+
+| Comportamento (sai) | Conteúdo (fica) |
+|---|---|
+| "a tela se refaz sozinha a cada poucos segundos" | "ele vê a moto se mexer sem tocar em nada" |
+| "a frase embaixo da barra muda junto com a etapa" | "ele lê em que lugar da viagem está" |
+| "no computador vira duas colunas com o mapa à direita" | "é o mesmo endereço no celular e no computador" |
+
+#### Três sintomas de corpo sem fato, todos desta peça
+
+- **cabe em qualquer slide.** "A demora ganha explicação antes de virar
+  reclamação" serviria ao 3, ao 4 e ao 6. Fato é o que amarra o parágrafo
+  àquele slide, e é o teste mais rápido dos três;
+- **vira tese de colunista.** "Mapa de entrega é o que os aplicativos gigantes
+  ensinaram o país a esperar" — o manual diz que é o que **ele**, o cliente
+  daquela loja, já conhece. "O país" é inflação de quem escreve para
+  impressionar;
+- **inventa um vilão.** "Não um horário chutado que volta como reclamação",
+  "nada de segunda versão para manter": o produto nunca prometeu horário e
+  ninguém cogitou manter duas páginas. No manual essas frases têm seção e
+  contexto; soltas no slide, plantam a suspeita de um problema que não existe.
+
+#### E dois títulos que eu quebrei consertando
+
+"Mapa ao vivo: quem está levando e a que distância" e "Uma página só: o mesmo
+link abre em qualquer tela" estavam **certos**, e eu os li como descrição de
+tela. Viraram "quem espera deixa de telefonar" e "nada de segunda versão para
+manter" — e os dois deixaram de ser provados pela imagem, que é regra antiga da
+skill. O notebook prova que abre no computador; ele não prova que não há nada
+para manter.
+
+Dizer o que o cliente **ganha** na tela não é descrever a tela. Descrever a tela
+é contar como ela se comporta.
+
+#### A raiz é de gênero: em novidade, explicar bem É vender
+
+Quem lê uma peça de novidade já é cliente e já paga. Ele não precisa ser
+convencido de que rastreio é bom — precisa saber o que chegou e o que aparece
+na tela do cliente dele. Eu escrevi como se precisasse convencer, e o resultado
+argumenta o tempo todo e informa em lugar nenhum.
+
+O registro persuasivo pertence à peça de **função**, cujo leitor ainda não
+comprou. Regra prática: **o esforço de venda é proporcional à distância do
+leitor**, e em novidade essa distância é zero.
+
+*O que ficou na skill:* a tabela do décimo primeiro vício passou a ter **três
+colunas** (manual / retórica / certo); o passo 1c ganhou a pergunta *"o que o
+cliente vê na tela?"* antes da pergunta do sujeito; e entraram três proibições
+novas — corpo sem fato conferível, vilão inventado e corpo que abre por negação.
+
+#### Nota de produção: devolver fato ao texto é quando se recorta o manual
+
+As sete frases reescritas foram conferidas contra o release e os quatro manuais
+**antes** de entrar nos slides. Duas tropeçaram na janela de seis palavras — "do
+aviso de saiu para entrega" e "todo pedido de entrega em andamento mostra o
+acompanhamento" — e as duas eram justamente as que traziam o fato de volta. É
+previsível: o fato está no manual, e a formulação vem junto com ele. Confira
+antes de renderizar, não depois.
+
 ### O segundo gênero: função do sistema
 
 Até a 20ª rodada, tudo aqui pressupunha um **release**: o `pauta.py` só lia o RSS
@@ -3022,6 +3255,78 @@ As **fotos dos produtos** vêm do `s3Link` da própria API (`pagina.request.get`
 em WEBP — converta com Pillow antes de usar no slide. Foto real na tela desenhada
 é o detalhe que mais separa desenho convincente de wireframe.
 
+### A tela de quem COMPRA também é captura, e ela tem um endereço
+
+Por dez peças, resultado que morava fora do painel virava desenho: o aplicativo
+do entregador é Android, o cupom sai na impressora, o relatório não tem volume.
+A peça do rastreio (#11) quebrou essa regra por um motivo simples — **a tela do
+cliente era uma página pública**, com endereço próprio:
+
+```
+https://menu.beefood.com.br/<cardapio>/rastreio/<token de 22 caracteres>
+```
+
+Ela lê **uma** rota (`GET .../tempresaDelivery/rastreio/{token}`), e trocar a
+resposta dessa rota basta para o cardápio digital de produção desenhar a cena
+inteira: o Leaflet com a camada da ArcGIS, o pino com a logo da loja, a moto com
+o anel pulsando, o traço pontilhado e a barra de quatro etapas. Seis das sete
+imagens da peça são captura, e a única desenhada é a conversa de WhatsApp.
+
+A pergunta que faltava fazer, e que vale para toda peça de novidade: **o que o
+cliente do meu cliente vê tem URL?** Cardápio, acompanhamento, cupom digital,
+página de avaliação — se tem, é captura, e captura é o degrau 1.
+
+Quatro coisas custaram rodada aqui, e as quatro são de uso geral:
+
+- **`networkidle` não serve em tela que se atualiza sozinha.** A página consulta
+  o servidor a cada 15 s, então a rede nunca fica parada e o `goto` estoura o
+  tempo. Espere o **estado da tela**: conte `.leaflet-tile-loaded` até o número
+  parar de crescer três vezes seguidas, e só então fotografe.
+- **Congele a animação antes do print.** A etapa atual da barra pisca num ciclo
+  de 1,4 s; sem congelar, duas execuções do mesmo script devolvem duas barras
+  diferentes. Um `<style>` com `animation-play-state: paused` e
+  `animation-delay: -0.7s` fixa o mesmo quadro sempre.
+- **O Playwright inspeciona a aridade do interceptador.** `lambda r, corpo=x:`
+  não recebe `x` no segundo parâmetro: recebe o `Request`, e o `fulfill` sai com
+  o objeto errado dentro. Use uma fábrica que devolva um interceptador de **um**
+  parâmetro.
+- **Marcador de Leaflet tem mais de uma classe.** `className.split(' ')[0]`
+  devolveu `pino` para os três pinos; o certo é procurar a classe esperada com
+  `classList.contains`.
+
+E o recorte: a captura **mede as caixas no DOM** (cabeçalho, título, barra,
+cartão, mapa, e o centro de cada pino) e grava tudo num `medidas.json` da pasta,
+com a escala. O corte é feito daí, com Pillow. É o que permite refazer o mesmo
+enquadramento em quatro estados de tela que têm **alturas diferentes** — sem a
+linha de detalhe, *Pedido entregue às 20:12* sobe a barra de etapas.
+
+### Meça a cor na tela antes de prometer a cor no slide
+
+O manual do rastreio afirma, a partir do código, que o pino da loja e a moto
+saem na cor primária do cardápio. Na captura pelo link do WhatsApp eles saem
+**verdes** — e não é defeito da captura.
+
+O CSS daquela tela pede `var(--v-corPrimariaEmp, #4caf50)`, **sem** o sufixo
+`-base` que o Vuetify escreve no `:root`. Quem preenche a variável sem sufixo é
+o layout padrão do cardápio, num `style` inline no `.v-application`; o layout da
+página de rastreio não a preenche, então vale o verde do fallback. Medido nas
+duas telas da mesma loja:
+
+| Onde | `--v-corPrimariaEmp` | `--v-corPrimariaEmp-base` |
+|---|---|---|
+| `/<cardapio>/` | `#C52E1D`, inline no `.v-application` | `#c52e1d` |
+| `/<cardapio>/rastreio/<token>` | vazio | `#ef3f37`, o tema padrão |
+
+As capturas coloridas do manual eram da tela cheia aberta **de dentro do**
+cardápio, onde o tema já estava carregado. Duas lições:
+
+- **o que a peça mostra é o caminho que ela vende.** A arte ficou com o verde,
+  porque é o que abre quando se toca no link. Injetar a cor da loja no navegador
+  da captura seria fotografar um comportamento que aquele caminho não tem.
+- **o slide afirma só o que a imagem prova.** *"A sua marca no mapa"* virou *"o
+  pino da loja é a sua logo"*. Um `getComputedStyle` no navegador da captura
+  custa segundos e evita uma promessa que o cliente não vai encontrar.
+
 ### A promoção da loja de exemplo não pode virar o assunto da arte
 
 O totem de exemplo é de um cliente de verdade, e a arte de espera dele era um
@@ -3296,6 +3601,18 @@ ela lê bem. Duas descobertas concretas:
 Como rodar: repita `--fonte` uma vez por manual do grupo (pasta vale pelo `.md`
 de dentro dela). Dezoito fontes rodam em menos de um segundo, porque é leitura
 de arquivo e não de rede.
+
+**E `--fonte` soma ao feed, desde a 38ª rodada.** Ele substituía: quem passasse
+os dois argumentos ficava **sem** a conferência contra o release, em silêncio.
+Isso é o pior tipo de defeito de ferramenta, porque o `OK` no fim continuava
+aparecendo. A peça do acompanhamento em tempo real é o caso: ela é novidade
+**com** release e **com** manuais, foi rodada com `--novidade` e quatro
+`--fonte`, deu `OK` em três rodadas de revisão e tinha duas sequências do
+release na legenda. Rodar só com `--novidade` as encontrou. Regra de leitura do
+script: quem passa `--fonte` está **ampliando** a régua, não trocando de régua;
+só o gênero função do sistema — `--fonte` sozinho, sem `--novidade` — fica fora
+do feed, porque ali release não existe. A linha de saída lista todas as fontes
+conferidas, e conferir essa lista é o jeito rápido de ver se faltou uma.
 
 E o que a peça deve a quem publica: **sem release não há data para amarrar**. O
 `copy-instagram.txt` abre pedindo que se confirme a liberação do módulo antes de

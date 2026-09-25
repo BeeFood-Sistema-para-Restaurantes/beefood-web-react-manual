@@ -269,31 +269,42 @@ def main() -> None:
 
     # Peça de função não tem release: a fonte é a página do site, que é copy
     # pronta e por isso ainda mais fácil de recortar sem perceber.
-    if args.fonte:
-        pedacos, nomes = [], []
-        for fonte in args.fonte:
-            try:
-                if fonte.startswith(("http://", "https://")):
-                    pagina = ler_pagina(fonte)
-                    pedacos.append(f"{pagina['titulo']} {pagina['texto']}")
-                    nomes.append(fonte)
-                else:
-                    texto, nome = ler_fonte_local(fonte)
-                    pedacos.append(texto)
-                    nomes.append(nome)
-            except Exception as erro:
-                sys.exit(f"ERRO ao ler {fonte}: {erro}")
-        origem = ", ".join(nomes)
-        bruto = " ".join(pedacos)
-    else:
+    #
+    # `--fonte` SOMA ao feed, nunca o substitui. Ele substituía, e o preço
+    # apareceu na #11: uma peça de novidade que também confere manuais era
+    # rodada com os dois argumentos, o feed saía da conta em silêncio e duas
+    # sequências do release atravessaram a revisão inteira. Quem passa `--fonte`
+    # está ampliando a régua, não trocando de régua.
+    pedacos, nomes = [], []
+    for fonte in (args.fonte or []):
+        try:
+            if fonte.startswith(("http://", "https://")):
+                pagina = ler_pagina(fonte)
+                pedacos.append(f"{pagina['titulo']} {pagina['texto']}")
+                nomes.append(fonte)
+            else:
+                texto, nome = ler_fonte_local(fonte)
+                pedacos.append(texto)
+                nomes.append(nome)
+        except Exception as erro:
+            sys.exit(f"ERRO ao ler {fonte}: {erro}")
+
+    # Sem `--fonte`, a pasta é o slug da novidade e o feed é a fonte. Com
+    # `--novidade`, ele é a fonte mesmo que haja manual junto. E só o gênero
+    # função do sistema — `--fonte` sozinho — fica de fora do feed, porque ali
+    # release não existe.
+    if args.novidade or not args.fonte:
         alvo = args.novidade or args.slug
         ficha = next((f for f in fichas(baixar(FEED)) if f["slug"] == alvo), None)
         if ficha is None:
             sys.exit(f"ERRO: nenhuma novidade com slug {alvo} no feed")
-        origem = f"novidade {alvo}"
+        nomes.insert(0, f"novidade {alvo}")
         # O título entra junto: copiar o título da novidade na capa é justamente
         # o erro mais comum, e foi o da primeira versão do destaque-impressao.
-        bruto = f"{ficha['titulo']} {ficha['texto']}"
+        pedacos.insert(0, f"{ficha['titulo']} {ficha['texto']}")
+
+    origem = ", ".join(nomes)
+    bruto = " ".join(pedacos)
 
     fonte = sequencias(palavras(bruto), args.janela)
 

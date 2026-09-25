@@ -1,0 +1,191 @@
+CARROSSEL — ACOMPANHAMENTO EM TEMPO REAL, PELO CLIENTE
+Gênero: novidade
+Fonte: beefood.app/novidades/gestao-entregas-rastreio-pelo-cliente — 23/09/2026,
+áreas Delivery e Cardápio Digital.
+Manual: ajuda.beefood.com.br/manuais/gestao-entregas-rastreio-cliente
+
+Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-o-link-vai-junto, 03-mapa-ao-vivo,
+04-barra-de-etapas, 05-pino-da-loja, 06-no-computador, 07-cta.
+
+O NOME QUE VENDE É ACOMPANHAMENTO EM TEMPO REAL, e é ele que a capa diz. O
+release se chama "Rastreio da entrega pelo cliente", que é o nome escrito do
+lado de quem construiu; se alguém perguntar nos comentários pelo rastreio, é a
+mesma coisa. Onde couber nos comentários, prefira o nome da capa.
+
+É A PEÇA IRMÃ DA GESTÃO DE ENTREGAS, e as duas se completam: aquela vende o
+painel, esta vende o que chega no celular de quem pediu. Se as duas forem para o
+feed, publique a da Gestão de Entregas primeiro — o rastreio é o que acontece
+depois do despacho. Nenhuma imagem se repete entre as duas.
+
+SEIS DAS SETE IMAGENS SÃO CAPTURA DA TELA DE VERDADE. A página de
+acompanhamento é pública, então ela foi aberta no navegador e fotografada: o
+mapa, os pinos, a moto, a barra de etapas e cada frase são o cardápio digital de
+produção desenhando, e não arte nossa. A única imagem desenhada é a conversa de
+WhatsApp do slide 2, porque o WhatsApp da conta de teste não tem número
+conectado e a mensagem não sai — o texto dela é o de fábrica do sistema, com os
+dados do exemplo no lugar dos marcadores.
+
+A ENTREGA DAS CAPTURAS É MONTADA, e vale saber o quê. O acompanhamento só existe
+enquanto uma entrega está acontecendo, e o endereço perde a validade duas horas
+depois da baixa: não havia pedido na rua para fotografar. Então a resposta do
+servidor foi trocada dentro do navegador da captura, com uma entrega montada —
+nada foi gravado em lugar nenhum. O arquivo cena.json registra linha por linha o
+que é real e o que é exemplo, e o script tem --cru para mostrar o que o endereço
+responde hoje.
+  Real: a loja (o cardápio de demonstração ONE STAND HAMBURGUERIA, com a
+  coordenada e a logo que ele publica), as ruas em volta dela e a distância de
+  420 m, que é a conta entre a moto e o destino — o número do texto concorda com
+  o lugar dos pinos no mapa.
+  Exemplo: o número do pedido, o nome do entregador, os horários e a posição na
+  fila de paradas.
+
+OS PINOS SAEM VERDES, e é assim mesmo. Abrindo pelo link do WhatsApp, a página
+não carrega o tema do cardápio, então o pino da moto e a barra de etapas usam o
+verde padrão. A peça não promete cor nenhuma: o que o slide 5 afirma é a logo da
+loja dentro do pino, que é o que a imagem mostra.
+
+O QUE FAZ O LINK EXISTIR, se alguém perguntar nos comentários: o aplicativo do
+entregador precisa estar aberto e com o GPS liberado, e a notificação de saída
+para entrega precisa estar ligada em WhatsApp → Notificações. Sem posição
+recente do celular dele o aviso sai como sempre, sem o endereço de
+acompanhamento. Quem quiser o detalhe inteiro está no manual.
+
+E A PRIVACIDADE TEM RESPOSTA PRONTA: o endereço termina num código sorteado de
+22 caracteres, vale só para aquele pedido, não é indexado por buscador e para de
+funcionar duas horas depois da entrega.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+Acompanhamento em tempo real, pelo seu cliente
+
+A mensagem que avisa a saída do pedido passa a levar um endereço no fim dela.
+Quem pediu toca ali e abre um mapa com a sua loja, a casa dele e a moto andando
+entre as duas.
+
+Na tela ele lê o primeiro nome do entregador e quantos metros faltam até a
+porta, em linha reta, e vê a moto se mexer sem tocar em nada. É a resposta
+para o "quanto tempo falta?" que hoje chega por telefone no meio do pico — e é
+uma resposta melhor do que qualquer um do seu balcão conseguiria dar.
+
+Previsão de horário a tela não dá, e isso é decisão de projeto: distância é um
+número verdadeiro, e um prazo que erra por vinte minutos devolve exatamente o
+telefonema que o recurso tinha evitado.
+
+Na mesma tela, quatro etapas se completam — de enviado até saiu para entrega —
+e, quando há outra parada antes da dele, ele lê em que lugar da viagem está. A
+reclamação de que a moto pegou o rumo errado morre antes de virar mensagem.
+
+O pino no meio do mapa carrega a logo do seu cardápio, e o nome da loja fica no
+alto da tela. Em canto nenhum da página aparece marca nossa: é o rastreio que
+ele já conhece dos aplicativos grandes, com a sua marca em cima.
+
+Do seu lado não há nada para ligar. Não existe campo novo, tela nova nem
+mensagem a mais na conta: o texto do aviso continua sendo o seu, aquele que você
+escreveu em WhatsApp → Notificações, e o sistema acrescenta o bloco no fim dele.
+
+É o mesmo endereço no celular e no computador, sem versão à parte para
+divulgar. E quem apagou a conversa não fica sem: enquanto a entrega acontece, o
+acompanhamento também mora em Pedidos, dentro do seu cardápio digital.
+
+Para o link existir, basta o que já existe na sua operação: o aplicativo do
+entregador aberto com GPS liberado (se o celular dele estiver sem sinal, o aviso
+sai como sempre) e o aviso de saída ligado no WhatsApp. Despache a próxima rota
+e o mapa vai junto.
+
+O rastreio é um complemento da Gestão de Entregas, em Delivery → Entregas 🛵
+Tudo que entra de novo está em beefood.app/novidades
+
+#beefood #delivery #rastreio #gestaodeentregas #cardapiodigital #restaurante
+#gestaoderestaurante #motoboy #entregas
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Quantas vezes por noite alguém aí atende "já saiu meu pedido?" 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com a pílula "Novidade", o título "Acompanhamento em tempo
+    real, pelo seu cliente", com "em tempo real" em vermelho, e a linha "O mapa
+    da entrega chega pelo WhatsApp".
+    Embaixo, um celular com a tela de acompanhamento aberta: no alto, a logo e o
+    nome ONE STAND HAMBURGUERIA, "Pedido nº 42", a frase "Diego está indo até
+    você", a distância até a casa — 420 metros em linha reta — e a barra de
+    quatro etapas com três cheias; embaixo, o mapa do bairro, com o pino escuro
+    do endereço de entrega em cima, o traço pontilhado descendo e o ícone verde
+    da moto.
+
+02  Chapéu "Sem configurar nada" e título "O link entra sozinho na mensagem que
+    a sua loja já manda", com "sozinho" em vermelho. O texto diz que, na
+    mensagem que avisa a saída, o sistema acrescenta o bloco "Acompanhe a
+    entrega" e um endereço que vale só para aquele pedido, que o texto de cima
+    continua sendo o do restaurante e que, sem sinal no celular do entregador,
+    o aviso sai como sempre.
+    Abaixo, uma conversa de WhatsApp do lado de quem pediu, com o restaurante
+    ONE STAND HAMBURGUERIA. A primeira mensagem, das 19:21, confirma o pedido
+    nº 42 (1188) e traz o endereço de entrega e a previsão de 40 a 60 minutos. A
+    segunda, das 19:58, avisa que o pedido saiu para entrega e traz, circulado
+    em vermelho, o bloco "Acompanhe a entrega" e, embaixo, o endereço do
+    acompanhamento, que termina num código.
+
+03  Chapéu "Enquanto a moto anda" e título "Mapa ao vivo: quem está levando e
+    quanto falta", com "Mapa ao vivo" em vermelho. O texto diz que quem pediu lê
+    o primeiro nome do entregador e quantos metros faltam até a porta, em linha
+    reta, que vê a moto se mexer sem tocar em nada, e que isso é mais do que
+    alguém do balcão conseguiria responder no telefone.
+    Abaixo, dois recortes da tela. No primeiro, o alto do acompanhamento: a logo
+    e o nome ONE STAND HAMBURGUERIA, "Pedido nº 42", "Diego está indo até você",
+    a distância de 420 metros em linha reta e a barra de quatro etapas. No
+    segundo, o cartão do entregador: o ícone da moto, o nome Diego e a linha "Posição
+    atualizada agora".
+
+04  Chapéu "Do preparo à porta" e título "Barra de etapas: onde o pedido está,
+    sem ninguém perguntar", com "Barra de etapas" em vermelho. O texto diz que
+    quem pediu vê as quatro etapas se completarem, de "enviado" até "saiu para
+    entrega", e que, havendo outra parada antes da dele, ele lê em que lugar da
+    viagem está em vez de achar que a moto foi para o lado errado.
+    Abaixo, a mesma faixa da tela em três momentos. No primeiro, "Seu pedido
+    está sendo preparado", com o aviso de que a loja avisará na saída, e a barra
+    com a primeira etapa cheia. No segundo, "Diego saiu para entrega", com a
+    linha que põe quem espera como a segunda de três paradas da viagem, e a
+    barra com três etapas cheias. No terceiro, "Pedido entregue às 20:12" e as
+    quatro etapas cheias.
+
+05  Chapéu "No mapa de quem espera" e título "Pino da loja: a sua logo no meio
+    do mapa", com "Pino da loja" em vermelho. O texto diz que o pino no meio do
+    mapa carrega a logo do cardápio, que o nome da loja fica no alto da tela e
+    que em canto nenhum da página aparece marca da BeeFood — é o rastreio que
+    quem espera já conhece dos aplicativos grandes, com a marca do restaurante
+    em cima.
+    Abaixo, um trecho do mapa do acompanhamento: as ruas do bairro em cinza
+    claro, o pino do restaurante, com a logo quadrada do ONE STAND, embaixo
+    à esquerda, o ícone verde da moto acima dele e o traço pontilhado subindo
+    para fora do recorte.
+
+06  Chapéu "No celular e no computador" e título "Uma página só: o mesmo
+    endereço, em qualquer aparelho", com "Uma página só" em vermelho. O texto
+    diz que é o mesmo endereço no celular e no computador, que não há versão à
+    parte para divulgar e que, enquanto a entrega acontece, o acompanhamento
+    também mora em Pedidos, dentro do cardápio digital.
+    Abaixo, um notebook aberto com a mesma tela de acompanhamento em duas
+    colunas: à esquerda a loja, o número do pedido, "Diego está indo até você",
+    a distância, a barra de etapas, o cartão do entregador e o endereço de
+    entrega; à direita o mapa, com o pino escuro do destino, o traço pontilhado,
+    a moto e o pino do restaurante com a logo.
+
+07  Fundo escuro com o chapéu "Já está no ar" e o título "Despache a próxima
+    rota hoje", com "hoje" em vermelho. O texto diz que não há nada para ligar,
+    que o aviso de saída já leva o mapa junto e que tudo que entra de novo está
+    em beefood.app/novidades. Abaixo, a pílula de caminho "Delivery → Entregas"
+    e o mesmo celular da capa, com a tela de acompanhamento aberta: ONE STAND
+    HAMBURGUERIA, "Pedido nº 42", "Diego está indo até você", a distância de 420
+    metros em linha reta, a barra de etapas e o mapa com a moto a caminho.

@@ -256,6 +256,63 @@ O raciocínio inteiro, com o retorno na íntegra, está em
 vale para os slides de dentro*, *pronome no título é sempre erro* e *frase de
 manchete de jornal não é frase de carrossel*.
 
+#### E três regras de sujeito, do retorno seguinte
+
+A décima primeira peça voltou com dois defeitos, e nenhum deles é título mal
+escrito: pela régua de cima os títulos estavam certos. O que estava errado era
+o **sujeito** das frases, e sujeito é o que nenhuma checagem olhava.
+
+**1. A capa anuncia o RECURSO, nunca o meio por onde ele chega.** A primeira
+capa do acompanhamento em tempo real dizia *"A mesma mensagem, agora com
+rastreio da entrega"*. Ela passa nas três perguntas do teste da capa: tem nome,
+diz o que faz, diz onde acontece. E vende errado, porque o sujeito da frase é
+**a mensagem do WhatsApp** — que é por onde o recurso chega, e não o recurso.
+Título se lê da esquerda para a direita, e quem lê a primeira metade recebe a
+notícia de que *nada mudou*; a novidade só aparece depois da vírgula. O canal é
+eixo do nome e continua obrigatório, mas entra como adjunto ("pelo WhatsApp"),
+no subtítulo ou na segunda metade — nunca como herói da frase.
+
+**2. O nome que vai na capa é o nome que VENDE, não o título do release.** A
+mesma capa chamava o recurso de *"rastreio da entrega pelo cliente"*, que é o
+título do release: escrito do lado de quem construiu, para descrever o que foi
+construído. Quem compra compra **acompanhamento em tempo real**. Os dois nomes
+são o mesmo recurso, e é por isso que a troca não cai em nenhuma conferência de
+fato — o release é a fonte do que é **verdade**, não do que é **nome**. Quando
+os dois divergem, a capa usa o nome de venda e o `copy-instagram.txt` registra o
+outro, para quem for responder comentário.
+
+**3. O corpo diz O QUE A PESSOA VÊ, e só então o que isso resolve.** O retorno
+veio assim: *"tem slide que estamos explicando o funcionamento da tela; não é
+um manual de usuário, e sim falar da novidade"*. E a primeira correção errou
+para o outro lado, o que rendeu a rodada seguinte: *"o texto dos slides está
+sem sentido nenhum, frases estranhas tentando vender uma ideia que deveria ser
+simples — explicar a novidade"*. São **três** registros, e só o terceiro serve:
+
+| Manual (sujeito é a interface) | Retórica (não sobrou fato) | Certo (gente + fato + consequência) |
+|---|---|---|
+| "A tela escreve o primeiro nome do entregador e a distância até a porta, e se refaz sozinha" | "A ligação mais cara da noite é a de 'quanto tempo falta'. Ela perde o motivo quando quem pediu vê o entregador andando" | "Quem pediu lê o primeiro nome do entregador e quantos metros faltam até a porta, em linha reta, e vê a moto se mexer sem tocar em nada. É mais do que qualquer um do seu balcão conseguiria responder no telefone" |
+| "São quatro etapas, e a frase embaixo muda junto com elas" | "Quem espera acompanha o pedido andar da cozinha até a porta. E a demora ganha explicação antes de virar reclamação" | "Quem pediu vê as quatro etapas se completarem, de **enviado** até **saiu para entrega**. E quando há outra parada antes da dele, ele lê em que lugar da viagem está" |
+| "No computador o mapa ocupa a tela e as informações passam para a coluna da esquerda" | "Uma página só: nada de segunda versão para manter" | "É o mesmo endereço no celular e no computador — não há versão à parte para você divulgar" |
+
+**A distinção que resolve as duas valas:** como a tela se **comporta** (com que
+frequência atualiza, onde ficam as colunas, que a frase muda junto com a barra)
+é manual, e sai. **O que o cliente lê ali é a novidade**, e é a única coisa que
+o leitor quer saber — tirar isso não conserta nada, esvazia o slide.
+
+Duas obrigações, e as duas se conferem:
+
+- **todo corpo carrega pelo menos um fato conferível no manual.** Tampe a
+  imagem, leia só a copy e responda: *o que o cliente vê na tela?* Se não sai
+  resposta, o slide não explicou a novidade;
+- **a consequência vem grudada no fato, na mesma frase, e depois dele.** Ela é
+  o fecho do parágrafo, nunca a tese que o abre. No manual o benefício sempre
+  aparece como complemento de um fato; promovê-lo a primeira frase é o erro que
+  produziu a coluna do meio.
+
+E o sinal de alerta continua valendo, agora dos dois lados: a copy que
+**descreve a imagem logo abaixo dela** está legendando a prova, e a copy que
+**poderia estar em qualquer slide da peça** não tem fato dentro.
+
 **A pasta nasce numerada.** O nome é `NN-<slug>`, com `NN` sendo a **ordem de
 entrega** — o próximo número livre em `carrosseis/`. É o que faz a listagem do
 diretório sair na ordem em que as peças foram publicadas, e o `.zip` chegar ao
@@ -869,6 +926,16 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
    configuração, e tela de configuração se refaz — é motivo de voltar ao passo 3,
    no mesmo nível de texto ilegível. Peça inteira de configuração é o defeito que
    o dono reclamou três vezes antes de a skill mudar a ordem.
+1c. **Agora tampe as imagens e leia só a copy** — é o mesmo teste pelo outro
+   lado, e ele tem duas perguntas, porque aqui há duas valas.
+   *(a)* **O que o cliente vê na tela?** Se a copy sozinha não responde, o slide
+   não explicou a novidade: ele está vendendo uma conclusão sem premissa, e é
+   assim que nasce a frase que parece bonita e não diz nada.
+   *(b)* **Qual é o sujeito das orações?** "A tela escreve…", "São quatro
+   etapas…", "No computador o mapa ocupa…" é manual de usuário. O sujeito é
+   gente ("quem pediu", "quem espera"), e o fato entra como objeto dela.
+   Passar em uma só não basta — foi corrigindo a *(b)* sem olhar a *(a)* que a
+   peça #11 virou um punhado de teses sem informação.
 2. Abra em **tamanho real** os slides com print. Miniatura esconde texto ilegível
    e esconde realce fora de lugar — os dois erros mais comuns.
 3. Confira que o mockup em sangria não cobriu nenhuma linha de texto nem os
@@ -904,6 +971,15 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
    pergunte ao título *onde isso acontece?*.
    E o slide 2 **explica** esse recurso, em vez
    de contar história — a cena do release cabe ali, em uma frase.
+6a. Na capa, **qual é o sujeito do título, e de onde veio o nome?** Duas
+   perguntas que passam depois das outras duas, porque uma capa pode nomear
+   certo e ainda assim vender errado. *(a)* Se o sujeito é o canal, o aparelho
+   ou a mensagem, a capa está anunciando o **meio** e não o recurso ("A mesma
+   mensagem, agora com rastreio da entrega" começa pelo WhatsApp, e o WhatsApp
+   é por onde a coisa chega). *(b)* Se o nome saiu copiado do título do
+   release, confira se é assim que o recurso se **vende**: release é escrito do
+   lado de quem construiu, e "rastreio da entrega pelo cliente" virou
+   "acompanhamento em tempo real" sem que nenhum fato mudasse.
 7. Alguma imagem da arte veio de `manuais/`? Sai: print de manual é referência,
    e a arte usa captura feita para o carrossel. E o sandbox voltou à
    configuração em que você o encontrou?
@@ -1058,6 +1134,34 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   release vai para o slide 2, que é onde há espaço para contá-la. Teste, com
   **duas** perguntas: quem leu só a capa sabe dizer **o nome** do que chegou, e
   **o que aquilo faz**?
+- **A capa anuncia o recurso, e o nome dele é o que vende.** Duas armadilhas,
+  e as duas passam pelas perguntas acima. A primeira é **o meio no lugar do
+  herói**: "A mesma mensagem, agora com rastreio da entrega" tem nome, tem
+  efeito e tem canal, e mesmo assim põe o WhatsApp como sujeito — quem lê a
+  primeira metade é informado de que nada mudou. O canal é adjunto, vai no
+  subtítulo ou depois da vírgula. A segunda é **o título do release no lugar do
+  nome**: o release descreve o que foi construído, e "rastreio da entrega pelo
+  cliente" é o nome de quem construiu; o dono do restaurante compra
+  "acompanhamento em tempo real". Os dois nomes são verdade, então nenhuma
+  conferência de fato pega a troca — a capa fica com o de venda e o
+  `copy-instagram.txt` anota o outro.
+- **O corpo diz o que a pessoa vê, e depois o que isso resolve.** Duas valas, e
+  a segunda é a que se cai ao fugir da primeira. Manual é descrever como a tela
+  se **comporta** ("a tela escreve", "são quatro etapas", "o mapa ocupa a
+  tela"): o sujeito é a interface, e sai. Retórica é o que sobra quando se tira
+  o fato junto ("a ligação mais cara da noite", "a demora ganha explicação"):
+  soa a venda e não informa nada. O certo tem os dois — sujeito de gente, fato
+  como objeto, consequência grudada depois. **Em peça de novidade o leitor já é
+  cliente: explicar bem é vender.**
+- **Todo corpo carrega um fato conferível.** Tampe a imagem, leia só a copy e
+  pergunte *o que o cliente vê?*. Corpo que caberia em qualquer slide da peça
+  está sem fato dentro. E corpo que **descreve a imagem logo abaixo dele** está
+  legendando a prova: são os dois extremos da mesma régua.
+- **Não invente um defeito para dizer que ele não acontece.** "Não um horário
+  chutado que volta como reclamação", "nada de segunda versão para manter": o
+  produto nunca prometeu horário e ninguém cogitou manter duas páginas. No
+  manual essas frases têm seção e contexto; soltas num slide, plantam no leitor
+  a suspeita de um problema que ele não tinha.
 - **O nome do recurso vai inteiro, e o canal faz parte dele.** "As Campanhas
   Inteligentes já estão trabalhando" tem nome próprio, passa nas duas perguntas
   e voltou: falta **onde**. Se o release batiza o recurso com o canal ("no
@@ -1270,6 +1374,25 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
 - **Deixar o título sem o nome do recurso.** "No pico, a rota já chega montada"
   é frase boa e não se procura no menu. O molde é *nome, dois-pontos, o que ele
   te dá* — o ângulo fica na segunda metade.
+- **Pôr o meio no lugar do recurso, na capa.** "A mesma mensagem, agora com
+  rastreio da entrega": o sujeito é o WhatsApp, e o WhatsApp é por onde a coisa
+  chega. O canal entra como adjunto, nunca como herói.
+- **Copiar o título do release para a capa.** Ele é o nome do lado de quem
+  construiu. Pergunte como o recurso se **vende** e escreva esse nome; o do
+  release fica no `copy-instagram.txt`, para responder comentário.
+- **Explicar como a tela se comporta.** "A tela escreve o nome do entregador",
+  "são quatro etapas e a frase embaixo muda junto", "no computador o mapa ocupa
+  a tela": é legenda da imagem que está logo abaixo, e legenda de captura é
+  manual de usuário.
+- **Tirar o fato junto com a descrição.** É a vala do outro lado, e ela custou
+  uma rodada inteira. O que o cliente **lê na tela** é a novidade; o que sai é
+  só a mecânica. Corpo sem fato vira tese ("a ligação mais cara da noite", "mapa
+  de entrega é o que os aplicativos gigantes ensinaram o país a esperar") e o
+  leitor termina a peça sem saber o que chegou.
+- **Abrir o corpo por negação.** "Não há campo novo, tela nova nem mensagem a
+  mais" antes de qualquer informação obriga o leitor a montar sozinho o fato, e
+  ainda sugere que poderia haver trabalho. Uma construção negativa por corpo, no
+  máximo, e nunca na primeira frase.
 - **Pôr pronome no título.** "quem marca é ele", "abre no celular dele": o
   título se lê fora de ordem, então antecedente no chapéu ou no slide anterior
   não vale. Nomeie a pessoa no próprio título.
