@@ -3,10 +3,15 @@
 Este é o manual do dinheiro. Você chegou, entregou, e agora recebe — em dinheiro, no cartão, no
 Pix ou no vale — e o aplicativo registra isso no caixa do restaurante na hora.
 
+> **A tela de pagamento pode estar desligada.** Cada restaurante decide, num parâmetro do painel,
+> se o aplicativo do entregador tem tela de pagamento. É a **seção 1**, e é por onde começar: com a
+> chave desligada, o entregador entrega e o pagamento é lançado só no caixa, pela loja. De fábrica
+> a chave vem **ligada**, e tudo o que vem depois da seção 1 descreve esse modo.
+
 > **Cobrar é finalizar.** Não existe "recebo agora e finalizo depois": no fim da cobrança a
 > entrega é encerrada na mesma operação, e o pedido sai da sua lista.
 
-São três caminhos, e o rodapé da entrega mostra os dois primeiros:
+Com a tela de pagamento ligada são três caminhos, e o rodapé da entrega mostra os dois primeiros:
 
 | Caminho | Quando |
 |---------|--------|
@@ -19,12 +24,15 @@ São três caminhos, e o rodapé da entrega mostra os dois primeiros:
 
 ## Para que serve
 
+- Escolher, no painel, **se o entregador cobra pelo celular** ou se o pagamento é lançado no caixa.
 - Receber do cliente e registrar no caixa do restaurante sem ligar para a loja.
 - Registrar **o que aconteceu de verdade**, mesmo quando é diferente do combinado.
 - Encerrar a entrega — com pagamento ou sem — deixando explicação no histórico.
 
 ## Antes de começar
 
+- Saiba em que modo o seu restaurante está: **com ou sem tela de pagamento** no aplicativo
+  (seção 1).
 - Confira a sacola **antes** de tocar em qualquer botão. Depois de confirmar, o valor está no
   caixa.
 - O celular precisa de **internet**: a cobrança é registrada no servidor, não no aparelho.
@@ -32,7 +40,67 @@ São três caminhos, e o rodapé da entrega mostra os dois primeiros:
 
 ---
 
-## 1. Por onde a cobrança começa
+## 1. O restaurante decide se o entregador cobra
+
+A tela de pagamento do aplicativo é **opcional**. Quem liga e desliga é o dono ou o gerente, no
+computador, e a escolha muda tudo o que vem depois neste manual.
+
+**Configuração → Parâmetros**, card **Delivery**. A alteração **grava sozinha**: não existe botão
+de salvar, e logo depois de mexer na chave aparece o aviso *Parâmetros salvos*.
+
+![O card Delivery, em Configuração → Parâmetros](imagens-tratadas/20-parametro-entregador-registra-pagamento.png)
+
+| Nº | Onde | O que é |
+|----|------|---------|
+| 1. | **Card Delivery** | Onde as duas chaves do delivery moram, uma embaixo da outra. |
+| 2. | **Pagamento Automático Delivery** | **Não é esta.** É a vizinha, que registra o pagamento sozinho quando o pedido chega em *Entregue* — ela tem [manual próprio](../delivery-pagamento-auto/delivery-pagamento-auto.md). |
+| 3. | **Entregador registra pagamento** | É esta. *"Permitir que o entregador registre o recebimento pelo aplicativo."* |
+| 4. | **O interruptor** | Neste exemplo está **desligado**. De fábrica ele vem **ligado**. |
+
+**Os nomes são parecidos e as duas chaves são vizinhas.** Confira o nome antes de mexer: a de
+cima trata do pagamento automático no painel, a de baixo é a que tira ou põe a tela de pagamento
+no celular do entregador.
+
+### O que muda no celular
+
+| No aplicativo | **Ligada** (padrão de fábrica) | **Desligada** |
+|---|---|---|
+| O valor a receber | aparece no rodapé da entrega | **continua aparecendo** |
+| **INICIAR COBRANÇA** | abre a tela de pagamento | não abre a tela: o aplicativo avisa que o **pagamento pelo aplicativo está desativado** e que a loja pediu para registrar o recebimento só no caixa |
+| Quem lança o pagamento | o entregador, na porta | o restaurante, no caixa |
+| Como o entregador encerra | cobrando (seções 3 e 4) ou **FINALIZAR SEM COBRAR** (seção 5) | **FINALIZAR SEM COBRAR** (seção 5), com observação |
+
+**Desligada não quer dizer "entrega de graça".** O entregador continua vendo quanto tem de
+receber, continua recebendo o dinheiro do cliente e continua prestando contas na loja. O que muda
+é onde o pagamento é lançado: no caixa do restaurante, e não pelo celular.
+
+### Quando vale desligar
+
+| Situação da loja | Por quê |
+|------------------|---------|
+| O caixa da loja lança tudo | quem fecha o caixa quer um só lugar de lançamento |
+| Os pedidos já chegam pagos | marketplace e Pix antecipado não têm cobrança na porta |
+| Entregador terceirizado ou de rodízio | o celular dele deixa de poder registrar dinheiro no seu caixa |
+| Você usa o **Pagamento Automático Delivery** | o pagamento é registrado sozinho ao chegar em *Entregue*; a cobrança na porta seria um segundo caminho para a mesma coisa |
+
+> **Se desligar esta, olhe a chave de cima.** Com o **Pagamento Automático Delivery** ligado, o
+> pedido que tem **intenção de pagamento** gravada é registrado como pago ao chegar em *Entregue*
+> — e a finalização do entregador leva o pedido para lá. É a combinação que evita o pedido ficar
+> em aberto sem ninguém lançar. Com **as duas desligadas**, alguém na loja tem de lançar o
+> pagamento à mão, e a observação que o entregador escreve ao finalizar passa a ser a única pista
+> do que foi recebido.
+
+**A mudança vale para todos os entregadores da loja**, não dá para ligar em um e desligar em
+outro. Se o entregador já estava com o aplicativo aberto quando você mexeu na chave, peça para ele
+atualizar a lista de *Entregas* — arrastando a tela para baixo — ou sair e entrar de novo.
+
+---
+
+## 2. Por onde a cobrança começa
+
+> Desta seção em diante o manual descreve o modo **ligado**, com tela de pagamento. Se a chave da
+> seção 1 está desligada, o que vale para o entregador é o rodapé da entrega e o **FINALIZAR SEM
+> COBRAR** da seção 5.
 
 Nos detalhes da entrega, o rodapé escuro traz o resumo do dinheiro e os dois botões.
 
@@ -45,7 +113,7 @@ Nos detalhes da entrega, o rodapé escuro traz o resumo do dinheiro e os dois bo
 | 3. | **TROCO** | Para quanto o cliente pediu troco, quando pediu. |
 | 4. | **COBRAR**, em verde | O que você tem de receber agora. É este o número que importa. |
 | 5. | **INICIAR COBRANÇA** | Abre a tela de pagamento. |
-| 6. | **FINALIZAR SEM COBRAR** | Encerra sem registrar pagamento (seção 4). |
+| 6. | **FINALIZAR SEM COBRAR** | Encerra sem registrar pagamento (seção 5). |
 
 **A forma no rodapé é uma previsão.** Quem decide na porta é o cliente, e você registra o que
 aconteceu de fato.
@@ -65,7 +133,7 @@ reclamação — e ela aparece nos dois caminhos, cobrando ou finalizando sem co
 
 ---
 
-## 2. A tela de pagamento
+## 3. A tela de pagamento
 
 É a tela central desta operação. Tudo o que você precisa está nela.
 
@@ -76,7 +144,7 @@ reclamação — e ela aparece nos dois caminhos, cobrando ou finalizando sem co
 | 1. | **PEDIDO #1030** | O número do pedido. **É a única tela do aplicativo que mostra ele** — na lista e nos detalhes o mesmo crachá laranja vem só com o `#`. |
 | 2. | **A RECEBER** | O valor grande: é o que falta receber. O **TOTAL**, abaixo, é o valor do pedido. |
 | 3. | **JÁ PAGO** | Quanto já foi pago antes. Normalmente R$ 0,00. |
-| 4. | **+** do **DIVIDIR CONTA** | Cria uma pessoa a mais. É o assunto da seção 3. |
+| 4. | **+** do **DIVIDIR CONTA** | Cria uma pessoa a mais. É o assunto da seção 4. |
 | 5. | **O valor da Pessoa 1** | Com uma pessoa só, é o valor cheio. |
 | 6. | **Lápis** | Edita o valor. Use quando o cliente paga só parte agora. |
 | 7. | **Troco para / Troco** | Quanto ele vai entregar, e o troco já calculado em verde. |
@@ -150,7 +218,7 @@ A entrega passa a aparecer no seu
 
 ---
 
-## 3. Quando mais de uma pessoa paga
+## 4. Quando mais de uma pessoa paga
 
 Três amigos pediram juntos e cada um quer pagar a sua parte, um no Pix e outro em dinheiro. É para
 isso que existe o **DIVIDIR CONTA**: em vez de uma cobrança, você registra **uma por pessoa**,
@@ -222,11 +290,16 @@ continua na tela, mas não passa enquanto a soma não fechar.
 
 ---
 
-## 4. Finalizar sem cobrar
+## 5. Finalizar sem cobrar
 
 **FINALIZAR SEM COBRAR** encerra a entrega sem registrar pagamento nenhum. É o caminho do pedido
 que você entregou e não recebeu na porta: o marketplace já cobrou, a loja vai acertar depois, ou
 foi combinado assim.
+
+**Se o seu restaurante desligou a tela de pagamento** (seção 1), este deixa de ser a exceção e
+passa a ser o caminho de sempre: você entrega, recebe o dinheiro se houver o que receber, finaliza
+por aqui e escreve na observação o que aconteceu. A observação é o que a loja vai ler para lançar
+o pagamento no caixa — um *"Recebido R$ 44,00 em dinheiro"* vale mais que qualquer recado de voz.
 
 O aplicativo não te impede, mas avisa **três vezes**: a conferência dos itens em destaque, o aviso
 do saldo em aberto e o campo de observação.
@@ -257,6 +330,7 @@ pago pelo marketplace"* resolve a dúvida.
 | Situação | Caminho certo |
 |----------|---------------|
 | Cliente paga na porta | **INICIAR COBRANÇA** |
+| **A loja desligou a tela de pagamento** | **FINALIZAR SEM COBRAR**, com o que você recebeu escrito na observação |
 | Pedido de iFood ou 99Food, já pago | **FINALIZAR SEM COBRAR** — e nesses o botão de cobrar nem existe |
 | A loja vai cobrar do cliente depois | **FINALIZAR SEM COBRAR**, explicando na observação |
 | Cliente pagou parte agora | **INICIAR COBRANÇA** com o valor ajustado pelo lápis, e observação |
@@ -267,7 +341,7 @@ pago pelo marketplace"* resolve a dúvida.
 
 ---
 
-## 5. Quando a cobrança não fecha
+## 6. Quando a cobrança não fecha
 
 Quatro telas respondem quase todas as ligações que o suporte recebe sobre cobrança. As três
 primeiras são independentes; a quarta é uma sequência, e é a mais importante de reconhecer.
@@ -363,7 +437,7 @@ recarregada, a baixa passa.
 
 ---
 
-## 6. Regras que valem sempre
+## 7. Regras que valem sempre
 
 **Não tem como desfazer.** Confirmada a cobrança ou a finalização, a entrega sai da sua lista e
 você não consegue reabri-la pelo aplicativo. Corrigir depende do restaurante, pelo sistema dele.
@@ -382,6 +456,55 @@ ficou devendo R$ 6"*, *"conferiu a sacola e faltava o refrigerante"*.
 
 ## Perguntas frequentes
 
+### A tela de pagamento do aplicativo
+
+**Como desativar a tela de pagamento do aplicativo do entregador?**
+Em **Configuração → Parâmetros**, card **Delivery**, desligue **Entregador registra pagamento**. A
+alteração grava sozinha. A partir daí o entregador continua vendo o valor a receber, mas não
+consegue abrir a tela de pagamento: o registro passa a ser feito no caixa do restaurante. É a
+seção 1.
+
+**Como liberar o entregador para receber pelo aplicativo de novo?**
+Mesmo lugar: ligue **Entregador registra pagamento** no card **Delivery** dos Parâmetros. Ligada, a
+tela de pagamento volta e o entregador cobra na porta como descrito neste manual.
+
+**O parâmetro vem ligado ou desligado de fábrica?**
+**Ligado.** Quem nunca mexeu nele tem a tela de pagamento no aplicativo, e é o comportamento que
+este manual descreve das seções 2 em diante.
+
+**Onde fica o botão de salvar dos Parâmetros?**
+Não existe. A tela de Parâmetros **grava sozinha** alguns instantes depois de você mexer na chave,
+e confirma com o aviso *Parâmetros salvos*.
+
+**O aplicativo avisa que o pagamento pelo app está desativado. O que eu faço?**
+Não é erro nem falta de sinal: a loja desligou a tela de pagamento. Entregue o pedido, receba o
+dinheiro se houver o que receber e encerre com **FINALIZAR SEM COBRAR**, escrevendo na observação o
+que recebeu e em qual forma. Quem lança no caixa é o restaurante.
+
+**O entregador não consegue iniciar a cobrança: não abre a tela de pagamento.**
+Confira primeiro o parâmetro **Entregador registra pagamento** (seção 1) — desligado, ele é
+exatamente esse sintoma. Se o parâmetro está ligado, o caso é outro: veja a seção 6.
+
+**Desliguei o parâmetro e o entregador continua vendo o valor a receber. Está errado?**
+Está certo, e é de propósito. Ele precisa saber quanto receber do cliente. O que a chave desligada
+tira é o **lançamento** pelo celular, não a informação do valor.
+
+**Desliguei a tela de pagamento e o entregador conseguiu cobrar mesmo assim.**
+O aplicativo dele estava aberto desde antes da mudança, com a configuração antiga em mão. Peça para
+atualizar a lista de *Entregas*, arrastando a tela para baixo, ou sair e entrar de novo.
+
+**Dá para desligar só para um entregador?**
+Não. A chave vale para **todos os entregadores da loja**.
+
+**Se o entregador não lança o pagamento, quem lança?**
+O restaurante, no caixa. Vale olhar a chave vizinha: com o **Pagamento Automático Delivery**
+ligado, o pedido que tem intenção de pagamento gravada é registrado como pago ao chegar em
+*Entregue*, o que fecha a conta sem lançamento à mão — está no
+[manual do pagamento automático](../delivery-pagamento-auto/delivery-pagamento-auto.md). Com as
+duas chaves desligadas, o lançamento é manual.
+
+### A cobrança, no dia a dia
+
 **A forma que eu preciso não está na lista.**
 A lista é o que o restaurante habilitou para delivery. Fiado, Pix automático e formas de
 marketplace não aparecem de propósito. Se faltar uma que deveria estar, use o botão de atualizar
@@ -393,7 +516,7 @@ cobre por outra forma e avise a loja.
 
 **Não consigo confirmar a divisão.**
 Confira duas coisas: se **toda** pessoa tem forma escolhida e se a **soma das partes** bate com o
-valor a receber. O aviso vermelho da soma está na seção 3.
+valor a receber. O aviso vermelho da soma está na seção 4.
 
 **Dividi em pessoas demais.**
 O **−** reagrupa, e os valores voltam a ser divididos igualmente.
@@ -401,21 +524,21 @@ O **−** reagrupa, e os valores voltam a ser divididos igualmente.
 **Erro ao confirmar.**
 Se a tela é a de **Erro no Pagamento** (marca vermelha), nada foi registrado: confira o sinal e
 toque em TENTAR NOVAMENTE. Se você já tentou mais de uma vez, **confira no histórico** antes de
-repetir. Está na seção 5.
+repetir. Está na seção 6.
 
 **Diz "Pedido já pago".**
 Não há saldo a receber: o pedido chegou pago ou alguém já registrou o pagamento. **Não receba nada
-do cliente** — volte e use FINALIZAR SEM COBRAR, com observação. Está na seção 5.
+do cliente** — volte e use FINALIZAR SEM COBRAR, com observação. Está na seção 6.
 
 **Registrou o pagamento e a entrega continuou na lista.**
 O pagamento entrou e a baixa não. A tela de sucesso diz *Finalize a entrega — o dinheiro já está no
 caixa*, e ao reabrir os detalhes o aplicativo repete o aviso. **O rodapé ainda mostra o valor a
 cobrar, e não deve ser cobrado de novo**: atualize a lista e finalize sem cobrar. A sequência inteira
-está na seção 5.
+está na seção 6.
 
 **Finalizei e apareceu "Não foi possível dar baixa".**
 O botão estava certo; a lista é que estava velha. Toque em OK, volte para *Entregas*, arraste a tela
-para baixo, abra a entrega de novo e finalize. Está na seção 5.
+para baixo, abra a entrega de novo e finalize. Está na seção 6.
 
 **Finalizei e a entrega continuou na lista.**
 O envio não chegou ao servidor. Puxe a lista para atualizar antes de tentar de novo.
@@ -432,6 +555,7 @@ Fale com o restaurante imediatamente. Pelo aplicativo não há volta.
 | [App do entregador: as entregas do dia e o histórico](../app-entregador-entregas-do-dia/app-entregador-entregas-do-dia.md) | A lista, o cartão, os detalhes e o histórico |
 | [App do entregador: chegar no endereço](../app-entregador-rota/app-entregador-rota.md) | Mapa, rota e melhor rota |
 | [App do entregador: pedido de iFood e de 99Food](../app-entregador-marketplace/app-entregador-marketplace.md) | O pedido que já está pago |
+| [Pagamento automático no Delivery](../delivery-pagamento-auto/delivery-pagamento-auto.md) | A chave vizinha: registrar o pagamento sozinho quando o pedido chega em *Entregue* |
 | [Formas de recebimento](../formas-recebimento/formas-recebimento.md) | Quem decide, no painel, quais formas o entregador vê |
 | [Conferência de caixa](../caixa-conferencia-2/caixa-conferencia-2.md) | Onde o dinheiro recebido na rua aparece no fim do dia |
 

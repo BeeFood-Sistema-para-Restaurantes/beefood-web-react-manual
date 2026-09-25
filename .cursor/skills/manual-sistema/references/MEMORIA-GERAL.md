@@ -197,6 +197,12 @@ escreve: sai com código 1 quando o README está atrasado.
 - Config por imagem: lista de marcadores `(numero, alvo_x, alvo_y, badge_x, badge_y)` em frações.
 - Rodar dentro da pasta do manual: `python annotate.py`.
 - **Sempre conferir visualmente** as imagens tratadas e ajustar coordenadas se necessário.
+- **Rodar duas vezes tem de dar os mesmos bytes**, e a margem clara em volta da captura é o que
+  costuma quebrar isso: gravada na pura, ela se soma a cada execução e desloca todas as setas.
+  **Pura é o print, e só** — a margem se monta em memória, dentro do `annotate()`. A regra inteira,
+  com o teste que a pega, está na seção 9, em *O cliente acompanha a entrega no mapa — #125*; vale
+  também para imagem **capturada** no meio de um manual de material recebido, que foi o caso da
+  vigésima imagem do #116.
 
 **Para medir as coordenadas, sobreponha uma grade de frações na captura** em vez de estimar no
 olho: uma cópia temporária com linha a cada 0,05 e rótulo a cada 0,10, e os valores são lidos
@@ -1553,6 +1559,33 @@ relatórios no meio da rodada. **Os dezesseis estão prontos**, desde 19/09:
 
 O **#104** herda a Parte 1 do **#57** e o **#114** herda o código de barras: com os dois, mais os
 **#111 a #116**, o #57 está **pronto para aposentar**.
+
+**25/09 — o #116 ganhou uma seção 1 e o bloco fechado voltou a mexer.** Chegou ao sistema o
+parâmetro **Entregador registra pagamento** (Parâmetros → card **Delivery**, logo abaixo do
+*Pagamento Automático Delivery*, ligado por padrão): desligado, o aplicativo do entregador **não tem
+tela de pagamento**. A pedido do dono a configuração foi para o **topo** do manual, como seção 1, e
+as seis seções antigas andaram uma casa. Três coisas que valem para o próximo manual que receber um
+parâmetro novo:
+
+- **Configuração que decide se a tela existe vai na frente, não no fim.** O manual inteiro descreve
+  um modo de operar que pode estar desligado; saber disso na última seção é saber tarde. A seção
+  seguinte abre com uma linha dizendo que dali em diante se fala do modo ligado.
+- **Manual pode trocar de leitor no meio, e é mais barato que abrir outro.** As seções 2 a 7 falam
+  com o entregador, na porta do cliente; a 1 fala com quem configura, no computador. Um parâmetro de
+  uma linha não sustenta página própria, e separá-lo deixaria o manual do dinheiro sem dizer se a
+  tela existe.
+- **FAQ para ser encontrado é a mesma pergunta escrita de vários jeitos.** O pedido foi explícito —
+  *"incluir na FAQ para o SEO do MCP encontrar a informação"* — e virou um bloco com nome (*A tela de
+  pagamento do aplicativo*) e **dez** perguntas: como desativar, como liberar de novo, não abre a
+  tela, o aplicativo diz que está desativado, dá para desligar só para um. O prompt de publicação
+  manda **não juntar nem resumir** esse bloco, porque juntar desfaz o propósito.
+- **Imagem de tela do painel num manual de aplicativo não é mistura**, é o que o leitor precisa: o
+  card **Delivery** entrou inteiro, com as **duas** chaves, porque os nomes são parecidos e confundir
+  uma com a outra é o erro previsível. A vizinha ganhou etiqueta só para dizer *não é esta*.
+- **Captura de parâmetro é somente leitura.** O script não toca em interruptor: na sandbox a chave
+  já estava desligada e a foto saiu como estava, com o texto dizendo que o padrão de fábrica é
+  ligado. Mexer em configuração de empresa para a foto ficar "certa" muda o ambiente de quem mais
+  usa a sandbox.
 
 **O #117 ficou esqueleto até a última hora, e o motivo vale como regra:** manual de "lado a lado"
 precisa que as duas metades sejam do **mesmo pedido**. Eu capturo o painel; o app depende de

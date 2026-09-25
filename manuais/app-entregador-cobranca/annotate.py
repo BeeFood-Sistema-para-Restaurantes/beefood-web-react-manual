@@ -157,13 +157,26 @@ def badge(d, cx, cy, r, num, fnt):
            t, fill=WHITE, font=fnt)
 
 
-def annotate(nome, marcadores=(), molduras=(), r=None, w=None):
+def annotate(nome, marcadores=(), molduras=(), r=None, w=None, m=0.0, md=0.0):
     """`marcadores`: (número, alvo_x, alvo_y, etiqueta_x, etiqueta_y) — tudo em **fração**.
 
     Fração e não pixel porque estes prints vêm recortados e reamostrados: pixel medido numa
     versão morre na primeira vez que o recorte mudar.
+
+    `m` e `md` montam a margem **em memória**, sem gravar na pura. As dezenove imagens do
+    aplicativo usam o `margem()`, que grava — e ali isso é inofensivo, porque o `copiar()`
+    reconstrói a pura do material versionado a cada execução. A imagem `20` é diferente: ela é
+    **capturada** pelo `capturar-parametro.py` e não se reconstrói, então margem gravada nela se
+    acumularia a cada execução e deslocaria as setas. Foi o defeito encontrado no #125.
     """
-    img = Image.open(os.path.join(SRC, nome)).convert("RGBA")
+    pura = Image.open(os.path.join(SRC, nome)).convert("RGB")
+    if m or md:
+        Wp, Hp = pura.size
+        largura = round(Wp / (1 - m - md))
+        tela = Image.new("RGB", (largura, Hp), FUNDO)
+        tela.paste(pura, (round(largura * m), 0))
+        pura = tela
+    img = pura.convert("RGBA")
     W, H = img.size
     over = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(over)
@@ -467,3 +480,40 @@ annotate("19-nao-foi-possivel-dar-baixa.png", [
     (3, *a(412, 579), ETQ_DIR, a(0, 579)[1]),    # OK
     (4, *a(22, 840), ETQ, a(0, 840)[1]),         # FINALIZAR, atrás da janela
 ], r=30, w=4)
+
+# ---------------------------------------------------------------------------------------
+# 20 — o parâmetro que liga e desliga a tela de pagamento
+# ---------------------------------------------------------------------------------------
+# A única imagem deste manual que não vem do celular: é o card **Delivery** de Configuração →
+# Parâmetros, capturado no navegador pelo `capturar-parametro.py`. Ela abre o manual, porque a
+# primeira pergunta de quem chega aqui virou "meu entregador tem essa tela?".
+#
+# Duas diferenças de tratamento em relação às dezenove de cima:
+#
+# * **Não passa pelo `margem()`.** Aquele ajudante grava a margem dentro da pura, o que só é
+#   inofensivo quando o `copiar()` reconstrói a pura do material a cada execução. Esta pura é
+#   capturada e não se reconstrói: margem gravada nela se somaria a cada rodada e deslocaria as
+#   setas — o defeito encontrado no #125. Aqui a margem é montada em memória, pelo `annotate()`.
+# * **A medição é em pixel do próprio print**, e não na grade de 473x1024: este print não é uma
+#   tela de celular, é um recorte de um card do navegador, e não existe prévia comum para
+#   converter.
+#
+# O card cabe inteiro, os dois interruptores juntos, e é de propósito: os nomes são parecidos, o
+# de cima já tem manual próprio (#43) e a confusão entre os dois é o erro previsível.
+P20 = "20-parametro-entregador-registra-pagamento.png"
+M20, MD20 = 0.13, 0.08
+_p20 = Image.open(os.path.join(SRC, P20)).size
+_W20 = _p20[0] / (1 - M20 - MD20)
+
+
+def p20(x, y):
+    """Pixel do print do card em fração da imagem final, já com as duas margens."""
+    return (M20 + x / _W20, y / _p20[1])
+
+
+annotate(P20, [
+    (1, *p20(52, 87), 0.0635, 87 / _p20[1]),      # o card Delivery — onde o parâmetro mora
+    (2, *p20(50, 171), 0.0635, 171 / _p20[1]),    # Pagamento Automático Delivery: o vizinho
+    (3, *p20(50, 263), 0.0635, 263 / _p20[1]),    # Entregador registra pagamento: este é o novo
+    (4, *p20(1146, 290), 0.955, 290 / _p20[1]),   # o interruptor, desligado neste print
+], r=26, w=3, m=M20, md=MD20)

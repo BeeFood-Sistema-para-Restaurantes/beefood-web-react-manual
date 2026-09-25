@@ -172,9 +172,15 @@ A intenção já vem no pedido. Este manual prova pelo painel.
 **PIX na hora conta?** Se o pedido **já chegou pago**, o automático não lança de
 novo. Ele só age quando ainda não há valor pago.
 
+**E a chave logo abaixo, Entregador registra pagamento?** É outra coisa, no mesmo
+card: ela decide se o aplicativo do entregador tem **tela de pagamento**. Está no
+manual **App do entregador: receber na porta**.
+
 ---
 
 ## Manuais relacionados
 
 - **PDV — número e cupom** — receber e imprimir no balcão
 - **Parâmetros gerais** — motivo e operador, no card ao lado
+- **App do entregador: receber na porta** — a outra chave do card Delivery, que
+  liga e desliga a cobrança pelo celular do entregador
