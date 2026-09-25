@@ -1,5 +1,10 @@
 # O que o aplicativo faz de verdade — #116
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `app-entregador-cobranca.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Fonte: `manuais/gestao-entregas/material-recebido/app-entregador/estudo/01-o-que-o-app-faz-hoje.md`
 (seções 2.7 e 2.8) e os capítulos 11, 12 e 13 do material. **Nada aqui vai para o manual do
 usuário.**

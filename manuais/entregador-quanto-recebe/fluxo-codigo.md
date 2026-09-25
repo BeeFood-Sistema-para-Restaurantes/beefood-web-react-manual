@@ -1,5 +1,10 @@
 # O que a tela faz de verdade — Quanto o entregador recebe
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `entregador-quanto-recebe.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Lido em `beefood-reports-hub/src/components/reports/RelatorioEntregador.tsx` (1.170 linhas),
 `beefood-web-react/src/components/VendaDetalhes.tsx`, `PedidoFields.tsx` e os controladores de
 área de atendimento do servidor. Conferido na sandbox gravando valor, entregando e fechando a

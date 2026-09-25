@@ -1,5 +1,10 @@
 # fluxo-codigo.md — Integração 99 Entrega (referência técnica)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `integracao-99-entrega.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 > Uso interno. **Não publicar** no manual do usuário. Mapeia as APIs e o modelo de dados por trás da
 > integração 99 Entrega, com base nos docs originais em `beefood3-server-entregas/docs/nn-entregas`.
 

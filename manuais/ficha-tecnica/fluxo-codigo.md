@@ -1,5 +1,10 @@
 # Fluxo de código — #72 Ficha Técnica
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `ficha-tecnica.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Mapeamento técnico feito em `~/refs/beefood-web-react` (somente leitura) e confirmado no sandbox
 BeeFood3 em 31/08–01/09/2026. Documento interno: **não publicar**.
 

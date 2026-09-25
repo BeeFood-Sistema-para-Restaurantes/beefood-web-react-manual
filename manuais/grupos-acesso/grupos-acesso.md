@@ -715,10 +715,3 @@ Lembre que **o custo continua visível**.
 - **Se algo sumiu e ninguém sabe por quê**, comece pelo grupo de acesso: quase toda tela que
   "desapareceu" do BeeFood é permissão, não erro. Se o grupo está todo ligado, olhe a **Função
   Gerente** do usuário (seção 7.1).
-
----
-
-### Referências internas (não publicar)
-
-Método do levantamento, mapeamento chave por chave e evidências: `MEMORIA.md` e
-`fluxo-codigo.md` desta pasta.

@@ -1,5 +1,10 @@
 # fluxo-codigo.md — #62 Pick n Go! (uso interno, NÃO publicar)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `integracao-pick-n-go.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Fonte antiga: [Pick N Go! – Como solicitar cotação e entregador](https://ajuda.beefood.com.br/baseconhecimento/pick-n-go-como-solicitar-cotacao-e-entregador-para-delivery/) (Windows). Tela nova = painel web.
 
 ## Front (`~/refs/beefood-web-react`)

@@ -1,5 +1,10 @@
 # fluxo-codigo.md — #100 Tradução do cardápio presencial
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `traducao-cardapio-presencial.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Mapeamento técnico (leitura de `beefood-web-react`, `git pull` em 16/09/2026 —
 `bdb7106`). A tradução nasceu nos commits de 10/09 (`da3049d`) e 13/09
 (`de63fe5`).

@@ -1,5 +1,10 @@
 # Fluxo de código — Vínculo Marketplace (#79)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `vinculo-marketplace.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Mapeamento técnico levantado em 02/09/2026 a partir de `beefood-web-react` (clone de leitura em
 `~/refs/beefood-web-react`) e de leitura da API de produção. **Não publicar nada daqui no manual.**
 

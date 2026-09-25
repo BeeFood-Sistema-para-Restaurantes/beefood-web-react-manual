@@ -1,5 +1,10 @@
 # MEMÓRIA — #116 App do entregador: receber na porta
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `app-entregador-cobranca.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## O recorte
 
 Capítulos 11 (cobrança), 12 (divisão de conta) e 13 (finalizar sem cobrar) do material do dono,

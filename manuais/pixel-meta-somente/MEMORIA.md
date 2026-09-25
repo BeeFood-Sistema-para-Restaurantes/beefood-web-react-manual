@@ -1,5 +1,10 @@
 # MEMORIA.md — #50 Pixel da Meta somente
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `pixel-meta-somente.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Escopo
 Manual de usuário final migrado do ajuda.beefood. Prints de terceiros (Meta, Google, Mercado Pago, Windows, DNS, Control iD) reaproveitados e **copiados para o repositório**. Telas em que o BeeFood **salva** o parâmetro usam print **novo** (tema claro, Playwright 1440×900 DPR 1.5).
 

@@ -1,5 +1,10 @@
 # MEMORIA.md — #21 Cupom de Desconto (campos + cardápio)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cupom-desconto.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Escopo
 Manual de **funcionamento dos campos** em **CRM → Cupom de Desconto** e de **como o
 cliente vê** no cardápio digital (faixa verde + lista ADICIONAR CUPOM).

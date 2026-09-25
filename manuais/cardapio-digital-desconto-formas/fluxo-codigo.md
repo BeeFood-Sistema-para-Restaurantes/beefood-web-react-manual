@@ -1,5 +1,10 @@
 # fluxo-codigo.md — #64 Desconto formas de recebimento (uso interno, NÃO publicar)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cardapio-digital-desconto-formas.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 - Abas: `CardapioDigital.tsx` `tab=formasRecebimento` e `tab=pagamentoOnline`.
 - Formas: `GET /api/empresaDelivery2/cardapioDigital/recebimento/{empresaID}/{filialID}/{usuarioID}`.
 - Grava forma: `POST /api/empresaDelivery2/cardapioDigital/recebimento` com

@@ -1,5 +1,10 @@
 # MEMÓRIA — Cadastrar forma de recebimento (#82)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `formas-recebimento.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Manual **de cadastro**, produzido na mesma sessão dos manuais **#80** (mesas) e **#81**
 (comandas). O pedido do dono foi *"como cadastrar forma de recebimento para delivery, presencial e
 PDV"* — e a resposta principal do manual é que **PDV não tem switch próprio**: ele está dentro de

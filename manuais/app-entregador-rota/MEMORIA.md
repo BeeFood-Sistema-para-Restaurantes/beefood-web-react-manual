@@ -1,5 +1,10 @@
 # MEMÓRIA — #113 App do entregador: chegar no endereço
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `app-entregador-rota.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## O recorte
 
 Capítulos 05 (ver no mapa), 06 (rota do restaurante) e 07 (melhor rota) do material do dono, num

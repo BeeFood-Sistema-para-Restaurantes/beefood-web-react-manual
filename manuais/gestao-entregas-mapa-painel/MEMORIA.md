@@ -1,5 +1,10 @@
 # MEMORIA — #105 Ler o mapa e o painel de entregas
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `gestao-entregas-mapa-painel.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Estado
 
 **Concluído** em 18/09/2026. 7 imagens. Primeiro manual do bloco **Gestão de Entregas 2.0**

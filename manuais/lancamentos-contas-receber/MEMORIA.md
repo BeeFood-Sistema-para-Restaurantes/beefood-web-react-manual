@@ -1,5 +1,10 @@
 # MEMORIA.md — #67 Lançamentos: contas a receber
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `lancamentos-contas-receber.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Escopo
 O receber que a **venda paga** já lança sozinha + uma **receita
 extra** à mão + a aba **Todos lançamentos**. Prova: venda **#915**

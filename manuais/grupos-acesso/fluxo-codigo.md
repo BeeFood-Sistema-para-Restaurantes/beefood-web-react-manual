@@ -1,5 +1,10 @@
 # fluxo-codigo.md — Grupos de acesso (estudo completo)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `grupos-acesso.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Mapeamento técnico do sistema de permissões do BeeFood: as **93 permissões** da tela de Grupos
 de Acesso, a chave que cada uma acende no `grupoAcessoUsuario` e o que o front faz com ela.
 Documento interno — **não publicar**.

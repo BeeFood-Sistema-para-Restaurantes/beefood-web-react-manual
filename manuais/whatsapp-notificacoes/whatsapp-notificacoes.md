@@ -116,9 +116,4 @@ desta tela é aviso **para o entregador**.
 
 ---
 
-## Referências internas (não publicar)
-
-`WhatsAppNotificacaoAutomaticaTab`, `ModalEditarNotificacao`, tipo 33 =
-entregador próximo. Pasta `manuais/whatsapp-notificacoes/`.
-
 *Última atualização: setembro/2026 — BeeFood · Notificações WhatsApp*

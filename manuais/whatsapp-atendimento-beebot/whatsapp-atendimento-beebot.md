@@ -92,10 +92,4 @@ falar com gente.
 
 ---
 
-## Referências internas (não publicar)
-
-Painel `bot.beefood.com.br`. Switches `beeBotBeeChatPedido`, `beebotResponder`,
-`beebotAlertaSom`. Changelog *Respostas rápidas, detalhes do cliente e novo
-pedido pelo BeeBot*. Pasta `manuais/whatsapp-atendimento-beebot/`.
-
 *Última atualização: setembro/2026 — BeeFood · Atendimento BeeBot*

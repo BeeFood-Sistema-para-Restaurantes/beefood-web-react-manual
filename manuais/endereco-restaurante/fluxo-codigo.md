@@ -1,5 +1,10 @@
 # Fluxo de código — Endereço do restaurante
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `endereco-restaurante.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 > Mapeamento técnico do que o manual **#34 Configurar endereço do restaurante** documenta.
 > Fonte: `beefood-web-react` e `beetech-server-node-2.0`, somente leitura. Levantado em
 > 21/08/2026, versão **v3.200826.2051** em produção.

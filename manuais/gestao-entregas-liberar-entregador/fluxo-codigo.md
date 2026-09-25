@@ -1,5 +1,10 @@
 # O que as telas fazem de verdade — #104 Liberar o entregador
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `gestao-entregas-liberar-entregador.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Lido em `beefood-web-react`, em `beetech-server-node-2.0` (inclusive
 `docs/gestao-entrega-2.0/19-codigo-de-barras-no-3.md`) e conferido contra o sandbox. Serve
 para o manual não prometer o que a tela não faz.

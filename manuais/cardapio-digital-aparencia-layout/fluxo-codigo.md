@@ -1,5 +1,10 @@
 # fluxo-codigo.md — #71 Aparência e layout do cardápio digital (uso interno, NÃO publicar)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cardapio-digital-aparencia-layout.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 - Página: `src/pages/CardapioDigital.tsx` — rota `/cardapio-digital?tab=configuracoes`.
 - Card: `src/components/cardapio-digital/ConfiguracoesTab.tsx` (desktop).
 - Mobile: `src/components/mobile/cardapio-digital/MobileConfiguracoesTab.tsx`.

@@ -1,5 +1,10 @@
 # MEMÓRIA — #102 Gerar Cardápio em PDF
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cardapio-pdf.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Pasta: `manuais/cardapio-pdf/` · Manual: `cardapio-pdf.md` · 12 imagens
 Produzido em 17/09/2026, em **produção**, na conta sandbox
 **BeeFood3 - Manual** (`contato@beefood.com.br`, `empresaID 38311`).

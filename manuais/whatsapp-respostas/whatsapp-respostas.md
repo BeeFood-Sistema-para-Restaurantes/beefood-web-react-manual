@@ -103,9 +103,4 @@ automática cobre o que você cadastrou.
 
 ---
 
-## Referências internas (não publicar)
-
-`WhatsAppRespostaAutomaticaTab`, `ModalEditarRespostaAutomatica`,
-`LinhaLojaFechada`. Pasta `manuais/whatsapp-respostas/`.
-
 *Última atualização: setembro/2026 — BeeFood · Respostas WhatsApp*

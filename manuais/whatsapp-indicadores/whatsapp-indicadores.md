@@ -64,9 +64,4 @@ esta prévia vazia.
 
 ---
 
-## Referências internas (não publicar)
-
-`WhatsAppIndicadoresTab`, `useWhatsAppConversoes`, `DATA_MIN` 01/06/2026.
-Pasta `manuais/whatsapp-indicadores/`.
-
 *Última atualização: setembro/2026 — BeeFood · Indicadores WhatsApp*

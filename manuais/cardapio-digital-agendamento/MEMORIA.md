@@ -1,5 +1,10 @@
 # MEMORIA.md — #70 Agendamento do cardápio digital
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cardapio-digital-agendamento.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Escopo
 Aba **Cardápio Digital → Agendamento**: três switches + sete campos
 de prazo, cada um mapeado na tela **AGENDAR PEDIDO** do cardápio

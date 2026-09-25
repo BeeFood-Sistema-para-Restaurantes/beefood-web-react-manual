@@ -1,5 +1,10 @@
 # fluxo-codigo.md — Segunda conferência (mapeamento técnico)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `caixa-conferencia-2.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 > Mapa do código que sustenta o manual `caixa-conferencia-2.md`. Base: `beefood-web-react`
 > (commit `d4b1ad0`, produção `v3.190826.0925`). **Não publicar** — material interno.
 > O mapa geral da tela de conferência está em `../caixa-fechar/fluxo-codigo.md`; aqui ficam

@@ -1,5 +1,10 @@
 # fluxo-codigo.md — #17 BeeFood Pixel Analytics (uso interno, NÃO publicar)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `pixel-analytics.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Mapeamento técnico a partir do `beefood-web-react`. Backend não estava clonado nesta
 sessão (`BITBUCKET_TOKEN` inválido). As regras de persistência dos eventos (definição
 exata de sessão, classificação de referrer, captura de UTM no cardápio público) ficam

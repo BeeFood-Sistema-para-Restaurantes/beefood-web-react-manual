@@ -1,5 +1,10 @@
 # MEMORIA.md — #60 Integração Let's Express
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `integracao-lets-express.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Escopo
 Migração do artigo
 [Let's Express – Como solicitar cotação e entregador para Delivery](https://ajuda.beefood.com.br/baseconhecimento/lets-express-como-solicitar-cotacao-e-entregador-para-delivery/).

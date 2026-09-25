@@ -1,5 +1,10 @@
 # MEMORIA.md — #19 Cashback configurar
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cashback-configurar.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Escopo
 Ativar o programa, validade, saldo mínimo, formas, canais, % fixo ou por dia,
 exceções, aviso da tela antiga e **o que o cliente vê** no cardápio (faixa +

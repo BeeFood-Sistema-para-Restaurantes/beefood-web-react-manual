@@ -1,5 +1,10 @@
 # MEMORIA.md — #61 Foody Delivery (gestão de entregas e rastreamento)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `integracao-foody-delivery.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Escopo
 Migração do artigo [Foody Delivery – Gestão de Entregas e Rastreamento de Motoboys](https://ajuda.beefood.com.br/baseconhecimento/foody-delivery-gestao-de-entregas-e-rastreamento-de-motoboys/).
 Mesma mentalidade da fila #49–#56 e do #57: prints do **painel Foody** e do WhatsApp

@@ -248,10 +248,3 @@ das permissões no navegador.
 
 **Como eu sei o que cada permissão faz?** Está tudo no estudo **Grupos de Acesso**, com as 93
 permissões, o que cada uma esconde e o efeito nas telas de produto e de caixa.
-
----
-
-### Referências internas (não publicar)
-
-Estado do sandbox, evidências e mapeamento técnico: `MEMORIA.md` e `fluxo-codigo.md` desta
-pasta. O catálogo das permissões está em `manuais/grupos-acesso/`.

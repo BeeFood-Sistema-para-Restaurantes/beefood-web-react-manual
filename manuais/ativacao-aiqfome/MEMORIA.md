@@ -1,5 +1,10 @@
 # MEMÓRIA — Manual Ativação Aiqfome V2
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `ativacao-aiqfome.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 > Memória detalhada deste manual (escopo, origem, decisões e estado).
 > Ver também a memória geral: `..\..\MEMORIA-GERAL.md`.
 

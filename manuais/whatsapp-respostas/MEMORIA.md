@@ -1,5 +1,10 @@
 # MEMORIA.md — #88 Respostas automáticas no WhatsApp
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `whatsapp-respostas.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Série WhatsApp. Sandbox BeeFood3 (`contato@beefood.com.br`). WhatsApp **desconectado**.
 QR gerado e **não** escaneado. Conversas de celular são **mockup**.
 

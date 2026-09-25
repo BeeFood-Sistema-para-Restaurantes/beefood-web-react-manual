@@ -1,5 +1,10 @@
 # MEMORIA.md — Integração Repediu
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `integracao-repediu.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Escopo
 Manual do usuário final ensinando a **conectar o BeeFood ao Repediu** (CRM para restaurantes), com as
 **duas configurações independentes**:

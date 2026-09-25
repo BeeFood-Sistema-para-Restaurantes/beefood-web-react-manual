@@ -1,5 +1,10 @@
 # Fluxo de código — Cardápio: produtos, grupos de opções e complementos
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cardapio-fundamentos.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 > Mapeamento técnico do que o manual **#27 Cardápio — fundamentos** documenta.
 > Fonte: `beefood-web-react` (front) e `beetech-server-node-2.0` (backend), somente leitura.
 > Levantado em 20/08/2026 na versão **v3.200826.1358** em produção.

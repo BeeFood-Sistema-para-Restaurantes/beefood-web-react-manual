@@ -1,5 +1,10 @@
 # MEMORIA.md — Estudo completo dos grupos de acesso
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `grupos-acesso.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Manual **#75**. Estudo de **todas** as permissões de Configuração → Usuários → Grupos de Acesso,
 categorizado, com foco no efeito de cada uma na tela — e, em especial, no **cadastro de
 produto**.

@@ -1,5 +1,10 @@
 # MEMORIA.md — #62 Pick n Go! (cotação e entregador)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `integracao-pick-n-go.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 ## Escopo
 Migração do artigo [Pick N Go! – Como solicitar cotação e entregador para Delivery](https://ajuda.beefood.com.br/baseconhecimento/pick-n-go-como-solicitar-cotacao-e-entregador-para-delivery/).
 Mesma mentalidade da fila #49–#57: **não** reusar print do BeeFood Windows; capturar a **tela nova**

@@ -2,6 +2,21 @@
 
 ## PROMPT (copiar e colar)
 
+⛔ **REGRA ZERO — o manual é "como eu uso", nunca "como o sistema faz".**
+
+- A página sai **somente** do `totem-cupom-cashback.md`
+  e das imagens listados neste prompt.
+- **Não publique**, em nenhuma seção: rota ou URL de API (`/api/...`); nome de campo,
+  de arquivo, de componente, de tabela ou de coluna; bloco de código, JSON ou
+  `campo=true`; nem as palavras *backend*, *endpoint*, *payload*, *array*, *bundle*.
+  Se a frase só faz sentido para quem programa, ela não entra. Única exceção: a URL
+  completa de webhook que o lojista copia para o painel do parceiro.
+- Se você leu **qualquer outro arquivo** desta pasta — `fluxo-codigo.md`,
+  `MEMORIA.md`, `annotate.py`, `capturar.py` —, **descarte o que leu**: são anotações
+  internas de quem produziu o manual.
+- Em 23/09/2026 uma página publicada saiu com a rota da API do cupom e dois nomes de
+  campo do cashback, porque esta regra não estava aqui em cima.
+
 Em **Fidelidade (CRM)**, adicione um item de menu por último chamado **Cupom e
 cashback no totem**.
 
@@ -69,3 +84,36 @@ NÃO leia `fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `imagens-puras/`.
 
     70|As imagens 6, 7 e 8 são telas do **aparelho** (1080×1920, retrato) — publicar sem
 redimensionar para as frases das regras continuarem legíveis.
+
+## PROMPT DE CORREÇÃO — a página que já está no ar (23/09/2026)
+
+A página publicada saiu com trecho técnico que **não** está no manual: a rota da API
+dos cupons, o nome de um campo de lista de regras, a frase "o backend converte as
+configurações" e dois nomes de campo do cashback. Cole o bloco abaixo no construtor
+para limpar o que já está no ar.
+
+---
+
+Na página **Cupom e cashback no totem**, apague todo trecho que fale de **API, rota,
+backend, campo ou código**. Em especial:
+
+- o parágrafo que cita a rota de consulta dos cupons e o nome do campo que traz as
+  regras;
+- a frase que diz que o *backend* converte a configuração em linhas de texto;
+- a frase que diz que o totem "não precisa montar essas regras localmente";
+- a lista de dois campos com `= true` para explicar que o cashback e a modalidade do
+  totem estão ligados.
+
+Não substitua por explicação equivalente: **o lojista não precisa saber disso.** O que
+ele precisa saber já está na página, e é só isto:
+
+- as **regras que o totem escreve na tela** saem do que foi cadastrado no cupom, no
+  CRM — quem muda a regra é você, no cadastro, e o totem passa a escrever a frase
+  nova;
+- para o cupom aparecer no totem, o cupom precisa ter o canal **Totem** marcado;
+- para o cashback valer no totem, o programa precisa estar **ativo** e a modalidade
+  **Pedidos via Totem** marcada.
+
+Mantenha o resto da página como está: seções, imagens, tabelas, FAQ e palavras de
+busca. A correção é só remover o técnico e conferir que a explicação acima continua
+de pé.

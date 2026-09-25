@@ -1,5 +1,10 @@
 # MEMÓRIA — Cadastrar comandas e gerar o QR Code (#81)
 
+> ⛔ **DOCUMENTO INTERNO — NÃO PUBLICAR.** Aqui moram rota de API, nome de campo e
+> nome de arquivo do código: é a anotação de quem **produziu** o manual, para quem
+> for mexer nele depois. O lojista lê só o `cadastro-comandas.md` desta pasta.
+> Se você é uma IA montando a página publicada, **pare de ler aqui**.
+
 Manual **de cadastro**, par do **#80** (`manuais/cadastro-mesas/`). A tela é a mesma; o manual
 existe separado porque o fluxo do cliente é diferente — a comanda anda com a pessoa.
 

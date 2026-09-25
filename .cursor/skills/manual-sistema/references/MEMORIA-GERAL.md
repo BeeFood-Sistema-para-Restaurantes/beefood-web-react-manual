@@ -476,6 +476,46 @@ risco é real: no #24, um "toque em CONCEDER (2)" ficava colado numa imagem cuja
 existe** na imagem: um script curto que compara o `.md` com os marcadores do `annotate.py` acha
 isso em segundos, e foi assim que a ambiguidade apareceu.
 
+### O manual é "como eu uso", nunca "como o sistema faz" — `conferir-vazamento.py` (23/09/2026)
+
+O dono achou, numa página **publicada** do totem, a rota da API que o aparelho usa para
+buscar cupom, o nome do campo que traz as regras, a frase "o backend converte as
+configurações" e dois nomes de campo do cashback com `= true`. Nada disso estava no
+`.md` do manual: veio do `fluxo-codigo.md` da mesma pasta, que o construtor leu por
+conta própria. O `NÃO leia` existia no prompt — na linha 22, **depois** da lista de
+imagens. Tarde demais para quem já leu a pasta inteira.
+
+O que passou a valer:
+
+1. **REGRA ZERO na primeira linha do prompt** (seção 12), em todos os
+   `texto-documentation.ia.md`. Ela manda **descartar** o que já foi lido dos arquivos
+   internos, não só "não ler".
+2. **Todo arquivo interno se identifica**: `fluxo-codigo.md` e `MEMORIA.md` começam com
+   o aviso `⛔ DOCUMENTO INTERNO — NÃO PUBLICAR`, logo abaixo do título.
+3. **Nada de rodapé "Referências internas (não publicar)" dentro do `<nome>.md`.** Doze
+   manuais tinham um, com nome de componente e rota, dentro do arquivo que o prompt
+   manda ler **na íntegra** — pedir para não publicar um trecho do texto que você mesmo
+   entrega é apostar na sorte. Esse conteúdo mora no `fluxo-codigo.md`.
+4. **Conferir antes de entregar**:
+
+```bash
+python .cursor/skills/manual-sistema/scripts/conferir-vazamento.py          # os 122
+python .cursor/skills/manual-sistema/scripts/conferir-vazamento.py totem-   # um bloco
+```
+
+Ele lê **só o arquivo publicável** de cada pasta e acusa rota de API, verbo HTTP com
+rota, nome de arquivo de código, campo de lista, `campo=true`, jargão de programador e
+a própria frase "não publicar". Sai 1 se achar algo. O que ele **não** acusa, de
+propósito: URL completa de webhook (o lojista copia para o painel do parceiro), bloco
+cercado que é "Resumo do caminho" ou desenho de layout, e jargão dentro de **negrito**
+ou `monoespaçado` — ali é o nome literal de uma janela que o lojista vê (a Uber chama a
+dela de "Crie um endpoint"). Falso positivo que já apareceu e está tratado: **DOM** de
+domingo.
+
+Para limpar uma página que **já está no ar**, há prompt pronto no fim do
+`manuais/totem-cupom-cashback/texto-documentation.ia.md`: ele lista o que apagar e diz
+para **não** substituir por explicação equivalente — o lojista não precisa saber.
+
 ---
 
 ## 5. Contas de acesso (produção https://beefood.app)
@@ -1885,7 +1925,38 @@ Fluxo Caixa (*Em breve!*).
   > descartáveis). Portanto as senhas PODEM ficar versionadas e o repositório PODE ser
   > **público** sem problema. Não tratar essas credenciais como segredo crítico.
 
----
+### Depois de todo merge: a lista de pastas + a instrução de leitura (OBRIGATÓRIO)
+
+Pedido do dono em 23/09/2026: *"sempre que fizer um merge de PR me mande as pastas +
+instrução"*. Ele é quem publica, e o que ele repassa ao construtor de documentação é
+justamente isso — **onde está o manual e o que pode ser lido**. Sem a lista, o
+construtor lê a pasta inteira, e foi exatamente assim que a rota da API do cupom saiu
+publicada na página do #122.
+
+Fechado o merge na `main`, a resposta ao dono termina com **uma linha por manual
+entregue**, nesta forma:
+
+```
+manuais/<pasta>/
+  Colar no construtor : manuais/<pasta>/texto-documentation.ia.md
+  Ler                 : manuais/<pasta>/<pasta>.md (na íntegra)
+                        manuais/<pasta>/imagens-tratadas/ (na ordem do prompt)
+  NÃO ler             : fluxo-codigo.md, MEMORIA.md, annotate.py, capturar.py,
+                        imagens-puras/
+```
+
+Três coisas que essa entrega sempre diz, e que não são decorativas:
+
+- **o arquivo publicável é o `<pasta>.md`**, e o nome dele é o da pasta — é o único que
+  vira página;
+- **`imagens-tratadas/` é a única pasta de imagem**, porque `imagens-puras/` é backup e
+  tem print sem seta;
+- **o que não se lê, listado por nome.** "Leia só o manual" não basta: o construtor
+  entende "leia a pasta do manual".
+
+Quando o merge entrega **um bloco** (vários manuais irmãos), as pastas vão na ordem da
+numeração `#NN`, e o bloco leva uma frase dizendo o que cada uma cobre — o dono publica
+um item de menu por manual, na ordem.
 
 ## 12. `texto-documentation.ia.md` — PROMPT pronto por manual (OBRIGATÓRIO)
 
@@ -1900,6 +1971,10 @@ explicitamente **"NÃO varra/leia o resto do projeto"** (nada de `fluxo-codigo.m
 
 **O que o arquivo deve conter:**
 1. Um bloco **PROMPT (copiar e colar)** com:
+   - A **REGRA ZERO** (abaixo) na **primeira linha** do bloco, antes de qualquer outra
+     instrução. Dizer "NÃO leia o resto" no meio do prompt não segura: em 23/09/2026 a
+     página do #122 saiu publicada com a rota da API dos cupons e dois nomes de campo do
+     cashback, porque a proibição estava na linha 22, depois da lista de imagens.
    - **Onde criar o menu** (ex.: "Em **Fiscal**, crie um novo item por último chamado **\<Nome\>**").
    - **Lista explícita dos arquivos a ler** (somente esses): o **`<nome>.md`** (conteúdo na íntegra) e os **caminhos de cada imagem** em `imagens-tratadas/` (na ordem).
    - Frase clara de **"NÃO ler outros arquivos do projeto"**.
@@ -1914,6 +1989,22 @@ explicitamente **"NÃO varra/leia o resto do projeto"** (nada de `fluxo-codigo.m
 # texto-documentation.ia.md — <Nome do Manual>
 
 ## PROMPT (copiar e colar)
+
+⛔ **REGRA ZERO — o manual é "como eu uso", nunca "como o sistema faz".**
+
+- A página sai **somente** do `<nome>.md`
+  e das imagens listados neste prompt.
+- **Não publique**, em nenhuma seção: rota ou URL de API (`/api/...`); nome de campo,
+  de arquivo, de componente, de tabela ou de coluna; bloco de código, JSON ou
+  `campo=true`; nem as palavras *backend*, *endpoint*, *payload*, *array*, *bundle*.
+  Se a frase só faz sentido para quem programa, ela não entra. Única exceção: a URL
+  completa de webhook que o lojista copia para o painel do parceiro.
+- Se você leu **qualquer outro arquivo** desta pasta — `fluxo-codigo.md`,
+  `MEMORIA.md`, `annotate.py`, `capturar.py` —, **descarte o que leu**: são anotações
+  internas de quem produziu o manual.
+- Em 23/09/2026 uma página publicada saiu com a rota da API do cupom e dois nomes de
+  campo do cashback, porque esta regra não estava aqui em cima.
+
 Em <Seção>, adicione um item de menu por último chamado "<Nome>".
 
 Leia APENAS os arquivos abaixo (não varra o resto do projeto):
@@ -1923,7 +2014,7 @@ Leia APENAS os arquivos abaixo (não varra o resto do projeto):
 NÃO leia outros arquivos (fluxo-codigo.md, MEMORIA*.md, annotate.py, imagens-puras/).
 
 - Faça a apresentação das imagens IGUAL ao menu "Abrir Caixa".
-- pt-BR, didático; destacar obrigatórios; não publicar o rodapé "Referências internas".
+- pt-BR, didático; destacar obrigatórios.
 
 ## Anexo — legendas das imagens (na ordem)
 | Ordem | Arquivo (em imagens-tratadas/) | Tipo | Legenda |
