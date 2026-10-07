@@ -13,9 +13,9 @@
   },
   "rec-segmentacao.png": {
     "x": 215,
-    "y": 445.9,
-    "width": 1218,
-    "height": 193.0
+    "y": 543.9,
+    "width": 671.2,
+    "height": 95.0
   },
   "rec-home-faixa.png": {
     "x": 0,
@@ -40,5 +40,11 @@
     "y": 702,
     "width": 390,
     "height": 142
+  },
+  "rec-linhas-cliente.png": {
+    "x": 264,
+    "y": 356,
+    "width": 1120,
+    "height": 188
   }
 }

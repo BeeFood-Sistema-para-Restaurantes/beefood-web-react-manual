@@ -101,7 +101,8 @@ def tirar(pagina, nome: str, **kwargs):
     print("PURA", nome)
 
 
-def recortar(pagina, nome: str, de, ate=None, folga=14, lateral=None, folga_pe=None):
+def recortar(pagina, nome: str, de, ate=None, folga=14, lateral=None, folga_pe=None,
+             folga_lado=None):
     """Recorta pela caixa MEDIDA no DOM, nunca estimada na miniatura.
 
     `de` e `ate` são locators: a faixa vai do topo do primeiro ao pé do último.
@@ -112,6 +113,10 @@ def recortar(pagina, nome: str, de, ate=None, folga=14, lateral=None, folga_pe=N
 
     `folga_pe` separa a sobra de baixo da de cima. Serve para quando a linha
     seguinte precisa ficar de fora inteira e a de cima ainda precisa respirar.
+
+    `folga_lado` faz o mesmo nos lados, e aceita um par `(esquerda, direita)`.
+    Numa tabela, a célula já traz o próprio respiro: somar folga à direita
+    deixa entrar uma lasca da coluna seguinte, que lê como erro de recorte.
     """
     a = de.bounding_box()
     b = (ate or de).bounding_box()
@@ -120,9 +125,11 @@ def recortar(pagina, nome: str, de, ate=None, folga=14, lateral=None, folga_pe=N
         x, largura = 0, pagina.viewport_size["width"]
     else:
         esq, dir_ = lateral if isinstance(lateral, tuple) else (lateral, lateral)
+        lado = folga if folga_lado is None else folga_lado
+        f_esq, f_dir = lado if isinstance(lado, tuple) else (lado, lado)
         c, d = esq.bounding_box(), dir_.bounding_box()
-        x = max(0, c["x"] - folga)
-        largura = (d["x"] + d["width"] + folga) - x
+        x = max(0, c["x"] - f_esq)
+        largura = (d["x"] + d["width"] + f_dir) - x
     pe = folga if folga_pe is None else folga_pe
     caixa = {"x": x, "y": topo,
              "width": largura, "height": (b["y"] + b["height"] + pe) - topo}
@@ -333,6 +340,21 @@ def painel():
             "xpath=ancestor::div[.//*[contains(text(),'Média por Cliente')]][1]")
         recortar(pagina, "rec-totais-painel.png", grade, lateral=grade, folga=10)
 
+        # Duas linhas da lista, para o slide nao ficar so com a faixa fina dos
+        # totais. Sao as duas contas de teste com nome — as outras linhas da
+        # sandbox aparecem como "-", e lista de tracos nao prova nada.
+        #
+        # O rótulo é *Saldo total* no DOM: o maiúsculo da tela é `text-transform`
+        # do CSS, e xpath lê o texto, não o estilo. Ancorar em `SALDO TOTAL` não
+        # acha nada e estoura em timeout.
+        def cartao_da_linha(nome: str):
+            return pagina.get_by_text(nome, exact=True).first.locator(
+                "xpath=ancestor::div[.//*[contains(text(),'Saldo total')]][1]")
+
+        primeira, ultima = cartao_da_linha("Bruno Pontos"), cartao_da_linha("Teste Manual")
+        recortar(pagina, "rec-linhas-cliente.png", primeira, ultima,
+                 folga=8, lateral=primeira)
+
         # A campanha e o público que a BeeFood já deixa cadastrados para os pontos
         pagina.goto("https://beefood.app/food-marketing/campanhas-whatsapp",
                     wait_until="domcontentloaded", timeout=90000)
@@ -364,11 +386,22 @@ def painel():
         esperar(pagina)
         limpar(pagina)
         tirar(pagina, "09-segmentacao-pontos-parados.png")
+        # A direita da tabela e so data de criacao e botao. Cortada ali, a
+        # faixa cai de 1218 para ~670 px de largura e o nome do publico chega
+        # ao slide com o dobro do corpo — que e o que precisa ser lido.
+        #
+        # E o quadro comeca na linha dos pontos, nao no alto da tabela: acima
+        # dela a sandbox tem *Cashback parado* duas vezes, e linha repetida num
+        # print de venda le como defeito da tela. Ficam as duas linhas que
+        # fazem a frase — a dos pontos e a seguinte, as duas feitas pela
+        # BeeFood, que e o que prova o "ja vem pronto".
         tabela = pagina.locator("table, [role=table]").first
         recortar(pagina, "rec-segmentacao.png",
-                 pagina.get_by_text("Cashback parado", exact=False).first,
+                 pagina.get_by_text("Pontos parados", exact=False).first,
                  pagina.get_by_text("Aniversariantes do dia", exact=False).first,
-                 folga=14, lateral=tabela)
+                 folga=14,
+                 lateral=(tabela, pagina.get_by_text("Beefood (sistema)", exact=False).first),
+                 folga_lado=(14, 0))
         salvar_medidas()
 
 
