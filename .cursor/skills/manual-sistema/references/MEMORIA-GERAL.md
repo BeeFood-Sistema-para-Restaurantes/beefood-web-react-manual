@@ -1277,6 +1277,7 @@ escrito de propósito bateria.
 | O pedido do totem no painel | `manuais/totem-venda-no-painel/` | ✅ Concluído (#123) |
 | Mais de um cardápio no mesmo totem | `manuais/totem-multicardapio/` | ✅ Concluído (#124) |
 | O cliente acompanha a entrega no mapa | `manuais/gestao-entregas-rastreio-cliente/` | ✅ Concluído (#125) |
+| Programa de pontos | `manuais/programa-pontos/` | ✅ Concluído (#126) |
 
 > **Número de manual se escolhe lendo esta tabela, não contando o último que você escreveu.**
 > O rastreio do cliente e o bloco do totem foram produzidos em paralelo, em branches que não
@@ -1285,6 +1286,39 @@ escrito de propósito bateria.
 > cabeçalhos de arquivo e nenhuma citação cruzada, contra 15 menções ao #121 espalhadas pelos
 > quatro manuais do totem, que se citam entre si. Histórico em
 > [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md).
+
+### Programa de pontos — #126
+
+O cliente junta ponto a cada compra e troca por desconto ou por produto. O recurso existe
+em quatro canais, mas o dono pediu **um recorte**: fotografar só o **cardápio digital** e
+**dizer** dos outros três em texto. O que sobrou de transferível está em
+[`MEMORIA.md`](../../../../manuais/programa-pontos/MEMORIA.md) e
+[`fluxo-codigo.md`](../../../../manuais/programa-pontos/fluxo-codigo.md).
+
+- **Recorte do dono não é recorte do estudo.** Fotografar só um canal não dispensa abrir os
+  outros: foi lendo o bundle do **totem** que apareceu a frase do manual — ele não tem
+  **nenhuma** menção a "pontos", e tudo que é de pontos no cardápio está atrás de
+  `!isPresencial`. Sem essa leitura o texto teria prometido o que o canal não faz.
+- **A margem `topo` entra na família das margens.** `m` e `md` já estavam documentadas; aqui
+  faltou a de cima. Tela de **tabela** põe o cabeçalho da coluna **abaixo** da linha de
+  busca, então a etiqueta de uma seta lateral cruzaria a caixa de pesquisa. `topo` abre uma
+  faixa de fundo acima da pura e as etiquetas moram nela. Como as outras, é montada **dentro
+  do `annotate()`** — pura é o print, e só.
+- **Etiqueta na tira da direita? Mire a borda DIREITA do elemento.** A regra antiga ("mire o
+  vão antes da primeira letra") resolve etiqueta à esquerda e **erra** à direita: a seta sai
+  da etiqueta, atravessa o rótulo inteiro e só então chega na primeira letra. Aconteceu em
+  seis imagens, riscando *Disponível*, *RESGATAR*, *INSUFICIENTE*, *ADICIONAR*, *REMOVER* e
+  um valor em reais. O alvo certo é a borda **do lado de onde a seta vem**.
+- **Tapar o telefone do cliente antes do print, no navegador.** A pura é versionada e o
+  repositório é público, então o dado sai coberto já nela. Em tela de cardápio o jeito mais
+  limpo é um `page.evaluate` que pinta o elemento do telefone antes do `screenshot` — nada
+  de recorte depois, que desalinha as frações.
+- **Defeito de produto é nota de manual, não silêncio.** Três apareceram no caminho
+  (recompensa de produto cadastrada no painel não chega ao cliente, por `produtoID`
+  divergente entre a rota do painel e o catálogo público; relógio do painel três horas
+  adiantado, UTC sem converter; ícones do extrato com as cores trocadas). O manual avisa o
+  lojista a **conferir a recompensa no cardápio** e o `texto-documentation.ia.md` registra
+  que esse aviso sai da página quando o produto corrigir.
 
 ### O cliente acompanha a entrega no mapa — #125
 
