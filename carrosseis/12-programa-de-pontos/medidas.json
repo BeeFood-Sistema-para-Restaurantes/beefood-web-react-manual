@@ -1,0 +1,44 @@
+{
+  "rec-totais-painel.png": {
+    "x": 262,
+    "y": 109,
+    "width": 1124,
+    "height": 95
+  },
+  "rec-campanha.png": {
+    "x": 231,
+    "y": 228,
+    "width": 375.3,
+    "height": 210
+  },
+  "rec-segmentacao.png": {
+    "x": 215,
+    "y": 445.9,
+    "width": 1218,
+    "height": 193.0
+  },
+  "rec-home-faixa.png": {
+    "x": 0,
+    "y": 286.8,
+    "width": 390,
+    "height": 310.6
+  },
+  "rec-vitrine.png": {
+    "x": 0,
+    "y": 183.4,
+    "width": 390,
+    "height": 331.0
+  },
+  "rec-total-antes.png": {
+    "x": 0,
+    "y": 702,
+    "width": 390,
+    "height": 142
+  },
+  "rec-total-depois.png": {
+    "x": 0,
+    "y": 702,
+    "width": 390,
+    "height": 142
+  }
+}

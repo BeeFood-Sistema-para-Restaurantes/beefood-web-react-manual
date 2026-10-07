@@ -1,0 +1,103 @@
+{
+  "por_que": [
+    "A vitrine de recompensas do cardapio de teste perdeu, entre a captura do manual e a",
+    "desta peca, a unica recompensa de PRODUTO. Alguem trocou o cadastro no painel, e o",
+    "que entrou no lugar foi gravado com o id interno do painel (faixa 26xxxxx) em vez do",
+    "id do catalogo publico (faixa 25xxxxx). O cardapio publico resolve a recompensa pelo",
+    "id do catalogo e DESCARTA EM SILENCIO o que nao encontra — e o defeito 1 do",
+    "fluxo-codigo.md do manual, acontecendo ao vivo.",
+    "",
+    "Sem ela, a vitrine fica so com os tres descontos, e a peca perde metade do eixo que a",
+    "capa promete: 'desconto OU produto gratis'. A recompensa de produto nao e detalhe —",
+    "e a que custa a loja o preco de um lanche e vale, para quem recebe, um pedido inteiro.",
+    "",
+    "A saida e a sancionada pela skill desde o totem: a resposta de",
+    "GET .../pontos/recompensas/{filial} e trocada dentro do Chromium da captura, e quem",
+    "desenha a tela e o cardapio digital de producao. O que foi devolvido e EXATAMENTE o",
+    "cadastro que o manual fotografou na manha do mesmo dia — nao e um exemplo inventado",
+    "para a arte, e a recompensa que estava no ar e saiu.",
+    "",
+    "Nada e gravado em servidor nenhum: a unica chamada alterada e um GET. Com --cru o",
+    "script mostra a vitrine como ela esta hoje, so com os tres descontos.",
+    "",
+    "O QUE NAO FOI MEXIDO, e vale dizer:",
+    "  - o saldo. Os 121 pontos do cliente de teste sao os que o cenario.py do manual",
+    "    creditou, e continuam intactos: o roteiro da captura monta a sacola, resgata e",
+    "    PARA ANTES DE FECHAR O PEDIDO. O ponto so sai do saldo quando a venda nasce, e a",
+    "    venda nao nasce aqui. E por isso que 'Faltam 59 pts' e a mesma conta em todos os",
+    "    slides;",
+    "  - as tres recompensas de desconto (R$ 5 / 50 pts, R$ 10 / 100 pts, R$ 20 / 180 pts)",
+    "    sao as que estao cadastradas no painel hoje;",
+    "  - a regra do programa (1 ponto por R$ 1,00, validade de 90 dias) e a cadastrada;",
+    "  - o lado do restaurante e SOMENTE LEITURA. Nenhum campo do painel foi tocado por",
+    "    esta peca, nem para a foto.",
+    "",
+    "UMA ESCOLHA DE AGENDAMENTO, que tambem nao grava nada: a loja de teste estava fechada",
+    "no horario da captura, e a sacola exige dia e hora antes de liberar a etapa dos",
+    "pontos. Marcar o horario e tocar em AGENDAR PEDIDO guarda a escolha na sacola — nao",
+    "cria pedido."
+  ],
+
+  "cardapio": {
+    "url": "https://menu.beefood.com.br/beefood3",
+    "loja": "BeeFood3 - Manual",
+    "filialID": 39202,
+    "nota": "loja de teste da casa, com logotipo de placeholder; nao e loja de cliente"
+  },
+
+  "cliente": {
+    "nome": "Teste Manual",
+    "telefone": "15999998888",
+    "saldo_pts": 121,
+    "real": "conta de teste criada pelos manuais; o telefone pula o codigo do WhatsApp"
+  },
+
+  "rota_interceptada": "**/pontos/recompensas/**",
+
+  "devolvido": {
+    "desconto": [
+      { "id": 1, "valorDesconto": 5, "pontosNecessarios": 50, "cadastrado_hoje": true },
+      { "id": 2, "valorDesconto": 10, "pontosNecessarios": 100, "cadastrado_hoje": true },
+      { "id": 3, "valorDesconto": 20, "pontosNecessarios": 180, "cadastrado_hoje": true }
+    ],
+    "produto": [
+      {
+        "id": 4,
+        "produtoID": 2515303,
+        "pontosNecessarios": 100,
+        "pontosPorReal": 0,
+        "cadastrado_hoje": false,
+        "exibido": "Chicken Deluxe gratis - 100 pontos",
+        "nota": "o cadastro que o manual fotografou de manha e que saiu do painel desde entao"
+      }
+    ]
+  },
+
+  "o_que_o_cadastro_tem_hoje": {
+    "produtoID": 2624117,
+    "sintoma": "o painel mostra a linha; o cardapio publico nao a devolve ao cliente",
+    "causa": "id interno do painel no lugar do id do catalogo publico",
+    "onde_esta_escrito": "manuais/programa-pontos/fluxo-codigo.md, defeito 1; e a secao 5 do manual, no aviso 'Confira a recompensa de produto no cardapio depois de cadastrar'"
+  },
+
+  "pedido_da_captura": {
+    "produto": "Chicken Deluxe",
+    "preco": "R$ 29,00",
+    "modalidade": "Retirar no estabelecimento",
+    "agendado": "a loja estava fechada; a sacola pediu dia e hora",
+    "ganho_exibido": "29 pontos",
+    "resgate": "R$ 10,00 de desconto (100 pontos)",
+    "total_depois": "R$ 19,00",
+    "fechado": false
+  },
+
+  "painel": {
+    "somente_leitura": true,
+    "telas": [
+      "Fidelidade (CRM) -> Programa de pontos -> Saldo por Cliente",
+      "Food Marketing -> Campanhas WhatsApp -> Campanhas Inteligentes",
+      "Food Marketing -> Segmentacao de Cliente"
+    ],
+    "tratamento_na_pura": "telefone de cliente sai borrado antes do print, porque a imagem pura tambem e versionada"
+  }
+}
