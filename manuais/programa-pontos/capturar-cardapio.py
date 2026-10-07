@@ -91,24 +91,24 @@ def celular(p):
         fechar_banner_cupom(page)
 
         # 11 — a porta de entrada do cliente: a faixa amarela e o selo de presente no produto
-        tirar(page, "11-cardapio-faixa-pontos.png")
+        tirar(page, "06-cardapio-faixa-pontos.png")
 
         entrar(page)
 
         # 12 — o menu do perfil, com o atalho do programa
         page.locator(".v-bottom-navigation .v-btn").filter(has_text="Perfil").first.click()
         esperar(page, 6000)
-        tirar(page, "12-cardapio-perfil-programa-pontos.png")
+        tirar(page, "07-cardapio-perfil-programa-pontos.png")
 
         # 13 — o saldo e o extrato do cliente
         page.get_by_text("Programa de pontos", exact=False).first.click()
         esperar(page, 7000)
-        tirar(page, "13-cardapio-meus-pontos.png")
+        tirar(page, "08-cardapio-meus-pontos.png")
 
         # 14 — a vitrine de recompensas, com o que falta para as que ainda não dão
         page.get_by_text("Ver o que você pode ganhar", exact=False).first.click()
         esperar(page, 6000)
-        tirar(page, "14-cardapio-recompensas.png")
+        tirar(page, "09-cardapio-recompensas.png")
         page.keyboard.press("Escape")
         esperar(page, 2500)
 
@@ -129,7 +129,7 @@ def celular(p):
         # 15 — o cliente troca pontos por recompensa, dentro da sacola
         page.get_by_text("Programa de Pontos", exact=False).first.scroll_into_view_if_needed()
         esperar(page, 2500)
-        tirar(page, "15-cardapio-trocar-pontos.png")
+        tirar(page, "10-cardapio-trocar-pontos.png")
 
         # 16 — a recompensa aplicada: o desconto entra no total
         linha = page.get_by_text(RECOMPENSA, exact=False).first.locator(
@@ -137,7 +137,7 @@ def celular(p):
         )
         linha.locator(".v-btn, button").filter(has_text="RESGATAR").first.click()
         esperar(page, 8000)
-        tirar(page, "16-cardapio-resgate-aplicado.png")
+        tirar(page, "11-cardapio-resgate-aplicado.png")
         print("RESUMO:", page.inner_text("body")[:40].replace("\n", " "))
         print("ATENÇÃO: o pedido NÃO foi fechado — o resgate só consome pontos na venda.")
     finally:
@@ -163,12 +163,12 @@ def computador(p):
         # onde ele fica, e foi o que aconteceu na primeira tentativa — o nome da loja saía
         # cortado no meio.
         caixa = banner.first.bounding_box()
-        page.screenshot(path=str(SRC / "17-banner-pontos-computador.png"), clip={
+        page.screenshot(path=str(SRC / "12-banner-pontos-computador.png"), clip={
             "x": 0, "y": max(0, caixa["y"] - 170),
             "width": COMPUTADOR["width"],
             "height": caixa["height"] + 250,
         })
-        print("PURA 17-banner-pontos-computador.png")
+        print("PURA 12-banner-pontos-computador.png")
     finally:
         ctx.close()
         b.close()

@@ -110,7 +110,7 @@ def annotate(nome, marcadores=(), r=30, w=5, m=0.0, md=0.0, topo=0.0):
 
 
 # ---------------------------------------------------------------------------------------
-# Painel — 01 a 10
+# Configuração, no painel — 01 a 05
 # ---------------------------------------------------------------------------------------
 # A tela inteira do sistema, com o menu à esquerda: é o mapa do caminho, e a única imagem do
 # manual em que o menu importa. Não precisa de margem — o vão branco entre o menu e o cartão
@@ -163,12 +163,81 @@ annotate("05-recompensas-de-produto.png", [
     (5, *a(0.880, 0.818), 0.902, 0.700),   # ADICIONAR
 ], r=26, w=4, m=M)
 
+# ---------------------------------------------------------------------------------------
+# Cardápio digital, no celular do cliente — 06 a 11
+# ---------------------------------------------------------------------------------------
+# Os seis prints de celular compartilham as duas margens, e por isso saem todos com a mesma
+# largura final. A da direita existe pelo motivo oposto à da esquerda: a coluna direita da
+# tela é onde moram o selo do produto, os botões de resgate e o rodapé do cardápio, e
+# alcançá-los pela esquerda obrigaria a seta a atravessar a tela por cima do nome do item.
+MC, MDC = 0.22, 0.10
+a = alvo(MC, MDC)
+
+annotate("06-cardapio-faixa-pontos.png", [
+    (1, *a(0.090, 0.369), 0.110, 0.369),   # a faixa "Acumule pontos a cada compra"
+    (2, *a(0.930, 0.564), 0.955, 0.564),   # o selo de presente no produto resgatável
+    (3, *a(0.875, 0.962), 0.955, 0.962),   # Perfil, no rodapé
+], r=32, w=4, m=MC, md=MDC)
+
+annotate("07-cardapio-perfil-programa-pontos.png", [
+    (1, *a(0.875, 0.962), 0.955, 0.962),   # Perfil, agora aceso
+    (2, *a(0.980, 0.840), 0.955, 0.840),   # Programa de pontos, no menu do perfil
+], r=32, w=4, m=MC, md=MDC)
+
+annotate("08-cardapio-meus-pontos.png", [
+    (1, *a(0.093, 0.138), 0.110, 0.138),   # o saldo
+    (2, *a(0.038, 0.224), 0.110, 0.210),   # Extrato
+    (3, *a(0.065, 0.263), 0.110, 0.265),   # Ganhou
+    (4, *a(0.135, 0.300), 0.110, 0.320),   # o motivo digitado no painel
+    (5, *a(0.065, 0.354), 0.110, 0.390),   # Usou
+    (6, *a(0.195, 0.968), 0.110, 0.968),   # Ver o que você pode ganhar
+], r=32, w=4, m=MC, md=MDC)
+
+annotate("09-cardapio-recompensas.png", [
+    (1, *a(0.172, 0.130), 0.110, 0.155),   # a regra de acúmulo e a validade
+    (2, *a(0.170, 0.308), 0.110, 0.308),   # uma recompensa de desconto
+    (3, *a(0.915, 0.315), 0.955, 0.250),   # Disponível
+    (4, *a(0.915, 0.479), 0.955, 0.420),   # Faltam 59 pts
+    (5, *a(0.170, 0.550), 0.110, 0.550),   # a recompensa de produto
+    (6, *a(0.195, 0.966), 0.110, 0.966),   # Ver meu extrato
+], r=32, w=4, m=MC, md=MDC)
+
+annotate("10-cardapio-trocar-pontos.png", [
+    (1, *a(0.105, 0.101), 0.110, 0.115),   # o cartão Programa de Pontos
+    (2, *a(0.093, 0.306), 0.110, 0.306),   # quantos pontos ele tem
+    (3, *a(0.900, 0.371), 0.955, 0.320),   # RESGATAR
+    (4, *a(0.905, 0.518), 0.955, 0.468),   # INSUFICIENTE
+    (5, *a(0.900, 0.588), 0.955, 0.640),   # ADICIONAR, da recompensa de produto
+    (6, *a(0.093, 0.969), 0.110, 0.969),   # Ganhe 29 pontos, no rodapé
+], r=32, w=4, m=MC, md=MDC)
+
+annotate("11-cardapio-resgate-aplicado.png", [
+    (1, *a(0.100, 0.431), 0.110, 0.431),   # a recompensa resgatada
+    (2, *a(0.900, 0.444), 0.955, 0.390),   # REMOVER
+    (3, *a(0.100, 0.520), 0.110, 0.540),   # as outras, agora indisponíveis
+    (4, *a(0.945, 0.862), 0.955, 0.800),   # o total do pedido, já com o desconto
+    (5, *a(0.093, 0.969), 0.110, 0.969),   # Ganhe 29 pontos: o desconto não tira o ganho
+], r=32, w=4, m=MC, md=MDC)
+
+# ---------------------------------------------------------------------------------------
+# 12 — o mesmo cardápio no computador
+# ---------------------------------------------------------------------------------------
+# Faixa do topo da página, de largura inteira: no computador o programa não vira faixa
+# amarela, vira cartão na coluna da direita. Sobra branco entre o nome da loja e o cartão.
+annotate("12-banner-pontos-computador.png", [
+    (1, 0.730, 0.485, 0.635, 0.470),   # o cartão Programa de Pontos
+    (2, 0.726, 0.760, 0.660, 0.900),   # Ver o que você pode ganhar
+], r=30, w=5)
+
+# ---------------------------------------------------------------------------------------
+# Acompanhamento, no painel — 13 a 17
+# ---------------------------------------------------------------------------------------
 # O histórico é uma tabela. A margem de cima existe porque o cabeçalho das colunas fica
 # **abaixo** da linha da busca: seta vinda de faixa lateral atravessaria a busca inteira. A da
 # direita existe porque a coluna Pontos é a última, encostada na borda do cartão.
 TOPO6, MD6 = 0.09, 0.08
 a = alvo(0, MD6, TOPO6)
-annotate("06-historico-de-pontos.png", [
+annotate("13-historico-de-pontos.png", [
     (1, *a(0.695, 0.208), 0.640, 0.042),   # a busca
     (2, *a(0.985, 0.208), 0.965, 0.279),   # o filtro Todos os tipos
     (3, *a(0.408, 0.317), 0.327, 0.378),   # a coluna Tipo
@@ -182,7 +251,7 @@ annotate("06-historico-de-pontos.png", [
 # à direita.
 TOPO7, MD7 = 0.08, 0.04
 a = alvo(0, MD7, TOPO7)
-annotate("07-saldo-por-cliente.png", [
+annotate("14-saldo-por-cliente.png", [
     (1, *a(0.342, 0.140), 0.328, 0.036),   # os quatro totais
     (2, *a(0.655, 0.261), 0.557, 0.320),   # Novo Saldo
     (3, *a(0.857, 0.559), 0.662, 0.594),   # o saldo do cliente, na linha dele
@@ -193,7 +262,7 @@ annotate("07-saldo-por-cliente.png", [
 # esquerda: só a faixa clara dá lugar para etiqueta.
 M8 = 0.16
 a = alvo(M8)
-annotate("08-extrato-do-cliente.png", [
+annotate("15-extrato-do-cliente.png", [
     (1, *a(0.410, 0.311), 0.055, 0.311),   # SALDO ATUAL
     (2, *a(0.085, 0.410), 0.055, 0.410),   # ADICIONAR / REMOVER / TRANSFERIR
     (3, *a(0.030, 0.519), 0.055, 0.519),   # Gerado / Usado / Expirado
@@ -203,7 +272,7 @@ annotate("08-extrato-do-cliente.png", [
 
 # A janela de adicionar pontos tem fundo escurecido nos dois lados: etiqueta ali se lê bem e
 # não cobre nada da própria janela.
-annotate("09-adicionar-pontos.png", [
+annotate("16-adicionar-pontos.png", [
     (1, 0.282, 0.338, 0.175, 0.338),   # Pontos
     (2, 0.282, 0.468, 0.175, 0.468),   # Expira em (dias) — opcional
     (3, 0.282, 0.639, 0.175, 0.639),   # Motivo *
@@ -215,77 +284,11 @@ annotate("09-adicionar-pontos.png", [
 # última e o texto dela é longo.
 MD10 = 0.06
 a = alvo(0, MD10)
-annotate("10-fila-de-processamento.png", [
+annotate("17-fila-de-processamento.png", [
     (1, *a(0.237, 0.240), 0.172, 0.240),   # a faixa do processamento da madrugada
     (2, *a(0.243, 0.532), 0.172, 0.532),   # os quatro contadores
     (3, *a(0.240, 0.778), 0.172, 0.778),   # a coluna Status
     (4, *a(0.835, 0.850), 0.970, 0.850),   # a coluna Mensagem
 ], r=30, w=5, md=MD10)
-
-# ---------------------------------------------------------------------------------------
-# Cardápio digital — 11 a 16
-# ---------------------------------------------------------------------------------------
-# Os seis prints de celular compartilham as duas margens, e por isso saem todos com a mesma
-# largura final. A da direita existe pelo motivo oposto à da esquerda: a coluna direita da
-# tela é onde moram o selo do produto, os botões de resgate e o rodapé do cardápio, e
-# alcançá-los pela esquerda obrigaria a seta a atravessar a tela por cima do nome do item.
-MC, MDC = 0.22, 0.10
-a = alvo(MC, MDC)
-
-annotate("11-cardapio-faixa-pontos.png", [
-    (1, *a(0.090, 0.369), 0.110, 0.369),   # a faixa "Acumule pontos a cada compra"
-    (2, *a(0.930, 0.564), 0.955, 0.564),   # o selo de presente no produto resgatável
-    (3, *a(0.875, 0.962), 0.955, 0.962),   # Perfil, no rodapé
-], r=32, w=4, m=MC, md=MDC)
-
-annotate("12-cardapio-perfil-programa-pontos.png", [
-    (1, *a(0.875, 0.962), 0.955, 0.962),   # Perfil, agora aceso
-    (2, *a(0.980, 0.840), 0.955, 0.840),   # Programa de pontos, no menu do perfil
-], r=32, w=4, m=MC, md=MDC)
-
-annotate("13-cardapio-meus-pontos.png", [
-    (1, *a(0.093, 0.138), 0.110, 0.138),   # o saldo
-    (2, *a(0.038, 0.224), 0.110, 0.210),   # Extrato
-    (3, *a(0.065, 0.263), 0.110, 0.265),   # Ganhou
-    (4, *a(0.135, 0.300), 0.110, 0.320),   # o motivo digitado no painel
-    (5, *a(0.065, 0.354), 0.110, 0.390),   # Usou
-    (6, *a(0.195, 0.968), 0.110, 0.968),   # Ver o que você pode ganhar
-], r=32, w=4, m=MC, md=MDC)
-
-annotate("14-cardapio-recompensas.png", [
-    (1, *a(0.172, 0.130), 0.110, 0.155),   # a regra de acúmulo e a validade
-    (2, *a(0.170, 0.308), 0.110, 0.308),   # uma recompensa de desconto
-    (3, *a(0.915, 0.315), 0.955, 0.250),   # Disponível
-    (4, *a(0.915, 0.479), 0.955, 0.420),   # Faltam 59 pts
-    (5, *a(0.170, 0.550), 0.110, 0.550),   # a recompensa de produto
-    (6, *a(0.195, 0.966), 0.110, 0.966),   # Ver meu extrato
-], r=32, w=4, m=MC, md=MDC)
-
-annotate("15-cardapio-trocar-pontos.png", [
-    (1, *a(0.105, 0.101), 0.110, 0.115),   # o cartão Programa de Pontos
-    (2, *a(0.093, 0.306), 0.110, 0.306),   # quantos pontos ele tem
-    (3, *a(0.900, 0.371), 0.955, 0.320),   # RESGATAR
-    (4, *a(0.905, 0.518), 0.955, 0.468),   # INSUFICIENTE
-    (5, *a(0.900, 0.588), 0.955, 0.640),   # ADICIONAR, da recompensa de produto
-    (6, *a(0.093, 0.969), 0.110, 0.969),   # Ganhe 29 pontos, no rodapé
-], r=32, w=4, m=MC, md=MDC)
-
-annotate("16-cardapio-resgate-aplicado.png", [
-    (1, *a(0.100, 0.431), 0.110, 0.431),   # a recompensa resgatada
-    (2, *a(0.900, 0.444), 0.955, 0.390),   # REMOVER
-    (3, *a(0.100, 0.520), 0.110, 0.540),   # as outras, agora indisponíveis
-    (4, *a(0.945, 0.862), 0.955, 0.800),   # o total do pedido, já com o desconto
-    (5, *a(0.093, 0.969), 0.110, 0.969),   # Ganhe 29 pontos: o desconto não tira o ganho
-], r=32, w=4, m=MC, md=MDC)
-
-# ---------------------------------------------------------------------------------------
-# 17 — o mesmo cardápio no computador
-# ---------------------------------------------------------------------------------------
-# Faixa do topo da página, de largura inteira: no computador o programa não vira faixa
-# amarela, vira cartão na coluna da direita. Sobra branco entre o nome da loja e o cartão.
-annotate("17-banner-pontos-computador.png", [
-    (1, 0.730, 0.485, 0.635, 0.470),   # o cartão Programa de Pontos
-    (2, 0.726, 0.760, 0.660, 0.900),   # Ver o que você pode ganhar
-], r=30, w=5)
 
 print("pronto")

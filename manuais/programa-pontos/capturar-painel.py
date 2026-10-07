@@ -132,11 +132,11 @@ def main():
 
             # 06 — Histórico
             aba(page, "Histórico", 7000)
-            tirar(page, "06-historico-de-pontos.png")
+            tirar(page, "13-historico-de-pontos.png")
 
             # 07 — Saldo por Cliente
             aba(page, "Saldo por Cliente", 8000)
-            tirar(page, "07-saldo-por-cliente.png")
+            tirar(page, "14-saldo-por-cliente.png")
 
             # 08 — o extrato de um cliente, no painel lateral.
             # O padrão da casa para painel lateral manda **recortar no painel**: no viewport
@@ -154,11 +154,11 @@ def main():
             # texto para baixo.
             cx = painel.bounding_box()
             ultima = painel.get_by_text("Migração de cashback", exact=False).last.bounding_box()
-            page.screenshot(path=str(SRC / "08-extrato-do-cliente.png"), clip={
+            page.screenshot(path=str(SRC / "15-extrato-do-cliente.png"), clip={
                 "x": cx["x"], "y": cx["y"], "width": cx["width"],
                 "height": ultima["y"] + ultima["height"] + 22 - cx["y"],
             })
-            print("PURA 08-extrato-do-cliente.png (painel, cortado na altura)")
+            print("PURA 15-extrato-do-cliente.png (painel, cortado na altura)")
 
             # 09 — o formulário que credita pontos na mão.
             # Diálogo no centro da tela não está dentro do painel: recorte próprio, com o
@@ -167,13 +167,13 @@ def main():
             after_click(page, 3000)
             caixa = page.locator('[role="dialog"]').last.bounding_box()
             folga_x, folga_y = 230, 90
-            page.screenshot(path=str(SRC / "09-adicionar-pontos.png"), clip={
+            page.screenshot(path=str(SRC / "16-adicionar-pontos.png"), clip={
                 "x": max(0, caixa["x"] - folga_x),
                 "y": max(0, caixa["y"] - folga_y),
                 "width": caixa["width"] + 2 * folga_x,
                 "height": caixa["height"] + 2 * folga_y,
             })
-            print("PURA 09-adicionar-pontos.png (recorte do diálogo)")
+            print("PURA 16-adicionar-pontos.png (recorte do diálogo)")
             page.keyboard.press("Escape")
             after_click(page, 2000)
             page.keyboard.press("Escape")
@@ -186,10 +186,10 @@ def main():
             tabela = page.get_by_text("Última tentativa", exact=True).first.locator(
                 "xpath=ancestor::table[1]"
             ).bounding_box()
-            page.screenshot(path=str(SRC / "10-fila-de-processamento.png"),
+            page.screenshot(path=str(SRC / "17-fila-de-processamento.png"),
                             clip={"x": 0, "y": 0, "width": 1440,
                                   "height": tabela["y"] + tabela["height"] + 24})
-            print("PURA 10-fila-de-processamento.png (cortada na altura)")
+            print("PURA 17-fila-de-processamento.png (cortada na altura)")
         finally:
             ctx.close()
             browser.close()
