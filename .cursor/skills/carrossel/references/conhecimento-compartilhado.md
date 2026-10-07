@@ -58,6 +58,14 @@ quem está capturando para carrossel:
   fotografar. O `limpar()` do `capturar.py` já filtra.
 - **Detalhe da venda demora ~12 s** para montar. Ali a espera é de 14 s
   (`--espera 14000`), não de 5.
+- **A espera de 5 s não cobre webfont.** Os selos do cardápio (desconto,
+  presente, estrela) são glifos de fonte, e numa rodada a vitrine inteira saiu
+  sem eles: a tela estava pronta, o spinner já tinha sumido, e a fonte ainda
+  vinha. Espere `networkidle` e `document.fonts.ready` antes de cada print —
+  detalhe em *espere a fonte, não só a tela*, na
+  [`MEMORIA-CARROSSEIS.md`](MEMORIA-CARROSSEIS.md). É aprendizado genérico, e o
+  lugar dele é a seção 6 da `MEMORIA-GERAL.md`; quem estiver escrevendo manual,
+  leve.
 - **App Android não tem emulador no Cloud Agent.** Testado e documentado: o
   guest nunca inicia. Captura de app vem de **aparelho real**, e o caminho
   confirmado para ela chegar aqui é **zip numa URL pública** — link do arquivo,

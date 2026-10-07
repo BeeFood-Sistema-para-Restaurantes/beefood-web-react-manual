@@ -86,6 +86,12 @@ que mapeia exatamente quais seções da `MEMORIA-GERAL.md` abrir e por quê.
 O resumo curto: **espere o spinner sumir e mais 5 segundos antes de cada print**,
 use a conta sandbox, tema claro, e cubra dado pessoal na imagem pura.
 
+Com uma emenda que nasceu aqui: **espere a fonte, não só a tela**. Selo e ícone
+de cardápio são glifos de webfont, e a espera do spinner não os cobre — numa
+rodada a vitrine inteira saiu sem eles. Antes de cada print, espere também
+`networkidle` e `document.fonts.ready` (ver *espere a fonte, não só a tela* na
+[`MEMORIA-CARROSSEIS.md`](references/MEMORIA-CARROSSEIS.md)).
+
 Se a novidade tem manual, o manual é a fonte de verdade do comportamento — ele
 foi conferido no sistema. O `pauta.py` aponta o manual correspondente sozinho.
 

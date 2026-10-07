@@ -220,6 +220,8 @@ a posição na fila.
 | 8 | Painel para Entregadores | [19/09/2026](https://beefood.app/novidades/painel-para-entregadores) — manual em `manuais/painel-entregador/`, com **slug diferente** do release | `carrosseis/08-painel-entregador/` | 4:5, 7 slides | `entrega/08-painel-entregador.zip` (7 PNG + copy) |
 | 9 | Campanhas Inteligentes no WhatsApp | [28/07/2026](https://beefood.app/novidades/whatsapp-campanhas-inteligentes) | `carrosseis/09-campanhas-inteligentes/` | 4:5, 6 slides | `entrega/09-campanhas-inteligentes.zip` (6 PNG + copy) |
 | 10 | Gestão de Entregas | **sem release** — módulo em liberação, pauta tirada dos 18 manuais do grupo | `carrosseis/10-gestao-entregas/` | 4:5, 9 slides (+ capa alternativa) | `entrega/10-gestao-entregas.zip` (9 PNG + copy) |
+| 11 | Acompanhamento em tempo real, pelo cliente | [23/09/2026](https://beefood.app/novidades/gestao-entregas-rastreio-pelo-cliente) — release *Rastreio da entrega pelo cliente*, **nome de venda diferente** | `carrosseis/11-rastreio-da-entrega/` | 4:5, 7 slides | `entrega/11-rastreio-da-entrega.zip` (7 PNG + copy) |
+| 12 | Programa de Pontos | [07/10/2026](https://beefood.app/novidades/programa-de-pontos) — manual em `manuais/programa-pontos/`; release e nome de venda **iguais** | `carrosseis/12-programa-de-pontos/` | 4:5, 8 slides | `entrega/12-programa-de-pontos.zip` (8 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -846,6 +848,27 @@ depois; aqui não existe menu para procurar, porque o recurso é automático e n
 tem tela de configuração. Sem essa função, o destaque volta a ser o que é num
 cartaz: a marca do que é notícia.
 
+#### A #12 voltou ao anúncio de chegada, e descartou antes × agora por um motivo novo
+
+> Chegou o Programa de **Pontos**
+> Cada compra vira desconto ou produto grátis.
+
+Placar depois dela: afirmação do fato 5, pergunta 2, **anúncio de chegada 2**,
+nome + canal 1, nome + dois-pontos 1, nome + para quem 1; ordem direta e antes ×
+agora continuam em 0. O molde cabe porque a notícia é literalmente que um módulo
+inteiro chegou — é a mesma condição da #8, e não uma fórmula de abertura.
+
+*Antes × agora* chegou a ser escrito e caiu, e o motivo é novo na série. O par
+natural era *"antes o cashback devolvia dinheiro, agora os pontos criam uma
+meta"*: duas frases verdadeiras, e o molde faz as duas trabalharem contra a
+peça, porque a primeira metade do título fala de **outro produto que a casa
+vende e continua vendendo**. A #11 já tinha ensinado que o "antes" ocupa a
+metade da linha que todo mundo lê; aqui a lição ganhou a segunda metade:
+**nunca ponha um produto do catálogo no lado perdedor da comparação.**
+
+O vermelho pegou **Pontos**, uma palavra só — e aqui a função do destaque volta
+a ser a da #8 a #10, porque o recurso tem tela própria e nome de menu.
+
 ### O décimo primeiro vício: a copy legenda a prova, em vez de vendê-la
 
 O mesmo retorno trouxe o segundo defeito, e ele é maior que a capa: *"tem slide
@@ -1270,6 +1293,25 @@ funcionalidades"* ser verdadeiro **e** generoso: promete mais do que o
 carrossel mostrou, que é a única razão honesta de sair do feed. A objeção
 original ("convite que repete o carrossel não é convite") segue de pé, e
 "funcionalidades" no plural é o que a derruba — não uma frase mais criativa.
+
+#### O subtítulo do CTA não repete a frase do slide anterior
+
+A #12 entregou o CTA com o subtítulo *"O público e a campanha de WhatsApp já
+chegam prontos"* — que é, palavra por palavra, a ideia do título do slide 7, a
+duas telas de distância. O argumento para pôr aquilo ali era bom (é o motivo de
+o primeiro passo ser uma decisão, e não trabalho), e ainda assim estava errado:
+quem chega ao CTA acabou de ler aquela frase, e repetição colada não reforça,
+cansa.
+
+O que ficou retoma o slide **3**, e não o 7:
+
+> Escolha **hoje** a primeira recompensa
+> Desconto em reais ou produto do cardápio: essa escolha é sua.
+
+A regra geral: o subtítulo do CTA pode (e costuma) pescar um fato de dentro da
+peça, mas **nunca o do slide imediatamente anterior**. Quanto mais longe no
+carrossel estiver o fato retomado, mais o CTA parece fechar um arco em vez de
+repetir a última coisa dita.
 
 ### Frase de venda se procura no site antes de inventar
 
@@ -3640,6 +3682,70 @@ Nota da rodada seguinte: estes dois recortes não existem mais — os relatório
 foram redesenhados inteiros, dentro de notebook, porque eram tela de
 configuração e retrato de loja vazia. A regra do `.empurra` dos dois lados
 continua valendo para qualquer recorte largo e baixo; o que caiu foi o exemplo.
+
+### Espere a fonte, não só a tela
+
+A regra da casa é *espere o spinner sumir e mais 5 segundos*. Ela não cobre o
+caso que custou uma rodada inteira da #12: a vitrine de recompensas saiu com
+quatro linhas de texto e **nenhum ícone** — sem o selo de desconto, sem o
+presente, sem a estrela. Não era defeito do produto nem do recorte. Os selos do
+cardápio são glifos de **webfont**, e a fonte chegou depois do print.
+
+A espera de cinco segundos não pega isso porque ela conta do **fim do spinner**,
+e o spinner já tinha sumido: a tela estava montada, respondendo a clique, e só
+faltava um arquivo que o navegador ainda buscava. Pior, a tela sem ícone
+continua **certa** — nada nela grita erro, e o defeito só aparece quando alguém
+compara com a rodada anterior.
+
+A espera que serve tem três partes:
+
+```python
+def assentar(pagina, ms: int = 4000):
+    with contextlib.suppress(Exception):
+        pagina.wait_for_load_state("networkidle", timeout=20000)
+    with contextlib.suppress(Exception):
+        pagina.evaluate("() => document.fonts.ready")
+    pagina.wait_for_timeout(ms)
+```
+
+Chame antes de **cada** print, e não só do primeiro: a fonte de um ícone que só
+existe na terceira tela é baixada na terceira tela. O `contextlib.suppress` é
+proposital — `networkidle` nunca chega em página com *polling*, e falhar a
+espera é melhor que falhar a captura.
+
+A lição generalizada: **a tela sem ícone continua certa, e a prova, não.** Vale
+para qualquer coisa que o navegador busque depois do primeiro desenho — fonte
+de ícone, imagem *lazy*, SVG externo.
+
+> Isto é aprendizado de captura genérica, e o lugar dele é a seção 6 da
+> `MEMORIA-GERAL.md`. Esta skill não escreve lá: quem estiver trabalhando num
+> manual, leve.
+
+### O rótulo maiúsculo da tela pode ser minúsculo no DOM
+
+Ancorar um recorte no menor ancestral que contém um texto é a técnica boa — e
+ela estourou em *timeout* de 30 s na #12, procurando o cartão de um cliente pelo
+rótulo `SALDO TOTAL`, que está escrito assim na tela.
+
+No DOM está *Saldo total*. O maiúsculo é `text-transform` do CSS, e xpath lê o
+texto, não o estilo. Antes de escrever `contains(text(), …)`, confira a caixa no
+DOM — e, na dúvida, ancore num trecho que não esteja em versalete.
+
+### Folga de recorte não é simétrica, e em tabela a direita é zero
+
+O `recortar()` começou com uma folga só, para os quatro lados. A #12 precisou
+quebrá-la duas vezes, e cada quebra tem um motivo diferente:
+
+- **`folga_pe`**, separando o pé do topo: o cartão de campanha precisava de ar
+  em cima e precisava fechar **antes** da linha seguinte, inteira;
+- **`folga_lado`**, aceitando um par `(esquerda, direita)`: numa tabela, a
+  célula já traz o próprio respiro no `padding`. Somando 14 px à direita da
+  célula do criador, entrava uma lasca da coluna seguinte — e lasca de coluna
+  num print de venda lê como erro de recorte, não como tabela que continua.
+
+A regra que sai disso: **folga é ar entre o quadro e o que ficou de fora**. Onde
+o elemento já tem ar próprio (célula de tabela, cartão com `padding`), a folga
+daquele lado é zero.
 
 ### Onde medir a borda de um recorte
 

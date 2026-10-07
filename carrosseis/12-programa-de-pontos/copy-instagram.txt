@@ -1,0 +1,217 @@
+CARROSSEL — PROGRAMA DE PONTOS
+Gênero: novidade
+Fonte: beefood.app/novidades/programa-de-pontos — 07/10/2026, áreas Marketing,
+Cardápio Digital, Mesas/Comandas e PDV.
+Manual: ajuda.beefood.com.br/programa-pontos
+
+Publicar como carrossel de feed, 8 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-cada-compra-acumula, 03-recompensas,
+04-resgate-na-sacola, 05-total-do-pedido, 06-saldo-por-cliente,
+07-pontos-parados, 08-cta.
+
+O NOME DE VENDA E O NOME DO RELEASE SÃO O MESMO: Programa de Pontos. É como a
+novidade batiza, como o menu escreve (Fidelidade (CRM) → Programa de pontos) e
+como o restaurante vai procurar. Nos comentários, use sempre este nome.
+
+AS DEZ IMAGENS SÃO CAPTURA DE TELA DE VERDADE, e nenhuma é tela de
+configuração. O lado do cliente foi fotografado no cardápio público de
+demonstração, e o lado do restaurante no painel. Quem desenha cada pixel é o
+sistema de produção, não arte nossa.
+
+A VITRINE DO SLIDE 3 FOI MONTADA, e vale saber o quê. A recompensa de produto
+que estava cadastrada na loja de exemplo saiu do ar entre a captura do manual e
+a desta peça — alguém regravou o cadastro com um código que o cardápio público
+descarta. Sem ela, a vitrine fica só com descontos em reais, e a peça perderia
+metade do que a capa promete. Então a resposta do servidor foi trocada dentro
+do navegador da captura, com exatamente o cadastro que o manual fotografou de
+manhã. Nada foi gravado em lugar nenhum: a única chamada alterada é uma leitura.
+O arquivo cena.json registra linha por linha, e o script tem --cru para mostrar
+a vitrine como ela está hoje.
+
+O PEDIDO DOS SLIDES 4 E 5 NÃO FOI FECHADO. O resgate aparece acontecendo, mas
+a captura para antes do último toque: ponto só sai do saldo com a venda nascida,
+e aqui ela não nasceu. Os 121 pontos do cliente de teste continuam lá, e é por
+isso que "Faltam 59 pts" fecha a mesma conta em todos os slides.
+
+ATENÇÃO AO TOTEM, se alguém perguntar nos comentários. A novidade publicada diz
+que o totem mostra selo, pontos do pedido e resgate na finalização. Na versão
+que está no ar, não mostra: o totem acumula normalmente, se o canal estiver
+ligado, e quem pediu lá resgata depois, pelo cardápio digital. A arte não afirma
+nem uma coisa nem outra, e a legenda fica só com o acúmulo. Se a pergunta vier,
+a resposta honesta é essa.
+
+O SELO DE PRESENTE APARECE NA FOTO DO PRODUTO (slide 2) e nenhuma frase o
+explica, de propósito: a novidade diz que ele marca o que pontua, o manual diz
+que ele marca o que é recompensa, e na loja de exemplo todos os combos têm o
+selo enquanto só um produto é recompensa. Quando duas fontes da casa discordam,
+não se escolhe uma no texto de venda.
+
+OS TELEFONES DA LISTA DE CLIENTES SAEM BORRADOS já na imagem original, porque
+ela também é versionada e o repositório é público. Teste Manual e Bruno Pontos
+são contas de teste da sandbox.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+Chegou o Programa de Pontos ⭐
+
+Cada compra passa a virar saldo na conta de quem pediu, e esse saldo vira
+desconto em reais ou um produto que você escolhe dar sem cobrar.
+
+O cashback devolve parte do que a pessoa gastou. O ponto faz diferente: ele dá
+um alvo. Quem tem 121 e vê uma recompensa de 180 lê, na tela, que faltam 59 — e
+59 pontos de distância é motivo para pedir esta semana, não mês que vem. É a
+diferença entre premiar quem já comprou e provocar o próximo pedido.
+
+A régua é sua. Você diz quantos pontos cada R$ 1,00 rende (aceita meio ponto,
+dois pontos, o que a sua margem permitir) e por quantos dias cada crédito vale.
+Pode somar um bônus na primeira compra de cada pessoa, e pode fazer a taxa de
+entrega pontuar também.
+
+Quem abre o seu cardápio digital lê a chamada antes do primeiro produto, mesmo
+sem estar identificado. Depois de entrar com o telefone, ele vê o próprio saldo,
+o extrato e a vitrine inteira, com o preço em pontos de cada recompensa e o
+aviso de quanto ainda falta nas que não dá para pegar hoje.
+
+A troca acontece dentro da sacola, sem sair do pedido: ele toca em RESGATAR, o
+total cai na hora e o que aquele pedido vai render continua igual, porque o
+cálculo é sobre os itens. Resgate é um por pedido, e nada é debitado antes de o
+pedido ser confirmado.
+
+O acúmulo não é só do delivery do cardápio. Presencial, PDV, mesas e comandas,
+delivery digitado e totem entram ou ficam de fora um a um, como você decidir.
+Em todos eles vale a mesma condição: só credita se o cliente estiver
+identificado na venda, porque saldo é de pessoa. No totem ainda não existe tela
+de pontos nesta versão — quem pede lá junta normalmente e troca depois, no
+cardápio.
+
+O crédito não é instantâneo, e é bom saber disso antes de o primeiro cliente
+perguntar: ele roda de madrugada, e só para pedido que ficou pago e finalizado.
+A aba Fila Processamento mostra venda por venda o que entrou, o que está na fila
+e o que travou, com o motivo escrito.
+
+Do seu lado, Saldo por Cliente abre com o tamanho do que a sua loja já prometeu
+em recompensa: quantos pontos estão vivos, quantas pessoas têm saldo e a média
+de cada uma. Na linha de qualquer cliente você lê o extrato dele e credita
+pontos de cortesia na hora — e o motivo que você digitar chega inteiro no
+celular da pessoa, o que resolve atraso melhor do que pedido desculpa.
+
+E o marketing já vem montado. O público de quem juntou pontos e sumiu está
+criado na sua conta, e a campanha de WhatsApp que fala com essa gente chega
+ligada, com o saldo de cada um dentro do texto. Você só revisa a mensagem.
+
+Já usa cashback? Os dois não ficam ligados no mesmo cardápio, mas ninguém perde
+o que juntou: o sistema transfere o saldo entre os dois programas, nos dois
+sentidos, pela taxa que você definir.
+
+Programa de Pontos fica em Fidelidade (CRM) → Programa de pontos ⭐
+Tudo que entra de novo está em beefood.app/novidades
+
+#beefood #fidelizacao #programadepontos #crm #cardapiodigital #restaurante
+#gestaoderestaurante #delivery #marketingparadelivery
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Qual recompensa você colocaria primeiro na vitrine: desconto ou um produto da
+casa? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com a pílula "Novidade", o título "Chegou o Programa de
+    Pontos", com "Pontos" em vermelho, e a linha "Cada compra vira desconto ou
+    produto grátis".
+    Embaixo, um celular com a sacola do cardápio digital aberta. No alto da
+    tela, o cartão vermelho "Programa de Pontos ⭐", com a frase que anuncia um
+    ponto por real neste pedido, o total de 29 pontos a acumular e o aviso de
+    que os pontos valem por 90 dias. Abaixo, o cartão "Troque pontos por
+    recompensas", com o saldo de 121 pontos disponíveis e a lista: R$ 5,00 de
+    desconto por 50 pontos e R$ 10,00 de desconto por 100 pontos, os dois com o
+    botão RESGATAR, e R$ 20,00 de desconto por 180 pontos, com o botão
+    INSUFICIENTE apagado.
+
+02  Chapéu "Logo que o programa liga" e título "Quem compra acumula a cada
+    pedido, na conta que você definir", com "acumula" em vermelho. O texto diz
+    que quem abre o cardápio lê, antes do primeiro produto, que cada compra
+    acumula pontos, que o lojista define quantos pontos cada R$ 1,00 vale e por
+    quantos dias eles duram, e que o acúmulo também liga no PDV, nas mesas e no
+    totem.
+    Abaixo, o alto do cardápio digital no celular: a faixa amarela pontilhada
+    "Acumule pontos a cada compra", com um ícone de presente de cada lado, o
+    seletor de categoria "Combos (Burger + Porção + Bebida)", a lupa de busca e
+    o primeiro produto da lista, o Combo Chicken Deluxe por R$ 29,00, com a
+    foto do lanche e um selo redondo vermelho de presente no canto.
+
+03  Chapéu "A vitrine de quem está juntando" e título "Recompensas: o que dá
+    para trocar, e quanto ainda falta", com "Recompensas" em vermelho. O texto
+    diz que quem pediu vê quanto custa cada recompensa e se ela já está
+    disponível ou se ainda faltam pontos, e que o que falta vira motivo para o
+    próximo pedido.
+    Abaixo, o cartão "Recompensas" do cardápio digital, com quatro linhas: R$
+    5,00 de desconto por 50 pontos, marcada como Disponível; R$ 10,00 de
+    desconto por 100 pontos, também Disponível; R$ 20,00 de desconto por 180
+    pontos, com a etiqueta cinza "Faltam 59 pts"; e "Chicken Deluxe grátis" por
+    100 pontos, com ícone de presente e a etiqueta Disponível.
+
+04  Chapéu "Na hora de fechar" e título "Resgate na sacola: a troca acontece
+    dentro do pedido", com "Resgate na sacola" em vermelho. O texto diz que
+    quem pediu vê o saldo e as recompensas na mesma tela da sacola e troca ali
+    mesmo, que a escolhida fica marcada e que nenhum ponto é debitado antes de
+    o pedido ser confirmado.
+    Abaixo, um celular com a sacola já depois do resgate: o cartão vermelho
+    "Programa de Pontos ⭐" no alto, o cartão "Troque pontos por recompensas"
+    com o saldo de 121 pontos disponíveis, e a lista em que R$ 10,00 de
+    desconto aparece em destaque, com o botão REMOVER em vermelho, enquanto R$
+    5,00 de desconto está apagado, R$ 20,00 mostra INSUFICIENTE e "Chicken
+    Deluxe grátis" mostra ADICIONAR.
+
+05  Chapéu "A conta, antes e depois" e título "Total do pedido: o desconto
+    entra na hora, e o ganho não muda", com "Total do pedido" em vermelho. O
+    texto diz que, no toque em RESGATAR, o desconto já sai do total daquele
+    pedido, e que o que ele vai render continua sendo calculado sobre os itens,
+    então a recompensa de hoje não corta o acúmulo de amanhã.
+    Abaixo, a mesma faixa do pé da sacola em dois momentos. No primeiro, a
+    linha de total marcando R$ 29,00, o botão vermelho Continuar e o aviso
+    "Ganhe 29 pontos ⭐". No segundo, depois do resgate, a mesma linha caiu
+    para R$ 19,00, com o mesmo botão Continuar e o mesmo aviso de 29 pontos.
+
+06  Chapéu "Do lado do balcão" e título "Saldo por Cliente: quanto a sua loja
+    tem de ponto em circulação", com "Saldo por Cliente" em vermelho. O texto
+    diz que o painel abre com o total de pontos vivos, quantos clientes têm
+    saldo e a média de cada um, e que na linha de cada pessoa o lojista abre o
+    extrato dela e credita pontos de cortesia na hora, com um motivo que ela lê
+    inteiro no celular.
+    Abaixo, dois recortes do painel. No primeiro, os quatro cartões do alto da
+    aba Saldo por Cliente: Total de Pontos 972 pts, Clientes com Pontos 12,
+    Total de Clientes 12 e Média por Cliente 81 pts. No segundo, duas linhas da
+    lista de clientes, com o telefone borrado: Bruno Pontos, com saldo total de
+    224 pts, e Teste Manual, com 121 pts, cada uma com o botão de abrir o
+    extrato à direita.
+
+07  Chapéu "Marketing que já vem montado" e título "Pontos parados: o público e
+    a campanha já chegam prontos", com "Pontos parados" em vermelho. O texto
+    diz que o público de quem tem saldo e não volta já está na conta do
+    restaurante, que a campanha de WhatsApp que fala com essa gente chega
+    ligada, com o saldo de cada pessoa dentro da mensagem, que as duas vêm da
+    BeeFood e que ao lojista cabe revisar o texto.
+    Abaixo, dois recortes do painel. No primeiro, o cartão da campanha "Pontos
+    parados", com a pílula verde Ativo, o selo BeeFood, a chave ligada em
+    verde, um desenho de estrela, o gatilho "Público de clientes" e a descrição
+    "Avisa quem tem pontos parados para trocar por recompensas". No segundo,
+    duas linhas da lista de segmentações: "Pontos parados (50 pontos ou mais)"
+    e "Aniversariantes do dia", as duas com o selo BeeFood e criadas por
+    "Beefood (sistema)".
+
+08  Fundo escuro com o chapéu "Já está no ar" e o título "Escolha hoje a
+    primeira recompensa", com "hoje" em vermelho. O texto diz que a escolha
+    entre desconto em reais e produto do cardápio é do lojista, e que tudo que
+    entra de novo está em beefood.app/novidades. Abaixo, a pílula de caminho
+    "Fidelidade (CRM) → Programa de pontos" e o mesmo celular da capa, com a
+    sacola aberta no cartão do Programa de Pontos e na lista de recompensas.
