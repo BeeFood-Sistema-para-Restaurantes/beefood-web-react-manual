@@ -33,6 +33,7 @@ um acervo assim, e "entregue" escrito por extenso em toda linha também não.
 | 9 | [`09-campanhas-inteligentes/`](09-campanhas-inteligentes/roteiro.md) | Novidade | [Campanhas Inteligentes no WhatsApp](https://beefood.app/novidades/whatsapp-campanhas-inteligentes) — 28/07/2026 · [manual](https://ajuda.beefood.com.br/campanhas-inteligentes-whatsapp) | 4:5 | 6 | [`.zip`](09-campanhas-inteligentes/entrega/09-campanhas-inteligentes.zip) · [copy](09-campanhas-inteligentes/copy-instagram.txt) |
 | 10 | [`10-gestao-entregas/`](10-gestao-entregas/roteiro.md) | Novidade | **sem release** — módulo em liberação; o fato veio dos 18 [manuais](https://ajuda.beefood.com.br/painel-de-entregas/gestao-entregas-mapa-painel) do grupo | 4:5 | 9 | [`.zip`](10-gestao-entregas/entrega/10-gestao-entregas.zip) · [copy](10-gestao-entregas/copy-instagram.txt) |
 | 11 | [`11-rastreio-da-entrega/`](11-rastreio-da-entrega/roteiro.md) | Novidade | Acompanhamento em tempo real, pelo cliente — release [Rastreio da entrega pelo cliente](https://beefood.app/novidades/gestao-entregas-rastreio-pelo-cliente), 23/09/2026 · [manual](https://ajuda.beefood.com.br/manuais/gestao-entregas-rastreio-cliente) | 4:5 | 7 | [`.zip`](11-rastreio-da-entrega/entrega/11-rastreio-da-entrega.zip) · [copy](11-rastreio-da-entrega/copy-instagram.txt) |
+| 12 | [`12-programa-de-pontos/`](12-programa-de-pontos/roteiro.md) | Novidade | [Programa de Pontos ⭐](https://beefood.app/novidades/programa-de-pontos) — 07/10/2026 · [manual](https://ajuda.beefood.com.br/programa-pontos) | 4:5 | 8 | [`.zip`](12-programa-de-pontos/entrega/12-programa-de-pontos.zip) · [copy](12-programa-de-pontos/copy-instagram.txt) |
 
 O número de slides é o que o assunto pede, entre 6 e 9 — não é uma medida fixa.
 Peça de função não leva data nem pílula de novidade: ela é perene, e pode ser
@@ -64,6 +65,16 @@ manual de usuário; tirar o fato junto com a descrição é pior, porque a peça
 passa a vender uma conclusão que o leitor não tem como conferir. O que o cliente
 lê na tela **é** a novidade, e em peça de novidade explicar bem já é vender: o
 leitor ali já é cliente e já paga.
+
+A décima segunda é a primeira peça em que **todas** as imagens são captura de
+resultado — e isso não é mérito de disciplina. O Programa de Pontos é, do lado
+do painel, seis cartões de campo, que são as telas mais fáceis de fotografar da
+peça inteira e exatamente as que a skill proíbe; o que entrou foi o **efeito**
+de cada uma, do lado de quem compra. Ela também trouxe uma lição de captura que
+vale para as duas skills: **espere a fonte, não só a tela**. Uma rodada inteira
+saiu sem os selos da vitrine porque eles são glifos de webfont que chegaram
+depois do print, e a espera de cinco segundos da casa não pega isso — ela conta
+do fim do spinner, e o spinner já tinha sumido.
 
 ## Estrutura de cada pasta
 

@@ -15,7 +15,7 @@
   pergunta do passo 6a da skill foi feita assim mesmo, porque uma coincidência
   não dispensa a conferência.
 - **Formato:** 1080 × 1350 (4:5)
-- **Slides:** 7
+- **Slides:** 8
 
 ## O acervo, antes de escrever
 
@@ -67,7 +67,7 @@ ocupa a metade da linha que todo mundo lê.
 | O público **Pontos parados** e a **campanha de WhatsApp** que fala com ele **já vêm criados pela BeeFood**, ativos, usando o saldo de cada pessoa | Marketing que normalmente é projeto chega como item de lista | 7 |
 | O módulo está em **Fidelidade (CRM) → Programa de pontos** | CTA: a decisão que ninguém pode tomar pela loja é **o que o cliente vai ganhar** | 8 (CTA) |
 
-Os slides acima são nove linhas de fato para sete lugares — a tabela de slides
+Os slides acima são doze linhas de fato para oito lugares — a tabela de slides
 abaixo diz onde cada uma caiu.
 
 **Ficou de fora, de propósito:**
@@ -115,9 +115,9 @@ abaixo diz onde cada uma caiu.
 | 3 | `03-recompensas.html` | **Recompensas**: o que dá para trocar, e quanto ainda falta | `rec-vitrine.png` — **captura**, recorte |
 | 4 | `04-resgate-na-sacola.html` | **Resgate na sacola**: a troca acontece dentro do pedido | `05-sacola-resgatada.png` num `.celular` — **captura** |
 | 5 | `05-total-do-pedido.html` | **Total do pedido**: o desconto entra na hora, e o ganho não muda | `rec-total-antes.png` + `rec-total-depois.png` — **captura**, dois recortes |
-| 6 | `06-saldo-por-cliente.html` | **Saldo por Cliente**: quanto a sua loja tem de ponto em circulação | `rec-totais-painel.png` — **captura**, recorte |
+| 6 | `06-saldo-por-cliente.html` | **Saldo por Cliente**: quanto a sua loja tem de ponto em circulação | `rec-totais-painel.png` + `rec-linhas-cliente.png` — **captura**, dois recortes |
 | 7 | `07-pontos-parados.html` | **Pontos parados**: o público e a campanha já chegam prontos | `rec-campanha.png` + `rec-segmentacao.png` — **captura**, dois recortes |
-| 8 | `08-cta.html` | Decida **hoje** o que o seu cliente vai ganhar | `04-sacola-com-pontos.png`, a mesma arte da capa |
+| 8 | `08-cta.html` | Escolha **hoje** a primeira recompensa | `04-sacola-com-pontos.png`, a mesma arte da capa |
 
 São **oito** slides, e o teto da skill é 8. A conta de por que nenhum par se
 funde está em *oito slides, e nenhum é de brinde*, abaixo.
@@ -130,7 +130,7 @@ capa acabou de nomear.
 
 ## Decisões de arte
 
-### Oito imagens, oito capturas, nenhuma tela de configuração
+### Dez imagens, dez capturas, nenhuma tela de configuração
 
 É a primeira peça da série em que **todas** as imagens são captura de resultado,
 e isso não é mérito de disciplina: é que este recurso tem um lado de cliente
@@ -209,7 +209,7 @@ spinner e o spinner já tinha sumido. A captura ganhou um `assentar()` que esper
 lição é geral e subiu para a memória da skill: **espere a fonte, não só a
 tela** — a tela sem ícone continua certa, e a prova, não.
 
-### Quatro recortes medidos, e por que cada um fecha onde fecha
+### Sete recortes medidos, e por que cada um fecha onde fecha
 
 Todos os cortes são medidos no DOM pela própria captura
 ([`medidas.json`](medidas.json)), nunca estimados na miniatura.
@@ -237,6 +237,19 @@ Todos os cortes são medidos no DOM pela própria captura
 - **`rec-totais-painel.png`** usa o **menor ancestral que contém os quatro
   cartões** nos dois sentidos, horizontal e vertical. Medido pelo texto, o
   quadro começava depois do ícone do primeiro cartão e o cortava ao meio.
+- **`rec-linhas-cliente.png`** leva **duas** linhas da lista, e não a lista
+  inteira: as outras contas da sandbox aparecem como `-`, e fila de traço não
+  prova nada. A faixa dos totais sozinha deixava meio slide vazio; com as duas
+  linhas, a imagem conta a frase inteira — o número da loja em cima, a pessoa
+  com nome e saldo embaixo, que é de onde se abre o extrato. O rótulo do cartão
+  é *Saldo total* no DOM, e o maiúsculo da tela é `text-transform`: ancorar o
+  xpath em `SALDO TOTAL` não acha nada e estoura em *timeout*.
+- **`rec-segmentacao.png`** começa na linha dos pontos, e não no alto da
+  tabela: acima dela a sandbox tem *Cashback parado* **duas vezes**, e linha
+  repetida num print de venda lê como defeito da tela. À direita ele fecha na
+  borda da célula do criador, com folga **zero** — a célula já traz o próprio
+  respiro, e somar folga deixava entrar uma lasca da coluna seguinte. Foi o que
+  trouxe o `folga_lado` para o `recortar()`, ao lado do `folga_pe`.
 
 ### Os telefones saem borrados na imagem pura
 
@@ -307,6 +320,11 @@ o verbo.
 
 *"Ligue o Programa de Pontos hoje"* é trabalho, e trabalho no último slide é a
 fatura antes da venda. O primeiro passo que este recurso realmente exige da
-loja não é mexer num switch: é **decidir o que o cliente vai ganhar**. É a
-única parte que ninguém pode fazer no lugar dela — o público e a campanha de
-WhatsApp já chegam prontos, e é isso que o subtítulo diz.
+loja não é mexer num switch: é **decidir o que o cliente vai ganhar**.
+
+> Escolha **hoje** a primeira recompensa
+> Desconto em reais ou produto do cardápio: essa escolha é sua.
+
+O subtítulo retoma os **dois tipos de recompensa do slide 3**, e não a frase do
+slide 7 — que é o que ele dizia na primeira versão, e que o leitor tinha
+acabado de ler duas telas antes. Repetição colada não reforça, cansa.
