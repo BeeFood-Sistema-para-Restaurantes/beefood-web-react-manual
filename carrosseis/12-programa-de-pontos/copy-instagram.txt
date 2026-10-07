@@ -6,17 +6,26 @@ Manual: ajuda.beefood.com.br/programa-pontos
 
 Publicar como carrossel de feed, 8 imagens em 1080x1350 (4:5), na ordem dos
 nomes de arquivo: 01-capa, 02-cada-compra-acumula, 03-recompensas,
-04-resgate-na-sacola, 05-total-do-pedido, 06-saldo-por-cliente,
+04-resgate-na-sacola, 05-aplicativos, 06-saldo-por-cliente,
 07-pontos-parados, 08-cta.
 
 O NOME DE VENDA E O NOME DO RELEASE SÃO O MESMO: Programa de Pontos. É como a
 novidade batiza, como o menu escreve (Fidelidade (CRM) → Programa de pontos) e
 como o restaurante vai procurar. Nos comentários, use sempre este nome.
 
-AS DEZ IMAGENS SÃO CAPTURA DE TELA DE VERDADE, e nenhuma é tela de
-configuração. O lado do cliente foi fotografado no cardápio público de
-demonstração, e o lado do restaurante no painel. Quem desenha cada pixel é o
-sistema de produção, não arte nossa.
+AS IMAGENS SÃO CAPTURA DE TELA DE VERDADE, com uma exceção declarada abaixo, e
+nenhuma é tela de configuração. O lado do cliente foi fotografado no cardápio
+público de demonstração e no totem de exemplo, e o lado do restaurante no
+painel. Quem desenha cada pixel é o sistema de produção, não arte nossa.
+
+A TELA DO TABLET, NO SLIDE 5, É A ÚNICA DESENHADA DA PEÇA. O Cardápio Digital
+no Tablet é um aplicativo Android, que não se instala no ambiente onde a peça é
+montada, e o print de produção que existe no manual foi tirado antes de o
+Programa de Pontos existir — mostrar aquele print aqui seria provar o novo com
+foto velha. O desenho copia o print no que é forma (fundo escuro, preço em
+amarelo, botão Pedir vermelho) e acrescenta a faixa do programa no mesmo
+formato em que o cardápio e o totem a desenham. Se alguém pedir o print de
+verdade do tablet, vale tirar um na loja e trocar a imagem.
 
 A VITRINE DO SLIDE 3 FOI MONTADA, e vale saber o quê. A recompensa de produto
 que estava cadastrada na loja de exemplo saiu do ar entre a captura do manual e
@@ -28,17 +37,19 @@ manhã. Nada foi gravado em lugar nenhum: a única chamada alterada é uma leitu
 O arquivo cena.json registra linha por linha, e o script tem --cru para mostrar
 a vitrine como ela está hoje.
 
-O PEDIDO DOS SLIDES 4 E 5 NÃO FOI FECHADO. O resgate aparece acontecendo, mas
-a captura para antes do último toque: ponto só sai do saldo com a venda nascida,
-e aqui ela não nasceu. Os 121 pontos do cliente de teste continuam lá, e é por
-isso que "Faltam 59 pts" fecha a mesma conta em todos os slides.
+O PEDIDO DO SLIDE 4 NÃO FOI FECHADO, e nada foi pedido no totem. O resgate
+aparece acontecendo, mas a captura para antes do último toque: ponto só sai do
+saldo com a venda nascida, e aqui ela não nasceu. Os 121 pontos do cliente de
+teste continuam lá, e é por isso que "Faltam 59 pts" fecha a mesma conta em
+todos os slides. No totem, a sacola ficou vazia.
 
-ATENÇÃO AO TOTEM, se alguém perguntar nos comentários. A novidade publicada diz
-que o totem mostra selo, pontos do pedido e resgate na finalização. Na versão
-que está no ar, não mostra: o totem acumula normalmente, se o canal estiver
-ligado, e quem pediu lá resgata depois, pelo cardápio digital. A arte não afirma
-nem uma coisa nem outra, e a legenda fica só com o acúmulo. Se a pergunta vier,
-a resposta honesta é essa.
+ATENÇÃO AO TOTEM, se alguém perguntar nos comentários. O manual interno ainda
+diz, na seção 12, que o totem não tem tela de pontos. Isso está velho: a versão
+que está no ar mostra a faixa do programa no cardápio e abre a janela Programa
+de Pontos com a régua e a lista de recompensas, e as duas telas foram
+fotografadas no totem de exemplo — a segunda é a que aparece no slide 5. A
+resposta certa nos comentários é a da novidade publicada, não a do manual. O
+manual precisa de correção.
 
 O SELO DE PRESENTE APARECE NA FOTO DO PRODUTO (slide 2) e nenhuma frase o
 explica, de propósito: a novidade diz que ele marca o que pontua, o manual diz
@@ -83,9 +94,12 @@ pedido ser confirmado.
 O acúmulo não é só do delivery do cardápio. Presencial, PDV, mesas e comandas,
 delivery digitado e totem entram ou ficam de fora um a um, como você decidir.
 Em todos eles vale a mesma condição: só credita se o cliente estiver
-identificado na venda, porque saldo é de pessoa. No totem ainda não existe tela
-de pontos nesta versão — quem pede lá junta normalmente e troca depois, no
-cardápio.
+identificado na venda, porque saldo é de pessoa.
+
+E o saldo é um só, em todo lugar onde você vende. No cardápio digital, no
+tablet da mesa e no totem de autoatendimento aparece a mesma faixa do programa,
+a mesma régua e a mesma lista de recompensas. Quem juntou pedindo em casa troca
+no totem do balcão, e quem juntou na mesa troca no delivery de domingo.
 
 O crédito não é instantâneo, e é bom saber disso antes de o primeiro cliente
 perguntar: ele roda de madrugada, e só para pedido que ficou pago e finalizado.
@@ -172,15 +186,21 @@ TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
     5,00 de desconto está apagado, R$ 20,00 mostra INSUFICIENTE e "Chicken
     Deluxe grátis" mostra ADICIONAR.
 
-05  Chapéu "A conta, antes e depois" e título "Total do pedido: o desconto
-    entra na hora, e o ganho não muda", com "Total do pedido" em vermelho. O
-    texto diz que, no toque em RESGATAR, o desconto já sai do total daquele
-    pedido, e que o que ele vai render continua sendo calculado sobre os itens,
-    então a recompensa de hoje não corta o acúmulo de amanhã.
-    Abaixo, a mesma faixa do pé da sacola em dois momentos. No primeiro, a
-    linha de total marcando R$ 29,00, o botão vermelho Continuar e o aviso
-    "Ganhe 29 pontos ⭐". No segundo, depois do resgate, a mesma linha caiu
-    para R$ 19,00, com o mesmo botão Continuar e o mesmo aviso de 29 pontos.
+05  Chapéu "Onde o cliente pedir" e título "Disponível em todos os
+    aplicativos", com "Disponível" em vermelho. O texto diz que o mesmo
+    programa roda no cardápio digital, no tablet da mesa e no totem de
+    autoatendimento, que o cliente acumula pedindo onde quiser e que o saldo é
+    um só, com o cliente vendo quanto falta e resgatando no aparelho em que
+    está.
+    Abaixo, três aparelhos lado a lado, com a mesma marca vermelha de estrela
+    na tela de cada um. À esquerda, um celular com a sacola do cardápio
+    digital, mostrando o cartão vermelho do programa no alto e a lista de
+    recompensas. No meio, um tablet preto num suporte de mesa, com o cardápio
+    de fundo escuro, uma faixa do programa no alto da lista e os combos abaixo
+    dela. À direita, um totem de autoatendimento branco, mais alto que os
+    outros dois, com a janela do programa aberta sobre o cardápio: um círculo
+    vermelho com estrela, o nome do programa e a lista de recompensas em
+    pontos.
 
 06  Chapéu "Do lado do balcão" e título "Saldo por Cliente: quanto a sua loja
     tem de ponto em circulação", com "Saldo por Cliente" em vermelho. O texto

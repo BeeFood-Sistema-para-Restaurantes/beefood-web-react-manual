@@ -35,7 +35,17 @@
     "UMA ESCOLHA DE AGENDAMENTO, que tambem nao grava nada: a loja de teste estava fechada",
     "no horario da captura, e a sacola exige dia e hora antes de liberar a etapa dos",
     "pontos. Marcar o horario e tocar em AGENDAR PEDIDO guarda a escolha na sacola — nao",
-    "cria pedido."
+    "cria pedido.",
+    "",
+    "O TOTEM ENTROU NA 2a RODADA, quando o slide 5 virou a fileira de aparelhos. Nada foi",
+    "pedido la: o roteiro abre o cardapio, abre a janela de pontos e para — a sacola ficou",
+    "vazia. As duas telas sao captura de verdade, sem interceptacao nenhuma.",
+    "",
+    "E O TABLET E DESENHO, nao captura, e e a unica tela desenhada da peca. O Cardapio",
+    "Digital no Tablet e um APK Android que nao roda neste ambiente, e o print de producao",
+    "que existe em manuais/ foi tirado antes de o Programa de Pontos existir. O desenho",
+    "copia aquele print no que e forma e acrescenta a faixa do programa no formato que o",
+    "cardapio e o totem usam. Esta declarado no roteiro.md e no copy-instagram.txt."
   ],
 
   "cardapio": {
@@ -89,6 +99,25 @@
     "resgate": "R$ 10,00 de desconto (100 pontos)",
     "total_depois": "R$ 19,00",
     "fechado": false
+  },
+
+  "totem": {
+    "url": "https://totem.beefood.app/?empresaID=38311&filialID=39202",
+    "nota": "totem de exemplo que o dono liberou; mesma filial do cardapio",
+    "telas": [
+      "cardapio com a faixa Programa de Pontos",
+      "janela Programa de Pontos, aberta no toque da faixa"
+    ],
+    "pediu_alguma_coisa": false,
+    "interceptacao": "nenhuma",
+    "desmente": "manuais/programa-pontos/fluxo-codigo.md ('o totem nao tem tela de pontos') e a secao 12 do manual. O bundle publicado hoje (assets/index-D3WF6suQ.js) tem 239 ocorrencias de 'pontos', a string 'Programa de Pontos', as chaves pontosBanner / pontosResgate / pontosNecessarios e as rotas /pontos/saldo e /pontos/saldoRecompensas/. Quem corrige o manual e quem trabalha no manual, nao esta skill."
+  },
+
+  "tablet": {
+    "tela": "desenhada com a .tela-tablet do base.css",
+    "por_que": "APK Android (Cardapio Mesa/Comanda 1.0.2.8) nao instala no ambiente, e o print de producao de manuais/ e anterior ao Programa de Pontos",
+    "o_que_o_desenho_inventa": "nada de recurso: a faixa desenhada e a que o release promete para o canal presencial, com o texto que o cardapio e o totem ja mostram",
+    "o_que_o_desenho_copia": "fundo escuro, trilho de atalhos a esquerda, coluna de setores, preco em amarelo, botao Pedir vermelho"
   },
 
   "painel": {

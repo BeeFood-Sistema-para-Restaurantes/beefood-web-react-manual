@@ -221,7 +221,7 @@ a posição na fila.
 | 9 | Campanhas Inteligentes no WhatsApp | [28/07/2026](https://beefood.app/novidades/whatsapp-campanhas-inteligentes) | `carrosseis/09-campanhas-inteligentes/` | 4:5, 6 slides | `entrega/09-campanhas-inteligentes.zip` (6 PNG + copy) |
 | 10 | Gestão de Entregas | **sem release** — módulo em liberação, pauta tirada dos 18 manuais do grupo | `carrosseis/10-gestao-entregas/` | 4:5, 9 slides (+ capa alternativa) | `entrega/10-gestao-entregas.zip` (9 PNG + copy) |
 | 11 | Acompanhamento em tempo real, pelo cliente | [23/09/2026](https://beefood.app/novidades/gestao-entregas-rastreio-pelo-cliente) — release *Rastreio da entrega pelo cliente*, **nome de venda diferente** | `carrosseis/11-rastreio-da-entrega/` | 4:5, 7 slides | `entrega/11-rastreio-da-entrega.zip` (7 PNG + copy) |
-| 12 | Programa de Pontos | [07/10/2026](https://beefood.app/novidades/programa-de-pontos) — manual em `manuais/programa-pontos/`; release e nome de venda **iguais** | `carrosseis/12-programa-de-pontos/` | 4:5, 8 slides | `entrega/12-programa-de-pontos.zip` (8 PNG + copy) |
+| 12 | Programa de Pontos | [07/10/2026](https://beefood.app/novidades/programa-de-pontos) — manual em `manuais/programa-pontos/`; release e nome de venda **iguais** | `carrosseis/12-programa-de-pontos/` | 4:5, 8 slides (slide 5 refeito na 2ª rodada) | `entrega/12-programa-de-pontos.zip` (8 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -1412,6 +1412,72 @@ cortado na lateral lê como render que falhou. A correção é de captura, não 
 CSS: a tela que entra no aparelho é a captura **inteira**, em 720×1280; o
 recorte serve para quando a imagem aparece sozinha.
 
+### Existe um terceiro caso: a fileira, em que a tela não é para ser lida
+
+A tabela acima tem duas linhas e faltava a terceira, que apareceu na 36ª rodada
+quando o dono pediu *"crie uma imagem com todos"* — cardápio digital, tablet e
+totem no mesmo slide, para dizer que o Programa de Pontos roda nos três.
+
+| | Capa e CTA | Miolo | **Fileira** |
+|---|---|---|---|
+| o que entra | o aparelho | o recorte | **três aparelhos** |
+| o que a tela faz | atmosfera | prova, e precisa ser lida | prova, e **não** precisa ser lida |
+
+A prova de uma fileira não é o que está escrito nas telas: é que são três
+aparelhos diferentes e que nos três aparece **a mesma coisa**. Quem olha não lê
+nenhuma das três — reconhece o círculo vermelho com estrela repetido, e é esse
+reconhecimento que afirma "é o mesmo programa".
+
+Isso muda a escolha da tela de cada aparelho. Não entra a mais informativa:
+entra aquela em que o recurso **ocupa mais área**. No celular foi a sacola, que
+tem o cartão vermelho no alto; no totem foi a janela de pontos aberta, que é um
+círculo vermelho no meio de uma tela branca; no tablet, a faixa do programa no
+topo da lista. A vitrine de recompensas seria mais informativa que as três, e
+em 230 px de largura não diria nada.
+
+Três coisas de desenho que a fileira custou, e que a próxima pode pular:
+
+- **a escala não é a física.** Um totem de 1,80 m ao lado de um celular de
+  15 cm deixa o celular do tamanho de uma unha. Os três entram com altura
+  parecida, que é como página de produto alinha aparelho, e o que fica mais
+  alto é o que fica em pé no chão. Todos apoiados na mesma linha: o suporte do
+  tablet e a base do totem encostam onde o rodapé dos outros slides começa.
+- **a fileira sangra.** Dentro da margem de 88 px sobram 904 px para dividir
+  entre três aparelhos, e a primeira versão deixou uma faixa branca de uns
+  130 px entre o corpo e os aparelhos — o slide lia como um texto com uma
+  miniatura embaixo. Os 176 px das duas margens são quase 20% de aparelho.
+- **aparelho de carcaça branca some no `--fundo-suave`.** O totem é branco e o
+  fundo é quase branco: sem um `box-shadow: 0 0 0 1px #e1e2e6`, o terço de cima
+  dele desaparece e o vão volta.
+
+E a ordem da sobreposição é sempre a mesma: **o menor cobre um pedaço do
+maior**, nunca o contrário. Tablet por cima de totem come um quarto da tela do
+totem e lê como erro de camada.
+
+### Porcentagem de padding mede o PAI, e o mockup sai desfigurado
+
+A moldura do `.totem` (`padding: 4% 6% 0`) e a do `.tablet` (`padding: 4.4%`)
+são porcentagem de propósito — assim a moldura acompanha o tamanho em que o
+mockup é usado, e é o que impede o tablet de virar monitor quando cresce.
+
+Só que porcentagem de `padding` **não mede o elemento: mede o bloco que o
+contém**. Enquanto cada mockup foi sozinho num `.figura` da largura dele, a
+conta deu certo por acidente. Numa fileira, os três são absolutos dentro de um
+bloco de 1080 px, e a conta vira 6% de 1080: moldura de 65 px num totem de 300,
+quase quatro vezes a certa. O render sai com um armarinho branco e uma tela do
+tamanho de um selo, e o erro não parece erro de CSS — parece que o mockup é
+feio.
+
+> Em slide com mais de um mockup, cada aparelho vai dentro de um invólucro
+> posicionado com a **largura dele**, e o mockup vai com `width: 100%`. É uma
+> `div` a mais por aparelho, e é o que devolve a porcentagem ao aparelho.
+
+Vale também para `.totem__coluna` e `.totem__base`, e para o
+`.tablet__suporte`: os três são absolutos pendurados em `top: 100%`, **fora**
+da altura do mockup. Posicionar o aparelho por `bottom: 0` joga essas peças
+para baixo do pé do slide. O `bottom` tem de ser a altura do que pendura —
+coluna + base no totem, um quarto de 58% da largura no tablet.
+
 ### Fidelidade não é recurso do aparelho: é canal, e o canal está no manual
 
 O pedido da 23ª rodada foi *"precisamos falar sobre programa de fidelidade:
@@ -1535,6 +1601,39 @@ cena muda e a página recarrega. Restaurar a cena em memória não basta: sem um
 segundo `reload`, as capturas seguintes saíram marcando "4 pedidos / 3" enquanto
 as anteriores marcavam "3 / 4" — dois slides da mesma peça discordando sobre a
 mesma tela, no mesmo instante.
+
+### "O produto ainda não faz isso" é medição, e medição vence por data
+
+Esta é a regra que protege a seção seguinte de virar desculpa, e ela custou um
+slide inteiro para aparecer.
+
+A peça do Programa de Pontos foi entregue com um item na lista do que ficou de
+fora: *o totem não tem tela de pontos*. A fonte era de dentro de casa e tinha
+cara de prova — o estudo de código do manual dizia **zero ocorrência de
+"pontos" no bundle do totem**, e a seção 12 do manual concordava. O release
+dizia o contrário, com detalhe: *"selo nos produtos, pontos que o pedido gera e
+resgate na finalização"*.
+
+Entre uma nota da casa e o release, a peça acreditou na nota. Errado: o bundle
+publicado hoje tem **239** ocorrências de `pontos`, a string literal `Programa
+de Pontos` e as rotas `/pontos/saldo` e `/pontos/saldoRecompensas/`. O totem de
+exemplo desenha as duas telas ao vivo. O estudo não mentiu — ele leu um bundle
+que já saiu de produção.
+
+> Nota de "o produto ainda não faz X" não é fato herdado: é uma medição com
+> data de validade, e quem a herda está lendo um retrato velho. Antes de deixar
+> um recurso de fora por causa de uma, **baixe o bundle de hoje** — é um `curl`
+> e um `grep`, e custa menos que uma rodada de arte.
+
+O sinal de alerta é barato de reconhecer: **duas fontes da casa discordando**.
+O release promete, o manual nega. Aí já não se escolhe uma — vai-se ver. É a
+mesma régua que a peça já usava para o selo de presente, em que release e
+manual discordavam e quem decidiu foi a tela.
+
+E a fronteira continua valendo: o manual ficou errado, e **esta skill não
+conserta manual**. O que ela faz é registrar no `roteiro.md` e no `cena.json`,
+avisar quem publica no `copy-instagram.txt` — para a resposta nos comentários
+não sair errada — e avisar o dono.
 
 ### Nem toda tela pobre se monta: o limite é o que o produto ainda não fez
 
@@ -2335,6 +2434,23 @@ do método:
 - **cabeçalho da copy é nota de produção.** As linhas antes do primeiro `====`
   do `copy-instagram.txt` dizem qual novidade é, com o título dela, e não vão
   para o Instagram. Conferir aquilo só ensinava a escrever cabeçalho ruim.
+- **tela desenhada não é copy, nem contra outra peça nem contra a fonte.** O
+  conferidor já pulava os blocos `tela-` ao comparar duas peças; faltava pular
+  ao comparar com a fonte, e a primeira tela desenhada que repetiu uma frase
+  longa do produto o derrubou. A faixa do Programa de Pontos desenhada no
+  tablet escreve *"Ganhe 1 ponto(s) por R$ 1,00"* porque é o que o aplicativo
+  escreve, e o manual escreve igual porque documenta a mesma tela. A premissa
+  do script — *nenhum rótulo do sistema chega a seis palavras* — vale para
+  rótulo solto, não para uma tela inteira, que é um parágrafo de interface.
+  Exigir sinônimo ali seria pedir para **desenhar a tela errada**. Quem
+  continua obrigado a declarar cada tela desenhada é o `cena.json` e o
+  `roteiro.md`, não a heurística.
+
+E um aviso que ele deu e estava certo: a primeira versão da faixa desenhada
+terminava em *"Toque para ver o que você pode ganhar"*, que não é string de
+tela nenhuma — era frase minha com cara de interface. **Tela desenhada que
+inventa frase é pior que copy copiada**, porque a copy o leitor avalia e a tela
+ele acredita. Cada linha de uma tela desenhada tem de existir no produto.
 
 ## Fonte da pauta
 
