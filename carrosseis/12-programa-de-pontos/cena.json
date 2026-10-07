@@ -116,7 +116,7 @@
   "tablet": {
     "tela": "desenhada com a .tela-tablet do base.css",
     "por_que": "APK Android (Cardapio Mesa/Comanda 1.0.2.8) nao instala no ambiente, e o print de producao de manuais/ e anterior ao Programa de Pontos",
-    "o_que_o_desenho_inventa": "nada de recurso: a faixa desenhada e a que o release promete para o canal presencial, com o texto que o cardapio e o totem ja mostram",
+    "o_que_o_desenho_inventa": "nada: as tres linhas da faixa sao string do produto, conferidas no bundle publicado do totem, no mesmo bloco de traducao — titulo ('Programa de Pontos'), ganhePorReal ('Ganhe {{pontos}} ponto(s) por R$ 1,00') e toqueParaVer ('Toque para ver o que voce pode ganhar')",
     "o_que_o_desenho_copia": "fundo escuro, trilho de atalhos a esquerda, coluna de setores, preco em amarelo, botao Pedir vermelho"
   },
 

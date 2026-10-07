@@ -276,10 +276,13 @@ quando os degraus de cima não existem:
 O desenho copia o print de produção no que é forma (fundo escuro, trilho de
 atalhos à esquerda, coluna de setores, preço em amarelo, botão *Pedir*
 vermelho) e acrescenta **uma** coisa: a faixa do programa, no mesmo formato em
-que o cardápio e o totem a desenham — círculo vermelho com estrela, o nome do
-programa e a régua *Ganhe 1 ponto(s) por R$ 1,00*. Nada ali é invenção de
-recurso: a faixa é a que o release promete para o canal presencial, com o texto
-que os outros dois aplicativos usam.
+que o cardápio e o totem a desenham.
+
+E as três linhas da faixa não foram escritas: foram **copiadas do produto**, do
+mesmo bloco de tradução do bundle do totem — `titulo` (*Programa de Pontos*),
+`ganhePorReal` (*Ganhe {{pontos}} ponto(s) por R$ 1,00*) e `toqueParaVer`
+(*Toque para ver o que você pode ganhar*). Numa tela desenhada isso não é zelo
+de revisão: a copy o leitor avalia, e a tela ele acredita.
 
 ### A fileira: a tela não é para ser lida
 

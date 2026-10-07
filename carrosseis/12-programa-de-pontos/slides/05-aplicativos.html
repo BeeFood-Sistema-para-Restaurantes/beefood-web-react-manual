@@ -145,7 +145,14 @@
             <div class="tela-tablet__corpo">
               <!-- A faixa de pontos, no formato do cardapio e do totem: circulo
                    vermelho com estrela, nome do programa e a regua. Cartao
-                   escuro porque a tela do tablet e escura. -->
+                   escuro porque a tela do tablet e escura.
+
+                   AS TRES LINHAS SAO STRING DO PRODUTO, conferidas no bundle
+                   publicado do totem, no mesmo bloco de traducao: `titulo`
+                   ("Programa de Pontos"), `ganhePorReal` ("Ganhe {{pontos}}
+                   ponto(s) por R$ 1,00") e `toqueParaVer` ("Toque para ver o
+                   que voce pode ganhar"). Numa tela desenhada isso nao e
+                   zelo: a copy o leitor avalia, a tela ele acredita. -->
               <div style="display: flex; align-items: center; gap: 0.8em;
                           padding: 0.7em 0.9em; border-radius: 0.4em;
                           background: #26262a">
@@ -155,14 +162,8 @@
                              justify-content: center; font-size: 1em">⭐</span>
                 <span style="display: flex; flex-direction: column; gap: 0.1em">
                   <b style="font-size: 1.05em; font-weight: 900">Programa de Pontos ⭐</b>
-                  <!-- As duas metades sao string do produto: a regua e a do
-                       cartao da sacola, e "Acumule pontos a cada compra" e a
-                       faixa da home do cardapio. A primeira versao terminava
-                       em "toque para ver o que voce pode ganhar", que e frase
-                       inventada — e o `conferir-texto.py` ainda a pegou como
-                       copia do manual. -->
                   <small style="font-size: 0.85em; color: rgba(255,255,255,0.6)">
-                    Ganhe 1 ponto(s) por R$ 1,00 · Acumule pontos a cada compra
+                    Ganhe 1 ponto(s) por R$ 1,00 · Toque para ver o que você pode ganhar
                   </small>
                 </span>
               </div>

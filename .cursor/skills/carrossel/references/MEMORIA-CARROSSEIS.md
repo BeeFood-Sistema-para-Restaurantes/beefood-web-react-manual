@@ -2446,11 +2446,16 @@ do método:
   continua obrigado a declarar cada tela desenhada é o `cena.json` e o
   `roteiro.md`, não a heurística.
 
-E um aviso que ele deu e estava certo: a primeira versão da faixa desenhada
-terminava em *"Toque para ver o que você pode ganhar"*, que não é string de
-tela nenhuma — era frase minha com cara de interface. **Tela desenhada que
-inventa frase é pior que copy copiada**, porque a copy o leitor avalia e a tela
-ele acredita. Cada linha de uma tela desenhada tem de existir no produto.
+E a saída errada, que chegou a ser tentada antes de mexer no script: trocar a
+frase da tela desenhada por outra que passasse. Trocar texto de interface para
+agradar um conferidor é **desenhar a tela errada de propósito**, e o conferidor
+não é quem lê a peça.
+
+> Toda linha de uma tela desenhada tem de existir no produto, e se prova no
+> bundle publicado. As três da faixa do tablet saíram do mesmo bloco de
+> tradução do totem — `titulo`, `ganhePorReal`, `toqueParaVer` —, e isso está
+> no comentário do slide. Na copy o leitor avalia o que lê; na tela, ele
+> acredita.
 
 ## Fonte da pauta
 
