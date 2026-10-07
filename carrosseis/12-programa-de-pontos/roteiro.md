@@ -60,25 +60,19 @@ ocupa a metade da linha que todo mundo lê.
 | A vitrine lista cada recompensa com o preço em pontos e o selo **Disponível** ou **Faltam N pts** | O que separa ponto de cashback é a **meta**: a linha que ainda não dá é a que deixa um motivo marcado | 3 |
 | Dois tipos de recompensa: **desconto em reais** (vale em qualquer cardápio) e **produto do cardápio grátis** | Recompensa de produto custa o preço de um lanche e vale, para quem recebe, um pedido inteiro | 3 |
 | O resgate acontece **dentro da sacola**, depois da modalidade escolhida: **RESGATAR** no desconto que o saldo alcança, **ADICIONAR** no produto grátis, **INSUFICIENTE** no que não alcança | Ele não sai do pedido para trocar, e é por isso que a troca acontece | 4 |
-| Resgatado, o **Total do pedido** cai na hora (R$ 29,00 → R$ 19,00) e o ganho do pedido **continua o mesmo** (29 pontos), porque é calculado sobre os itens | A recompensa de hoje não corta o acúmulo de amanhã | 5 |
-| **Um resgate por pedido**: escolhida uma, as outras param de responder; e o ponto só sai do saldo **quando o pedido é fechado** | Sacola abandonada não gasta ponto de ninguém | 5 (corpo) |
+| Resgatado, o **Total do pedido** cai na hora (R$ 29,00 → R$ 19,00) e o ganho do pedido **continua o mesmo** (29 pontos), porque é calculado sobre os itens | A recompensa de hoje não corta o acúmulo de amanhã | legenda (era o slide 5 até a 2ª rodada) |
+| **Um resgate por pedido**: escolhida uma, as outras param de responder; e o ponto só sai do saldo **quando o pedido é fechado** | Sacola abandonada não gasta ponto de ninguém | 4 (corpo) |
+| O programa roda nos quatro aplicativos do release — **BeeFood App, Cardápio Digital, Cardápio Digital Tablet e Totem** — com **um saldo só** | Quem está escolhendo sistema conta canal; quem já é cliente quer saber se precisa escolher onde ligar. Não precisa | 5 |
 | A aba **Saldo por Cliente** abre com **Total de Pontos** em circulação, **Clientes com Pontos**, **Total de Clientes** e **Média por Cliente** | É o tamanho do que a loja já prometeu em recompensa, numa linha | 6 |
 | O olho de cada linha abre o extrato, e **ADICIONAR** credita na hora, com um **Motivo** que o cliente lê inteiro no celular | Cortesia por atraso vira crédito imediato, com a explicação junto | 6 (corpo) |
 | O público **Pontos parados** e a **campanha de WhatsApp** que fala com ele **já vêm criados pela BeeFood**, ativos, usando o saldo de cada pessoa | Marketing que normalmente é projeto chega como item de lista | 7 |
 | O módulo está em **Fidelidade (CRM) → Programa de pontos** | CTA: a decisão que ninguém pode tomar pela loja é **o que o cliente vai ganhar** | 8 (CTA) |
 
-Os slides acima são doze linhas de fato para oito lugares — a tabela de slides
+Os slides acima são treze linhas de fato para oito lugares — a tabela de slides
 abaixo diz onde cada uma caiu.
 
 **Ficou de fora, de propósito:**
 
-- **o totem.** O release promete, no totem, *"selo nos produtos, pontos que o
-  pedido gera e resgate na finalização"*. O
-  [estudo de código](../../manuais/programa-pontos/fluxo-codigo.md) procurou
-  `pontos` no bundle publicado do totem e achou **zero ocorrência**, e a seção
-  12 do manual concorda: *o totem ainda não tem tela de pontos*. O que é
-  verdade é que a venda do totem **acumula**, se o canal estiver ligado. A arte
-  não afirma nem uma coisa nem outra, e a legenda fica com o acúmulo;
 - **o selo de presente na foto do produto.** O release diz que ele marca os
   produtos **que pontuam**; a seção 6 do manual lê o mesmo selo como marca dos
   produtos **que são recompensa**. As duas não podem valer ao mesmo tempo, e a
@@ -114,7 +108,7 @@ abaixo diz onde cada uma caiu.
 | 2 | `02-cada-compra-acumula.html` | Quem compra **acumula** a cada pedido, na conta que você definir | `rec-home-faixa.png` — **captura**, recorte |
 | 3 | `03-recompensas.html` | **Recompensas**: o que dá para trocar, e quanto ainda falta | `rec-vitrine.png` — **captura**, recorte |
 | 4 | `04-resgate-na-sacola.html` | **Resgate na sacola**: a troca acontece dentro do pedido | `05-sacola-resgatada.png` num `.celular` — **captura** |
-| 5 | `05-total-do-pedido.html` | **Total do pedido**: o desconto entra na hora, e o ganho não muda | `rec-total-antes.png` + `rec-total-depois.png` — **captura**, dois recortes |
+| 5 | `05-aplicativos.html` | **Disponível** em todos os aplicativos | `04-sacola-com-pontos.png` num `.celular` + tela do tablet **desenhada** + `11-totem-janela-pontos.png` num `.totem` — duas capturas e um desenho |
 | 6 | `06-saldo-por-cliente.html` | **Saldo por Cliente**: quanto a sua loja tem de ponto em circulação | `rec-totais-painel.png` + `rec-linhas-cliente.png` — **captura**, dois recortes |
 | 7 | `07-pontos-parados.html` | **Pontos parados**: o público e a campanha já chegam prontos | `rec-campanha.png` + `rec-segmentacao.png` — **captura**, dois recortes |
 | 8 | `08-cta.html` | Escolha **hoje** a primeira recompensa | `04-sacola-com-pontos.png`, a mesma arte da capa |
@@ -123,17 +117,38 @@ São **oito** slides, e o teto da skill é 8. A conta de por que nenhum par se
 funde está em *oito slides, e nenhum é de brinde*, abaixo.
 
 Lidos em fila, os oito títulos montam a lista do que o módulo passou a fazer —
-acumular, mostrar o que dá para trocar, deixar trocar dentro do pedido, descontar
-na hora, medir o saldo em circulação e chamar quem parou. Nenhum tem pronome, e
-o slide 2 é a exceção estrutural da regra do nome: ele explica o recurso que a
-capa acabou de nomear.
+acumular, mostrar o que dá para trocar, deixar trocar dentro do pedido, valer
+nos quatro aplicativos, medir o saldo em circulação e chamar quem parou. Nenhum
+tem pronome, e o slide 2 é a exceção estrutural da regra do nome: ele explica o
+recurso que a capa acabou de nomear.
+
+### O slide 5 foi trocado na 2ª rodada
+
+A peça foi entregue com um slide 5 chamado *Total do pedido*: dois recortes da
+mesma caixa da sacola, um antes e um depois do resgate, provando que o desconto
+entra na hora (R$ 29,00 → R$ 19,00) e que o ganho do pedido não muda (29
+pontos). O dono pediu para tirá-lo e pôr no lugar o **alcance**: cardápio
+digital, cardápio digital no tablet e totem.
+
+A troca melhora a peça, e vale dizer por quê. *Total do pedido* era o terceiro
+slide seguido mostrando a mesma sacola do mesmo celular — três telas de um
+aparelho só, no meio de uma peça que vende um módulo que roda em quatro
+aplicativos. E o fato dele é de **conta**, não de uso: cabe inteiro numa linha
+de legenda, que é onde ele está agora. Já o alcance não cabia em texto nenhum,
+porque a prova dele é visual — são três aparelhos diferentes com a mesma coisa
+vermelha na tela.
+
+As duas capturas do slide antigo (`rec-total-antes.png` e `rec-total-depois.png`)
+continuam em `imagens-puras/`: elas são a prova do fato que foi para a legenda,
+e quem publicar pode precisar dela se a pergunta vier nos comentários.
 
 ## Decisões de arte
 
-### Dez imagens, dez capturas, nenhuma tela de configuração
+### Doze imagens, onze capturas, nenhuma tela de configuração
 
-É a primeira peça da série em que **todas** as imagens são captura de resultado,
-e isso não é mérito de disciplina: é que este recurso tem um lado de cliente
+Fora **uma** tela — a do tablet, no slide 5, que está explicada em *o tablet é
+a única tela desenhada da peça* —, todas as imagens são captura de resultado, e
+isso não é mérito de disciplina: é que este recurso tem um lado de cliente
 inteiro, e o lado de cliente é só resultado.
 
 O inverso também vale, e era a armadilha. O Programa de Pontos é, do lado do
@@ -209,6 +224,98 @@ spinner e o spinner já tinha sumido. A captura ganhou um `assentar()` que esper
 lição é geral e subiu para a memória da skill: **espere a fonte, não só a
 tela** — a tela sem ícone continua certa, e a prova, não.
 
+### O totem TEM tela de pontos, e isso foi medido, não suposto
+
+O slide 5 nasceu de uma conferência que quase não aconteceu. A primeira versão
+do roteiro tinha, na lista do que ficou de fora, um item dizendo que o totem
+não mostra pontos. A fonte era de dentro de casa e tinha ar de prova: o
+[estudo de código](../../manuais/programa-pontos/fluxo-codigo.md) afirmava
+*zero ocorrência de "pontos" no bundle do totem*, e a seção 12 do manual
+concordava — *o totem ainda não tem tela de pontos*.
+
+O release dizia o contrário, com detalhe: *"Totem de autoatendimento: selo nos
+produtos, pontos que o pedido gera e resgate na finalização"*. Duas fontes da
+casa discordando é exatamente o caso em que a skill manda ir ver. O bundle
+publicado hoje (`totem.beefood.app/assets/index-D3WF6suQ.js`) tem **239**
+ocorrências de `pontos`, a string literal `Programa de Pontos`, as chaves
+`pontosBanner`, `pontosResgate`, `pontosNecessarios`, `pontosCupomIncompativel`
+e as rotas `/pontos/saldo` e `/pontos/saldoRecompensas/`. E o totem de exemplo
+da sandbox desenha as duas telas ao vivo: a faixa do programa no cardápio e a
+janela **Programa de Pontos** com a régua e a lista de recompensas.
+
+Quem errou foi o estudo, não o release: ele leu um bundle que já saiu de
+produção. **O manual continua com a informação velha** e precisa de correção —
+mas a correção é de quem trabalha no manual, não desta skill, e por isso está
+registrada aqui e avisada ao dono, e não escrita lá.
+
+A lição que subiu para a memória: *"o produto ainda não faz isso" não é fato
+herdado, é medição com data de validade*. Antes de deixar um recurso de fora de
+uma peça por causa de uma nota dessas, baixe o bundle de hoje.
+
+### O tablet é a única tela desenhada da peça
+
+Das três telas do slide 5, duas são captura: o celular (sacola do cardápio
+público) e o totem (janela de pontos do totem de exemplo). A do **tablet** é
+desenhada, com a `.tela-tablet` do `base.css`, e é a única tela desenhada em
+toda a peça.
+
+Ela desce um degrau na escada de imagem da skill, e a escada permite isso
+quando os degraus de cima não existem:
+
+1. *captura feita para o carrossel* — impossível: o Cardápio Digital no Tablet
+   é um **APK Android** (`Cardápio Mesa/Comanda`, 1.0.2.8) e não se instala
+   neste ambiente, que é a mesma regra da seção 6 da `MEMORIA-GERAL.md`;
+2. *print de produção* — existe, em `manuais/`, e foi **tirado antes** de o
+   Programa de Pontos existir: mostrar aquele print aqui seria afirmar com uma
+   foto velha o que a peça está anunciando como novo;
+3. *print pedido ao dono* — seria o certo se o slide dependesse da tela; não
+   depende, e pedir print para um slide de reconhecimento é cobrar caro por
+   pouco;
+4. *desenho* — é onde ela ficou.
+
+O desenho copia o print de produção no que é forma (fundo escuro, trilho de
+atalhos à esquerda, coluna de setores, preço em amarelo, botão *Pedir*
+vermelho) e acrescenta **uma** coisa: a faixa do programa, no mesmo formato em
+que o cardápio e o totem a desenham.
+
+E as três linhas da faixa não foram escritas: foram **copiadas do produto**, do
+mesmo bloco de tradução do bundle do totem — `titulo` (*Programa de Pontos*),
+`ganhePorReal` (*Ganhe {{pontos}} ponto(s) por R$ 1,00*) e `toqueParaVer`
+(*Toque para ver o que você pode ganhar*). Numa tela desenhada isso não é zelo
+de revisão: a copy o leitor avalia, e a tela ele acredita.
+
+### A fileira: a tela não é para ser lida
+
+O slide 5 é o único da peça em que **não** se lê a tela de nenhum aparelho, e
+é de propósito. A prova dele não é o que está escrito: é que são **três
+aparelhos** e que nos três aparece a mesma coisa vermelha com estrela. Por isso
+cada um entra com a tela em que o programa ocupa mais área, e não com a tela
+mais informativa.
+
+Três decisões de desenho que o slide custou:
+
+- **a escala não é a física.** Um totem de 1,80 m ao lado de um celular de
+  15 cm deixa o celular do tamanho de uma unha. Os três entram com altura
+  parecida, que é como página de produto alinha aparelho, e o totem fica um
+  pouco mais alto porque é o único que fica em pé no chão;
+- **a fileira sangra de borda a borda.** A primeira versão ficou dentro da
+  margem de 88 px, e com 904 px para dividir entre três aparelhos sobrou uma
+  faixa branca de uns 130 px entre o corpo e o celular: o slide lia como um
+  texto com uma miniatura embaixo. Os 176 px das duas margens são quase 20% de
+  aparelho, e são o que faz a fileira virar o assunto do slide;
+- **o fio cinza em volta do totem.** A carcaça do totem é branca e o fundo do
+  slide é `--fundo-suave`, quase branco também. Sem um `box-shadow` de 1 px, o
+  terço de cima do totem sumia no fundo e o vão voltava a aparecer.
+
+E uma armadilha do `base.css` que só aparece em slide com vários mockups: a
+moldura do `.totem` e a do `.tablet` são `padding` em **porcentagem**, e
+porcentagem de padding mede a largura do bloco que **contém** o elemento, não a
+largura dele. Com o aparelho posicionado direto na fileira de 1080 px, a conta
+virava 6% de 1080 — moldura de 65 px num totem de 300, quase quatro vezes a
+certa, e o totem saía atarracado com a tela do tamanho de um selo. Cada
+aparelho foi para dentro de um invólucro da largura dele, e a porcentagem
+voltou a medir o aparelho.
+
 ### Sete recortes medidos, e por que cada um fecha onde fecha
 
 Todos os cortes são medidos no DOM pela própria captura
@@ -228,7 +335,13 @@ Todos os cortes são medidos no DOM pela própria captura
   caixa**, medida na mesma tela, e levam o botão *Continuar* no meio de
   propósito: ele é idêntico nas duas fotos, e é ele que faz o olho ir direto no
   número que mudou (R$ 29,00 → R$ 19,00) e no que não mudou (*Ganhe 29
-  pontos*).
+  pontos*). Os dois saíram da arte quando o slide 5 foi trocado, e ficam no
+  acervo porque o fato deles foi para a legenda.
+- **`rec-totem-faixa.png`** fecha na faixa do programa dentro do cardápio do
+  totem, com folga **zero** nos dois lados: a faixa é um bloco de largura
+  inteira e qualquer folga lateral trazia junto a borda da tela. Não entrou na
+  arte — o slide 5 preferiu a janela aberta, que é onde o vermelho é maior —,
+  e fica como prova do que o totem mostra.
 - **`rec-campanha.png`** começa na pílula **Ativo** e fecha logo abaixo da
   descrição da campanha, **acima** da linha `R$ 0,00 de receita gerada`. O
   começo é a prova (a campanha chega cadastrada, com o selo `BeeFood` e a chave
@@ -262,11 +375,12 @@ tudo.
 Os dois nomes que ficam legíveis — *Teste Manual* e *Bruno Pontos* — são contas
 de teste da sandbox, criadas pelos manuais.
 
-### Dois celulares e seis recortes
+### Aparelho onde o assunto é reconhecer, recorte onde é ler
 
-A capa e o CTA levam o celular inteiro; o slide 4 também, e os outros levam
-recorte. O critério é o da skill: aparelho quando a capa quer reconhecimento,
-recorte quando o que precisa ser lido é o texto da tela.
+A capa e o CTA levam o celular inteiro; o slide 4 também, o slide 5 leva três
+aparelhos, e os outros levam recorte. O critério é o da skill: aparelho quando
+o que se quer é reconhecimento, recorte quando o que precisa ser lido é o texto
+da tela.
 
 O slide 4 é a exceção entre os de dentro, e ela se paga: o assunto dali é que a
 troca acontece **dentro do pedido**, e é a moldura do celular com a palavra
@@ -276,24 +390,33 @@ recompensas poderia estar em qualquer tela.
 A imagem da capa é a **sacola**, e não a vitrine, por um motivo de miniatura: o
 cartão vermelho do alto dela escreve **Programa de Pontos ⭐**, e na capa isso
 põe o nome do recurso dentro da própria prova. O corte da sangria cai logo
-abaixo da lista de recompensas, bem antes do rodapé do total — que é justamente
-o que o slide 5 mostra de perto, então nenhuma imagem repete outra.
+abaixo da lista de recompensas, bem antes do rodapé do total.
+
+A mesma sacola aparece três vezes na peça — capa, slide 4 e slide 5 —, e nas
+três com enquadramento diferente: a sangria da capa corta no meio da lista, o
+slide 4 mostra o celular inteiro com a palavra *Sacola* legível, e no slide 5
+ela entra pequena, de lado, como um dos três aparelhos. Na primeira rodada
+eram **quatro** aparições, e a quarta (o antigo slide 5, de recorte no rodapé
+do total) era a que repetia sem acrescentar.
 
 ### Oito slides, e nenhum é de brinde
 
 A peça começou em sete e cresceu para oito na escrita, o que a skill manda
-justificar. A pergunta é *quais dois slides entregam a mesma ideia de uso?*, e
-o par candidato era o 4 e o 5 — os dois mostram a sacola.
+justificar. A pergunta é *quais dois slides entregam a mesma ideia de uso?*
 
-Eles não se fundem porque respondem a perguntas diferentes do mesmo leitor. O
-slide 4 responde *onde meu cliente troca?* (dentro do pedido, sem sair dele). O
-slide 5 responde *quanto isso me custa?* (o desconto sai do total daquele
-pedido, e o acúmulo continua inteiro). O primeiro é de uso, o segundo é de
-conta — e é a conta que o dono do restaurante faz antes de ligar qualquer
-programa de fidelidade.
+O par candidato, hoje, é o **2 e o 5**: os dois falam de canal. Eles não se
+fundem porque o canal entra por motivos diferentes. O slide 2 responde *quando
+o programa começa a aparecer?* — e a resposta é que ele se anuncia sozinho na
+home de quem abre o cardápio, sem a loja avisar ninguém. O slide 5 responde
+*preciso escolher onde ligar?* — e a resposta é que não, e que o saldo é um só
+nos quatro aplicativos. O primeiro é sobre tempo, o segundo é sobre alcance, e
+cada um precisa de uma imagem que o outro não pode dar: o 2 precisa do recorte
+da faixa amarela, legível; o 5 precisa dos três aparelhos juntos, e nenhum
+deles legível.
 
-Fundidos, sobraria um slide com dois assuntos e três imagens, e o que sairia da
-peça seria a conta — que é a parte que vende.
+Fundidos, sobraria um slide com dois assuntos e quatro imagens, e o que sairia
+da peça seria o alcance — que é a parte que decide quem está comparando
+sistema.
 
 ### A capa: anúncio de chegada, e o eixo inteiro no subtítulo
 

@@ -67,6 +67,16 @@ RECOMPENSA = "R$ 10,00 de desconto"
 CELULAR = {"width": 390, "height": 844}
 COMPUTADOR = {"width": 1440, "height": 900}
 
+# O totem da própria sandbox (`beefood3`), e não o de exemplo da ONE Stand do
+# `capturar-totem.py`: aqui o programa está ligado e o cliente de teste tem
+# saldo. 720x1280 é 9/16, que é a proporção que a moldura `.totem__tela` espera
+# — print em outra proporção entra recortado nas laterais. E é a resolução
+# menor de propósito: o aplicativo desenha botão e faixa em px fixo, então numa
+# tela de 1080p reduzida para 260 px na arte a faixa de pontos viraria um risco.
+TOTEM = ("https://totem.beefood.app/?empresaID=38311&filialID=39202"
+         "&token=D3590976-63A1-4FDF-9721-0E054CBF3BB5")
+TELA_TOTEM = {"width": 720, "height": 1280}
+
 # As três de desconto são as que estão cadastradas hoje; a de produto é a que o
 # manual fotografou de manhã e que saiu do cadastro desde então. Ver cena.json.
 RECOMPENSAS = {
@@ -306,6 +316,56 @@ def computador(p, cru=False):
         nav.close()
 
 
+def totem(p):
+    """O Programa de Pontos na tela do totem de autoatendimento.
+
+    **Isto desmente o que o manual diz, e foi medido aqui.** A seção 12 do
+    manual e o `fluxo-codigo.md` afirmam que *o totem ainda não tem tela de
+    pontos*, a partir de uma busca que não achou `pontos` no bundle. O bundle
+    publicado hoje (`index-D3WF6suQ.js`) tem um bloco de tradução inteiro só
+    para pontos — *Programa de Pontos*, *Toque para ver o que você pode ganhar*,
+    *Seu saldo disponível*, *Usar meus pontos*, *Selecione sua recompensa* — e
+    o aparelho desenha tudo. Quem estiver mexendo no manual precisa corrigir
+    aquela linha; esta skill não escreve lá.
+
+    **Nenhum pedido é feito.** O roteiro abre a tela de espera, entra no
+    cardápio e abre a janela de pontos. A sacola fica vazia.
+
+    O service worker vai bloqueado: o totem é PWA e serve as imagens pelo
+    worker dele, e sem isso a tela sai sem foto de produto.
+    """
+    nav = p.chromium.launch(args=["--no-sandbox"])
+    ctx = nav.new_context(viewport=TELA_TOTEM, device_scale_factor=2,
+                          locale="pt-BR", timezone_id="America/Sao_Paulo",
+                          service_workers="block")
+    pagina = ctx.new_page()
+    try:
+        pagina.goto(TOTEM, wait_until="networkidle", timeout=120000)
+        assentar(pagina, 6000)
+
+        # O botão de começar pulsa para sempre, e o Playwright espera
+        # estabilidade até estourar o tempo: todo clique aqui vai com `force`.
+        pagina.click("button:has-text('FAÇA SEU PEDIDO')", force=True)
+        pagina.wait_for_timeout(9000)
+        assentar(pagina, 5000)
+        # A tela inteira, que é o que entra dentro da moldura do totem.
+        tirar(pagina, "10-totem-cardapio.png")
+
+        faixa = pagina.get_by_text("Programa de Pontos", exact=False).first
+        recortar(pagina, "rec-totem-faixa.png", faixa, folga=12,
+                 lateral=faixa.locator("xpath=ancestor::*[2]"), folga_lado=(0, 0))
+
+        faixa.click(force=True)
+        pagina.wait_for_timeout(5000)
+        assentar(pagina, 3000)
+        tirar(pagina, "11-totem-janela-pontos.png")
+        print("ATENÇÃO: nada foi pedido no totem — a sacola ficou vazia.")
+    finally:
+        salvar_medidas()
+        ctx.close()
+        nav.close()
+
+
 def painel():
     """As duas telas do lado do restaurante: o saldo em circulação e a automação.
 
@@ -411,15 +471,17 @@ def main():
     ap.add_argument("--cru", action="store_true",
                     help="sem a recompensa de produto devolvida pela API")
     args = ap.parse_args()
-    alvos = args.alvos or ["celular", "computador", "painel"]
+    alvos = args.alvos or ["celular", "computador", "painel", "totem"]
     if "painel" in alvos:
         painel()
-    if {"celular", "computador"} & set(alvos):
+    if {"celular", "computador", "totem"} & set(alvos):
         with sync_playwright() as p:
             if "celular" in alvos:
                 celular(p, args.cru)
             if "computador" in alvos:
                 computador(p, args.cru)
+            if "totem" in alvos:
+                totem(p)
 
 
 if __name__ == "__main__":

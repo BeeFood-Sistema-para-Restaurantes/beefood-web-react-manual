@@ -90,9 +90,9 @@ class SomenteTexto(HTMLParser):
     implementação para quem edita o slide, não vai para a arte.
 
     Com `sem_desenho`, a interface desenhada e o cromo do slide também ficam de
-    fora.
-    Serve para comparar uma peça com outra: ali o que interessa é a **copy**, e
-    a interface desenhada é prova, que pode e deve se repetir.
+    fora. É o que as duas comparações querem: o que se confere é a **copy**, e
+    a interface desenhada é prova — ela repete o produto entre peças porque o
+    produto não muda, e repete a fonte porque a fonte documenta a mesma tela.
     """
 
     def __init__(self, sem_desenho: bool = False) -> None:
@@ -311,7 +311,23 @@ def main() -> None:
     achados = 0
     conferidos = 0
     for arquivo in sorted(pasta.glob("*.html")):
-        leitor = SomenteTexto()
+        # `sem_desenho` também aqui, e não só na comparação entre peças. Tela
+        # desenhada é PROVA, e prova repete o produto por obrigação: a faixa do
+        # Programa de Pontos desenhada no tablet da #12 escreve "Ganhe 1
+        # ponto(s) por R$ 1,00" porque é o que o aplicativo escreve, e o manual
+        # escreve o mesmo porque está documentando a mesma tela. A janela de 6
+        # pega as duas e chama de cópia.
+        #
+        # A premissa do conferidor é a do próprio docstring — "nenhum rótulo do
+        # sistema chega a seis palavras" —, e ela vale para rótulo solto num
+        # título. Não vale para uma tela inteira desenhada, que é um parágrafo
+        # de interface. Exigir sinônimo ali pediria para DESENHAR A TELA
+        # ERRADA, que é o oposto do que a skill quer.
+        #
+        # O que fica de fora é só o que está dentro de um bloco `tela-`, e
+        # `cena.json` e `roteiro.md` continuam obrigados a declarar cada tela
+        # desenhada — a disciplina da tela é de lá, não desta heurística.
+        leitor = SomenteTexto(sem_desenho=True)
         leitor.feed(arquivo.read_text(encoding="utf-8"))
         copiadas = sequencias(palavras(leitor.texto()), args.janela) & fonte
         for seq in sorted(copiadas):

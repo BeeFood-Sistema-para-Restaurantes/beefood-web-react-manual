@@ -1,0 +1,221 @@
+<!-- Slide 5: o lugar do antigo "Total do pedido", que saiu a pedido do dono.
+     O fato dele (o desconto entra na hora e o ganho nao muda) continua na
+     legenda; o que entra aqui e o alcance, que a peca nao dizia em imagem
+     nenhuma.
+
+     E o UNICO slide da peca em que a tela nao e para ser lida. A prova aqui
+     nao e o que esta escrito dentro dos aparelhos: e que sao TRES aparelhos,
+     e que nos tres aparece a mesma coisa vermelha com estrela. Por isso cada
+     um leva a tela em que o Programa de Pontos ocupa mais area: a sacola no
+     celular (cartao vermelho no alto), a faixa desenhada no tablet e a janela
+     de pontos no totem (circulo vermelho no meio do branco).
+
+     Duas das tres telas sao captura de verdade. A do tablet e DESENHADA, e e
+     a unica tela desenhada da peca: o aplicativo do tablet e um APK Android
+     (`Cardapio Mesa/Comanda`, 1.0.2.8) que nao roda no Cloud Agent, e o print
+     de producao que existe em `manuais/` foi tirado antes de o programa
+     existir. O desenho copia aquele print — fundo escuro, preco em amarelo,
+     botao vermelho — e acrescenta a faixa de pontos, cujas tres linhas sao
+     string do produto, conferidas no bundle publicado. Registrado no
+     `roteiro.md` e no `cena.json`.
+
+     A fileira SANGRA: em vez de `.figura`, que respeita a margem de 88 px dos
+     dois lados, o grupo e absoluto de borda a borda. A primeira versao ficou
+     dentro da margem, e com 904 px para dividir entre tres aparelhos sobrou
+     uma faixa branca de uns 130 px entre o corpo e o celular — o slide parecia
+     um texto com uma miniatura embaixo. Os 176 px da margem sao quase 20% de
+     aparelho, e e o que faz a fileira virar o assunto do slide.
+
+     A escala NAO e a fisica. Um totem de 1,80 m ao lado de um celular de
+     15 cm deixaria o celular do tamanho de uma unha. Os tres entram com altura
+     parecida, que e como pagina de produto alinha aparelho, e o totem fica
+     um pouco mais alto porque e o unico que fica em pe no chao.
+
+     Sem rodape: a base do totem e o suporte do tablet encostam no pe do
+     slide, e ponto desenhado em cima de aparelho parece sujeira. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">5 de 8</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 900px">
+    <!-- "Do delivery ao balcao" foi a primeira versao e saiu quase igual ao
+         chapeu do slide 6 ("Do lado do balcao") — na folha de contato os dois
+         liam como o mesmo slide. -->
+    <span class="chapeu">Onde o cliente pedir</span>
+    <h2 class="titulo titulo--pequeno">
+      <span class="destaque">Disponível</span> em todos os aplicativos
+    </h2>
+    <p class="corpo">
+      O mesmo programa roda no cardápio digital, no tablet da mesa e no totem
+      de autoatendimento. O cliente acumula pedindo onde quiser, e o saldo é um
+      só: ele vê quanto falta e resgata no aparelho em que está.
+    </p>
+  </div>
+
+  <!-- Fileira de borda a borda. `left/right: 0` resolve contra a caixa de
+       padding do `.slide`, entao o grupo ignora a margem; `bottom: 88px` traz
+       o pe do grupo de volta para a linha da margem, que e onde o rodape dos
+       outros slides comeca. A altura e a do totem inteiro (carcaca + coluna +
+       base), que e o aparelho mais alto dos tres. -->
+  <div style="position: absolute; left: 0; right: 0; bottom: 88px; height: 638px">
+
+    <!-- CADA APARELHO VAI DENTRO DE UM INVOLUCRO DA LARGURA DELE, e isso nao e
+         gosto: a moldura do `.totem` e a do `.tablet` sao `padding` em
+         PORCENTAGEM, e porcentagem de padding mede a largura do bloco que
+         CONTEM o elemento, nao a largura dele. Com o aparelho absoluto direto
+         aqui dentro, a conta virava 6% de 1080 — moldura de 65 px num totem de
+         300, quase quatro vezes a certa. No render o totem saiu atarracado,
+         com a tela do tamanho de um selo no meio de um armarinho branco.
+         O involucro de largura fixa devolve a porcentagem ao aparelho. -->
+
+    <!-- Totem: captura de verdade, 720x1280 (9/16), a janela de pontos aberta.
+         O `bottom` do involucro e a coluna (60) mais a base (15), porque as
+         duas sao absolutas penduradas em `top: 100%` e nao entram na altura do
+         `.totem` — sem isso a base furava o pe do slide. E o mais alto dos
+         tres de proposito: e o unico que fica em pe no chao. -->
+    <div style="position: absolute; right: 6px; bottom: 75px; width: 288px">
+    <!-- O fio cinza no `box-shadow` nao e enfeite: a carcaca do totem e branca
+         e o fundo do slide e `--fundo-suave`, quase branco tambem. Sem o fio,
+         o terco de cima do totem sumia e o slide parecia ter um vao vazio
+         entre o corpo e a fileira. -->
+    <div class="totem"
+         style="width: 100%; --coluna: 60px;
+                box-shadow: 0 0 0 1px #e1e2e6,
+                            0 34px 64px -22px rgba(0, 0, 0, 0.45)">
+      <div class="totem__tela">
+        <img src="../imagens-puras/11-totem-janela-pontos.png"
+             alt="A janela Programa de Pontos aberta na tela do totem">
+      </div>
+      <div class="totem__painel">
+        <span class="totem__leitor"></span>
+        <span class="totem__impressora"></span>
+        <span class="totem__pinpad">
+          <span class="totem__tecla"><span></span><span></span><span></span></span>
+          <span class="totem__tecla"><span></span><span></span><span></span></span>
+          <span class="totem__tecla"><span></span><span></span><span></span></span>
+        </span>
+      </div>
+      <div class="totem__coluna"></div>
+      <div class="totem__base"></div>
+    </div>
+    </div>
+
+    <!-- Tablet: tela DESENHADA, porque o APK Android nao roda aqui. O
+         `bottom: 81px` e a altura do suporte (um quarto de 58% da largura),
+         para a chapa encostar na mesma linha em que a base do totem encosta.
+
+         Tablet deitado e grande no meio do slide corre o risco de ler como
+         MONITOR — o defeito que o proprio `base.css` avisa. Aqui quem desfaz a
+         leitura e a fileira, nao o desenho: o totem mais alto a direita da a
+         escala, e o celular cobrindo o canto esquerdo da a profundidade. Por
+         isso o celular entra sobrepondo o tablet, e nao encostado nele. -->
+    <div style="position: absolute; left: 208px; bottom: 81px; width: 560px">
+    <div class="tablet" style="width: 100%">
+      <div class="tablet__tela">
+        <!-- A tela desenhada e toda em `em`: esse `font-size` e a escala dela.
+             11,5 px e o que mantem a faixa de pontos legivel como faixa e deixa
+             o corte cair dentro da foto do ultimo item, nao no preco. -->
+        <div class="tela-tablet" style="font-size: 11.5px">
+          <div class="tela-tablet__topo">
+            <span class="tela-tablet__logo"></span>
+            <span class="tela-tablet__busca"><i class="lupa"></i>BUSCAR</span>
+            <span class="tela-tablet__acao"><i></i>CARRINHO</span>
+            <span class="tela-tablet__acao"><i></i>MINHA CONTA</span>
+          </div>
+          <div class="tela-tablet__miolo">
+            <div class="tela-tablet__atalhos">
+              <div class="tela-tablet__atalho"><i></i>DESTAQUES</div>
+              <div class="tela-tablet__atalho tela-tablet__atalho--ativo">
+                <i class="talher"></i>CARDÁPIO
+              </div>
+              <div class="tela-tablet__atalho"><i class="sino"></i>AVALIE</div>
+              <div class="tela-tablet__idiomas">
+                <span class="bandeira bandeira--retangular"><span>&#127463;&#127479;</span></span>
+                <span class="bandeira bandeira--retangular"><span>&#127466;&#127480;</span></span>
+                <span class="bandeira bandeira--retangular"><span>&#127482;&#127480;</span></span>
+              </div>
+            </div>
+            <div class="tela-tablet__setores">
+              <div class="tela-tablet__setor tela-tablet__setor--ativo">Combos</div>
+              <div class="tela-tablet__setor">Burgers</div>
+              <div class="tela-tablet__setor">Bebidas</div>
+            </div>
+            <div class="tela-tablet__corpo">
+              <!-- A faixa de pontos, no formato do cardapio e do totem: circulo
+                   vermelho com estrela, nome do programa e a regua. Cartao
+                   escuro porque a tela do tablet e escura.
+
+                   AS TRES LINHAS SAO STRING DO PRODUTO, conferidas no bundle
+                   publicado do totem, no mesmo bloco de traducao: `titulo`
+                   ("Programa de Pontos"), `ganhePorReal` ("Ganhe {{pontos}}
+                   ponto(s) por R$ 1,00") e `toqueParaVer` ("Toque para ver o
+                   que voce pode ganhar"). Numa tela desenhada isso nao e
+                   zelo: a copy o leitor avalia, a tela ele acredita. -->
+              <div style="display: flex; align-items: center; gap: 0.8em;
+                          padding: 0.7em 0.9em; border-radius: 0.4em;
+                          background: #26262a">
+                <span style="flex: none; width: 2.2em; height: 2.2em;
+                             border-radius: 50%; background: var(--primaria);
+                             display: flex; align-items: center;
+                             justify-content: center; font-size: 1em">⭐</span>
+                <span style="display: flex; flex-direction: column; gap: 0.1em">
+                  <b style="font-size: 1.05em; font-weight: 900">Programa de Pontos ⭐</b>
+                  <small style="font-size: 0.85em; color: rgba(255,255,255,0.6)">
+                    Ganhe 1 ponto(s) por R$ 1,00 · Toque para ver o que você pode ganhar
+                  </small>
+                </span>
+              </div>
+              <div class="tela-tablet__faixa">Combos (Burger + Porção + Bebida)</div>
+              <div class="tela-tablet__item">
+                <img src="skill:fotos/foto-melted.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>COMBO CHICKEN DELUXE</span>
+                  <small>Pão brioche com gergelim mesclado, frango empanado,
+                    queijo prato e alface americana</small>
+                  <b>R$ 29,00</b>
+                </div>
+                <span class="tela-tablet__pedir">Pedir</span>
+              </div>
+              <div class="tela-tablet__item">
+                <img src="skill:fotos/foto-tasty-bacon.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>COMBO TASTY BACON</span>
+                  <small>Pão brioche de gergelim, queijo cheddar, maionese
+                    defumada e fatias de bacon</small>
+                  <b>R$ 38,00</b>
+                </div>
+                <span class="tela-tablet__pedir">Pedir</span>
+              </div>
+              <div class="tela-tablet__item">
+                <img src="skill:fotos/foto-one-classic.png" alt="">
+                <div class="tela-tablet__texto">
+                  <span>COMBO ONE CLASSIC</span>
+                  <small>Pão brioche, hambúrguer de 100 g, alface, tomate,
+                    cebola roxa e maionese verde</small>
+                  <b>R$ 31,00</b>
+                </div>
+                <span class="tela-tablet__pedir">Pedir</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tablet__suporte"></div>
+    </div>
+    </div>
+
+    <!-- Celular: captura de verdade, a sacola com o cartao do programa. Na
+         frente dos outros dois, que e a ordem de uma fileira de aparelho:
+         o menor cobre um pedaco do maior, nunca o contrario. Sem involucro,
+         porque a moldura do celular e em px. -->
+    <div class="celular"
+         style="width: 236px; position: absolute; left: 6px; bottom: 0; z-index: 2">
+      <div class="celular__tela">
+        <img src="../imagens-puras/04-sacola-com-pontos.png"
+             alt="A sacola do cardápio digital no celular, com o cartão Programa de Pontos">
+      </div>
+    </div>
+  </div>
+</div>
