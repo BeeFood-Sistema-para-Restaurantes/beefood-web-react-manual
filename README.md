@@ -150,6 +150,7 @@ O **status** e a fila ficam no
 | Pixel da Meta somente — caminho antigo (só o Pixel ID) | [`pixel-meta-somente/`](manuais/pixel-meta-somente/pixel-meta-somente.md) |
 | Portal do contador | [`portal-contador/`](manuais/portal-contador/portal-contador.md) |
 | Preço programado | [`preco-programado/`](manuais/preco-programado/preco-programado.md) |
+| Programa de pontos — o cliente junta pontos e troca por recompensa | [`programa-pontos/`](manuais/programa-pontos/programa-pontos.md) |
 | Reforma Tributária (IBS/CBS) — Configurando os campos fiscais do produto | [`reforma-tributaria-ibscbs/`](manuais/reforma-tributaria-ibscbs/reforma-tributaria.md) |
 | Relatório de comissão do garçom | [`relatorio-comissao-garcom/`](manuais/relatorio-comissao-garcom/relatorio-comissao-garcom.md) |
 | Relatório Operação de Entrega: onde o tempo da entrega se perde | [`relatorio-operacao-entrega/`](manuais/relatorio-operacao-entrega/relatorio-operacao-entrega.md) |
