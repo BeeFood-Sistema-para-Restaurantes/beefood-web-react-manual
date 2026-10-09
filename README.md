@@ -125,6 +125,7 @@ O **status** e a fila ficam no
 | Manual do Horário de Atendimento | [`horario-atendimento/`](manuais/horario-atendimento/horario-atendimento.md) |
 | Inteligência Artificial do ChatGPT no WhatsApp | [`ia-chatgpt-whatsapp/`](manuais/ia-chatgpt-whatsapp/ia-chatgpt-whatsapp.md) |
 | BeeFood + 99 Entrega — Guia de integração | [`integracao-99-entrega/`](manuais/integracao-99-entrega/integracao-99-entrega.md) |
+| Entregas Expressas — o pedido de entrega sai sozinho para o aplicativo | [`integracao-entregas-expressas/`](manuais/integracao-entregas-expressas/integracao-entregas-expressas.md) |
 | Integração FoodCRM — envie suas vendas automaticamente para o CRM | [`integracao-foodcrm/`](manuais/integracao-foodcrm/integracao-foodcrm.md) |
 | Foody Delivery — gestão de entregas e rastreamento de motoboys | [`integracao-foody-delivery/`](manuais/integracao-foody-delivery/integracao-foody-delivery.md) |
 | Let's Express — solicitar entregador para Delivery | [`integracao-lets-express/`](manuais/integracao-lets-express/integracao-lets-express.md) |
