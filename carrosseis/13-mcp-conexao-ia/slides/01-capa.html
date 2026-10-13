@@ -1,0 +1,87 @@
+<!-- A capa AFIRMA O FATO, que e o molde certo quando a noticia e grande por si:
+     o sistema do restaurante passou a ser alcancavel por uma IA. Afirmacao do
+     fato ja foi usada cinco vezes em doze pecas, e e a forma mais gasta do
+     acervo — mas a regra e nao repetir a molde da peca ANTERIOR, e a #12 usou
+     anuncio de chegada.
+
+     Os dois moldes zerados foram escritos e cairam:
+
+       - ORDEM DIRETA ("Pergunte ao ChatGPT quanto a sua loja vendeu") so se
+         paga quando o recurso tem UM objeto. Este responde sobre vendas,
+         pedidos E cardapio, e a capa escolheria um dos tres;
+       - ANTES x AGORA pediria um "antes" em que consultar o resultado era
+         dificil — e quem consulta resultado hoje e o nosso proprio
+         Desempenho. A primeira metade do titulo falaria mal de um modulo que
+         a BeeFood vende e continua vendendo.
+
+     "Poe a sua loja dentro da sua IA" e fisico de proposito: o leitor nao
+     precisa saber o que e um protocolo para entender que a loja passou a estar
+     la dentro. O sujeito e A LOJA, e nao o chat — o canal nunca e o sujeito da
+     capa. O vermelho pega MCP, que e o nome que ele vai procurar no menu.
+
+     O subtitulo carrega o que o recurso DA, nos tres eixos que a peca cobre
+     (vendas no slide 3, canais no 4, cardapio no 5), e fecha dizendo de onde
+     vem a resposta — que e a unica coisa que separa isto de uma IA chutando
+     numero.
+
+     A ARTE e a conversa, desenhada. O resultado do MCP nao mora em tela
+     nenhuma da BeeFood: ele acontece dentro do ChatGPT, do Claude, do Lovable
+     ou do Cursor, que nao rodam aqui e nao sao nossos para fotografar. E o
+     degrau 2 da escada — a tela de resultado desenhada pela peca. A paleta e
+     a da folha de Aplicativos -> MCP, inclusive o fio arco-iris, e por isso
+     ela nao imita a interface de nenhuma das quatro ferramentas.
+
+     Os NUMEROS dentro dela nao sao desenho: sao o que o servidor beefood-api
+     respondeu para a conta sandbox, gravado no conversas.json. Os mesmos dois
+     aparecem fotografados no painel, no slide 3. -->
+<div class="slide slide--capa">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">1 de 6</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 28px; max-width: 880px">
+    <span class="pilula pilula--novidade">Novidade</span>
+    <h1 class="titulo titulo--medio">
+      O <span class="destaque">MCP</span> põe a sua<br>loja dentro da sua IA
+    </h1>
+    <p class="subtitulo">
+      Pergunte sobre vendas, pedidos e cardápio: a resposta vem do seu BeeFood.
+    </p>
+  </div>
+
+  <!-- Margem a margem e no pe do slide: a conversa e para ser LIDA, e moldura
+       de aparelho em volta dela devolveria a mesma lista com metade da altura
+       de letra. O corte na borda de baixo diz que a conversa continua. -->
+  <div style="position: absolute; left: var(--margem); right: var(--margem);
+              top: 622px; z-index: 1">
+    <div class="tela-ia tela-ia--avulsa" style="font-size: 30px">
+      <span class="tela-ia__fio"></span>
+
+      <!-- A quebra e na mao porque a natural deixava "dias?" sozinho na
+           segunda linha, e orfao de uma palavra numa frase curta le como
+           erro de render. -->
+      <p class="tela-ia__pergunta">
+        Quanto a minha loja vendeu<br>nos últimos 30 dias?
+      </p>
+
+      <div class="tela-ia__resposta">
+        <span class="tela-ia__conector">
+          <img src="../imagens-puras/logo-beefood.png" alt="">
+          beefood-api
+        </span>
+        <p class="tela-ia__texto">Nos últimos 30 dias, a sua loja fechou:</p>
+        <ul class="tela-ia__dados">
+          <li><span>Pedidos</span> <b>253</b></li>
+          <li><span>Ticket médio</span> <b>R$ 54,14</b></li>
+          <li class="total"><span>Valor total</span> <b>R$ 13.698,52</b></li>
+        </ul>
+      </div>
+
+      <div class="tela-ia__campo">
+        <span>Pergunte alguma coisa</span>
+        <span>&uarr;</span>
+      </div>
+    </div>
+  </div>
+</div>

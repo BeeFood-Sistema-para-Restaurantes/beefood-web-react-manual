@@ -1,0 +1,194 @@
+CARROSSEL — MCP: A LOJA DENTRO DA IA
+Gênero: novidade
+Fonte: beefood.app/novidades/mcp-inteligencia-artificial — 13/10/2026, áreas
+Aplicativos e Sistema.
+Manual: não há manual na pasta manuais/. Os passo a passo publicados são os da
+própria folha de Aplicativos → MCP (Manual do MCP, Como conectar ao ChatGPT,
+Como conectar ao Claude).
+
+Publicar como carrossel de feed, 6 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-como-funciona, 03-confere-com-o-painel,
+04-canais-de-venda, 05-cardapio, 06-cta.
+
+O NOME DE VENDA É MCP, e não o título do release. O release batiza "MCP:
+converse com o seu restaurante usando IA"; o menu e o cartão da grade escrevem
+MCP, e é por MCP que o cliente vai procurar. Nos comentários, use sempre este
+nome, e deixe a explicação para a frase seguinte.
+
+A CONVERSA DOS SLIDES É DESENHADA, E OS NÚMEROS DELA SÃO DE VERDADE. É a única
+peça da série em que a maior parte das imagens é desenho, e o motivo é simples:
+o resultado do MCP acontece dentro do ChatGPT, do Claude, do Lovable ou do
+Cursor, que não são telas nossas para fotografar. O desenho não imita nenhum
+desses aplicativos — ele usa a paleta da própria folha de Aplicativos → MCP,
+inclusive o fio colorido, que no slide 6 aparece fotografado na borda do cartão.
+Já os números dentro da conversa foram perguntados ao servidor do MCP pelo
+protocolo, com a autorização da conta de teste, do mesmo jeito que uma IA
+perguntaria.
+
+OS NÚMEROS SÃO DE UMA LOJA DE DEMONSTRAÇÃO, e isso pode ser dito sem medo: são
+exemplo, e qualquer loja vê os próprios. O que não é exemplo é a igualdade — o
+valor total e o ticket médio que a IA respondeu (R$ 13.698,52 e R$ 54,14) são
+exatamente os que o relatório de Desempenho mostra na mesma janela de 30 dias, e
+é isso que o slide 3 prova. Os sete canais do slide 4 somam os mesmos 253
+pedidos e os mesmos R$ 13.698,52.
+
+"MANUAL" NA LISTA DO SLIDE 4 É O PEDIDO QUE A EQUIPE LANÇA NO SISTEMA — balcão,
+mesa, PDV, delivery digitado. O rótulo ficou como o servidor devolveu, e é
+vocabulário do produto: o painel chama de "Delivery Manual" esse mesmo caminho.
+Se alguém perguntar nos comentários, é essa a resposta.
+
+ATENÇÃO SE COMPARAREM COM O RELATÓRIO DE ORIGEM. O painel tem Desempenho →
+Vendas → Origem, e ele reparte por tipo de atendimento (Delivery, Mesas, PDV,
+Cardápio Digital, iFood...), enquanto a resposta do MCP reparte por canal de
+venda. As duas somam o mesmo total e dividem diferente, e nem a própria tela usa
+um corte só. Por isso a peça não põe as duas listas lado a lado, e por isso o
+slide 4 não se chama "Vendas por Origem". Comparação que fecha é a do slide 3:
+valor total e ticket médio.
+
+O ÍCONE DO CARTÃO MCP, NO SLIDE 6, É O MESMO QUE O SLIDE 2 USA PARA O LOVABLE.
+Não é troca de logotipo na arte: é o ícone que o painel dá hoje ao cartão de
+Aplicativos → MCP, e o recorte é captura pura. Não foi desenhado por cima, para
+o cartão do post continuar igual ao que o cliente encontra na tela. Se alguém
+apontar isso, a resposta é essa.
+
+NADA FOI ALTERADO NO SISTEMA. As consultas são todas de leitura — resumo de
+vendas, quebra por canal, contagem de produtos e setores —, e o único clique que
+muda algo na tela é o que abre a folha do MCP. O arquivo cena.json registra o
+caminho inteiro, consulta por consulta.
+
+NENHUM DADO DE CLIENTE APARECE EM IMAGEM NENHUMA, e desta vez não houve o que
+borrar: tudo que entrou é número agregado. Nenhuma consulta pediu nome, telefone
+ou endereço de quem compra.
+
+AS TELAS DE CONFIGURAÇÃO FICARAM DE FORA DE PROPÓSITO. O campo Link do MCP, o
+botão de copiar e a lista de manuais existem, foram vistos e não entraram em
+slide nenhum: carrossel mostra o que passa a acontecer, não onde se mexe. Se
+alguém pedir print do passo a passo, mande o link do manual — ele é melhor nisso
+do que uma arte.
+
+SAIU NO MESMO DIA, E É OUTRA PEÇA: a API aberta
+(beefood.app/novidades/api-aberta-liberada). Uma fala com quem programa, a outra
+com quem pergunta. Não misture as duas na mesma publicação.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+Agora o seu BeeFood responde dentro da IA 🤖
+
+Com o MCP, você conecta a sua conta ao ChatGPT, ao Claude, ao Lovable, ao Cursor
+ou a outra ferramenta compatível, e passa a perguntar sobre a sua loja no mesmo
+chat em que já digita.
+
+MCP é o padrão que liga uma IA a um sistema. Na prática: você copia o link do
+seu BeeFood em Aplicativos → MCP, cola onde a sua ferramenta pede o conector e
+autoriza pela sua conta. A partir daí a IA consulta vendas, pedidos, cardápio e
+relatórios — e enxerga só o que a sua conta pode ver.
+
+A diferença entre isso e perguntar qualquer coisa para uma IA é que aqui ela não
+chuta. Ela lê o mesmo dado que o painel lê. Pergunte quanto a loja vendeu nos
+últimos 30 dias e o valor total e o ticket médio que voltam são os mesmos que o
+relatório de Desempenho mostra, até o centavo — os números dos slides são de uma
+loja de demonstração, e a igualdade entre o chat e o painel é o que eles provam.
+
+A mesma pergunta se abre em recorte. De onde vieram os pedidos? A resposta volta
+canal por canal: iFood, 99Food, Keeta, totem, cardápio digital e o que a sua
+equipe lançou no sistema, cada um com quantos pedidos e quanto entrou, fechando
+no total.
+
+E não é só dinheiro. O conector enxerga o cadastro: quantos produtos o seu
+cardápio tem, quais setores existem, quais produtos de fato tiveram venda no
+período. Tudo isso no meio da conversa, sem abrir uma tela.
+
+Para quem quiser ir além, dá para pedir análise em cima disso — comparar
+períodos, montar um relatório do jeito que você precisa, cruzar o cardápio com a
+venda. É a sua ferramenta de IA trabalhando com o seu dado, em vez de com um
+dado genérico da internet.
+
+Os guias de conexão estão no mesmo painel, um para ChatGPT e outro para Claude.
+Leva um minuto, e é uma vez só.
+
+MCP fica em Aplicativos → MCP 🤖
+Tudo que entra de novo está em beefood.app/novidades
+
+#beefood #mcp #inteligenciaartificial #chatgpt #claude #gestaoderestaurante
+#restaurante #delivery #dadosnarestauracao #tecnologiaparadelivery
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Qual seria a sua primeira pergunta para o BeeFood dentro da IA? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com a pílula "Novidade", o título "O MCP põe a sua loja dentro
+    da sua IA", com "MCP" em vermelho, e a linha "Pergunte sobre vendas, pedidos
+    e cardápio: a resposta vem do seu BeeFood".
+    Embaixo, a tela de uma conversa com inteligência artificial, com um fio
+    colorido no alto. A pergunta, do lado direito, diz "Quanto a minha loja
+    vendeu nos últimos 30 dias?". A resposta vem assinada por uma etiqueta com o
+    ícone da BeeFood e o nome beefood-api, com a frase "Nos últimos 30 dias, a
+    sua loja fechou:" e três linhas: Pedidos 253, Ticket médio R$ 54,14 e, em
+    destaque, Valor total R$ 13.698,52. No pé da tela, a caixa de escrever
+    "Pergunte alguma coisa".
+
+02  Chapéu "Como funciona" e título "Você pergunta na sua IA, e a resposta vem
+    do seu BeeFood". O texto diz que o MCP é o padrão que liga uma IA a um
+    sistema, e que, com o link do BeeFood colado lá, a ferramenta passa a
+    consultar os dados da loja, sempre com a autorização da conta.
+    Abaixo, um desenho de ligação: quatro ícones de aplicativos de inteligência
+    artificial em fila, cada um num círculo branco com anel colorido e o nome
+    embaixo — Lovable, Claude, ChatGPT e Cursor. De cada um desce uma linha
+    pontilhada com um sinal de confirmação no meio, e as quatro entram numa
+    barra escura que atravessa a largura do slide, com o ícone da BeeFood, o
+    rótulo "Conector beefood-api" e a frase "Vendas, pedidos, cardápio e
+    relatórios".
+
+03  Chapéu "Dá para conferir" e título "Desempenho: a IA responde o mesmo que o
+    painel mostra", com "Desempenho" em vermelho. O texto convida a abrir o
+    relatório e conferir, e diz que o valor total e o ticket médio do período
+    chegam iguais nos dois lugares, porque é o mesmo dado perguntado de outro
+    jeito.
+    Abaixo, duas imagens comparadas. Na primeira, sob o rótulo "O que a IA
+    respondeu", a tela escura da conversa com a etiqueta beefood-api e duas
+    linhas: Valor total R$ 13.698,52 e Ticket médio R$ 54,14. Na segunda, sob o
+    rótulo "O que o painel mostra", um recorte do relatório de Desempenho do
+    BeeFood com os dois cartões brancos: VALOR TOTAL R$ 13.698,52 e TICKET MÉDIO
+    R$ 54,14.
+
+04  Chapéu "Na mesma conversa" e título "Canais de venda: quanto cada um trouxe
+    no período", com "Canais de venda" em vermelho. O texto diz que basta
+    perguntar de onde vieram os pedidos para a conta voltar repartida, canal por
+    canal.
+    Abaixo, a tela escura da conversa. A pergunta diz "De onde vieram esses
+    pedidos?" e a resposta, assinada por beefood-api, traz uma tabela de oito
+    linhas: Manual com 186 pedidos e R$ 10.373,28; Cardápio Digital com 24
+    pedidos e R$ 1.220,43; Externo com 17 pedidos e R$ 765,00; iFood com 13
+    pedidos e R$ 473,70; 99Food com 6 pedidos e R$ 422,90; Totem com 4 pedidos e
+    R$ 246,51; Keeta com 3 pedidos e R$ 196,70; e, na última linha, o total de
+    253 pedidos e R$ 13.698,52.
+
+05  Chapéu "Também o cadastro" e título "Cardápio: quantos produtos e quais
+    setores você tem", com "Cardápio" em vermelho. O texto diz para perguntar o
+    tamanho do cardápio, quais setores existem e o que de fato vendeu no
+    período, sem abrir uma tela, no meio da conversa.
+    Abaixo, a tela escura da conversa. A pergunta diz "E o meu cardápio, quantos
+    produtos tem?" e a resposta, assinada por beefood-api, diz que o cardápio da
+    loja tem 398 produtos em 35 setores e que, nos últimos 30 dias, 70 deles
+    tiveram venda. No pé, a caixa de escrever "Pergunte alguma coisa".
+
+06  Fundo escuro com o chapéu "Já está no ar" e o título "Faça hoje a primeira
+    pergunta ao seu BeeFood", com "hoje" em vermelho. O texto diz que o link
+    para colar na IA e o passo a passo do ChatGPT e do Claude estão na mesma
+    tela, e que tudo que entra de novo está em beefood.app/novidades. Abaixo, a
+    pílula de caminho "Aplicativos → MCP".
+    No pé do slide, um recorte do painel: o cartão do MCP na grade de
+    Aplicativos, branco e com borda colorida, trazendo o ícone do recurso, o
+    título MCP e a chamada "Conecte o seu BeeFood a sua I...", cortada pela
+    largura do cartão.

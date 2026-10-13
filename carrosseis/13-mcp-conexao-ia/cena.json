@@ -1,0 +1,100 @@
+{
+  "por_que": [
+    "NADA FOI MONTADO NESTA PECA, e e por isso que este arquivo existe: as pecas",
+    "anteriores usam o cena.json para declarar o que foi forjado, e aqui ele declara o",
+    "contrario — de onde cada numero veio e por que da para confiar nele.",
+    "",
+    "O resultado do MCP nao mora em tela nenhuma da BeeFood: ele acontece dentro do",
+    "ChatGPT, do Claude, do Lovable ou do Cursor. Entao a conversa dos slides e DESENHADA",
+    "(a .tela-ia do base.css, nascida aqui), e os NUMEROS dentro dela nao sao desenho:",
+    "sao o que o servidor beefood-api respondeu para a conta sandbox, pelo protocolo, no",
+    "mesmo caminho que qualquer IA usaria.",
+    "",
+    "O consultar-mcp.py faz o OAuth inteiro — descoberta em /.well-known/",
+    "oauth-authorization-server, registro dinamico, autorizacao aberta no Chromium com a",
+    "conta de teste e o botao Permitir, troca de codigo com PKCE S256 — e so entao abre a",
+    "sessao MCP (initialize, notifications/initialized, tools/call). Nenhuma chamada por",
+    "dentro, nenhum atalho de banco.",
+    "",
+    "SOMENTE LEITURA, do comeco ao fim. As cinco consultas sao GET de relatorio e de",
+    "catalogo; o unico clique que muda alguma coisa na tela e o que abre a folha lateral",
+    "do MCP em Aplicativos, e ele nao grava nada. A ferramenta de escrita do servidor",
+    "(execute_beefood_request aceita method) nunca foi chamada com outro metodo.",
+    "",
+    "UM JOGO DE NUMEROS, DEFENDIDO EM CODIGO. A loja de demonstracao recebe pedido",
+    "enquanto a peca e feita: entre uma rodada e a seguinte o total subiu de 13.473,52",
+    "para 13.518,52, depois 13.563,52 e depois 13.698,52, em poucos minutos. Como a unica",
+    "prova de captura da peca existe para dizer que o numero da conversa e o do painel, a",
+    "conferencia virou do script: o capturar-telas.py le o conversas.json, compara com o",
+    "que acabou de fotografar e estoura se divergirem. Rode o consultar-mcp.py e o",
+    "capturar-telas.py desempenho em seguida, no mesmo minuto.",
+    "",
+    "A JANELA E A QUE A TELA ABRE SOZINHA. O MCP foi perguntado de 2026-09-13 a",
+    "2026-10-13, que e o 'Ultimos 30 dias (31 dias)' do Desempenho. Sem isso os dois",
+    "numeros seriam parecidos e diferentes, que e pior do que ser diferente."
+  ],
+
+  "servidor": {
+    "url": "https://docs.beefood.app/mcp",
+    "anuncia": { "name": "beefood-api", "version": "1.1.0", "title": "BeeFood API" },
+    "protocolo": "2025-06-18, streamable HTTP (resposta em text/event-stream)",
+    "ferramentas": [
+      "search_beefood_api",
+      "query_docs_filesystem_beefood_api",
+      "listar_endpoints",
+      "detalhe_endpoint",
+      "execute_beefood_request",
+      "submit_feedback"
+    ],
+    "endpoints": {
+      "total": 61,
+      "Catalogo": 33,
+      "Restaurante": 15,
+      "Pedidos": 6,
+      "Relatorios": 5,
+      "Clientes": 2,
+      "nota": "numero medido, e que NAO virou slide: ninguem compra sistema por quantidade de endpoint"
+    },
+    "sem_oauth": "{\"error\":\"unauthorized\",\"error_description\":\"A valid OAuth access_token is required.\"}"
+  },
+
+  "conta": {
+    "painel": "https://beefood.app",
+    "loja": "BeeFood3 - Manual",
+    "empresaID": 38311,
+    "filialID": 39202,
+    "nota": "loja de teste da casa; API_MCP_ALLOWED_EMPRESAS libera 107 e 38311"
+  },
+
+  "token": {
+    "onde": "/tmp/beefood-mcp-token.json",
+    "versionado": false,
+    "por_que": "credencial de sessao nao entra no repositorio, mesmo sendo de sandbox descartavel"
+  },
+
+  "consultas": [
+    { "rota": "/v1/orders/summary", "para": "o resumo da capa e do slide 3" },
+    { "rota": "/v1/orders/summary/grouped?groupBy=salesChannel", "para": "os sete canais do slide 4" },
+    { "rota": "/v1/catalog/products", "para": "a contagem de produtos do slide 5" },
+    { "rota": "/v1/catalog/sectors", "para": "a contagem de setores do slide 5" },
+    { "rota": "/v1/orders/summary/products", "para": "quantos produtos tiveram venda no periodo" }
+  ],
+
+  "nenhum_dado_de_cliente": {
+    "e_verdade_porque": "as cinco consultas sao agregadas; nenhuma pediu nome, telefone ou endereco",
+    "nada_a_borrar": true,
+    "token_do_iframe": "o Desempenho e um iframe de relatorios.beefood.com.br e leva auth= na URL do quadro; ela nao aparece em pixel nenhum"
+  },
+
+  "capturas": {
+    "rec-desempenho.png": "os dois cartoes do topo do Desempenho; e a unica prova de dado fotografada da peca",
+    "rec-cartao-mcp.png": "o cartao do MCP na grade de Aplicativos, com a borda arco-iris; e a arte do CTA",
+    "logo-*.png": "os cinco .mcp-arc-item da folha do MCP, cada um com o fundo que o painel lhe da; nenhum logotipo baixado de fora",
+    "01-aplicativos.png / 02-folha-mcp.png": "contexto, fora da arte. A folha e tela de configuracao e nao entra em slide nenhum"
+  },
+
+  "o_que_nao_se_capturou": [
+    "o campo Link do MCP, o botao de copiar e a lista de manuais: tela de configuracao",
+    "Desempenho -> Vendas -> Origem: agrupa por tipo de atendimento (Delivery, Mesas, PDV) e nao por salesChannel. Soma o mesmo total e reparte diferente — a propria tela da Delivery com R$ 7.431,87 na lista e R$ 10.330,37 no podio. Po-la ao lado da lista do chat seria mostrar duas contas que nao fecham entre si"
+  ]
+}
