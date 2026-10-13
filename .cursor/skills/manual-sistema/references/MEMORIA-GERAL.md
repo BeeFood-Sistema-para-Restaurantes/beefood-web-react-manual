@@ -1278,6 +1278,7 @@ escrito de propósito bateria.
 | Mais de um cardápio no mesmo totem | `manuais/totem-multicardapio/` | ✅ Concluído (#124) |
 | O cliente acompanha a entrega no mapa | `manuais/gestao-entregas-rastreio-cliente/` | ✅ Concluído (#125) |
 | Programa de pontos | `manuais/programa-pontos/` | ✅ Concluído (#126) |
+| Entregas Expressas (integração pela API Aberta) | `manuais/integracao-entregas-expressas/` | ✅ Concluído (#127) |
 
 > **Número de manual se escolhe lendo esta tabela, não contando o último que você escreveu.**
 > O rastreio do cliente e o bloco do totem foram produzidos em paralelo, em branches que não
@@ -1286,6 +1287,50 @@ escrito de propósito bateria.
 > cabeçalhos de arquivo e nenhuma citação cruzada, contra 15 menções ao #121 espalhadas pelos
 > quatro manuais do totem, que se citam entre si. Histórico em
 > [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md).
+
+### Quando o manual vem de um artigo de outra empresa — #127
+
+O #127 nasceu de um pedido curto: *"copie as imagens e o manual para a nossa estrutura… apenas
+modifique o caminho"*. O artigo era o do **Entregas Expressas**, que ensina a integração pelo
+portal de desenvolvedor; no painel, credencial e webhook se cadastram em **Aplicativos → API
+Aberta**. Detalhe em
+[`MEMORIA.md`](../../../../manuais/integracao-entregas-expressas/MEMORIA.md) e
+[`fluxo-codigo.md`](../../../../manuais/integracao-entregas-expressas/fluxo-codigo.md).
+
+- **"Apenas modifique o caminho" não é só trocar o nome do menu.** O artigo avisava em letras
+  maiúsculas que o portal vem com *Sandbox* marcado e que credencial de teste não recebe pedido
+  real. No painel, `create` e `webhookSave` forçam `sandbox: false` e as listagens escondem o
+  que é de sandbox: **a escolha que se erra não existe**. O caminho novo apagou a armadilha, e
+  foi isso que virou a abertura do manual. Antes de copiar um passo do artigo, procure no código
+  o que o painel faz **em vez** daquilo.
+- **Três frases do artigo estavam erradas para o nosso caminho**, e só o código mostrou: o
+  segredo *"aparece uma única vez"* (no painel, o ícone de olho revela de novo), a credencial
+  precisa ser **criada** (a principal já existe) e é preciso **escolher Produção**. Artigo de
+  parceiro é fonte de o que a integração faz, não de como a nossa tela se comporta.
+- **Importador de imagem de terceiro é arquivo próprio, e avisa e segue.** `importar.py` baixa
+  do artigo, **cobre telefone e e-mail antes de gravar a pura** e, sem rede, usa a pura
+  versionada. Dois detalhes que custaram tempo: o servidor devolve **403** para o agente padrão
+  do `urllib` (o `curl` passava, e a pista é só essa), e borrão por valor funciona melhor que
+  por linha — cobrir a linha inteira come o rótulo *Telefone:* e deixa a imagem pior.
+- **Faixa clara dos dois lados do painel lateral.** O padrão do #101 põe a faixa à esquerda. Mas
+  o painel da API Aberta tem **três elementos encostados na borda direita** (o olho do Client
+  Secret e os selos *Ativa* e *Ativo*), e mirar neles da esquerda atravessa o rótulo inteiro.
+  `preparar()` passou a aceitar margem nos dois lados, com constantes nomeando onde cada
+  etiqueta mora. Junto com a regra do #126 (*etiqueta à direita mira a borda direita*), fecha o
+  assunto: **a faixa fica do lado do alvo**.
+- **Um print, dois recortes, quando o painel é mais alto que a tela.** O painel tem 1950 px com
+  as oito permissões abertas. Em vez de duas capturas, uma captura com viewport **1440x1300** e
+  dois `crop` diferentes via `saida=`. Captura é matéria-prima; recorte é decisão de anotação.
+- **Desfazer na mesma execução, quando a foto exige escrever.** O manual precisava de um webhook
+  ativo na tela, e a conta é um BeeFood de produção. O script cria, fotografa, apaga e
+  **imprime a conferência de que a lista voltou ao estado anterior**. Para a credencial nem isso
+  foi preciso: o diálogo de criação entrou pela **técnica do ensaio** — abre, fotografa, cancela.
+- **Conferir seta contra texto dá para automatizar, mas não para generalizar hoje.**
+  [`conferir-setas.py`](../../../../manuais/integracao-entregas-expressas/conferir-setas.py)
+  compara os marcadores do `annotate.py` com os números citados no `.md`, inclusive o caso *"a
+  seta N da imagem acima"*, que é da imagem **anterior**. Rodado nos 119 manuais da pasta, só
+  **22** passam — os estilos antigos variam demais. Por isso ele mora na pasta do manual, e não
+  em `scripts/`: vale copiar para o próximo manual novo e deixar os antigos em paz.
 
 ### Programa de pontos — #126
 
