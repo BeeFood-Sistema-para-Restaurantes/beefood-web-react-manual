@@ -1,0 +1,81 @@
+{
+  "lido_em": "2026-10-13T20:52:08",
+  "servidor": {
+    "name": "beefood-api",
+    "version": "1.1.0",
+    "title": "BeeFood API"
+  },
+  "conta": "sandbox BeeFood3 - Manual (empresa 38311)",
+  "janela": {
+    "saleDateFrom": "2026-09-13",
+    "saleDateTo": "2026-10-13",
+    "comoAPerguntaDiz": "últimos 30 dias"
+  },
+  "resumo": {
+    "pedidos": 253,
+    "valor": 13698.52,
+    "valorEscrito": "R$ 13.698,52",
+    "ticket": 54.14,
+    "ticketEscrito": "R$ 54,14"
+  },
+  "canais": [
+    {
+      "canal": "Manual",
+      "chave": "MANUAL",
+      "pedidos": 186,
+      "valor": 10373.28,
+      "valorEscrito": "R$ 10.373,28"
+    },
+    {
+      "canal": "Cardápio Digital",
+      "chave": "DIGITAL_MENU",
+      "pedidos": 24,
+      "valor": 1220.43,
+      "valorEscrito": "R$ 1.220,43"
+    },
+    {
+      "canal": "Externo",
+      "chave": "EXTERNAL",
+      "pedidos": 17,
+      "valor": 765,
+      "valorEscrito": "R$ 765,00"
+    },
+    {
+      "canal": "iFood",
+      "chave": "IFOOD",
+      "pedidos": 13,
+      "valor": 473.7,
+      "valorEscrito": "R$ 473,70"
+    },
+    {
+      "canal": "99Food",
+      "chave": "99FOOD",
+      "pedidos": 6,
+      "valor": 422.9,
+      "valorEscrito": "R$ 422,90"
+    },
+    {
+      "canal": "Totem",
+      "chave": "TOTEM",
+      "pedidos": 4,
+      "valor": 246.51,
+      "valorEscrito": "R$ 246,51"
+    },
+    {
+      "canal": "Keeta",
+      "chave": "KEETA",
+      "pedidos": 3,
+      "valor": 196.7,
+      "valorEscrito": "R$ 196,70"
+    }
+  ],
+  "cardapio": {
+    "produtos": 398,
+    "setores": 35,
+    "produtosComVenda": 70
+  },
+  "asSomasFecham": {
+    "pedidos": true,
+    "valor": true
+  }
+}

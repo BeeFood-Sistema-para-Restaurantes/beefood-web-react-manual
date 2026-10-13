@@ -1,0 +1,44 @@
+{
+  "rec-cartao-mcp.png": {
+    "x": 653.3,
+    "y": 172,
+    "width": 341.3,
+    "height": 98
+  },
+  "logo-lovable.png": {
+    "x": 888.5,
+    "y": 166,
+    "width": 72,
+    "height": 72
+  },
+  "logo-claude.png": {
+    "x": 978.5,
+    "y": 166,
+    "width": 72,
+    "height": 72
+  },
+  "logo-chatgpt.png": {
+    "x": 1068.5,
+    "y": 166,
+    "width": 72,
+    "height": 72
+  },
+  "logo-cursor.png": {
+    "x": 1158.5,
+    "y": 166,
+    "width": 72,
+    "height": 72
+  },
+  "logo-beefood.png": {
+    "x": 1248.5,
+    "y": 166,
+    "width": 72,
+    "height": 72
+  },
+  "rec-desempenho.png": {
+    "x": 459,
+    "y": 122,
+    "width": 971,
+    "height": 76
+  }
+}
