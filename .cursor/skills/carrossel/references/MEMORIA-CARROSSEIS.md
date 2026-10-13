@@ -5,7 +5,33 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-09-21 (37ª rodada: *"refaça a copy inteira do último
+Última atualização: 2026-10-13 (38ª rodada: a peça do **MCP**, a primeira em que
+a prova **não existe em tela nenhuma da BeeFood** — o resultado do recurso
+acontece dentro do ChatGPT, do Claude, do Lovable ou do Cursor. Daí saiu a
+`.tela-ia`, e com ela a regra de como se desenha tela de fora: **vista o desenho
+com a paleta do nosso módulo, nunca com a da ferramenta do outro** (copiar a
+interface de um deles diria "é no ChatGPT", e o recurso é de todos). O preço
+disso é o inverso do que parece: **tela desenhada exige número mais verdadeiro,
+não menos** — os desta peça foram buscados pelo OAuth e pelo protocolo do MCP,
+no mesmo caminho que uma IA usaria, e ficam em `conversas.json`. Quatro
+armadilhas novas, três delas silenciosas: **o Desempenho é um `iframe`** servido
+por `relatorios.beefood.com.br`, e procurar o rótulo no documento de fora não dá
+erro, dá zero; **`emulate_media(reduced_motion)` não vence classe utilitária do
+Tailwind** — a regra de dentro da media query tem a mesma especificidade e perde
+na ordem das folhas, e o sintoma é cinco recortes iguais em vez de cinco
+logotipos; **a loja de demonstração recebe pedido enquanto a peça é feita**, e
+por isso a igualdade entre o painel e a conversa virou `raise` no script de
+captura; e **relatório que parece o par da pergunta pode repartir por outra
+dimensão** — *Vendas por Origem* agrupa por tipo de atendimento e a API por
+canal de venda, somam o mesmo total e dividem diferente, então nem a captura
+entrou nem o nome foi emprestado. A rodada também abriu a primeira exceção à
+regra do CTA: **a arte dele pode não repetir a da capa** quando a peça já tem
+quatro telas do mesmo tipo, e ali o print da porta vale mais que a quinta cópia
+da prova. Ver *tela de fora se desenha com a paleta de dentro*, *o `iframe` do
+Desempenho*, *um jogo de números se defende em código* e *curva só quando o
+destino é um ponto*.)
+
+37ª rodada: *"refaça a copy inteira do último
 slide, não é sobre isso, venda a novidade"*. O CTA da décima peça era sobre
 **cadastro** — criar o funcionário, criar o usuário, instalar o aplicativo —, e
 isso é trabalho, não motivo: depois de oito slides de argumento, é a fatura
@@ -222,6 +248,7 @@ a posição na fila.
 | 10 | Gestão de Entregas | **sem release** — módulo em liberação, pauta tirada dos 18 manuais do grupo | `carrosseis/10-gestao-entregas/` | 4:5, 9 slides (+ capa alternativa) | `entrega/10-gestao-entregas.zip` (9 PNG + copy) |
 | 11 | Acompanhamento em tempo real, pelo cliente | [23/09/2026](https://beefood.app/novidades/gestao-entregas-rastreio-pelo-cliente) — release *Rastreio da entrega pelo cliente*, **nome de venda diferente** | `carrosseis/11-rastreio-da-entrega/` | 4:5, 7 slides | `entrega/11-rastreio-da-entrega.zip` (7 PNG + copy) |
 | 12 | Programa de Pontos | [07/10/2026](https://beefood.app/novidades/programa-de-pontos) — manual em `manuais/programa-pontos/`; release e nome de venda **iguais** | `carrosseis/12-programa-de-pontos/` | 4:5, 8 slides (slide 5 refeito na 2ª rodada) | `entrega/12-programa-de-pontos.zip` (8 PNG + copy) |
+| 13 | MCP: a loja dentro da IA | [13/10/2026](https://beefood.app/novidades/mcp-inteligencia-artificial) — **sem manual na pasta**; os passo a passo são os da própria folha do recurso. Release *MCP: converse com o seu restaurante usando IA*, nome de venda **MCP** | `carrosseis/13-mcp-conexao-ia/` | 4:5, 6 slides | `entrega/13-mcp-conexao-ia.zip` (6 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -3247,6 +3274,58 @@ Cupom desenhado em CSS (`.cupom`) não precisa de selo: bobina térmica em
 monoespaçada é claramente desenho, e é a única forma de mostrar o "antes" — que
 não existe como captura.
 
+### Tela de fora se desenha com a paleta de dentro
+
+A peça 13, do MCP, é a primeira em que o resultado do recurso **não acontece em
+tela nenhuma da BeeFood**: ele acontece dentro do ChatGPT, do Claude, do Lovable
+ou do Cursor, que não rodam aqui e não são nossos para fotografar. A escada de
+imagem já previa o caso — é o degrau 2, tela de resultado desenhada pela peça —,
+mas ela não dizia **com que cara** desenhar quando a tela é de outra empresa.
+
+Agora diz, e a regra tem duas pontas:
+
+- **não imite a interface da ferramenta de terceiro.** Copiar a do ChatGPT diria
+  "é no ChatGPT", e o recurso vale para todas; e desenhar marca que não é nossa
+  é afirmar coisa que não é nossa;
+- **vista o desenho com a paleta do nosso módulo.** A `.tela-ia` usa a da folha
+  de *Aplicativos → MCP* — fundo quase preto, cartão grafite, apoio
+  cinza-azulado e o fio arco-íris da borda do botão e do campo do link. Quem
+  conhece a folha reconhece a cena, e no slide do CTA a mesma assinatura aparece
+  **fotografada**, na borda do cartão da grade. O desenho e o print fecham o
+  mesmo círculo.
+
+**E o número fica mais caro, não mais barato.** A intuição é a oposta — se o
+quadro é desenhado, por que o conteúdo não seria? Porque é exatamente o
+contrário: a copy o leitor avalia, e a tela ele acredita. Os números da peça 13
+foram buscados pelo OAuth inteiro (registro dinâmico, autorização no navegador,
+PKCE) e pelo protocolo do MCP, no mesmo caminho que uma IA usaria, e estão em
+`conversas.json` ao lado do roteiro. O nome do conector (`beefood-api`) é o que
+o servidor anuncia no `initialize`: nome inventado ali seria a única parte falsa
+de uma tela que existe para provar.
+
+Quando a peça tem quatro telas desenhadas do mesmo tipo, **varie a resposta, não
+o quadro**: tabela de três linhas, tabela de oito, resposta em prosa com os
+números em negrito. Foi o que separou os slides 1, 4 e 5 de parecerem o mesmo
+slide três vezes.
+
+### Curva só quando o destino é um ponto
+
+A cena de convergência (`.origem` / `.fio` / `.selo-ok`) nasceu com curva em L,
+porque na capa de dark kitchen três fios caíam na **tampa de um notebook**. Na
+peça 13 o destino é uma **barra que atravessa o slide**, e ali o fio desce reto:
+curva serve para juntar linhas num lugar estreito, e para quatro linhas entrando
+numa barra larga ela vira enfeite.
+
+Duas medidas que a cena nova fixou:
+
+- **58 px de tracejado de cada lado do `.selo-ok`, no mínimo.** A primeira
+  versão tinha 76 px de fio para 54 de selo, e sobravam 11 de cada lado — quatro
+  bolinhas penduradas no nome não desenham caminho nenhum;
+- **quadrado de aplicativo no lugar do emoji**: um `<img>` de 92 px dentro da
+  `.origem__disco` de 130. O círculo branco com anel colorido é o que faz cinco
+  quadrados de fundos diferentes lerem como conjunto — soltos, o azul-escuro do
+  Lovable e o quase branco do ChatGPT lado a lado leem como dois tratamentos.
+
 ## A imagem do slide é o resultado, nunca o painel de controle
 
 Este é o defeito que mais durou nesta memória: nove peças, e ele só apareceu
@@ -3851,6 +3930,87 @@ rótulo `SALDO TOTAL`, que está escrito assim na tela.
 No DOM está *Saldo total*. O maiúsculo é `text-transform` do CSS, e xpath lê o
 texto, não o estilo. Antes de escrever `contains(text(), …)`, confira a caixa no
 DOM — e, na dúvida, ancore num trecho que não esteja em versalete.
+
+### O `iframe` do Desempenho, e a busca que sai vazia em vez de dar erro
+
+**O Desempenho não é uma página do painel: é um `iframe`** servido por
+`relatorios.beefood.com.br`. Procurar `VALOR TOTAL` no documento de fora não acha
+nada — nem `Valor total`, nem `Últimos 30 dias`, nem uma varredura do DOM
+inteiro —, e **a busca sai vazia em vez de estourar**, que é o pior jeito
+possível de descobrir isso: o `count()` dá 0, o script segue, e o erro só aparece
+na hora de medir a caixa.
+
+`pagina.frame_locator("iframe")` resolve, e a boa notícia é que a caixa que ele
+mede **já vem em coordenada da página** — é exatamente o que o `clip` do print
+espera, sem soma de deslocamento nenhuma.
+
+A lição generaliza: **quando um locator confiável devolve zero, desconfie da
+moldura antes de desconfiar do seletor.** Painel grande costuma ter relatório
+servido por outro domínio, e `iframe` é a explicação mais barata para "o texto
+está na tela e o Playwright não vê".
+
+(Isto é aprendizado de captura, e serve também à skill `manual-sistema` — quem
+escreve na `MEMORIA-GERAL.md` é ela, não esta.)
+
+### `emulate_media(reduced_motion)` não vence classe utilitária
+
+A folha de *Aplicativos → MCP* desenha os cinco quadrados de logotipo num **arco
+animado**, e item que anda não se fotografa. O painel já tem o estado parado
+pronto, numa regra `@media (prefers-reduced-motion: reduce)` da própria folha —
+e `pagina.emulate_media(reduced_motion="reduce")` **não o alcança**.
+
+O motivo é de cascata, não de Playwright: o `position: absolute` vem de uma
+classe utilitária do Tailwind, que tem a **mesma especificidade** da regra de
+dentro da media query, e quem desempata é a ordem das folhas. A media query está
+antes, e perde.
+
+E o sintoma é silencioso e caro: os cinco quadrados saem empilhados na mesma
+coordenada, as cinco medidas do `bounding_box()` vêm **iguais**, e os cinco
+recortes viram cinco cópias do mesmo quadrado. Nada dá erro.
+
+A saída é repetir a declaração **do próprio produto** com `!important`, num
+`add_style_tag`. O que aparece não é um layout inventado para a arte: é o layout
+que o produto desenha para quem pede menos movimento.
+
+### Um jogo de números se defende em código, não no olho
+
+A loja de demonstração **recebe pedido enquanto a peça é feita**. Na #13 o total
+subiu de R$ 13.473,52 para 13.518,52, depois 13.563,52 e depois 13.698,52, em
+poucos minutos — e a peça inteira se apoiava em dizer que o número da conversa é
+o que o painel fecha.
+
+Duas coisas resolveram, e as duas valem para qualquer peça que compare duas
+fontes:
+
+- **a janela da consulta é a que a tela abre sozinha.** O MCP foi perguntado de
+  `2026-09-13` a `2026-10-13` porque é o *Últimos 30 dias (31 dias)* do
+  relatório. Janela escolhida à mão dá dois números parecidos e diferentes, que
+  é pior do que dois números diferentes;
+- **a conferência é um `raise`.** O `capturar-telas.py` lê o `conversas.json`,
+  compara com o que acabou de fotografar e estoura se divergirem. Conferir no
+  olho funciona na primeira rodada e falha na terceira, que é quando ninguém
+  mais está olhando.
+
+### Relatório que parece o par da pergunta pode repartir por outra dimensão
+
+*Desempenho → Vendas → Origem* parecia ser o par da lista de canais da #13, e
+não era: a tela agrupa por **tipo de atendimento** (Delivery, Mesas, PDV,
+Cardápio Digital, iFood…) e a API por **canal de venda**, onde balcão, mesa e PDV
+caem todos em `MANUAL`. As duas somam o mesmo total e repartem diferente — a
+própria tela dá Delivery com R$ 7.431,87 na lista e R$ 10.330,37 no pódio logo
+abaixo, porque nem ela usa um corte só.
+
+Duas decisões saíram disso, e as duas são de regra:
+
+- **não ponha lado a lado duas contas que não fecham entre si.** A captura
+  daquela tela saiu da peça;
+- **não empreste o nome de um relatório a um corte diferente.** O slide dos
+  canais não se chama *Vendas por Origem*: mandaria o leitor conferir numa tela
+  que diz outra coisa. O vermelho foi para o nome do **corte**, que é o que a
+  frase entrega.
+
+E o rótulo fica como o servidor devolveu. Traduzir `Manual` para "balcão" dentro
+da resposta seria reescrevê-la; dizer na legenda o que ele significa, não.
 
 ### Folga de recorte não é simétrica, e em tabela a direita é zero
 
