@@ -2072,6 +2072,181 @@ body {
   flex: none;
 }
 
+/* ------------------------------------------------------- conversa com a IA
+ *
+ * A tela onde a resposta do MCP aparece: o chat de uma ferramenta de IA com o
+ * BeeFood conectado. Nasceu na peça 13.
+ *
+ * **Por que desenhada, e não capturada.** O resultado do MCP não mora em
+ * nenhuma tela da BeeFood: ele acontece dentro do ChatGPT, do Claude, do
+ * Lovable ou do Cursor, que não rodam aqui e não são nossos para fotografar.
+ * É o degrau 2 da escada de imagem — resultado que existe e a captura não
+ * alcança.
+ *
+ * **Por que ela não imita nenhum desses aplicativos.** Copiar a interface de
+ * um deles diria "é no ChatGPT", e o recurso é de todos; e desenhar marca de
+ * terceiro é afirmar coisa que não é nossa. A paleta aqui é a do **painel do
+ * MCP** (`mcp-panel.css`): fundo quase preto, cartão grafite, texto branco,
+ * apoio cinza-azulado e o fio arco-íris que o painel usa na borda do botão e
+ * do campo do link. Quem conhece a folha do MCP reconhece a cena.
+ *
+ * **O que entra escrito.** A pergunta e a frase da resposta são da peça. Os
+ * NÚMEROS, não: eles vêm do `conversas.json`, que é o que o servidor
+ * `beefood-api` respondeu para a conta sandbox. A etiqueta do conector
+ * (`beefood-api`) é o nome que o próprio servidor anuncia no `initialize` —
+ * nome inventado ali seria a única parte falsa de uma tela que existe para
+ * provar.
+ *
+ * Tudo é `em`: o `font-size` inline do `.tela-ia` escala a tela inteira. Em
+ * `.celular__tela` ela precisa de `height: 100%`; solta num `.figura` ela
+ * cresce com o conteúdo (`.tela-ia--avulsa`).
+ */
+.tela-ia {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+  padding: 1.5em 1.4em;
+  background: #0c0c0d;
+  color: #fff;
+  font-size: 26px;
+  line-height: 1.4;
+}
+
+/* Solta na faixa, sem aparelho em volta: é assim que a conversa entra no slide
+ * em que ela precisa ser LIDA. Com moldura de celular a mesma lista chega ao
+ * feed com metade da altura de letra. */
+.tela-ia--avulsa {
+  height: auto;
+  border-radius: 1em;
+  padding: 1.5em 1.6em 1.7em;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 1.3em 2.6em -1.2em rgba(0, 0, 0, 0.55);
+}
+
+/* O fio arco-íris do painel do MCP, no alto da tela. É a assinatura visual do
+ * recurso, e é o que amarra a tela desenhada à folha de Aplicativos → MCP. */
+.tela-ia__fio {
+  height: 0.16em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff3b3b, #8fff3b, #3b8bff, #3bdcff,
+                              #a855ff, #ff3b3b);
+}
+
+.tela-ia__pergunta {
+  align-self: flex-end;
+  max-width: 86%;
+  background: #2f3238;
+  border-radius: 1em 1em 0.25em 1em;
+  padding: 0.65em 0.9em;
+  font-weight: 700;
+}
+
+.tela-ia__resposta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+}
+
+/* A etiqueta do conector, que é o que diz de onde a resposta veio. O quadrado
+ * vermelho é o mesmo `.mcp-logo-beefood` do painel. */
+.tela-ia__conector {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.45em;
+  padding: 0.3em 0.75em 0.3em 0.3em;
+  border-radius: 999px;
+  background: #1c1d21;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 0.72em;
+  font-weight: 800;
+  color: #b0b5bd;
+  letter-spacing: 0.01em;
+}
+
+.tela-ia__conector img {
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 0.45em;
+  display: block;
+}
+
+.tela-ia__texto {
+  color: #e8eaee;
+}
+
+.tela-ia__texto b {
+  color: #fff;
+  font-weight: 800;
+}
+
+/* O bloco de dados da resposta: rótulo à esquerda, número à direita. É o
+ * formato em que uma IA devolve consulta de relatório, e é o que deixa a
+ * conta conferível — o slide só mostra listas cuja soma fecha. */
+.tela-ia__dados {
+  list-style: none;
+  background: #16171a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.7em;
+  padding: 0.3em 0.95em;
+}
+
+.tela-ia__dados li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.52em 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  color: #b0b5bd;
+}
+
+.tela-ia__dados li:first-child { border-top: 0; }
+
+.tela-ia__dados b {
+  color: #fff;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* A última linha é o fechamento da conta (o total). Separada por um fio mais
+ * forte, porque é ela que o leitor confere contra o painel. */
+.tela-ia__dados li.total {
+  border-top: 1.5px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font-weight: 800;
+}
+
+/* A caixa de escrever, no pé. Não é enfeite: sem ela a tela lê como cartão de
+ * texto, e com ela lê como conversa que continua. */
+.tela-ia__campo {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8em;
+  padding: 0.7em 0.9em;
+  border-radius: 999px;
+  background: #1c1d21;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #6f757e;
+  font-size: 0.86em;
+}
+
+.tela-ia__campo span:last-child {
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: 999px;
+  background: #2f3238;
+  color: #b0b5bd;
+  display: grid;
+  place-items: center;
+  font-size: 0.9em;
+  flex: none;
+}
+
 /* Aqui existia o `.selo-ilustracao`, uma pílula "ILUSTRAÇÃO" no canto do slide.
  * Saiu, e não volta: numa peça de venda ela é a única palavra que o leitor não
  * esperava, rouba o olho no feed e avisa "o que você está vendo não é o

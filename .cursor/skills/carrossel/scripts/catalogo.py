@@ -211,6 +211,32 @@ def tablet(dentro: str) -> str:
 VAZIO = '<div class="vazia"></div>'
 
 # (arquivo, rótulo, o que aparece embaixo dele na folha, fragmento)
+# A conversa com a IA não tem aparelho: ela é a tela inteira. Os números aqui
+# são de mostruário, como os do `.tela-app` — a peça publicada tira os dela do
+# `conversas.json`, que é o que o servidor respondeu.
+TELA_IA = """
+<div class="tela-ia tela-ia--avulsa" style="font-size: 26px">
+  <span class="tela-ia__fio"></span>
+  <p class="tela-ia__pergunta">Quanto a minha loja vendeu ontem?</p>
+  <div class="tela-ia__resposta">
+    <span class="tela-ia__conector">
+      <img src="skill:fotos/tile-beefood-mcp.png" alt="">
+      beefood-api
+    </span>
+    <p class="tela-ia__texto">Ontem a sua loja fechou:</p>
+    <ul class="tela-ia__dados">
+      <li><span>Pedidos</span> <b>48</b></li>
+      <li><span>Ticket médio</span> <b>R$ 52,90</b></li>
+      <li class="total"><span>Valor total</span> <b>R$ 2.539,20</b></li>
+    </ul>
+  </div>
+  <div class="tela-ia__campo">
+    <span>Pergunte alguma coisa</span>
+    <span>&uarr;</span>
+  </div>
+</div>
+"""
+
 PECAS: list[tuple[str, str, str, str]] = [
     ("totem", "Totem, só o aparelho",
      "420 px com texto ao lado; 400 sozinho",
@@ -273,6 +299,9 @@ PECAS: list[tuple[str, str, str, str]] = [
      '<span>&bull; 1x Coca 350ml</span><span></span></div>'
      '<div class="cupom__corte"></div>'
      '<div class="cupom__linha"><span>TOTAL</span><span>39,00</span></div></div>'),
+    ("tela-ia", "Conversa com a IA",
+     ".tela-ia--avulsa, 904 px margem a margem (26 px)",
+     f'<div style="width: 904px">{TELA_IA}</div>'),
 ]
 
 
