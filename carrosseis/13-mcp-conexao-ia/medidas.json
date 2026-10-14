@@ -40,5 +40,17 @@
     "y": 122,
     "width": 971,
     "height": 76
+  },
+  "rec-cardapio.png": {
+    "x": 451,
+    "y": 100,
+    "width": 650,
+    "height": 159
+  },
+  "realce-produto-novo": {
+    "x": 1.5,
+    "y": 40.9,
+    "width": 72.3,
+    "height": 57.9
   }
 }

@@ -1,22 +1,56 @@
 {
-  "lido_em": "2026-10-13T20:52:08",
+  "lido_em": "2026-10-14T01:02:42",
   "servidor": {
     "name": "beefood-api",
     "version": "1.1.0",
     "title": "BeeFood API"
   },
   "conta": "sandbox BeeFood3 - Manual (empresa 38311)",
+  "oQueOServidorPublica": {
+    "ferramentas": [
+      "search_beefood_api",
+      "query_docs_filesystem_beefood_api",
+      "submit_feedback",
+      "listar_endpoints",
+      "detalhe_endpoint",
+      "execute_beefood_request"
+    ],
+    "rotas": 61,
+    "rotasDeEscrita": 29,
+    "grupos": {
+      "Pedidos": {
+        "rotas": 6,
+        "escrita": 3
+      },
+      "Clientes": {
+        "rotas": 2,
+        "escrita": 0
+      },
+      "Restaurante": {
+        "rotas": 15,
+        "escrita": 2
+      },
+      "Relatórios": {
+        "rotas": 5,
+        "escrita": 0
+      },
+      "Catálogo": {
+        "rotas": 33,
+        "escrita": 24
+      }
+    }
+  },
   "janela": {
     "saleDateFrom": "2026-09-13",
     "saleDateTo": "2026-10-13",
     "comoAPerguntaDiz": "últimos 30 dias"
   },
   "resumo": {
-    "pedidos": 253,
-    "valor": 13698.52,
-    "valorEscrito": "R$ 13.698,52",
-    "ticket": 54.14,
-    "ticketEscrito": "R$ 54,14"
+    "pedidos": 266,
+    "valor": 14283.52,
+    "valorEscrito": "R$ 14.283,52",
+    "ticket": 53.7,
+    "ticketEscrito": "R$ 53,70"
   },
   "canais": [
     {
@@ -27,18 +61,18 @@
       "valorEscrito": "R$ 10.373,28"
     },
     {
+      "canal": "Externo",
+      "chave": "EXTERNAL",
+      "pedidos": 30,
+      "valor": 1350,
+      "valorEscrito": "R$ 1.350,00"
+    },
+    {
       "canal": "Cardápio Digital",
       "chave": "DIGITAL_MENU",
       "pedidos": 24,
       "valor": 1220.43,
       "valorEscrito": "R$ 1.220,43"
-    },
-    {
-      "canal": "Externo",
-      "chave": "EXTERNAL",
-      "pedidos": 17,
-      "valor": 765,
-      "valorEscrito": "R$ 765,00"
     },
     {
       "canal": "iFood",
@@ -70,12 +104,24 @@
     }
   ],
   "cardapio": {
-    "produtos": 398,
+    "produtos": 399,
     "setores": 35,
     "produtosComVenda": 70
   },
+  "cupons": 19,
+  "avaliacoes": 2,
   "asSomasFecham": {
     "pedidos": true,
     "valor": true
+  },
+  "escrita": {
+    "produtoId": 2633843,
+    "nome": "Limonada Suíça 500ml",
+    "preco": 12.9,
+    "precoEscrito": "R$ 12,90",
+    "setor": "Bebidas",
+    "selo": "new",
+    "rota": "POST /v1/catalog/products",
+    "escopo": "catalog:write"
   }
 }

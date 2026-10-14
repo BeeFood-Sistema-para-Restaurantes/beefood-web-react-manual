@@ -1,9 +1,10 @@
 """Captura as telas do MCP, para a peça 13.
 
-Somente leitura: nenhuma rota de escrita é chamada, e o único clique que muda
-alguma coisa na tela é o que abre a folha lateral do MCP em *Aplicativos*.
+Este script não escreve nada: o único clique que muda alguma coisa é o que abre
+a folha lateral do MCP em *Aplicativos*. Quem escreve é o `consultar-mcp.py
+--escrever`, e o que ele cria é um produto só, que ele mesmo apaga depois.
 
-São três grupos de imagem, e cada um existe por um motivo diferente:
+São quatro grupos de imagem, e cada um existe por um motivo diferente:
 
 1. **os cinco quadrados de logotipo da folha do MCP** — ChatGPT, Claude,
    Lovable, Cursor e BeeFood, cada um com o fundo que o próprio painel lhe dá.
@@ -20,9 +21,19 @@ São três grupos de imagem, e cada um existe por um motivo diferente:
    últimos 30 dias. São a prova do slide 3: o número que a IA respondeu é o
    mesmo que o painel fecha. O recorte começa **abaixo** do seletor de datas,
    na linha *Últimos 30 dias*, porque data na arte envelhece o post;
-3. **o cartão do MCP na grade de Aplicativos** — onde o recurso mora, com a
+3. **o produto que a IA criou, no Cardápio do painel** — é a prova do slide 4,
+   e a mais importante da peça: metade do servidor MCP é escrita (29 das 61
+   rotas, 24 delas do cardápio), e afirmação desse tamanho não se sustenta com
+   conversa desenhada. O `consultar-mcp.py --escrever` cria a *Limonada Suíça
+   500ml* por `POST /v1/catalog/products`, este script a fotografa na tela que
+   o lojista abre todo dia, e o `--apagar` devolve o cardápio ao que era;
+4. **o cartão do MCP na grade de Aplicativos** — onde o recurso mora, com a
    borda arco-íris que o painel desenha em volta dele. É a arte do CTA: o
-   último slide manda abrir *Aplicativos → MCP*, e esta é a porta.
+   último slide manda abrir *Aplicativos → MCP*, e esta é a porta. O quadrado
+   do cartão é um **carrossel**: o `McpIconCarousel` roda os cinco logotipos,
+   um a cada três segundos, então o ícone que sair no print depende do
+   instante — com o arco parado fica o primeiro da lista, o Lovable, e a
+   captura escolhe o quinto (`ICONE_BEEFOOD`), que é o da casa.
 
 O que **não** se captura aqui: o campo *Link do MCP*, o botão de copiar e a
 lista de manuais. São tela de configuração — mostram onde se mexe, e carrossel
@@ -69,6 +80,18 @@ PARAR_ARCO = """
   opacity: 1 !important;
   transform: none !important;
 }
+"""
+
+
+# O ícone do cartão do MCP também é um carrossel (`McpIconCarousel`): os cinco
+# logotipos passam pelo centro, um a cada três segundos. Parado, o painel
+# mostra o primeiro da lista — o Lovable —, e numa peça nossa o coração roxo no
+# lugar do ícone do recurso faz o leitor perguntar de quem é o cartão. Esta
+# regra escolhe a quinta estação, que é a da BeeFood: é um quadro real da
+# animação, o mesmo critério do arco da capa.
+ICONE_BEEFOOD = """
+.mcp-app-arc-item { opacity: 0 !important; }
+.mcp-app-arc-item:nth-child(5) { opacity: 1 !important; }
 """
 
 
@@ -130,6 +153,7 @@ def aplicativos():
                     wait_until="domcontentloaded", timeout=90000)
         esperar(pagina)
         limpar(pagina)
+        pagina.add_style_tag(content=ICONE_BEEFOOD)
         tirar(pagina, "01-aplicativos.png")
 
         # O cartão do MCP na grade, com a borda arco-íris que o painel desenha
@@ -155,6 +179,77 @@ def aplicativos():
             print("  ", nome, {k: round(v) for k, v in caixa.items()})
             pagina.screenshot(path=str(PURAS / f"logo-{nome}.png"), clip=caixa)
             MEDIDAS[f"logo-{nome}.png"] = caixa
+        salvar_medidas()
+
+
+def cardapio():
+    """O produto que a IA criou, na tela de Cardápio do painel.
+
+    É a prova do slide 4. O `consultar-mcp.py --escrever` precisa ter rodado
+    antes: ele grava em `conversas.json` o nome, o preço e o setor do que
+    criou, e esta função procura **esse** nome na tela — se o produto não
+    estiver lá, o script para, em vez de fotografar um cardápio qualquer.
+
+    O setor se filtra pelo nome **exato**. `text=Bebidas` casa primeiro com
+    *iFood Vínculo Bebidas*, que tem um produto só e nenhum deles é o nosso —
+    e o print sai de uma tela que parece a certa. `exact=True` resolve.
+
+    O quadro é o cabeçalho do setor (com a contagem de produtos) mais o cartão
+    do produto novo, e à direita dele **parte** do cartão vizinho — um
+    refrigerante de verdade da loja. O vizinho inteiro cabia, e a primeira
+    versão o trouxe: o recorte saía com 970 px de tela dentro de 904 px de
+    slide, e o nome do produto ficava com 13 px de altura numa arte de 1080.
+    Cortado ao meio ele ainda diz o que precisa dizer — que o produto novo
+    entrou numa lista com outros, e não num cartão solto —, e o que sobra
+    aparece 1,3x maior. De quebra sai a barra de botões do canto direito
+    (*Editar em Lote*, *Importar*), que é tela de trabalho e não prova nenhuma.
+    """
+    gravado = json.loads((AQUI / "conversas.json").read_text())
+    escrita = gravado.get("escrita")
+    if not escrita:
+        raise SystemExit(
+            "ERRO: conversas.json não tem o bloco `escrita`. Rode antes:\n"
+            "  python carrosseis/13-mcp-conexao-ia/consultar-mcp.py --escrever")
+
+    with sessao("painel") as pagina:
+        pagina.goto("https://beefood.app/cardapio",
+                    wait_until="domcontentloaded", timeout=90000)
+        esperar(pagina)
+        limpar(pagina)
+
+        pagina.get_by_text(escrita["setor"], exact=True).first.click()
+        pagina.wait_for_timeout(5000)
+        esperar(pagina)
+        tirar(pagina, "04-cardapio.png")
+
+        novo = pagina.get_by_text(escrita["nome"], exact=False)
+        if not novo.count():
+            raise SystemExit(
+                f"ERRO: {escrita['nome']} não está na tela. O produto foi "
+                "apagado antes da captura?")
+        print(f"--> {escrita['nome']} está no setor {escrita['setor']}")
+
+        cartao = novo.first.locator(
+            "xpath=ancestor::div[contains(@class,'rounded')][1]")
+        caixa_novo = cartao.bounding_box()
+        # O cabeçalho do setor é o título ao lado da contagem; os dois sobem
+        # para dentro do quadro porque a contagem é o que diz que o produto
+        # entrou num cardápio de verdade.
+        cabecalho = pagina.get_by_text(escrita["setor"], exact=True).nth(1)
+        # A borda direita cai dentro do cartão vizinho: 170 px depois do nosso
+        # é o bastante para mostrar a miniatura dele, o nome e o preço.
+        recortar(pagina, "rec-cardapio.png", cabecalho, cartao,
+                 lateral=cartao, folga=16, folga_lado=(10, 170), folga_pe=2)
+        # Onde o produto novo está dentro do recorte, em porcentagem: é o que o
+        # slide usa para pôr o `.realce` sem estimar na miniatura.
+        quadro = MEDIDAS["rec-cardapio.png"]
+        MEDIDAS["realce-produto-novo"] = {
+            "x": round((caixa_novo["x"] - quadro["x"]) / quadro["width"] * 100, 1),
+            "y": round((caixa_novo["y"] - quadro["y"]) / quadro["height"] * 100, 1),
+            "width": round(caixa_novo["width"] / quadro["width"] * 100, 1),
+            "height": round(caixa_novo["height"] / quadro["height"] * 100, 1),
+        }
+        print("realce do produto novo (%):", MEDIDAS["realce-produto-novo"])
         salvar_medidas()
 
 
@@ -255,11 +350,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("alvos", nargs="*", default=[])
     args = ap.parse_args()
-    alvos = args.alvos or ["aplicativos", "desempenho"]
+    alvos = args.alvos or ["aplicativos", "desempenho", "cardapio"]
     if "aplicativos" in alvos:
         aplicativos()
     if "desempenho" in alvos:
         desempenho()
+    if "cardapio" in alvos:
+        cardapio()
 
 
 if __name__ == "__main__":
