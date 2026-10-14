@@ -1,0 +1,81 @@
+<!-- Slide 5: o "e muito mais" do pedido do dono, e a resposta para a pergunta
+     que os slides 3 e 4 acabaram de plantar. Quem viu a IA ler faturamento e
+     criar produto pensa duas coisas ao mesmo tempo: "o que mais ela faz?" e
+     "então ela mexe em tudo?". As duas têm a mesma resposta, e ela está numa
+     tela só.
+
+     Esta página teve uma primeira versão que era uma GRADE DESENHADA com as
+     seis áreas, cartão por cartão, mais duas apagadas de "em breve". Ela caiu
+     quando a tabela de verdade foi capturada: desenho que copia uma tela
+     existente é a versão pior dela. A tela traz as mesmas seis áreas, as duas
+     colunas (LEITURA e ESCRITA) e as doze caixas já marcadas — e traz de graça
+     o que o desenho não tinha, que é ser a tela.
+
+     A captura não sai do painel: essa folha só existe DENTRO do fluxo de
+     autorização, entre o login e o clique em PERMITIR. Por isso quem a
+     fotografa é o `consultar-mcp.py --retrato`, no meio do caminho, e não o
+     `capturar-telas.py`. O recorte fecha na moldura da tabela e deixa de fora
+     o cabeçalho, que nomeia o cliente registrado ("BeeFood Carrossel
+     (sandbox)") — nome de script nosso numa peça de venda é ruído, e o que o
+     lojista veria ali é o nome da ferramenta de IA dele.
+
+     A LINHA DO PÉ É CITAÇÃO do que a própria tela escreve debaixo da tabela.
+     Ela responde à pergunta cara — "e se eu me arrepender?" — e responde com o
+     texto do produto, não com promessa de copy. Entra elidida, com
+     reticências: a frase inteira ("O acesso é aos dados reais da sua loja e
+     pode ser revogado a qualquer momento no menu de API") ocupa duas linhas de
+     30 px e encosta nos pontinhos do rodapé. O que foi cortado é o meio e o
+     fim — "aos dados reais da sua loja" o slide inteiro já disse, e o "onde"
+     está no último slide, que manda abrir Aplicativos → MCP. O que sobrou é a
+     única parte que o leitor não sabia: que dá para desfazer.
+
+     O número no corpo é o tamanho do recurso: 61 operações, 29 delas de
+     escrita, contadas pelo `listar_endpoints` do próprio servidor e gravadas
+     no `conversas.json`. É o "muito mais" com tamanho, em vez de adjetivo.
+
+     O quadro fecha na última área liberada, e as duas linhas de "em breve"
+     (Entregadores e Estoque) ficam de fora por aritmética: com oito linhas a
+     tabela só cabia a 700 px de largura, e a letra dela chegava ao feed com 22
+     px. Com seis ela ocupa os 904 e a letra dobra. O que as duas
+     acrescentavam era promessa, e promessa não é o assunto da página. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">5 de 6</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 904px">
+    <span class="chapeu">Você no controle</span>
+    <h2 class="titulo titulo--pequeno">
+      <span class="destaque">Permissões</span>: você marca o que ela lê e o que
+      ela altera
+    </h2>
+    <p class="corpo">
+      São 61 operações no conector, e 29 delas alteram alguma coisa. Você
+      libera área por área.
+    </p>
+  </div>
+
+  <div class="pilha" style="margin: 32px auto 0; width: 904px; gap: 16px">
+    <span class="cartao__rotulo">A tela que aparece na hora de conectar</span>
+    <div class="recorte">
+      <img src="../imagens-puras/rec-permissoes.png"
+           alt="A tabela de permissões da tela Conectar com BeeFood: as colunas LEITURA e ESCRITA marcadas em Loja, Pedidos, Catálogo, Clientes, Cupons e Avaliações">
+    </div>
+  </div>
+
+  <div class="empurra"></div>
+
+  <!-- Fica no pé, em letra miúda, porque é onde ela está no produto: a tela
+       escreve essa frase logo abaixo da tabela. Subi-la para o meio do slide
+       transformaria uma linha de contrato numa promessa de anúncio. -->
+  <p style="max-width: 904px; margin-bottom: 18px; font-size: 30px;
+            line-height: 1.4; color: var(--texto-suave)">
+    “O acesso … pode ser revogado a qualquer momento.”
+  </p>
+
+  <div class="rodape">
+    <span class="pontos"><span></span><span></span><span></span><span></span><span class="on"></span><span></span></span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>

@@ -1,87 +1,98 @@
-<!-- A capa AFIRMA O FATO, que e o molde certo quando a noticia e grande por si:
-     o sistema do restaurante passou a ser alcancavel por uma IA. Afirmacao do
-     fato ja foi usada cinco vezes em doze pecas, e e a forma mais gasta do
-     acervo — mas a regra e nao repetir a molde da peca ANTERIOR, e a #12 usou
-     anuncio de chegada.
+<!-- A capa é a folha de Aplicativos -> MCP, remontada no formato do feed. O
+     pedido foi literal: "deve ser o mesmo layout de aplicativos -> MCP". E o
+     layout de lá não é escolha de estilo — é a assinatura do recurso. Quem já
+     abriu aquela folha reconhece o arco de cinco quadrados antes de ler o
+     título, e quem nunca abriu vai reconhecer a folha quando chegar nela.
 
-     Os dois moldes zerados foram escritos e cairam:
+     A ordem dos elementos é a da tela: arco, pílula, título grande centrado,
+     linha de apoio e a lista de tiques. O que muda é o que cada um diz.
 
-       - ORDEM DIRETA ("Pergunte ao ChatGPT quanto a sua loja vendeu") so se
-         paga quando o recurso tem UM objeto. Este responde sobre vendas,
-         pedidos E cardapio, e a capa escolheria um dos tres;
-       - ANTES x AGORA pediria um "antes" em que consultar o resultado era
-         dificil — e quem consulta resultado hoje e o nosso proprio
-         Desempenho. A primeira metade do titulo falaria mal de um modulo que
-         a BeeFood vende e continua vendendo.
+     O MOLDE é ANÚNCIO DE CHEGADA, e ele veio do dono: "MCP da BeeFood chegou"
+     e "Conecte sua IA preferida no BeeFood". A skill manda não repetir o molde
+     da peça ANTERIOR, e a #12 também anunciou chegada — a regra cede aqui
+     porque quem escreve a manchete é quem vende o produto, e porque o fato é
+     mesmo uma estreia: até esta semana não havia como uma IA falar com o
+     sistema. Fica registrado no roteiro para a #14 não abrir assim.
 
-     "Poe a sua loja dentro da sua IA" e fisico de proposito: o leitor nao
-     precisa saber o que e um protocolo para entender que a loja passou a estar
-     la dentro. O sujeito e A LOJA, e nao o chat — o canal nunca e o sujeito da
-     capa. O vermelho pega MCP, que e o nome que ele vai procurar no menu.
+     O título nomeia (MCP, em vermelho, que é a palavra que ele vai procurar no
+     menu) e o subtítulo diz o que o recurso FAZ, nos dois sentidos que a peça
+     prova depois: ler relatório (slide 3) e editar cardápio (slide 4). "Edita"
+     é a metade que a versão anterior desta peça não contou, e é a maior parte
+     do servidor: 29 das 61 rotas alteram dado, 24 delas no cardápio.
 
-     O subtitulo carrega o que o recurso DA, nos tres eixos que a peca cobre
-     (vendas no slide 3, canais no 4, cardapio no 5), e fecha dizendo de onde
-     vem a resposta — que e a unica coisa que separa isto de uma IA chutando
-     numero.
+     Os QUATRO TIQUES são o bloco de benefícios da própria folha, reescrito.
+     Lá estão "Consulte os dados da sua loja", "Analise vendas e desempenho",
+     "Crie análises e relatórios personalizados" e "Conecte sua operação a
+     ferramentas de IA" — quatro frases que falam da mesma metade (consultar).
+     Aqui cada tique é uma área que o servidor alcança de verdade, e duas delas
+     são de escrita.
 
-     A ARTE e a conversa, desenhada. O resultado do MCP nao mora em tela
-     nenhuma da BeeFood: ele acontece dentro do ChatGPT, do Claude, do Lovable
-     ou do Cursor, que nao rodam aqui e nao sao nossos para fotografar. E o
-     degrau 2 da escada — a tela de resultado desenhada pela peca. A paleta e
-     a da folha de Aplicativos -> MCP, inclusive o fio arco-iris, e por isso
-     ela nao imita a interface de nenhuma das quatro ferramentas.
-
-     Os NUMEROS dentro dela nao sao desenho: sao o que o servidor beefood-api
-     respondeu para a conta sandbox, gravado no conversas.json. Os mesmos dois
-     aparecem fotografados no painel, no slide 3. -->
+     Os CINCO QUADRADOS SÃO CAPTURA do painel, cada um com o fundo que o painel
+     dá ao serviço. No centro fica a BeeFood: as cinco peças passam pelo centro
+     a cada quinze segundos, então é um quadro honesto da animação — e numa
+     peça nossa a que importa no meio é a nossa. -->
 <div class="slide slide--capa">
   <div class="topo">
     <span class="logo"></span>
     <span class="contador">1 de 6</span>
   </div>
 
-  <div class="pilha g24" style="margin-top: 28px; max-width: 880px">
-    <span class="pilula pilula--novidade">Novidade</span>
-    <h1 class="titulo titulo--medio">
-      O <span class="destaque">MCP</span> põe a sua<br>loja dentro da sua IA
-    </h1>
-    <p class="subtitulo">
-      Pergunte sobre vendas, pedidos e cardápio: a resposta vem do seu BeeFood.
-    </p>
-  </div>
+  <div class="empurra"></div>
 
-  <!-- Margem a margem e no pe do slide: a conversa e para ser LIDA, e moldura
-       de aparelho em volta dela devolveria a mesma lista com metade da altura
-       de letra. O corte na borda de baixo diz que a conversa continua. -->
-  <div style="position: absolute; left: var(--margem); right: var(--margem);
-              top: 622px; z-index: 1">
-    <div class="tela-ia tela-ia--avulsa" style="font-size: 30px">
-      <span class="tela-ia__fio"></span>
-
-      <!-- A quebra e na mao porque a natural deixava "dias?" sozinho na
-           segunda linha, e orfao de uma palavra numa frase curta le como
-           erro de render. -->
-      <p class="tela-ia__pergunta">
-        Quanto a minha loja vendeu<br>nos últimos 30 dias?
-      </p>
-
-      <div class="tela-ia__resposta">
-        <span class="tela-ia__conector">
-          <img src="../imagens-puras/logo-beefood.png" alt="">
-          beefood-api
-        </span>
-        <p class="tela-ia__texto">Nos últimos 30 dias, a sua loja fechou:</p>
-        <ul class="tela-ia__dados">
-          <li><span>Pedidos</span> <b>253</b></li>
-          <li><span>Ticket médio</span> <b>R$ 54,14</b></li>
-          <li class="total"><span>Valor total</span> <b>R$ 13.698,52</b></li>
-        </ul>
+  <div class="pilha centro g32">
+    <!-- O arco cabe na margem com peça de 148: as pontas ficam a 356 px do
+         centro e o giro de 16° as estica para 447, contra os 452 de meia
+         largura útil. Com 160 px de peça a quina sangrava pela borda. -->
+    <div class="arco-mcp" style="--peca: 148px; --passo: 178px; width: 100%">
+      <div class="arco-mcp__peca arco-mcp__peca--e2">
+        <img src="../imagens-puras/logo-lovable.png" alt="">
       </div>
-
-      <div class="tela-ia__campo">
-        <span>Pergunte alguma coisa</span>
-        <span>&uarr;</span>
+      <div class="arco-mcp__peca arco-mcp__peca--e1">
+        <img src="../imagens-puras/logo-claude.png" alt="">
+      </div>
+      <div class="arco-mcp__peca arco-mcp__peca--c">
+        <img src="../imagens-puras/logo-beefood.png" alt="">
+      </div>
+      <div class="arco-mcp__peca arco-mcp__peca--d1">
+        <img src="../imagens-puras/logo-chatgpt.png" alt="">
+      </div>
+      <div class="arco-mcp__peca arco-mcp__peca--d2">
+        <img src="../imagens-puras/logo-cursor.png" alt="">
       </div>
     </div>
+
+    <!-- `align-self` inline porque a `.pilula` nasce `flex-start`: numa pilha
+         centrada ela é a única peça que ignora o `align-items`. -->
+    <span class="pilula pilula--novidade" style="align-self: center">Novidade</span>
+
+    <h1 class="titulo">
+      O <span class="destaque">MCP</span> da BeeFood chegou
+    </h1>
+
+    <p class="subtitulo" style="max-width: 820px">
+      Conecte a sua IA preferida no BeeFood: ela lê os seus relatórios e edita o
+      seu cardápio ali, na conversa.
+    </p>
+
+    <ul class="areas" style="width: 100%; margin-top: 12px">
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">Vendas e relatórios</span>
+      </li>
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">Cardápio e preços</span>
+      </li>
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">Pedidos e cupons</span>
+      </li>
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">ChatGPT, Claude e mais</span>
+      </li>
+    </ul>
   </div>
+
+  <div class="empurra"></div>
 </div>

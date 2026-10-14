@@ -1,0 +1,82 @@
+<!-- Slide 4: a SEGUNDA PROVA, e a que a versao anterior desta peca nao tinha.
+     O dono devolveu a peca dizendo "estude a documentacao, veja o que ele faz
+     -> edita cardapio, traz relatorios, e muito mais", e a documentacao da
+     razao a ele com numero: o servidor publica 61 operacoes, 29 delas ALTERAM
+     dado, e 24 dessas 29 sao de cardapio. Escrita nao e um detalhe do recurso,
+     e a maior parte dele.
+
+     Afirmacao desse tamanho nao se sustenta com conversa desenhada, entao ela
+     foi FEITA. O `consultar-mcp.py --escrever` pede ao conector, por
+     `POST /v1/catalog/products`, que crie a Limonada Suica 500ml por R$ 12,90
+     no setor Bebidas; o `capturar-telas.py cardapio` fotografa o setor na tela
+     que o lojista abre todo dia; e o `--apagar` devolve o cardapio ao que era.
+     A sandbox fica como foi encontrada, e o `cena.json` registra o caminho.
+
+     O recorte traz o cabecalho do setor com a contagem ("Bebidas · 16
+     produtos"), o cartao do produto novo e METADE do cartao vizinho. Isso nao
+     e enfeite: o produto novo sozinho num cartao recortado seria um cartao
+     qualquer, e ao lado de um refrigerante de verdade da loja ele le como
+     cardapio. O vizinho entra cortado porque inteiro ele custava caro — com os
+     dois cartoes o recorte tinha 970 px de tela dentro de 904 de slide, e o
+     nome do produto ficava com 13 px de altura. O anel vermelho nao foi
+     estimado na miniatura: o script mede a caixa do cartao dentro do recorte e
+     grava a porcentagem no `medidas.json` (x 1,5 / y 40,9 / 72,3 de largura /
+     57,9 de altura).
+
+     A ordem e a mesma do slide 3 — pedido, depois painel —, e as duas telas
+     desenhadas sao diferentes de proposito: la a resposta e uma tabela de
+     numeros, aqui e uma frase curta de confirmacao. Quatro cartoes iguais foi
+     exatamente o que derrubou a versao anterior. -->
+<div class="slide">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">4 de 6</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 904px">
+    <span class="chapeu">Não é só consulta</span>
+    <h2 class="titulo titulo--pequeno">
+      <span class="destaque">Cardápio</span>: peça a mudança e ela aparece no
+      painel
+    </h2>
+    <p class="corpo">
+      Diga o produto, o preço e o setor. Quando você abrir o Cardápio, ele já
+      está lá, no setor certo.
+    </p>
+  </div>
+
+  <div class="pilha" style="margin: 30px auto 0; width: 904px; gap: 16px">
+    <span class="cartao__rotulo">O que foi pedido na conversa</span>
+    <div class="tela-ia tela-ia--avulsa" style="font-size: 25px">
+      <span class="tela-ia__fio"></span>
+      <p class="tela-ia__pergunta">
+        Cadastra uma Limonada Suíça 500ml<br>por R$ 12,90 em Bebidas
+      </p>
+      <div class="tela-ia__resposta">
+        <span class="tela-ia__conector">
+          <img src="../imagens-puras/logo-beefood.png" alt="">
+          beefood-api
+        </span>
+        <p class="tela-ia__texto">
+          Pronto: <b>Limonada Suíça 500ml</b> criada em <b>Bebidas</b>, a
+          <b>R$ 12,90</b>.
+        </p>
+      </div>
+    </div>
+
+    <span class="cartao__rotulo" style="margin-top: 20px">O que o painel passou a mostrar</span>
+    <div class="recorte" style="position: relative">
+      <img src="../imagens-puras/rec-cardapio.png"
+           alt="O setor Bebidas do Cardápio, com 16 produtos, e o primeiro cartão da lista é Limonada Suíça 500ml por R$ 12,90">
+      <span class="realce" style="left: 1.5%; top: 40.9%; width: 72.3%;
+            height: 57.9%"></span>
+    </div>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="pontos"><span></span><span></span><span></span><span class="on"></span><span></span><span></span></span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>
