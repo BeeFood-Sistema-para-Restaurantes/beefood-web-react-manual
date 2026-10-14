@@ -2072,6 +2072,315 @@ body {
   flex: none;
 }
 
+/* ------------------------------------------------------- conversa com a IA
+ *
+ * A tela onde a resposta do MCP aparece: o chat de uma ferramenta de IA com o
+ * BeeFood conectado. Nasceu na peça 13.
+ *
+ * **Por que desenhada, e não capturada.** O resultado do MCP não mora em
+ * nenhuma tela da BeeFood: ele acontece dentro do ChatGPT, do Claude, do
+ * Lovable ou do Cursor, que não rodam aqui e não são nossos para fotografar.
+ * É o degrau 2 da escada de imagem — resultado que existe e a captura não
+ * alcança.
+ *
+ * **Por que ela não imita nenhum desses aplicativos.** Copiar a interface de
+ * um deles diria "é no ChatGPT", e o recurso é de todos; e desenhar marca de
+ * terceiro é afirmar coisa que não é nossa. A paleta aqui é a do **painel do
+ * MCP** (`mcp-panel.css`): fundo quase preto, cartão grafite, texto branco,
+ * apoio cinza-azulado e o fio arco-íris que o painel usa na borda do botão e
+ * do campo do link. Quem conhece a folha do MCP reconhece a cena.
+ *
+ * **O que entra escrito.** A pergunta e a frase da resposta são da peça. Os
+ * NÚMEROS, não: eles vêm do `conversas.json`, que é o que o servidor
+ * `beefood-api` respondeu para a conta sandbox. A etiqueta do conector
+ * (`beefood-api`) é o nome que o próprio servidor anuncia no `initialize` —
+ * nome inventado ali seria a única parte falsa de uma tela que existe para
+ * provar.
+ *
+ * Tudo é `em`: o `font-size` inline do `.tela-ia` escala a tela inteira. Em
+ * `.celular__tela` ela precisa de `height: 100%`; solta num `.figura` ela
+ * cresce com o conteúdo (`.tela-ia--avulsa`).
+ */
+.tela-ia {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+  padding: 1.5em 1.4em;
+  background: #0c0c0d;
+  color: #fff;
+  font-size: 26px;
+  line-height: 1.4;
+}
+
+/* Solta na faixa, sem aparelho em volta: é assim que a conversa entra no slide
+ * em que ela precisa ser LIDA. Com moldura de celular a mesma lista chega ao
+ * feed com metade da altura de letra. */
+.tela-ia--avulsa {
+  height: auto;
+  border-radius: 1em;
+  padding: 1.5em 1.6em 1.7em;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 1.3em 2.6em -1.2em rgba(0, 0, 0, 0.55);
+}
+
+/* O fio arco-íris do painel do MCP, no alto da tela. É a assinatura visual do
+ * recurso, e é o que amarra a tela desenhada à folha de Aplicativos → MCP. */
+.tela-ia__fio {
+  height: 0.16em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff3b3b, #8fff3b, #3b8bff, #3bdcff,
+                              #a855ff, #ff3b3b);
+}
+
+.tela-ia__pergunta {
+  align-self: flex-end;
+  max-width: 86%;
+  background: #2f3238;
+  border-radius: 1em 1em 0.25em 1em;
+  padding: 0.65em 0.9em;
+  font-weight: 700;
+}
+
+.tela-ia__resposta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+}
+
+/* A etiqueta do conector, que é o que diz de onde a resposta veio. O quadrado
+ * vermelho é o mesmo `.mcp-logo-beefood` do painel. */
+.tela-ia__conector {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.45em;
+  padding: 0.3em 0.75em 0.3em 0.3em;
+  border-radius: 999px;
+  background: #1c1d21;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 0.72em;
+  font-weight: 800;
+  color: #b0b5bd;
+  letter-spacing: 0.01em;
+}
+
+.tela-ia__conector img {
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 0.45em;
+  display: block;
+}
+
+.tela-ia__texto {
+  color: #e8eaee;
+}
+
+.tela-ia__texto b {
+  color: #fff;
+  font-weight: 800;
+}
+
+/* O bloco de dados da resposta: rótulo à esquerda, número à direita. É o
+ * formato em que uma IA devolve consulta de relatório, e é o que deixa a
+ * conta conferível — o slide só mostra listas cuja soma fecha. */
+.tela-ia__dados {
+  list-style: none;
+  background: #16171a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.7em;
+  padding: 0.3em 0.95em;
+}
+
+.tela-ia__dados li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.52em 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  color: #b0b5bd;
+}
+
+.tela-ia__dados li:first-child { border-top: 0; }
+
+.tela-ia__dados b {
+  color: #fff;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* A última linha é o fechamento da conta (o total). Separada por um fio mais
+ * forte, porque é ela que o leitor confere contra o painel. */
+.tela-ia__dados li.total {
+  border-top: 1.5px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font-weight: 800;
+}
+
+/* A caixa de escrever, no pé. Não é enfeite: sem ela a tela lê como cartão de
+ * texto, e com ela lê como conversa que continua. */
+.tela-ia__campo {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8em;
+  padding: 0.7em 0.9em;
+  border-radius: 999px;
+  background: #1c1d21;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #6f757e;
+  font-size: 0.86em;
+}
+
+.tela-ia__campo span:last-child {
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: 999px;
+  background: #2f3238;
+  color: #b0b5bd;
+  display: grid;
+  place-items: center;
+  font-size: 0.9em;
+  flex: none;
+}
+
+/* ------------------------------------------- o arco da folha do MCP
+ *
+ * O painel abre *Aplicativos → MCP* com cinco quadrados de logotipo em arco —
+ * ChatGPT, Claude, Lovable, Cursor e BeeFood —, e esse arco é a assinatura da
+ * folha: quem já entrou lá reconhece a peça antes de ler o título. Nasceu
+ * na #13, que o dono mandou abrir com "o mesmo layout de Aplicativos → MCP".
+ *
+ * **Os quadrados são captura, não desenho.** Cada um vem recortado do próprio
+ * painel (`logo-<nome>.png` em `imagens-puras/`), com o fundo que o painel dá
+ * a cada serviço — o gradiente do Lovable, o laranja do Claude, o quase branco
+ * do ChatGPT, o grafite do Cursor e o vermelho da BeeFood. Marca de terceiro
+ * não se redesenha.
+ *
+ * **As posições são as do `mcp-panel.css`.** Na folha o arco é animado e cada
+ * peça passa pelas cinco estações; aqui ele está parado numa delas. As
+ * transformações são as mesmas (`translateY` e `rotate` crescendo para fora,
+ * sem mudar de tamanho) — o que muda é a opacidade das pontas, que no painel
+ * cai a 0,4 e aqui para em 0,55: a arte é vista reduzida no feed, e a 0,4 as
+ * duas pontas somem.
+ *
+ * **Quem fica no centro é a BeeFood**, e isso é escolha de arte dentro do que
+ * o produto faz: as cinco peças passam pelo centro a cada quinze segundos, e a
+ * que importa na nossa peça é a nossa. Qualquer uma seria um quadro honesto
+ * da mesma animação.
+ *
+ * `--peca` é o lado do quadrado e `--passo` a distância entre dois centros; a
+ * altura da caixa já conta a descida das pontas.
+ */
+.arco-mcp {
+  --peca: 136px;
+  --passo: 182px;
+  position: relative;
+  /* As pontas descem 56 px e giram 16°, o que estica a caixa delas em ~12% do
+   * lado do quadrado para cada lado. Sem a folga, o giro sangra para cima do
+   * que vier embaixo. */
+  height: calc(var(--peca) + 80px);
+}
+
+/* O raio é o `rounded-2xl` do painel (16 px num quadrado de 72), em
+ * porcentagem para acompanhar o tamanho da peça. Sem o corte, o que entra na
+ * arte é o recorte retangular do print: as quinas trazem o fundo quase preto
+ * da folha, que é mais escuro que o da capa, e cada logotipo ganha um
+ * quadrado escuro em volta. */
+.arco-mcp__peca {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: var(--peca);
+  height: var(--peca);
+  margin-left: calc(var(--peca) / -2);
+  border-radius: 22.2%;
+  overflow: hidden;
+}
+
+.arco-mcp__peca img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.arco-mcp__peca--e2 {
+  transform: translateX(calc(var(--passo) * -2)) translateY(56px) rotate(-16deg);
+  opacity: 0.55;
+}
+
+.arco-mcp__peca--e1 {
+  transform: translateX(calc(var(--passo) * -1)) translateY(19px) rotate(-8deg);
+  opacity: 0.8;
+}
+
+.arco-mcp__peca--d1 {
+  transform: translateX(var(--passo)) translateY(19px) rotate(8deg);
+  opacity: 0.8;
+}
+
+.arco-mcp__peca--d2 {
+  transform: translateX(calc(var(--passo) * 2)) translateY(56px) rotate(16deg);
+  opacity: 0.55;
+}
+
+/* ------------------------------------------- áreas em duas colunas
+ *
+ * A lista de tiques que acompanha o arco: quatro ou seis áreas do sistema, em
+ * duas colunas, cada uma com um tique vermelho na frente. É o bloco de
+ * benefícios da própria folha de Aplicativos → MCP, remontado no formato do
+ * feed, e nasceu na #13 por isso.
+ *
+ * Ela existe para a CAPA, e é por isso que não tem cartão em volta nem segunda
+ * linha de apoio: o trabalho dela é dizer *onde o recurso chega* em quatro
+ * pares de palavras, debaixo de um título grande. Com moldura branca, seis
+ * retângulos numa capa escura pesam mais que a manchete; com subtítulo em cada
+ * item, viram um slide de texto corrido.
+ *
+ * O tique é o da folha do MCP — círculo vermelho cheio com o visto branco. Ele
+ * diz *liberado*, e por isso só entra aqui o que já existe: área que ainda vai
+ * sair não ganha tique, fica de fora da lista.
+ */
+.areas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 20px;
+}
+
+.areas__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.areas__tique {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: var(--primaria);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.areas__nome {
+  display: block;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--escuro);
+  line-height: 1.15;
+}
+
+.slide--capa .areas__nome {
+  color: #fff;
+}
+
 /* Aqui existia o `.selo-ilustracao`, uma pílula "ILUSTRAÇÃO" no canto do slide.
  * Saiu, e não volta: numa peça de venda ela é a única palavra que o leitor não
  * esperava, rouba o olho no feed e avisa "o que você está vendo não é o

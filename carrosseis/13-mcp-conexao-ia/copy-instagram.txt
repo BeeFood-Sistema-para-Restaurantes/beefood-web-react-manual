@@ -1,0 +1,197 @@
+CARROSSEL — MCP: A SUA IA TRABALHANDO DENTRO DO BEEFOOD
+Gênero: novidade
+Fonte: beefood.app/novidades/mcp-inteligencia-artificial — 13/10/2026, áreas
+Aplicativos e Sistema. Mais a documentação do próprio servidor, que é onde está
+a metade que o release não conta (a escrita).
+Manual: não há manual na pasta manuais/. Os passo a passo publicados são os da
+própria folha de Aplicativos → MCP (Manual do MCP, Como conectar ao ChatGPT,
+Como conectar ao Claude).
+
+Publicar como carrossel de feed, 6 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-como-funciona, 03-relatorios, 04-cardapio,
+05-permissoes, 06-cta.
+
+O NOME DE VENDA É MCP, e não o título do release. O release batiza "MCP:
+converse com o seu restaurante usando IA"; o menu e o cartão da grade escrevem
+MCP, e é por MCP que o cliente vai procurar. Nos comentários, use sempre este
+nome, e deixe a explicação para a frase seguinte.
+
+ELE NÃO SÓ RESPONDE: ELE ALTERA. É a informação mais importante da peça, e a
+que mais vai gerar pergunta. O conector publica 61 operações, e 29 delas mudam
+alguma coisa — 24 só no cardápio. Dá para pedir à IA que cadastre produto, mexa
+em preço, abra cupom ou mude o status de um pedido. O slide 4 mostra isso
+acontecendo: a Limonada Suíça 500ml do print foi criada pela IA, a pedido, e
+aparece no Cardápio do painel como qualquer produto cadastrado à mão.
+
+A CAPA É A PRÓPRIA FOLHA DO PAINEL. O arco de cinco quadrados, a pílula e o
+título centrado são o layout de Aplicativos → MCP, remontado no formato do
+feed, e os cinco quadrados são recorte da tela, com o fundo que o painel dá a
+cada serviço. Se alguém comentar que já viu essa tela, a resposta é: viu mesmo,
+é ela.
+
+DUAS DAS SEIS IMAGENS SÃO DESENHO, E SÃO AS DUAS CONVERSAS. O resultado do MCP
+acontece dentro do ChatGPT, do Claude, do Lovable ou do Cursor, que não são
+telas nossas para fotografar. O desenho não imita nenhum desses aplicativos —
+ele usa a paleta da própria folha de Aplicativos → MCP, inclusive o fio
+colorido, que no slide 6 aparece fotografado na borda do cartão. Já os números
+e o produto dentro das conversas são de verdade: foram perguntados e pedidos ao
+servidor do MCP pelo protocolo, com a autorização da conta de teste, do mesmo
+jeito que uma IA faria.
+
+OS NÚMEROS SÃO DE UMA LOJA DE DEMONSTRAÇÃO, e isso pode ser dito sem medo: são
+exemplo, e qualquer loja vê os próprios. O que não é exemplo é a igualdade — o
+valor total e o ticket médio que a IA respondeu (R$ 14.283,52 e R$ 53,70) são
+exatamente os que o relatório de Desempenho mostra na mesma janela de 30 dias, e
+é isso que o slide 3 prova.
+
+A TABELA DO SLIDE 5 É A TELA DE AUTORIZAÇÃO DE VERDADE. Ela aparece uma vez, na
+hora de conectar, entre o login e o botão PERMITIR — e é ali que o lojista
+escolhe, área por área, o que a IA pode ler e o que ela pode alterar. O recorte
+deixa de fora o cabeçalho (que mostra qual conta está autorizando) e as duas
+últimas linhas, Entregadores e Estoque, que no produto aparecem apagadas com a
+nota "em breve". Se alguém perguntar por essas duas, a resposta é essa.
+
+NADA FOI ALTERADO NO SISTEMA, exceto um produto que nós mesmos apagamos. Foi
+criado um único produto de demonstração — a Limonada Suíça 500ml —, fotografado
+e removido pela mesma API, e o cardápio voltou ao que era. Nenhum dado
+existente foi tocado: nem preço, nem nome, nem pedido. O arquivo cena.json
+registra o caminho inteiro, com o id do produto e a rota que o apagou.
+
+O ÍCONE DO CARTÃO MCP GIRA. O quadrado do cartão em Aplicativos é um carrossel:
+ele mostra os cinco logotipos, um a cada três segundos. O print do slide 6 pegou
+a vez da BeeFood. Se o cliente abrir a tela e encontrar o coração do Lovable ou
+o círculo do Claude ali, está certo — é a mesma animação em outro instante.
+
+NENHUM DADO DE CLIENTE APARECE EM IMAGEM NENHUMA, e desta vez não houve o que
+borrar: tudo que entrou é número agregado, tabela de permissão e um produto
+criado por nós. Uma consulta pedia cuidado — a de avaliações devolve telefone
+de quem avaliou — e dela foi guardada só a contagem.
+
+AS TELAS DE CONFIGURAÇÃO FICARAM DE FORA DE PROPÓSITO. O campo Link do MCP, o
+botão de copiar e a lista de manuais existem, foram vistos e não entraram em
+slide nenhum: carrossel mostra o que passa a acontecer, não onde se mexe. Se
+alguém pedir print do passo a passo, mande o link do manual — ele é melhor nisso
+do que uma arte.
+
+SE COMPARAREM COM O RELATÓRIO DE ORIGEM. O painel tem Desempenho → Vendas →
+Origem, e ele reparte por tipo de atendimento (Delivery, Mesas, PDV, Cardápio
+Digital, iFood...), enquanto a API reparte por canal de venda, onde balcão, mesa
+e PDV caem todos em "Manual". As duas somam o mesmo total e dividem diferente, e
+nem a própria tela usa um corte só. Comparação que fecha é a do slide 3: valor
+total e ticket médio.
+
+SAIU NO MESMO DIA, E É OUTRA PEÇA: a API aberta
+(beefood.app/novidades/api-aberta-liberada). Uma fala com quem programa, a outra
+com quem pergunta. Não misture as duas na mesma publicação.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+O MCP da BeeFood chegou 🤖
+
+Conecte a sua IA preferida — ChatGPT, Claude, Lovable, Cursor ou outra
+compatível — e passe a resolver coisa do restaurante no mesmo chat em que você
+já digita.
+
+MCP é o padrão que liga uma IA a um sistema. Na prática: você copia o link do
+seu BeeFood em Aplicativos → MCP, cola onde a sua ferramenta pede o conector e
+autoriza pela sua conta. A partir daí ela trabalha dentro do seu BeeFood.
+
+E trabalhar é a palavra certa. Pergunte quanto a loja vendeu nos últimos 30 dias
+e o valor total e o ticket médio que voltam são os mesmos que o relatório de
+Desempenho mostra, até o centavo — é o seu número, perguntado de outro jeito.
+Mas o conector não para na consulta: peça para cadastrar um produto, com nome,
+preço e setor, e quando você abrir o Cardápio ele já está lá. O produto do
+quarto slide foi criado assim, na conversa.
+
+São seis áreas ao todo — loja, pedidos, cardápio, clientes, cupons e avaliações
+—, e em cada uma você decide se a IA pode só ler ou também alterar. Essa escolha
+aparece uma vez, na hora de conectar, e pode ser revogada a qualquer momento.
+
+Os guias de conexão estão no mesmo painel, um para ChatGPT e outro para Claude.
+Leva um minuto, e é uma vez só.
+
+MCP fica em Aplicativos → MCP 🤖
+Tudo que entra de novo está em beefood.app/novidades
+
+#beefood #mcp #inteligenciaartificial #chatgpt #claude #gestaoderestaurante
+#restaurante #delivery #cardapiodigital #tecnologiaparadelivery
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+O que você mandaria a IA fazer primeiro no seu BeeFood? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro. No alto, cinco quadrados de logotipo em arco, inclinados para
+    fora e com os das pontas mais apagados: Lovable, Claude, BeeFood no centro,
+    ChatGPT e Cursor. Abaixo, a pílula "Novidade" e o título "O MCP da BeeFood
+    chegou", com "MCP" em vermelho, e a linha "Conecte a sua IA preferida no
+    BeeFood: ela lê os seus relatórios e edita o seu cardápio ali, na conversa".
+    No pé, quatro itens com tique vermelho, em duas colunas: Vendas e
+    relatórios, Cardápio e preços, Pedidos e cupons, ChatGPT, Claude e mais.
+
+02  Chapéu "Como funciona" e título "Você conversa com a sua IA, e ela faz o
+    trabalho dentro do seu BeeFood". O texto diz que o MCP é o padrão que liga
+    uma IA a um sistema, e que, com o link do BeeFood colado lá, ela passa a ler
+    os números e a mexer no cardápio, só nas áreas que o lojista marcar.
+    Abaixo, um desenho de ligação: quatro ícones de aplicativos de inteligência
+    artificial em fila, cada um num círculo branco com anel colorido e o nome
+    embaixo — Lovable, Claude, ChatGPT e Cursor. De cada um desce uma linha
+    pontilhada com um sinal de confirmação no meio, e as quatro entram numa
+    barra escura que atravessa a largura do slide, com o ícone da BeeFood, o
+    rótulo "Conector beefood-api" e a frase "Lê e altera: vendas, pedidos,
+    cardápio e cupons".
+
+03  Chapéu "Dá para conferir" e título "Relatórios: pergunte o faturamento e
+    confira no painel", com "Relatórios" em vermelho. O texto diz que quem
+    pergunta na conversa recebe o mesmo valor que o relatório de Desempenho
+    fecha no mesmo período.
+    Abaixo, duas imagens comparadas. Na primeira, sob o rótulo "O que a IA
+    respondeu", a tela escura de uma conversa com um fio colorido no alto, a
+    etiqueta beefood-api e duas linhas: Valor total R$ 14.283,52 e Ticket médio
+    R$ 53,70. Na segunda, sob o rótulo "O que o painel mostra", um recorte do
+    relatório de Desempenho do BeeFood com os dois cartões brancos: VALOR TOTAL
+    R$ 14.283,52 e TICKET MÉDIO R$ 53,70.
+
+04  Chapéu "Não é só consulta" e título "Cardápio: peça a mudança e ela aparece
+    no painel", com "Cardápio" em vermelho. O texto diz para dizer o produto, o
+    preço e o setor, e que, quando o lojista abrir o Cardápio, ele já está lá, no
+    setor certo.
+    Abaixo, duas imagens comparadas. Na primeira, sob o rótulo "O que foi pedido
+    na conversa", a tela escura de uma conversa: a pergunta, do lado direito,
+    diz "Cadastra uma Limonada Suíça 500ml por R$ 12,90 em Bebidas", e a
+    resposta, assinada pela etiqueta beefood-api, diz "Pronto: Limonada Suíça
+    500ml criada em Bebidas, a R$ 12,90". Na segunda, sob o rótulo "O que o
+    painel passou a mostrar", um recorte do Cardápio do painel: o cabeçalho do
+    setor Bebidas com 16 produtos e, abaixo, o cartão "Limonada Suíça 500ml, R$
+    12,90" cercado por um anel vermelho, ao lado do começo do cartão seguinte,
+    "Fanta Laranja Zero 2L, R$ 12,00".
+
+05  Chapéu "Você no controle" e título "Permissões: você marca o que ela lê e o
+    que ela altera", com "Permissões" em vermelho. O texto diz que são 61
+    operações no conector, 29 delas capazes de alterar alguma coisa, e que o
+    lojista libera área por área.
+    Abaixo, sob o rótulo "A tela que aparece na hora de conectar", um recorte
+    dessa tela: uma tabela com as colunas Permissão, Leitura e Escrita, e seis
+    linhas — Loja, Pedidos, Catálogo, Clientes, Cupons e Avaliações —, todas com
+    as duas caixas marcadas em vermelho. No pé do slide, a frase "O acesso …
+    pode ser revogado a qualquer momento".
+
+06  Fundo escuro com o chapéu "Já está no ar" e o título "Faça hoje a primeira
+    pergunta ao seu BeeFood", com "hoje" em vermelho. O texto diz que o link
+    para colar na IA e o passo a passo do ChatGPT e do Claude estão na mesma
+    tela, e que tudo que entra de novo está em beefood.app/novidades. Abaixo, a
+    pílula de caminho "Aplicativos → MCP".
+    No pé do slide, um recorte do painel: o cartão do MCP na grade de
+    Aplicativos, branco e com borda colorida, trazendo o ícone da BeeFood, o
+    título MCP e a chamada "Conecte o seu BeeFood a sua I...", cortada pela
+    largura do cartão.

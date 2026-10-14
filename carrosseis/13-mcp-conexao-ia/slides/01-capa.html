@@ -1,0 +1,98 @@
+<!-- A capa é a folha de Aplicativos -> MCP, remontada no formato do feed. O
+     pedido foi literal: "deve ser o mesmo layout de aplicativos -> MCP". E o
+     layout de lá não é escolha de estilo — é a assinatura do recurso. Quem já
+     abriu aquela folha reconhece o arco de cinco quadrados antes de ler o
+     título, e quem nunca abriu vai reconhecer a folha quando chegar nela.
+
+     A ordem dos elementos é a da tela: arco, pílula, título grande centrado,
+     linha de apoio e a lista de tiques. O que muda é o que cada um diz.
+
+     O MOLDE é ANÚNCIO DE CHEGADA, e ele veio do dono: "MCP da BeeFood chegou"
+     e "Conecte sua IA preferida no BeeFood". A skill manda não repetir o molde
+     da peça ANTERIOR, e a #12 também anunciou chegada — a regra cede aqui
+     porque quem escreve a manchete é quem vende o produto, e porque o fato é
+     mesmo uma estreia: até esta semana não havia como uma IA falar com o
+     sistema. Fica registrado no roteiro para a #14 não abrir assim.
+
+     O título nomeia (MCP, em vermelho, que é a palavra que ele vai procurar no
+     menu) e o subtítulo diz o que o recurso FAZ, nos dois sentidos que a peça
+     prova depois: ler relatório (slide 3) e editar cardápio (slide 4). "Edita"
+     é a metade que a versão anterior desta peça não contou, e é a maior parte
+     do servidor: 29 das 61 rotas alteram dado, 24 delas no cardápio.
+
+     Os QUATRO TIQUES são o bloco de benefícios da própria folha, reescrito.
+     Lá estão "Consulte os dados da sua loja", "Analise vendas e desempenho",
+     "Crie análises e relatórios personalizados" e "Conecte sua operação a
+     ferramentas de IA" — quatro frases que falam da mesma metade (consultar).
+     Aqui cada tique é uma área que o servidor alcança de verdade, e duas delas
+     são de escrita.
+
+     Os CINCO QUADRADOS SÃO CAPTURA do painel, cada um com o fundo que o painel
+     dá ao serviço. No centro fica a BeeFood: as cinco peças passam pelo centro
+     a cada quinze segundos, então é um quadro honesto da animação — e numa
+     peça nossa a que importa no meio é a nossa. -->
+<div class="slide slide--capa">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">1 de 6</span>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="pilha centro g32">
+    <!-- O arco cabe na margem com peça de 148: as pontas ficam a 356 px do
+         centro e o giro de 16° as estica para 447, contra os 452 de meia
+         largura útil. Com 160 px de peça a quina sangrava pela borda. -->
+    <div class="arco-mcp" style="--peca: 148px; --passo: 178px; width: 100%">
+      <div class="arco-mcp__peca arco-mcp__peca--e2">
+        <img src="../imagens-puras/logo-lovable.png" alt="">
+      </div>
+      <div class="arco-mcp__peca arco-mcp__peca--e1">
+        <img src="../imagens-puras/logo-claude.png" alt="">
+      </div>
+      <div class="arco-mcp__peca arco-mcp__peca--c">
+        <img src="../imagens-puras/logo-beefood.png" alt="">
+      </div>
+      <div class="arco-mcp__peca arco-mcp__peca--d1">
+        <img src="../imagens-puras/logo-chatgpt.png" alt="">
+      </div>
+      <div class="arco-mcp__peca arco-mcp__peca--d2">
+        <img src="../imagens-puras/logo-cursor.png" alt="">
+      </div>
+    </div>
+
+    <!-- `align-self` inline porque a `.pilula` nasce `flex-start`: numa pilha
+         centrada ela é a única peça que ignora o `align-items`. -->
+    <span class="pilula pilula--novidade" style="align-self: center">Novidade</span>
+
+    <h1 class="titulo">
+      O <span class="destaque">MCP</span> da BeeFood chegou
+    </h1>
+
+    <p class="subtitulo" style="max-width: 820px">
+      Conecte a sua IA preferida no BeeFood: ela lê os seus relatórios e edita o
+      seu cardápio ali, na conversa.
+    </p>
+
+    <ul class="areas" style="width: 100%; margin-top: 12px">
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">Vendas e relatórios</span>
+      </li>
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">Cardápio e preços</span>
+      </li>
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">Pedidos e cupons</span>
+      </li>
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">ChatGPT, Claude e mais</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="empurra"></div>
+</div>

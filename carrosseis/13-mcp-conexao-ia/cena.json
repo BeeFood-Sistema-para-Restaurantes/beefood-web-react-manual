@@ -1,0 +1,140 @@
+{
+  "por_que": [
+    "UMA COISA FOI ESCRITA NA SANDBOX, e este arquivo existe para dizer qual, por onde e",
+    "como ela foi desfeita. As pecas anteriores usam o cena.json para declarar o que foi",
+    "forjado; aqui ele declara duas coisas — de onde cada numero veio, e que a unica",
+    "alteracao feita no sistema foi um produto de demonstracao, criado e apagado pela",
+    "mesma API.",
+    "",
+    "POR QUE ESCREVER. A primeira versao desta peca vendia um recurso que so responde",
+    "pergunta, e a documentacao do servidor diz o contrario: das 61 operacoes publicadas,",
+    "29 ALTERAM dado, e 24 delas sao de catalogo. Afirmacao desse tamanho nao se sustenta",
+    "com conversa desenhada — o slide 4 precisa mostrar um produto que a IA criou, na tela",
+    "em que o lojista o encontraria.",
+    "",
+    "O QUE FOI ESCRITO, EXATAMENTE. Um produto, o 2633843: Limonada Suica 500ml, R$ 12,90,",
+    "setor Bebidas, selo 'new'. Criado por POST /v1/catalog/products atraves do",
+    "execute_beefood_request, fotografado no Cardapio do painel e apagado por DELETE na",
+    "mesma rota. Nenhum dado existente foi tocado — nem preco, nem nome, nem pedido —, e",
+    "o cardapio voltou aos 398 produtos que tinha.",
+    "",
+    "E bebida de proposito: o setor Bebidas e curto, entao o produto novo aparece sem",
+    "rolagem na tela do Cardapio, e bebida nao tem complemento — criar e apagar nao deixa",
+    "grupo de opcao orfao.",
+    "",
+    "O CAMINHO E O DO LOJISTA, SEM ATALHO. O consultar-mcp.py faz o OAuth inteiro",
+    "(descoberta em /.well-known/oauth-authorization-server, registro dinamico,",
+    "autorizacao aberta no Chromium com a conta de teste e o botao Permitir, troca de",
+    "codigo com PKCE S256) e so entao abre a sessao MCP (initialize,",
+    "notifications/initialized, tools/call). Nenhuma chamada por dentro, nenhum atalho de",
+    "banco. Sem o passo da autorizacao o servidor responde unauthorized a qualquer",
+    "chamada — foi medido, e e o que sustenta a frase do slide 5.",
+    "",
+    "UM JOGO DE NUMEROS, DEFENDIDO EM CODIGO. A loja de demonstracao recebe pedido",
+    "enquanto a peca e feita, e o capturar-telas.py le o conversas.json, compara com o que",
+    "acabou de fotografar e estoura se divergirem. Esse guarda pegou um defeito que o olho",
+    "nao pegaria: o painel dizia R$ 14.283,52 e a conversa R$ 12.083,98, e a causa era",
+    "FUSO — o Cloud Agent roda em UTC, e depois das 21h de Brasilia date.today() ja virou",
+    "o dia seguinte, entao a janela de 30 dias andava 24 horas. O script passou a calcular",
+    "o dia em UTC-3.",
+    "",
+    "A JANELA E A QUE A TELA ABRE SOZINHA. O MCP foi perguntado de 2026-09-13 a",
+    "2026-10-13, que e o 'Ultimos 30 dias (31 dias)' do Desempenho. Sem isso os dois",
+    "numeros seriam parecidos e diferentes, que e pior do que ser diferente."
+  ],
+
+  "servidor": {
+    "url": "https://docs.beefood.app/mcp",
+    "anuncia": { "name": "beefood-api", "version": "1.1.0", "title": "BeeFood API" },
+    "protocolo": "2025-06-18, streamable HTTP (resposta em text/event-stream)",
+    "ferramentas": [
+      "search_beefood_api",
+      "query_docs_filesystem_beefood_api",
+      "listar_endpoints",
+      "detalhe_endpoint",
+      "execute_beefood_request",
+      "submit_feedback"
+    ],
+    "endpoints": {
+      "total": 61,
+      "de_escrita": 29,
+      "Catalogo": "33, sendo 24 de escrita",
+      "Restaurante": "15, sendo 2 de escrita",
+      "Pedidos": "6, sendo 3 de escrita",
+      "Relatorios": "5, nenhuma de escrita",
+      "Clientes": "2, nenhuma de escrita",
+      "nota": "o 61 e o 29 viraram slide (5). A quebra por grupo nao: e arquitetura, e o leitor compra resultado"
+    },
+    "regra_de_escrita": "a descricao do execute_beefood_request manda descrever a mudanca e pedir confirmacao explicita antes de gravar, e nunca repetir escrita que falhou",
+    "sem_oauth": "{\"error\":\"unauthorized\",\"error_description\":\"A valid OAuth access_token is required.\"}"
+  },
+
+  "conta": {
+    "painel": "https://beefood.app",
+    "loja": "BeeFood3 - Manual",
+    "empresaID": 38311,
+    "filialID": 39202,
+    "nota": "loja de teste da casa; API_MCP_ALLOWED_EMPRESAS libera 107 e 38311"
+  },
+
+  "token": {
+    "onde": "/tmp/beefood-mcp-token.json",
+    "versionado": false,
+    "por_que": "credencial de sessao nao entra no repositorio, mesmo sendo de sandbox descartavel"
+  },
+
+  "escrita_de_demonstracao": {
+    "produtoId": 2633843,
+    "nome": "Limonada Suica 500ml",
+    "preco": 12.9,
+    "setor": "Bebidas (224857)",
+    "criado_por": "POST /v1/catalog/products",
+    "apagado_por": "DELETE /v1/catalog/products/2633843",
+    "desfeito": true,
+    "como_refazer": [
+      "python carrosseis/13-mcp-conexao-ia/consultar-mcp.py --escrever",
+      "python carrosseis/13-mcp-conexao-ia/capturar-telas.py cardapio",
+      "python carrosseis/13-mcp-conexao-ia/consultar-mcp.py --apagar <id>"
+    ],
+    "reaproveita": "se o produto da rodada anterior continua vivo, o --escrever o reusa em vez de criar outro; medir de novo e comum, e cada medicao nao pode deixar uma limonada a mais no cardapio"
+  },
+
+  "consultas": [
+    { "rota": "/v1/orders/summary", "para": "o faturamento e o ticket do slide 3" },
+    { "rota": "/v1/orders/summary/grouped?groupBy=salesChannel", "para": "a quebra por canal; medida e NAO usada em slide nenhum" },
+    { "rota": "/v1/catalog/products", "para": "a contagem de produtos; so o total da paginacao" },
+    { "rota": "/v1/catalog/sectors", "para": "a contagem de setores" },
+    { "rota": "/v1/orders/summary/products", "para": "quantos produtos tiveram venda no periodo" },
+    { "rota": "/v1/store/coupons", "para": "quantos cupons existem; so o total" },
+    { "rota": "/v1/store/reviews", "para": "quantas avaliacoes existem; SO O TOTAL, porque o corpo traz telefone de quem avaliou" },
+    { "rota": "/v1/catalog/products/{id}", "para": "reler o produto criado e conferir nome, preco e setor" }
+  ],
+
+  "nenhum_dado_de_cliente": {
+    "e_verdade_porque": "as consultas sao agregadas; das duas que devolvem linha de cliente, so o total foi gravado",
+    "cuidado_registrado": "/v1/store/reviews devolve telefone de quem avaliou. O consultar-mcp.py nunca grava o corpo dessa resposta",
+    "nada_a_borrar": true,
+    "token_do_iframe": "o Desempenho e um iframe de relatorios.beefood.com.br e leva auth= na URL do quadro; ela nao aparece em pixel nenhum",
+    "tela_de_autorizacao": "o recorte comeca na tabela de permissoes e deixa de fora o cabecalho, que mostra a conta autorizada e o nome do cliente registrado"
+  },
+
+  "capturas": {
+    "rec-desempenho.png": "os dois cartoes do topo do Desempenho; e a prova de LEITURA do slide 3",
+    "rec-cardapio.png": "o setor Bebidas do Cardapio com o produto que a IA criou; e a prova de ESCRITA do slide 4",
+    "rec-permissoes.png": "a tabela de permissoes da tela Conectar com BeeFood, tirada no meio do fluxo de autorizacao; e a arte do slide 5",
+    "rec-cartao-mcp.png": "o cartao do MCP na grade de Aplicativos, com a borda arco-iris; e a arte do CTA",
+    "logo-*.png": "os cinco .mcp-arc-item da folha do MCP, cada um com o fundo que o painel lhe da; nenhum logotipo baixado de fora",
+    "01-aplicativos.png / 02-folha-mcp.png / 04-cardapio.png": "contexto, fora da arte"
+  },
+
+  "quadros_escolhidos_de_animacao": [
+    "o arco da capa: as cinco pecas passam pelo centro a cada 15 s, e a captura usa a estacao em que a BeeFood esta no meio",
+    "o icone do cartao do MCP: o McpIconCarousel roda os cinco logotipos, um a cada 3 s. Parado, o painel mostra o primeiro da lista (Lovable); a captura escolhe o quinto (BeeFood) mexendo so na opacidade"
+  ],
+
+  "o_que_nao_se_capturou": [
+    "o campo Link do MCP, o botao de copiar e a lista de manuais: tela de configuracao",
+    "Desempenho -> Vendas -> Origem: agrupa por tipo de atendimento (Delivery, Mesas, PDV) e nao por salesChannel. Soma o mesmo total e reparte diferente — a propria tela da Delivery com R$ 7.431,87 na lista e R$ 10.330,37 no podio",
+    "as duas areas 'em breve' da tela de autorizacao (Entregadores e Estoque): saem do recorte por aritmetica de layout, e o que elas acrescentavam era promessa"
+  ]
+}
