@@ -72,11 +72,11 @@ que o leitor vai procurar em *Aplicativos*.
 |---|---|---|---|
 | 1 | `01-capa.html` | **API Aberta**: o seu sistema lê e escreve no BeeFood | o fluxo entradas → BeeFood → saídas, **desenhado** |
 | 2 | `02-como-funciona.html` | O seu sistema pergunta. O BeeFood responde. | cartão de requisição e resposta, **desenhado** com a chamada real do `chamadas.json` |
-| 3 | `03-catalogo.html` | **Catálogo**: 24 das 33 rotas escrevem no cardápio | a grade dos seis recursos liberados, **desenhada** |
-| 4 | `04-webhooks.html` | Os **webhooks** avisam o seu sistema sem ninguém perguntar | o aviso saindo do pedido para o endereço do parceiro, **desenhado** |
+| 3 | `03-catalogo.html` | **Catálogo**: 24 das 33 rotas escrevem no cardápio | a grade dos seis objetos do catálogo mais três rotas de escrita, **desenhadas** |
+| 4 | `04-webhooks.html` | Os **webhooks** avisam o seu sistema sozinhos | a tabela dos cinco eventos, **desenhada** |
 | 5 | `05-permissoes.html` | Você liga **Consultar** e **Alterar** em cada recurso | `rec-permissoes.png` — **captura** da folha *Aplicativos → API Aberta* |
 | 6 | `06-documentacao.html` | A **documentação** já traz o exemplo pronto | `rec-exemplo.png` — **captura** de `docs.beefood.app` |
-| 7 | `07-cta.html` | Libere o acesso do seu **sistema** hoje | o mesmo fluxo da capa |
+| 7 | `07-cta.html` | Libere **hoje** o acesso do seu sistema | `rec-cartao-api.png` — **captura** do cartão na grade de *Aplicativos* |
 
 Lidos em fila, os sete títulos montam o recurso: ele lê e escreve, o seu sistema
 pergunta e o BeeFood responde, o cardápio é a maior parte, os avisos chegam
@@ -93,15 +93,58 @@ foi justamente esse — *"aqui precisamos criar as imagens, ilustrar"*.
 
 | Imagem | Origem |
 |---|---|
-| `.fluxo-api` (slides 1 e 7) | **desenho**, na composição da ilustração do alto de `docs.beefood.app` — referência de layout, como print de manual: nada foi recortado de lá |
-| `.requisicao` (slide 2) | **desenho**, com a chamada e a resposta medidas pelo `consultar-api.py` |
+| `.fluxo-api` (slide 1) | **desenho**, na composição da ilustração do alto de `docs.beefood.app` — referência de layout, como print de manual: nada foi recortado de lá |
+| `.requisicao` (slides 2 e 3) | **desenho**, com a chamada e a resposta medidas pelo `consultar-api.py` e rotas que existem |
 | `.areas` (slide 3) | **desenho**, a mesma grade de tiques que a #13 trouxe da folha do MCP |
-| `.aviso` (slide 4) | **desenho**, com os cinco `eventType` que a documentação publica |
+| `.eventos` (slide 4) | **desenho**, com os cinco `eventType` que a documentação publica e o rótulo em português que o painel escreve |
 | `rec-permissoes.png` (slide 5) | **captura** do painel, recortada no DOM |
 | `rec-exemplo.png` (slide 6) | **captura** do portal de documentação |
+| `rec-cartao-api.png` (slide 7) | **captura** do cartão na grade de *Aplicativos* |
 
 O desenho não inventa comportamento: rótulo, nome de evento, nome de rota e
 número saem da documentação ou da chamada real.
+
+### A grade do slide 3 lista objeto de catálogo, não área de permissão
+
+As duas listas têm seis itens e se parecem no olho, e a primeira versão do slide
+3 trazia as áreas de permissão — Pedidos, Catálogo, Clientes, Loja, Cupons,
+Avaliações. Elas saíram porque **o slide 5 captura exatamente essa lista**, na
+tela de verdade, com a descrição de cada uma e as doze chaves ligadas. Repetir a
+mesma lista desenhada quatro telas antes seria gastar duas páginas com uma prova
+só, e a desenhada seria a versão pior da fotografada.
+
+O que a grade diz no lugar é outra coisa, e é a do título: "cardápio" pela API
+quer dizer o cardápio **inteiro**, até a foto do produto. Os seis saem das
+próprias rotas, agrupadas pelo recurso que tocam — `sectors` (6 rotas),
+`products` (8), `complements` (6), `groups` (7), `options` (4) e
+`{tipo}/{id}/image` (2). Somam as 33, e as 24 de escrita são todo método que não
+é `GET`.
+
+### O CTA fotografa o cartão, e não repete a capa
+
+A primeira versão fechava com o mesmo `.fluxo-api` da capa. Caiu pelo motivo que
+a #13 deixou escrito: num carrossel a última página é a que fica, e fechar com a
+ilustração que o leitor viu seis telas atrás é fechar com uma lembrança em vez de
+um caminho. O que entra no lugar é `rec-cartao-api.png` — o cartão da API Aberta
+na grade de *Aplicativos*. O último slide manda abrir *Aplicativos → API Aberta*,
+e o cartão é a porta: o leitor vê na arte o que vai procurar quando chegar lá.
+
+O cartão puro tem 682 px de largura, que é a mesma medida do cartão do MCP —
+é a largura de coluna da grade de Aplicativos, não coincidência.
+
+### Três medidas que custaram render
+
+- **a coluna de 904 px não cabe rótulo longo.** Dentro da margem, cada lado do
+  `.fluxo-api` fica com 276 px úteis, e `Entrega atualizada` a 30 px pede 297. A
+  capa sangra para 1012 px, e aí o quadro encosta na borda do slide — que é o que
+  os sistemas da ponta deviam fazer mesmo, já que eles vêm de fora;
+- **dentro do disco branco, a marca tem de voltar a ser a de fundo claro.** Na
+  capa escura o `.logo` usa a arte com o "BEE" em branco, e o disco do núcleo é
+  branco: o primeiro render saiu com a abelha e o "food" soltos, sem o "BEE";
+- **o print das permissões não vai aos 904 px.** A 904 ele estica para 677 de
+  altura e o "arraste" do rodapé sentava em cima da última linha da tabela. A 860
+  ele fecha em 644 e sobra folga; o corpo do slide encolheu para duas linhas pelo
+  mesmo motivo, e nesta página quem argumenta é o print.
 
 ### O recorte do slide 5 começa abaixo da credencial
 
