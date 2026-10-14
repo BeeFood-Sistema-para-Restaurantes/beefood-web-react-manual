@@ -237,6 +237,28 @@ TELA_IA = """
 </div>
 """
 
+# O arco da folha de Aplicativos → MCP. Os cinco quadrados são captura do painel
+# (`assets/fotos/tile-*-mcp.png`), e as posições são as do `mcp-panel.css`.
+ARCO_MCP = """
+<div class="arco-mcp" style="--peca: 148px; --passo: 178px; width: 904px">
+  <div class="arco-mcp__peca arco-mcp__peca--e2">
+    <img src="skill:fotos/tile-lovable-mcp.png" alt="">
+  </div>
+  <div class="arco-mcp__peca arco-mcp__peca--e1">
+    <img src="skill:fotos/tile-claude-mcp.png" alt="">
+  </div>
+  <div class="arco-mcp__peca arco-mcp__peca--c">
+    <img src="skill:fotos/tile-beefood-mcp.png" alt="">
+  </div>
+  <div class="arco-mcp__peca arco-mcp__peca--d1">
+    <img src="skill:fotos/tile-chatgpt-mcp.png" alt="">
+  </div>
+  <div class="arco-mcp__peca arco-mcp__peca--d2">
+    <img src="skill:fotos/tile-cursor-mcp.png" alt="">
+  </div>
+</div>
+"""
+
 PECAS: list[tuple[str, str, str, str]] = [
     ("totem", "Totem, só o aparelho",
      "420 px com texto ao lado; 400 sozinho",
@@ -302,6 +324,9 @@ PECAS: list[tuple[str, str, str, str]] = [
     ("tela-ia", "Conversa com a IA",
      ".tela-ia--avulsa, 904 px margem a margem (26 px)",
      f'<div style="width: 904px">{TELA_IA}</div>'),
+    ("arco-mcp", "Arco da folha do MCP",
+     ".arco-mcp, peça de 148 e passo de 178",
+     ARCO_MCP),
 ]
 
 

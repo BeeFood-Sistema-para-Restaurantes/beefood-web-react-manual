@@ -20,6 +20,7 @@ prova de que o aparelho continua lendo como aparelho.
 | Janela de navegador | `.navegador` | 1120, sangrando pela direita | captura recortada |
 | Cupom térmico | `.cupom` + `.rasgado` | até 460 | desenho, sempre |
 | Conversa com a IA | `.tela-ia` | 904 solta (`--avulsa`), margem a margem | desenho, sempre |
+| Arco da folha do MCP | `.arco-mcp` + `.areas` | peça de 148, passo de 178 | captura, uma por logotipo |
 
 ## Fluxo: o caminho de várias coisas até uma tela só
 
@@ -401,6 +402,46 @@ inventado seria a única parte falsa.
 **E os números vêm medidos**, de um `conversas.json` ao lado do roteiro. A copy
 o leitor avalia; a tela ele acredita — e é por isso que tela desenhada exige
 número mais verdadeiro, não menos.
+
+## O arco da folha do MCP
+
+`.arco-mcp` é a assinatura de *Aplicativos → MCP* remontada no formato do feed:
+cinco quadrados de logotipo em arco, inclinados para fora, com os das pontas mais
+apagados. Nasceu na peça 13 porque o dono mandou abrir a peça com *"o mesmo
+layout de Aplicativos → MCP"* — e o layout de lá não é escolha de estilo, é o que
+faz quem já entrou naquela folha reconhecer a peça antes de ler o título.
+
+**As posições são as do produto.** Elas foram lidas no `@keyframes
+mcp-panel-arc` do `mcp-panel.css`, estação por estação: `translateY` e `rotate`
+crescendo para fora, sem mudar de tamanho. A única coisa alterada é a opacidade
+das pontas — no painel ela cai a 0,4, e aqui para em **0,55**, porque a arte é
+vista reduzida no feed e a 0,4 as duas pontas somem.
+
+**Os quadrados são captura**, um recorte por serviço, com o fundo que o painel dá
+a cada um. Marca de terceiro não se redesenha.
+
+Duas medidas que custaram render:
+
+- **o recorte precisa do raio da origem.** `border-radius: 22.2%` mais
+  `overflow: hidden` no `.arco-mcp__peca`, que é o `rounded-2xl` do painel (16 px
+  num quadrado de 72) em porcentagem. Sem isso, o que entra na arte é o retângulo
+  do print: as quinas trazem o fundo quase preto da folha, que é **mais escuro**
+  que o da capa, e cada logotipo ganha um quadrado em volta. Vale para qualquer
+  recorte de elemento arredondado posto sobre outro fundo;
+- **o giro estica a caixa.** A 16°, a quina da ponta chega a ~1,24× o lado do
+  quadrado. Com peça de 148 px e passo de 178, a ponta vai a 447 px do centro,
+  contra 452 de meia largura útil; com 160 ela sangra pela borda.
+
+Quem fica no centro é a **BeeFood**. As cinco peças passam pelo centro a cada
+quinze segundos, então qualquer uma seria um quadro honesto da animação — e numa
+peça nossa a que importa no meio é a nossa.
+
+Ao lado dele costuma ir `.areas`, a lista de tiques em duas colunas, que é o
+bloco de benefícios da mesma folha. Ela é **de capa**: sem cartão em volta e sem
+segunda linha de apoio, porque o trabalho dela é dizer onde o recurso chega em
+quatro pares de palavras, debaixo de um título grande. Com moldura branca, seis
+retângulos numa capa escura pesam mais que a manchete. O tique vermelho diz
+*liberado*, então área que ainda vai sair não entra na lista.
 
 ## Notebook e monitor de mesa
 
