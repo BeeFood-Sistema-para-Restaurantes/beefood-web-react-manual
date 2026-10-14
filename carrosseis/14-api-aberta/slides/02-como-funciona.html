@@ -1,0 +1,77 @@
+<!-- Slide 2: a exceção da regra do nome. Os outros seis títulos vendem; este
+     explica, porque a capa acabou de nomear uma coisa que o leitor nunca viu.
+     "Em peça de novidade, explicar bem É vender" — e numa peça de API o que
+     precisa de explicação é o básico: alguém pergunta, alguém responde.
+
+     O CARTÃO É A ÚNICA IMAGEM POSSÍVEL do resultado. Não existe tela nossa de
+     "API funcionando": quem recebe o pedido é o sistema do parceiro, e esse
+     aparelho não está aqui para fotografar. O que existe de concreto é o corpo
+     da resposta, e é ele que vai para a arte.
+
+     O CONTEÚDO É MEDIDO. A chamada é a que o `consultar-api.py` fez contra
+     `api.beefood.app`, e os números são os que voltaram: 44 pedidos na janela
+     de sete dias, e o pedido 61424246 com os campos que ele tem de verdade. É a
+     mesma regra da `.tela-ia` da #13 — a copy o leitor avalia, a tela ele
+     acredita.
+
+     A DATA SAIU DA QUERY STRING, e sobrou o `…`. A chamada de verdade é
+     `?saleDateFrom=2026-10-07&saleDateTo=2026-10-14`, e arte com data nasce
+     velha. Cortar o parâmetro inteiro seria pior que mostrar a data: sem
+     `saleDateFrom` a rota devolve 400 — foi conferido de propósito, e o
+     `chamadas.json` guarda o corpo do erro. Com o parâmetro elidido a linha
+     continua sendo uma chamada que funciona.
+
+     O QUE O CORPO NÃO MOSTRA: do envelope ficaram de fora `page`, `limit` e
+     `pages`, que são convenção de paginação e não têm nada para dizer ao dono
+     do restaurante; do item ficaram de fora `createdAt`, `deliveryType` e
+     `paidAmount` — os oito campos estão listados no `chamadas.json`. O `…` no
+     fim da última linha é o que avisa que há mais, e ele é obrigatório: campo
+     que não cabe se elide, nunca se apaga em silêncio.
+
+     OS CINCO CAMPOS QUE FICARAM são os que o título cobre. Número do pedido,
+     situação, situação da entrega, tipo e valor: é o cartão de pedido que
+     qualquer sistema precisa para fazer alguma coisa com ele. -->
+<div class="slide">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">2 de 7</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 904px">
+    <span class="chapeu">Como funciona</span>
+    <h2 class="titulo titulo--pequeno">
+      O seu sistema pergunta. O BeeFood <span class="destaque">responde</span>.
+    </h2>
+    <p class="corpo">
+      A credencial vira um token, o token abre as rotas de <b>/v1</b>. O que
+      volta é o dado da sua loja, no mesmo formato, toda vez.
+    </p>
+  </div>
+
+  <div class="pilha" style="margin: 48px auto 0; width: 904px; gap: 16px">
+    <span class="cartao__rotulo">A chamada e a resposta, como elas saíram</span>
+    <div class="requisicao">
+      <div class="requisicao__linha">
+        <span class="requisicao__metodo">GET</span>
+        <span>/v1/orders?saleDateFrom=&hellip;</span>
+      </div>
+      <pre class="requisicao__corpo">{
+  <b>"total"</b>: <u>44</u>,
+  <b>"items"</b>: [{
+    <b>"orderId"</b>: <u>61424246</u>,
+    <b>"orderStatus"</b>: <i>"CLOSED"</i>,
+    <b>"deliveryStatus"</b>: <i>"DELIVERED"</i>,
+    <b>"orderType"</b>: <i>"DELIVERY"</i>,
+    <b>"orderAmount"</b>: <u>45</u>, <s>&hellip;</s>
+  }]
+}</pre>
+    </div>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="pontos"><span></span><span class="on"></span><span></span><span></span><span></span><span></span><span></span></span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>

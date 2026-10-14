@@ -1,0 +1,97 @@
+{
+  "lido_em": "2026-10-14T11:49:49",
+  "base": "https://api.beefood.app",
+  "conta": "sandbox BeeFood3 - Manual (loja 38311, filial 39202)",
+  "token": {
+    "rota": "POST /v1/oauth/token",
+    "grantType": "client_credentials",
+    "campos": [
+      "accessToken",
+      "expiresAt",
+      "refreshToken"
+    ],
+    "validade": "1 hora, pelo expiresAt da resposta"
+  },
+  "oQueADocumentacaoPublica": {
+    "servidorDaDocumentacao": {
+      "name": "beefood-api",
+      "version": "1.1.0",
+      "title": "BeeFood API"
+    },
+    "rotasDeNegocio": 61,
+    "deEscrita": 29,
+    "grupos": {
+      "Pedidos": {
+        "rotas": 6,
+        "escrita": 3
+      },
+      "Clientes": {
+        "rotas": 2,
+        "escrita": 0
+      },
+      "Restaurante": {
+        "rotas": 15,
+        "escrita": 2
+      },
+      "Relatórios": {
+        "rotas": 5,
+        "escrita": 0
+      },
+      "Catálogo": {
+        "rotas": 33,
+        "escrita": 24
+      }
+    }
+  },
+  "pedidos": {
+    "rota": "GET /v1/orders",
+    "janela": {
+      "saleDateFrom": "2026-10-07",
+      "saleDateTo": "2026-10-14",
+      "comoAPerguntaDiz": "últimos 7 dias"
+    },
+    "total": 44,
+    "paginacao": {
+      "page": 1,
+      "limit": 1,
+      "total": 44,
+      "pages": 44
+    },
+    "chaves": [
+      "orderId",
+      "createdAt",
+      "orderStatus",
+      "deliveryStatus",
+      "orderType",
+      "deliveryType",
+      "orderAmount",
+      "paidAmount"
+    ],
+    "camposNoCartaoDoSlide": [
+      "orderId",
+      "orderStatus",
+      "deliveryStatus",
+      "orderType",
+      "orderAmount"
+    ],
+    "itemNoCartaoDoSlide": {
+      "orderId": 61424246,
+      "orderStatus": "CLOSED",
+      "deliveryStatus": "DELIVERED",
+      "orderType": "DELIVERY",
+      "orderAmount": 45
+    }
+  },
+  "erro": {
+    "rota": "GET /v1/orders sem saleDateFrom",
+    "status": 400,
+    "corpo": {
+      "message": "'saleDateFrom' is required",
+      "status": 400
+    }
+  },
+  "cardapio": {
+    "produtos": 398,
+    "setores": 35
+  }
+}

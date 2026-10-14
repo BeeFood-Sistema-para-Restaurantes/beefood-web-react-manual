@@ -1,0 +1,102 @@
+<!-- A capa é a assinatura de `docs.beefood.app` remontada no formato do feed, e
+     o pedido foi "estilo o MCP": a #13 abriu com o arco de cinco quadrados que
+     é a cara da folha do MCP, e aqui a cara do recurso é o fluxo de entradas e
+     saídas que ilustra o alto do portal de documentação.
+
+     O portal é REFERÊNCIA DE LAYOUT, do mesmo jeito que print de manual é
+     referência de tela: nada foi recortado de lá. O que veio foi a composição —
+     duas colunas olhando para um núcleo — e ela está desenhada em CSS, na
+     `.fluxo-api`.
+
+     O MOLDE É `nome do recurso como ganho`, no formato nome + dois-pontos. A
+     #13 abriu com anúncio de chegada e a capa não repete a forma da anterior; os
+     dois moldes ainda zerados foram escritos e caíram, e o `roteiro.md` guarda
+     o porquê de cada um. Sobrou o molde que a memória já marcava como
+     preferencial para este caso: a novidade CRIA UMA CAPACIDADE que não existia,
+     então a notícia é o nome dela.
+
+     O VERMELHO PEGA "API ABERTA" INTEIRO porque é a palavra que o leitor vai
+     procurar na grade de Aplicativos, e o sujeito da frase é "o seu sistema" —
+     não o canal, não o meio. "Lê e escreve" é o eixo da peça e a metade que
+     quase se perde: 29 das 61 rotas alteram dado.
+
+     AS ROTAS SÃO DE VERDADE. `GET /v1/orders`, `POST /v1/orders` e
+     `GET /v1/catalog/products` existem e respondem — as três foram chamadas
+     pelo `consultar-api.py`. Endereço inventado seria a única parte falsa de uma
+     ilustração que serve justamente para dizer "isto é uma API".
+
+     OS TRÊS AVISOS DA DIREITA são `eventType` publicados, com o mesmo rótulo em
+     português que o painel escreve no formulário de webhook, e o slide 4 abre a
+     lista inteira. Aqui entram três porque a coluna tem o tamanho da coluna de
+     entrada: capa não é lista, é cena. -->
+<div class="slide slide--capa">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">1 de 7</span>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="pilha centro g32">
+    <!-- A cena SANGRA 54 px para cada lado da margem, e é a única coisa do
+         acervo que faz isso. Tem motivo de medida e motivo de sentido. De
+         medida: dentro dos 904 px a coluna de cartão fica com 276 px úteis, e
+         `Entrega atualizada` a 30 px pede 297 — a palavra quebrava em duas
+         linhas e o trio de cartões perdia o ritmo. De sentido: os sistemas da
+         ponta vêm de fora do BeeFood, e um quadro que encosta na borda do slide
+         diz isso sozinho. -->
+    <div class="fluxo-api" style="width: 1012px; margin: 0 -54px">
+      <div class="fluxo-api__lado">
+        <span class="fluxo-api__rotulo">entradas &rarr;</span>
+        <div class="fluxo-api__caixa">
+          <span class="fluxo-api__nome">O seu ERP</span>
+          <span class="fluxo-api__rota">GET /v1/orders</span>
+        </div>
+        <div class="fluxo-api__caixa">
+          <span class="fluxo-api__nome">O seu PDV</span>
+          <span class="fluxo-api__rota">POST /v1/orders</span>
+        </div>
+        <div class="fluxo-api__caixa">
+          <span class="fluxo-api__nome">O seu site</span>
+          <span class="fluxo-api__rota">GET /v1/catalog/products</span>
+        </div>
+      </div>
+
+      <div class="fluxo-api__nucleo">
+        <span class="logo"></span>
+        <span>/v1</span>
+      </div>
+
+      <div class="fluxo-api__lado fluxo-api__lado--saida">
+        <span class="fluxo-api__rotulo">&rarr; saídas</span>
+        <div class="fluxo-api__caixa">
+          <span class="fluxo-api__nome">Pedido criado</span>
+          <span class="fluxo-api__rota">order_created</span>
+        </div>
+        <div class="fluxo-api__caixa">
+          <span class="fluxo-api__nome">Entrega atualizada</span>
+          <span class="fluxo-api__rota">order_delivery_updated</span>
+        </div>
+        <div class="fluxo-api__caixa">
+          <span class="fluxo-api__nome">Pagamento criado</span>
+          <span class="fluxo-api__rota">payment_created</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- `align-self` inline porque a `.pilula` nasce `flex-start`: numa pilha
+         centrada ela é a única peça que ignora o `align-items`. -->
+    <span class="pilula pilula--novidade" style="align-self: center">Novidade</span>
+
+    <h1 class="titulo">
+      <span class="destaque">API Aberta</span>: o seu sistema lê e escreve no
+      BeeFood
+    </h1>
+
+    <p class="subtitulo" style="max-width: 840px">
+      Pedidos, cardápio e clientes — e um aviso automático a cada pedido novo.
+    </p>
+  </div>
+
+  <div class="empurra"></div>
+</div>
