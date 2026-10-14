@@ -1,0 +1,64 @@
+<!-- Slide 6: a objeção que sobra depois de o medo passar. Convencido de que a
+     API faz o que diz e de que a chave é dele, o leitor chega na última dúvida
+     prática: "e quem vai fazer isso?". A resposta não é "é fácil" — é mostrar
+     que o trabalho do outro lado já está metade pronto.
+
+     O QUE A IMAGEM PROVA SÃO TRÊS COISAS DE UMA VEZ, e nenhuma delas caberia em
+     desenho: que a documentação é pública (está num endereço, não num PDF que
+     alguém manda), que o exemplo vem montado na linguagem do programador dele —
+     doze abas visíveis das treze que existem —, e que há um ambiente de testes,
+     que é o que a etiqueta "Produção" no canto deixa escolher.
+
+     A LARGURA DA JANELA FOI ESCOLHIDA, e isso decidiu o slide. O portal vira
+     duas colunas a partir de 1280 px, e aí o exemplo cai numa coluna de 230 px
+     com cinco linguagens visíveis — em 1920 px continuam cinco, porque o limite
+     é a coluna e não a janela. Abaixo de 1280 o layout empilha e o cartão ocupa
+     900 px. A captura é em 1260: é o último degrau antes de o portal se partir,
+     e põe o código numa caixa de 900 px que entra nos 904 do slide quase sem
+     ampliar — 1,004x, a imagem mais honesta do acervo.
+
+     O `.agent-trigger` FOI ESCONDIDO. É o botão flutuante da BeeFood IA, e ele
+     pousa exatamente em cima da linha "Requisição". Esconder elemento que
+     flutua por cima do conteúdo é o mesmo que o `limpar()` faz no painel: não
+     muda a tela, tira o que está na frente dela.
+
+     O EXEMPLO É O DO TOKEN, e é o primeiro passo de qualquer integração — a
+     chamada que troca a credencial pelo crachá. Escolher uma rota de pedido
+     seria mostrar o meio do caminho.
+
+     NÃO ENTRA O NÚMERO DE ROTAS DA HOME DO PORTAL (69). O `listar_endpoints`
+     conta 61, que são as de negócio; a home soma as 7 de autenticação e o
+     health check. Os dois números estão certos e contam coisas diferentes, e a
+     peça usa o 61 porque é o que a #13 já publicou. -->
+<div class="slide">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">6 de 7</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 904px">
+    <span class="chapeu">Quem for integrar agradece</span>
+    <h2 class="titulo titulo--pequeno">
+      A <span class="destaque">documentação</span> já traz o exemplo pronto
+    </h2>
+    <p class="corpo">
+      Treze linguagens, a chamada montada e um ambiente de testes com endereço
+      próprio. Ninguém aprende a integração em cima dos seus pedidos de sexta.
+    </p>
+  </div>
+
+  <div class="pilha" style="margin: 48px auto 0; width: 904px; gap: 16px">
+    <span class="cartao__rotulo">docs.beefood.app</span>
+    <div class="recorte">
+      <img src="../imagens-puras/rec-exemplo.png"
+           alt="O portal de documentação da BeeFood: a barra de linguagens com Node, Shell, Python, PHP, C#, Java, Go, Ruby, Kotlin, Swift, Rust e Dart, e o exemplo de POST /v1/oauth/token montado em axios">
+    </div>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="pontos"><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span></span></span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>
