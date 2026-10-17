@@ -83,6 +83,7 @@ O **status** e a fila ficam no
 | Produto só com agendamento (encomenda) | [`cardapio-digital-agendamento-produto/`](manuais/cardapio-digital-agendamento-produto/cardapio-digital-agendamento-produto.md) |
 | Aparência e layout do cardápio digital | [`cardapio-digital-aparencia-layout/`](manuais/cardapio-digital-aparencia-layout/cardapio-digital-aparencia-layout.md) |
 | Manual de Avisos do Cardápio Digital | [`cardapio-digital-avisos/`](manuais/cardapio-digital-avisos/cardapio-digital-avisos.md) |
+| Botão de WhatsApp no cardápio digital | [`cardapio-digital-botao-whatsapp/`](manuais/cardapio-digital-botao-whatsapp/cardapio-digital-botao-whatsapp.md) |
 | Manual de Capas e Destaques | [`cardapio-digital-capas-destaques/`](manuais/cardapio-digital-capas-destaques/cardapio-digital-capas-destaques.md) |
 | Desconto e acréscimo nas formas de recebimento | [`cardapio-digital-desconto-formas/`](manuais/cardapio-digital-desconto-formas/cardapio-digital-desconto-formas.md) |
 | Cardápio digital presencial e QR Code | [`cardapio-digital-presencial-qrcode/`](manuais/cardapio-digital-presencial-qrcode/cardapio-digital-presencial-qrcode.md) |
