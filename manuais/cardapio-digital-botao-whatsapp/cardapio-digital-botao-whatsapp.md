@@ -7,7 +7,7 @@ tem dúvida no meio do pedido e, em vez de perguntar, desiste.
 Este manual monta **uma** configuração — a mais comum: botão flutuante, no canto direito,
 visível no celular e no computador. A tela tem muito mais (cinco posições, catorze formatos,
 agenda por dia e por horário), e tudo isso fica explicado nela mesma, com um texto embaixo de
-cada opção. Aqui você sai com o botão no ar em quatro passos.
+cada opção. Aqui você sai com o botão no ar em cinco passos.
 
 > As imagens têm **marcações em verde** (setas e números) indicando onde clicar ou o que
 > observar em cada tela.
