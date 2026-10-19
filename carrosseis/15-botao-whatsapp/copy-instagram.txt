@@ -1,0 +1,175 @@
+CARROSSEL — BOTÃO DE WHATSAPP NO CARDÁPIO DIGITAL
+Gênero: novidade
+Fonte: beefood.app/novidades/cardapio-digital-botao-whatsapp — 19/10/2026,
+áreas Cardápio Digital e Marketing.
+Manual: ajuda.beefood.com.br/cardapio-digital-botao-whatsapp
+
+Publicar como carrossel de feed, 6 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-mensagem-pronta, 03-dentro-da-sacola,
+04-loja-fechada, 05-no-computador, 06-cta.
+
+O NOME É O MESMO NOS TRÊS LUGARES, e isso facilita a vida nos comentários: o
+release se chama "Botão WhatsApp no Cardápio Digital", a aba do painel se chama
+"Botão WhatsApp" e é por "botão de WhatsApp" que o lojista pergunta.
+
+NÃO CONFUNDIR COM O WHATSAPP DO CABEÇALHO. Em Cardápio Digital → Configurações
+existe há tempos a opção "Exibir WhatsApp", que põe um ícone no alto da página,
+sem mensagem nenhuma pronta e sem regra de horário. É outro recurso, e é a
+dúvida mais provável de quem já usa o cardápio. Se aparecer nos comentários: o
+botão novo é o que leva o texto escrito pelo restaurante e o que obedece a
+horário, aparelho e canal.
+
+A ABA ESTÁ EM LIBERAÇÃO POR ETAPAS. Ela depende de uma permissão de usuário e
+de uma lista de empresas liberadas, então pode ser que o leitor abra Cardápio
+Digital e ainda não veja "Botão WhatsApp" na linha de abas. Resposta curta para
+comentário: está saindo por etapas, e quem ainda não tem pode pedir a liberação
+ao suporte. Isso não entrou na arte de propósito — limite antes do CTA é fatura
+antes da venda.
+
+CINCO DAS SEIS IMAGENS SÃO CAPTURA DO CARDÁPIO DE VERDADE. O cardápio digital é
+público, então ele foi aberto no navegador e fotografado: a pílula verde, a
+posição dela, a cor, o cartão dentro da sacola e a folga do rodapé são o
+cardápio de produção desenhando, e não arte nossa. A única imagem desenhada é a
+conversa de WhatsApp do slide 2, porque a conta de teste não tem número
+conectado e nenhuma conversa existe para fotografar — o texto dela é o mesmo que
+o botão da captura carrega, com o nome da loja e o endereço já no lugar dos
+marcadores.
+
+A CONFIGURAÇÃO DAS CAPTURAS É UM EXEMPLO, e vale saber o quê. A loja das
+imagens é o cardápio de demonstração ONE STAND HAMBURGUERIA, que não tinha o
+botão configurado: a resposta do servidor foi trocada dentro do navegador da
+captura, com uma configuração montada — nada foi gravado em lugar nenhum. O
+arquivo cena.json registra, tomada por tomada, o que foi injetado, e o script
+tem --cru para mostrar o que o endereço responde hoje.
+  Real: a loja, o cardápio, os produtos, os preços, o horário de funcionamento e
+  todo o desenho do botão, que é do aplicativo.
+  Exemplo: o telefone, o texto da mensagem, a posição, o formato e a cor
+  escolhidos em cada imagem.
+
+A LOJA FECHADA DO SLIDE 4 É ESTADO, NÃO MONTAGEM DE ARTE. Aquela loja abre 01:00
+e fecha 23:59 todos os dias, então a janela em que ela fica fechada dura uma hora
+— a captura manda o mesmo estado em que ela entra sozinha à meia-noite, para que
+a imagem não desminta o título.
+
+E SE PERGUNTAREM PELA PRÉVIA: ela existe, fica ao lado do formulário, responde
+na hora, troca entre Celular e Computador e ainda simula a loja aberta e itens
+na sacola. Não virou slide porque prévia é tela de configuração, e tela de
+configuração não entra na arte.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+Ponha o botão de WhatsApp no seu cardápio
+
+Quem está olhando o seu cardápio digital ganhou um atalho para falar com você. É
+um toque, e o WhatsApp abre numa conversa com a loja.
+
+A parte que faz diferença é o texto. Ele é seu, de até 300 caracteres, e o
+sistema completa duas coisas nele: o nome da loja e o endereço da página que ela
+estava olhando. Quem atende recebe a pergunta já sabendo sobre o que ela é, em
+vez de um "oi, tudo bem?" às nove da noite. E o texto fica no campo de envio, não
+enviado — quem preferir perguntar outra coisa apaga e escreve a dele.
+
+Onde o botão fica é escolha sua, entre cinco lugares. Ele pode flutuar por cima
+do cardápio, entrar logo abaixo do cabeçalho, aparecer na frente dos destaques,
+descer para o rodapé da loja ou ir para dentro da sacola. Esse último é o que
+mais rende, porque ali ele fica ao lado do Continuar — onde o pedido trava quando
+falta saber se tem sem cebola, se entrega no bairro, se dá para pagar na
+maquininha.
+
+Aparência também: formato, tamanho de 80% a 140%, lado da tela, o texto do botão
+em até 30 caracteres e a cor — o verde do WhatsApp, um verde mais escuro, preto,
+azul, ou a mesma cor que o resto do seu cardápio já usa.
+
+Quando ele aparece é a parte que muda o dia. Dá para deixar sempre, só com a
+loja aberta ou só com a loja fechada, e essa última é a que resolve um problema
+velho: fora do horário o cardápio não fecha pedido, e quem chegou ali vai embora
+sem falar com ninguém. Com o botão no ar, a visita que viraria nada vira uma
+conversa — e um pedido para amanhã. Também dá para escolher os dias da semana,
+uma faixa de horário e se vale no Delivery, no presencial ou nos dois.
+
+Em quais telas, você decide: celular e tablet, computador ou os dois.
+
+Enquanto você mexe, a prévia ao lado mostra o resultado na hora, e ela simula a
+loja aberta e a sacola com itens para você ver como fica em cada caso. Não há
+botão Salvar: a tela salva sozinha a cada ajuste, e o que você acabou de mexer já
+está no cardápio de quem está comprando.
+
+O telefone que recebe pode ser outro — atendimento, delivery, o celular do
+gerente. Em branco, as mensagens vão para o WhatsApp cadastrado no restaurante.
+
+Está em Cardápio Digital → Botão WhatsApp 💬
+Tudo que entra de novo está em beefood.app/novidades
+
+#beefood #cardapiodigital #whatsapp #restaurante #gestaoderestaurante #delivery
+#atendimento
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Qual é a pergunta que mais chega no WhatsApp do seu restaurante? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro com a pílula "Novidade", o título "Ponha o botão de WhatsApp no
+    seu cardápio", com "WhatsApp" em vermelho, e a linha "Um toque, e seu cliente
+    já fala com você".
+    Embaixo, um celular com o cardápio digital aberto: a foto de capa, a logo
+    redonda do ONE STAND HAMBURGUERIA, o nome da loja, a linha "Aberto até
+    23:25", as opções de entrega e retirada, a lista de destaques começando e, por
+    cima de tudo, no canto de baixo à direita, um botão verde arredondado com o
+    ícone do WhatsApp e o texto "Falar no WhatsApp".
+
+02  Chapéu "Sem digitar nada" e título "O botão de WhatsApp abre a conversa com a
+    sua mensagem", com "com a sua mensagem" em vermelho. O texto diz que a
+    mensagem é escrita pelo restaurante, em até 300 caracteres, que nela entram o
+    nome da loja e o endereço da página que o cliente estava vendo, e que quem
+    atende já sabe sobre o quê.
+    Abaixo, uma conversa de WhatsApp com o restaurante ONE STAND HAMBURGUERIA,
+    recém-aberta e ainda sem nenhuma mensagem trocada. No pé dela, circulado em
+    vermelho, o campo de envio já preenchido com o texto "Olá! Vim pelo cardápio
+    digital da ONE STAND HAMBURGUERIA e queria tirar uma dúvida:", seguido do
+    endereço do cardápio, e ao lado o disco verde de enviar.
+
+03  Chapéu "Onde o botão fica" e título "O botão de WhatsApp entra até dentro da
+    sacola", com "dentro da sacola" em vermelho. O texto diz que são cinco lugares
+    do cardápio para escolher e que, dentro da sacola, o botão fica ao lado do
+    Continuar — onde a dúvida trava o pedido.
+    Abaixo, o recorte do pé da sacola do cardápio digital: um botão verde
+    ocupando a largura da tela, com o ícone do WhatsApp e o texto "Falar no
+    WhatsApp", e logo embaixo a barra branca com "Total do pedido" e "R$ 15,90" e
+    o botão vermelho "Continuar".
+
+04  Chapéu "Quando aparece" e título "Com a loja fechada, o botão de WhatsApp
+    continua no ar", com "fechada" em vermelho. O texto diz que fora do horário o
+    cardápio não fecha pedido e quem chegou vai embora sem falar com ninguém, e
+    que dá para escolher entre sempre, só com a loja aberta ou só com a loja
+    fechada.
+    Abaixo, dois recortes da mesma tela. No primeiro, o cabeçalho do cardápio da
+    ONE STAND HAMBURGUERIA com uma bolinha vermelha, a palavra "Fechado" e a
+    linha "Indisponível para pedidos". No segundo, o pé da mesma tela, com o
+    botão verde "Falar no WhatsApp" flutuando por cima dos produtos, acima da
+    barra de navegação do cardápio.
+
+05  Chapéu "Em quais telas" e título "O botão de WhatsApp também abre no
+    computador", com "computador" em vermelho. O texto diz que dá para escolher
+    entre celular e tablet, computador ou os dois.
+    Abaixo, um notebook aberto com o cardápio da ONE STAND HAMBURGUERIA na tela:
+    a foto de capa, a logo quadrada, o nome da loja, a busca e a fileira de
+    destaques com cinco produtos. No canto de baixo à direita, circulado em
+    vermelho, o botão verde "Falar no WhatsApp".
+
+06  Fundo escuro com o chapéu "Já está no ar" e o título "Ligue o botão hoje",
+    com "hoje" em vermelho. O texto diz para escolher o telefone e escrever a
+    mensagem, que a tela salva sozinha, e que tudo que entra de novo está em
+    beefood.app/novidades. Abaixo, a pílula de caminho "Cardápio Digital → Botão
+    WhatsApp" e o mesmo celular da capa, com o cardápio da ONE STAND
+    HAMBURGUERIA aberto e o botão verde "Falar no WhatsApp" por cima dos
+    produtos.
