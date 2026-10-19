@@ -133,6 +133,7 @@ O **status** e a fila ficam no
 | Integração Machine — despache entregas pelo BeeFood | [`integracao-machine/`](manuais/integracao-machine/integracao-machine.md) |
 | Pick N Go! — cotar e solicitar entregador no Delivery | [`integracao-pick-n-go/`](manuais/integracao-pick-n-go/integracao-pick-n-go.md) |
 | Integração Repediu — sincronize vendas e rastreie o cardápio digital | [`integracao-repediu/`](manuais/integracao-repediu/integracao-repediu.md) |
+| Route Delivery — o pedido de entrega vira corrida sozinho | [`integracao-route-delivery/`](manuais/integracao-route-delivery/integracao-route-delivery.md) |
 | Ativar integração Uai Rango | [`integracao-uai-rango/`](manuais/integracao-uai-rango/integracao-uai-rango.md) |
 | Configurar Uber Direct no BeeFood | [`integracao-uber-direct/`](manuais/integracao-uber-direct/integracao-uber-direct.md) |
 | Lançamentos — contas a pagar | [`lancamentos-contas-pagar/`](manuais/lancamentos-contas-pagar/lancamentos-contas-pagar.md) |

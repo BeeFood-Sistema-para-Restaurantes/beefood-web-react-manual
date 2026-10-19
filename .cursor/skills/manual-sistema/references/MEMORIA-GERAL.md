@@ -1280,6 +1280,7 @@ escrito de propósito bateria.
 | Programa de pontos | `manuais/programa-pontos/` | ✅ Concluído (#126) |
 | Entregas Expressas (integração pela API Aberta) | `manuais/integracao-entregas-expressas/` | ✅ Concluído (#127) |
 | Botão de WhatsApp no cardápio digital | `manuais/cardapio-digital-botao-whatsapp/` | ✅ Concluído (#128) |
+| Route Delivery (integração pela API Aberta) | `manuais/integracao-route-delivery/` | ✅ Concluído (#129) |
 
 > **Número de manual se escolhe lendo esta tabela, não contando o último que você escreveu.**
 > O rastreio do cliente e o bloco do totem foram produzidos em paralelo, em branches que não
@@ -1288,6 +1289,62 @@ escrito de propósito bateria.
 > cabeçalhos de arquivo e nenhuma citação cruzada, contra 15 menções ao #121 espalhadas pelos
 > quatro manuais do totem, que se citam entre si. Histórico em
 > [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md).
+
+### O segundo manual de parceiro, e o que muda quando o caminho é escolhido pelo dono — #129
+
+O #129 (Route Delivery) é o irmão do #127: parceiro que fez a integração do lado dele, artigo
+público dele, trazido para o nosso padrão. O pedido nomeou o caminho — *"na hora de pedir a
+credencial ensinamos a fazer por Aplicativos → API Aberta → Criar credencial, seguindo o fluxo
+mais amigável para o cliente"*. Detalhe em
+[`MEMORIA.md`](../../../../manuais/integracao-route-delivery/MEMORIA.md) e
+[`fluxo-codigo.md`](../../../../manuais/integracao-route-delivery/fluxo-codigo.md).
+
+- **Manual de parceiro já tem molde: o #127 serviu de gabarito e o #129 saiu em um terço do
+  esforço.** O que se reaproveita é a forma — abertura com o aviso da troca de caminho, partes
+  numeradas alternando as duas empresas, tabela sintoma/verificação, FAQ, e o `importar.py` +
+  `annotate.py` + `conferir-setas.py`. O que **não** se reaproveita é o texto: ver abaixo.
+- **O segundo manual do mesmo parceiro-tipo é o lugar onde se copia errado.** Três afirmações
+  centrais do #127 **se invertem** aqui: a autenticação Basic fica **em branco** (lá recebia
+  usuário e senha do parceiro), o *Secret do webhook* **volta para o parceiro** (lá ele não era
+  pedido) e são **três** eventos, não cinco. Por isso o `fluxo-codigo.md` deste abre com uma
+  tabela de diferenças entre os dois — é mais seguro do que confiar na memória de quem escreveu
+  o anterior.
+- **Quando o parceiro é quem faz a parte do meio, o manual precisa dizer quem clica.** No #127 o
+  lojista executa as três partes; aqui a equipe do parceiro é que vincula a loja. A Parte 2 abre
+  dizendo que as telas são dela e servem para reconhecer e combinar, não para executar, e o
+  prompt de publicação pede o mesmo. Sem isso o leitor procura no BeeFood um botão que está no
+  painel de outra empresa.
+- **"Fluxo mais amigável" tem de ser verificado no código, não presumido.** O que sustenta a
+  escolha é `SCOPES_PADRAO_NOVA` (credencial nova nasce com tudo ligado), `active: true` na
+  criação e a ausência de escolha de ambiente. Três cliques contra os cinco passos do portal — e
+  é o código que prova, não a intuição.
+- **Credencial dedicada ao parceiro merece o motivo escrito.** Ela é descartável: `EXCLUIR` só
+  aparece em credencial adicional (`{!c.main && …}`), então cortar o acesso de um parceiro não
+  toca em nenhuma outra integração. Esse parágrafo é o que impede o leitor de usar a principal
+  por comodidade.
+- **Imagem de artigo pode estar embutida em base64.** O HTML do Route Delivery traz cada print
+  como `data:image/png;base64,…`, não como arquivo — o `importar.py` decodifica por legenda e
+  baixa só o HTML. Bom efeito colateral: o manual não depende do CDN do parceiro continuar no
+  ar. E `curl | grep` nesse HTML despeja megabytes: use um parser pequeno em Python.
+- **Maquete de tela nossa no artigo do parceiro não se importa.** Duas "Ilustrações" do artigo
+  desenham o portal BeeFood Developers em HTML, sem `<img>`. Copiar isso seria o pior dos dois
+  mundos — parece print e não é. Foram substituídas pelas nossas capturas reais.
+- **Tela que só existe depois de gravar obriga a criar de verdade — e a desfazer na mesma
+  execução.** A técnica do ensaio do #127 (abre, fotografa, cancela) não serve quando a tela a
+  fotografar é a confirmação. O script cria, fotografa, acha a linha pelo `clientId` que o
+  diálogo mostrou e exclui, imprimindo a conferência `credencial da foto ainda existe? 0`.
+- **Sandbox é compartilhado: não confira "a lista voltou a vazia".** Havia dois webhooks de
+  outra pessoa na conta, os dois desativados. O desfazer confere que **a minha** URL saiu, e as
+  capturas da aba Webhooks tiveram de ser recortadas antes da lista. Apagar o alheio seria ação
+  destrutiva em conta de terceiro.
+- **Citação cruzada de seta pede conferidor que entenda passo.** Como o leitor vai e volta entre
+  as duas pontas, o texto aponta *"a seta 1 do Passo 5"*, e não só *"da imagem acima"* como no
+  #127. O `conferir-setas.py` passou a mapear cada imagem ao seu `### Passo N` e confere as seis
+  citações cruzadas contra a imagem do passo citado.
+- **Tira larga e rasa pede etiqueta em cima e embaixo.** As capturas de tabela do parceiro têm
+  160 a 550 px de altura e alvos em duas linhas; seta horizontal atravessaria a linha inteira.
+  Virou a geometria `faixa()`, ao lado de `lado()` (print alto, faixa nos dois lados). E numa
+  tira de 160 px, faixa em cima **e** embaixo deixa a seta do tamanho de um toco: use só um lado.
 
 ### Tela autoexplicativa, escopo cortado pelo dono e SEO como pedido — #128
 
