@@ -637,6 +637,14 @@ O que essa rodada ensinou:
 - **Celular** (`.celular`): 390x844, sem notch de propósito — ilha desenhada em
   cima de print tapa o cabeçalho da tela que o slide quer mostrar. Sangra pela
   **base**. Aceita 3D.
+  - **O aparelho pode ser mais baixo, e às vezes precisa ser.** Em sangria a
+    moldura mostra os primeiros ~57% da tela, então assunto fixado no rodapé —
+    botão flutuante, barra de sacola — some. Captura mais curta sozinha não
+    resolve: o `object-fit: cover` ajusta pela altura e a imagem transborda na
+    largura. A saída é encurtar os dois, captura **e** moldura:
+    `<div class="celular" style="aspect-ratio: 390 / 660">` com uma captura de
+    390×660. O que o aspecto tira é justamente o que a sangria cortaria, e o
+    leitor não vê diferença.
 - **Janela de navegador** (`.navegador`): é o mockup de computador. Sangra pela
   **direita**, porque é deitada, e é assim que passa de 1000 px de largura. O
   recorte capturado precisa ter no máximo ~620 px de largura lógica para o

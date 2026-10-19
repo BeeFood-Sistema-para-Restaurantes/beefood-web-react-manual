@@ -36,6 +36,7 @@ um acervo assim, e "entregue" escrito por extenso em toda linha também não.
 | 12 | [`12-programa-de-pontos/`](12-programa-de-pontos/roteiro.md) | Novidade | [Programa de Pontos ⭐](https://beefood.app/novidades/programa-de-pontos) — 07/10/2026 · [manual](https://ajuda.beefood.com.br/programa-pontos) | 4:5 | 8 | [`.zip`](12-programa-de-pontos/entrega/12-programa-de-pontos.zip) · [copy](12-programa-de-pontos/copy-instagram.txt) |
 | 13 | [`13-mcp-conexao-ia/`](13-mcp-conexao-ia/roteiro.md) | Novidade | [MCP: converse com o seu restaurante usando IA](https://beefood.app/novidades/mcp-inteligencia-artificial) — 13/10/2026 · sem manual na pasta; os passo a passo são os da própria folha *Aplicativos → MCP* | 4:5 | 6 | [`.zip`](13-mcp-conexao-ia/entrega/13-mcp-conexao-ia.zip) · [copy](13-mcp-conexao-ia/copy-instagram.txt) |
 | 14 | [`14-api-aberta/`](14-api-aberta/roteiro.md) | Novidade | [API Aberta liberada 🔌](https://beefood.app/novidades/api-aberta-liberada) — 13/10/2026 · sem manual na pasta; o passo a passo é o portal [`docs.beefood.app`](https://docs.beefood.app) | 4:5 | 7 | [`.zip`](14-api-aberta/entrega/14-api-aberta.zip) · [copy](14-api-aberta/copy-instagram.txt) |
+| 15 | [`15-botao-whatsapp/`](15-botao-whatsapp/roteiro.md) | Novidade | [Botão WhatsApp no Cardápio Digital 💬](https://beefood.app/novidades/cardapio-digital-botao-whatsapp) — 19/10/2026 · [manual](https://ajuda.beefood.com.br/cardapio-digital-botao-whatsapp) | 4:5 | 6 | [`.zip`](15-botao-whatsapp/entrega/15-botao-whatsapp.zip) · [copy](15-botao-whatsapp/copy-instagram.txt) |
 
 O número de slides é o que o assunto pede, entre 6 e 9 — não é uma medida fixa.
 Peça de função não leva data nem pílula de novidade: ela é perene, e pode ser
@@ -96,6 +97,17 @@ Ela também foi a primeira peça a cortar por **privacidade dentro da imagem
 pura**: a folha do recurso abre com o Client ID e o campo do Client Secret, e o
 recorte começa abaixo deles, porque o repositório é público e a loja de exemplo
 roda em produção.
+
+A décima quinta é a primeira em que **quem fala primeiro é quem está comprando**:
+as seis peças anteriores de WhatsApp e cardápio digital têm a loja como emissora
+— campanha dispara, aviso sai, link é anexado —, e o botão de WhatsApp abre a
+conversa do outro lado. Foi ela que escreveu a conta que decide quantas imagens
+cabem num slide: posto em 904 px, **cada 100 px de altura capturada viram 232 px
+de arte**, e um slide de miolo tem ~614. Quatro perguntas viraram slide; duas
+foram sondadas e **caíram por medição** — o `{link}` do produto, porque a página
+de produto é uma janela que cobre o botão, e a barra da sacola, porque naquele
+cardápio ela fica atrás da barra de navegação. Slide cujo título o leitor não
+consegue conferir na imagem não entra, mesmo quando o fato é verdadeiro.
 
 ## Estrutura de cada pasta
 
