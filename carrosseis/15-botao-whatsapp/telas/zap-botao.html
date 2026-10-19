@@ -1,0 +1,80 @@
+<!-- A conversa como ela abre quando o cliente toca no botão: o WhatsApp da loja,
+     a conversa ainda vazia e a mensagem JÁ ESCRITA no campo de envio.
+
+     POR QUE DESENHADA, e não capturada: não há número de WhatsApp conectado na
+     sandbox, então nenhuma conversa existe para fotografar. Mesmo motivo da #10
+     e da #11.
+
+     E O DESENHO É O CONTRÁRIO DOS DOIS ANTERIORES, de propósito. Em
+     `zap-avisos.html` (#10) e `zap-rastreio.html` (#11) o que se lê é MENSAGEM
+     RECEBIDA: balão branco, do lado da loja, com o aviso que o sistema mandou.
+     Aqui não há mensagem recebida nenhuma, e não pode haver: o `wa.me/…?text=`
+     abre a conversa com o texto no CAMPO DE ENVIO, ainda não enviado — o manual
+     diz com todas as letras que "o cliente pode apagar e escrever outra".
+     Desenhar um balão já enviado afirmaria que a mensagem sai sozinha, que é
+     precisamente o que o produto não faz.
+
+     Por isso a conversa aparece VAZIA. É a primeira conversa daquele cliente
+     com aquela loja, e o que o botão entrega é o começo dela.
+
+     NADA AQUI FOI ESCRITO À MÃO. O texto é o `href` que o botão da captura
+     carrega, lido no `medidas.json` e decodificado — com `{loja}` já virado
+     ONE STAND HAMBURGUERIA e `{link}` já virado o endereço da página. O nome e
+     o logotipo são os da mesma loja. A forma (cabeçalho verde-escuro, papel de
+     parede bege, campo branco arredondado e disco verde de enviar) é a do
+     aplicativo, sem imitar pixel a pixel.
+
+     A MEDIDA É 600 DE LARGURA, e não 760, porque a tela entra no slide com
+     904 px: a 760 o texto do campo sai com 19 px na arte, que é legível na tela
+     grande e some no feed. Em 600 a mesma tela sobe para 24 px, e a mensagem —
+     que é o assunto do slide — passa a ser lida de longe. Tela desenhada se
+     dimensiona pela largura em que vai aparecer, nunca pela que dá jeito. -->
+<div class="tela" data-medida="600x312" style="background: transparent">
+  <p style="font-size: 13px; font-weight: 900; letter-spacing: 1.4px;
+            color: #74757d; margin-bottom: 9px">NO WHATSAPP DE QUEM ABRIU O CARDÁPIO</p>
+
+  <div style="border-radius: 18px; overflow: hidden; border: 1px solid #e3e3dd;
+              background: #ece5dd">
+    <div style="background: #075e54; color: #fff; padding: 11px 15px;
+                display: flex; align-items: center; gap: 11px">
+      <img src="logo-loja.png" alt=""
+           style="width: 38px; height: 38px; border-radius: 50%; display: block">
+      <span>
+        <span style="display: block; font-size: 16px; font-weight: 800">ONE STAND HAMBURGUERIA</span>
+        <span style="display: block; font-size: 12px; color: #bfe0da">restaurante</span>
+      </span>
+    </div>
+
+    <!-- A conversa vazia: é a primeira que esse cliente tem com essa loja. -->
+    <div style="height: 102px"></div>
+
+    <div style="display: flex; align-items: flex-end; gap: 10px;
+                padding: 10px 13px 13px">
+      <div style="flex: 1; background: #fff; border-radius: 22px;
+                  box-shadow: 0 1px 1px rgba(0,0,0,.08);
+                  padding: 11px 14px; display: flex; align-items: flex-start;
+                  gap: 10px">
+        <svg viewBox="0 0 24 24" style="width: 21px; height: 21px; flex: none;
+                                        margin-top: 2px; fill: none;
+                                        stroke: #8e9095; stroke-width: 1.7">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M8.5 14.5c.9 1.1 2.1 1.7 3.5 1.7s2.6-.6 3.5-1.7"
+                stroke-linecap="round"></path>
+          <path d="M9 9.5h.01M15 9.5h.01" stroke-linecap="round"
+                stroke-width="2.4"></path>
+        </svg>
+        <span style="font-size: 16px; line-height: 1.42; color: #1f2324">Olá! Vim
+          pelo cardápio digital da ONE STAND HAMBURGUERIA e queria tirar uma
+          dúvida: https://menu.beefood.com.br/oneburger</span>
+      </div>
+
+      <span style="flex: none; width: 46px; height: 46px; border-radius: 50%;
+                   background: #25d366; display: flex; align-items: center;
+                   justify-content: center">
+        <svg viewBox="0 0 24 24" style="width: 23px; height: 23px; fill: #fff">
+          <path d="M3.4 20.4 21 12 3.4 3.6l.01 6.53L15.5 12 3.41 13.87z"></path>
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
