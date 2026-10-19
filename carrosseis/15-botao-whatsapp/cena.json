@@ -1,0 +1,51 @@
+{
+  "porque": "O cardápio modelo da casa não tem o botão configurado (whatsappJson: null). A captura troca essa chave na resposta do validaDelivery e deixa o cardápio publicado desenhar. Nenhuma loja é alterada: a troca acontece dentro do Chromium da captura, e `--cru` mostra o que o endereço responde hoje.",
+  "loja": {
+    "cardapio": "oneburger",
+    "nome": "ONE STAND HAMBURGUERIA",
+    "corPrimaria": "#C52E1D",
+    "porque": "cardápio modelo da casa, o mesmo da #3 e da #11. Não é loja de cliente, então nome e logotipo podem aparecer na arte."
+  },
+  "configuracao": {
+    "v": 1,
+    "on": true,
+    "fone": "5547999998888",
+    "msg": "Olá! Vim pelo cardápio digital da {loja} e queria tirar uma dúvida: {link}",
+    "pos": "flutuante",
+    "lay": "pilula",
+    "tam": 100,
+    "lado": "D",
+    "rot": "Falar no WhatsApp",
+    "sub": "",
+    "cor": "#25D366",
+    "corTxt": "#FFFFFF",
+    "pulsar": false,
+    "quando": "sempre",
+    "ctx": ["D", "P"],
+    "disp": ["M", "D"],
+    "dias": [1, 2, 3, 4, 5, 6, 7],
+    "todoDia": true,
+    "hIni": null,
+    "hFim": null
+  },
+  "notasDaConfiguracao": {
+    "fone": "o número do próprio placeholder do campo, como no manual #128. O repositório é público: nada de telefone de gente.",
+    "msg": "um jogo só para a peça inteira, com as duas variáveis que o release cita. 73 caracteres, dentro dos 300 que o servidor aceita.",
+    "cor": "#25D366 é o verde do WhatsApp, a primeira opção do campo Cor do botão. A tomada `cel-tema` troca por `tema`, que é a cor primária desta loja.",
+    "pulsar": "desligado: animação não sobrevive a um print, e pulsar ligado deixa um anel fantasma na borda do botão.",
+    "rot": "o padrão do campo no painel. Em branco, o cardápio escreve 'Fale no WhatsApp' — o padrão dele é outro, e está no fluxo-codigo.md."
+  },
+  "configuracaoEncontrada": {
+    "onde": "menu.beefood.com.br/beefood3 — sandbox dos manuais, empresa 38311, filial 39202",
+    "quando": "19/10/2026, lido na resposta do validaDelivery",
+    "documento": "{\"v\":1,\"on\":true,\"fone\":\"5547999998888\",\"msg\":\"Olá! Vim pelo cardápio digital da {loja} e gostaria de tirar uma dúvida.\",\"pos\":\"flutuante\",\"lay\":\"pilulaRecolhe\",\"tam\":80,\"lado\":\"D\",\"rot\":\"Falar no WhatsApp\",\"sub\":\"\",\"cor\":\"#128C7E\",\"corTxt\":\"#FFFFFF\",\"pulsar\":true,\"quando\":\"sempre\",\"ctx\":[\"D\"],\"disp\":[\"M\",\"D\"],\"dias\":[1,2,3,4,5,6,7],\"todoDia\":true,\"hIni\":null,\"hFim\":null}",
+    "porqueFicaAqui": "o manual #128 deixou o botão ligado de propósito, para poder refazer as capturas dele sem montar o cenário de novo. Esta peça não encostou nessa configuração; o documento fica registrado para quem precisar conferir que ela continua igual."
+  },
+  "listasDoBundle": {
+    "onde": "menu.beefood.com.br/_nuxt/*.modern.js, o mesmo bundle que o fluxo-codigo.md leu",
+    "pos": ["flutuante", "topo", "destaques", "rodape", "carrinho"],
+    "lay": ["fab", "fabMini", "fabContorno", "fabRotulo", "balao", "pilulaRecolhe", "abaLateral", "barra", "barraContorno", "card", "cardLogo", "discreto", "selo", "pilula"],
+    "quando": ["sempre", "aberta", "fechada"],
+    "nota": "o cardápio confere `lay` contra a lista inteira e não contra a da posição — quem corrige o par é o painel, no `ajustarLayout`. As tomadas abaixo usam pares que o painel produziria: formato flutuante em posição flutuante, formato de corpo nas outras."
+  }
+}
