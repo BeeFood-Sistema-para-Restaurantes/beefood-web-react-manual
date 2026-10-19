@@ -556,6 +556,16 @@ parece defeito. O viewport de captura é **1440×900 com DPR 2**, então a fraç
 que você passa em `--recorte` vira pixels sobre 900 de altura, não sobre 1350:
 confira a medida do arquivo com Pillow antes de calcular porcentagem de realce.
 
+**E a altura do recorte é orçamento de slide, não folga de gosto.** Posto nos
+904 px da faixa, um recorte de celular (390 px de largura capturada) cresce 2,32
+vezes: **cada 100 px de altura capturada viram 232 px de arte**. Um slide de
+miolo com chapéu, título de duas linhas e corpo de três deixa ~614 px para
+imagem — ou seja, um recorte pede ~260 px de altura capturada, e dois empilhados
+~110 px cada. Faça essa conta **antes** de fechar a lista de slides: ela decide
+se o slide que compara duas telas cabe, e na 41ª rodada ela fundiu um título de
+lista ("são cinco lugares", dois recortes) num de exemplo ("entra até dentro da
+sacola", um recorte), com a lista indo para o corpo.
+
 **E o layout mais rico da tela não é o melhor para o slide.** O Painel para
 Entregadores passa a duas colunas internas por etapa acima de 1500 px, e cabe
 quase o dobro de pedido — é para isso que existe TV grande. Capturado assim, o
@@ -606,6 +616,15 @@ quarta aparece só na quarta" saiu com o print do manual, que tem **os sete dias
 acesos**, e a arte desmentia o título. Quando o slide afirma um estado da
 interface, fotografe aquele estado — no sandbox, deixando a tela como estava
 (abra, ajuste, capture e **devolva a configuração anterior**).
+
+**E o fato pode ser verdadeiro e o slide, ainda assim, não existir.** A regra de
+corte é: *slide cujo título o leitor não consegue conferir na imagem não entra*.
+A 41ª rodada mediu, no DOM, que o botão do cardápio sobe 50 px quando a sacola
+enche — é verdade, e naquele cardápio a barra que o faz subir fica atrás da
+barra de navegação. A captura mostra **o efeito sem a causa**, e o leitor vê
+duas fotos quase iguais com uma frase que ele não tem como verificar. Depois de
+capturar, leia só o título e olhe só a imagem; se o título precisar do roteiro
+para fazer sentido, o assunto vai para o corpo de outro slide ou para a legenda.
 
 **Antes de capturar, olhe a prateleira.** Fotos de produto, tela de espera do
 totem e faixa do cardápio já estão em `assets/fotos/`, e os aparelhos já estão

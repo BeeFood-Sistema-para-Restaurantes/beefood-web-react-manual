@@ -1279,6 +1279,8 @@ escrito de propósito bateria.
 | O cliente acompanha a entrega no mapa | `manuais/gestao-entregas-rastreio-cliente/` | ✅ Concluído (#125) |
 | Programa de pontos | `manuais/programa-pontos/` | ✅ Concluído (#126) |
 | Entregas Expressas (integração pela API Aberta) | `manuais/integracao-entregas-expressas/` | ✅ Concluído (#127) |
+| Botão de WhatsApp no cardápio digital | `manuais/cardapio-digital-botao-whatsapp/` | ✅ Concluído (#128) |
+| Route Delivery (integração pela API Aberta) | `manuais/integracao-route-delivery/` | ✅ Concluído (#129) |
 
 > **Número de manual se escolhe lendo esta tabela, não contando o último que você escreveu.**
 > O rastreio do cliente e o bloco do totem foram produzidos em paralelo, em branches que não
@@ -1287,6 +1289,111 @@ escrito de propósito bateria.
 > cabeçalhos de arquivo e nenhuma citação cruzada, contra 15 menções ao #121 espalhadas pelos
 > quatro manuais do totem, que se citam entre si. Histórico em
 > [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md).
+
+### O segundo manual de parceiro, e o que muda quando o caminho é escolhido pelo dono — #129
+
+O #129 (Route Delivery) é o irmão do #127: parceiro que fez a integração do lado dele, artigo
+público dele, trazido para o nosso padrão. O pedido nomeou o caminho — *"na hora de pedir a
+credencial ensinamos a fazer por Aplicativos → API Aberta → Criar credencial, seguindo o fluxo
+mais amigável para o cliente"*. Detalhe em
+[`MEMORIA.md`](../../../../manuais/integracao-route-delivery/MEMORIA.md) e
+[`fluxo-codigo.md`](../../../../manuais/integracao-route-delivery/fluxo-codigo.md).
+
+- **Manual de parceiro já tem molde: o #127 serviu de gabarito e o #129 saiu em um terço do
+  esforço.** O que se reaproveita é a forma — abertura com o aviso da troca de caminho, partes
+  numeradas alternando as duas empresas, tabela sintoma/verificação, FAQ, e o `importar.py` +
+  `annotate.py` + `conferir-setas.py`. O que **não** se reaproveita é o texto: ver abaixo.
+- **O segundo manual do mesmo parceiro-tipo é o lugar onde se copia errado.** Três afirmações
+  centrais do #127 **se invertem** aqui: a autenticação Basic fica **em branco** (lá recebia
+  usuário e senha do parceiro), o *Secret do webhook* **volta para o parceiro** (lá ele não era
+  pedido) e são **três** eventos, não cinco. Por isso o `fluxo-codigo.md` deste abre com uma
+  tabela de diferenças entre os dois — é mais seguro do que confiar na memória de quem escreveu
+  o anterior.
+- **Quando o parceiro é quem faz a parte do meio, o manual precisa dizer quem clica.** No #127 o
+  lojista executa as três partes; aqui a equipe do parceiro é que vincula a loja. A Parte 2 abre
+  dizendo que as telas são dela e servem para reconhecer e combinar, não para executar, e o
+  prompt de publicação pede o mesmo. Sem isso o leitor procura no BeeFood um botão que está no
+  painel de outra empresa.
+- **"Fluxo mais amigável" tem de ser verificado no código, não presumido.** O que sustenta a
+  escolha é `SCOPES_PADRAO_NOVA` (credencial nova nasce com tudo ligado), `active: true` na
+  criação e a ausência de escolha de ambiente. Três cliques contra os cinco passos do portal — e
+  é o código que prova, não a intuição.
+- **Credencial dedicada ao parceiro merece o motivo escrito.** Ela é descartável: `EXCLUIR` só
+  aparece em credencial adicional (`{!c.main && …}`), então cortar o acesso de um parceiro não
+  toca em nenhuma outra integração. Esse parágrafo é o que impede o leitor de usar a principal
+  por comodidade.
+- **Imagem de artigo pode estar embutida em base64.** O HTML do Route Delivery traz cada print
+  como `data:image/png;base64,…`, não como arquivo — o `importar.py` decodifica por legenda e
+  baixa só o HTML. Bom efeito colateral: o manual não depende do CDN do parceiro continuar no
+  ar. E `curl | grep` nesse HTML despeja megabytes: use um parser pequeno em Python.
+- **Maquete de tela nossa no artigo do parceiro não se importa.** Duas "Ilustrações" do artigo
+  desenham o portal BeeFood Developers em HTML, sem `<img>`. Copiar isso seria o pior dos dois
+  mundos — parece print e não é. Foram substituídas pelas nossas capturas reais.
+- **Tela que só existe depois de gravar obriga a criar de verdade — e a desfazer na mesma
+  execução.** A técnica do ensaio do #127 (abre, fotografa, cancela) não serve quando a tela a
+  fotografar é a confirmação. O script cria, fotografa, acha a linha pelo `clientId` que o
+  diálogo mostrou e exclui, imprimindo a conferência `credencial da foto ainda existe? 0`.
+- **Sandbox é compartilhado: não confira "a lista voltou a vazia".** Havia dois webhooks de
+  outra pessoa na conta, os dois desativados. O desfazer confere que **a minha** URL saiu, e as
+  capturas da aba Webhooks tiveram de ser recortadas antes da lista. Apagar o alheio seria ação
+  destrutiva em conta de terceiro.
+- **Citação cruzada de seta pede conferidor que entenda passo.** Como o leitor vai e volta entre
+  as duas pontas, o texto aponta *"a seta 1 do Passo 5"*, e não só *"da imagem acima"* como no
+  #127. O `conferir-setas.py` passou a mapear cada imagem ao seu `### Passo N` e confere as seis
+  citações cruzadas contra a imagem do passo citado.
+- **Tira larga e rasa pede etiqueta em cima e embaixo.** As capturas de tabela do parceiro têm
+  160 a 550 px de altura e alvos em duas linhas; seta horizontal atravessaria a linha inteira.
+  Virou a geometria `faixa()`, ao lado de `lado()` (print alto, faixa nos dois lados). E numa
+  tira de 160 px, faixa em cima **e** embaixo deixa a seta do tamanho de um toco: use só um lado.
+
+### Tela autoexplicativa, escopo cortado pelo dono e SEO como pedido — #128
+
+O #128 (Botão de WhatsApp do cardápio digital) nasceu com o recorte **dentro** do pedido:
+*"existe muitas configurações e muitas possibilidades, não vamos documentar tudo… a ideia é
+mostrar a funcionalidade e não ensinar fazer 100% das possibilidades pq se não seria um manual
+muito grande e sem sentido, já que a tela é auto explicativa 100%"*. Detalhe em
+[`MEMORIA.md`](../../../../manuais/cardapio-digital-botao-whatsapp/MEMORIA.md) e
+[`fluxo-codigo.md`](../../../../manuais/cardapio-digital-botao-whatsapp/fluxo-codigo.md).
+
+- **Tela autoexplicativa tem forma própria de manual: uma configuração de ponta a ponta, e o
+  resto num resumo sem imagem.** Cinco posições × catorze formatos × agenda daria mais de trinta
+  imagens de uma tela que já explica cada opção embaixo dela. O manual monta **uma** — a que o
+  pedido nomeia —, mostra o resultado no cardápio de verdade, e fecha com a seção *O que mais a
+  tela oferece*: quatro parágrafos, nenhuma captura. Sete imagens no total.
+- **A configuração que se escolhe é a que ensina mais, não a mais bonita.** O formato *Círculo*
+  é o mais elegante e deixaria o campo *Texto do botão* sem efeito visível, e a captura do
+  cardápio seria uma bolinha verde sem explicação. A *Pílula* mostra ícone **e** texto, então a
+  mesma imagem prova três campos (formato, texto, lado) de uma vez.
+- **Quando o dono pede SEO, o produto é um FAQ que repete a pergunta.** São 20 perguntas, e
+  várias dizem quase a mesma coisa de propósito (*"como coloco o WhatsApp no cardápio"*, *"como
+  ativar o botão"*, *"onde fica a configuração"*, *"como tirar"*). É o mesmo princípio do #116.
+  O que o #128 acrescenta é que **o prompt de publicação tem de proibir a fusão**: sem essa
+  frase, a IA de documentação junta as parecidas numa só e desmonta justamente o que faz o MCP
+  de manual achar a página.
+- **Coordenada de seta se pode medir no DOM.** O `capturar.py medir` lê a caixa de cada alvo com
+  `getBoundingClientRect() * 1.5` (o DPR da captura) e imprime em pixel da pura — é esse número
+  que entra no `annotate.py`. Em tela de formulário, com campo colado em campo, é mais rápido e
+  mais exato que a grade de frações, e deixa a conta auditável: quem desconfiar de uma seta roda
+  o `medir` e compara. A grade continua boa para tela de lista e para alvo grande.
+- **Tela do Cardápio Digital rola por dentro.** O conteúdo mora num `div.min-h-0.flex-1
+  .overflow-y-auto`; `window.scrollTo` e `page.mouse.wheel` não movem nada. Rolar é escrever no
+  `scrollTop` desse `div`. Vale para as outras abas da mesma página.
+- **Cardápio público guarda cache: confira o alvo antes de gravar o print.** Depois de salvar, o
+  botão levou alguns minutos para aparecer em `menu.beefood.com.br`. O script procura o elemento
+  (`a.be-wa__alvo`) e **avisa** em vez de gravar uma imagem sem ele — print vazio vira manual
+  errado. O atraso também virou a primeira causa na tabela de problemas do manual.
+- **Recurso novo costuma vir com lista de empresas no código, e isso é pré-requisito, não
+  rodapé.** Aqui é `WHATSAPP_BOTAO_EMPRESAS` (duas empresas), conferida junto com a permissão do
+  grupo de acesso; no #127 era `API_ABERTA_ALLOWED_EMPRESAS`. Já é padrão: ao documentar
+  novidade, procure a lista **antes** de escrever, e ponha a trava na primeira linha da tabela
+  de defeitos — sem isso o leitor procura uma aba que a conta dele não tem.
+- **Tela sem botão Salvar muda o cardápio do cliente no primeiro clique.** O auto-save grava a
+  cada mudança; o manual tem de avisar no primeiro passo, não no fim. E a recíproca: as quatro
+  validações da tela **impedem a gravação** em silêncio, o que explica o sintoma *"a tela não
+  salva"*.
+- **Pergunta sem resposta no painel se responde com o limite.** Cada clique no botão vira evento
+  no Pixel, e `contato_whatsapp` não aparece em nenhuma tela do painel. O FAQ diz isso, em vez
+  de prometer relatório que não existe.
 
 ### Quando o manual vem de um artigo de outra empresa — #127
 

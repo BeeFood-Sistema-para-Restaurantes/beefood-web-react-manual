@@ -737,7 +737,7 @@ faltava era isto: **a escolha do molde é livre, a presença do nome não é.**
 | nome do recurso como ganho | o título **é** o nome ("Acréscimo e desconto por forma de pagamento") |
 | anúncio de chegada | o verbo de chegada mais o nome ("Chegou o Painel para Entregadores") |
 | afirmação do fato | o nome entra na frase, ou vai para o chapéu |
-| ordem direta | idem — e só quando o recurso tem um objeto só |
+| ordem direta | idem — e só quando o recurso tem um objeto só (a #15 é o caso: o recurso **é** um botão, e o que se manda fazer é o nome dele) |
 | antes × agora | idem |
 | pergunta | o título não comporta o nome: ele vai para a pílula ou para o chapéu |
 
