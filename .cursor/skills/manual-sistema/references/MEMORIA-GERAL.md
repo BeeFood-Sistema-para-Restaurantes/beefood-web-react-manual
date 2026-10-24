@@ -1281,6 +1281,7 @@ escrito de propósito bateria.
 | Entregas Expressas (integração pela API Aberta) | `manuais/integracao-entregas-expressas/` | ✅ Concluído (#127) |
 | Botão de WhatsApp no cardápio digital | `manuais/cardapio-digital-botao-whatsapp/` | ✅ Concluído (#128) |
 | Route Delivery (integração pela API Aberta) | `manuais/integracao-route-delivery/` | ✅ Concluído (#129) |
+| Importar cardápio (iFood, imagem, Excel e clonagem) | `manuais/cardapio-importar/` | ✅ Concluído (#130) |
 
 > **Número de manual se escolhe lendo esta tabela, não contando o último que você escreveu.**
 > O rastreio do cliente e o bloco do totem foram produzidos em paralelo, em branches que não
@@ -1289,6 +1290,65 @@ escrito de propósito bateria.
 > cabeçalhos de arquivo e nenhuma citação cruzada, contra 15 menções ao #121 espalhadas pelos
 > quatro manuais do totem, que se citam entre si. Histórico em
 > [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md).
+
+### Manual que ensina uma escolha, e captura que cria dado para valer — #130
+
+O #130 (importar cardápio) é o primeiro manual da casa que documenta **quatro caminhos
+independentes** para o mesmo resultado — Copiar do iFood, Copiar de Imagem, planilha Excel e
+Clonar e importar — e o primeiro em que a captura **cria dado de verdade e o deixa lá**, por
+autorização explícita do dono. Detalhe em
+[`MEMORIA.md`](../../../../manuais/cardapio-importar/MEMORIA.md) e
+[`fluxo-codigo.md`](../../../../manuais/cardapio-importar/fluxo-codigo.md).
+
+- **Quando há vários caminhos para o mesmo fim, o manual é um só, e a tabela de decisão é o
+  produto.** O leitor chega sabendo **o que tem** (loja no iFood, cardápio no papel, planilha,
+  outra empresa) e não sabendo **o nome da tela**. Quatro manuais o obrigariam a escolher antes
+  de entender. A tabela *o que você tem → qual caminho → onde fica → o que ele traz* vem antes
+  de qualquer passo, e a ordem dos caminhos é a ordem em que eles se usam, não a do menu.
+- **Estado que dura segundos e não volta se fotografa em laço, e se escolhe depois.** A fila e o
+  processamento da importação do iFood passam em poucos segundos cada. O script tira print a
+  cada quatro segundos durante a importação inteira, nomeia cada candidato pelo **status que a
+  API devolveu** naquela rodada e grava em `/tmp`. Saíram 23 candidatos para três puras. Tentar
+  acertar o instante com `wait_for_selector` é perder a janela.
+- **Dado estranho na tela se investiga pela API antes de virar texto.** A importação trouxe 11
+  nomes de produto em duplicata. Cruzando a lista de produtos com as opções dos grupos
+  (`.../grupoOpcao/opcoes/{empresaID}/{usuarioID}/0`), em **todos** os 11 pares exatamente um dos
+  cadastros é usado como opção de combo. Sem essa conferência só havia dois caminhos ruins:
+  ignorar o que o leitor vê, ou mandá-lo apagar o repetido — e apagar o errado deixa o combo sem
+  opção. Meia hora de API virou o item mais útil da página.
+- **Locator que estoura o tempo pode ser regra de negócio, não seletor errado.** A captura da
+  clonagem travou esperando o botão *Copiar cadastro*. A causa não estava na tela: a própria
+  empresa não serve de origem, e a API responde `422 "A empresa de origem é a mesma da empresa
+  atual."`. Antes de caçar seletor, repita a ação pela API e leia a resposta.
+- **O `ConfirmationDialog` da casa não é um `role="dialog"`.** `page.locator('[role="dialog"]')`
+  estoura nele. Leia `page.locator("body").inner_text()` para conferir o texto da confirmação.
+- **Planilha de teste se baixa do próprio botão, não se inventa.** O `expect_download()` pega o
+  template de verdade e o `openpyxl` preenche uma cópia. De passagem isso prova que o mapeamento
+  automático reconhece os cabeçalhos que o sistema distribui — se o template mudar, o script
+  acusa. Montar planilha do zero com nomes de coluna chutados testa o chute, não o produto.
+- **Tela que lê arquivo do cliente pede insumo fictício desenhado pelo script.** O cardápio
+  impresso da digitalização é um PNG montado no próprio `capturar-digitalizar.py`: não tem dado
+  de ninguém, o resultado da extração é previsível, e o script não depende de arquivo solto numa
+  pasta.
+- **Print igual ao do passo seguinte não entra.** O passo *Importando…* do Excel, com cinco
+  linhas, saiu idêntico ao *Resultado*. A imagem foi descartada e os contadores ao vivo ficaram
+  descritos no texto — imagem que não muda nada para o leitor é peso.
+- **Duas resoluções no mesmo manual pedem coordenada em fração.** As puras saíram em 2160x1350 e
+  2160x1500 (a digitalização é mais alta). Com fração de 0 a 1 o `annotate.py` não trata os dois
+  casos, e nenhuma geometria especial foi necessária: tela de largura cheia tem vão dentro da
+  própria captura.
+- **Etiqueta escondida embaixo de outra só aparece na tratada em tamanho real.** Na imagem 16 a
+  etiqueta 1 ficou coberta pela 3 — as duas caíram no mesmo x. E corrigir uma colisão cria a
+  seguinte: a etiqueta movida na imagem 09 pousou sobre o texto do passo e precisou de um segundo
+  ajuste. Revise imagem por imagem, no tamanho em que ela foi gerada.
+- **Autorização para criar dado tem preço, e o preço é o estado vazio.** O dono limpou o cardápio
+  para esta produção e pediu para não excluir depois. A imagem 01 — a tela antes da primeira
+  importação — **não se refotografa** sem limpar tudo outra vez. Quem for mexer nessas telas
+  precisa saber disso antes de prometer print.
+- **Nem tudo o que o manual precisa pode ser executado.** A clonagem parou no pedido de
+  confirmação: confirmar copiaria 1190 produtos sobre o cardápio em que as outras dezessete
+  imagens se apoiam. A prévia já mostra o que o leitor precisa, e o script registra `>>> PARANDO
+  AQUI` com o motivo no docstring.
 
 ### O segundo manual de parceiro, e o que muda quando o caminho é escolhido pelo dono — #129
 
