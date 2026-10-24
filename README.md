@@ -90,6 +90,7 @@ O **status** e a fila ficam no
 | Manual do Modo Kiosk — travar o tablet no cardápio | [`cardapio-digital-tablet-modo-kiosk/`](manuais/cardapio-digital-tablet-modo-kiosk/cardapio-digital-tablet-modo-kiosk.md) |
 | Manual do Cardápio — Fundamentos | [`cardapio-fundamentos/`](manuais/cardapio-fundamentos/cardapio-fundamentos.md) |
 | Manual do Cardápio — Hambúrguer | [`cardapio-hamburguer/`](manuais/cardapio-hamburguer/cardapio-hamburguer.md) |
+| Importar cardápio — quatro caminhos para não cadastrar produto por produto | [`cardapio-importar/`](manuais/cardapio-importar/cardapio-importar.md) |
 | Manual do Cardápio — Comida Japonesa | [`cardapio-japonesa/`](manuais/cardapio-japonesa/cardapio-japonesa.md) |
 | Cardápio em PDF: como gerar o cardápio impresso do restaurante (A4 ou A5, com foto, QR Code e capa) | [`cardapio-pdf/`](manuais/cardapio-pdf/cardapio-pdf.md) |
 | Manual do Cardápio — Pizza | [`cardapio-pizza/`](manuais/cardapio-pizza/cardapio-pizza.md) |
