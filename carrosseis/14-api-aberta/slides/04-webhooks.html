@@ -1,0 +1,75 @@
+<!-- Slide 4: o contrário da integração que só funciona quando alguém aperta
+     "atualizar". Todo mundo que já teve sistema integrado conhece a cena — o
+     pedido entrou no BeeFood e o outro sistema só vê dez minutos depois. O
+     webhook é a resposta, e a documentação diz com todas as letras que ele é
+     "a alternativa recomendada ao polling".
+
+     A PALAVRA `polling` NÃO ENTRA no slide. É vocabulário de quem integra, e o
+     leitor desta peça é o dono do restaurante. O que entra é o que a palavra
+     quer dizer na vida dele: ninguém precisa perguntar.
+
+     A FORMA É LISTA, E É DE PROPÓSITO. Uma peça de integração tem a tentação de
+     virar quatro cartões escuros iguais — foi o defeito que derrubou a primeira
+     versão da #13 —, e o que separa este slide do slide 2 é a forma antes do
+     conteúdo: aqui é tabela, lá é código.
+
+     AS DUAS COLUNAS SERVEM DOIS LEITORES DE UMA VEZ. À esquerda o `eventType`
+     publicado, que é a palavra que quem for integrar vai procurar; à direita o
+     rótulo em português, que é o que o painel escreve no formulário de webhook.
+     Os cinco são os cinco que existem — não há sexto, e não há "em breve".
+
+     O PÉ É O ENDEREÇO, e ele responde à pergunta que a lista planta: "avisa
+     para onde?". A resposta é curta e é a única configuração que a peça
+     menciona, porque sem ela a lista fica no ar. -->
+<div class="slide">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">4 de 7</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 904px">
+    <span class="chapeu">Sem ninguém perguntar</span>
+    <h2 class="titulo titulo--pequeno">
+      Os <span class="destaque">webhooks</span> avisam o seu sistema sozinhos
+    </h2>
+    <p class="corpo">
+      A cada pedido, pagamento ou mudança na entrega, o BeeFood manda o aviso
+      na hora. O outro lado não precisa ficar conferindo.
+    </p>
+  </div>
+
+  <ul class="eventos" style="width: 904px; margin: 56px auto 0">
+    <li>
+      <code>order_created</code>
+      <span>Pedido criado</span>
+    </li>
+    <li>
+      <code>order_updated</code>
+      <span>Pedido atualizado</span>
+    </li>
+    <li>
+      <code>order_delivery_updated</code>
+      <span>Entrega atualizada</span>
+    </li>
+    <li>
+      <code>payment_created</code>
+      <span>Pagamento criado</span>
+    </li>
+    <li>
+      <code>payment_updated</code>
+      <span>Pagamento alterado</span>
+    </li>
+  </ul>
+
+  <div class="empurra"></div>
+
+  <p style="max-width: 904px; margin-bottom: 18px; font-size: 30px;
+            line-height: 1.4; color: var(--texto-suave)">
+    Você cadastra o endereço que recebe os avisos na mesma tela da credencial.
+  </p>
+
+  <div class="rodape">
+    <span class="pontos"><span></span><span></span><span></span><span class="on"></span><span></span><span></span><span></span></span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>

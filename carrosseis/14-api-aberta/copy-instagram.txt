@@ -1,0 +1,206 @@
+CARROSSEL — API ABERTA: O SEU SISTEMA LÊ E ESCREVE NO BEEFOOD
+Gênero: novidade
+Fonte: beefood.app/novidades/api-aberta-liberada — 13/10/2026. Mais a
+documentação pública, docs.beefood.app, que é onde está tudo que o release de
+nove linhas não conta: quantas rotas são, o que cada grupo faz, como o token é
+emitido e quais eventos o webhook dispara.
+Manual: não existe na pasta manuais/. O passo a passo deste recurso é o próprio
+portal de desenvolvedores, e o release indica ele pelo nome.
+
+Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-como-funciona, 03-catalogo, 04-webhooks,
+05-permissoes, 06-documentacao, 07-cta.
+
+O LEITOR NÃO PROGRAMA, E A PEÇA SABE DISSO. Quem lê é o dono do restaurante que
+já paga o BeeFood e tem um outro sistema — um ERP, um PDV, um site próprio, uma
+agência. Ele não vai escrever uma linha de código, e não precisa: a decisão que
+é dele, e só dele, é liberar o acesso. Gerar a credencial e marcar as permissões
+são dois cliques na folha. O que acontece depois é com quem integra.
+
+ELA NÃO SÓ CONSULTA: ELA ESCREVE. É a informação que mais muda quem se
+interessa, e é a que a palavra "integração" costuma esconder — quase todo mundo
+entende integração como exportar relatório. São 61 rotas de negócio, e 29 delas
+alteram dado. O Catálogo sozinho tem 33 rotas, e 24 escrevem: dá para o outro
+sistema criar produto, mudar preço, mexer em complemento e até trocar a foto.
+
+AS DUAS FORMAS DE AUTENTICAR NÃO ENTRARAM EM SLIDE NENHUM, e é a pergunta mais
+provável de quem for integrar. A documentação separa duas:
+  - integração direta, com client credentials: o lojista gera a credencial em
+    Aplicativos → API Aberta e entrega para quem vai integrar;
+  - "Conectar com BeeFood", com authorization code e PKCE: a integradora põe um
+    botão no site dela e o lojista autoriza por ali, sem passar segredo pela
+    mão.
+Nas duas o crachá é o mesmo e abre as mesmas portas, e é por isso que a
+diferença ficou de fora da arte: ela é grande para quem integra e invisível para
+quem lê. Se perguntarem, a resposta é essa, e o resto está em docs.beefood.app.
+
+QUEM QUER PUBLICAR A PRÓPRIA FERRAMENTA TEM PÁGINA PRÓPRIA. A documentação
+explica como um parceiro leva a ferramenta dele para dentro de Aplicativos, e
+isso é outro leitor — o integrador, não a loja. Não misture na mesma publicação;
+vale peça separada.
+
+CINCO IMAGENS DE SETE SÃO DESENHO, e o motivo não é preguiça: o resultado da API
+acontece dentro do sistema do outro. Não existe tela nossa de ERP recebendo
+pedido. O que é desenho não inventa nada, e vale repetir se alguém cobrar: as
+rotas da capa e do slide 3 existem e respondem, os cinco nomes de evento do
+slide 4 são os cinco que a documentação publica, e o JSON do slide 2 é a
+resposta de verdade de uma chamada feita contra api.beefood.app.
+
+OS NÚMEROS DO SLIDE 2 SÃO DE UMA LOJA DE DEMONSTRAÇÃO, e pode ser dito sem
+medo: são exemplo, e qualquer loja vê os próprios. O que não é exemplo é a
+chamada — 44 pedidos na janela de sete dias e o pedido 61424246 com os campos que
+ele tem de verdade. O "…" no fim da última linha não é enfeite: o item traz oito
+campos e o cartão mostra cinco.
+
+NENHUMA CREDENCIAL APARECE EM IMAGEM NENHUMA. A folha do slide 5 abre com o
+Client ID e o campo do Client Secret, e o recorte começa abaixo deles, na linha
+Permissões. Não existe versão dessa captura com credencial dentro, nem no
+arquivo original — o repositório é público e a loja de exemplo roda em produção.
+
+ENTREGADORES E ESTOQUE APARECEM NA TELA, MAS NÃO NA PEÇA. São as duas áreas de
+permissão que o painel mostra apagadas, com a etiqueta "Em breve". Ficaram de
+fora do recorte de propósito: promessa não é assunto de peça de lançamento. Se
+alguém perguntar por elas, a resposta é que estão a caminho.
+
+NENHUM DADO DE CLIENTE FOI TOCADO, e desta vez não houve o que borrar. Tudo que
+entrou em imagem é número de pedido, situação, valor e tabela de permissão. A
+listagem de pedidos não devolve nome nem telefone — isso só vem no detalhe de um
+pedido, e essa rota não foi chamada. Nenhuma chamada de escrita foi feita em
+lugar nenhum: as seis consultas da peça são todas GET.
+
+SE COMPARAREM O NÚMERO DE ROTAS COM O DO PORTAL. A home de docs.beefood.app
+mostra 69 e a peça diz 61. Os dois estão certos e contam coisas diferentes: 61
+são as rotas de negócio, e o portal soma as 7 de autenticação mais o health
+check. A peça usa 61 porque é o número que o carrossel do MCP já publicou.
+
+SAIU NO MESMO DIA, E É A PEÇA IRMÃ: o MCP
+(beefood.app/novidades/mcp-inteligencia-artificial). As duas são a mesma porta
+vista de dois lados — lá uma pessoa pergunta em português e a IA executa a
+chamada; aqui o sistema do parceiro executa a chamada sozinho, sem ninguém na
+frente. Não misture as duas na mesma publicação.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+A API Aberta da BeeFood está no ar 🔌
+
+Agora o seu outro sistema conversa direto com o seu BeeFood. O ERP, o PDV, o seu
+site, a ferramenta da agência: quem já trabalha com você passa a ler e a escrever
+na sua loja, sem ninguém digitando a mesma coisa duas vezes.
+
+E escrever é a palavra certa. São 61 rotas, e 29 delas alteram dado. O cardápio é
+a maior parte: das 33 rotas de Catálogo, 24 escrevem — criar produto, mudar
+preço, mexer em complemento, trocar a foto. Pedidos, clientes, horários, cupons e
+avaliações também estão lá.
+
+E tem o outro lado, o que chega sem ninguém pedir: cinco avisos automáticos —
+pedido criado, pedido atualizado, entrega atualizada, pagamento criado e
+pagamento alterado. O seu sistema recebe na hora, em vez de ficar perguntando de
+cinco em cinco minutos se mudou alguma coisa.
+
+A chave é sua. Em cada recurso você liga Consultar, Alterar, os dois ou nenhum, e
+a credencial só abre o que você marcou. Quem só precisa ler os seus pedidos não
+encosta no seu cardápio.
+
+A documentação é pública, em docs.beefood.app, com o exemplo pronto em treze
+linguagens e um ambiente de testes com endereço próprio — ninguém precisa
+aprender a integração em cima dos seus pedidos de sexta à noite. Mande o link
+para quem cuida do seu sistema; a credencial você gera no painel, em um minuto.
+
+Está liberada para toda loja com plano ativo.
+
+API Aberta fica em Aplicativos → API Aberta 🔌
+Tudo que entra de novo está em beefood.app/novidades
+
+#beefood #apiaberta #api #integracao #gestaoderestaurante #restaurante #delivery
+#erp #pdv #tecnologiaparadelivery
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Qual sistema você ligaria primeiro no seu BeeFood? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro. No alto, um desenho de fluxo: à esquerda, sob o rótulo
+    "entradas", três cartões — "O seu ERP / GET /v1/orders", "O seu PDV / POST
+    /v1/orders" e "O seu site / GET /v1/catalog/products". No centro, um disco
+    branco com o logotipo da BeeFood e a palavra "/v1", cercado por dois anéis
+    tracejados vermelhos. À direita, sob o rótulo "saídas", mais três cartões —
+    "Pedido criado / order_created", "Entrega atualizada / order_delivery_updated"
+    e "Pagamento criado / payment_created". Abaixo, a pílula "Novidade" e o
+    título "API Aberta: o seu sistema lê e escreve no BeeFood", com "API Aberta"
+    em vermelho, e a linha "Pedidos, cardápio e clientes — e um aviso automático
+    a cada pedido novo".
+
+02  Chapéu "Como funciona" e título "O seu sistema pergunta. O BeeFood
+    responde.", com "responde" em vermelho. O texto diz que a credencial vira um
+    token, que o token abre as rotas de /v1, e que o que volta é o dado da loja,
+    sempre no mesmo formato.
+    Abaixo, sob o rótulo "A chamada e a resposta, como elas saíram", um cartão
+    escuro de código. No alto dele, uma etiqueta vermelha "GET" e o endereço
+    "/v1/orders?saleDateFrom=…". Embaixo, a resposta em JSON: total 44 e um
+    pedido com orderId 61424246, orderStatus CLOSED, deliveryStatus DELIVERED,
+    orderType DELIVERY e orderAmount 45, terminando em reticências.
+
+03  Chapéu "O cardápio todo" e título "Catálogo: 24 das 33 rotas escrevem no
+    cardápio", com "Catálogo" em vermelho. O texto diz que produto, preço,
+    complemento e foto, o que o lojista edita no painel, o sistema dele edita
+    pela API, e na mesma hora.
+    Abaixo, seis itens com tique vermelho, em duas colunas: Setores, Produtos,
+    Complementos, Grupos de opções, Opções e Fotos dos produtos. No pé, um
+    cartão escuro com três chamadas de escrita, cada uma com a etiqueta verde do
+    método: POST /v1/catalog/products, PATCH /v1/catalog/products/{productId} e
+    PUT /v1/catalog/{tipo}/{id}/image.
+
+04  Chapéu "Sem ninguém perguntar" e título "Os webhooks avisam o seu sistema
+    sozinhos", com "webhooks" em vermelho. O texto diz que a cada pedido,
+    pagamento ou mudança na entrega o BeeFood manda o aviso na hora, e que o
+    outro lado não precisa ficar conferindo.
+    Abaixo, uma tabela de cinco linhas, com o nome técnico do evento em vermelho
+    à esquerda e o que ele quer dizer à direita: order_created / Pedido criado,
+    order_updated / Pedido atualizado, order_delivery_updated / Entrega
+    atualizada, payment_created / Pagamento criado, payment_updated / Pagamento
+    alterado. No pé do slide, a frase "Você cadastra o endereço que recebe os
+    avisos na mesma tela da credencial".
+
+05  Chapéu "A chave é sua" e título "Você liga Consultar e Alterar em cada
+    recurso", com "Consultar" e "Alterar" em vermelho. O texto diz que a
+    credencial só abre o que o lojista marcou, e que quem altera também
+    consulta.
+    Abaixo, um recorte da folha Aplicativos → API Aberta do painel: o título
+    Permissões e seis cartões — Pedidos (consultar e criar pedidos), Catálogo
+    (produtos, grupos e complementos), Clientes (dados dos clientes), Loja
+    (horários, entrega e pagamentos), Cupons (cupons de desconto) e Avaliações
+    (avaliações dos clientes) —, cada um com duas chaves verdes ligadas, uma
+    marcada Consultar e outra marcada Alterar.
+
+06  Chapéu "Quem for integrar agradece" e título "A documentação já traz o
+    exemplo pronto", com "documentação" em vermelho. O texto diz que são treze
+    linguagens, com a chamada montada e um ambiente de testes com endereço
+    próprio, e que ninguém precisa aprender a integração em cima dos pedidos de
+    sexta.
+    Abaixo, sob o rótulo "docs.beefood.app", um recorte do portal de
+    documentação: a linha "Linguagem" com uma etiqueta verde "Produção" no canto
+    e doze abas de linguagem — Node, Shell, Python, PHP, C#, Java, Go, Ruby,
+    Kotlin, Swift, Rust e Dart —, a aba Node selecionada em vermelho, e abaixo um
+    cartão escuro de código com o título "POST /v1/oauth/token" e dez linhas de
+    exemplo em axios, montando a chamada que troca clientId e clientSecret pelo
+    token.
+
+07  Fundo escuro com o chapéu "Já está no ar" e o título "Libere hoje o acesso do
+    seu sistema", com "hoje" em vermelho. O texto diz que a credencial sai na
+    hora, que as permissões são marcadas na mesma tela, e que tudo que entra de
+    novo está em beefood.app/novidades. Abaixo, a pílula de caminho "Aplicativos
+    → API Aberta".
+    No pé do slide, um recorte do painel: o cartão da API Aberta na grade de
+    Aplicativos, branco, com um ícone vermelho escrito {API}, o título "API
+    Aberta" e a chamada "Integre seu sistema ao BeeFood vi...", cortada pela
+    largura do cartão.

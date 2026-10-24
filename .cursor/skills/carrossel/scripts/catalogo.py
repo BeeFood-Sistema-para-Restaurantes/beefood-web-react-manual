@@ -259,6 +259,83 @@ ARCO_MCP = """
 </div>
 """
 
+# A cena de entradas, núcleo e saídas, da #14. Vai na folha com as caixas que a
+# capa publicou — rota de verdade e `eventType` de verdade —, porque o ponto da
+# peça é justamente que um endereço inventado estragaria a ilustração.
+FLUXO_API = """
+<div class="fluxo-api" style="width: 904px">
+  <div class="fluxo-api__lado">
+    <span class="fluxo-api__rotulo">entradas &rarr;</span>
+    <div class="fluxo-api__caixa">
+      <span class="fluxo-api__nome">O seu ERP</span>
+      <span class="fluxo-api__rota">GET /v1/orders</span>
+    </div>
+    <div class="fluxo-api__caixa">
+      <span class="fluxo-api__nome">O seu PDV</span>
+      <span class="fluxo-api__rota">POST /v1/orders</span>
+    </div>
+  </div>
+  <div class="fluxo-api__nucleo">
+    <span class="logo"></span>
+    <span>/v1</span>
+  </div>
+  <div class="fluxo-api__lado fluxo-api__lado--saida">
+    <span class="fluxo-api__rotulo">&rarr; saídas</span>
+    <div class="fluxo-api__caixa">
+      <span class="fluxo-api__nome">Pedido criado</span>
+      <span class="fluxo-api__rota">order_created</span>
+    </div>
+    <div class="fluxo-api__caixa">
+      <span class="fluxo-api__nome">Pedido alterado</span>
+      <span class="fluxo-api__rota">order_updated</span>
+    </div>
+  </div>
+</div>
+"""
+
+# O cartão de chamada e resposta. Os números aqui são de mostruário, como os da
+# `.tela-ia`: a peça publicada tira os dela do `chamadas.json`, que é o que a
+# API respondeu de verdade.
+REQUISICAO = """
+<div class="requisicao">
+  <div class="requisicao__linha">
+    <span class="requisicao__metodo">GET</span>
+    <span>/v1/orders?saleDateFrom=&hellip;</span>
+  </div>
+  <pre class="requisicao__corpo">{
+  <b>"total"</b>: <u>44</u>,
+  <b>"items"</b>: [{
+    <b>"orderId"</b>: <u>61424246</u>,
+    <b>"orderStatus"</b>: <i>"CLOSED"</i>,
+    <b>"orderAmount"</b>: <u>45</u>, <s>&hellip;</s>
+  }]
+}</pre>
+</div>
+"""
+
+# O mesmo cartão sem corpo, que é como o slide 3 da #14 põe a escrita em
+# endereço. O verde é o método que altera.
+REQUISICAO_ESCRITA = """
+<div class="requisicao">
+  <div class="requisicao__linha">
+    <span class="requisicao__metodo requisicao__metodo--sai">POST</span>
+    <span>/v1/catalog/products</span>
+  </div>
+  <div class="requisicao__linha">
+    <span class="requisicao__metodo requisicao__metodo--sai">PATCH</span>
+    <span>/v1/catalog/products/{productId}</span>
+  </div>
+</div>
+"""
+
+EVENTOS = """
+<ul class="eventos">
+  <li><code>order_created</code> <span>Pedido criado</span></li>
+  <li><code>order_delivery_updated</code> <span>Entrega atualizada</span></li>
+  <li><code>payment_created</code> <span>Pagamento criado</span></li>
+</ul>
+"""
+
 PECAS: list[tuple[str, str, str, str]] = [
     ("totem", "Totem, só o aparelho",
      "420 px com texto ao lado; 400 sozinho",
@@ -327,6 +404,18 @@ PECAS: list[tuple[str, str, str, str]] = [
     ("arco-mcp", "Arco da folha do MCP",
      ".arco-mcp, peça de 148 e passo de 178",
      ARCO_MCP),
+    ("fluxo-api", "Entradas, API e saídas",
+     ".fluxo-api, 904 px; 1012 sangrando se o rótulo for longo",
+     FLUXO_API),
+    ("requisicao", "Chamada e resposta",
+     ".requisicao, 904 px margem a margem (26 px)",
+     f'<div style="width: 904px">{REQUISICAO}</div>'),
+    ("requisicao-escrita", "Só as chamadas de escrita",
+     ".requisicao sem corpo, com .requisicao__metodo--sai",
+     f'<div style="width: 904px">{REQUISICAO_ESCRITA}</div>'),
+    ("eventos", "Tabela de eventos de webhook",
+     ".eventos, 904 px; a coluna do nome tem 392 px fixos",
+     f'<div style="width: 904px">{EVENTOS}</div>'),
 ]
 
 

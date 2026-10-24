@@ -443,6 +443,54 @@ quatro pares de palavras, debaixo de um título grande. Com moldura branca, seis
 retângulos numa capa escura pesam mais que a manchete. O tique vermelho diz
 *liberado*, então área que ainda vai sair não entra na lista.
 
+## API: a cena, o cartão de código e a tabela de eventos
+
+Peça de API é o caso em que **não existe tela de resultado nossa.** Quem recebe
+o pedido é o ERP do parceiro, e esse aparelho não está aqui para fotografar —
+nem adianta pedir para o `cenario-sandbox`, porque não é dado que falta, é
+sistema de terceiro. É o degrau 2 da escada no caso em que o degrau de cima não
+existe, o mesmo da `.tela-ia`. Nasceram as três juntas, na peça 14.
+
+| Peça | O que ela mostra | Onde |
+|---|---|---|
+| `.fluxo-api` | a **cena**: de um lado os sistemas que chamam, no meio o disco da BeeFood, do outro os avisos que saem | capa |
+| `.requisicao` | a **chamada e a resposta**, que é o único resultado concreto que a API tem | miolo |
+| `.eventos` | a **tabela de webhooks**: o `eventType` à esquerda, o que ele quer dizer à direita | miolo |
+
+`.fluxo-api` é a composição do alto de `docs.beefood.app`, e o portal é
+**referência de layout**, como print de manual é referência de tela: nada foi
+recortado de lá. Três coisas que a primeira versão pagou:
+
+- **o rótulo do lado substitui a linha.** A arte do portal liga cada cartão ao
+  disco com uma curva tracejada; em CSS isso são seis caixas posicionadas à mão,
+  e no tamanho do feed as curvas viram risco. Os dois anéis em volta do disco
+  dizem a mesma coisa e custam duas regras;
+- **a coluna de 904 px não cabe rótulo longo.** O lado útil do cartão fica com
+  276 px, e `Entrega atualizada` a 30 px pede 297 — a palavra quebra e o trio
+  perde o ritmo. A capa da 14 sangra para **1012 px** (`margin: 0 -54px`), o que
+  dá 330 e, de brinde, diz que os sistemas da ponta vêm de fora do BeeFood;
+- **o disco é branco, e a marca dentro dele também muda.** `.slide--capa .logo`
+  troca a arte pela de fundo escuro, que tem o "BEE" em branco: dentro do disco
+  branco, metade do logotipo some. Já existe regra para isso, mas é a armadilha a
+  lembrar sempre que algo branco entrar numa capa escura.
+
+`.requisicao` serve com corpo e sem. Com corpo é a resposta (`<b>` chave, `<i>`
+texto, `<u>` número, `<s>` elisão); sem corpo é só a lista de chamadas, e aí o
+método de escrita vai de verde, com `.requisicao__metodo--sai`. O par
+vermelho/verde é o que faz duas chamadas lerem como **dois sentidos**, e não
+como dois exemplos da mesma coisa.
+
+**O conteúdo é medido, nunca inventado** — vale para as três. Rota, nome de
+evento, número e corpo de resposta saem da documentação ou de uma chamada real
+gravada em `chamadas.json`. Endereço inventado seria a única parte falsa de uma
+ilustração que existe para dizer "isto é uma API". Campo que não cabe se elide
+com `…`.
+
+E a razão de serem três e não uma: peça de integração tem a tentação de virar
+quatro blocos escuros iguais — foi o defeito que derrubou a primeira versão da
+13. O que separa um slide do outro é a **forma antes do conteúdo**: cena, código,
+lista.
+
 ## Notebook e monitor de mesa
 
 Página web deitada tem três mockups, e eles dizem coisas diferentes:
