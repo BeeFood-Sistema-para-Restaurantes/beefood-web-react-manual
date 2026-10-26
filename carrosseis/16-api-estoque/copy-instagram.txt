@@ -1,0 +1,213 @@
+CARROSSEL — API DE ESTOQUE: A SUA IA RESPONDE O QUE ESTÁ ACABANDO
+Gênero: novidade
+Fonte: beefood.app/novidades/api-estoque-mcp — 26/10/2026, áreas Aplicativos e
+Estoque. Mais a documentação, que é a fonte de verdade da peça: o release diz o
+que dá para fazer, e a documentação diz quantas rotas são, como cada operação
+se chama e o que o servidor recusa.
+Manual: não existe na pasta manuais/. O passo a passo deste recurso são as duas
+folhas de Aplicativos e o portal de desenvolvedores.
+
+Publicar como carrossel de feed, 6 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-duas-portas, 03-uma-lista, 04-movimentacao,
+05-permissao, 06-cta.
+
+A NOTÍCIA TEM DUAS METADES, E ELAS TÊM DONOS DIFERENTES. A porta da IA é do
+lojista: ele conecta, ele pergunta, ele lê a resposta. A porta da API é do
+fornecedor dele, que é quem vai escrever o código. Quem rola o feed é o
+primeiro, e por isso a capa é a conversa com a IA — a segunda metade ganha o
+subtítulo e o slide 2 inteiro. Se alguém comentar perguntando "mas e quem tem
+um ERP?", a resposta é o slide 2: é a mesma API atrás das duas portas.
+
+ESTA É A TERCEIRA PEÇA DA FAMÍLIA, e as outras duas já estão publicadas: o MCP
+(beefood.app/novidades/mcp-inteligencia-artificial) e a API Aberta
+(beefood.app/novidades/api-aberta-liberada). As duas primeiras venderam a porta;
+esta vende o que passou a existir atrás delas. Não publique as três na mesma
+semana, e se for responder comentário, o encadeamento é esse.
+
+O QUE MUDOU DESDE A PEÇA DA API ABERTA. Lá, nas duas folhas de permissão, as
+linhas Entregadores e Estoque apareciam apagadas, com a etiqueta "Em breve", e
+ficaram de fora do recorte de propósito. Estoque saiu do em breve. Entregadores
+é a única que continua lá — se perguntarem, está a caminho, e promessa não é
+assunto de peça de lançamento.
+
+OS NÚMEROS, E DE ONDE CADA UM SAIU:
+  - 11 rotas no grupo Estoque, 5 delas de escrita, nos escopos stock:read e
+    stock:write. É o segundo maior grupo da API, atrás só do Catálogo — isso
+    não está em slide nenhum porque o leitor não tem como saber se 11 é muito
+    ou pouco, mas é verdade e pode ser dito se alguém perguntar;
+  - 362 itens na lista da loja de exemplo: 267 insumos, 64 produtos e 31
+    complementos. Só o 362 aparece em imagem, dentro do corpo da resposta;
+  - 1 item abaixo do mínimo, de 19 com controle ligado.
+
+OS NÚMEROS DA LOJA SÃO DE DEMONSTRAÇÃO, e pode ser dito sem medo: são exemplo,
+e qualquer loja vê os próprios. O que não é exemplo é a chamada. O TOMATE com
+1,5 KG de um mínimo de 2 KG apareceu de verdade quando a pergunta da capa foi
+feita, e o "…" no fim do JSON do slide 3 não é enfeite — o item tem mais campos
+do que o cartão mostra.
+
+A ENTRADA DE 20 UNIDADES FOI DADA DE VERDADE, e desfeita. O exemplo é o do
+próprio release, e ele foi executado pelo MCP contra a loja de demonstração:
+saldo 23, entrada de 20, saldo 43, e o saldo devolvido a 23 no mesmo arranque.
+Nenhum slide mostra esse JSON — o que a peça aprendeu com ele é que a operação
+que desfaz existe, e ela está no slide 4 com o nome que tem: "new".
+
+AS TRÊS OPERAÇÕES SE CHAMAM add, subtract e new, e a documentação avisa, com
+todas as letras, que "remove" e "set" NÃO existem. Se quem for integrar
+perguntar como zera um saldo: é new com 0.
+
+CADA LINHA DO LOTE É INDEPENDENTE, e é o argumento mais forte da peça para quem
+integra: a nota de compra chega com trinta itens, um deles não existe mais no
+cadastro, e os outros vinte e nove entram do mesmo jeito. A resposta volta na
+ordem do corpo, uma linha por item, com "success" em cada uma.
+
+O HISTÓRICO TEM LIMITE DE SEIS MESES POR CONSULTA, e isso não entrou em slide
+nenhum de propósito: limite antes do CTA é a fatura antes da venda. O limite é
+do servidor e foi medido — pedindo 200 dias, ele responde que a janela não pode
+passar de seis meses. Para período maior, são duas consultas. Cada movimentação
+traz data, quantidade movida e o saldo que havia antes.
+
+CADASTRAR INSUMO PELA API TAMBÉM DÁ, com categoria, unidade de medida e custo.
+Ficou fora da arte porque cadastrar insumo já dá para fazer no painel, e o ganho
+de fazer pela API só existe para quem está migrando de sistema. Se perguntarem,
+dá, e são quatro rotas de categoria mais quatro de insumo.
+
+QUATRO IMAGENS DE SEIS SÃO DESENHO, e o motivo não é preguiça: o resultado deste
+recurso acontece dentro do sistema do outro — dentro do ChatGPT, do Claude ou do
+ERP do fornecedor —, e esses aparelhos não são nossos para fotografar. O que é
+desenho não inventa nada, e vale repetir se alguém cobrar: a pergunta da capa é
+a do release, os números da resposta saíram de uma chamada real, as rotas
+existem e respondem, e os nomes das operações são os publicados.
+
+AS DUAS CAPTURAS SÃO DE TELAS DIFERENTES, e é por isso que elas têm larguras
+diferentes no slide 5. A de cima é o formulário de credencial, em Aplicativos →
+API Aberta; a de baixo é a tela "Conectar com BeeFood", que só aparece no meio
+do caminho quando a ferramenta de IA pede autorização — não existe rota no
+painel que abra aquela tela.
+
+NENHUMA CREDENCIAL APARECE EM IMAGEM NENHUMA. A folha do slide 5 abre com o
+Client ID e o campo do Client Secret, e o recorte é só da linha de Estoque, bem
+abaixo deles. Não existe versão dessa captura com credencial dentro, nem no
+arquivo original — o repositório é público e a loja de exemplo roda em produção.
+
+NENHUM DADO DE CLIENTE FOI TOCADO, e desta vez não houve o que borrar. Estoque
+não tem dado pessoal: o que entrou em imagem é nome de insumo, quantidade,
+unidade e tabela de permissão.
+
+A ARTE NÃO LEVA DATA, então ela pode esperar na fila. O recurso está no ar desde
+26/10/2026; se a publicação for muito depois disso, vale conferir se as duas
+folhas continuam como estão nas capturas antes de postar.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+Agora dá para cuidar do estoque conversando 📦
+
+A API de Estoque da BeeFood está no ar, e ela chegou pelas duas portas que você
+já tem: o MCP, para perguntar à sua IA preferida, e a API Aberta, para o seu
+outro sistema fazer sozinho.
+
+Pelo MCP é só perguntar. "Quais insumos estão abaixo do mínimo?" e ela responde
+qual é, quanto tem e quanto deveria ter. "Dê entrada de 20 unidades de
+refrigerante" e ela dá. Sem abrir tela, sem filtrar lista.
+
+Insumo, produto e complemento vêm na mesma consulta, cada um com saldo, mínimo e
+situação — é por isso que dá para perguntar o que está acabando sem dizer de que
+tipo é a coisa que está acabando.
+
+E dá para mexer: entrada, saída e correção do saldo depois da contagem, vários
+itens de uma vez. Cada item é tratado por conta própria, então uma linha que
+falha não derruba as outras — a nota chega com trinta itens, um deles saiu do
+cadastro, e os outros vinte e nove entram. Toda movimentação fica registrada,
+item por item, com a data e o saldo que havia antes.
+
+A chave é sua, e ela é separada: consultar é uma permissão, alterar é outra. Em
+Aplicativos → MCP você autoriza o Estoque para a sua IA; em Aplicativos → API
+Aberta você liga Consultar e Alterar na credencial do seu sistema. O que você
+não marcar, não abre.
+
+Quem for integrar encontra tudo em docs.beefood.app, com o exemplo pronto.
+
+Estoque fica em Aplicativos → API e MCP 📦
+Tudo que entra de novo está em beefood.app/novidades
+
+#beefood #estoque #controledeestoque #api #mcp #inteligenciaartificial
+#gestaoderestaurante #restaurante #delivery #tecnologiaparadelivery
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+O que você perguntaria primeiro sobre o seu estoque? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro. A pílula "Novidade" e o título "API de Estoque: a sua IA
+    responde o que está acabando", com "API de Estoque" em vermelho, seguido da
+    linha "E o seu sistema dá entrada e baixa sozinho". Abaixo, o desenho de uma
+    conversa com uma ferramenta de inteligência artificial: um fio colorido no
+    alto, a pergunta "Quais insumos estão abaixo do mínimo?" numa bolha cinza à
+    direita, e a resposta — uma etiqueta com o quadrado vermelho da BeeFood e o
+    nome "beefood-api", um quadro com as linhas "TOMATE 1,5 KG" e "mínimo 2 KG",
+    e o texto "É o único abaixo do mínimo. Os outros 18 itens com controle
+    ligado estão regulares". No pé, a caixa de escrever, com "Pergunte outra
+    coisa…".
+
+02  Chapéu "Como funciona" e título "Pela sua IA ou pelo seu sistema: o mesmo
+    estoque", com "IA" e "sistema" em vermelho. O texto diz que as duas portas
+    já existiam, que nenhuma delas chegava ao estoque, e que agora as duas
+    chegam — e que é a mesma API atrás das duas.
+    Abaixo, um desenho: dois cartões brancos lado a lado, "Aplicativos → MCP / A
+    sua IA" e "Aplicativos → API Aberta / O seu sistema". De cada um desce uma
+    linha tracejada vermelha com um visto no meio, e as duas entram num cartão
+    escuro que atravessa o slide, com o rótulo "Estoque" e a frase "11 rotas:
+    saldos, insumos, movimentações e histórico".
+
+03  Chapéu "A consulta" e título "Insumo, produto e complemento na mesma lista",
+    com "mesma lista" em vermelho. O texto diz que uma chamada traz os três
+    juntos, cada um com saldo, mínimo e situação, e que é por isso que dá para
+    perguntar o que está acabando sem dizer de que tipo.
+    Abaixo, sob o rótulo "A consulta, e o que voltou", um cartão escuro de
+    código. No alto dele, uma etiqueta vermelha "GET" e o endereço
+    "/v1/stock/items". Embaixo, a resposta em JSON: total 362 e um item com
+    supplyId 57078, name TOMATE, unit KG, stockQuantity 1.5,
+    stockMinimumQuantity 2 e stockSituation "low", terminando em reticências.
+
+04  Chapéu "A movimentação" e título "Entrada, saída e contagem — várias de uma
+    vez", com "várias de uma vez" em vermelho. O texto diz que cada linha do
+    lote é independente, que a que falha não desfaz as outras, e que toda
+    movimentação fica no histórico, item por item.
+    Abaixo, uma tabela de cinco linhas, com o nome técnico em vermelho à
+    esquerda e o que ele faz à direita: "operation: add" / Soma ao saldo: a
+    entrada; "operation: subtract" / Tira do saldo: a saída; "operation: new" /
+    Grava o saldo da contagem; "stockControl" / Liga o controle daquele item;
+    "stockMinimumQuantity" / Define o aviso de saldo baixo.
+
+05  Chapéu "A chave é sua" e título "O Estoque é uma chave que você liga", com
+    "você" em vermelho. O texto diz que é nas duas portas, e separada:
+    consultar é uma permissão, alterar é outra.
+    Abaixo, dois recortes do painel. O de cima, mais largo, é a linha Estoque do
+    formulário de permissões da credencial: o nome "Estoque", a descrição
+    "Insumos, categorias, itens e movimentações" e duas chaves verdes ligadas,
+    uma marcada Consultar e outra marcada Alterar. O de baixo, mais estreito, é
+    a tabela de permissões da tela "Conectar com BeeFood", com as colunas
+    PERMISSÃO, LEITURA e ESCRITA e sete linhas — Loja, Pedidos, Catálogo,
+    Clientes, Cupons, Avaliações e, na última, Estoque —, todas com os dois
+    quadrados vermelhos marcados.
+
+06  Fundo escuro com o chapéu "Já está no ar" e o título "Ligue o Estoque hoje",
+    com "hoje" em vermelho. O texto diz que é uma chave a mais numa folha que o
+    lojista já tem, que não há tela nova para aprender, e que tudo que entra de
+    novo está em beefood.app/novidades. Abaixo, a pílula de caminho "Aplicativos
+    → API e MCP".
+    No pé do slide, um recorte do painel que vai de borda a borda: a seção "API
+    e MCP" da grade de Aplicativos, com dois cartões lado a lado — "API Aberta",
+    com um ícone vermelho escrito {API} e a chamada "Integre seu sistema ao
+    BeeFood vi...", e "MCP", com a borda colorida, um ícone escuro e a chamada
+    "Conecte o seu BeeFood a sua I..." —, as duas cortadas pela largura do
+    cartão.
