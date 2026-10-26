@@ -1,0 +1,84 @@
+<!-- Slide 3: o CÓDIGO. É a forma que separa esta página da anterior (cena) e da
+     seguinte (lista) — peça de integração vira quatro blocos escuros iguais
+     quando o que muda é só o conteúdo, e foi o defeito que derrubou a primeira
+     versão da #13.
+
+     O CARTÃO É A ÚNICA IMAGEM POSSÍVEL do resultado: não existe tela nossa de
+     "API funcionando". O que existe de concreto é o corpo da resposta.
+
+     O CONTEÚDO É MEDIDO. A chamada é a que o `consultar-estoque.py` fez contra
+     `api.beefood.app`, e o que está escrito é o que voltou: 362 itens, e o
+     primeiro deles é o TOMATE, com saldo 1,5 de um mínimo 2 e situação `low` —
+     o mesmo item da conversa da capa, porque é o mesmo estoque.
+
+     NENHUMA PÁGINA DA RESPOSTA MOSTRA OS TRÊS TIPOS JUNTOS, e isso não é
+     defeito do slide: a rota devolve insumos, produtos e complementos NESTA
+     ORDEM, e a loja tem 267 insumos — produto só aparece lá pela página 14.
+     Por isso a prova da "mesma lista" é a ROTA e o TOTAL, que estão no cartão.
+     Montar uma resposta com um item de cada tipo seria colar três chamadas e
+     chamar de uma.
+
+     A DIVISÃO POR TIPO SAIU DO CORPO. A primeira versão escrevia "na loja do
+     exemplo, 267 insumos, 64 produtos e 31 complementos", e três números de
+     uma loja que o leitor não conhece não dizem nada a ele — e "loja do
+     exemplo" ainda avisa que a arte é de sandbox. Número de loja só aparece
+     onde ele é evidentemente exemplo: dentro do corpo da resposta. No lugar
+     entrou o PORQUÊ da lista única, que é o que amarra este slide à capa.
+
+     O QUE O CORPO NÃO MOSTRA: do envelope ficaram `page`, `limit` e `pages`,
+     que são convenção de paginação; do item ficaram `cost`, `stockControl` e
+     `stockAllowNegative`. O `…` no fim é obrigatório — campo que não cabe se
+     elide, nunca se apaga em silêncio.
+
+     A QUERY STRING FOI ELIDIDA no primeiro exemplo e escrita no segundo. O
+     filtro que aparece é o da pergunta da capa, e é o único dos treze que a
+     peça mostra: os outros doze são o que faz a integração ser boa e são
+     vocabulário de quem programa. -->
+<div class="slide">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">3 de 6</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 904px">
+    <span class="chapeu">A consulta</span>
+    <h2 class="titulo titulo--pequeno">
+      Insumo, produto e complemento na <span class="destaque">mesma lista</span>
+    </h2>
+    <p class="corpo">
+      Uma chamada traz os três juntos, cada um com saldo, mínimo e situação. É
+      por isso que dá para perguntar o que está acabando sem dizer de que tipo.
+    </p>
+  </div>
+
+  <div class="pilha" style="margin: 44px auto 0; width: 904px; gap: 16px">
+    <!-- O rótulo da #14 era "A chamada e a resposta, como elas saíram", e o
+         `conferir-texto.py` acusou a repetição. Rótulo de cartão repetido faz
+         duas peças irmãs parecerem o mesmo slide com outro JSON dentro. -->
+    <span class="cartao__rotulo">A consulta, e o que voltou</span>
+    <div class="requisicao">
+      <div class="requisicao__linha">
+        <span class="requisicao__metodo">GET</span>
+        <span>/v1/stock/items</span>
+      </div>
+      <pre class="requisicao__corpo">{
+  <b>"total"</b>: <u>362</u>,
+  <b>"items"</b>: [{
+    <b>"supplyId"</b>: <u>57078</u>,
+    <b>"name"</b>: <i>"TOMATE"</i>,
+    <b>"unit"</b>: <i>"KG"</i>,
+    <b>"stockQuantity"</b>: <u>1.5</u>,
+    <b>"stockMinimumQuantity"</b>: <u>2</u>,
+    <b>"stockSituation"</b>: <i>"low"</i>, <s>&hellip;</s>
+  }]
+}</pre>
+    </div>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="pontos"><span></span><span></span><span class="on"></span><span></span><span></span><span></span></span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>

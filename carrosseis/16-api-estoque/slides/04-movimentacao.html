@@ -1,0 +1,78 @@
+<!-- Slide 4: a LISTA. A `.eventos` existe exatamente para isto — o cartão de
+     código não serve duas vezes seguidas, e o que separa esta página da
+     anterior é a forma antes do conteúdo. A coluna estreita leva a palavra que
+     quem integra procura; a larga, a frase que quem não integra lê. As duas
+     colunas servem os dois leitores de uma vez.
+
+     AS CINCO LINHAS SÃO O QUE CABE NUMA LINHA DO LOTE, e as cinco estão
+     publicadas no `PATCH /v1/stock/items`. As três operações são `add`,
+     `subtract` e `new` — e a documentação avisa, com todas as letras, que
+     `remove` e `set` NÃO EXISTEM: para tirar quantidade usa-se `subtract`,
+     para definir o saldo usa-se `new`.
+
+     O `new` É O QUE FAZ A DEMONSTRAÇÃO SER REVERSÍVEL: ele grava o saldo
+     informado no lugar do atual, então a entrada de 20 unidades do release foi
+     dada de verdade, pelo MCP, e desfeita no mesmo arranque (23 -> 43 -> 23).
+     Está no `chamadas.json`, em `escrita`. A escrita se faz, não se desenha.
+
+     "CADA LINHA É INDEPENDENTE" é frase da documentação e é o argumento do
+     slide: na integração de estoque é onde dá erro — a nota chega com trinta
+     itens e um deles não existe mais —, e aqui os outros vinte e nove entram.
+     A resposta volta na ordem do corpo, com `success` por linha.
+
+     O HISTÓRICO ENTRA AQUI, numa linha do corpo, e não vira slide: ele seria
+     uma lista, e a lista é esta. Sétimo slide com a forma do quarto é o
+     defeito dos quatro blocos iguais. O limite de seis meses foi medido de
+     propósito e está na legenda — limite antes do CTA é a fatura antes da
+     venda. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">4 de 6</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 904px">
+    <span class="chapeu">A movimentação</span>
+    <h2 class="titulo titulo--pequeno">
+      Entrada, saída e contagem —
+      <span class="destaque">várias de uma vez</span>
+    </h2>
+    <p class="corpo">
+      Cada linha do lote é independente: a que falha não desfaz as outras. E
+      toda movimentação fica no histórico, item por item.
+    </p>
+  </div>
+
+  <ul class="eventos" style="width: 904px; margin: 48px auto 0">
+    <li>
+      <code>operation: add</code>
+      <span>Soma ao saldo: a entrada</span>
+    </li>
+    <li>
+      <code>operation: subtract</code>
+      <span>Tira do saldo: a saída</span>
+    </li>
+    <li>
+      <code>operation: new</code>
+      <span>Grava o saldo da contagem</span>
+    </li>
+    <li>
+      <code>stockControl</code>
+      <span>Liga o controle daquele item</span>
+    </li>
+    <!-- "Define o aviso de saldo baixo" e não "define o mínimo que acende o
+         aviso": a coluna da esquerda tem 392 px fixos, e a frase mais longa
+         quebrava em duas linhas só nesta linha, desalinhando a lista. -->
+    <li>
+      <code>stockMinimumQuantity</code>
+      <span>Define o aviso de saldo baixo</span>
+    </li>
+  </ul>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="pontos"><span></span><span></span><span></span><span class="on"></span><span></span><span></span></span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>

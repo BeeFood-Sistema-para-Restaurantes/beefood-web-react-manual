@@ -1,0 +1,79 @@
+<!-- A capa é a CONVERSA, e é o degrau 2 da escada: o resultado deste recurso
+     acontece dentro do ChatGPT, do Claude, do Lovable ou do Cursor, que não
+     rodam aqui e não são nossos para fotografar. A `.tela-ia` existe para isto
+     desde a #13, e aqui ela estreia numa capa.
+
+     O MOLDE É `nome + dois-pontos`. A #15 abriu em ordem direta e a capa não
+     repete a forma da anterior; anúncio de chegada e antes x agora foram
+     escritos e caíram — o `roteiro.md` guarda o porquê de cada um. O vermelho
+     pega "API de Estoque" inteiro, que é o nome, e o sujeito da segunda metade
+     é "a sua IA", que é o lado da notícia que pertence a quem lê.
+
+     A NOTÍCIA TEM DUAS METADES E A CAPA MOSTRA UMA, de propósito: a porta da IA
+     é do lojista e a porta da API é do fornecedor dele. Quem rola o feed é o
+     primeiro. A segunda metade fica com o subtítulo e com o slide 2 inteiro.
+
+     O QUE ESTÁ DENTRO DA TELA É MEDIDO, e saiu do `chamadas.json`:
+
+       - a pergunta é a do próprio release, palavra por palavra;
+       - TOMATE, 1,5 KG e o mínimo de 2 KG são o único item que
+         `GET /v1/stock/items?stockSituation=low` devolveu;
+       - os 18 regulares são os 19 itens com controle ligado menos aquele um;
+       - `beefood-api` é o nome que o servidor anuncia no `initialize`.
+
+     O NÚMERO PEQUENO É O NÚMERO CERTO. Um item abaixo do mínimo é resposta
+     magra para uma capa, e a tentação era mexer no saldo de dois ou três
+     insumos da sandbox para encher a lista — seria inventar justamente o fato
+     que a arte existe para provar. E a resposta curta diz de graça uma coisa
+     que a longa não diria: que a pergunta serve para NÃO ter que olhar os
+     outros dezoito. -->
+<div class="slide slide--capa">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">1 de 6</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 18px; max-width: 904px">
+    <span class="pilula pilula--novidade">Novidade</span>
+    <h1 class="titulo titulo--medio">
+      <span class="destaque">API de Estoque</span>: a sua IA responde o que
+      está acabando
+    </h1>
+    <p class="subtitulo">
+      E o seu sistema dá entrada e baixa sozinho.
+    </p>
+  </div>
+
+  <!-- Solta na faixa, sem moldura de aparelho: aqui a conversa precisa ser
+       LIDA, e dentro de um celular a mesma lista chega ao feed com metade da
+       altura de letra. -->
+  <div style="margin: 44px auto 0; width: 904px">
+    <div class="tela-ia tela-ia--avulsa" style="font-size: 29px">
+      <span class="tela-ia__fio"></span>
+
+      <span class="tela-ia__pergunta">
+        Quais insumos estão abaixo do mínimo?
+      </span>
+
+      <div class="tela-ia__resposta">
+        <span class="tela-ia__conector">
+          <img src="../imagens-puras/logo-beefood.png" alt="">
+          beefood-api
+        </span>
+        <ul class="tela-ia__dados">
+          <li>TOMATE <b>1,5 KG</b></li>
+          <li class="total">mínimo <b>2 KG</b></li>
+        </ul>
+        <p class="tela-ia__texto">
+          É o único abaixo do mínimo. Os outros <b>18</b> itens com controle
+          ligado estão regulares.
+        </p>
+      </div>
+
+      <span class="tela-ia__campo">
+        <span>Pergunte outra coisa…</span>
+        <span>&uarr;</span>
+      </span>
+    </div>
+  </div>
+</div>

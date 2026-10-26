@@ -1,0 +1,59 @@
+<!-- Slide 6: o CTA fotografa os DOIS cartões, e não repete a capa. A razão está
+     escrita desde a #13: num carrossel a última página é a que fica, e fechar
+     com a ilustração que o leitor viu cinco telas atrás é fechar com uma
+     lembrança em vez de um caminho.
+
+     SÃO DOIS CARTÕES PORQUE SÃO DUAS PORTAS, e esta é a última chance de a peça
+     não deixar metade da notícia para trás. O recorte é o BLOCO DA SEÇÃO da
+     grade de Aplicativos — um elemento só, então a faixa é contínua por
+     construção —, e por isso ele traz o rótulo junto.
+
+     A PÍLULA DO CAMINHO É O RÓTULO DA SEÇÃO, palavra por palavra: o painel
+     agrupa os dois sob "API e MCP", e é o que a imagem mostra. Caminho de menu
+     inventado manda o leitor procurar o que não existe.
+
+     NÃO HÁ DATA NA ARTE. O release saiu hoje, mas arte com data nasce velha e
+     a peça pode esperar na fila; o `copy-instagram.txt` é que pede a quem
+     publica para conferir antes de postar. -->
+<div class="slide slide--capa">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">6 de 6</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 30px; max-width: 900px">
+    <span class="chapeu">Já está no ar</span>
+    <h2 class="titulo titulo--pequeno">
+      Ligue o Estoque <span class="destaque">hoje</span>
+    </h2>
+    <p class="subtitulo">
+      É uma chave a mais numa folha que você já tem: não há tela nova para
+      aprender. Tudo que entra de novo está em <b>beefood.app/novidades</b>.
+    </p>
+    <span class="caminho">Aplicativos → API e MCP</span>
+  </div>
+
+  <!-- A luz é o que ocupa o vão entre o texto e a faixa: sem ela, a metade de
+       baixo de uma capa escura lê como buraco. O centro dela (topo + metade da
+       altura) fica em 1030, logo abaixo do centro da faixa. -->
+  <div class="luz" style="left: 50%; top: 620px; width: 1240px; height: 820px;
+                          margin-left: -620px; filter: blur(84px);
+                          background: radial-gradient(ellipse 42% 46% at 50% 50%,
+                                      rgba(255, 246, 236, 0.80) 0%,
+                                      rgba(255, 214, 184, 0.30) 58%,
+                                      rgba(0, 0, 0, 0) 78%)"></div>
+
+  <!-- A FAIXA SANGRA 54 px para cada lado, como a capa da #14, e pelos dois
+       mesmos motivos. De medida: a 904 px o conteúdo do print chega a 1,36× do
+       tamanho de CSS e a chamada do cartão fica no limite do legível no feed;
+       a 1012 vai a 1,52×. De sentido: a última página manda abrir uma das duas
+       portas, e um quadro que encosta na borda do slide é mais porta que
+       cartão centrado. -->
+  <div style="position: absolute; left: 34px; right: 34px; top: 880px;
+              z-index: 1">
+    <div class="recorte" style="border-color: rgba(255, 255, 255, 0.14)">
+      <img src="../imagens-puras/rec-cartoes.png"
+           alt="A seção API e MCP na grade de Aplicativos do painel, com os dois cartões lado a lado: API Aberta, com o ícone {API} e a chamada Integre seu sistema ao BeeFood vi..., e MCP, com a borda colorida e a chamada Conecte o seu BeeFood a sua I...">
+    </div>
+  </div>
+</div>

@@ -218,10 +218,22 @@ def _fotografar_permissoes(pagina, destino: Path) -> None:
     alto, baixo = cabecalho.bounding_box(), linha.bounding_box()
     if not alto or not baixo:
         raise SystemExit("ERRO: não achei a linha de Estoque na tela de autorização")
+
+    # Onde o quadro FECHA tem resposta exata, e não é folga arbitrária. Rente
+    # ao texto do Estoque, a moldura da linha sai cortada e lê como render
+    # quebrado; com 16 px de sobra, aparece a primeira fatia da linha seguinte,
+    # e meia linha lê como tela cortada. O fecho certo é o **fio** entre as
+    # duas, que é o topo da linha de baixo.
+    seguinte = pagina.locator('span:text-is("Entregadores")').first
+    if seguinte.count() and seguinte.bounding_box():
+        pe = seguinte.locator("xpath=..").bounding_box()["y"] - 1
+    else:
+        pe = baixo["y"] + baixo["height"] + 16
+
     arquivo = destino / "imagens-puras" / "rec-autorizacao.png"
     pagina.screenshot(path=str(arquivo), clip={
         "x": alto["x"], "y": alto["y"], "width": alto["width"],
-        "height": baixo["y"] + baixo["height"] - alto["y"]})
+        "height": pe - alto["y"]})
     print("-->", arquivo.name, "capturada no meio do fluxo de autorização")
 
 

@@ -1,5 +1,5 @@
 {
-  "lido_em": "2026-10-26T22:44:10",
+  "lido_em": "2026-10-26T23:01:56",
   "conta": "sandbox BeeFood3 - Manual (empresa 38311)",
   "asDuasPortas": {
     "apiAberta": {
@@ -166,36 +166,36 @@
       "fromDate": "2026-05-04",
       "toDate": "2026-10-26"
     },
-    "total": 558,
+    "total": 560,
     "primeiros": [
+      {
+        "movementId": 4419099,
+        "movedAt": "2026-10-26 19:44:23",
+        "quantity": -20,
+        "quantityBefore": 43,
+        "originQuantity": -20,
+        "origin": "Coca Cola 350ml",
+        "productId": 2659780,
+        "name": "Coca Cola 350ml",
+        "userId": 88711
+      },
+      {
+        "movementId": 4419098,
+        "movedAt": "2026-10-26 19:44:17",
+        "quantity": 20,
+        "quantityBefore": 23,
+        "originQuantity": 20,
+        "origin": "Coca Cola 350ml",
+        "productId": 2659780,
+        "name": "Coca Cola 350ml",
+        "userId": 88711
+      },
       {
         "movementId": 4419069,
         "movedAt": "2026-10-26 19:43:24",
         "quantity": -20,
         "quantityBefore": 43,
         "originQuantity": -20,
-        "origin": "Coca Cola 350ml",
-        "productId": 2659780,
-        "name": "Coca Cola 350ml",
-        "userId": 88711
-      },
-      {
-        "movementId": 4419042,
-        "movedAt": "2026-10-26 19:42:35",
-        "quantity": -20,
-        "quantityBefore": 63,
-        "originQuantity": -20,
-        "origin": "Coca Cola 350ml",
-        "productId": 2659780,
-        "name": "Coca Cola 350ml",
-        "userId": 88711
-      },
-      {
-        "movementId": 4419025,
-        "movedAt": "2026-10-26 19:42:27",
-        "quantity": 20,
-        "quantityBefore": 43,
-        "originQuantity": 20,
         "origin": "Coca Cola 350ml",
         "productId": 2659780,
         "name": "Coca Cola 350ml",
