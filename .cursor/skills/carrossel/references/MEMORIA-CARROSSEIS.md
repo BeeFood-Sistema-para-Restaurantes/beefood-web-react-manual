@@ -5,7 +5,31 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-10-19 (41ª rodada: o **Botão de WhatsApp no cardápio
+Última atualização: 2026-10-26 (42ª rodada: a **API de Estoque**, terceira peça
+da família de integração e a primeira que **não vende uma porta, e sim o que
+passou a existir atrás das duas**. A herança é literal e medida: a #13 e a #14
+fecharam o recorte da tela de permissões em *Avaliações* porque as duas linhas
+seguintes estavam apagadas com a etiqueta *em breve*, e uma delas era Estoque.
+Hoje ela está ligada, e o recorte desta peça existe **para** mostrar a linha que
+as outras duas tiveram de esconder — o que é o melhor argumento de que vale
+registrar na memória **por que** um corte foi feito, e não só onde. Três lições
+de produção: **demonstração reversível precisa de duas saídas** — a entrada de
+20 unidades pedida à IA foi desfeita no mesmo arranque pela operação `new`, mas
+a primeira rodada morreu **entre** a escrita e o desfazer, num `429` por leitura
+repetida, e o saldo ficou errado até um `--restaurar` existir; **a armadilha do
+`clip` mordeu de novo, e agora tem rede** — recorte que passa da borda da janela
+sai menor sem avisar, e `scrollIntoView({block: 'center'})` mais uma asserção de
+tamanho do PNG é o que faz o script falhar em vez de entregar arte cortada; e
+**dois prints no mesmo slide se igualam pela escala da letra, não pela largura**,
+que sai de `largura exibida ÷ largura capturada em px de CSS`. E uma correção no
+conferidor: **o texto alternativo descreve a imagem, e descrever tela desenhada
+não é copiar o release** — ele saiu da comparação, pela mesma razão que o
+`sem_desenho` já tinha. Ver *prova de escrita se faz, não se desenha*, *recorte
+que passa da janela sai menor sem avisar*, *dois recortes no mesmo slide se
+igualam pela escala da letra*, *folga de recorte não é simétrica* e *o texto
+alternativo saiu da conferência de cópia*.)
+
+2026-10-19 (41ª rodada: o **Botão de WhatsApp no cardápio
 digital**, e é a primeira peça do acervo em que **quem fala primeiro é quem está
 comprando** — as outras seis que encostam no WhatsApp vendem a loja falando.
 Depois de duas peças de integração seguidas, esta voltou a ser peça de tela, e
@@ -322,6 +346,7 @@ a posição na fila.
 | 13 | MCP: a loja dentro da IA | [13/10/2026](https://beefood.app/novidades/mcp-inteligencia-artificial) — **sem manual na pasta**; os passo a passo são os da própria folha do recurso. Release *MCP: converse com o seu restaurante usando IA*, nome de venda **MCP** | `carrosseis/13-mcp-conexao-ia/` | 4:5, 6 slides | `entrega/13-mcp-conexao-ia.zip` (6 PNG + copy) |
 | 14 | API Aberta | [13/10/2026](https://beefood.app/novidades/api-aberta-liberada) — **sem manual na pasta**; o passo a passo é o portal [`docs.beefood.app`](https://docs.beefood.app). Cinco das sete imagens são **desenho**, o maior número do acervo | `carrosseis/14-api-aberta/` | 4:5, 7 slides | `entrega/14-api-aberta.zip` (7 PNG + copy) |
 | 15 | Botão de WhatsApp no cardápio digital | [19/10/2026](https://beefood.app/novidades/cardapio-digital-botao-whatsapp) — manual em `manuais/cardapio-digital-botao-whatsapp/`; release, aba do painel e nome de venda **iguais**. Cinco das seis imagens são **captura**, do cardápio de produção | `carrosseis/15-botao-whatsapp/` | 4:5, 6 slides | `entrega/15-botao-whatsapp.zip` (6 PNG + copy) |
+| 16 | API de Estoque | [26/10/2026](https://beefood.app/novidades/api-estoque-mcp) — **sem manual na pasta**; o passo a passo são as duas folhas de *Aplicativos* e o portal [`docs.beefood.app`](https://docs.beefood.app). Release *Estoque na API Aberta e no MCP*, nome de venda **API de Estoque**. Terceira da família #13/#14, e a única que vende o que está **atrás** das duas portas | `carrosseis/16-api-estoque/` | 4:5, 6 slides | `entrega/16-api-estoque.zip` (6 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -1003,6 +1028,35 @@ coisas diferentes: a capa manda **pôr o botão no cardápio**, que é o resulta
 e o CTA manda **ligar a chave**, que é o primeiro passo. A peça abre no fim e
 fecha no começo, e isso casa com a convenção de o CTA repetir a arte da capa —
 a mesma imagem, lida como promessa no slide 1 e como instrução no slide 6.
+
+#### A #16 voltou ao nome + dois-pontos, e quem decidiu foi a segunda metade
+
+> **API de Estoque**: a sua IA responde o que está acabando
+> O mesmo saldo pela conversa e pelo seu sistema.
+
+Placar depois dela: afirmação do fato 5, anúncio de chegada 3, **nome +
+dois-pontos 3**, pergunta 2, nome + canal 1, nome + para quem 1, ordem direta 1;
+antes × agora continua em 0.
+
+O nome do recurso é obrigatório nos seis moldes, então o que se escolhe na
+verdade é **o que vem depois dele**, e aqui havia duas segundas metades
+verdadeiras: o que o recurso **é** (estoque pelas duas portas) e o que ele
+**faz por quem lê** (responder o que está acabando). A primeira é descrição de
+integração e só diz alguma coisa a quem já sabe o que é uma porta; a segunda é
+uma pergunta que o dono de restaurante faz todo dia. A regra que isso confirma é
+velha — o molde pede o nome, mas quem vende é o ganho —, e a nova é a condição
+de uso: **em peça de integração, a segunda metade da capa nunca é o canal.**
+Canal é o assunto do slide 2, que é onde ele vira prova.
+
+Os concorrentes caíram assim:
+
+- **anúncio de chegada** daria *"Chegou a API de Estoque"*, e a peça inteira é
+  sobre uma capacidade que já existia em duas portas ganhando um terceiro
+  assunto. "Chegou" é verdade e é a menor coisa verdadeira que dava para dizer;
+- **afirmação do fato** poria o sujeito na API — o lugar onde o recurso mora, de
+  novo o erro de sujeito da #11;
+- **ordem direta** precisaria de um objeto só, e a condição da #4 não fecha: o
+  recurso lê, escreve, movimenta e lista histórico.
 
 ### O décimo primeiro vício: a copy legenda a prova, em vez de vendê-la
 
@@ -3632,6 +3686,24 @@ Duas coisas resolvem, e as duas valem para qualquer `capturar-telas.py`:
   única checagem que pega este defeito — o olho na miniatura não pega, porque um
   cabeçalho sozinho parece um recorte legítimo.
 
+A #16 levou a mesma mordida com a caixa **acima** da dobra e a folga abaixo: a
+linha de Estoque é a última do formulário, a caixa medida começava em y 874 numa
+janela de 900, e o arquivo saiu com 72 px para 164 pedidos. Daí duas coisas:
+
+- **role com `block: 'center'`, e não com `scroll_into_view_if_needed`.** O
+  segundo para assim que o elemento **encosta** na janela, e a folga do recorte
+  continua fora dela. Centralizado, sobra espaço dos dois lados:
+
+  ```python
+  alvo.evaluate("el => el.scrollIntoView({block: 'center', inline: 'center'})")
+  alvo.page.wait_for_timeout(700)
+  ```
+
+- **a asserção tem de ter tolerância, e pequena.** A caixa do DOM vem fracionária
+  e o arredondamento do Playwright não é o do `round`, então comparar exato
+  estoura à toa; 2 px de tolerância passa o ruído e pega o defeito, que erra por
+  dezenas.
+
 ### A largura da janela decide o que o print prova
 
 Portal de documentação reflui, e o que reflui muda o **argumento** da imagem, não
@@ -4345,6 +4417,33 @@ E o `cena.json` deixa de dizer "nada foi montado" para dizer **o que foi, por
 qual rota e como foi desfeito**, com o id. É o que permite a alguém de fora
 conferir que a sandbox voltou ao que era.
 
+#### Desfazer precisa de duas saídas: a do caminho feliz e a de depois do erro
+
+A #16 repetiu o exemplo do próprio release — *"dê entrada de 20 unidades de
+refrigerante"* — pedindo à IA, de verdade, e desfazendo no mesmo arranque: o
+saldo foi de 23 para 43 pela operação `add` e voltou para 23 pela operação
+`new`, que grava o saldo informado no lugar do atual. Só que a primeira rodada
+morreu **entre** as duas, num `429` da própria API (*"an identical request was
+sent less than four seconds ago"*, limite publicado em `docs.beefood.app/docs/
+limites`), e o estoque da loja de exemplo ficou errado sem que nada no script
+soubesse disso.
+
+O conserto tem duas partes, e a segunda é a lição:
+
+- a causa foi uma **leitura** repetida, não a escrita: a demonstração lê o mesmo
+  item três vezes — antes, depois e depois de desfazer —, e duas dessas chamadas
+  são byte a byte iguais. Uma pausa de 5 s antes de cada leitura resolve, e ela é
+  o limite do servidor, não contorno;
+- mas desfazer **dentro** da mesma execução só cobre o caminho feliz. O script
+  passou a ter um `--restaurar <saldo>`, que é a mesma rota de desfazer chamada
+  sozinha, e é o que permite consertar o sandbox depois de uma execução que
+  parou no meio. Escrita que não tem essa segunda porta deixa o acervo sujo no
+  primeiro erro de rede.
+
+Vale também o que **não** se usou: `remove` e `set` não existem nessa API, e
+descobrir isso é medição, não leitura de release. As operações são `add`,
+`subtract` e `new`, e é a terceira que serve de desfazer.
+
 ### Desenho que copia tela existente é a versão pior dela
 
 A #13 teve um slide de áreas desenhado — seis cartões com nome e descrição, mais
@@ -4432,6 +4531,31 @@ cinco posições foram para o corpo, que é onde lista cabe de graça.
 
 > Antes de prometer um slide que compara duas telas, multiplique por 2,32 e veja
 > se o título ainda tem onde morar.
+
+### Dois recortes no mesmo slide se igualam pela escala da letra, não pela largura
+
+O slide 5 da #16 empilha dois prints de telas diferentes — o cartão da
+credencial, na folha *API Aberta*, e a tabela de autorização do MCP —, e o que o
+olho compara entre os dois **é o tamanho da letra**, que não tem nada a ver com
+a largura do arquivo. A escala de cada um sai de:
+
+```
+escala = largura exibida no slide ÷ largura capturada, em px de CSS
+```
+
+O cartão foi capturado com 605 px de CSS e a tabela com 444. Postos os dois na
+mesma largura de 840, o primeiro chega a 1,39× e a segunda a 1,89× — a letra de
+baixo sai mais de um terço maior, e isso lê como erro de montagem, não como duas
+telas. A 904 e 720 as escalas ficam em 1,49× e 1,62×, que o olho lê como iguais.
+
+E aqui a largura desigual **ajuda**: dois blocos de larguras diferentes dizem
+sozinhos que são duas telas, e não duas metades de uma. Igualar a largura é o
+instinto errado quando as origens têm larguras de CSS distintas — igualar é o
+trabalho da escala.
+
+> A conta é a mesma da lição acima (recorte × fator = arte). A diferença é que
+> ali o fator é orçamento de altura, e aqui ele é **coerência tipográfica** entre
+> duas imagens do mesmo slide.
 
 ### Ícone animado entrega um quadro qualquer no print
 
@@ -4548,6 +4672,19 @@ A regra que sai disso: **folga é ar entre o quadro e o que ficou de fora**. Ond
 o elemento já tem ar próprio (célula de tabela, cartão com `padding`), a folga
 daquele lado é zero.
 
+E a #16 achou o teto da folga, que é geométrico: numa pilha de cartões irmãos, o
+vão entre dois cartões é o `gap` do contêiner, e **folga maior que metade do
+`gap` traz lasca do vizinho**. O cartão de Estoque sai de um formulário com
+`gap` de 8 px; com folga 10 entraram slivers do cartão de cima e do de baixo, e
+com folga 4 o recorte fecha limpo no vão.
+
+O outro lado disso é a **mourão**: quando o vizinho tem nome, feche o quadro
+nele em vez de somar pixels. O recorte da tabela de autorização da mesma peça
+termina no topo da linha seguinte menos 1 px, achado pelo texto dela
+(`span:text-is("Entregadores")`), e cai para uma folga fixa só se a linha não
+existir. Medida tirada do conteúdo não envelhece quando a tela ganha espaçamento
+novo; número lembrado da rodada passada, sim.
+
 ### Onde medir a borda de um recorte
 
 Recortar continua sendo necessário — em captura própria, porque tela de painel
@@ -4645,6 +4782,26 @@ Duas decisões que a primeira entrega ensinou:
   que amarra o post), o texto do release não — por isso o `conferir-texto.py`
   passou a medir o `copy-instagram.txt` junto com os slides, na mesma janela de
   seis palavras.
+
+#### O texto alternativo saiu da conferência de cópia, e o motivo é o do `sem_desenho`
+
+A 42ª rodada bateu numa contradição do próprio conferidor. O slide 1 desenha a
+pergunta do release dentro da conversa com a IA, e isso é **certo**: o
+`sem_desenho` existe justamente para não pedir que a tela desenhada minta. Mas
+o texto alternativo, que descreve aquela tela, era conferido inteiro — e a frase
+desenhada, descrita com fidelidade, voltava acusada de cópia.
+
+Levar o alt a sinônimo seria pedir que ele **descrevesse a imagem errada**, que
+é pior do que a cópia que se queria evitar. O `copy_escrita()` passou a mandar
+para a comparação só o que a peça **escreveu** — legenda e primeiro comentário —
+e a deixar de fora o cabeçalho (nota de produção) e o bloco de texto
+alternativo. É a mesma fronteira que o `texto_da_peca()` já usava na
+comparação entre carrosséis, só que agora também contra o release.
+
+O que **continuou** valendo, e foi o acerto de verdade da rodada: a legenda
+citava entre aspas duas frases do release, e as duas foram reescritas. Aspas não
+compram licença — quem lê a legenda não sabe que aquilo é citação, lê como a
+nossa voz, e a nossa voz não é a do release.
 - **A legenda saiu do `roteiro.md`.** Enquanto morava lá, era rascunho perdido no
   meio das decisões de arte; quem publica abria o roteiro inteiro para achar o
   texto. Roteiro é auditoria, copy é entrega.

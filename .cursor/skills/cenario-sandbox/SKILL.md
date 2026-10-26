@@ -119,6 +119,40 @@ identificador.** Não existe, e não precisa existir, rota que aceite `origem`.
 | `POST app/datasnap/rest/tmesa/pedido` | o cardápio público | sempre **Cardápio Digital** | itens, cliente, pagamento, frete — e **exige** o `Authorization: Basic` do cardápio |
 | `POST app3/api/venda2/atualizaSituacaoDelivery` | o kanban | — | move entre AGUARDANDO / PREPARO / PRONTO / ENTREGA |
 
+### A API pública recusa requisição idêntica em menos de 4 segundos
+
+Medido em 26/10/2026, montando o cenário de estoque do carrossel #16. A API
+Aberta (`api.beefood.app`, e por tabela o MCP, que chama as mesmas rotas)
+responde `429 Too Many Requests: an identical request was sent less than four
+seconds ago`. O limite é da **requisição idêntica**, não da conta: alternar
+rotas não esbarra nele, e repetir a mesma leitura esbarra. Está publicado em
+[`docs.beefood.app/docs/limites`](https://docs.beefood.app/docs/limites).
+
+Isso morde exatamente o roteiro de escrita reversível, que é *ler o saldo →
+escrever → reler → desfazer → reler*: a primeira releitura é byte a byte igual à
+leitura inicial. Uma pausa de 5 s antes de cada leitura repetida é o conserto, e
+é o limite do servidor, não contorno.
+
+### Estoque pela API: `new` é o desfazer, e `remove`/`set` não existem
+
+Também do #16. `POST /v1/stock/movements` aceita um **lote** de linhas, cada uma
+com resultado próprio (`success` por linha), e as operações são três:
+
+| Operação | O que faz |
+|---|---|
+| `add` | soma ao saldo atual |
+| `subtract` | tira do saldo atual |
+| `new` | grava o saldo informado **no lugar** do atual |
+
+Logo, **a operação que desfaz é `new`**: anote o saldo antes, escreva, e devolva
+com `new <saldo anotado>`. Não procure `remove` nem `set` — a API não tem.
+
+Duas notas de cenário que vão junto: `GET /v1/stock/items` devolve insumo,
+produto e complemento na **mesma lista**, nessa ordem (numa loja com 267 insumos
+os produtos só começam lá pela 14ª página), e a janela de `GET
+/v1/stock/movements` é limitada a **6 meses** pelo servidor. Escopos
+`stock:read` e `stock:write`, ligados na folha *Aplicativos*.
+
 ### O totem dispensa banco: ele grava venda pela tela do cliente
 
 Descoberto no bloco #121 a #123 (22/09/2026). O **Totem de Autoatendimento** é uma página

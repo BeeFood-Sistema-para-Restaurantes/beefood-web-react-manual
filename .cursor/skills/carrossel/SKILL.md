@@ -566,6 +566,22 @@ se o slide que compara duas telas cabe, e na 41ª rodada ela fundiu um título d
 lista ("são cinco lugares", dois recortes) num de exemplo ("entra até dentro da
 sacola", um recorte), com a lista indo para o corpo.
 
+**Dois recortes no mesmo slide se igualam pela escala da letra, não pela
+largura.** A escala é `largura exibida ÷ largura capturada em px de CSS`, e dois
+prints de telas diferentes quase nunca chegam nela com a mesma largura: na 42ª
+rodada, os dois postos a 840 px davam 1,39× e 1,89×, e a letra de baixo saía um
+terço maior. A 904 e 720 as escalas ficam em 1,49× e 1,62×, que o olho lê como
+iguais — e a largura desigual ainda ajuda a dizer que são **duas** telas.
+
+**`screenshot(clip=…)` que passa da borda da janela sai menor, sem erro.** Role
+com `scrollIntoView({block: 'center'})` — `scroll_into_view_if_needed` para
+quando o elemento *encosta* na janela, e a folga do recorte continua fora dela —
+e deixe no script uma asserção comparando o tamanho do PNG com a caixa pedida,
+com 2 px de tolerância. Sem ela o script imprime a medida certa e entrega arte
+cortada. Na mesma linha, **folga de recorte maior que metade do `gap` entre
+cartões irmãos traz lasca do vizinho**; melhor ainda é fechar o quadro no
+vizinho nomeado (topo da linha seguinte menos 1 px) em vez de somar pixels.
+
 **E o layout mais rico da tela não é o melhor para o slide.** O Painel para
 Entregadores passa a duas colunas internas por etapa acima de 1500 px, e cabe
 quase o dobro de pedido — é para isso que existe TV grande. Capturado assim, o

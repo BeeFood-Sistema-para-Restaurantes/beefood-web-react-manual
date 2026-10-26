@@ -37,6 +37,7 @@ um acervo assim, e "entregue" escrito por extenso em toda linha também não.
 | 13 | [`13-mcp-conexao-ia/`](13-mcp-conexao-ia/roteiro.md) | Novidade | [MCP: converse com o seu restaurante usando IA](https://beefood.app/novidades/mcp-inteligencia-artificial) — 13/10/2026 · sem manual na pasta; os passo a passo são os da própria folha *Aplicativos → MCP* | 4:5 | 6 | [`.zip`](13-mcp-conexao-ia/entrega/13-mcp-conexao-ia.zip) · [copy](13-mcp-conexao-ia/copy-instagram.txt) |
 | 14 | [`14-api-aberta/`](14-api-aberta/roteiro.md) | Novidade | [API Aberta liberada 🔌](https://beefood.app/novidades/api-aberta-liberada) — 13/10/2026 · sem manual na pasta; o passo a passo é o portal [`docs.beefood.app`](https://docs.beefood.app) | 4:5 | 7 | [`.zip`](14-api-aberta/entrega/14-api-aberta.zip) · [copy](14-api-aberta/copy-instagram.txt) |
 | 15 | [`15-botao-whatsapp/`](15-botao-whatsapp/roteiro.md) | Novidade | [Botão WhatsApp no Cardápio Digital 💬](https://beefood.app/novidades/cardapio-digital-botao-whatsapp) — 19/10/2026 · [manual](https://ajuda.beefood.com.br/cardapio-digital-botao-whatsapp) | 4:5 | 6 | [`.zip`](15-botao-whatsapp/entrega/15-botao-whatsapp.zip) · [copy](15-botao-whatsapp/copy-instagram.txt) |
+| 16 | [`16-api-estoque/`](16-api-estoque/roteiro.md) | Novidade | [Estoque na API Aberta e no MCP 📦](https://beefood.app/novidades/api-estoque-mcp) — 26/10/2026 · sem manual na pasta; o passo a passo são as duas folhas de *Aplicativos* e o portal [`docs.beefood.app`](https://docs.beefood.app) | 4:5 | 6 | [`.zip`](16-api-estoque/entrega/16-api-estoque.zip) · [copy](16-api-estoque/copy-instagram.txt) |
 
 O número de slides é o que o assunto pede, entre 6 e 9 — não é uma medida fixa.
 Peça de função não leva data nem pílula de novidade: ela é perene, e pode ser
@@ -108,6 +109,31 @@ foram sondadas e **caíram por medição** — o `{link}` do produto, porque a p
 de produto é uma janela que cobre o botão, e a barra da sacola, porque naquele
 cardápio ela fica atrás da barra de navegação. Slide cujo título o leitor não
 consegue conferir na imagem não entra, mesmo quando o fato é verdadeiro.
+
+A décima sexta fecha a família de integração e é a primeira que **não vende uma
+porta, e sim o que passou a existir atrás das duas**. A #13 e a #14 fotografaram
+as folhas de permissão e fecharam o quadro em *Avaliações*, de propósito, porque
+as duas linhas seguintes estavam apagadas com a etiqueta *Em breve* — eram
+Entregadores e Estoque. Uma delas saiu do em breve, e nesta peça o recorte é o
+contrário: ele existe **para** mostrar a linha que as outras duas tiveram de
+esconder. Ela deixou três lições:
+
+- **a escrita se faz, e desfazê-la precisa de duas saídas.** O exemplo do
+  release — *"dê entrada de 20 unidades de refrigerante"* — foi executado pelo
+  MCP e desfeito no mesmo arranque, porque a operação `new` grava o saldo
+  informado no lugar do atual. A primeira rodada parou **entre** a entrada e o
+  desfazer, num `429` por leitura repetida, e o saldo ficou errado: demonstração
+  reversível quer a saída do caminho feliz **e** a de depois do erro;
+- **a armadilha do `clip` mordeu de novo, e agora tem rede.** Recorte que passa
+  da borda do viewport sai menor sem avisar. A linha a fotografar era a última
+  do formulário e saiu com 16 px de altura e metade da palavra — `scrollIntoView`
+  com `block: center` resolve, e uma conferência do tamanho do PNG contra o
+  quadro pedido é o que faz o script falhar em vez de entregar arte cortada;
+- **dois prints no mesmo slide se igualam pela escala da letra, não pela
+  largura.** A escala é `largura exibida ÷ largura capturada em px de CSS`, e
+  dois recortes de telas diferentes quase nunca chegam nela com a mesma largura.
+  Largura diferente ainda ajuda a dizer que são duas telas, e não duas partes de
+  uma.
 
 ## Estrutura de cada pasta
 
