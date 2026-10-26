@@ -108,9 +108,9 @@ A API de Estoque da BeeFood está no ar, e ela chegou pelas duas portas que voc�
 já tem: o MCP, para perguntar à sua IA preferida, e a API Aberta, para o seu
 outro sistema fazer sozinho.
 
-Pelo MCP é só perguntar. "Quais insumos estão abaixo do mínimo?" e ela responde
-qual é, quanto tem e quanto deveria ter. "Dê entrada de 20 unidades de
-refrigerante" e ela dá. Sem abrir tela, sem filtrar lista.
+Pelo MCP é só perguntar. Você quer saber o que está no fim: ela responde qual
+item é, quanto ainda tem e quanto deveria ter. Você manda lançar a bebida que
+acabou de chegar: ela lança. Sem abrir tela, sem filtrar lista.
 
 Insumo, produto e complemento vêm na mesma consulta, cada um com saldo, mínimo e
 situação — é por isso que dá para perguntar o que está acabando sem dizer de que
