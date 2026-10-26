@@ -207,6 +207,26 @@ def copy_da_peca(pasta: Path) -> str:
                     if i and "LEGENDA" in blocos[i - 1])
 
 
+def copy_escrita(copy: Path) -> str:
+    """O que a copy ESCREVEU: a legenda e o primeiro comentário.
+
+    Fora ficam duas coisas, e as duas pelo mesmo motivo que o `sem_desenho`
+    deixa a tela desenhada fora da conferência dos slides:
+
+    - o **cabeçalho** é nota de produção. Ele diz qual novidade é, com o título
+      dela, e nada disso vai para o Instagram; conferir o cabeçalho só ensinava
+      a escrever o cabeçalho errado;
+    - o **texto alternativo** descreve a imagem. A tela desenhada pode — e deve
+      — repetir a frase do release, porque é a frase que o produto mostra, e o
+      `sem_desenho` já aceita isso no slide. Exigir sinônimo na descrição dela
+      é pedir que o texto alternativo **descreva a imagem errada**, que é pior
+      do que a cópia que se queria evitar.
+    """
+    blocos = re.split(r"={10,}", copy.read_text(encoding="utf-8"))
+    return " ".join(b for i, b in enumerate(blocos)
+                    if i and "TEXTO ALTERNATIVO" not in blocos[i - 1])
+
+
 def texto_da_peca(pasta: Path) -> str:
     """O que uma peça ESCREVEU: a copy dos slides e a legenda.
 
@@ -339,13 +359,7 @@ def main() -> None:
     # mais fácil de encher com recorte do release, porque cabe texto longo.
     copy = pasta.parent / "copy-instagram.txt"
     if copy.is_file():
-        texto = copy.read_text(encoding="utf-8")
-        # O cabeçalho do arquivo é nota de produção: ele diz qual novidade é,
-        # com o título dela, e nada disso vai para o Instagram. Conferir o
-        # cabeçalho só ensinava a escrever o cabeçalho errado.
-        if "====" in texto:
-            texto = texto[texto.index("===="):]
-        copiadas = sequencias(palavras(texto), args.janela) & fonte
+        copiadas = sequencias(palavras(copy_escrita(copy)), args.janela) & fonte
         for seq in sorted(copiadas):
             print(f"COPIADO  {copy.name}: {' '.join(seq)}")
             achados += 1
