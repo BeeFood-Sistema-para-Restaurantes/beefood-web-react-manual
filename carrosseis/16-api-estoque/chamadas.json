@@ -1,0 +1,255 @@
+{
+  "lido_em": "2026-10-26T22:44:10",
+  "conta": "sandbox BeeFood3 - Manual (empresa 38311)",
+  "asDuasPortas": {
+    "apiAberta": {
+      "base": "https://api.beefood.app",
+      "token": "POST /v1/oauth/token",
+      "permissao": "Aplicativos → API Aberta, Consultar e Alterar"
+    },
+    "mcp": {
+      "servidor": {
+        "name": "beefood-api",
+        "version": "1.1.0",
+        "title": "BeeFood API"
+      },
+      "endereco": "https://docs.beefood.app/mcp",
+      "ferramentas": [
+        "search_beefood_api",
+        "query_docs_filesystem_beefood_api",
+        "submit_feedback",
+        "listar_endpoints",
+        "detalhe_endpoint",
+        "execute_beefood_request"
+      ],
+      "permissao": "Aplicativos → MCP, autorizar Estoque"
+    }
+  },
+  "oQueADocumentacaoPublica": {
+    "rotasDeNegocio": 67,
+    "grupos": {
+      "Pedidos": {
+        "rotas": 6,
+        "escrita": 3
+      },
+      "Clientes": {
+        "rotas": 2,
+        "escrita": 0
+      },
+      "Restaurante": {
+        "rotas": 15,
+        "escrita": 2
+      },
+      "Relatórios": {
+        "rotas": 5,
+        "escrita": 0
+      },
+      "Catálogo": {
+        "rotas": 28,
+        "escrita": 19
+      },
+      "Estoque": {
+        "rotas": 11,
+        "escrita": 5
+      }
+    },
+    "estoque": {
+      "rotas": 11,
+      "deEscrita": 5,
+      "escopos": [
+        "stock:read",
+        "stock:write"
+      ],
+      "lista": [
+        {
+          "method": "GET",
+          "path": "/v1/stock/categories",
+          "title": "Listar categorias de insumo",
+          "scope": "stock:read"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/stock/categories/{categoryId}",
+          "title": "Detalhe da categoria de insumo",
+          "scope": "stock:read"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/stock/categories",
+          "title": "Criar categoria de insumo",
+          "scope": "stock:write"
+        },
+        {
+          "method": "PATCH",
+          "path": "/v1/stock/categories/{categoryId}",
+          "title": "Editar categoria de insumo",
+          "scope": "stock:write"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/stock/supplies",
+          "title": "Listar insumos",
+          "scope": "stock:read"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/stock/supplies/{supplyId}",
+          "title": "Detalhe do insumo",
+          "scope": "stock:read"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/stock/supplies",
+          "title": "Criar insumo",
+          "scope": "stock:write"
+        },
+        {
+          "method": "PATCH",
+          "path": "/v1/stock/supplies",
+          "title": "Editar insumos em lote",
+          "scope": "stock:write"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/stock/items",
+          "title": "Listar itens",
+          "scope": "stock:read"
+        },
+        {
+          "method": "PATCH",
+          "path": "/v1/stock/items",
+          "title": "Atualizar em lote",
+          "scope": "stock:write"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/stock/movements",
+          "title": "Listar movimentações",
+          "scope": "stock:read"
+        }
+      ]
+    }
+  },
+  "oQueALojaTem": {
+    "itens": 362,
+    "porTipo": {
+      "supply": 267,
+      "product": 64,
+      "complement": 31
+    },
+    "comControleLigado": 19,
+    "categoriasDeInsumo": [
+      "Massas"
+    ]
+  },
+  "abaixoDoMinimo": {
+    "comoAPerguntaDoReleaseDiz": "quais insumos estão abaixo do mínimo?",
+    "rota": "GET /v1/stock/items?stockSituation=low",
+    "total": 1,
+    "itens": [
+      {
+        "supplyId": 57078,
+        "name": "TOMATE",
+        "unit": "KG",
+        "cost": 4.5,
+        "stockAllowNegative": false,
+        "stockControl": true,
+        "stockMinimumQuantity": 2,
+        "stockQuantity": 1.5,
+        "stockSituation": "low"
+      }
+    ]
+  },
+  "historico": {
+    "rota": "GET /v1/stock/movements",
+    "janela": {
+      "fromDate": "2026-05-04",
+      "toDate": "2026-10-26"
+    },
+    "total": 558,
+    "primeiros": [
+      {
+        "movementId": 4419069,
+        "movedAt": "2026-10-26 19:43:24",
+        "quantity": -20,
+        "quantityBefore": 43,
+        "originQuantity": -20,
+        "origin": "Coca Cola 350ml",
+        "productId": 2659780,
+        "name": "Coca Cola 350ml",
+        "userId": 88711
+      },
+      {
+        "movementId": 4419042,
+        "movedAt": "2026-10-26 19:42:35",
+        "quantity": -20,
+        "quantityBefore": 63,
+        "originQuantity": -20,
+        "origin": "Coca Cola 350ml",
+        "productId": 2659780,
+        "name": "Coca Cola 350ml",
+        "userId": 88711
+      },
+      {
+        "movementId": 4419025,
+        "movedAt": "2026-10-26 19:42:27",
+        "quantity": 20,
+        "quantityBefore": 43,
+        "originQuantity": 20,
+        "origin": "Coca Cola 350ml",
+        "productId": 2659780,
+        "name": "Coca Cola 350ml",
+        "userId": 88711
+      }
+    ],
+    "limiteDeJanela": {
+      "pedido": "200 dias",
+      "status": 400,
+      "resposta": {
+        "message": "'fromDate'..'toDate' must span at most 6 months",
+        "status": 400
+      },
+      "semToken": 401
+    }
+  },
+  "escrita": {
+    "comoOReleaseDiz": "dê entrada de 20 unidades de refrigerante",
+    "item": {
+      "nome": "Coca Cola 350ml",
+      "tipo": "product",
+      "unidade": "UN"
+    },
+    "rota": "PATCH /v1/stock/items",
+    "escopo": "stock:write",
+    "porOndeFoi": "MCP, pela ferramenta execute_beefood_request",
+    "saldoAntes": 23,
+    "corpoEnviado": [
+      {
+        "type": "product",
+        "productId": 2659780,
+        "operation": "add",
+        "stockQuantity": 20
+      }
+    ],
+    "respostaDaEntrada": [
+      {
+        "productId": 2659780,
+        "success": true,
+        "stockQuantity": 43
+      }
+    ],
+    "saldoDepois": 43,
+    "desfeito": {
+      "corpo": "operation new com o saldo original",
+      "resposta": [
+        {
+          "productId": 2659780,
+          "success": true,
+          "stockQuantity": 23
+        }
+      ],
+      "saldoFinal": 23
+    },
+    "oSaldoVoltou": true
+  }
+}
