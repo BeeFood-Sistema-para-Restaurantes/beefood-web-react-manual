@@ -19,10 +19,17 @@ qual é a letra miúda do recurso, e a copy repete a condição em vez de contor
 Dois registros de arte: *nada de data na arte* ganhou o critério que faltava —
 não é "se é print", é **o que a data está fazendo ali**, e data que É a medição
 fica, sem o ano —; e tela desenhada ganhou **teto de altura**, 0,66 sobre a
-largura, porque três telas desta peça encostaram no corpo do texto. Ver *a
-exceção não é "print de verdade"*, *e a largura tem um companheiro: a altura*,
-*rótulo de tela desenhada se copia inclusive quando está errado*, *a #17 levou
-isso ao limite* e *dado de exemplo fecha por aritmética escrita*.)
+largura, porque três telas desta peça encostaram no corpo do texto. E a
+conferência das treze somas achou dois rótulos **escritos antes do cálculo** — um
+pico 1% fora e uma média de grade que confundia média simples com média pesada
+por volume: **número desenhado que resume outros números se calcula, nunca se
+estima**. E o estado de interface que a loja não tem — aqui, um marco de KDS
+**com** horário — se lê no `outerHTML` do bloco, que entregou de graça o que a
+primeira versão tinha chutado: a bolinha do marco é anel cinza nos quatro, e o
+que muda num marco vazio é a opacidade, não a cor. Ver *a exceção não é "print de verdade"*, *e a largura tem um companheiro: a altura*,
+*rótulo de tela desenhada se copia inclusive quando está errado*, *estado que a
+loja não tem se lê no HTML da tela*, *a #17 levou isso ao limite* e *dado de
+exemplo fecha por aritmética escrita*.)
 
 2026-10-27 (43ª rodada: a #16 **foi devolvida inteira**, com
 a pergunta mais útil que esta memória já recebeu — *"por que erramos tanto se
@@ -3878,6 +3885,38 @@ embaixo do mapa de calor (*"tempo total médio em minutos"*) e a apagou — quem
 explica que o número é tempo médio é o corpo do slide, que é onde a explicação
 cabe sem virar produto.
 
+#### Estado que a loja não tem se lê no HTML da tela, não se inventa a cor dele
+
+O caso mais difícil da #17: a linha do tempo do slide 2 mostra quatro marcos
+**com horário**, e na loja que serviu de planta os quatro vinham *não
+registrado*. O estado que a peça precisava desenhar não existia em lugar nenhum
+para ser visto, e a primeira versão pintou os três marcos com horário de **verde
+preenchido** — porque fica bonito e porque "registrado é verde" parece óbvio.
+
+O navegador respondeu de graça. O `<ol>` da janela de verdade emite, nos quatro
+marcos:
+
+```html
+<li class="mb-3 ml-4 last:mb-0 opacity-40">
+  <span class="absolute -left-[5px] mt-1 h-2.5 w-2.5 rounded-full
+               border border-muted-foreground bg-card"></span>
+```
+
+A bolinha é **anel cinza de miolo branco, igual nos quatro**, e o que distingue
+um marco sem horário é o `opacity-40` no item inteiro — não a cor. Verde não
+existe ali. As bolinhas viraram anéis, os quatro saíram opacos porque no exemplo
+os quatro têm horário, e de quebra o fio ficou certo: ele corre inteiro pela
+esquerda e as bolinhas ficam montadas em cima dele, que é o que o `-left-[5px]`
+diz.
+
+> Quando o estado não aparece na loja, **leia o HTML**. `outerHTML` do bloco é
+> um comando, e ele é mais barato do que procurar um pedido que exercite o
+> estado — que na #17 não existia em nenhuma das duas contas.
+
+A conta que isso corrige é de fidelidade, não de estética: anel cinza com horário
+ao lado lê como registrado do mesmo jeito, e lê como a tela que o leitor vai
+abrir.
+
 ### Curva só quando o destino é um ponto
 
 A cena de convergência (`.origem` / `.fio` / `.selo-ok`) nasceu com curva em L,
@@ -4126,6 +4165,23 @@ nunca cita o número, a arte ainda assim cita — e é a arte que é conferida.
 Escreva as contas no roteiro **antes** de escrever o HTML. Reconferir uma conta
 escrita custa um minuto; reconstituir de onde saiu um número no HTML custa a
 tarde.
+
+E a conferência achou dois erros que o olho não acha, os dois do mesmo tipo:
+**rótulo escrito antes do cálculo**. O selo ao lado do título do gráfico dizia
+*pico 18,6 min às 20h*, e a escala da linha devolve 18,4 — 1% fora. O comentário
+do mapa de calor afirmava que a média da grade "anda pelos 14 min", e a média
+simples das 55 células dá 12,9. O segundo não era nem erro de conta: era conta
+**errada**, porque a média da tela é pesada pelo número de itens de cada
+cruzamento, e as linhas altas são as de mais movimento.
+
+> Número desenhado que resume outros números — pico, média, percentual — se
+> **calcula**. Estimar acerta a ordem de grandeza e erra a casa decimal, que é
+> exatamente a casa que o lojista confere.
+
+Em gráfico desenhado em SVG isso tem uma consequência prática: a escala do eixo
+não existe em lugar nenhum do arquivo, ela está implícita nos `points`. Escreva
+no comentário **como se vai de `y` para o valor** — aqui, `(150 - y) / 150` vezes
+21,10 min —, senão o próximo rótulo volta a ser estimado.
 
 ### A capa pode ter duas versões, e elas moram em `capa-alternativa/`
 

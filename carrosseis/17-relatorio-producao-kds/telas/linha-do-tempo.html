@@ -27,7 +27,13 @@
      ele aparece em "Os mais lentos" no slide 6, com estes mesmos horários.
 
      AS ETAPAS SAEM SEM COR, como na tela. Pintar ESPERA de azul e PREPARO de
-     vermelho faria o slide mais bonito e o produto, outro.
+     vermelho faria o slide mais bonito e o produto, outro. Pela mesma razão as
+     bolinhas da linha do tempo voltaram a ser anéis cinzas: a primeira versão
+     pintou de verde os três marcos com horário, e isso era um estado de
+     interface que eu nunca vi. O HTML da janela de verdade, lido no navegador,
+     emite `border border-muted-foreground bg-card` nos quatro marcos, e o que
+     distingue um marco sem horário é `opacity-40` no item — não a cor. Bolinha
+     verde é bonita e é produto inventado.
 
      A DATA FICA, E SEM O ANO. A regra da casa é que arte não leva data, porque
      arte com data nasce velha e a peça pode esperar na fila. Mas aqui a data é
@@ -73,50 +79,51 @@
     <div>
       <div style="font-size: 15px; font-weight: 900">Linha do tempo</div>
 
-      <!-- Cada marco é uma bolinha com um fio descendo até o próximo. O fio é
-           um ::before não dá aqui (fragmento sem CSS próprio), então ele é um
-           span absoluto dentro da linha. -->
-      <div style="margin-top: 10px; display: flex; flex-direction: column">
+      <!-- O desenho é o do HTML da janela de verdade, lido no navegador: um
+           `<ol>` com `border-l` correndo inteiro à esquerda, e cada marco com
+           uma bolinha de 10 px em `-left-[5px]`, que por isso fica montada em
+           cima do fio. A bolinha é anel: borda fina cinza e miolo branco, igual
+           nos quatro marcos — não existe bolinha preenchida nem colorida. O que
+           muda num marco sem horário é `opacity-40` no item inteiro, e aqui os
+           quatro têm horário, então os quatro saem opacos. -->
+      <div style="position: relative; margin-top: 10px; padding-left: 7px;
+                  display: flex; flex-direction: column">
+        <span style="position: absolute; left: 0; top: 0; bottom: 0; width: 1px;
+                     background: var(--pn-borda)"></span>
 
-        <div style="position: relative; padding: 0 0 9px 24px">
-          <span style="position: absolute; left: 0; top: 3px; width: 11px; height: 11px;
-                       border-radius: 999px; border: 2px solid var(--pn-verde);
+        <div style="position: relative; padding: 0 0 9px 17px">
+          <span style="position: absolute; left: -7px; top: 3px; width: 11px; height: 11px;
+                       border-radius: 999px; border: 1px solid var(--pn-suave);
                        background: #fff"></span>
-          <span style="position: absolute; left: 5px; top: 16px; width: 1px;
-                       bottom: 0; background: var(--pn-borda)"></span>
           <div style="font-size: 13px; font-weight: 800; line-height: 1.1">Lançado</div>
           <div style="margin-top: 2px; font-size: 13px; font-weight: 700;
                       color: var(--pn-suave); font-variant-numeric: tabular-nums">
             18/10 20:14:06</div>
         </div>
 
-        <div style="position: relative; padding: 0 0 9px 24px">
-          <span style="position: absolute; left: 0; top: 3px; width: 11px; height: 11px;
-                       border-radius: 999px; border: 2px solid var(--pn-verde);
+        <div style="position: relative; padding: 0 0 9px 17px">
+          <span style="position: absolute; left: -7px; top: 3px; width: 11px; height: 11px;
+                       border-radius: 999px; border: 1px solid var(--pn-suave);
                        background: #fff"></span>
-          <span style="position: absolute; left: 5px; top: 16px; width: 1px;
-                       bottom: 0; background: var(--pn-borda)"></span>
           <div style="font-size: 13px; font-weight: 800; line-height: 1.1">Preparo</div>
           <div style="margin-top: 2px; font-size: 13px; font-weight: 700;
                       color: var(--pn-suave); font-variant-numeric: tabular-nums">
             18/10 20:26:41</div>
         </div>
 
-        <div style="position: relative; padding: 0 0 9px 24px">
-          <span style="position: absolute; left: 0; top: 3px; width: 11px; height: 11px;
-                       border-radius: 999px; border: 2px solid var(--pn-verde);
+        <div style="position: relative; padding: 0 0 9px 17px">
+          <span style="position: absolute; left: -7px; top: 3px; width: 11px; height: 11px;
+                       border-radius: 999px; border: 1px solid var(--pn-suave);
                        background: #fff"></span>
-          <span style="position: absolute; left: 5px; top: 16px; width: 1px;
-                       bottom: 0; background: var(--pn-borda)"></span>
           <div style="font-size: 13px; font-weight: 800; line-height: 1.1">Pronto</div>
           <div style="margin-top: 2px; font-size: 13px; font-weight: 700;
                       color: var(--pn-suave); font-variant-numeric: tabular-nums">
             18/10 20:37:52</div>
         </div>
 
-        <div style="position: relative; padding: 0 0 0 24px">
-          <span style="position: absolute; left: 0; top: 3px; width: 11px; height: 11px;
-                       border-radius: 999px; border: 2px solid var(--pn-fraco);
+        <div style="position: relative; padding: 0 0 0 17px">
+          <span style="position: absolute; left: -7px; top: 3px; width: 11px; height: 11px;
+                       border-radius: 999px; border: 1px solid var(--pn-suave);
                        background: #fff"></span>
           <div style="font-size: 13px; font-weight: 800; line-height: 1.1">Entregue</div>
           <div style="margin-top: 2px; font-size: 13px; font-weight: 700;

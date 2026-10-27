@@ -223,7 +223,19 @@ a linha do tempo do slide 2: 12:35 + 11:11  = 23:46, e os relógios batem
 38 itens de retrabalho x 4,4 min de preparo = 167 min perdidos
 as 13 barras da Curva do dia somam                   2.490
 e a média delas, pesada pelas barras,       = 14,2 min, o total do cabeçalho
+14,2 / 0,67295 de altura média               → escala de 21,10 min na linha
+0,87067 de altura no pico x 21,10           = 18,4 min às 20h, o selo da curva
 ```
+
+**Duas contas desta lista só apareceram na conferência, e as duas eram rótulo
+escrito antes do cálculo.** O selo da Curva do dia dizia *pico 18,6 min* e a
+escala da linha devolve 18,4 — 1% fora, invisível no olho e conferível por
+qualquer um que divida. E o comentário do mapa de calor afirmava que a média da
+grade "anda pelos 14 min", quando a média simples das 55 células dá **12,9**: a
+média da tela é pesada pelo número de itens de cada cruzamento, e sexta e sábado,
+que são as linhas altas, concentram mais da metade do movimento. Média de célula
+não é média de loja. Rótulo de número desenhado se calcula; estimar é o que
+produz os dois erros.
 
 A **copy não repete nenhum destes números**. Eles são estrutura: quanto a
 cozinha de cada loja demora é leitura dela, e escrito na copy o exemplo vira
@@ -233,14 +245,14 @@ a arte não leva carimbo.
 ## Decisões de arte
 
 - **Sem data de carimbo na arte, mas com a data que é dado.** A regra da casa
-  tem uma exceção escrita só para print de verdade, e tela desenhada não é
-  print — então o seletor de período diz *Últimos 30 dias*, sem as datas que a
-  tela de verdade imprime ao lado, e o cabeçalho da janela diz a mesma coisa.
-  Já os relógios da linha do tempo e a coluna *Lançado* de *Os mais lentos*
-  ficam: ali a data **é a medição**, e sem ela o slide 2 não tem o que provar.
-  A separação que ficou valendo é essa — data que carimba quando a peça foi
-  feita sai; data que é o dado medido fica, e sem o ano, que é a parte que
-  envelhece à vista.
+  abria exceção só para print de verdade, e esta peça não tem print nenhum — o
+  que obrigou a reescrevê-la, e a redação nova está na memória da skill. O
+  critério deixou de ser *se é print* e passou a ser **o que a data está fazendo
+  ali**: o seletor de período diz *Últimos 30 dias*, sem as datas que a tela de
+  verdade imprime ao lado, e o cabeçalho da janela diz a mesma coisa, porque ali
+  a data seria carimbo. Já os relógios da linha do tempo e a coluna *Lançado* de
+  *Os mais lentos* ficam: ali a data **é a medição**, e sem ela o slide 2 não tem
+  o que provar. Em todos eles o ano saiu, que é a parte que envelhece à vista.
 - **A medida do desenho sai do mockup.** `1440x900` é 16/10, a proporção exata
   do `.notebook__tela`; fora dela o `object-fit: cover` come uma faixa do
   relatório. As telas que entram como `.recorte` nascem na largura em que vão
@@ -249,6 +261,16 @@ a arte não leva carimbo.
   de verdade pinta as 24, e as oito colunas de madrugada ficariam cinzas no
   slide — e cada coluna a mais rouba largura da célula, que é onde mora o
   número que o título promete. O recorte acaba onde a afirmação do slide acaba.
+- **As bolinhas da linha do tempo são anéis cinzas, e isso foi lido no HTML.**
+  O slide 2 precisa de quatro marcos **com** horário, e na loja que serviu de
+  planta os quatro vinham *não registrado* — o estado não existia para ser visto.
+  A primeira versão pintou de verde preenchido os três marcos com horário, que é
+  bonito e é produto inventado. O `outerHTML` do bloco na janela de verdade diz
+  outra coisa: os quatro marcos saem com `border border-muted-foreground bg-card`
+  — anel cinza, miolo branco, igual nos quatro —, e o que distingue um marco sem
+  horário é `opacity-40` no item inteiro. As bolinhas viraram anéis, e o fio
+  passou a correr inteiro pela esquerda com as bolinhas montadas em cima dele,
+  que é o que o `-left-[5px]` da tela descreve.
 - **Nenhum chip de loja, nenhum nome de marca.** A tela desenhada identifica o
   recorte como a tela de verdade faz, com `Loja 142` e o período.
 - **Os pratos do exemplo são genéricos de hamburgueria** — *Burger Duplo

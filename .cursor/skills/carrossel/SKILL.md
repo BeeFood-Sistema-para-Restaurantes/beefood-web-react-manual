@@ -438,6 +438,13 @@ de miolo fica **abaixo de 0,66 de altura sobre largura**. Passou disso, tire
 seção da tela ou linha do corpo — aumentar a fonte dentro do desenho quebra a
 proporção da interface e ela deixa de parecer uma tela.
 
+**Estado que a loja não tem, leia no HTML da tela.** Quando o desenho precisa de
+um estado que nenhuma conta exercita (um marco de KDS **com** horário, uma lista
+preenchida, um selo ligado), um `outerHTML` do bloco entrega as classes que o
+produto emite e mata o chute. Foi assim que as bolinhas da linha do tempo da #17
+deixaram de ser verdes preenchidas — no produto elas são anel cinza nos quatro
+marcos, e o que muda num marco vazio é a opacidade, não a cor.
+
 **Copie o rótulo da tela inclusive quando ele está errado**, e anote no roteiro
 que o tropeço é dela. A imagem existe para o leitor reconhecer a tela que vai
 abrir; consertar o português ali faz a arte divergir do produto. Pelo mesmo
