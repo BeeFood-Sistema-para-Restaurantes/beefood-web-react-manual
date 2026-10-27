@@ -5,7 +5,23 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-10-27 (44ª rodada: o **Relatório de Produção (KDS)**, a
+Última atualização: 2026-10-27 (45ª rodada: **a revisão da copy por três
+subagentes virou regra**, a pedido do dono — *"a relação de subagentes revisores
+de texto melhorou nossa qualidade, precisamos tomar como verdade"*. Esta memória
+tem treze vícios de texto, e os treze foram achados **depois**, com a peça pronta
+e devolvida; a #17 foi a primeira em que a copy passou por revisor antes de
+existir slide, e os três acharam coisas diferentes: texto correto e morto, treze
+violações de regra com o nome delas, e erro de português mais repetição entre
+slides vizinhos. Os prompts estão transcritos palavra por palavra em
+[`revisores-de-copy.md`](revisores-de-copy.md), e o que fixa a prática são cinco
+invariantes — **não edite nenhum arquivo**, **escreva a frase substituta
+inteira**, **cerque o que não está em discussão**, **dê o leitor e não o
+produto**, **termine com perguntas fechadas** — mais a ordem: o primeiro e o
+segundo leem o rascunho juntos, o terceiro lê a versão já corrigida. Eles não
+pegam palavra igual à da fonte, que é do `conferir-texto.py`, nem fato errado, que
+é de quem leu a tela. Ver *treze vícios depois: a copy não se revisa sozinha*.)
+
+2026-10-27 (44ª rodada: o **Relatório de Produção (KDS)**, a
 primeira peça do acervo **sem um pixel de captura** — e a razão nova é de
 privacidade, não de volume: a loja que tem volume é de cliente de verdade, e um
 relatório de produção tem o cardápio dela escrito na única coluna de texto que
@@ -1372,6 +1388,86 @@ virou o chapéu, `SETE ABAS, UM TEMPO SÓ`. O chapéu é a linha mais barata do
 slide — três palavras, sem pontuação, acima do título — e é onde cabe o fato que
 situa sem precisar de parágrafo. Mesmo movimento do "escrito por você" na peça
 da tradução, que desceu do título para o chapéu em vez de sumir.
+
+### Treze vícios depois: a copy não se revisa sozinha
+
+Esta seção tem treze vícios, e todos foram achados do mesmo jeito — **depois**,
+quando o dono leu a peça pronta e devolveu. Treze vezes. A 44ª rodada mudou isso
+a pedido dele (*"revise o texto com subagentes antes de criar os slides, para
+tornar a linguagem natural e humana"*), e o resultado é regra, não experimento:
+
+> A copy passa por **três subagentes revisores** antes de virar slide, no passo 2,
+> com a arte ainda inexistente.
+
+Os prompts estão prontos, palavra por palavra, em
+[`revisores-de-copy.md`](revisores-de-copy.md). O que esta memória guarda é
+**por que três** e **o que não se mexe neles**.
+
+#### Por que três, e não um bom
+
+Porque os três acharam coisas que os outros dois não acharam, e nenhum dos
+diagnósticos se repetiu:
+
+| | Papel | O que ele achou, na #17 |
+|---|---|---|
+| 1 | **redator publicitário** que não conhece o projeto | que o texto estava *correto e morto* — quatro dos sete títulos eram rótulo com dois-pontos, o que transforma o carrossel em sumário de manual; subtítulo de capa sem verbo principal; interface como sujeito em dois corpos |
+| 2 | **auditor das regras da casa** | treze violações com o nome da regra, e entre elas **três números proibidos** que a copy citava e a arte desmentia; "ao cliente" sem possessivo; defeito inventado no condicional |
+| 3 | **revisor de português e de ritmo**, lendo a versão já corrigida | paralelismo quebrado no subtítulo, verbo transitivo sem objeto, a palavra "média" dominando três títulos, cinco de seis corpos abrindo com "você lê/vê", e que *Resumo* aparecia no CTA sem antecedente |
+
+O papel 1 é **cego de propósito**: quem conhece as regras lê o texto com a cabeça
+de quem escreveu. Não dê contexto de projeto a ele — dê o leitor e o assunto.
+
+E a ordem é parte da regra: **1 e 2 rodam juntos, sobre o rascunho**; o 3 só
+depois, sobre a versão que já absorveu os dois. Mandar o terceiro ler o rascunho
+queima a passada, porque ele gasta o fôlego repetindo o que os outros dois já
+disseram em vez de chegar no ritmo, que é o que ele faz melhor que ninguém.
+
+#### As cinco invariantes do prompt
+
+Não é o tamanho do prompt que faz isso funcionar:
+
+1. **"Não edite nenhum arquivo."** Revisor que edita vira coautor, e aí não há
+   mais revisão.
+2. **"Escreva a frase substituta inteira, pronta para colar."** Apontamento sem
+   reescrita volta como trabalho para quem pediu. *"Não diga apenas 'melhorar' —
+   reescreva"*, e com a trava junto: *"você pode trocar as palavras, nunca
+   inventar um fato novo sobre o produto"*.
+3. **Cerque o que não está em discussão.** O terceiro prompt escreve que o molde
+   *"Nome, dois-pontos, o que ele te dá"* é obrigatório e que o texto não pode
+   citar número. Sem essa cerca, revisor bom gasta metade da resposta propondo
+   derrubar regra já decidida e a outra metade sugerindo pôr número na copy —
+   que é justamente o que o jogo de números proíbe.
+4. **Dê o leitor, não o produto.** *"O dono de um restaurante que já é cliente e
+   já tem um KDS na cozinha. Ele não é técnico. Ele abre o Instagram no
+   intervalo e passa o dedo."* É essa frase que faz o revisor **ouvir** o texto
+   em vez de conferi-lo.
+5. **Termine com perguntas fechadas.** *Qual é o slide mais fraco? Lendo só os
+   títulos em fila, dá para montar a lista? Tampando as imagens, o leitor sabe o
+   que vai ver na tela?* Revisor sem pergunta final entrega lista de achados e
+   nenhum veredito.
+
+#### O que eles não pegam, e quem pega
+
+Duas coisas, e vale saber antes de confiar demais:
+
+- **palavra igual à da fonte** — é trabalho do `conferir-texto.py`, e ele achou
+  quatro sequências na legenda depois de os três revisores terem passado;
+- **fato errado** — na #17 os três elogiaram *"todo item que passa pelo KDS marca
+  três horários"*, que a própria tela desmente, porque nenhum deles tinha aberto
+  o relatório. Revisor de texto confere o texto; a verdade do fato continua sendo
+  de quem leu a tela.
+
+#### Quem arbitra é você
+
+O revisor 1 e o 2 discordam **de propósito**: um quer a frase que soa melhor, o
+outro quer a frase que a regra permite. Quando baterem de frente, ganha a regra.
+E se a regra perder duas vezes seguidas pelo mesmo motivo, é a regra que está
+errada e vai para esta memória reescrita — foi o que aconteceu com *nada de data
+na arte* na mesma rodada.
+
+Registre as mudanças, e não só o texto final: o `roteiro.md` da peça leva a seção
+*"A copy, depois de três revisões"* com cada mudança numerada e o motivo dela. É
+o que permite, três peças adiante, separar gosto de revisor de regra da casa.
 
 ### O segundo gênero: função do sistema
 

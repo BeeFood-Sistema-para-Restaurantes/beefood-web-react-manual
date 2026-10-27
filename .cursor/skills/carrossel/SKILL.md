@@ -350,6 +350,41 @@ Método completo em [`references/roteiro-e-copy.md`](references/roteiro-e-copy.m
 Roteiro aprovado primeiro; captura depois. Print tirado antes do roteiro quase
 sempre é print que não entra.
 
+#### A copy passa por três revisores antes de virar slide
+
+**Obrigatório, e antes de existir imagem nenhuma.** Escreva o rascunho da copy
+num arquivo de trabalho fora do repositório (`/tmp/<peça>/copy-rascunho.md`) e
+mande três subagentes lerem, nesta ordem:
+
+| | Papel | O que ele lê |
+|---|---|---|
+| 1 | **redator publicitário** que não conhece o projeto — o ouvido de quem lê pela primeira vez | só o rascunho |
+| 2 | **auditor das regras da casa**, que cita a regra pelo nome | a skill, a memória e o rascunho |
+| 3 | **revisor de português e de ritmo** | a versão **já corrigida**, em `copy-revisada.md` |
+
+Os dois primeiros rodam juntos sobre o rascunho; o terceiro só depois de você ter
+aplicado o que eles acharam. Mandar o terceiro ler o rascunho queima a passada.
+
+Os três prompts estão prontos, palavra por palavra, em
+[`references/revisores-de-copy.md`](references/revisores-de-copy.md) — use-os como
+gabarito e troque só o que está em `<…>`. O que não se mexe neles:
+
+- **"não edite nenhum arquivo"** — revisor que edita vira coautor;
+- **"escreva a frase substituta inteira"** — apontamento sem reescrita volta como
+  trabalho para quem pediu;
+- **cerque o que não está em discussão** (o molde de título, a proibição de citar
+  número), senão metade da resposta vem propondo derrubar regra já decidida;
+- **dê o leitor, não o produto** — é isso que faz o revisor *ouvir* a frase;
+- **termine com perguntas fechadas**, para sair veredito e não lista.
+
+Eles não pegam duas coisas: palavra igual à da fonte, que é do
+`conferir-texto.py`, e **fato errado**. Na peça 17 os três elogiaram uma frase que
+o produto desmentia, porque nenhum deles tinha aberto a tela.
+
+O `roteiro.md` leva uma seção *"A copy, depois de três revisões"*, com cada
+mudança numerada e o motivo — é o que separa, peças adiante, gosto de revisor de
+regra da casa.
+
 ### 3. Imagens
 
 **A primeira pergunta não é de onde vem a imagem. É se ela mostra o resultado ou
@@ -993,6 +1028,12 @@ Nem todo aviso é defeito. O CTA de peça de função repete de propósito — e
 convenção, e a frase mais comum possível é a que funciona. Mas agora a decisão
 é tomada, em vez de passar batida.
 
+**Pré-condição desta lista: as três revisões de copy já aconteceram**, lá no
+passo 2, com os slides ainda inexistentes, e o `roteiro.md` já tem a seção *"A
+copy, depois de três revisões"*. Se a peça chegou aqui sem elas, volte — reescrever
+texto com a arte pronta custa refazer arte. Gabarito em
+[`references/revisores-de-copy.md`](references/revisores-de-copy.md).
+
 1. Abra a folha de contato: o conjunto tem ritmo, ou três slides de texto seguidos?
    A capa tem imagem?
 1a. E, com tudo renderizado, **se você só pudesse publicar um slide, qual
@@ -1171,7 +1212,8 @@ carrosseis/<slug>/
 ├── scripts/capturar-totem.py, capturar-cardapio.py, fazer-midia.py,
 │          filmar-slide.py, preparar-fundo.py, catalogo.py,
 │          desenhar-telas.py
-└── references/mockups.md    # o índice da prateleira: o que já existe e a medida
+├── references/mockups.md    # o índice da prateleira: o que já existe e a medida
+└── references/revisores-de-copy.md  # os três prompts de revisão, palavra por palavra
 ```
 
 Carrossel novo começa por aí, e não por CSS novo. O que virou geral **sai** da
@@ -1514,6 +1556,9 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   é a leitura em voz alta.
 - **Recortar a novidade em slides.** O carrossel se escreve a partir do fato; o
   texto do release não vai para a arte.
+- **Montar slide com copy que não passou pelos três revisores.** Treze vícios de
+  texto desta skill foram achados com a peça já pronta e devolvida pelo dono; a
+  revisão é do passo 2, e texto corrigido depois da arte custa refazer arte.
 - **Afirmar o que o leitor faz, tem ou sente.** "Você já faz isso no balcão", "no
   caixa você propõe na hora", "isso te incomoda desde que você abriu a loja":
   não está na novidade, não está no manual e não está na tela. Nomeie o custo
