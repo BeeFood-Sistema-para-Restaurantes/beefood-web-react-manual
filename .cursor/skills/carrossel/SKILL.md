@@ -319,6 +319,20 @@ E o sinal de alerta continua valendo, agora dos dois lados: a copy que
 **descreve a imagem logo abaixo dela** está legendando a prova, e a copy que
 **poderia estar em qualquer slide da peça** não tem fato dentro.
 
+**Terceira obrigação: leia o aviso que a tela escreve, e não só os rótulos
+dela.** Quando a tela abre com um parágrafo de condição — *"tantos dos tantos
+itens não têm marco de início, então neles não há como separar fila de preparo"*
+—, é ali que o produto conta a letra miúda dele, e a copy repete a condição em
+vez de contorná-la. Quem lê novidade já é cliente: ele vai abrir a tela e achar o
+mesmo aviso, e peça que prometeu demais vira "prometeram e não funciona".
+Dita na arte, a condição vira instrução. Isso **não** é aviso de limite — aquela
+proibição fala do limite que o leitor não encontraria sozinho; esta fala da
+condição que está escrita na tela que a peça está mostrando.
+
+**E a frase que não cabe no corpo sobe para o chapéu**, em vez de sumir. Três
+palavras acima do título é a linha mais barata do slide, e é onde cabe o fato
+que situa sem gastar parágrafo.
+
 **A pasta nasce numerada.** O nome é `NN-<slug>`, com `NN` sendo a **ordem de
 entrega** — o próximo número livre em `carrosseis/`. É o que faz a listagem do
 diretório sair na ordem em que as peças foram publicadas, e o `.zip` chegar ao
@@ -335,6 +349,41 @@ Método completo em [`references/roteiro-e-copy.md`](references/roteiro-e-copy.m
 
 Roteiro aprovado primeiro; captura depois. Print tirado antes do roteiro quase
 sempre é print que não entra.
+
+#### A copy passa por três revisores antes de virar slide
+
+**Obrigatório, e antes de existir imagem nenhuma.** Escreva o rascunho da copy
+num arquivo de trabalho fora do repositório (`/tmp/<peça>/copy-rascunho.md`) e
+mande três subagentes lerem, nesta ordem:
+
+| | Papel | O que ele lê |
+|---|---|---|
+| 1 | **redator publicitário** que não conhece o projeto — o ouvido de quem lê pela primeira vez | só o rascunho |
+| 2 | **auditor das regras da casa**, que cita a regra pelo nome | a skill, a memória e o rascunho |
+| 3 | **revisor de português e de ritmo** | a versão **já corrigida**, em `copy-revisada.md` |
+
+Os dois primeiros rodam juntos sobre o rascunho; o terceiro só depois de você ter
+aplicado o que eles acharam. Mandar o terceiro ler o rascunho queima a passada.
+
+Os três prompts estão prontos, palavra por palavra, em
+[`references/revisores-de-copy.md`](references/revisores-de-copy.md) — use-os como
+gabarito e troque só o que está em `<…>`. O que não se mexe neles:
+
+- **"não edite nenhum arquivo"** — revisor que edita vira coautor;
+- **"escreva a frase substituta inteira"** — apontamento sem reescrita volta como
+  trabalho para quem pediu;
+- **cerque o que não está em discussão** (o molde de título, a proibição de citar
+  número), senão metade da resposta vem propondo derrubar regra já decidida;
+- **dê o leitor, não o produto** — é isso que faz o revisor *ouvir* a frase;
+- **termine com perguntas fechadas**, para sair veredito e não lista.
+
+Eles não pegam duas coisas: palavra igual à da fonte, que é do
+`conferir-texto.py`, e **fato errado**. Na peça 17 os três elogiaram uma frase que
+o produto desmentia, porque nenhum deles tinha aberto a tela.
+
+O `roteiro.md` leva uma seção *"A copy, depois de três revisões"*, com cada
+mudança numerada e o motivo — é o que separa, peças adiante, gosto de revisor de
+regra da casa.
 
 ### 3. Imagens
 
@@ -415,6 +464,31 @@ de layout, como print de manual. Quando a tela é para ler de longe (KDS na pare
 da cozinha), use `.tela--grande` e menos fichas por coluna: tela de 1280 px
 reduzida a 860 no feed leva corpo de 14 px para 9. O `roteiro.md` diz, tela por
 tela, o que é captura e o que é desenho.
+
+**A medida tem dois lados, e o segundo é a altura.** A largura decide a
+legibilidade: o fator de ampliação (largura de exibição ÷ largura do desenho)
+tem de ficar entre **1,2× e 1,6×**. A altura decide se cabe: o miolo do slide
+serve cerca de 600 px antes da faixa do rodapé, então o `data-medida` de uma tela
+de miolo fica **abaixo de 0,66 de altura sobre largura**. Passou disso, tire
+seção da tela ou linha do corpo — aumentar a fonte dentro do desenho quebra a
+proporção da interface e ela deixa de parecer uma tela.
+
+**Estado que a loja não tem, leia no HTML da tela.** Quando o desenho precisa de
+um estado que nenhuma conta exercita (um marco de KDS **com** horário, uma lista
+preenchida, um selo ligado), um `outerHTML` do bloco entrega as classes que o
+produto emite e mata o chute. Foi assim que as bolinhas da linha do tempo da #17
+deixaram de ser verdes preenchidas — no produto elas são anel cinza nos quatro
+marcos, e o que muda num marco vazio é a opacidade, não a cor.
+
+**Copie o rótulo da tela inclusive quando ele está errado**, e anote no roteiro
+que o tropeço é dela. A imagem existe para o leitor reconhecer a tela que vai
+abrir; consertar o português ali faz a arte divergir do produto. Pelo mesmo
+motivo, **legenda que a tela não tem não entra**: legenda inventada é interface
+inventada, e quem explica o que o número significa é o corpo do slide.
+
+**Não misture captura e desenho na mesma peça.** Dois jogos de números em slides
+vizinhos fazem o lojista desconfiar dos dois. Ou a peça inteira é prova, ou a
+peça inteira é planta, e a legenda diz qual, uma vez.
 
 **Print do manual que não serve, você refaz — não desenha.** O cupom do manual
 *Destaque na impressão* sai com duas linhas em preto porque o manual precisava
@@ -954,6 +1028,12 @@ Nem todo aviso é defeito. O CTA de peça de função repete de propósito — e
 convenção, e a frase mais comum possível é a que funciona. Mas agora a decisão
 é tomada, em vez de passar batida.
 
+**Pré-condição desta lista: as três revisões de copy já aconteceram**, lá no
+passo 2, com os slides ainda inexistentes, e o `roteiro.md` já tem a seção *"A
+copy, depois de três revisões"*. Se a peça chegou aqui sem elas, volte — reescrever
+texto com a arte pronta custa refazer arte. Gabarito em
+[`references/revisores-de-copy.md`](references/revisores-de-copy.md).
+
 1. Abra a folha de contato: o conjunto tem ritmo, ou três slides de texto seguidos?
    A capa tem imagem?
 1a. E, com tudo renderizado, **se você só pudesse publicar um slide, qual
@@ -1058,7 +1138,12 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
 10. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE"
     em branco, contorno branco no selo, tarja amarela e "food" vermelho?
 11. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa
-    inclusive. (Data impressa dentro de um print de verdade pode ficar.)
+    inclusive. Data **dentro da tela** fica só quando ela é o próprio dado que o
+    slide promete — a hora de um cupom impresso, o relógio de uma linha do tempo
+    —, e aí sem o ano. Data que carimbaria quando a peça foi feita sai sempre, e
+    período se escreve relativo (*Últimos 30 dias*). Detalhe em
+    [`references/MEMORIA-CARROSSEIS.md`](references/MEMORIA-CARROSSEIS.md), em
+    *a exceção não é "print de verdade": é data que É o dado*.
 12. Saiu peça nova de uso geral (aparelho, tela desenhada, foto, script)? Ela
     **sobe** para a skill: foto e tela em `assets/fotos/`, aparelho no
     `base.css` + `catalogo.py`, script em `scripts/`. Atualize
@@ -1127,7 +1212,8 @@ carrosseis/<slug>/
 ├── scripts/capturar-totem.py, capturar-cardapio.py, fazer-midia.py,
 │          filmar-slide.py, preparar-fundo.py, catalogo.py,
 │          desenhar-telas.py
-└── references/mockups.md    # o índice da prateleira: o que já existe e a medida
+├── references/mockups.md    # o índice da prateleira: o que já existe e a medida
+└── references/revisores-de-copy.md  # os três prompts de revisão, palavra por palavra
 ```
 
 Carrossel novo começa por aí, e não por CSS novo. O que virou geral **sai** da
@@ -1140,8 +1226,12 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
 - **Nenhuma data na arte.** O topo direito leva só o `.contador` ("1 de 7"), na
   capa também. Carrossel aprovado entra na fila de conteúdo e é publicado dias
   depois: data na arte faz a novidade parecer velha e impede reaproveitar o post.
-  Data **dentro de print de verdade** fica (a do cupom é do pedido, não do post),
-  e a data da novidade mora no `roteiro.md` e no cabeçalho da copy.
+  O critério não é *se é print*: é **o que a data está fazendo ali**. Data que é
+  o próprio dado do slide fica — a hora do cupom é do pedido, o relógio da linha
+  do tempo é a medição que o slide promete —, e fica **sem o ano**, que é a parte
+  que envelhece à vista. Período se escreve relativo, como a tela já escreve
+  (*Últimos 30 dias*). A data da novidade mora no `roteiro.md` e no cabeçalho da
+  copy, e não na arte.
 - **Uma ideia por slide.** Duas frases longas no mesmo slide são dois slides.
 - **Tantos slides quantos a novidade tiver de assunto**, entre 6 e 8 (o teto
   técnico é 10). Oito não é meta: o carrossel da tradução fecha em 7 porque o
@@ -1466,6 +1556,9 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   é a leitura em voz alta.
 - **Recortar a novidade em slides.** O carrossel se escreve a partir do fato; o
   texto do release não vai para a arte.
+- **Montar slide com copy que não passou pelos três revisores.** Treze vícios de
+  texto desta skill foram achados com a peça já pronta e devolvida pelo dono; a
+  revisão é do passo 2, e texto corrigido depois da arte custa refazer arte.
 - **Afirmar o que o leitor faz, tem ou sente.** "Você já faz isso no balcão", "no
   caixa você propõe na hora", "isso te incomoda desde que você abriu a loja":
   não está na novidade, não está no manual e não está na tela. Nomeie o custo

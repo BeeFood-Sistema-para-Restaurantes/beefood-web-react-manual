@@ -1,0 +1,182 @@
+<!-- A aba Itens, com o ranking e a coluna "vs loja". Imagem do slide 3.
+
+     A ESTRUTURA é a da aba: o seletor Produto / Combo / Opção, o título "Por
+     produto" e a tabela com as colunas que a tela tem, nesta ordem — Produto,
+     Itens, Espera, Preparo, Total, vs loja. Os pratos saem do mais demorado
+     para o mais rápido, como lá. A categoria debaixo do nome é a mesma coisa
+     que a tela mostra (lá é o setor do cardápio).
+
+     Os NÚMEROS são do jogo da peça, e cada linha fecha duas vezes:
+
+       espera + preparo = total,  e  total menos 14,2 min = "vs loja"
+
+       10,9 + 15,9 = 26,8   e  26,8 - 14,2 = +12,6
+       11,4 + 12,7 = 24,1   e  24,1 - 14,2 =  +9,9
+       10,2 + 11,3 = 21,5   e  21,5 - 14,2 =  +7,3
+        9,7 +  8,3 = 18,0   e  18,0 - 14,2 =  +3,8
+        9,5 +  6,9 = 16,4   e  16,4 - 14,2 =  +2,2
+        8,6 +  6,2 = 14,8   e  14,8 - 14,2 =  +0,6
+
+     14,2 min é o Tempo total médio do Resumo, que está na capa — é o mesmo
+     relatório, e as duas telas têm de bater.
+
+     OS PRATOS SÃO GENÉRICOS DE HAMBURGUERIA de propósito. O cardápio da loja
+     que serviu de planta é a assinatura dela, e este repositório é público.
+
+     O Burger Duplo Cheddar aparece aqui com 21,5 min de média; nos slides 2 e
+     6 um pedido dele leva 23:46. É o mesmo prato atravessando a peça.
+
+     A MEDIDA sai da altura disponível no slide: o miolo tem por volta de 600
+     px para imagem e a faixa entra com 904, então o fragmento fica abaixo de
+     0,66 de altura sobre largura. 680x446 dá 1,33x de escala. -->
+<div class="tela" data-medida="680x446" style="background: #fff">
+
+  <div style="flex: 1; padding: 17px 20px 16px; display: flex;
+              flex-direction: column; min-height: 0">
+
+    <!-- ------------------------------------------------------ seletor -->
+    <div style="flex: none; display: inline-flex; align-self: flex-start;
+                background: var(--pn-cinza-chip); border-radius: 10px; padding: 3px;
+                font-size: 12px; font-weight: 800; color: var(--pn-suave)">
+      <span style="background: #fff; border-radius: 8px; padding: 6px 15px;
+                   color: var(--pn-texto)">Produto</span>
+      <span style="padding: 6px 15px">Combo</span>
+      <span style="padding: 6px 15px">Opção</span>
+    </div>
+
+    <div style="flex: none; margin-top: 14px; display: flex;
+                align-items: baseline; justify-content: space-between">
+      <span style="font-size: 15px; font-weight: 900">Por produto</span>
+      <span style="font-size: 12px; font-weight: 700; color: var(--pn-fraco)">
+        do mais demorado para o mais rápido
+      </span>
+    </div>
+
+    <!-- ------------------------------------------------------- tabela -->
+    <div style="flex: none; margin-top: 10px; display: grid;
+                grid-template-columns: 1fr 62px 72px 76px 68px 76px;
+                font-size: 11px; font-weight: 800; letter-spacing: 0.5px;
+                color: var(--pn-fraco); padding-bottom: 7px;
+                border-bottom: 1px solid var(--pn-borda)">
+      <span>PRODUTO</span>
+      <span style="text-align: right">ITENS</span>
+      <span style="text-align: right">ESPERA</span>
+      <span style="text-align: right">PREPARO</span>
+      <span style="text-align: right">TOTAL</span>
+      <span style="text-align: right">VS LOJA</span>
+    </div>
+
+    <div style="flex: none; display: grid;
+                grid-template-columns: 1fr 62px 72px 76px 68px 76px;
+                align-items: center; font-size: 13px; font-weight: 700;
+                font-variant-numeric: tabular-nums; padding: 9px 0;
+                border-bottom: 1px solid var(--pn-borda)">
+      <span>
+        <span style="display: block; font-weight: 800">Costela 12h desfiada</span>
+        <span style="display: block; margin-top: 1px; font-size: 10px;
+                     font-weight: 800; letter-spacing: 0.5px;
+                     color: var(--pn-fraco)">COMBOS</span>
+      </span>
+      <span style="text-align: right">164</span>
+      <span style="text-align: right">10,9 min</span>
+      <span style="text-align: right">15,9 min</span>
+      <span style="text-align: right; font-weight: 900">26,8 min</span>
+      <span style="text-align: right; font-weight: 900; color: var(--pn-vermelho)">+12,6 min</span>
+    </div>
+
+    <div style="flex: none; display: grid;
+                grid-template-columns: 1fr 62px 72px 76px 68px 76px;
+                align-items: center; font-size: 13px; font-weight: 700;
+                font-variant-numeric: tabular-nums; padding: 9px 0;
+                border-bottom: 1px solid var(--pn-borda)">
+      <span>
+        <span style="display: block; font-weight: 800">Combo da Família</span>
+        <span style="display: block; margin-top: 1px; font-size: 10px;
+                     font-weight: 800; letter-spacing: 0.5px;
+                     color: var(--pn-fraco)">COMBOS</span>
+      </span>
+      <span style="text-align: right">212</span>
+      <span style="text-align: right">11,4 min</span>
+      <span style="text-align: right">12,7 min</span>
+      <span style="text-align: right; font-weight: 900">24,1 min</span>
+      <span style="text-align: right; font-weight: 900; color: var(--pn-vermelho)">+9,9 min</span>
+    </div>
+
+    <div style="flex: none; display: grid;
+                grid-template-columns: 1fr 62px 72px 76px 68px 76px;
+                align-items: center; font-size: 13px; font-weight: 700;
+                font-variant-numeric: tabular-nums; padding: 9px 0;
+                border-bottom: 1px solid var(--pn-borda)">
+      <span>
+        <span style="display: block; font-weight: 800">Burger Duplo Cheddar</span>
+        <span style="display: block; margin-top: 1px; font-size: 10px;
+                     font-weight: 800; letter-spacing: 0.5px;
+                     color: var(--pn-fraco)">HAMBÚRGUERES</span>
+      </span>
+      <span style="text-align: right">386</span>
+      <span style="text-align: right">10,2 min</span>
+      <span style="text-align: right">11,3 min</span>
+      <span style="text-align: right; font-weight: 900">21,5 min</span>
+      <span style="text-align: right; font-weight: 900; color: var(--pn-vermelho)">+7,3 min</span>
+    </div>
+
+    <div style="flex: none; display: grid;
+                grid-template-columns: 1fr 62px 72px 76px 68px 76px;
+                align-items: center; font-size: 13px; font-weight: 700;
+                font-variant-numeric: tabular-nums; padding: 9px 0;
+                border-bottom: 1px solid var(--pn-borda)">
+      <span>
+        <span style="display: block; font-weight: 800">Onion Rings</span>
+        <span style="display: block; margin-top: 1px; font-size: 10px;
+                     font-weight: 800; letter-spacing: 0.5px;
+                     color: var(--pn-fraco)">ACOMPANHAMENTOS</span>
+      </span>
+      <span style="text-align: right">149</span>
+      <span style="text-align: right">9,7 min</span>
+      <span style="text-align: right">8,3 min</span>
+      <span style="text-align: right; font-weight: 900">18,0 min</span>
+      <span style="text-align: right; font-weight: 900; color: var(--pn-vermelho)">+3,8 min</span>
+    </div>
+
+    <div style="flex: none; display: grid;
+                grid-template-columns: 1fr 62px 72px 76px 68px 76px;
+                align-items: center; font-size: 13px; font-weight: 700;
+                font-variant-numeric: tabular-nums; padding: 9px 0;
+                border-bottom: 1px solid var(--pn-borda)">
+      <span>
+        <span style="display: block; font-weight: 800">Batata com Cheddar</span>
+        <span style="display: block; margin-top: 1px; font-size: 10px;
+                     font-weight: 800; letter-spacing: 0.5px;
+                     color: var(--pn-fraco)">ACOMPANHAMENTOS</span>
+      </span>
+      <span style="text-align: right">298</span>
+      <span style="text-align: right">9,5 min</span>
+      <span style="text-align: right">6,9 min</span>
+      <span style="text-align: right; font-weight: 900">16,4 min</span>
+      <span style="text-align: right; font-weight: 900; color: var(--pn-vermelho)">+2,2 min</span>
+    </div>
+
+    <div style="flex: none; display: grid;
+                grid-template-columns: 1fr 62px 72px 76px 68px 76px;
+                align-items: center; font-size: 13px; font-weight: 700;
+                font-variant-numeric: tabular-nums; padding: 9px 0">
+      <span>
+        <span style="display: block; font-weight: 800">Burger Clássico</span>
+        <span style="display: block; margin-top: 1px; font-size: 10px;
+                     font-weight: 800; letter-spacing: 0.5px;
+                     color: var(--pn-fraco)">HAMBÚRGUERES</span>
+      </span>
+      <span style="text-align: right">431</span>
+      <span style="text-align: right">8,6 min</span>
+      <span style="text-align: right">6,2 min</span>
+      <span style="text-align: right; font-weight: 900">14,8 min</span>
+      <span style="text-align: right; font-weight: 900; color: var(--pn-vermelho)">+0,6 min</span>
+    </div>
+
+    <div style="flex: none; margin-top: auto; padding-top: 10px;
+                border-top: 1px solid var(--pn-borda); font-size: 11px;
+                font-weight: 700; color: var(--pn-fraco)">
+      vs loja é a diferença para o tempo total médio da loja no período: 14,2 min.
+    </div>
+  </div>
+</div>

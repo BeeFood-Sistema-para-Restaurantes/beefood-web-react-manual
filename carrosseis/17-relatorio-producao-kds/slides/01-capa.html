@@ -1,0 +1,77 @@
+<!-- A capa ANUNCIA A CHEGADA de um relatório que não existia.
+
+     MOLDE: ANÚNCIO DE CHEGADA. O placar antes desta peça estava em afirmação
+     do fato 6, anúncio de chegada 3, nome + dois-pontos 2, pergunta 2, nome +
+     canal 1, nome + para quem 1, ordem direta 1, antes × agora 0.
+
+     A condição do molde é a que está escrita desde a #8: ele pede recurso
+     batizado, com nome próprio que vira item de menu, e pede que o que chegou
+     seja uma coisa inteira, não uma capacidade que mudou. Aqui as duas fecham
+     — nasceu uma linha nova no menu do Desempenho, com sete abas dentro.
+
+     Os concorrentes caíram assim:
+
+     - AFIRMAÇÃO DO FATO é a forma da #16, que é a capa imediatamente anterior.
+       A regra do quarto vício é sobre o perfil, não sobre a peça: duas capas
+       seguidas no mesmo molde leem como fórmula.
+     - ANTES × AGORA continua zerado e continuou. O "antes" daqui seria "você
+       sabia quanto vendeu, não quanto demorou", e quanto vendeu é o relatório
+       de Vendas, que a casa vende e continua vendendo. É exatamente a
+       armadilha que derrubou o molde na #12: nunca ponha um produto do
+       catálogo no lado perdedor.
+     - ORDEM DIRETA precisa de um objeto só, e este relatório tem sete abas.
+     - NOME + DOIS-PONTOS foi a forma da #14 e, mais do que isso, é a forma dos
+       títulos de dentro desta peça. Repetida na capa, ela apagaria a diferença
+       entre a capa e o miolo.
+
+     O VERMELHO CAI EM "PRODUÇÃO", uma palavra, e aqui ele cumpre a função da
+     #8 à #10: é a palavra que o leitor vai procurar no menu depois. "KDS" fica
+     no título porque é o aparelho que ele tem na cozinha, e é ele que situa de
+     que produção se fala.
+
+     O SUBTÍTULO DIZ O QUE O RELATÓRIO MEDE, com os dois extremos nomeados:
+     entre cair no KDS e ficar pronto. A revisão trocou a versão sem verbo
+     principal por esta; e nenhum número do exemplo entra aqui, porque quanto a
+     cozinha de cada loja demora é leitura dela.
+
+     O APARELHO É O NOTEBOOK, e não a TV de parede da #8: relatório se lê
+     sentado, na mesa do escritório. A tela deitada conta essa cena. 1440x900 é
+     a proporção exata do `.notebook__tela`, então nada do relatório é comido
+     pelo `object-fit: cover`.
+
+     A luz quente atrás existe pelo motivo de sempre: sem ela o aparelho flutua
+     no preto e a tela não lê como acesa. -->
+<div class="slide slide--capa">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">1 de 7</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 30px; max-width: 900px">
+    <span class="pilula pilula--novidade">Novidade</span>
+    <h1 class="titulo titulo--medio">
+      Chegou o relatório<br>de <span class="destaque">Produção</span> do KDS
+    </h1>
+    <p class="subtitulo">
+      Você vê quanto tempo cada prato levou entre cair no KDS e ficar pronto.
+    </p>
+  </div>
+
+  <div class="luz" style="left: 50%; top: 660px; width: 1300px; height: 860px;
+                          margin-left: -650px; filter: blur(72px);
+                          background: radial-gradient(ellipse 46% 50% at 50% 47%,
+                                      rgba(255, 246, 236, 0.85) 0%,
+                                      rgba(255, 214, 184, 0.34) 62%,
+                                      rgba(0, 0, 0, 0) 82%)"></div>
+
+  <div class="sangria" style="top: 700px; left: 50%; transform: translateX(-50%);
+                              width: 936px">
+    <div class="notebook" style="width: 936px">
+      <div class="notebook__tela">
+        <img src="../imagens-puras/resumo.png"
+             alt="O relatório Produção (KDS) aberto num notebook, com dados de exemplo: as sete abas Resumo, Tempo, Setor, Itens, Canal, Retrabalho e Dados, os seis indicadores do topo — tempo total médio, espera média, preparo médio, itens produzidos, retrabalho e cobertura —, a barra que divide o tempo entre espera e preparo, e a curva do dia com as barras de itens produzidos e a linha de tempo médio subindo juntas no jantar">
+      </div>
+      <div class="notebook__base"></div>
+    </div>
+  </div>
+</div>

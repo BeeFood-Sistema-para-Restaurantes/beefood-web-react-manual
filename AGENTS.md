@@ -34,12 +34,22 @@ mapeia o que ler em `references/conhecimento-compartilhado.md`. Aprendizado de
 **cenário** — de onde um campo vem, qual rota grava o quê, como escrever no banco
 sem risco — mora na `cenario-sandbox`.
 
+**No carrossel, a copy não vira slide antes de passar por três subagentes
+revisores** — um redator que não conhece o projeto, um auditor das regras da casa
+e um revisor de português e ritmo. É passo obrigatório, acontece enquanto não
+existe imagem nenhuma, e os três prompts estão prontos em
+[`.cursor/skills/carrossel/references/revisores-de-copy.md`](.cursor/skills/carrossel/references/revisores-de-copy.md).
+
 ## Regras que valem nas duas
 
 - **Português do Brasil** em tudo: código, commit, documento e arte.
 - **O repositório é público.** Nome, telefone e e-mail de cliente saem cobertos
-  já na imagem **pura**, porque ela também é versionada. As credenciais de teste
-  podem ficar versionadas: o ambiente é sandbox descartável.
+  já na imagem **pura**, porque ela também é versionada. As credenciais **de
+  sandbox** podem ficar versionadas: o ambiente é descartável. Conta de
+  **produção** não — ela vive em variável de ambiente, o estado de sessão fica em
+  `/tmp`, nenhuma captura dela entra em `imagens-puras/` e a senha não aparece
+  inteira em lugar nenhum. Quando o dono passar um acesso, pergunte-se qual dos
+  dois é antes de escrever qualquer arquivo.
 - **Commit por ação relevante**, com mensagem clara em português, e `push` junto.
 - **Nada de ação destrutiva** no sistema sem confirmar com o dono. Passo
   irreversível pede a técnica do ensaio (rodar o fluxo sem o clique final,

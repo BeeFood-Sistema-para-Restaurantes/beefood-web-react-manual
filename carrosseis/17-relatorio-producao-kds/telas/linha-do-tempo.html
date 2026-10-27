@@ -1,0 +1,165 @@
+<!-- A janela de um item, com a Linha do tempo e as Etapas. Imagem do slide 2.
+
+     O slide afirma que a espera na fila e o preparo vêm separados. A prova
+     disso não é o cabeçalho do relatório, que já traz as duas médias: é UM
+     item, com os três horários que o KDS carimbou e as duas parcelas que saem
+     deles. Média se discute; relógio, não.
+
+     A ESTRUTURA é a da janela de verdade, na ordem dela: seta de voltar, nome
+     do item e categoria, Excel e Imprimir, o X; depois "Linha do tempo" com os
+     quatro marcos (Lançado, Preparo, Pronto, Entregue) e "Etapas" com os três
+     quadros (ESPERA, PREPARO, TOTAL), em mm:ss como a tela escreve.
+
+     FICARAM DE FORA "Opções", "Canal" e "Capturado em", que a janela de
+     verdade traz embaixo. Não é fidelidade a menos: é que o slide tem 614 px
+     de altura para imagem, e o que não serve à afirmação só diminui o que
+     serve. O slide 6 mostra a outra janela inteira.
+
+     Os NÚMEROS são do mesmo jogo da peça, e os relógios batem:
+
+       20:14:06 até 20:26:41  = 12:35 de espera
+       20:26:41 até 20:37:52  = 11:11 de preparo
+       12:35 + 11:11          = 23:46, que é o TOTAL do quadro
+       20:14:06 até 20:37:52  = 23:46, pelo relógio
+
+     O item é o Burger Duplo Cheddar, que no ranking do slide 3 tem 21,5 min de
+     média. Este pedido levou 23:46 — acima da média dele, que é por isso que
+     ele aparece em "Os mais lentos" no slide 6, com estes mesmos horários.
+
+     AS ETAPAS SAEM SEM COR, como na tela. Pintar ESPERA de azul e PREPARO de
+     vermelho faria o slide mais bonito e o produto, outro. Pela mesma razão as
+     bolinhas da linha do tempo voltaram a ser anéis cinzas: a primeira versão
+     pintou de verde os três marcos com horário, e isso era um estado de
+     interface que eu nunca vi. O HTML da janela de verdade, lido no navegador,
+     emite `border border-muted-foreground bg-card` nos quatro marcos, e o que
+     distingue um marco sem horário é `opacity-40` no item — não a cor. Bolinha
+     verde é bonita e é produto inventado.
+
+     A DATA FICA, E SEM O ANO. A regra da casa é que arte não leva data, porque
+     arte com data nasce velha e a peça pode esperar na fila. Mas aqui a data é
+     o DADO MEDIDO, não o carimbo da publicação: sem o relógio não há prova de
+     que o tempo foi cronometrado, que é a afirmação inteira do slide. O ano
+     saiu porque ele é a parte que envelhece à vista e não acrescenta nada —
+     e eu nunca vi o formato de verdade, porque na loja que serviu de planta
+     os quatro marcos vinham "não registrado".
+
+     A MEDIDA sai da altura disponível no slide, não do gosto: o miolo tem por
+     volta de 600 px para imagem, e a faixa entra com 904 px de largura, então
+     o fragmento não pode passar de 0,66 de altura sobre largura. 560x376 dá
+     1,61x de escala, que é a faixa em que a #16 deixou a letra de interface
+     legível no feed. O branco à direita da linha do tempo é da janela de
+     verdade, não falta de conteúdo — lá ela também ocupa só a coluna da
+     esquerda. -->
+<div class="tela" data-medida="560x376" style="background: #fff">
+
+  <!-- ------------------------------------------------------- cabeçalho -->
+  <div style="flex: none; display: flex; align-items: center; gap: 13px;
+              padding: 12px 18px; border-bottom: 1px solid var(--pn-borda)">
+    <span style="width: 30px; height: 30px; border-radius: 999px;
+                 background: var(--pn-cinza-chip); display: flex;
+                 align-items: center; justify-content: center;
+                 font-size: 14px; color: var(--pn-suave)">&#8592;</span>
+    <div style="flex: 1; min-width: 0">
+      <div style="font-size: 17px; font-weight: 900">Burger Duplo Cheddar</div>
+      <div style="margin-top: 2px; font-size: 11px; font-weight: 800;
+                  letter-spacing: 0.6px; color: var(--pn-fraco)">HAMBÚRGUERES</div>
+    </div>
+    <span style="background: var(--pn-verde); color: #fff; border-radius: 8px;
+                 padding: 7px 12px; font-size: 12px; font-weight: 800">&#8681; Excel</span>
+    <span style="border: 1px solid var(--pn-borda); border-radius: 8px;
+                 padding: 7px 12px; font-size: 12px; font-weight: 800;
+                 color: var(--pn-suave)">&#9113; Imprimir</span>
+    <span style="font-size: 15px; color: var(--pn-fraco)">&#10005;</span>
+  </div>
+
+  <div style="flex: 1; padding: 12px 18px 14px; display: flex;
+              flex-direction: column; gap: 12px; min-height: 0">
+
+    <!-- ----------------------------------------------- linha do tempo -->
+    <div>
+      <div style="font-size: 15px; font-weight: 900">Linha do tempo</div>
+
+      <!-- O desenho é o do HTML da janela de verdade, lido no navegador: um
+           `<ol>` com `border-l` correndo inteiro à esquerda, e cada marco com
+           uma bolinha de 10 px em `-left-[5px]`, que por isso fica montada em
+           cima do fio. A bolinha é anel: borda fina cinza e miolo branco, igual
+           nos quatro marcos — não existe bolinha preenchida nem colorida. O que
+           muda num marco sem horário é `opacity-40` no item inteiro, e aqui os
+           quatro têm horário, então os quatro saem opacos. -->
+      <div style="position: relative; margin-top: 10px; padding-left: 7px;
+                  display: flex; flex-direction: column">
+        <span style="position: absolute; left: 0; top: 0; bottom: 0; width: 1px;
+                     background: var(--pn-borda)"></span>
+
+        <div style="position: relative; padding: 0 0 9px 17px">
+          <span style="position: absolute; left: -7px; top: 3px; width: 11px; height: 11px;
+                       border-radius: 999px; border: 1px solid var(--pn-suave);
+                       background: #fff"></span>
+          <div style="font-size: 13px; font-weight: 800; line-height: 1.1">Lançado</div>
+          <div style="margin-top: 2px; font-size: 13px; font-weight: 700;
+                      color: var(--pn-suave); font-variant-numeric: tabular-nums">
+            18/10 20:14:06</div>
+        </div>
+
+        <div style="position: relative; padding: 0 0 9px 17px">
+          <span style="position: absolute; left: -7px; top: 3px; width: 11px; height: 11px;
+                       border-radius: 999px; border: 1px solid var(--pn-suave);
+                       background: #fff"></span>
+          <div style="font-size: 13px; font-weight: 800; line-height: 1.1">Preparo</div>
+          <div style="margin-top: 2px; font-size: 13px; font-weight: 700;
+                      color: var(--pn-suave); font-variant-numeric: tabular-nums">
+            18/10 20:26:41</div>
+        </div>
+
+        <div style="position: relative; padding: 0 0 9px 17px">
+          <span style="position: absolute; left: -7px; top: 3px; width: 11px; height: 11px;
+                       border-radius: 999px; border: 1px solid var(--pn-suave);
+                       background: #fff"></span>
+          <div style="font-size: 13px; font-weight: 800; line-height: 1.1">Pronto</div>
+          <div style="margin-top: 2px; font-size: 13px; font-weight: 700;
+                      color: var(--pn-suave); font-variant-numeric: tabular-nums">
+            18/10 20:37:52</div>
+        </div>
+
+        <div style="position: relative; padding: 0 0 0 17px">
+          <span style="position: absolute; left: -7px; top: 3px; width: 11px; height: 11px;
+                       border-radius: 999px; border: 1px solid var(--pn-suave);
+                       background: #fff"></span>
+          <div style="font-size: 13px; font-weight: 800; line-height: 1.1">Entregue</div>
+          <div style="margin-top: 2px; font-size: 13px; font-weight: 700;
+                      color: var(--pn-suave); font-variant-numeric: tabular-nums">
+            18/10 20:41:30</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ------------------------------------------------------- etapas -->
+    <div>
+      <div style="font-size: 15px; font-weight: 900">Etapas</div>
+      <div style="margin-top: 9px; display: grid;
+                  grid-template-columns: repeat(3, 1fr); gap: 11px">
+        <div style="border: 1px solid var(--pn-borda); border-radius: 12px;
+                    padding: 11px 14px">
+          <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.7px;
+                      color: var(--pn-fraco)">ESPERA</div>
+          <div style="margin-top: 3px; font-size: 24px; font-weight: 900;
+                      font-variant-numeric: tabular-nums">12:35</div>
+        </div>
+        <div style="border: 1px solid var(--pn-borda); border-radius: 12px;
+                    padding: 11px 14px">
+          <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.7px;
+                      color: var(--pn-fraco)">PREPARO</div>
+          <div style="margin-top: 3px; font-size: 24px; font-weight: 900;
+                      font-variant-numeric: tabular-nums">11:11</div>
+        </div>
+        <div style="border: 1px solid var(--pn-borda); border-radius: 12px;
+                    padding: 11px 14px">
+          <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.7px;
+                      color: var(--pn-fraco)">TOTAL</div>
+          <div style="margin-top: 3px; font-size: 24px; font-weight: 900;
+                      font-variant-numeric: tabular-nums">23:46</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

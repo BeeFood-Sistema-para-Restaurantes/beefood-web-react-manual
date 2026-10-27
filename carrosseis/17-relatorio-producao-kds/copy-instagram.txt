@@ -1,0 +1,309 @@
+CARROSSEL — CHEGOU O RELATÓRIO DE PRODUÇÃO DO KDS
+Gênero: novidade
+Fonte: beefood.app/novidades/relatorio-producao-kds — 27/10/2026, área KDS.
+Mais as sete abas do relatório no ar, percorridas uma a uma, que é de onde
+saíram a estrutura, os rótulos e os avisos citados aqui embaixo.
+Manual: não existe na pasta manuais/. O passo a passo deste relatório é ele
+mesmo.
+
+Publicar como carrossel de feed, 7 imagens em 1080x1350 (4:5), na ordem dos
+nomes de arquivo: 01-capa, 02-duas-metades, 03-itens, 04-mapa-de-calor,
+05-agendado, 06-janela, 07-cta.
+
+TODAS AS TELAS DESTA PEÇA SÃO DESENHO, E ISSO PRECISA SER DITO DE CARA. Nenhum
+pixel de print entrou na arte. Se alguém comentar "isso é mockup?", a resposta
+honesta é sim, e as três razões são estas:
+
+  1. O relatório que tem volume é de um cliente de verdade, e o cardápio dele
+     está DENTRO do relatório — é a lista de pratos que identifica a marca, e
+     recorte nenhum tira. Este repositório é público e o post vai para o
+     Instagram.
+  2. A loja de demonstração, que é a única cozinha cujo dado é nosso, devolve
+     "0 itens produzidos" e "Cobertura —". Relatório sem volume não tem o que
+     fotografar.
+  3. Nem a loja de produção exercita o relatório inteiro: ela marca pronto sem
+     marcar iniciado, então as colunas Espera e Preparo saem com traço na tela
+     toda; nenhum produto dela tem estação de produção vinculada; e o
+     retrabalho do período é zero. Uma peça feita daquelas capturas venderia um
+     relatório que responde "não medido".
+
+E tem a trava que fecha: um jogo de números por carrossel. Misturar um slide
+desenhado com um capturado publicaria duas leituras da mesma cozinha.
+
+O QUE É DESENHO NÃO INVENTA NADA. Cada rótulo da arte é o da tela, palavra por
+palavra: Tempo total médio, Espera média, Preparo médio, Itens produzidos,
+Retrabalho, Cobertura, Onde o tempo é investido, Curva do dia, Mapa de calor
+dia da semana × hora, vs loja, Agendado × imediato, Pontualidade do agendado,
+Linha do tempo, Etapas, Os mais lentos. Os textos de ajuda também são os dela.
+
+DUAS COISAS FORAM ADAPTADAS NA ARTE, e as duas estão anotadas no arquivo do
+desenho:
+  - o mapa de calor sai recortado nas horas de serviço, das 16h às 23h. A tela
+    pinta as 24, e as oito colunas de madrugada ficariam cinzas no slide,
+    roubando largura da célula — que é onde mora o número;
+  - o dia da semana sai por nome (Seg, Ter, Qua). A tela escreve 2, 3, 4, 5, 6,
+    7 e 1 no eixo do mapa; duas seções abaixo, na tabela "Por dia da semana", o
+    mesmo relatório escreve Segunda, Terça, Quarta. Em arte, uma coluna de
+    números de 2 a 7 lê como defeito.
+
+A CONDIÇÃO DA DIVISÃO É O PONTO MAIS IMPORTANTE DESTA PEÇA, e quem for
+responder comentário precisa saber. O tempo total sai de todo item que passa
+pelo KDS. A divisão entre espera e preparo só sai dos itens que a cozinha
+marcou como INICIADOS — se a equipe só toca em "pronto", o relatório mostra o
+total e põe traço nas duas colunas. Ele avisa isso sozinho, no alto da tela,
+com a contagem exata ("X dos Y itens medidos foram marcados como prontos sem
+terem sido marcados como iniciados"). O slide 2 diz a condição com as palavras
+da própria tela, de propósito: prometer a divisão sem ela faria o lojista abrir
+o relatório e encontrar traço.
+
+Na prática, é uma boa notícia disfarçada: tocar em "iniciar" no monitor é o
+único gesto que dobra o relatório.
+
+OS NÚMEROS DA ARTE SÃO DE EXEMPLO, e são um jogo só na peça inteira — uma
+hamburgueria de trinta dias. Pode ser dito sem medo: são exemplo, e cada loja
+vê os seus. As somas fecham, e quem quiser conferir encontra a conta no
+comentário de cada arquivo de tela:
+
+  espera 9,8 min + preparo 4,4 min            = 14,2 min de tempo total
+  9,8 / 14,2 = 69%   e   4,4 / 14,2 = 31%     → a barra "onde o tempo é investido"
+  2.490 itens produzidos / 30 dias            = 83 por dia
+  2.490 medidos de 2.700 itens                = 92% de cobertura, 210 sem marco
+  38 itens de retrabalho / 2.490              = 1,5% do produzido
+  38 x 4,4 min                                = 167 min perdidos
+  1.620 imediatos + 870 agendados             = 2.490
+  (1.620x12,4 + 870x17,6) / 2.490             = 14,2 min, o total do cabeçalho
+  (1.620x 7,9 + 870x13,3) / 2.490             =  9,8 min, a espera do cabeçalho
+  870 / 2.490                                 = 34,9% de agendados
+  701 + 44 + 67                               = 812 agendados já prontos
+  701/812 = 86,3%  44/812 = 5,4%  67/812 = 8,3%  → soma 100%
+  cada linha do ranking: espera + preparo     = total, e total - 14,2 = "vs loja"
+  as 13 barras da Curva do dia somam                   2.490
+  20:14:06 → 20:26:41 → 20:37:52              = 12:35 + 11:11 = 23:46
+
+O MESMO PRATO ATRAVESSA TRÊS SLIDES, e isso é de propósito. O Burger Duplo
+Cheddar aparece no ranking do slide 3 com 386 itens e 21,5 min de média; no
+slide 6 a janela dele abre com os mesmos 386 e 21,5; e o pedido do slide 2,
+com 12:35 de espera e 11:11 de preparo, é a terceira linha de "Os mais lentos"
+do slide 6. Quem voltar duas páginas encontra a mesma cozinha.
+
+OS PRATOS DO EXEMPLO SÃO GENÉRICOS DE HAMBURGUERIA — Burger Duplo Cheddar,
+Costela 12h desfiada, Onion Rings, Batata com Cheddar, Combo da Família, Burger
+Clássico. Nenhum deles é do cardápio da loja que serviu de planta.
+
+A CAPA E O CTA MOSTRAM A MESMA ARTE, no mesmo lugar e no mesmo tamanho. A regra
+da série é que o CTA não repete a capa; a exceção vale aqui pelo mesmo motivo
+da peça de Gestão de Entregas: a arte da capa É a tela que o CTA manda abrir.
+
+O QUE FICOU DE FORA DA ARTE, E POR QUÊ:
+
+  - A ABA RETRABALHO. A ideia é boa e vendável — prato que volta para a cozinha
+    custa duas vezes —, mas ela perdeu para os Detalhes em janela, porque a
+    peça inteira se apoia em confiar no número e é a janela que torna o número
+    conferível. O retrabalho continua na peça: é um dos seis cartões do Resumo,
+    que está na capa e no CTA, e a legenda o nomeia.
+  - A ABA SETOR. Ela separa o setor do CARDÁPIO (como o menu está organizado,
+    vem do cadastro, sempre preenchido) da ESTAÇÃO do KDS (quem faz, a estação
+    física), e explica que os dois não fecham entre si de propósito: um setor
+    do cardápio pode ser produzido em dois lugares, e uma estação costuma
+    atender vários setores. É uma distinção excelente e é distinção de quem já
+    abriu o relatório, não de quem está decidindo se abre.
+  - A TABELA "POR CANAL", que abre a aba Canal e nomeia iFood, 99Food, Keeta e
+    o cardápio próprio. Logotipo de marketplace numa arte nossa puxa o olho
+    para o lugar errado, e o que o slide 5 promete é o regime, não o
+    marketplace.
+  - A ABA DADOS virou meia linha no CTA. Lista completa com paginação e Excel é
+    entrega, não argumento.
+  - OITO SLIDES. Quem rola o feed para no quinto, e um oitavo empurraria a
+    janela de detalhe para a sétima posição.
+
+ATENÇÃO A UMA DIVERGÊNCIA ENTRE O RELEASE E A TELA. O release diz que a
+separação entre agendado e imediato está na aba SETOR. Na tela no ar ela está
+na aba CANAL — a aba Setor traz setor do cardápio e estação do KDS. A arte
+segue a tela, que é o que o lojista vai encontrar. Se alguém apontar a
+diferença, é isso.
+
+OUTRAS COISAS QUE A TELA FAZ E QUE PODEM SER DITAS SE PERGUNTAREM:
+
+  - COBERTURA é quantos itens do período foram marcados no KDS. O relatório
+    mostra a cobertura ao lado de cada média, para o lojista saber quantos
+    pratos entraram na conta.
+  - FORA DA FAIXA é item com etapa acima de 240 min ou com tempo negativo —
+    normalmente relógio de origem adiantado. Ele é contado e não entra em média
+    nenhuma.
+  - CÉLULA COM MENOS DE 5 ITENS MEDIDOS sai em cinza no mapa de calor. Não é
+    zero, é pouco dado. A arte tem uma dessas, de propósito.
+  - A GRANULARIDADE DA EVOLUÇÃO DIÁRIA é automática: dia até 62 dias, semana
+    até 365, mês acima disso.
+  - A PONTUALIDADE DO AGENDADO VEM VAZIA em loja que vende só pelo cardápio
+    próprio: a hora prometida é gravada pelos integradores, e o canal próprio
+    não grava. Vale avisar se alguém reclamar que o bloco está em branco.
+  - A VISÃO POR ESTAÇÃO depende do vínculo entre produto e setor de produção no
+    cadastro do KDS. Sem o vínculo ela vem vazia, e a tela diz isso. A visão por
+    setor do cardápio funciona sem.
+  - O RELATÓRIO COMPARA com o período anterior, e exporta em Excel.
+
+NENHUM DADO DE CLIENTE ENTROU EM IMAGEM NENHUMA, e desta vez nem havia o que
+borrar: a arte é desenho, e o que ela mostra é nome de prato inventado,
+quantidade e minuto.
+
+A CONTA USADA PARA VER AS TELAS NÃO ESTÁ NESTE REPOSITÓRIO. Ela é de produção,
+e não de demonstração: viveu em variável de ambiente, o estado de sessão ficou
+fora da árvore do git, e nenhum print dela foi versionado. Nada foi alterado em
+lugar nenhum — as telas foram só lidas.
+
+A ARTE NÃO LEVA DATA DE CARIMBO, então ela pode esperar na fila. O seletor de
+período diz "Últimos 30 dias", e o cabeçalho da janela do slide 6 diz a mesma
+coisa — nenhum dos dois imprime o dia em que a peça foi feita.
+
+O QUE TEM DATA É O DADO. A linha do tempo do slide 2 e a coluna Lançado do
+slide 6 trazem dia e mês, porque ali a data É a medição: sem o relógio o slide
+2 não tem o que provar. O ano ficou de fora de propósito, que é a parte que
+envelheceria à vista.
+
+O relatório está no ar desde 27/10/2026; se a publicação for muito depois
+disso, vale conferir se as sete abas continuam como estão aqui antes de postar.
+
+
+========================================================================
+LEGENDA — cole no campo de legenda
+========================================================================
+
+Chegou o relatório de Produção do KDS 👨‍🍳
+
+Você já sabe quanto vendeu e quanto gastou no mês. Agora dá para saber quanto
+demorou.
+
+O Produção (KDS) lê os horários que a sua cozinha já carimba no monitor e conta
+o tempo de cada prato, do lançamento até ficar pronto. E conta em duas partes:
+quanto o prato ficou parado na fila esperando alguém pegar, e quanto levou para
+ser feito. São dois problemas diferentes, e o conserto de cada um é outro.
+
+São sete abas cortando esse mesmo tempo:
+
+📊 Resumo — a visão geral, com a cobertura ao lado de cada média, para você ver
+de quantos itens aquela média saiu.
+⏱️ Tempo — mapa de calor dia da semana × hora, quebra por dia da semana e a
+evolução ao longo dos dias.
+🔥 Setor — separa o setor do cardápio, que é como o menu está organizado, da
+estação que efetivamente produz.
+🍔 Itens — os pratos do mais lento ao mais rápido, com quanto cada um passa da
+média da sua loja.
+📲 Canal — compara os canais e separa o pedido agendado do imediato, porque
+agendado não é atraso.
+🔁 Retrabalho — os pratos que voltaram para a cozinha. O que volta custa duas
+vezes.
+📄 Dados — a lista completa, com paginação e exportação em Excel.
+
+E em qualquer lugar: clique no cartão, na linha ou na barra e abre uma janela
+com o detalhe — a linha do tempo daquele pedido, as etapas em minutos e
+segundos, os mais lentos do período. A janela leva junto os filtros do topo,
+então ela mostra o mesmo recorte de onde você saiu.
+
+Uma observação que vale ouro: o tempo total sai de todo item que passa pelo
+KDS. Já a divisão entre espera e preparo sai dos itens que a cozinha marcou
+como iniciados. Se a sua equipe só toca em "pronto", o relatório mostra o total
+e avisa, com a contagem, quantos ficaram sem a divisão. Tocar em "iniciar" é o
+gesto que dobra o seu relatório.
+
+Os números das imagens são de exemplo. Cada loja vê os seus.
+
+Produção (KDS) fica em Desempenho → Produção (KDS) 👨‍🍳
+Tudo que entra de novo está em beefood.app/novidades
+
+#beefood #kds #cozinha #tempodepreparo #gestaoderestaurante #restaurante
+#delivery #hamburgueria #relatorios #tecnologiaparadelivery
+
+
+========================================================================
+PRIMEIRO COMENTÁRIO — opcional, para puxar resposta
+========================================================================
+
+Qual prato da sua cozinha você apostaria que é o mais demorado? 👇
+
+
+========================================================================
+TEXTO ALTERNATIVO — um por imagem, no campo de acessibilidade
+========================================================================
+
+01  Fundo escuro. No alto, a pílula "Novidade" e o título "Chegou o relatório
+    de Produção do KDS", com "Produção" em vermelho, seguido da linha "Você vê
+    quanto tempo cada prato levou entre cair no KDS e ficar pronto".
+    No pé, sangrando pela borda de baixo, um notebook com o relatório Produção
+    (KDS) aberto, com dados de exemplo: as sete abas no alto — Resumo, Tempo,
+    Setor, Itens, Canal, Retrabalho e Dados —, seis cartões de indicador com
+    tempo total médio de 14,2 minutos, espera média de 9,8, preparo médio de
+    4,4, itens produzidos 2.490, retrabalho de 38 itens e cobertura de 92%;
+    abaixo, a barra "Onde o tempo é investido" dividida em 69% esperando e 31%
+    em preparo; e, no rodapé do relatório, a "Curva do dia", com as barras
+    azuis de itens produzidos e a linha vermelha de tempo médio subindo juntas
+    no jantar.
+
+02  Chapéu "Sete abas, um tempo só" e título "A espera na fila e o preparo vêm
+    separados", com "vêm separados" em vermelho. O texto diz que cada item
+    carrega três horários do KDS — lançado, preparo e pronto —, que o tempo
+    total vale para todos e que a divisão entre espera e preparo vale para os
+    que a cozinha marcou ao começar.
+    Abaixo, a janela de detalhe de um item, com dados de exemplo: o nome
+    "Burger Duplo Cheddar" com a categoria HAMBÚRGUERES, os botões Excel e
+    Imprimir, a seção "Linha do tempo" com os quatro marcos — Lançado às
+    20:14:06, Preparo às 20:26:41, Pronto às 20:37:52 e Entregue às 20:41:30 —
+    e a seção "Etapas", com três quadros: espera 12:35, preparo 11:11 e total
+    23:46.
+
+03  Chapéu "O prato que segura a fila" e título "Itens: quanto cada prato passa
+    da média da sua loja", com "Itens" em vermelho. O texto diz que os pratos
+    saem do mais demorado ao mais rápido e que o que segura a fila sai dali com
+    nome e com o tamanho da diferença.
+    Abaixo, a aba Itens do relatório, com dados de exemplo: o seletor Produto /
+    Combo / Opção, o título "Por produto" e uma tabela com as colunas itens,
+    espera, preparo, total e vs loja. Seis linhas, da mais lenta para a mais
+    rápida: Costela 12h desfiada, 26,8 minutos e 12,6 acima da média; Combo da
+    Família, 24,1 e 9,9 acima; Burger Duplo Cheddar, 21,5 e 7,3 acima; Onion
+    Rings, 18,0 e 3,8 acima; Batata com Cheddar, 16,4 e 2,2 acima; Burger
+    Clássico, 14,8 e 0,6 acima. A nota de rodapé explica que vs loja é a
+    diferença para o tempo total médio da loja no período, 14,2 minutos.
+
+04  Chapéu "Quando a fila cresce" e título "Tempo: o dia e a hora em que a
+    cozinha aperta", com "Tempo" em vermelho. O texto diz que no mapa de calor
+    o dia da semana cruza com a hora, que cada cruzamento traz o tempo médio
+    dali, e que é com o dia e a hora que se monta a escala da semana seguinte.
+    Abaixo, o mapa de calor dia da semana × hora, com dados de exemplo: sete
+    linhas, de segunda a domingo, e oito colunas, das 16h às 23h. Cada célula
+    traz o tempo médio em minutos e é pintada de vermelho mais forte quanto
+    maior o tempo. O sábado às 20h é a célula mais escura da grade, com 24,3
+    minutos; a terça às 16h sai em cinza, com um travessão, por ter pouco dado.
+
+05  Chapéu "Agendado não é atraso" e título "Canal: o agendado não pesa na
+    média de quem pediu agora", com "Canal" em vermelho. O texto diz que o
+    agendado fica parado de propósito até perto da hora marcada, que essa
+    espera não entra na média do pedido imediato, e que ao lado dá para ver
+    quantos agendados ficaram prontos antes da hora combinada.
+    Abaixo, dois blocos da aba Canal, com dados de exemplo. O primeiro,
+    "Agendado × imediato", é uma tabela de duas linhas: o imediato, com 1.620
+    itens, 7,9 minutos de espera, 4,5 de preparo e 12,4 de total; e o agendado,
+    com 870 itens, 13,3 de espera, 4,3 de preparo e 17,6 de total. O segundo,
+    "Pontualidade do agendado", traz três cartões: 701 prontos antes da hora,
+    44 até dez minutos depois e 67 com mais de dez minutos.
+
+06  Chapéu "Atrás do número" e título "Detalhes em janela: cada pedido que
+    entrou na conta", com "Detalhes em janela" em vermelho. O texto diz para
+    clicar no cartão, na linha ou na barra e ver os pedidos que formaram aquele
+    número, um a um, com a espera e o preparo de cada um, e que a janela leva
+    junto os filtros do topo.
+    Abaixo, a janela que abre ao clicar, com dados de exemplo: no cabeçalho o
+    nome "Burger Duplo Cheddar", a linha "Últimos 30 dias · 386 itens" e os
+    botões Excel e Imprimir; a seção "Medidas", com tempo total médio de 21,5
+    minutos, espera média de 10,2 e preparo médio de 11,3; e a seção "Os mais
+    lentos", uma tabela de cinco pedidos com a data, o canal — iFood, Totem e
+    Cardápio Digital — e a espera, o preparo e o total de cada um em minutos e
+    segundos, do mais lento, 43:58, ao menos lento, 22:04.
+
+07  Fundo escuro com o chapéu "Já está no ar" e o título "Abra a Produção do
+    KDS hoje", com "Produção do KDS" em vermelho. O texto diz para começar pelo
+    Resumo e escolher o período no topo, que a lista inteira sai em Excel, e
+    que tudo que entra de novo está em beefood.app/novidades. Abaixo, a pílula
+    de caminho "Desempenho → Produção (KDS)".
+    No pé, sangrando pela borda de baixo, o mesmo notebook da capa, com o
+    relatório Produção (KDS) aberto: as sete abas, os seis cartões de
+    indicador, a barra que divide o tempo entre espera e preparo e a curva do
+    dia com as barras de itens produzidos e a linha de tempo médio.

@@ -5,7 +5,49 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-10-27 (43ª rodada: a #16 **foi devolvida inteira**, com
+Última atualização: 2026-10-27 (45ª rodada: **a revisão da copy por três
+subagentes virou regra**, a pedido do dono — *"a relação de subagentes revisores
+de texto melhorou nossa qualidade, precisamos tomar como verdade"*. Esta memória
+tem treze vícios de texto, e os treze foram achados **depois**, com a peça pronta
+e devolvida; a #17 foi a primeira em que a copy passou por revisor antes de
+existir slide, e os três acharam coisas diferentes: texto correto e morto, treze
+violações de regra com o nome delas, e erro de português mais repetição entre
+slides vizinhos. Os prompts estão transcritos palavra por palavra em
+[`revisores-de-copy.md`](revisores-de-copy.md), e o que fixa a prática são cinco
+invariantes — **não edite nenhum arquivo**, **escreva a frase substituta
+inteira**, **cerque o que não está em discussão**, **dê o leitor e não o
+produto**, **termine com perguntas fechadas** — mais a ordem: o primeiro e o
+segundo leem o rascunho juntos, o terceiro lê a versão já corrigida. Eles não
+pegam palavra igual à da fonte, que é do `conferir-texto.py`, nem fato errado, que
+é de quem leu a tela. Ver *treze vícios depois: a copy não se revisa sozinha*.)
+
+2026-10-27 (44ª rodada: o **Relatório de Produção (KDS)**, a
+primeira peça do acervo **sem um pixel de captura** — e a razão nova é de
+privacidade, não de volume: a loja que tem volume é de cliente de verdade, e um
+relatório de produção tem o cardápio dela escrito na única coluna de texto que
+ele possui. O aprendizado mais caro é o **décimo terceiro vício**: a copy
+prometeu *"todo item que passa pelo KDS marca três horários"* e quem a desmentia
+era a própria tela que a peça estava desenhando, que abre avisando que 4.637 dos
+4.670 itens foram marcados como prontos sem terem sido marcados como iniciados.
+Eu li os rótulos da tela e não li o parágrafo que ela escreve acima deles, que é
+onde o produto conta a condição dele — **tela que abre com aviso está dizendo
+qual é a letra miúda do recurso, e a copy repete a condição em vez de contorná-la**.
+Dois registros de arte: *nada de data na arte* ganhou o critério que faltava —
+não é "se é print", é **o que a data está fazendo ali**, e data que É a medição
+fica, sem o ano —; e tela desenhada ganhou **teto de altura**, 0,66 sobre a
+largura, porque três telas desta peça encostaram no corpo do texto. E a
+conferência das treze somas achou dois rótulos **escritos antes do cálculo** — um
+pico 1% fora e uma média de grade que confundia média simples com média pesada
+por volume: **número desenhado que resume outros números se calcula, nunca se
+estima**. E o estado de interface que a loja não tem — aqui, um marco de KDS
+**com** horário — se lê no `outerHTML` do bloco, que entregou de graça o que a
+primeira versão tinha chutado: a bolinha do marco é anel cinza nos quatro, e o
+que muda num marco vazio é a opacidade, não a cor. Ver *a exceção não é "print de verdade"*, *e a largura tem um companheiro: a altura*,
+*rótulo de tela desenhada se copia inclusive quando está errado*, *estado que a
+loja não tem se lê no HTML da tela*, *a #17 levou isso ao limite* e *dado de
+exemplo fecha por aritmética escrita*.)
+
+2026-10-27 (43ª rodada: a #16 **foi devolvida inteira**, com
 a pergunta mais útil que esta memória já recebeu — *"por que erramos tanto se
 tínhamos o carrossel antigo disponível?"*. A peça saiu técnica (corpo de JSON num
 slide, tabela de `operation:` no outro) tendo a #13 pronta no repositório, e a
@@ -368,6 +410,7 @@ a posição na fila.
 | 14 | API Aberta | [13/10/2026](https://beefood.app/novidades/api-aberta-liberada) — **sem manual na pasta**; o passo a passo é o portal [`docs.beefood.app`](https://docs.beefood.app). Cinco das sete imagens são **desenho**, o maior número do acervo | `carrosseis/14-api-aberta/` | 4:5, 7 slides | `entrega/14-api-aberta.zip` (7 PNG + copy) |
 | 15 | Botão de WhatsApp no cardápio digital | [19/10/2026](https://beefood.app/novidades/cardapio-digital-botao-whatsapp) — manual em `manuais/cardapio-digital-botao-whatsapp/`; release, aba do painel e nome de venda **iguais**. Cinco das seis imagens são **captura**, do cardápio de produção | `carrosseis/15-botao-whatsapp/` | 4:5, 6 slides | `entrega/15-botao-whatsapp.zip` (6 PNG + copy) |
 | 16 | Estoque pela IA e pela API | [26/10/2026](https://beefood.app/novidades/api-estoque-mcp) — **sem manual na pasta**; o passo a passo são as duas folhas de *Aplicativos* e o portal [`docs.beefood.app`](https://docs.beefood.app). Release *Estoque na API Aberta e no MCP*, nome de venda **Estoque** (a versão devolvida vendia *API de Estoque*). Terceira da família #13/#14, e a única que vende o que está **atrás** das duas portas. **Devolvida e refeita**: as seis formas são as da #13 | `carrosseis/16-api-estoque/` | 4:5, 6 slides (refeitos na 2ª rodada) | `entrega/16-api-estoque.zip` (6 PNG + copy) |
+| 17 | Relatório de Produção (KDS) | [27/10/2026](https://beefood.app/novidades/relatorio-producao-kds) — **sem manual na pasta**; a planta são as telas de produção. Release *Relatório de Produção (KDS)* e menu *Produção (KDS)*, nome de venda **igual**. **As seis imagens são desenho**, o único caso de peça 100% desenhada no acervo — o relatório com volume é de cliente real, a sandbox devolve zero, e nem a loja de produção exercita a divisão espera/preparo | `carrosseis/17-relatorio-producao-kds/` | 4:5, 7 slides | `entrega/17-relatorio-producao-kds.zip` (7 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -1104,6 +1147,33 @@ A regra geral que a primeira versão confirmou, e que continua valendo: **em pe�
 de integração, a segunda metade da capa nunca é o canal.** Canal é o assunto do
 slide 2, que é onde ele vira prova.
 
+#### A #17 é o caso que a condição do anúncio de chegada estava esperando
+
+A #16 descartou o molde escrevendo a condição dele: *"só se paga quando um módulo
+inteiro chega"*. A #17 é literalmente isso — sete abas novas debaixo de
+*Desempenho*, onde antes não havia aba nenhuma de cozinha. A capa saiu
+
+> Chegou o relatório de **Produção** do KDS
+> Você vê quanto tempo cada prato levou entre cair no KDS e ficar pronto.
+
+Placar depois dela: afirmação do fato 6, **anúncio de chegada 4**, nome +
+dois-pontos 2, pergunta 2, nome + canal 1, nome + para quem 1, ordem direta 1;
+antes × agora continua em 0.
+
+Duas coisas da redação valem registro, e as duas são sobre **nome**:
+
+- **"KDS" fica, e é ele que situa.** O release se chama *Relatório de Produção
+  (KDS)* e o menu diz *Produção (KDS)*. Sem a sigla, "Produção" podia ser
+  produção de qualquer coisa; com ela, o leitor sabe que é o aparelho que está na
+  cozinha dele. Sigla de produto que o leitor **tem na mão** não é jargão;
+- **o subtítulo é que carrega o verbo**, e com um paralelismo que fecha — *entre
+  cair no KDS e ficar pronto*. O título anuncia o que chegou, o subtítulo diz o
+  que se ganha, e nenhum dos dois cita um número, porque os números desta peça
+  são de exemplo.
+
+E o antes × agora continua em 0 pelo mesmo motivo de sempre: o "antes" aqui é
+*não havia relatório*, que não se desenha.
+
 ### O décimo primeiro vício: a copy legenda a prova, em vez de vendê-la
 
 O mesmo retorno trouxe o segundo defeito, e ele é maior que a capa: *"tem slide
@@ -1270,6 +1340,134 @@ aviso de saiu para entrega" e "todo pedido de entrega em andamento mostra o
 acompanhamento" — e as duas eram justamente as que traziam o fato de volta. É
 previsível: o fato está no manual, e a formulação vem junto com ele. Confira
 antes de renderizar, não depois.
+
+### O décimo terceiro vício: a copy promete o que a própria tela avisa que não dá
+
+O slide 2 da #17 saiu, na primeira montagem, dizendo:
+
+> *"Todo item que passa pelo KDS marca três horários: lançado, preparo e
+> pronto."*
+
+É falso, e quem desmente é a tela que o slide está desenhando. O relatório da
+loja de produção abre com um aviso em texto corrido: **4.637 dos 4.670 itens
+medidos foram marcados como prontos sem terem sido marcados como iniciados**,
+então neles não há como separar fila de preparo. A divisão entre espera e preparo
+— que é o assunto do slide inteiro — valia para 33 itens.
+
+O defeito não é de exagero: é de **leitura**. Eu li os rótulos da tela para
+desenhá-la e não li o parágrafo que ela escreve **acima** dos rótulos, que é
+exatamente onde o produto conta a condição dele.
+
+> Tela que abre com aviso está te dizendo qual é a letra miúda do recurso. A
+> copy repete a condição; ela não a contorna.
+
+A correção ficou perto do que a tela diz, e sem pedir desculpa:
+
+> *"Cada item carrega três horários do KDS: lançado, preparo e pronto. O tempo
+> total vale para todos; a divisão entre espera e preparo, para os que a cozinha
+> marcou ao começar."*
+
+**Por que isso vende mais, e não menos.** O leitor de novidade já é cliente: ele
+vai abrir o relatório na loja dele e encontrar o mesmo aviso. Peça que prometeu
+"todo item" perde a confiança na primeira abertura, e a condição vira
+"prometeram e não funciona". Dita na arte, a mesma frase vira instrução — *marque
+o iniciado no KDS e o relatório te dá a divisão* —, e a legenda pôde levar isso
+como a observação mais útil do post.
+
+Note que isto **não** contradiz *aviso de limite não entra em peça de venda*.
+Aquela regra fala de limite que o leitor não encontraria sozinho, e que só serve
+para azedar a peça. Esta fala de condição que **está escrita na tela que a peça
+está mostrando**: não dizê-la não é poupar o leitor, é deixá-lo descobrir
+sozinho.
+
+#### E a frase que não cabe no corpo sobe para o chapéu
+
+A versão longa do mesmo corpo carregava também *"São sete abas cortando o mesmo
+tempo"*, e com isso o parágrafo encostou na imagem. A frase não foi cortada: ela
+virou o chapéu, `SETE ABAS, UM TEMPO SÓ`. O chapéu é a linha mais barata do
+slide — três palavras, sem pontuação, acima do título — e é onde cabe o fato que
+situa sem precisar de parágrafo. Mesmo movimento do "escrito por você" na peça
+da tradução, que desceu do título para o chapéu em vez de sumir.
+
+### Treze vícios depois: a copy não se revisa sozinha
+
+Esta seção tem treze vícios, e todos foram achados do mesmo jeito — **depois**,
+quando o dono leu a peça pronta e devolveu. Treze vezes. A 44ª rodada mudou isso
+a pedido dele (*"revise o texto com subagentes antes de criar os slides, para
+tornar a linguagem natural e humana"*), e o resultado é regra, não experimento:
+
+> A copy passa por **três subagentes revisores** antes de virar slide, no passo 2,
+> com a arte ainda inexistente.
+
+Os prompts estão prontos, palavra por palavra, em
+[`revisores-de-copy.md`](revisores-de-copy.md). O que esta memória guarda é
+**por que três** e **o que não se mexe neles**.
+
+#### Por que três, e não um bom
+
+Porque os três acharam coisas que os outros dois não acharam, e nenhum dos
+diagnósticos se repetiu:
+
+| | Papel | O que ele achou, na #17 |
+|---|---|---|
+| 1 | **redator publicitário** que não conhece o projeto | que o texto estava *correto e morto* — quatro dos sete títulos eram rótulo com dois-pontos, o que transforma o carrossel em sumário de manual; subtítulo de capa sem verbo principal; interface como sujeito em dois corpos |
+| 2 | **auditor das regras da casa** | treze violações com o nome da regra, e entre elas **três números proibidos** que a copy citava e a arte desmentia; "ao cliente" sem possessivo; defeito inventado no condicional |
+| 3 | **revisor de português e de ritmo**, lendo a versão já corrigida | paralelismo quebrado no subtítulo, verbo transitivo sem objeto, a palavra "média" dominando três títulos, cinco de seis corpos abrindo com "você lê/vê", e que *Resumo* aparecia no CTA sem antecedente |
+
+O papel 1 é **cego de propósito**: quem conhece as regras lê o texto com a cabeça
+de quem escreveu. Não dê contexto de projeto a ele — dê o leitor e o assunto.
+
+E a ordem é parte da regra: **1 e 2 rodam juntos, sobre o rascunho**; o 3 só
+depois, sobre a versão que já absorveu os dois. Mandar o terceiro ler o rascunho
+queima a passada, porque ele gasta o fôlego repetindo o que os outros dois já
+disseram em vez de chegar no ritmo, que é o que ele faz melhor que ninguém.
+
+#### As cinco invariantes do prompt
+
+Não é o tamanho do prompt que faz isso funcionar:
+
+1. **"Não edite nenhum arquivo."** Revisor que edita vira coautor, e aí não há
+   mais revisão.
+2. **"Escreva a frase substituta inteira, pronta para colar."** Apontamento sem
+   reescrita volta como trabalho para quem pediu. *"Não diga apenas 'melhorar' —
+   reescreva"*, e com a trava junto: *"você pode trocar as palavras, nunca
+   inventar um fato novo sobre o produto"*.
+3. **Cerque o que não está em discussão.** O terceiro prompt escreve que o molde
+   *"Nome, dois-pontos, o que ele te dá"* é obrigatório e que o texto não pode
+   citar número. Sem essa cerca, revisor bom gasta metade da resposta propondo
+   derrubar regra já decidida e a outra metade sugerindo pôr número na copy —
+   que é justamente o que o jogo de números proíbe.
+4. **Dê o leitor, não o produto.** *"O dono de um restaurante que já é cliente e
+   já tem um KDS na cozinha. Ele não é técnico. Ele abre o Instagram no
+   intervalo e passa o dedo."* É essa frase que faz o revisor **ouvir** o texto
+   em vez de conferi-lo.
+5. **Termine com perguntas fechadas.** *Qual é o slide mais fraco? Lendo só os
+   títulos em fila, dá para montar a lista? Tampando as imagens, o leitor sabe o
+   que vai ver na tela?* Revisor sem pergunta final entrega lista de achados e
+   nenhum veredito.
+
+#### O que eles não pegam, e quem pega
+
+Duas coisas, e vale saber antes de confiar demais:
+
+- **palavra igual à da fonte** — é trabalho do `conferir-texto.py`, e ele achou
+  quatro sequências na legenda depois de os três revisores terem passado;
+- **fato errado** — na #17 os três elogiaram *"todo item que passa pelo KDS marca
+  três horários"*, que a própria tela desmente, porque nenhum deles tinha aberto
+  o relatório. Revisor de texto confere o texto; a verdade do fato continua sendo
+  de quem leu a tela.
+
+#### Quem arbitra é você
+
+O revisor 1 e o 2 discordam **de propósito**: um quer a frase que soa melhor, o
+outro quer a frase que a regra permite. Quando baterem de frente, ganha a regra.
+E se a regra perder duas vezes seguidas pelo mesmo motivo, é a regra que está
+errada e vai para esta memória reescrita — foi o que aconteceu com *nada de data
+na arte* na mesma rodada.
+
+Registre as mudanças, e não só o texto final: o `roteiro.md` da peça leva a seção
+*"A copy, depois de três revisões"* com cada mudança numerada e o motivo dela. É
+o que permite, três peças adiante, separar gosto de revisor de regra da casa.
 
 ### O segundo gênero: função do sistema
 
@@ -3003,6 +3201,36 @@ post do mesmo jeito. A correção é de rolagem, não de retoque: o
 inteiro, e etiquetas e data ficam atrás dele. Antes de fechar um CTA com print
 de página nossa, leia o que aparece na primeira linha do print.
 
+### A exceção não é "print de verdade": é data que É o dado
+
+A lista acima abria a exceção só para **print**, e a #17 bateu nela. O relatório
+de Produção do KDS tem as sete telas **desenhadas**, e a do slide 2 é a linha do
+tempo de um item: *Lançado 20:14:06*, *Preparo 20:26:41*, *Pronto 20:37:52*. Sem
+o relógio aquele slide não tem o que provar — a frase dele é que o KDS guarda
+três horários, e é o relógio que mostra os três. Pela letra da regra a data teria
+de sair; pela letra da regra o slide deixaria de existir.
+
+> A pergunta não é **se é print**. É **o que a data está fazendo ali**: data que
+> carimba quando a peça foi feita sai sempre; data que é a medição que o slide
+> promete fica.
+
+O cupom do slide 1 da #01 passava pela exceção antiga por acidente: ele fica não
+porque é print, e sim porque a hora do pedido é o dado do papel. A redação nova
+cobre os dois casos com o mesmo critério, e tela desenhada deixa de precisar de
+uma permissão própria.
+
+**Duas travas, para a exceção não virar porta:**
+
+- **o ano sai.** `18/10 20:14:06`, e não `18/10/2026 20:14:06`. O dia e o mês
+  são o dado; o ano é a única parte que envelhece à vista de quem rola o feed, e
+  nenhuma leitura do slide depende dele. Vale para o cupom também.
+- **o período continua relativo.** O seletor do topo diz *Últimos 30 dias* e o
+  cabeçalho da janela diz *Últimos 30 dias · 386 itens*. Ali a data seria
+  carimbo, não medição — a tela tem a forma relativa pronta, e é ela que entra.
+
+Em desenho isso é escolha, porque quem escreve o rótulo é você. Em print é
+rolagem ou recorte, como na correção do CTA de capas e destaques.
+
 ## Zona segura — o que o Instagram realmente cobre
 
 A primeira versão do `--guias` pintava 120 px no topo e 180 px na base do 4:5.
@@ -3713,6 +3941,78 @@ quebra a proporção da interface e ela deixa de parecer uma tela.
 > Antes de escrever o `data-medida` de uma tela desenhada, abra o slide em que
 > ela vai entrar e veja com quantos pixels a faixa a serve.
 
+#### E a largura tem um companheiro: a altura, que é quem encosta no texto
+
+A #17 desenhou seis telas e refez três por altura, não por largura. O miolo do
+slide serve a imagem com cerca de 600 px de altura antes de a faixa do rodapé
+entrar em 904 px, e tela mais alta que isso sobe até colar no corpo do texto —
+que foi o que aconteceu nos slides 2, 3 e 6 da primeira montagem.
+
+> O `data-medida` de uma tela que vai no miolo fica abaixo de **0,66 de altura
+> sobre largura**. Acima disso, ou a tela perde uma seção, ou o corpo do slide
+> perde uma linha.
+
+O teto resolve sozinho os dois lados da conta: largura de 680 px com 446 de
+altura amplia 1,33× nos 904 da faixa e cabe. A faixa útil de ampliação anda
+entre **1,2× e 1,6×** — abaixo de 1,2 a letra da interface não se lê no feed, e
+acima de 1,6 a tela começa a parecer um desenho ampliado em vez de uma tela.
+
+As três correções foram todas de **conteúdo**, e nenhuma de fonte: a linha do
+tempo apertou o respiro entre os marcos, a tabela de itens ganhou 16 px de
+altura para a nota de rodapé caber, e os corpos dos slides 3 e 6 perderam uma
+linha cada. Quando a tela não cabe, tire coisa da tela ou do texto — mexer no
+tamanho da letra quebra a proporção da interface, como a seção acima já diz.
+
+#### Rótulo de tela desenhada se copia inclusive quando está errado
+
+O texto de ajuda do mapa de calor da #17 diz *"é aqui que decisão de escala se
+apoia"*, sem o artigo. A arte escreve igual. A tentação de consertar é grande e
+é a tentação errada: a imagem existe para o leitor reconhecer a tela que vai
+abrir, e consertar o português ali faz a arte divergir do produto por uma razão
+que ninguém vai conseguir explicar depois.
+
+O que se faz é **anotar no roteiro que o tropeço é da tela**, para a próxima
+pessoa não "corrigir" de volta, e — se valer — abrir o chamado no produto. Se a
+frase mudar lá, a arte acompanha.
+
+Mesmo princípio, com o sinal trocado, da regra que já estava aqui: legenda que a
+tela não tem é interface inventada, e some. A #17 escreveu uma legenda de unidade
+embaixo do mapa de calor (*"tempo total médio em minutos"*) e a apagou — quem
+explica que o número é tempo médio é o corpo do slide, que é onde a explicação
+cabe sem virar produto.
+
+#### Estado que a loja não tem se lê no HTML da tela, não se inventa a cor dele
+
+O caso mais difícil da #17: a linha do tempo do slide 2 mostra quatro marcos
+**com horário**, e na loja que serviu de planta os quatro vinham *não
+registrado*. O estado que a peça precisava desenhar não existia em lugar nenhum
+para ser visto, e a primeira versão pintou os três marcos com horário de **verde
+preenchido** — porque fica bonito e porque "registrado é verde" parece óbvio.
+
+O navegador respondeu de graça. O `<ol>` da janela de verdade emite, nos quatro
+marcos:
+
+```html
+<li class="mb-3 ml-4 last:mb-0 opacity-40">
+  <span class="absolute -left-[5px] mt-1 h-2.5 w-2.5 rounded-full
+               border border-muted-foreground bg-card"></span>
+```
+
+A bolinha é **anel cinza de miolo branco, igual nos quatro**, e o que distingue
+um marco sem horário é o `opacity-40` no item inteiro — não a cor. Verde não
+existe ali. As bolinhas viraram anéis, os quatro saíram opacos porque no exemplo
+os quatro têm horário, e de quebra o fio ficou certo: ele corre inteiro pela
+esquerda e as bolinhas ficam montadas em cima dele, que é o que o `-left-[5px]`
+diz.
+
+> Quando o estado não aparece na loja, **leia o HTML**. `outerHTML` do bloco é
+> um comando, e ele é mais barato do que procurar um pedido que exercite o
+> estado — que na #17 não existia em nenhuma das duas contas.
+
+A conta que isso corrige é de fidelidade, não de estética: anel cinza com horário
+ao lado lê como registrado do mesmo jeito, e lê como a tela que o leitor vai
+abrir.
+
 ### Curva só quando o destino é um ponto
 
 A cena de convergência (`.origem` / `.fio` / `.selo-ok`) nasceu com curva em L,
@@ -3920,6 +4220,64 @@ Desenhar o relatório inteiro resolve, com três amarras:
 
 A medida do desenho sai do mockup: `1440x900` é 16/10, a proporção exata do
 `.notebook__tela`. Fora dela o `object-fit: cover` come uma faixa do relatório.
+
+#### A #17 levou isso ao limite: peça inteira desenhada, e a terceira razão é nova
+
+A #10 desenhou dois relatórios de nove imagens. A #17 desenhou **as seis**, e é a
+primeira peça do acervo sem um pixel de captura. As duas primeiras razões já
+estavam escritas aqui — a sandbox devolve zero e relatório sem volume não se
+fotografa. A terceira é que vale registrar:
+
+> **A loja que tem volume é de cliente de verdade, e um relatório de produção
+> mostra o cardápio dela.** Nome de prato é informação de negócio de um
+> restaurante que não pediu para aparecer. Em repositório público, isso não se
+> resolve com borrão: borra-se telefone numa tela, não um relatório inteiro cuja
+> única coluna de texto é o nome do produto.
+
+E veio uma quarta, medida: **nem a loja de produção exercitava o recurso**. O
+aviso da tela dizia que 4.637 dos 4.670 itens não tinham marco de início, então a
+coluna *Espera* vinha com traço justamente no que a peça ia vender. Captura ali
+provaria o contrário do slide.
+
+A trava que isso cria é a do jogo de números: **se uma imagem é desenho, não se
+mistura captura com desenho na mesma peça.** Dois conjuntos de números lado a
+lado em slides vizinhos é o que faz um lojista desconfiar dos dois. Ou a peça
+inteira é prova, ou a peça inteira é planta — e a legenda avisa qual, uma vez.
+
+#### Dado de exemplo fecha por aritmética escrita, não por plausibilidade
+
+Treze somas de uma peça não se conferem no olho. O `roteiro.md` da #17 tem um
+bloco com **cada conta explícita**, no formato `parcela + parcela = total`, e
+ele foi reconferido duas vezes — uma ao montar, outra depois de redistribuir as
+barras do gráfico da capa, que mudou a média ponderada do cabeçalho.
+
+As que mais escapam são as de **média ponderada**, porque são as que ninguém
+pensa em conferir e são as que o lojista confere: a média de espera por canal
+(1.620 imediatos a 7,9 min e 870 agendados a 13,3) tem de dar os 9,8 min do
+cartão de cima, e a média das treze barras por hora, pesada pelo número de itens
+de cada uma, tem de dar os mesmos 14,2 min do *Tempo total médio*. Se a copy
+nunca cita o número, a arte ainda assim cita — e é a arte que é conferida.
+
+Escreva as contas no roteiro **antes** de escrever o HTML. Reconferir uma conta
+escrita custa um minuto; reconstituir de onde saiu um número no HTML custa a
+tarde.
+
+E a conferência achou dois erros que o olho não acha, os dois do mesmo tipo:
+**rótulo escrito antes do cálculo**. O selo ao lado do título do gráfico dizia
+*pico 18,6 min às 20h*, e a escala da linha devolve 18,4 — 1% fora. O comentário
+do mapa de calor afirmava que a média da grade "anda pelos 14 min", e a média
+simples das 55 células dá 12,9. O segundo não era nem erro de conta: era conta
+**errada**, porque a média da tela é pesada pelo número de itens de cada
+cruzamento, e as linhas altas são as de mais movimento.
+
+> Número desenhado que resume outros números — pico, média, percentual — se
+> **calcula**. Estimar acerta a ordem de grandeza e erra a casa decimal, que é
+> exatamente a casa que o lojista confere.
+
+Em gráfico desenhado em SVG isso tem uma consequência prática: a escala do eixo
+não existe em lugar nenhum do arquivo, ela está implícita nos `points`. Escreva
+no comentário **como se vai de `y` para o valor** — aqui, `(150 - y) / 150` vezes
+21,10 min —, senão o próximo rótulo volta a ser estimado.
 
 ### A capa pode ter duas versões, e elas moram em `capa-alternativa/`
 
