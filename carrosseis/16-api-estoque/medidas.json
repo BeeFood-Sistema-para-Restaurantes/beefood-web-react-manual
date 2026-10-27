@@ -1,0 +1,72 @@
+{
+  "cartoes": {
+    "arquivo": "rec-cartoes.png",
+    "quadro": {
+      "x": 326,
+      "y": 142,
+      "width": 666.65625,
+      "height": 126
+    },
+    "texto": "API e MCP · API Aberta · Integre seu sistema ao BeeFood via API REST · MCP · Conecte o seu BeeFood a sua IA favorita",
+    "tamanho": [
+      1332,
+      252
+    ]
+  },
+  "estoqueNaApiAberta": {
+    "arquivo": "rec-estoque-api.png",
+    "quadro": {
+      "x": 802,
+      "y": 459,
+      "width": 605,
+      "height": 70
+    },
+    "texto": "Estoque · Insumos, categorias, itens e movimentações · Consultar · Alterar",
+    "tamanho": [
+      1210,
+      140
+    ]
+  },
+  "insumoAbaixoDoMinimo": {
+    "arquivo": "rec-insumo-baixo.png",
+    "quadro": {
+      "x": 228,
+      "y": 174,
+      "width": 872,
+      "height": 185.0
+    },
+    "pilulas": "Regular 10 · Baixo 1 · Crítico 0",
+    "texto": "TOMATE · - · \tKG\tR$ 4,50\tR$ 6,75\t2\t · \tBaixo\tNão\t",
+    "realce": {
+      "x": 45.2,
+      "y": 61.9,
+      "width": 21.7,
+      "height": 37.0
+    },
+    "tamanho": [
+      1744,
+      370
+    ]
+  },
+  "produtoDepoisDaEntrada": {
+    "arquivo": "rec-produto-entrada.png",
+    "quadro": {
+      "x": 228,
+      "y": 244,
+      "width": 903,
+      "height": 171.0
+    },
+    "pilulas": "Regular 1 · Baixo 0 · Crítico 0",
+    "texto": "Sprite Original 350ml · Bebidas Geladas · \tUN\tAtivo\tR$ 0,00\tR$ 0,00\t-\t · \tRegular\tNão\tSim",
+    "realce": {
+      "x": 44.7,
+      "y": 26.0,
+      "width": 19.9,
+      "height": 72.8
+    },
+    "tamanho": [
+      1806,
+      342
+    ]
+  }
+}

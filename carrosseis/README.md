@@ -37,6 +37,7 @@ um acervo assim, e "entregue" escrito por extenso em toda linha também não.
 | 13 | [`13-mcp-conexao-ia/`](13-mcp-conexao-ia/roteiro.md) | Novidade | [MCP: converse com o seu restaurante usando IA](https://beefood.app/novidades/mcp-inteligencia-artificial) — 13/10/2026 · sem manual na pasta; os passo a passo são os da própria folha *Aplicativos → MCP* | 4:5 | 6 | [`.zip`](13-mcp-conexao-ia/entrega/13-mcp-conexao-ia.zip) · [copy](13-mcp-conexao-ia/copy-instagram.txt) |
 | 14 | [`14-api-aberta/`](14-api-aberta/roteiro.md) | Novidade | [API Aberta liberada 🔌](https://beefood.app/novidades/api-aberta-liberada) — 13/10/2026 · sem manual na pasta; o passo a passo é o portal [`docs.beefood.app`](https://docs.beefood.app) | 4:5 | 7 | [`.zip`](14-api-aberta/entrega/14-api-aberta.zip) · [copy](14-api-aberta/copy-instagram.txt) |
 | 15 | [`15-botao-whatsapp/`](15-botao-whatsapp/roteiro.md) | Novidade | [Botão WhatsApp no Cardápio Digital 💬](https://beefood.app/novidades/cardapio-digital-botao-whatsapp) — 19/10/2026 · [manual](https://ajuda.beefood.com.br/cardapio-digital-botao-whatsapp) | 4:5 | 6 | [`.zip`](15-botao-whatsapp/entrega/15-botao-whatsapp.zip) · [copy](15-botao-whatsapp/copy-instagram.txt) |
+| 16 | [`16-api-estoque/`](16-api-estoque/roteiro.md) | Novidade | [Estoque na API Aberta e no MCP 📦](https://beefood.app/novidades/api-estoque-mcp) — 26/10/2026 · sem manual na pasta; o passo a passo são as duas folhas de *Aplicativos* e o portal [`docs.beefood.app`](https://docs.beefood.app) · **devolvida e refeita**, nas seis formas da #13 | 4:5 | 6 | [`.zip`](16-api-estoque/entrega/16-api-estoque.zip) · [copy](16-api-estoque/copy-instagram.txt) |
 
 O número de slides é o que o assunto pede, entre 6 e 9 — não é uma medida fixa.
 Peça de função não leva data nem pílula de novidade: ela é perene, e pode ser
@@ -108,6 +109,57 @@ foram sondadas e **caíram por medição** — o `{link}` do produto, porque a p
 de produto é uma janela que cobre o botão, e a barra da sacola, porque naquele
 cardápio ela fica atrás da barra de navegação. Slide cujo título o leitor não
 consegue conferir na imagem não entra, mesmo quando o fato é verdadeiro.
+
+A décima sexta fecha a família de integração e é a primeira que **não vende uma
+porta, e sim o que passou a existir atrás das duas**. A #13 e a #14 fotografaram
+as folhas de permissão e fecharam o quadro em *Avaliações*, de propósito, porque
+as duas linhas seguintes estavam apagadas com a etiqueta *Em breve* — eram
+Entregadores e Estoque. Uma delas saiu do em breve, e nesta peça o recorte é o
+contrário: ele existe **para** mostrar a linha que as outras duas tiveram de
+esconder. Ela deixou três lições de produção:
+
+- **a escrita se faz, e desfazê-la precisa de duas saídas.** O exemplo do
+  release — *"dê entrada de 20 unidades de refrigerante"* — foi executado pelo
+  MCP e desfeito no mesmo arranque, porque a operação `new` grava o saldo
+  informado no lugar do atual. A primeira rodada parou **entre** a entrada e o
+  desfazer, num `429` por leitura repetida, e o saldo ficou errado: demonstração
+  reversível quer a saída do caminho feliz **e** a de depois do erro;
+- **a armadilha do `clip` mordeu de novo, e agora tem rede.** Recorte que passa
+  da borda do viewport sai menor sem avisar. A linha a fotografar era a última
+  do formulário e saiu com 16 px de altura e metade da palavra — `scrollIntoView`
+  com `block: center` resolve, e uma conferência do tamanho do PNG contra o
+  quadro pedido é o que faz o script falhar em vez de entregar arte cortada;
+- **dois prints no mesmo slide se igualam pela escala da letra, não pela
+  largura.** A escala é `largura exibida ÷ largura capturada em px de CSS`, e
+  dois recortes de telas diferentes quase nunca chegam nela com a mesma largura.
+  Largura diferente ainda ajuda a dizer que são duas telas, e não duas partes de
+  uma.
+
+**E ela foi devolvida inteira, com a pergunta mais útil que este acervo já
+recebeu:** *por que erramos tanto se tínhamos o carrossel antigo disponível?* A
+peça saiu técnica — corpo de JSON num slide, tabela de `operation:` no outro —
+tendo a #13 pronta no repositório, com o mesmo leitor e a gramática certa. A
+causa foram três regras da casa aplicadas fora do lugar:
+
+- *a documentação é a fonte* decide o **escopo** do que a peça pode afirmar, e
+  nunca o **vocabulário** da arte. Release de novidade é informativo, não
+  changelog: na peça refeita, `stockSituation=low` se chama *"o que está abaixo
+  do mínimo"*, e os nomes de verdade ficaram no roteiro e na nota de produção;
+- **irmandade de peça se mede por leitor, não por assunto.** A #16 copiou as
+  formas da #14, que fala com quem programa, em vez das da #13, que fala com o
+  mesmo lojista. As três tratam de integração, e só duas têm o mesmo leitor;
+- *forma antes do conteúdo* é **remédio contra monotonia, não objetivo**. A #13
+  repete a mesma forma nos slides 3 e 4 e não é monótona, porque o que muda
+  dentro da forma é o que ela prova — uma lê, a outra altera.
+
+A refação trocou os dois slides de documentação por **prova pareada**, a
+pergunta na conversa em cima e a tela de *Meu Estoque* embaixo, e isso trouxe
+mais duas lições: **o item da prova de escrita tem de poder ser achado sozinho na
+tela que vai fotografá-lo** — o refrigerante do release está cadastrado duas
+vezes, e print de linha duplicada não prova qual delas mudou — e **duas metades
+da mesma prova não podem se desmentir**, que é o caso de uma resposta dizendo "18
+itens" em cima de uma pílula de painel dizendo "Regular 10". Os dois números eram
+verdade, contados por réguas diferentes.
 
 ## Estrutura de cada pasta
 

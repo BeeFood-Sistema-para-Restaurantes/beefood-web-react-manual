@@ -1,0 +1,95 @@
+<!-- Slide 4: a SEGUNDA PROVA, e é a de ESCRITA — a mesma função do slide 4 da
+     #13, que criou um produto pela conversa e o fotografou no cardápio. A
+     ordem é a de lá: o que foi pedido, e então o painel.
+
+     ESTA PÁGINA SUBSTITUI UMA TABELA DE NOMES DE OPERAÇÃO. A primeira versão
+     listava `operation: add`, `operation: subtract`, `operation: new`,
+     `stockControl` e `stockMinimumQuantity` com a tradução de cada um ao lado.
+     Isso é a página de referência da documentação copiada para dentro de um
+     post, e é o defeito que o dono apontou. O que o leitor quer saber é que
+     mandar lançar a compra funciona — e isso se prova fazendo.
+
+     A ESCRITA FOI FEITA, e não desenhada. O `consultar-estoque.py --entrada`
+     pede ao conector, pela rota de verdade, a entrada de 20 unidades; o
+     `capturar-telas.py --so entrada` fotografa a linha no painel; e o
+     `--restaurar 47` devolve o saldo. Está em `chamadas.json`, em *escrita*,
+     com 47 -> 67 -> 47 e `oSaldoVoltou: true`.
+
+     O ITEM NÃO É O DO RELEASE, e o motivo é de captura. O release diz
+     "refrigerante", e a Coca Cola 350ml está cadastrada DUAS VEZES na loja de
+     exemplo, as duas com controle ligado — a busca devolve duas linhas
+     idênticas e a captura deixa de provar qual delas mudou. O TOMATE do slide 3
+     seria melhor ainda para a história, mas são três insumos com esse nome.
+     Dos oito produtos com controle, só dois têm nome único, e o Sprite é um
+     deles. A regra que ficou: o item da prova de escrita tem de poder ser
+     achado SOZINHO na tela em que vai ser fotografado.
+
+     O ANEL VERMELHO não foi estimado na miniatura: o `capturar-telas.py` mede a
+     caixa da célula *Estoque Atual* dentro do recorte e grava a porcentagem no
+     `medidas.json` (x 44,7 / y 26,0 / 19,9 de largura / 72,8 de altura). A
+     célula é achada pelo NOME DA COLUNA, porque o saldo mora dentro de um
+     `input` e texto de `input` não é texto do DOM.
+
+     A CAPTURA NÃO TEM AS PÍLULAS, e a do slide 3 tem. Com a tela filtrada por
+     busca, as pílulas passam a contar só a linha achada e todas dizem 1 — um
+     *Regular 1* na página seguinte a um *Regular 10* lê como contradição. Onde
+     a pílula não prova nada, ela sai.
+
+     A DUPLA DE TELAS DESENHADAS É DIFERENTE DE PROPÓSITO, como na #13: no slide
+     3 a resposta é uma tabela de números, aqui é uma frase curta de
+     confirmação. Quatro cartões iguais foi o que derrubou a primeira versão
+     daquela peça. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">4 de 6</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 904px">
+    <span class="chapeu">Não é só consulta</span>
+    <h2 class="titulo titulo--pequeno">
+      <span class="destaque">Entrada</span>: mande lançar a compra e o saldo
+      muda no painel
+    </h2>
+    <p class="corpo">
+      Diga o que chegou e quanto. Pode ser um item ou a nota inteira.
+    </p>
+  </div>
+
+  <div class="pilha" style="margin: 26px auto 0; width: 904px; gap: 16px">
+    <span class="cartao__rotulo">O que foi pedido na conversa</span>
+    <div class="tela-ia tela-ia--avulsa" style="font-size: 26px">
+      <span class="tela-ia__fio"></span>
+      <p class="tela-ia__pergunta">
+        Chegaram 20 Sprite Original 350ml,<br>dá entrada no estoque
+      </p>
+      <div class="tela-ia__resposta">
+        <span class="tela-ia__conector">
+          <img src="../imagens-puras/logo-beefood.png" alt="">
+          beefood-api
+        </span>
+        <p class="tela-ia__texto">
+          Pronto: entrada de <b>20 UN</b> em <b>Sprite Original 350ml</b>. O
+          saldo agora é <b>67</b>.
+        </p>
+      </div>
+    </div>
+
+    <span class="cartao__rotulo" style="margin-top: 22px">
+      O que o painel mostra, em Estoque → Produtos
+    </span>
+    <div class="recorte" style="position: relative">
+      <img src="../imagens-puras/rec-produto-entrada.png"
+           alt="A aba Produtos de Meu Estoque, buscando Sprite Original 350ml: a linha mostra estoque atual 67 e situação Regular">
+      <span class="realce" style="left: 44.7%; top: 26%; width: 19.9%;
+            height: 72.8%"></span>
+    </div>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="pontos"><span></span><span></span><span></span><span class="on"></span><span></span><span></span></span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>

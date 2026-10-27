@@ -1,0 +1,92 @@
+<!-- Slide 3: a PRIMEIRA PROVA, na gramática da #13 — "o que a IA respondeu" em
+     cima, "o que o painel mostra" embaixo. Afirmação e então evidência;
+     invertido, vira uma frase sobre o painel.
+
+     ESTA PÁGINA SUBSTITUI UM CARTÃO DE JSON. A primeira versão mostrava o corpo
+     de `GET /v1/stock/items` com `supplyId`, `stockMinimumQuantity` e
+     `stockSituation: "low"`, e a devolução do dono foi exata: "o novidades não
+     é técnico e sim informativo". JSON prova para quem vai integrar; quem rola
+     o feed tem um restaurante, e para ele a prova é a tela que ele abre todo
+     dia. O mesmo fato, dito pelas duas metades que ele reconhece.
+
+     A PERGUNTA ENTRA, e aqui ela é o argumento. Na #13 o slide dos relatórios
+     tirou a pergunta de propósito, porque lá o assunto era pôr dois NÚMEROS
+     frente a frente. Aqui o assunto é que a pergunta pode ser feita assim, em
+     português de gente, sem filtro e sem saber o nome do campo — então a bolha
+     cinza é parte da prova, não enfeite.
+
+     OS NÚMEROS DA RESPOSTA SÃO OS DA CAPTURA, e isso é conferido: 1,5 KG,
+     mínimo 2 KG e "é o único entre os seus 11". O **11** é a pílula *Controla
+     estoque 11* que está na própria imagem, e conta só a aba *Insumos*. A
+     primeira versão dizia 18, que somava insumo, produto e complemento — número
+     verdadeiro, e que desmentiria a imagem logo abaixo dele. O
+     `consultar-estoque.py` passou a medir a versão `type=supply` por causa
+     disso, e ela está em `chamadas.json`, em `abaixoDoMinimo.sóInsumos`.
+
+     A CAPTURA TEM AS PÍLULAS EM CIMA porque são elas que provam o "é o único":
+     *Baixo 1*, aceso, ao lado de *Regular 10*. Sem elas, uma tabela de uma
+     linha só diria que existe um tomate baixo, não que ele é o único.
+
+     O RÓTULO NOMEIA A ABA ("Estoque → Insumos"). Sem isso, a pílula *Regular 10*
+     desta página e a captura da página seguinte, que é da aba *Produtos*, leem
+     como contradição.
+
+     A janela da captura é de 1120 px, e não os 1440 de sempre: a tabela
+     acompanha a largura da janela, e a 1440 ela chegaria aos 904 px da faixa
+     ENCOLHIDA em 0,76×. Está no `capturar-telas.py`, com a conta. -->
+<div class="slide">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">3 de 6</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 904px">
+    <span class="chapeu">Dá para conferir</span>
+    <h2 class="titulo titulo--pequeno">
+      <span class="destaque">Estoque</span>: pergunte o que está acabando e
+      confira no painel
+    </h2>
+    <p class="corpo">
+      Ela diz qual item é, quanto ainda tem e quanto deveria ter — o mesmo que
+      o painel mostra.
+    </p>
+  </div>
+
+  <div class="pilha" style="margin: 26px auto 0; width: 904px; gap: 16px">
+    <span class="cartao__rotulo">O que a IA respondeu</span>
+    <div class="tela-ia tela-ia--avulsa" style="font-size: 23px">
+      <span class="tela-ia__fio"></span>
+      <p class="tela-ia__pergunta">
+        O que está abaixo do mínimo no meu estoque?
+      </p>
+      <div class="tela-ia__resposta">
+        <span class="tela-ia__conector">
+          <img src="../imagens-puras/logo-beefood.png" alt="">
+          beefood-api
+        </span>
+        <ul class="tela-ia__dados">
+          <li><span>TOMATE</span> <b>1,5 KG</b></li>
+          <li><span>mínimo</span> <b>2 KG</b></li>
+        </ul>
+        <p class="tela-ia__texto" style="margin-top: 0.7em">
+          É o único entre os seus <b>11</b> insumos com controle de estoque.
+        </p>
+      </div>
+    </div>
+
+    <span class="cartao__rotulo" style="margin-top: 24px">
+      O que o painel mostra, em Estoque → Insumos
+    </span>
+    <div class="recorte">
+      <img src="../imagens-puras/rec-insumo-baixo.png"
+           alt="A aba Insumos de Meu Estoque: as pílulas Regular 10, Baixo 1 e Crítico 0, e uma linha — TOMATE, KG, mínimo 2, estoque atual 1.5, situação Baixo">
+    </div>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="pontos"><span></span><span></span><span class="on"></span><span></span><span></span><span></span></span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>

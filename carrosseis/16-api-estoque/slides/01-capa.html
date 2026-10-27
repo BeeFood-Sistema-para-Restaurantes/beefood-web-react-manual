@@ -1,0 +1,95 @@
+<!-- A capa é a MESMA FORMA da capa da #13, e isso foi pedido com todas as
+     letras: "slide 1 -> idem ao outro carrossel que já fizemos, mostrando MCP".
+     Arco de cinco quadrados, pílula, título grande centrado, linha de apoio e
+     a lista de tiques, nessa ordem — que é a ordem da folha *Aplicativos → MCP*
+     no painel.
+
+     A primeira versão desta peça abriu com a CONVERSA DESENHADA, e esse era o
+     erro de forma: na #13 a conversa é a PROVA do miolo, não a capa. Promover a
+     prova a capa gasta na primeira página a imagem que o slide 3 precisa, e
+     ainda faz as duas peças da família abrirem diferente sem motivo.
+
+     O TÍTULO mudou, e o que caiu nele foi a palavra "API". A versão anterior
+     dizia "API de Estoque: a sua IA responde o que está acabando" — nome de
+     venda inventado por nós, e inventado do lado errado: "API" é como o
+     desenvolvedor chama a coisa. Quem rola o feed tem um restaurante, e para
+     ele a coisa se chama **Estoque**, que é o nome do módulo no menu.
+
+     O molde é AFIRMAÇÃO DO FATO, com o sujeito certo: o que mudou é que agora
+     dá para cuidar do estoque conversando. "Agora dá" é o que o leitor
+     precisa saber, "Estoque" é a palavra que ele vai procurar, e "conversando"
+     é a novidade — porque o módulo já existia e a conversa não chegava nele.
+
+     Os QUATRO TIQUES são o bloco de benefícios da folha, reescritos para este
+     recurso, e os três primeiros são exatamente o que os slides 3 e 4 provam.
+     O quarto nomeia as ferramentas e, na mesma linha, a segunda porta — que é a
+     da API Aberta, do sistema do parceiro. -->
+<div class="slide slide--capa">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">1 de 6</span>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="pilha centro g32">
+    <!-- As mesmas medidas da #13: peça de 148 e passo de 178 põem as pontas a
+         356 px do centro, e o giro de 16° as estica para 447 contra os 452 de
+         meia largura útil. -->
+    <div class="arco-mcp" style="--peca: 148px; --passo: 178px; width: 100%">
+      <div class="arco-mcp__peca arco-mcp__peca--e2">
+        <img src="../imagens-puras/logo-lovable.png" alt="">
+      </div>
+      <div class="arco-mcp__peca arco-mcp__peca--e1">
+        <img src="../imagens-puras/logo-claude.png" alt="">
+      </div>
+      <div class="arco-mcp__peca arco-mcp__peca--c">
+        <img src="../imagens-puras/logo-beefood.png" alt="">
+      </div>
+      <div class="arco-mcp__peca arco-mcp__peca--d1">
+        <img src="../imagens-puras/logo-chatgpt.png" alt="">
+      </div>
+      <div class="arco-mcp__peca arco-mcp__peca--d2">
+        <img src="../imagens-puras/logo-cursor.png" alt="">
+      </div>
+    </div>
+
+    <span class="pilula pilula--novidade" style="align-self: center">Novidade</span>
+
+    <h1 class="titulo">
+      Agora a sua IA cuida do <span class="destaque">Estoque</span>
+    </h1>
+
+    <p class="subtitulo" style="max-width: 840px">
+      Pergunte o que está acabando e mande lançar a compra, ali na conversa — ou
+      deixe o seu próprio sistema fazer sozinho.
+    </p>
+
+    <!-- Quatro tiques de UMA LINHA cada, como os da #13. A primeira versão
+         trazia frases de 27 a 32 letras ("O que está abaixo do mínimo",
+         "ChatGPT, Claude ou o seu sistema"), as quatro quebravam em duas linhas
+         e a lista tomava 150 px a mais do que a capa tinha — os dois últimos
+         tiques saíam cortados pela borda de baixo. O que não coube virou
+         subtítulo e slide. -->
+    <ul class="areas" style="width: 100%; margin-top: 12px">
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">O que está acabando</span>
+      </li>
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">Entrada e baixa</span>
+      </li>
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">Contagem de estoque</span>
+      </li>
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">ChatGPT, Claude e mais</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="empurra"></div>
+</div>

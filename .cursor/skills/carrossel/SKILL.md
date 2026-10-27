@@ -566,6 +566,22 @@ se o slide que compara duas telas cabe, e na 41ª rodada ela fundiu um título d
 lista ("são cinco lugares", dois recortes) num de exemplo ("entra até dentro da
 sacola", um recorte), com a lista indo para o corpo.
 
+**Dois recortes no mesmo slide se igualam pela escala da letra, não pela
+largura.** A escala é `largura exibida ÷ largura capturada em px de CSS`, e dois
+prints de telas diferentes quase nunca chegam nela com a mesma largura: na 42ª
+rodada, os dois postos a 840 px davam 1,39× e 1,89×, e a letra de baixo saía um
+terço maior. A 904 e 720 as escalas ficam em 1,49× e 1,62×, que o olho lê como
+iguais — e a largura desigual ainda ajuda a dizer que são **duas** telas.
+
+**`screenshot(clip=…)` que passa da borda da janela sai menor, sem erro.** Role
+com `scrollIntoView({block: 'center'})` — `scroll_into_view_if_needed` para
+quando o elemento *encosta* na janela, e a folga do recorte continua fora dela —
+e deixe no script uma asserção comparando o tamanho do PNG com a caixa pedida,
+com 2 px de tolerância. Sem ela o script imprime a medida certa e entrega arte
+cortada. Na mesma linha, **folga de recorte maior que metade do `gap` entre
+cartões irmãos traz lasca do vizinho**; melhor ainda é fechar o quadro no
+vizinho nomeado (topo da linha seguinte menos 1 px) em vez de somar pixels.
+
 **E o layout mais rico da tela não é o melhor para o slide.** O Painel para
 Entregadores passa a duas colunas internas por etapa acima de 1500 px, e cabe
 quase o dobro de pedido — é para isso que existe TV grande. Capturado assim, o
@@ -1148,6 +1164,29 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
   tradução mostra o resultado e não promete traduzir), e o slide reusado entra
   pela **função que cumpre no arco**, não pela ordem em que o cliente encontra
   aquilo na tela.
+- **O molde se busca na irmã de mesmo LEITOR, não na peça mais recente.** Em
+  família de peças (integração, WhatsApp, cardápio digital), a tentação é copiar
+  a forma da última entregue. Pergunte antes **quem lê esta**: a peça de API
+  fala com quem escreve código e pode mostrar JSON; a peça de IA fala com o
+  lojista e não pode. Duas peças do mesmo assunto com leitores diferentes não
+  compartilham gramática, e uma peça três lugares mais velha pode ser a irmã
+  certa. Foi o que derrubou a #16 inteira, tendo a #13 pronta no repositório.
+- **Em peça de integração, a documentação decide o ESCOPO e nunca o
+  vocabulário.** Ler a documentação do servidor antes de montar a pauta é regra,
+  porque o release conta metade do que foi entregue. Mas quem lê a documentação
+  integra, e quem lê o carrossel tem um restaurante: nome de rota, de operação,
+  de parâmetro e de escopo **não entra em arte**, nem como tabela, nem como
+  corpo de JSON. O fato medido vai para a arte com a palavra do lojista — e o
+  nome técnico fica no roteiro e na nota de produção da copy, que é por onde o
+  suporte responde. Página de novidade é **informativa**, não changelog.
+- **Variar a forma é remédio contra monotonia, não objetivo.** A regra de não
+  repetir forma existe porque peça de integração tende a virar quatro blocos
+  escuros iguais. Ela não pede que cada página invente uma forma nova: duas
+  páginas podem repetir a forma quando **o que elas provam é diferente** — uma
+  mostra o recurso lendo, a outra mostra o recurso alterando. Forma repetida com
+  conteúdo diferente lê como argumento; forma variada só para variar lê como
+  catálogo de componentes. O teste é sobre o fato, não sobre o layout: *a página
+  seguinte prova outra coisa?*
 - **Em novidade, a capa ANUNCIA: o título diz o nome do recurso e o subtítulo
   diz o que ele faz.** A forma varia (são seis moldes, e repetir a forma da
   peça anterior é o quarto vício); o **nome** não varia. Em peça de função ele

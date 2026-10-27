@@ -1,0 +1,92 @@
+<!-- Slide 5: a primeira das duas CAPTURAS que fecham a peça. Depois de quatro
+     desenhos, as duas últimas páginas são as únicas que o leitor pode conferir
+     no painel dele — a peça abre no que a IA responde e fecha no que ele vai
+     clicar.
+
+     SÃO DOIS RECORTES PORQUE SÃO DUAS PORTAS. O slide afirma que a chave existe
+     nas duas, então ele mostra as duas: a linha Estoque do formulário de
+     credencial (Aplicativos → API Aberta, com Consultar e Alterar escritos ao
+     lado de cada chave) e a linha Estoque da tabela de autorização do MCP (com
+     LEITURA e ESCRITA marcadas).
+
+     A SEGUNDA SÓ EXISTE DENTRO DO FLUXO DE AUTORIZAÇÃO — não há rota no painel
+     que abra aquela tela —, então ela é capturada no meio do caminho, pelo
+     `--retrato` do `consultar-estoque.py`. É a técnica que a #13 inventou, e
+     aqui ela serve para fotografar exatamente a linha que a #13 e a #14 TIVERAM
+     DE DEIXAR DE FORA: nas duas, Estoque aparecia apagado, com a etiqueta
+     "Em breve", e as duas fecharam o quadro em Avaliações de propósito.
+
+     OS DOIS RECORTES SÃO FAIXA CONTÍNUA da tela de origem, nunca montagem. O da
+     autorização começa no cabeçalho (PERMISSÃO | LEITURA | ESCRITA), porque sem
+     ele os dois tiques não têm nome, e fecha no fio que separa a linha do
+     Estoque da seguinte.
+
+     O TÍTULO É O DA #13 com a palavra deste recurso. Lá: "Permissões: você
+     marca o que ela lê e o que ela altera". Aqui o par é *consultar* e
+     *alterar*, que é como as duas telas escrevem. A versão anterior dizia "o
+     Estoque é uma chave que você liga", que é bonito e não diz o que está em
+     jogo — e o que está em jogo, depois de a página anterior mostrar a IA
+     mudando um saldo, é se ela pode mudar.
+
+     O CORPO É CURTO por aritmética: os dois recortes somam 626 px de altura e é
+     o que sobra na página depois do título. Nesta página quem argumenta são os
+     prints. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">5 de 6</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 22px; max-width: 904px">
+    <span class="chapeu">Você no controle</span>
+    <h2 class="titulo titulo--pequeno">
+      <span class="destaque">Permissões</span>: você escolhe se ela só consulta
+      ou também altera
+    </h2>
+    <p class="corpo">
+      Nas duas telas o Estoque entrou como chave nova. O que você não marcar
+      não abre.
+    </p>
+  </div>
+
+  <!-- AS DUAS LARGURAS SÃO DIFERENTES, e isso é cálculo, não descuido. O que o
+       olho compara aqui é o TAMANHO DA LETRA dos dois prints, e ele sai da
+       conta `largura exibida ÷ largura capturada em px de CSS`: o cartão da
+       credencial tem 605 px de CSS e a tabela de autorização tem 444. Nos dois
+       a 840 px, o primeiro chegava a 1,39× e o segundo a 1,89× — a mesma
+       palavra, "Estoque", saindo com dois tamanhos na mesma página. A 904 e
+       720 as escalas ficam em 1,49× e 1,62×, que o olho lê como iguais.
+
+       E a largura diferente ainda faz um favor: duas faixas de mesma largura
+       leem como duas partes de UMA tela, e estas são duas telas. -->
+  <!-- CADA FAIXA TEM O SEU RÓTULO, e é a regra da #13: print sem rótulo é print
+       que o leitor tem de adivinhar de onde veio. Lá o rótulo é "a tela que
+       aparece na hora de conectar"; aqui são duas telas, e sem o nome de cada
+       uma as duas faixas leem como uma só, partida no meio. -->
+  <div class="pilha centro" style="margin: 20px auto 0; width: 904px; gap: 26px">
+    <!-- `text-align: left` nos dois porque a faixa de fora é `.pilha centro` e
+         o rótulo herdava o centro dela. Rótulo centrado sobre um print flutua:
+         ele é a legenda de uma borda, e tem de nascer onde a borda nasce. -->
+    <div class="pilha" style="width: 904px; gap: 10px; text-align: left">
+      <span class="cartao__rotulo">Em Aplicativos → API Aberta</span>
+      <div class="recorte" style="width: 904px">
+        <img src="../imagens-puras/rec-estoque-api.png"
+             alt="A linha Estoque no formulário de permissões da credencial, em Aplicativos → API Aberta: o nome Estoque, a descrição Insumos, categorias, itens e movimentações, e as chaves Consultar e Alterar ligadas">
+      </div>
+    </div>
+    <div class="pilha" style="width: 720px; gap: 10px; text-align: left">
+      <span class="cartao__rotulo">Na hora de conectar a sua IA</span>
+      <div class="recorte" style="width: 720px">
+        <img src="../imagens-puras/rec-autorizacao.png"
+             alt="A tabela de permissões da tela Conectar com BeeFood, do MCP, com as colunas LEITURA e ESCRITA: Loja, Pedidos, Catálogo, Clientes, Cupons, Avaliações e, na última linha, Estoque — todas marcadas nas duas colunas">
+      </div>
+    </div>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="pontos"><span></span><span></span><span></span><span></span><span class="on"></span><span></span></span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>

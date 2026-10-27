@@ -1,0 +1,114 @@
+<!-- Slide 2: a exceção da regra do nome, e é a mesma exceção da #13. Os outros
+     cinco títulos vendem; este explica, porque a capa mostrou uma das duas
+     portas e a notícia tem duas. "Em peça de novidade, explicar bem É vender."
+
+     O TÍTULO põe o sujeito em VOCÊ, como o da #13 ("Você conversa com a sua IA,
+     e ela faz o trabalho dentro do seu BeeFood"), e para em DUAS LINHAS, que é
+     o tamanho do dela. A versão de três linhas trazia também "e é o mesmo
+     Estoque do painel"; a afirmação é boa demais para sair, mas ela é a PROVA
+     dos slides 3 e 4, e título que já entrega a prova rouba o miolo. Desceu
+     para o corpo, onde o leitor a lê como explicação e não como promessa.
+
+     O CORPO AMARRA NA #13 de propósito — "já lia os relatórios e mexia no
+     cardápio" é exatamente o que aquela peça vendeu. Quem viu as duas entende
+     que isto é uma área nova numa coisa que ele já conhece, e não um produto
+     novo para aprender.
+
+     A CENA É CONVERGÊNCIA, e por isso NÃO é o `.fluxo-api` da capa da #14. Lá
+     o desenho é entradas -> núcleo -> saídas, e é a saída que justifica os dois
+     lados; o Estoque não tem webhook, nada sai sozinho, e montar o lado direito
+     com qualquer coisa seria preencher uma forma que o fato não tem. Aqui as
+     duas coisas de cima não são dois sistemas quaisquer: são AS DUAS PORTAS, e
+     o que o slide afirma é que elas chegam no mesmo lugar.
+
+     A REGRA DO FIO É A DA #13: para linha que cai numa barra larga, o fio desce
+     RETO — curva só quando o destino é um ponto. Os centros são número: 220 e
+     684 dos 904 px úteis, que são os centros de dois cartões de 440 com 24 de
+     respiro. O `left` do fio é o centro menos 2, porque a borda tem 5 px e a
+     linha precisa cair EM CIMA do centro, não ao lado dele.
+
+     OS DOIS SELOS dizem "liberado", que é o que mudou hoje: as duas portas já
+     existiam e nenhuma delas alcançava o estoque.
+
+     O CARTÃO ESCURO perdeu o "11 rotas". Contagem de rota é número de
+     desenvolvedor: o leitor não tem como saber se 11 é muito ou pouco, e o que
+     ele quer saber é O QUE a porta alcança. No lugar entrou a mesma fórmula do
+     cartão escuro da #13 — "Lê e altera:" e a lista das coisas —, com os quatro
+     verbos do recurso. O número continua medido e vive no `chamadas.json`, para
+     quem perguntar. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">2 de 6</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 904px">
+    <span class="chapeu">Como funciona</span>
+    <h2 class="titulo titulo--pequeno">
+      Você <span class="destaque">pergunta</span>, ou o seu sistema pede sozinho
+    </h2>
+    <p class="corpo">
+      A sua IA já lia os seus relatórios e mexia no cardápio. Agora ela também
+      vê o saldo e lança a entrada — e o que ela mexe é o mesmo Estoque que o
+      seu painel mostra.
+    </p>
+  </div>
+
+  <!-- Em absoluto porque fio reto só cai em cima do centro do cartão com
+       coordenada na mão: no fluxo, qualquer quebra de linha do título
+       desalinharia os dois. -->
+  <div style="position: absolute; left: var(--margem); right: var(--margem);
+              top: 650px; z-index: 1">
+    <div style="position: relative; height: 480px">
+      <!-- Altura FIXA nos dois, e conteúdo centrado. O rótulo da direita
+           ("Aplicativos → API Aberta") quebra em duas linhas e o da esquerda
+           não: sem altura fixa, os cartões saem desiguais e os dois fios
+           começam em alturas diferentes — um nasce colado no cartão, o outro
+           a 22 px dele, e a cena perde o prumo. -->
+      <div class="cartao" style="position: absolute; left: 0; top: 0;
+                                 width: 440px; height: 150px; padding: 0 30px;
+                                 display: flex; flex-direction: column;
+                                 justify-content: center">
+        <span class="cartao__rotulo">Aplicativos → MCP</span>
+        <span style="display: block; margin-top: 8px; font-size: 38px;
+                     font-weight: 900">A sua IA</span>
+      </div>
+      <div class="cartao" style="position: absolute; right: 0; top: 0;
+                                 width: 440px; height: 150px; padding: 0 30px;
+                                 display: flex; flex-direction: column;
+                                 justify-content: center">
+        <span class="cartao__rotulo">Aplicativos → API Aberta</span>
+        <span style="display: block; margin-top: 8px; font-size: 38px;
+                     font-weight: 900">O seu sistema</span>
+      </div>
+
+      <span class="fio fio--desce" style="left: 218px; top: 150px;
+            width: 0; height: 158px"></span>
+      <span class="fio fio--desce" style="left: 682px; top: 150px;
+            width: 0; height: 158px"></span>
+
+      <span class="selo-ok" style="left: 193px; top: 202px">&check;</span>
+      <span class="selo-ok" style="left: 657px; top: 202px">&check;</span>
+
+      <!-- Depois dos fios no HTML porque é ela quem cobre os últimos pixels
+           deles: linha que para encostada na borda lê como risco, linha que
+           some atrás lê como entrando. -->
+      <div class="cartao cartao--escuro"
+           style="position: absolute; left: 0; right: 0; top: 296px;
+                  padding: 30px 34px">
+        <span class="cartao__rotulo">Estoque</span>
+        <span style="display: block; margin-top: 10px; font-size: 40px;
+                     font-weight: 900; line-height: 1.2">
+          Lê e altera: saldo, entrada, baixa e contagem
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="pontos"><span></span><span class="on"></span><span></span><span></span><span></span><span></span></span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>
