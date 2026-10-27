@@ -1,5 +1,5 @@
 {
-  "lido_em": "2026-10-26T23:01:56",
+  "lido_em": "2026-10-27T00:02:28",
   "conta": "sandbox BeeFood3 - Manual (empresa 38311)",
   "asDuasPortas": {
     "apiAberta": {
@@ -158,7 +158,13 @@
         "stockQuantity": 1.5,
         "stockSituation": "low"
       }
-    ]
+    ],
+    "sóInsumos": {
+      "rota": "GET /v1/stock/items?type=supply&stockSituation=low",
+      "abaixoDoMinimo": 1,
+      "comControleLigado": 11,
+      "regulares": 10
+    }
   },
   "historico": {
     "rota": "GET /v1/stock/movements",
@@ -166,33 +172,33 @@
       "fromDate": "2026-05-04",
       "toDate": "2026-10-26"
     },
-    "total": 560,
+    "total": 566,
     "primeiros": [
       {
-        "movementId": 4419099,
-        "movedAt": "2026-10-26 19:44:23",
+        "movementId": 4421922,
+        "movedAt": "2026-10-26 21:01:38",
         "quantity": -20,
-        "quantityBefore": 43,
+        "quantityBefore": 67,
         "originQuantity": -20,
-        "origin": "Coca Cola 350ml",
-        "productId": 2659780,
-        "name": "Coca Cola 350ml",
+        "origin": "Sprite Original 350ml",
+        "productId": 2659782,
+        "name": "Sprite Original 350ml",
         "userId": 88711
       },
       {
-        "movementId": 4419098,
-        "movedAt": "2026-10-26 19:44:17",
+        "movementId": 4421696,
+        "movedAt": "2026-10-26 20:56:36",
         "quantity": 20,
-        "quantityBefore": 23,
+        "quantityBefore": 47,
         "originQuantity": 20,
-        "origin": "Coca Cola 350ml",
-        "productId": 2659780,
-        "name": "Coca Cola 350ml",
+        "origin": "Sprite Original 350ml",
+        "productId": 2659782,
+        "name": "Sprite Original 350ml",
         "userId": 88711
       },
       {
-        "movementId": 4419069,
-        "movedAt": "2026-10-26 19:43:24",
+        "movementId": 4421610,
+        "movedAt": "2026-10-26 20:54:18",
         "quantity": -20,
         "quantityBefore": 43,
         "originQuantity": -20,
@@ -214,41 +220,42 @@
   },
   "escrita": {
     "comoOReleaseDiz": "dê entrada de 20 unidades de refrigerante",
+    "oQueFoiFeitoAqui": "entrada de 20 UN de Sprite Original 350ml",
     "item": {
-      "nome": "Coca Cola 350ml",
+      "nome": "Sprite Original 350ml",
       "tipo": "product",
       "unidade": "UN"
     },
     "rota": "PATCH /v1/stock/items",
     "escopo": "stock:write",
     "porOndeFoi": "MCP, pela ferramenta execute_beefood_request",
-    "saldoAntes": 23,
+    "saldoAntes": 47,
     "corpoEnviado": [
       {
         "type": "product",
-        "productId": 2659780,
+        "productId": 2659782,
         "operation": "add",
         "stockQuantity": 20
       }
     ],
     "respostaDaEntrada": [
       {
-        "productId": 2659780,
+        "productId": 2659782,
         "success": true,
-        "stockQuantity": 43
+        "stockQuantity": 67
       }
     ],
-    "saldoDepois": 43,
+    "saldoDepois": 67,
     "desfeito": {
       "corpo": "operation new com o saldo original",
       "resposta": [
         {
-          "productId": 2659780,
+          "productId": 2659782,
           "success": true,
-          "stockQuantity": 23
+          "stockQuantity": 47
         }
       ],
-      "saldoFinal": 23
+      "saldoFinal": 47
     },
     "oSaldoVoltou": true
   }

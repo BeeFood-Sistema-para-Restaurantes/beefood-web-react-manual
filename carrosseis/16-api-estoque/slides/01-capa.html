@@ -1,79 +1,95 @@
-<!-- A capa é a CONVERSA, e é o degrau 2 da escada: o resultado deste recurso
-     acontece dentro do ChatGPT, do Claude, do Lovable ou do Cursor, que não
-     rodam aqui e não são nossos para fotografar. A `.tela-ia` existe para isto
-     desde a #13, e aqui ela estreia numa capa.
+<!-- A capa é a MESMA FORMA da capa da #13, e isso foi pedido com todas as
+     letras: "slide 1 -> idem ao outro carrossel que já fizemos, mostrando MCP".
+     Arco de cinco quadrados, pílula, título grande centrado, linha de apoio e
+     a lista de tiques, nessa ordem — que é a ordem da folha *Aplicativos → MCP*
+     no painel.
 
-     O MOLDE É `nome + dois-pontos`. A #15 abriu em ordem direta e a capa não
-     repete a forma da anterior; anúncio de chegada e antes x agora foram
-     escritos e caíram — o `roteiro.md` guarda o porquê de cada um. O vermelho
-     pega "API de Estoque" inteiro, que é o nome, e o sujeito da segunda metade
-     é "a sua IA", que é o lado da notícia que pertence a quem lê.
+     A primeira versão desta peça abriu com a CONVERSA DESENHADA, e esse era o
+     erro de forma: na #13 a conversa é a PROVA do miolo, não a capa. Promover a
+     prova a capa gasta na primeira página a imagem que o slide 3 precisa, e
+     ainda faz as duas peças da família abrirem diferente sem motivo.
 
-     A NOTÍCIA TEM DUAS METADES E A CAPA MOSTRA UMA, de propósito: a porta da IA
-     é do lojista e a porta da API é do fornecedor dele. Quem rola o feed é o
-     primeiro. A segunda metade fica com o subtítulo e com o slide 2 inteiro.
+     O TÍTULO mudou, e o que caiu nele foi a palavra "API". A versão anterior
+     dizia "API de Estoque: a sua IA responde o que está acabando" — nome de
+     venda inventado por nós, e inventado do lado errado: "API" é como o
+     desenvolvedor chama a coisa. Quem rola o feed tem um restaurante, e para
+     ele a coisa se chama **Estoque**, que é o nome do módulo no menu.
 
-     O QUE ESTÁ DENTRO DA TELA É MEDIDO, e saiu do `chamadas.json`:
+     O molde é AFIRMAÇÃO DO FATO, com o sujeito certo: o que mudou é que agora
+     dá para cuidar do estoque conversando. "Agora dá" é o que o leitor
+     precisa saber, "Estoque" é a palavra que ele vai procurar, e "conversando"
+     é a novidade — porque o módulo já existia e a conversa não chegava nele.
 
-       - a pergunta é a do próprio release, palavra por palavra;
-       - TOMATE, 1,5 KG e o mínimo de 2 KG são o único item que
-         `GET /v1/stock/items?stockSituation=low` devolveu;
-       - os 18 regulares são os 19 itens com controle ligado menos aquele um;
-       - `beefood-api` é o nome que o servidor anuncia no `initialize`.
-
-     O NÚMERO PEQUENO É O NÚMERO CERTO. Um item abaixo do mínimo é resposta
-     magra para uma capa, e a tentação era mexer no saldo de dois ou três
-     insumos da sandbox para encher a lista — seria inventar justamente o fato
-     que a arte existe para provar. E a resposta curta diz de graça uma coisa
-     que a longa não diria: que a pergunta serve para NÃO ter que olhar os
-     outros dezoito. -->
+     Os QUATRO TIQUES são o bloco de benefícios da folha, reescritos para este
+     recurso, e os três primeiros são exatamente o que os slides 3 e 4 provam.
+     O quarto nomeia as ferramentas e, na mesma linha, a segunda porta — que é a
+     da API Aberta, do sistema do parceiro. -->
 <div class="slide slide--capa">
   <div class="topo">
     <span class="logo"></span>
     <span class="contador">1 de 6</span>
   </div>
 
-  <div class="pilha g24" style="margin-top: 18px; max-width: 904px">
-    <span class="pilula pilula--novidade">Novidade</span>
-    <h1 class="titulo titulo--medio">
-      <span class="destaque">API de Estoque</span>: a sua IA responde o que
-      está acabando
-    </h1>
-    <p class="subtitulo">
-      E o seu sistema dá entrada e baixa sozinho.
-    </p>
-  </div>
+  <div class="empurra"></div>
 
-  <!-- Solta na faixa, sem moldura de aparelho: aqui a conversa precisa ser
-       LIDA, e dentro de um celular a mesma lista chega ao feed com metade da
-       altura de letra. -->
-  <div style="margin: 44px auto 0; width: 904px">
-    <div class="tela-ia tela-ia--avulsa" style="font-size: 29px">
-      <span class="tela-ia__fio"></span>
-
-      <span class="tela-ia__pergunta">
-        Quais insumos estão abaixo do mínimo?
-      </span>
-
-      <div class="tela-ia__resposta">
-        <span class="tela-ia__conector">
-          <img src="../imagens-puras/logo-beefood.png" alt="">
-          beefood-api
-        </span>
-        <ul class="tela-ia__dados">
-          <li>TOMATE <b>1,5 KG</b></li>
-          <li class="total">mínimo <b>2 KG</b></li>
-        </ul>
-        <p class="tela-ia__texto">
-          É o único abaixo do mínimo. Os outros <b>18</b> itens com controle
-          ligado estão regulares.
-        </p>
+  <div class="pilha centro g32">
+    <!-- As mesmas medidas da #13: peça de 148 e passo de 178 põem as pontas a
+         356 px do centro, e o giro de 16° as estica para 447 contra os 452 de
+         meia largura útil. -->
+    <div class="arco-mcp" style="--peca: 148px; --passo: 178px; width: 100%">
+      <div class="arco-mcp__peca arco-mcp__peca--e2">
+        <img src="../imagens-puras/logo-lovable.png" alt="">
       </div>
-
-      <span class="tela-ia__campo">
-        <span>Pergunte outra coisa…</span>
-        <span>&uarr;</span>
-      </span>
+      <div class="arco-mcp__peca arco-mcp__peca--e1">
+        <img src="../imagens-puras/logo-claude.png" alt="">
+      </div>
+      <div class="arco-mcp__peca arco-mcp__peca--c">
+        <img src="../imagens-puras/logo-beefood.png" alt="">
+      </div>
+      <div class="arco-mcp__peca arco-mcp__peca--d1">
+        <img src="../imagens-puras/logo-chatgpt.png" alt="">
+      </div>
+      <div class="arco-mcp__peca arco-mcp__peca--d2">
+        <img src="../imagens-puras/logo-cursor.png" alt="">
+      </div>
     </div>
+
+    <span class="pilula pilula--novidade" style="align-self: center">Novidade</span>
+
+    <h1 class="titulo">
+      Agora a sua IA cuida do <span class="destaque">Estoque</span>
+    </h1>
+
+    <p class="subtitulo" style="max-width: 840px">
+      Pergunte o que está acabando e mande lançar a compra, ali na conversa — ou
+      deixe o seu próprio sistema fazer sozinho.
+    </p>
+
+    <!-- Quatro tiques de UMA LINHA cada, como os da #13. A primeira versão
+         trazia frases de 27 a 32 letras ("O que está abaixo do mínimo",
+         "ChatGPT, Claude ou o seu sistema"), as quatro quebravam em duas linhas
+         e a lista tomava 150 px a mais do que a capa tinha — os dois últimos
+         tiques saíam cortados pela borda de baixo. O que não coube virou
+         subtítulo e slide. -->
+    <ul class="areas" style="width: 100%; margin-top: 12px">
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">O que está acabando</span>
+      </li>
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">Entrada e baixa</span>
+      </li>
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">Contagem de estoque</span>
+      </li>
+      <li class="areas__item">
+        <span class="areas__tique">&check;</span>
+        <span class="areas__nome">ChatGPT, Claude e mais</span>
+      </li>
+    </ul>
   </div>
+
+  <div class="empurra"></div>
 </div>

@@ -73,7 +73,27 @@ CREDENCIAL = Path(os.environ.get("BEEFOOD_API_CRED", "/tmp/beefood-api-cred.json
 # O item da demonstração de escrita. É um refrigerante porque é o exemplo que o
 # próprio release dá, e porque produto de bebida não tem receita: dar entrada
 # nele não mexe em saldo de insumo nenhum por tabela.
-DEMO = {"type": "product", "productId": 2659780, "nome": "Coca Cola 350ml"}
+#
+# O NOME TEM DE SER ÚNICO NA LOJA, e esse é o requisito que a 43ª rodada
+# descobriu — porque a prova de escrita termina numa CAPTURA, e captura de item
+# duplicado não prova nada. Os dois candidatos óbvios caíram por isso:
+#
+# - o **TOMATE** seria o melhor roteiro, porque é o mesmo item que a consulta do
+#   slide 3 encontra abaixo do mínimo e a história ficaria amarrada. Mas a loja
+#   tem três insumos com esse nome, e a busca devolve cinco linhas;
+# - a **Coca Cola 350ml** do exemplo do release está cadastrada **duas vezes**,
+#   as duas com controle de estoque ligado e as duas no setor Bebidas Geladas.
+#
+# Dos oito produtos com controle ligado, só dois têm nome único. O Sprite é um
+# deles, e é o que a peça fotografa.
+ITENS = {
+    "sprite": {"type": "product", "productId": 2659782,
+               "nome": "Sprite Original 350ml"},
+    "refrigerante": {"type": "product", "productId": 2659780,
+                     "nome": "Coca Cola 350ml"},
+    "tomate": {"type": "supply", "supplyId": 57078, "nome": "TOMATE"},
+}
+DEMO = ITENS["sprite"]
 ENTRADA = 20
 
 recebido: dict[str, str] = {}
@@ -378,6 +398,7 @@ def escrever(conversa: Conversa) -> dict:
 
     return {
         "comoOReleaseDiz": "dê entrada de 20 unidades de refrigerante",
+        "oQueFoiFeitoAqui": f"entrada de {ENTRADA} {antes['unit']} de {DEMO['nome']}",
         "item": {"nome": DEMO["nome"], "tipo": DEMO["type"], "unidade": antes["unit"]},
         "rota": "PATCH /v1/stock/items",
         "escopo": "stock:write",
@@ -397,19 +418,41 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--escrever", action="store_true",
                     help="dá a entrada do exemplo do release e a desfaz")
+    ap.add_argument("--entrada", action="store_true",
+                    help="dá a entrada e DEIXA, para o painel ser fotografado")
     ap.add_argument("--retrato", action="store_true",
                     help="fotografa a linha de Estoque na tela de autorização")
     ap.add_argument("--restaurar", type=float, metavar="SALDO",
                     help="devolve o saldo do item da demonstração a um valor")
     ap.add_argument("--meses", type=int, default=6,
                     help="janela do histórico; o servidor aceita no máximo 6")
+    ap.add_argument("--item", choices=sorted(ITENS), default="sprite",
+                    help="qual item a escrita movimenta")
     args = ap.parse_args()
+
+    global DEMO
+    DEMO = ITENS[args.item]
 
     conversa = Conversa(conectar(AQUI if args.retrato else None))
 
     if args.restaurar is not None:
         mover(conversa, DEMO, "new", args.restaurar)
         print(f"--> saldo de {DEMO['nome']} devolvido a {args.restaurar}")
+        return 0
+
+    # A entrada que FICA, para a tela ser fotografada com ela dentro. A volta é
+    # um segundo arranque, com `--restaurar <saldo impresso aqui>` — e é por
+    # isso que o saldo anterior é impresso em destaque: se a captura falhar no
+    # meio, ele é a única coisa que devolve o sandbox ao que era.
+    if args.entrada:
+        antes = saldo_de(conversa, DEMO)
+        inicial = antes["stockQuantity"]
+        print(f"--> ANOTE: {DEMO['nome']} estava com {inicial} {antes['unit']}")
+        mover(conversa, DEMO, "add", ENTRADA)
+        depois = saldo_de(conversa, DEMO)
+        print(f"--> entrada de {ENTRADA}: saldo agora = {depois['stockQuantity']} "
+              f"({depois['stockSituation']})")
+        print(f"--> para desfazer: --restaurar {inicial}")
         return 0
 
     # O "hoje" é o da LOJA. O Cloud Agent roda em UTC, e depois das 21h de
@@ -425,6 +468,16 @@ def main() -> int:
                           {"stockSituation": "low", "limit": 20})
     controlados = conversa.api("GET", "/v1/stock/items",
                                {"stockControl": "true", "limit": 1})
+    # A aba *Insumos* do painel conta SÓ insumo, e é com ela que a resposta
+    # desenhada vai ser pareada no slide 3. Se a conversa disser "19 itens" e a
+    # tela disser "11", as duas metades da mesma página se desmentem — é a
+    # lição que a #9 pagou. Então o número da arte é o do mesmo recorte.
+    insumos_controlados = conversa.api(
+        "GET", "/v1/stock/items",
+        {"type": "supply", "stockControl": "true", "limit": 1})
+    insumos_baixos = conversa.api(
+        "GET", "/v1/stock/items",
+        {"type": "supply", "stockSituation": "low", "limit": 20})
     porTipo = {t: conversa.api("GET", "/v1/stock/items", {"type": t, "limit": 1})["total"]
                for t in ("supply", "product", "complement")}
     tudo = conversa.api("GET", "/v1/stock/items", {"limit": 1})
@@ -481,6 +534,15 @@ def main() -> int:
             "rota": "GET /v1/stock/items?stockSituation=low",
             "total": baixos["total"],
             "itens": baixos["items"],
+            # O par do slide 3: estes dois números são os que a aba *Insumos*
+            # do painel mostra nas pílulas, e são os que a resposta desenhada
+            # pode dizer sem desmentir a captura ao lado.
+            "sóInsumos": {
+                "rota": "GET /v1/stock/items?type=supply&stockSituation=low",
+                "abaixoDoMinimo": insumos_baixos["total"],
+                "comControleLigado": insumos_controlados["total"],
+                "regulares": insumos_controlados["total"] - insumos_baixos["total"],
+            },
         },
         "historico": {
             "rota": "GET /v1/stock/movements",

@@ -1,6 +1,18 @@
-<!-- Slide 2: a exceção da regra do nome. Os outros cinco títulos vendem; este
-     explica, porque a capa mostrou uma das duas portas e a notícia tem duas.
-     "Em peça de novidade, explicar bem É vender."
+<!-- Slide 2: a exceção da regra do nome, e é a mesma exceção da #13. Os outros
+     cinco títulos vendem; este explica, porque a capa mostrou uma das duas
+     portas e a notícia tem duas. "Em peça de novidade, explicar bem É vender."
+
+     O TÍTULO põe o sujeito em VOCÊ, como o da #13 ("Você conversa com a sua IA,
+     e ela faz o trabalho dentro do seu BeeFood"), e para em DUAS LINHAS, que é
+     o tamanho do dela. A versão de três linhas trazia também "e é o mesmo
+     Estoque do painel"; a afirmação é boa demais para sair, mas ela é a PROVA
+     dos slides 3 e 4, e título que já entrega a prova rouba o miolo. Desceu
+     para o corpo, onde o leitor a lê como explicação e não como promessa.
+
+     O CORPO AMARRA NA #13 de propósito — "já lia os relatórios e mexia no
+     cardápio" é exatamente o que aquela peça vendeu. Quem viu as duas entende
+     que isto é uma área nova numa coisa que ele já conhece, e não um produto
+     novo para aprender.
 
      A CENA É CONVERGÊNCIA, e por isso NÃO é o `.fluxo-api` da capa da #14. Lá
      o desenho é entradas -> núcleo -> saídas, e é a saída que justifica os dois
@@ -18,9 +30,12 @@
      OS DOIS SELOS dizem "liberado", que é o que mudou hoje: as duas portas já
      existiam e nenhuma delas alcançava o estoque.
 
-     OS NÚMEROS SÃO DO `listar_endpoints` do servidor de documentação: 11 rotas,
-     5 de escrita, nos escopos `stock:read` e `stock:write`. Os dois caminhos de
-     menu são os que o painel escreve. -->
+     O CARTÃO ESCURO perdeu o "11 rotas". Contagem de rota é número de
+     desenvolvedor: o leitor não tem como saber se 11 é muito ou pouco, e o que
+     ele quer saber é O QUE a porta alcança. No lugar entrou a mesma fórmula do
+     cartão escuro da #13 — "Lê e altera:" e a lista das coisas —, com os quatro
+     verbos do recurso. O número continua medido e vive no `chamadas.json`, para
+     quem perguntar. -->
 <div class="slide slide--suave">
   <div class="topo">
     <span class="logo"></span>
@@ -30,12 +45,12 @@
   <div class="pilha g24" style="margin-top: 26px; max-width: 904px">
     <span class="chapeu">Como funciona</span>
     <h2 class="titulo titulo--pequeno">
-      Pela sua <span class="destaque">IA</span> ou pelo seu
-      <span class="destaque">sistema</span>: o mesmo estoque
+      Você <span class="destaque">pergunta</span>, ou o seu sistema pede sozinho
     </h2>
     <p class="corpo">
-      As duas portas já existiam, e nenhuma delas chegava ao estoque. Agora as
-      duas chegam — e é a mesma API atrás das duas.
+      A sua IA já lia os seus relatórios e mexia no cardápio. Agora ela também
+      vê o saldo e lança a entrada — e o que ela mexe é o mesmo Estoque que o
+      seu painel mostra.
     </p>
   </div>
 
@@ -43,7 +58,7 @@
        coordenada na mão: no fluxo, qualquer quebra de linha do título
        desalinharia os dois. -->
   <div style="position: absolute; left: var(--margem); right: var(--margem);
-              top: 640px; z-index: 1">
+              top: 650px; z-index: 1">
     <div style="position: relative; height: 480px">
       <!-- Altura FIXA nos dois, e conteúdo centrado. O rótulo da direita
            ("Aplicativos → API Aberta") quebra em duas linhas e o da esquerda
@@ -84,7 +99,7 @@
         <span class="cartao__rotulo">Estoque</span>
         <span style="display: block; margin-top: 10px; font-size: 40px;
                      font-weight: 900; line-height: 1.2">
-          11 rotas: saldos, insumos, movimentações e histórico
+          Lê e altera: saldo, entrada, baixa e contagem
         </span>
       </div>
     </div>
