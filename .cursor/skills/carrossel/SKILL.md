@@ -319,6 +319,20 @@ E o sinal de alerta continua valendo, agora dos dois lados: a copy que
 **descreve a imagem logo abaixo dela** está legendando a prova, e a copy que
 **poderia estar em qualquer slide da peça** não tem fato dentro.
 
+**Terceira obrigação: leia o aviso que a tela escreve, e não só os rótulos
+dela.** Quando a tela abre com um parágrafo de condição — *"tantos dos tantos
+itens não têm marco de início, então neles não há como separar fila de preparo"*
+—, é ali que o produto conta a letra miúda dele, e a copy repete a condição em
+vez de contorná-la. Quem lê novidade já é cliente: ele vai abrir a tela e achar o
+mesmo aviso, e peça que prometeu demais vira "prometeram e não funciona".
+Dita na arte, a condição vira instrução. Isso **não** é aviso de limite — aquela
+proibição fala do limite que o leitor não encontraria sozinho; esta fala da
+condição que está escrita na tela que a peça está mostrando.
+
+**E a frase que não cabe no corpo sobe para o chapéu**, em vez de sumir. Três
+palavras acima do título é a linha mais barata do slide, e é onde cabe o fato
+que situa sem gastar parágrafo.
+
 **A pasta nasce numerada.** O nome é `NN-<slug>`, com `NN` sendo a **ordem de
 entrega** — o próximo número livre em `carrosseis/`. É o que faz a listagem do
 diretório sair na ordem em que as peças foram publicadas, e o `.zip` chegar ao
@@ -415,6 +429,24 @@ de layout, como print de manual. Quando a tela é para ler de longe (KDS na pare
 da cozinha), use `.tela--grande` e menos fichas por coluna: tela de 1280 px
 reduzida a 860 no feed leva corpo de 14 px para 9. O `roteiro.md` diz, tela por
 tela, o que é captura e o que é desenho.
+
+**A medida tem dois lados, e o segundo é a altura.** A largura decide a
+legibilidade: o fator de ampliação (largura de exibição ÷ largura do desenho)
+tem de ficar entre **1,2× e 1,6×**. A altura decide se cabe: o miolo do slide
+serve cerca de 600 px antes da faixa do rodapé, então o `data-medida` de uma tela
+de miolo fica **abaixo de 0,66 de altura sobre largura**. Passou disso, tire
+seção da tela ou linha do corpo — aumentar a fonte dentro do desenho quebra a
+proporção da interface e ela deixa de parecer uma tela.
+
+**Copie o rótulo da tela inclusive quando ele está errado**, e anote no roteiro
+que o tropeço é dela. A imagem existe para o leitor reconhecer a tela que vai
+abrir; consertar o português ali faz a arte divergir do produto. Pelo mesmo
+motivo, **legenda que a tela não tem não entra**: legenda inventada é interface
+inventada, e quem explica o que o número significa é o corpo do slide.
+
+**Não misture captura e desenho na mesma peça.** Dois jogos de números em slides
+vizinhos fazem o lojista desconfiar dos dois. Ou a peça inteira é prova, ou a
+peça inteira é planta, e a legenda diz qual, uma vez.
 
 **Print do manual que não serve, você refaz — não desenha.** O cupom do manual
 *Destaque na impressão* sai com duas linhas em preto porque o manual precisava
@@ -1058,7 +1090,12 @@ convenção, e a frase mais comum possível é a que funciona. Mas agora a decis
 10. Nos slides de fundo escuro, o logo do topo é a arte de fundo escuro — "BEE"
     em branco, contorno branco no selo, tarja amarela e "food" vermelho?
 11. Nenhum slide tem data na arte? O topo direito é só `.contador`, a capa
-    inclusive. (Data impressa dentro de um print de verdade pode ficar.)
+    inclusive. Data **dentro da tela** fica só quando ela é o próprio dado que o
+    slide promete — a hora de um cupom impresso, o relógio de uma linha do tempo
+    —, e aí sem o ano. Data que carimbaria quando a peça foi feita sai sempre, e
+    período se escreve relativo (*Últimos 30 dias*). Detalhe em
+    [`references/MEMORIA-CARROSSEIS.md`](references/MEMORIA-CARROSSEIS.md), em
+    *a exceção não é "print de verdade": é data que É o dado*.
 12. Saiu peça nova de uso geral (aparelho, tela desenhada, foto, script)? Ela
     **sobe** para a skill: foto e tela em `assets/fotos/`, aparelho no
     `base.css` + `catalogo.py`, script em `scripts/`. Atualize
@@ -1140,8 +1177,12 @@ do estúdio de mídia do cardápio digital, que nasceu no de capas e destaques.
 - **Nenhuma data na arte.** O topo direito leva só o `.contador` ("1 de 7"), na
   capa também. Carrossel aprovado entra na fila de conteúdo e é publicado dias
   depois: data na arte faz a novidade parecer velha e impede reaproveitar o post.
-  Data **dentro de print de verdade** fica (a do cupom é do pedido, não do post),
-  e a data da novidade mora no `roteiro.md` e no cabeçalho da copy.
+  O critério não é *se é print*: é **o que a data está fazendo ali**. Data que é
+  o próprio dado do slide fica — a hora do cupom é do pedido, o relógio da linha
+  do tempo é a medição que o slide promete —, e fica **sem o ano**, que é a parte
+  que envelhece à vista. Período se escreve relativo, como a tela já escreve
+  (*Últimos 30 dias*). A data da novidade mora no `roteiro.md` e no cabeçalho da
+  copy, e não na arte.
 - **Uma ideia por slide.** Duas frases longas no mesmo slide são dois slides.
 - **Tantos slides quantos a novidade tiver de assunto**, entre 6 e 8 (o teto
   técnico é 10). Oito não é meta: o carrossel da tradução fecha em 7 porque o
