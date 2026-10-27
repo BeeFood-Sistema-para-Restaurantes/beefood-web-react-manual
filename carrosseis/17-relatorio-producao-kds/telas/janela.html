@@ -1,0 +1,159 @@
+<!-- A janela que abre quando se clica num número, com "Os mais lentos".
+     Imagem do slide 6.
+
+     O slide afirma que o número abre e mostra os pedidos que entraram nele. A
+     prova é esta janela: o cabeçalho repete o recorte clicado — o nome, o
+     período e quantos itens —, as Medidas repetem as três médias daquele
+     recorte, e "Os mais lentos" lista os pedidos um a um, com a espera e o
+     preparo em mm:ss.
+
+     O CABEÇALHO É A PROVA DE QUE A JANELA LEVA OS FILTROS. "Últimos 30 dias ·
+     386 itens" é o período do topo da tela e a contagem daquele recorte: se a
+     janela não carregasse o filtro, esses dois não bateriam. É por isso que
+     ele entra inteiro, com Excel e Imprimir ao lado.
+
+     A ESTRUTURA é a da janela de verdade, na ordem dela. FICARAM DE FORA, por
+     altura, as seções que ela traz no meio — "Onde o tempo é investido",
+     "Distribuição dos tempos", "Por hora", "Por dia" e "Itens do recorte".
+     Elas provam a mesma coisa que as Medidas já provam aqui, e "Os mais
+     lentos" é o que o título promete.
+
+     O recorte é o Burger Duplo Cheddar, que no slide 3 aparece no ranking com
+     21,5 min e 386 itens — os mesmos números. E a terceira linha de "Os mais
+     lentos" é o pedido do slide 2, com os mesmos 12:35, 11:11 e 23:46. É a
+     peça inteira falando de uma cozinha só.
+
+     Os NÚMEROS fecham: em cada linha espera + preparo = total, e todas estão
+     acima dos 21,5 min de média do prato, que é o que a seção promete.
+
+       24:18 + 19:40 = 43:58      19:02 + 16:25 = 35:27
+       12:35 + 11:11 = 23:46      11:50 + 10:22 = 22:12
+       10:58 + 11:06 = 22:04
+       10,2 min de espera + 11,3 de preparo = 21,5 min, as Medidas -->
+<div class="tela" data-medida="680x398" style="background: #fff">
+
+  <!-- ------------------------------------------------------- cabeçalho -->
+  <div style="flex: none; display: flex; align-items: center; gap: 12px;
+              padding: 12px 18px; border-bottom: 1px solid var(--pn-borda)">
+    <span class="chip chip--vermelho" style="width: 34px; height: 34px;
+                                             border-radius: 17px; font-size: 15px">&#127858;</span>
+    <div style="flex: 1; min-width: 0">
+      <div style="font-size: 16px; font-weight: 900">Burger Duplo Cheddar</div>
+      <div style="margin-top: 1px; font-size: 11px; font-weight: 700;
+                  color: var(--pn-fraco)">Últimos 30 dias &middot; 386 itens</div>
+    </div>
+    <span style="background: var(--pn-verde); color: #fff; border-radius: 8px;
+                 padding: 6px 11px; font-size: 12px; font-weight: 800">&#8681; Excel</span>
+    <span style="border: 1px solid var(--pn-borda); border-radius: 8px;
+                 padding: 6px 11px; font-size: 12px; font-weight: 800;
+                 color: var(--pn-suave)">&#9113; Imprimir</span>
+    <span style="font-size: 14px; color: var(--pn-fraco)">&#10005;</span>
+  </div>
+
+  <div style="flex: 1; padding: 13px 18px 14px; display: flex;
+              flex-direction: column; min-height: 0">
+
+    <!-- ------------------------------------------------------ medidas -->
+    <div style="flex: none; font-size: 14px; font-weight: 900">Medidas</div>
+    <div style="flex: none; margin-top: 8px; display: grid;
+                grid-template-columns: repeat(3, 1fr); gap: 10px">
+      <div style="border: 1px solid var(--pn-borda); border-radius: 12px;
+                  padding: 9px 12px">
+        <div style="font-size: 11px; font-weight: 800; color: var(--pn-suave)">Tempo total médio</div>
+        <div style="margin-top: 2px; font-size: 19px; font-weight: 900">21,5 <span style="font-size: 12px">min</span></div>
+      </div>
+      <div style="border: 1px solid var(--pn-borda); border-radius: 12px;
+                  padding: 9px 12px">
+        <div style="font-size: 11px; font-weight: 800; color: var(--pn-suave)">Espera média</div>
+        <div style="margin-top: 2px; font-size: 19px; font-weight: 900">10,2 <span style="font-size: 12px">min</span></div>
+      </div>
+      <div style="border: 1px solid var(--pn-borda); border-radius: 12px;
+                  padding: 9px 12px">
+        <div style="font-size: 11px; font-weight: 800; color: var(--pn-suave)">Preparo médio</div>
+        <div style="margin-top: 2px; font-size: 19px; font-weight: 900">11,3 <span style="font-size: 12px">min</span></div>
+      </div>
+    </div>
+
+    <!-- ------------------------------------------------ os mais lentos -->
+    <div style="flex: none; margin-top: 13px; font-size: 14px; font-weight: 900">
+      Os mais lentos
+    </div>
+
+    <div style="flex: none; margin-top: 8px; display: grid;
+                grid-template-columns: 94px 1fr 108px 66px 70px 66px;
+                font-size: 10px; font-weight: 800; letter-spacing: 0.5px;
+                color: var(--pn-fraco); padding-bottom: 6px;
+                border-bottom: 1px solid var(--pn-borda)">
+      <span>LANÇADO</span>
+      <span>ITEM</span>
+      <span>CANAL</span>
+      <span style="text-align: right">ESPERA</span>
+      <span style="text-align: right">PREPARO</span>
+      <span style="text-align: right">TOTAL</span>
+    </div>
+
+    <div style="flex: none; display: grid;
+                grid-template-columns: 94px 1fr 108px 66px 70px 66px;
+                align-items: center; font-size: 12px; font-weight: 700;
+                font-variant-numeric: tabular-nums; padding: 7px 0;
+                border-bottom: 1px solid var(--pn-borda)">
+      <span style="color: var(--pn-suave)">11/10 20:52</span>
+      <span style="font-weight: 800">Burger Duplo Cheddar</span>
+      <span style="color: var(--pn-suave)">iFood</span>
+      <span style="text-align: right">24:18</span>
+      <span style="text-align: right">19:40</span>
+      <span style="text-align: right; font-weight: 900">43:58</span>
+    </div>
+
+    <div style="flex: none; display: grid;
+                grid-template-columns: 94px 1fr 108px 66px 70px 66px;
+                align-items: center; font-size: 12px; font-weight: 700;
+                font-variant-numeric: tabular-nums; padding: 7px 0;
+                border-bottom: 1px solid var(--pn-borda)">
+      <span style="color: var(--pn-suave)">04/10 21:07</span>
+      <span style="font-weight: 800">Burger Duplo Cheddar</span>
+      <span style="color: var(--pn-suave)">Totem</span>
+      <span style="text-align: right">19:02</span>
+      <span style="text-align: right">16:25</span>
+      <span style="text-align: right; font-weight: 900">35:27</span>
+    </div>
+
+    <div style="flex: none; display: grid;
+                grid-template-columns: 94px 1fr 108px 66px 70px 66px;
+                align-items: center; font-size: 12px; font-weight: 700;
+                font-variant-numeric: tabular-nums; padding: 7px 0;
+                border-bottom: 1px solid var(--pn-borda)">
+      <span style="color: var(--pn-suave)">18/10 20:14</span>
+      <span style="font-weight: 800">Burger Duplo Cheddar</span>
+      <span style="color: var(--pn-suave)">Cardápio Digital</span>
+      <span style="text-align: right">12:35</span>
+      <span style="text-align: right">11:11</span>
+      <span style="text-align: right; font-weight: 900">23:46</span>
+    </div>
+
+    <div style="flex: none; display: grid;
+                grid-template-columns: 94px 1fr 108px 66px 70px 66px;
+                align-items: center; font-size: 12px; font-weight: 700;
+                font-variant-numeric: tabular-nums; padding: 7px 0;
+                border-bottom: 1px solid var(--pn-borda)">
+      <span style="color: var(--pn-suave)">25/10 19:48</span>
+      <span style="font-weight: 800">Burger Duplo Cheddar</span>
+      <span style="color: var(--pn-suave)">iFood</span>
+      <span style="text-align: right">11:50</span>
+      <span style="text-align: right">10:22</span>
+      <span style="text-align: right; font-weight: 900">22:12</span>
+    </div>
+
+    <div style="flex: none; display: grid;
+                grid-template-columns: 94px 1fr 108px 66px 70px 66px;
+                align-items: center; font-size: 12px; font-weight: 700;
+                font-variant-numeric: tabular-nums; padding: 7px 0">
+      <span style="color: var(--pn-suave)">12/10 20:36</span>
+      <span style="font-weight: 800">Burger Duplo Cheddar</span>
+      <span style="color: var(--pn-suave)">Cardápio Digital</span>
+      <span style="text-align: right">10:58</span>
+      <span style="text-align: right">11:06</span>
+      <span style="text-align: right; font-weight: 900">22:04</span>
+    </div>
+  </div>
+</div>

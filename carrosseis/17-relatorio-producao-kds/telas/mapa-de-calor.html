@@ -1,0 +1,142 @@
+<!-- O mapa de calor dia da semana × hora, da aba Tempo. Imagem do slide 4.
+
+     A ESTRUTURA é a da tela: o título, o texto de ajuda dela palavra por
+     palavra, e a grade com o dia nas linhas e a hora nas colunas, cada
+     cruzamento trazendo o tempo médio em minutos. Célula com menos de cinco
+     itens medidos sai em cinza — é comportamento da tela, e por isso tem uma
+     aqui.
+
+     DUAS COISAS MUDARAM DA TELA, e as duas têm razão:
+
+     1. AS HORAS SÃO AS DE SERVIÇO, 16h às 23h. A tela pinta as 24, e no slide
+        as oito colunas de madrugada sairiam cinzas, roubando largura da célula
+        — que é onde mora o número que o título promete. O recorte acaba onde a
+        afirmação do slide acaba.
+
+     2. O DIA SAI POR NOME, e não pelo número. A tela escreve 2, 3, 4, 5, 6, 7
+        e 1 no eixo; logo abaixo, na tabela "Por dia da semana", o mesmo
+        relatório escreve Segunda, Terça, Quarta. Em arte, uma coluna de
+        números de 2 a 7 lê como defeito, e a palavra que o próprio relatório
+        usa duas seções adiante não é invenção nossa.
+
+     Os NÚMEROS são de exemplo. O pico cai no sábado às 20h, e isso conversa
+     com a Curva do dia da capa, que também pica às 20h. A média da grade anda
+     pelos 14 min, que é o Tempo total médio do Resumo.
+
+     NÃO HÁ LEGENDA DE UNIDADE embaixo da grade. Escrevi uma, "tempo total
+     médio em minutos", e tirei: a tela não tem, e legenda inventada é
+     interface inventada. Quem diz que o número é tempo médio é o corpo do
+     slide, que é onde a explicação cabe sem virar produto.
+
+     A MEDIDA fica abaixo de 0,66 de altura sobre largura, que é o que cabe no
+     miolo do slide com a faixa em 904 px. -->
+<div class="tela" data-medida="680x344" style="background: #fff">
+
+  <div style="flex: 1; padding: 17px 18px 16px; display: flex;
+              flex-direction: column; min-height: 0">
+
+    <div style="flex: none; font-size: 15px; font-weight: 900">
+      Mapa de calor dia da semana × hora
+    </div>
+    <div style="flex: none; margin-top: 4px; font-size: 12px; font-weight: 600;
+                line-height: 1.45; color: var(--pn-suave)">
+      A terça às 20h não se parece com o sábado às 20h — é aqui que decisão de
+      escala se apoia. Célula com menos de 5 itens medidos sai em cinza: não é
+      zero, é pouco dado.
+    </div>
+
+    <!-- A grade. A coluna do dia é fixa; as oito horas dividem o resto. -->
+    <div style="flex: none; margin-top: 13px; display: grid;
+                grid-template-columns: 54px repeat(8, 1fr); gap: 4px;
+                font-size: 11px; font-weight: 800; color: var(--pn-fraco);
+                text-align: center">
+      <span></span>
+      <span>16h</span><span>17h</span><span>18h</span><span>19h</span>
+      <span>20h</span><span>21h</span><span>22h</span><span>23h</span>
+    </div>
+
+    <div style="flex: none; margin-top: 5px; display: grid;
+                grid-template-columns: 54px repeat(8, 1fr); gap: 4px;
+                font-size: 12px; font-weight: 800; text-align: center;
+                font-variant-numeric: tabular-nums">
+
+      <span style="display: flex; align-items: center; font-size: 11px;
+                   color: var(--pn-suave)">Seg</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fdf0ef">8,4</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fdf0ef">9,1</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">10,2</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">12,6</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f8bfba">13,1</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">11,8</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">10,4</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fdf0ef">9,2</span>
+
+      <span style="display: flex; align-items: center; font-size: 11px;
+                   color: var(--pn-suave)">Ter</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f2f3f7;
+                   color: var(--pn-fraco)">—</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fdf0ef">8,6</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fdf0ef">9,8</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">11,9</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">12,4</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">11,2</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fdf0ef">9,9</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fdf0ef">8,8</span>
+
+      <span style="display: flex; align-items: center; font-size: 11px;
+                   color: var(--pn-suave)">Qua</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fdf0ef">8,2</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fdf0ef">9,0</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">10,6</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f8bfba">13,4</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f8bfba">14,0</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">12,5</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">10,8</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fdf0ef">9,4</span>
+
+      <span style="display: flex; align-items: center; font-size: 11px;
+                   color: var(--pn-suave)">Qui</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fdf0ef">8,8</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fdf0ef">9,7</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">11,4</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f8bfba">14,8</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f8bfba">15,6</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f8bfba">13,9</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">11,7</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">10,1</span>
+
+      <span style="display: flex; align-items: center; font-size: 11px;
+                   color: var(--pn-suave)">Sex</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">10,6</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">12,3</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f8bfba">15,1</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f2746b; color: #fff">19,4</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f2746b; color: #fff">21,8</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f59a93">19,2</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f8bfba">15,4</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">12,2</span>
+
+      <span style="display: flex; align-items: center; font-size: 11px;
+                   color: var(--pn-suave)">Sáb</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">11,2</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f8bfba">13,5</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f59a93">16,8</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f2746b; color: #fff">21,6</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #ef4239; color: #fff">24,3</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f2746b; color: #fff">21,1</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f59a93">16,9</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f8bfba">13,0</span>
+
+      <span style="display: flex; align-items: center; font-size: 11px;
+                   color: var(--pn-suave)">Dom</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fdf0ef">9,4</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">10,8</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">12,9</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f8bfba">15,7</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f59a93">16,4</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #f8bfba">14,6</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">12,1</span>
+      <span style="padding: 7px 0; border-radius: 6px; background: #fbdcd9">10,3</span>
+    </div>
+  </div>
+</div>

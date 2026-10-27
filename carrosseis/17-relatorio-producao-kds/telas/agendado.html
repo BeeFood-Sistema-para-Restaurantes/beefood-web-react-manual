@@ -1,0 +1,110 @@
+<!-- Os dois blocos da aba Canal: "Agendado × imediato" e "Pontualidade do
+     agendado". Imagem do slide 5.
+
+     A ESTRUTURA é a da aba, na ordem dela, com o texto de ajuda que a tela
+     escreve palavra por palavra — "Num agendado a cozinha espera de propósito
+     até perto da hora prometida. Misturar as duas numa média só esconde as
+     duas." — e as colunas que ela tem: REGIME, ITENS, ESPERA, PREPARO, TOTAL.
+     Os três cartões de pontualidade são os dela: "Pronto antes da hora", "Até
+     10 min depois", "Mais de 10 min".
+
+     FICOU DE FORA a tabela "Por canal", que abre a aba. Ela nomeia iFood,
+     99Food, Keeta, cardápio próprio — e o slide fala do regime, não do
+     marketplace. Canal é a aba; agendado × imediato é o recorte dela que o
+     título promete.
+
+     Os NÚMEROS são do jogo da peça, e fecham:
+
+       1.620 imediatos + 870 agendados      = 2.490, os itens produzidos
+       7,9 + 4,5 = 12,4   e   13,3 + 4,3    = 17,6
+       (1.620x12,4 + 870x17,6) / 2.490      = 14,2 min, o total do Resumo
+       (1.620x 7,9 + 870x13,3) / 2.490      =  9,8 min, a espera do Resumo
+       870 / 2.490                          = 34,9% de agendados
+       701 + 44 + 67                        = 812 agendados já prontos
+       701/812 = 86,3%  44/812 = 5,4%  67/812 = 8,3%   → soma 100%
+
+     Repare que o agendado tem a ESPERA maior e o PREPARO menor que o imediato.
+     É a afirmação do slide virando número: a cozinha segura o prato de
+     propósito, e quando pega, faz na mesma velocidade. -->
+<div class="tela" data-medida="680x314" style="background: #fff">
+
+  <div style="flex: 1; padding: 16px 18px 15px; display: flex;
+              flex-direction: column; min-height: 0">
+
+    <!-- ------------------------------------------- agendado x imediato -->
+    <div style="flex: none; font-size: 15px; font-weight: 900">Agendado × imediato</div>
+    <div style="flex: none; margin-top: 4px; font-size: 12px; font-weight: 600;
+                line-height: 1.45; color: var(--pn-suave)">
+      Num agendado a cozinha espera de propósito até perto da hora prometida.
+      Misturar as duas numa média só esconde as duas.
+    </div>
+
+    <div style="flex: none; margin-top: 11px; display: grid;
+                grid-template-columns: 1fr 80px 92px 94px 86px;
+                font-size: 11px; font-weight: 800; letter-spacing: 0.5px;
+                color: var(--pn-fraco); padding-bottom: 6px;
+                border-bottom: 1px solid var(--pn-borda)">
+      <span>REGIME</span>
+      <span style="text-align: right">ITENS</span>
+      <span style="text-align: right">ESPERA</span>
+      <span style="text-align: right">PREPARO</span>
+      <span style="text-align: right">TOTAL</span>
+    </div>
+
+    <div style="flex: none; display: grid;
+                grid-template-columns: 1fr 80px 92px 94px 86px;
+                align-items: center; font-size: 13px; font-weight: 700;
+                font-variant-numeric: tabular-nums; padding: 9px 0;
+                border-bottom: 1px solid var(--pn-borda)">
+      <span style="font-weight: 800">Imediato</span>
+      <span style="text-align: right">1.620</span>
+      <span style="text-align: right">7,9 min</span>
+      <span style="text-align: right">4,5 min</span>
+      <span style="text-align: right; font-weight: 900">12,4 min</span>
+    </div>
+
+    <div style="flex: none; display: grid;
+                grid-template-columns: 1fr 80px 92px 94px 86px;
+                align-items: center; font-size: 13px; font-weight: 700;
+                font-variant-numeric: tabular-nums; padding: 9px 0">
+      <span style="font-weight: 800">Agendado
+        <span style="margin-left: 7px; font-size: 10px; font-weight: 800;
+                     color: var(--pn-fraco)">34,9% dos itens</span>
+      </span>
+      <span style="text-align: right">870</span>
+      <span style="text-align: right">13,3 min</span>
+      <span style="text-align: right">4,3 min</span>
+      <span style="text-align: right; font-weight: 900">17,6 min</span>
+    </div>
+
+    <!-- --------------------------------------------- pontualidade -->
+    <div style="flex: none; margin-top: 14px; font-size: 15px; font-weight: 900">
+      Pontualidade do agendado
+    </div>
+    <div style="flex: none; margin-top: 3px; font-size: 12px; font-weight: 600;
+                color: var(--pn-suave)">
+      870 de 870 agendados têm hora prometida; 812 já ficaram prontos.
+    </div>
+
+    <div style="flex: none; margin-top: 10px; display: grid;
+                grid-template-columns: repeat(3, 1fr); gap: 10px">
+      <div style="border: 1px solid var(--pn-borda); border-radius: 12px;
+                  padding: 10px 13px">
+        <div style="font-size: 12px; font-weight: 800; color: var(--pn-suave)">Pronto antes da hora</div>
+        <div style="margin-top: 3px; font-size: 20px; font-weight: 900;
+                    color: var(--pn-verde)">701 <span style="font-size: 13px">· 86,3%</span></div>
+      </div>
+      <div style="border: 1px solid var(--pn-borda); border-radius: 12px;
+                  padding: 10px 13px">
+        <div style="font-size: 12px; font-weight: 800; color: var(--pn-suave)">Até 10 min depois</div>
+        <div style="margin-top: 3px; font-size: 20px; font-weight: 900">44 <span style="font-size: 13px">· 5,4%</span></div>
+      </div>
+      <div style="border: 1px solid var(--pn-borda); border-radius: 12px;
+                  padding: 10px 13px">
+        <div style="font-size: 12px; font-weight: 800; color: var(--pn-suave)">Mais de 10 min</div>
+        <div style="margin-top: 3px; font-size: 20px; font-weight: 900;
+                    color: var(--pn-vermelho)">67 <span style="font-size: 13px">· 8,3%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
