@@ -5,7 +5,28 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-10-26 (42ª rodada: a **API de Estoque**, terceira peça
+Última atualização: 2026-10-27 (43ª rodada: a #16 **foi devolvida inteira**, com
+a pergunta mais útil que esta memória já recebeu — *"por que erramos tanto se
+tínhamos o carrossel antigo disponível?"*. A peça saiu técnica (corpo de JSON num
+slide, tabela de `operation:` no outro) tendo a #13 pronta no repositório, e a
+causa foi **três regras desta memória aplicadas fora do lugar**. Primeira: *a
+documentação é a fonte* decide o **escopo** do que a peça pode afirmar, e nunca o
+**vocabulário** da arte — o release de novidade é informativo, não changelog.
+Segunda: **irmandade de peça se mede por leitor, não por assunto** — a #16 copiou
+as formas da #14, que fala com quem programa, em vez das da #13, que fala com o
+mesmo lojista. Terceira: *forma antes do conteúdo* é **remédio contra monotonia,
+não objetivo** — a #13 repete a mesma forma nos slides 3 e 4 e não é monótona,
+porque o que muda dentro da forma é o que ela prova. A refação trocou os dois
+slides de documentação por **prova pareada**, e isso trouxe dois aprendizados de
+captura: **o item da prova de escrita tem de poder ser achado sozinho na tela que
+vai fotografá-lo** — o exemplo do release estava cadastrado duas vezes — e **duas
+metades da mesma prova não podem se desmentir**, que é o caso do "18 itens" dito
+em cima de uma pílula que diz "Regular 10". Ver *mas ela decide o escopo, nunca o
+vocabulário*, *irmandade de peça se mede por leitor*, *"forma antes do conteúdo" é
+remédio*, *o item da prova tem de poder ser achado sozinho* e *duas metades da
+mesma prova não podem se desmentir*.)
+
+2026-10-26 (42ª rodada: a **API de Estoque**, terceira peça
 da família de integração e a primeira que **não vende uma porta, e sim o que
 passou a existir atrás das duas**. A herança é literal e medida: a #13 e a #14
 fecharam o recorte da tela de permissões em *Avaliações* porque as duas linhas
@@ -346,7 +367,7 @@ a posição na fila.
 | 13 | MCP: a loja dentro da IA | [13/10/2026](https://beefood.app/novidades/mcp-inteligencia-artificial) — **sem manual na pasta**; os passo a passo são os da própria folha do recurso. Release *MCP: converse com o seu restaurante usando IA*, nome de venda **MCP** | `carrosseis/13-mcp-conexao-ia/` | 4:5, 6 slides | `entrega/13-mcp-conexao-ia.zip` (6 PNG + copy) |
 | 14 | API Aberta | [13/10/2026](https://beefood.app/novidades/api-aberta-liberada) — **sem manual na pasta**; o passo a passo é o portal [`docs.beefood.app`](https://docs.beefood.app). Cinco das sete imagens são **desenho**, o maior número do acervo | `carrosseis/14-api-aberta/` | 4:5, 7 slides | `entrega/14-api-aberta.zip` (7 PNG + copy) |
 | 15 | Botão de WhatsApp no cardápio digital | [19/10/2026](https://beefood.app/novidades/cardapio-digital-botao-whatsapp) — manual em `manuais/cardapio-digital-botao-whatsapp/`; release, aba do painel e nome de venda **iguais**. Cinco das seis imagens são **captura**, do cardápio de produção | `carrosseis/15-botao-whatsapp/` | 4:5, 6 slides | `entrega/15-botao-whatsapp.zip` (6 PNG + copy) |
-| 16 | API de Estoque | [26/10/2026](https://beefood.app/novidades/api-estoque-mcp) — **sem manual na pasta**; o passo a passo são as duas folhas de *Aplicativos* e o portal [`docs.beefood.app`](https://docs.beefood.app). Release *Estoque na API Aberta e no MCP*, nome de venda **API de Estoque**. Terceira da família #13/#14, e a única que vende o que está **atrás** das duas portas | `carrosseis/16-api-estoque/` | 4:5, 6 slides | `entrega/16-api-estoque.zip` (6 PNG + copy) |
+| 16 | Estoque pela IA e pela API | [26/10/2026](https://beefood.app/novidades/api-estoque-mcp) — **sem manual na pasta**; o passo a passo são as duas folhas de *Aplicativos* e o portal [`docs.beefood.app`](https://docs.beefood.app). Release *Estoque na API Aberta e no MCP*, nome de venda **Estoque** (a versão devolvida vendia *API de Estoque*). Terceira da família #13/#14, e a única que vende o que está **atrás** das duas portas. **Devolvida e refeita**: as seis formas são as da #13 | `carrosseis/16-api-estoque/` | 4:5, 6 slides (refeitos na 2ª rodada) | `entrega/16-api-estoque.zip` (6 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -1029,34 +1050,59 @@ e o CTA manda **ligar a chave**, que é o primeiro passo. A peça abre no fim e
 fecha no começo, e isso casa com a convenção de o CTA repetir a arte da capa —
 a mesma imagem, lida como promessa no slide 1 e como instrução no slide 6.
 
-#### A #16 voltou ao nome + dois-pontos, e quem decidiu foi a segunda metade
+#### A #16 trocou de molde na refação, e o que mudou foi uma palavra
+
+A capa entregue primeiro era **nome + dois-pontos**:
 
 > **API de Estoque**: a sua IA responde o que está acabando
-> O mesmo saldo pela conversa e pelo seu sistema.
 
-Placar depois dela: afirmação do fato 5, anúncio de chegada 3, **nome +
-dois-pontos 3**, pergunta 2, nome + canal 1, nome + para quem 1, ordem direta 1;
+Ela foi devolvida junto com o resto da peça, e caiu por causa do **nome**. "API
+de Estoque" é como o desenvolvedor chama a coisa; quem rola o feed tem um
+restaurante, e para ele ela se chama **Estoque**, que é o nome da linha nova nas
+duas folhas de *Aplicativos* e o nome do módulo no menu. E *Estoque* sozinho não
+abre uma capa, porque o módulo já existia — o molde que começa pelo nome só se
+paga quando o nome é notícia.
+
+A capa que ficou é **afirmação do fato**:
+
+> Agora a sua IA cuida do **Estoque**
+> Pergunte o que está acabando e mande lançar a compra, ali na conversa — ou
+> deixe o seu próprio sistema fazer sozinho.
+
+Placar depois dela: **afirmação do fato 6**, anúncio de chegada 3, nome +
+dois-pontos 2, pergunta 2, nome + canal 1, nome + para quem 1, ordem direta 1;
 antes × agora continua em 0.
 
-O nome do recurso é obrigatório nos seis moldes, então o que se escolhe na
-verdade é **o que vem depois dele**, e aqui havia duas segundas metades
-verdadeiras: o que o recurso **é** (estoque pelas duas portas) e o que ele
-**faz por quem lê** (responder o que está acabando). A primeira é descrição de
-integração e só diz alguma coisa a quem já sabe o que é uma porta; a segunda é
-uma pergunta que o dono de restaurante faz todo dia. A regra que isso confirma é
-velha — o molde pede o nome, mas quem vende é o ganho —, e a nova é a condição
-de uso: **em peça de integração, a segunda metade da capa nunca é o canal.**
-Canal é o assunto do slide 2, que é onde ele vira prova.
+**E isso corrige uma linha que esta memória tinha escrito errado.** A versão
+anterior desta seção descartou a afirmação do fato dizendo que ela *"poria o
+sujeito na API — o lugar onde o recurso mora, de novo o erro de sujeito da
+#11"*. Não põe. O molde não escolhe o sujeito; **quem escolhe o sujeito é quem
+escreve**. Aqui o sujeito é *a sua IA*, que é uma coisa do leitor, e o
+complemento é *o Estoque*, que é outra coisa do leitor — a API não aparece na
+frase. O erro da #11 foi pôr o sujeito no lugar onde o recurso mora, e isso é um
+erro de **redação**, não do molde.
 
-Os concorrentes caíram assim:
+A outra palavra que decide a capa é **Agora**. Ela faz o trabalho que um
+*antes × agora* faria, sem gastar meia linha explicando uma tela que o leitor
+nunca abriu — e era esse o problema daquele molde aqui: o único "antes"
+documentado é o *Em breve* que a #13 e a #14 fotografaram, que é a **nossa** fila
+de desenvolvimento, não a dor dele.
 
-- **anúncio de chegada** daria *"Chegou a API de Estoque"*, e a peça inteira é
-  sobre uma capacidade que já existia em duas portas ganhando um terceiro
-  assunto. "Chegou" é verdade e é a menor coisa verdadeira que dava para dizer;
-- **afirmação do fato** poria o sujeito na API — o lugar onde o recurso mora, de
-  novo o erro de sujeito da #11;
+E o verbo é **cuidar**, não *consultar* nem *integrar*. Cuidar do estoque é o que
+o lojista faz; consultar e integrar é o que o sistema faz.
+
+Os outros concorrentes caíram assim:
+
+- **anúncio de chegada** daria *"Chegou a API de Estoque"*, e o molde só se paga
+  quando um módulo inteiro chega. Aqui o módulo já estava no painel: o que
+  chegou foi o acesso a ele de fora, e "chegou o Estoque" é falso para quem já
+  usa;
 - **ordem direta** precisaria de um objeto só, e a condição da #4 não fecha: o
   recurso lê, escreve, movimenta e lista histórico.
+
+A regra geral que a primeira versão confirmou, e que continua valendo: **em peça
+de integração, a segunda metade da capa nunca é o canal.** Canal é o assunto do
+slide 2, que é onde ele vira prova.
 
 ### O décimo primeiro vício: a copy legenda a prova, em vez de vendê-la
 
@@ -2756,6 +2802,84 @@ O sintoma, quando isso falha, não é um slide errado: é uma peça **inteira**
 monótona. Quatro slides dizendo "a IA sabe responder" não é repetição de arte, é
 repetição de **assunto**, e nenhum ajuste de layout conserta isso.
 
+### Mas ela decide o ESCOPO, nunca o vocabulário
+
+Essa regra foi aplicada fora do lugar na 43ª rodada, e custou a #16 inteira. A
+peça foi entregue com o corpo de `GET /v1/stock/items` num slide e uma tabela de
+`operation: add` / `subtract` / `new` no seguinte, e voltou com três linhas:
+
+> *de forma geral, todos os outros slides deveriam ser parecidos com o carrossel
+> que já fizemos sobre MCP. por que erramos tanto? o novidades não é técnico e
+> sim informativo*
+
+A regra de cima existe para resolver um problema de **escopo**: o release conta
+metade do que foi entregue, e quem só lê o release vende menos do que existe. É
+isso, e só isso. Lida como permissão para **falar como a documentação**, ela
+vira o contrário de si mesma — porque o leitor da documentação é quem integra, e
+o leitor do carrossel tem um restaurante.
+
+As duas metades da regra, para não confundir de novo:
+
+| A documentação decide | A documentação não decide |
+|---|---|
+| **o que** a peça pode afirmar | **como** a arte fala |
+| quantas operações existem, quais gravam, o que o servidor recusa | o nome que o slide dá a cada uma |
+| se o release omitiu metade do recurso | se o slide mostra JSON |
+
+Na peça refeita, `stockSituation=low` se chama *"o que está abaixo do mínimo"* e
+`operation: add` se chama *"dá entrada no estoque"*. Os nomes de verdade
+continuam medidos, e moram no roteiro, no `chamadas.json` e na nota de produção
+da copy — que é por onde o suporte responde a quem for integrar.
+
+**A frase do dono é o teste:** *o novidades não é técnico e sim informativo*. A
+página de novidades é o que o lojista lê para saber o que ganhou, não o
+changelog. Se um slide só se entende com a documentação aberta ao lado, ele está
+errado mesmo que cada caractere dele seja verdade.
+
+### Irmandade de peça se mede por LEITOR, não por assunto
+
+O erro acima teve um agravante bobo, e ele é fácil de repetir: a #16 copiou as
+formas da **#14**, porque a #14 é a irmã mais recente e as duas tratam de
+integração. Só que a #13 estava no repositório o tempo todo, pronta, com a
+gramática certa.
+
+| Peça | Assunto | Quem lê |
+|---|---|---|
+| #13 MCP | integração | o **lojista** — ele conecta, ele pergunta |
+| #14 API Aberta | integração | o **integrador** — ele escreve o código |
+| #16 Estoque | integração | o **lojista**, como a #13 |
+
+A `.requisicao` e a `.eventos` da #14 existem porque lá o leitor lê JSON. Quem
+for montar a próxima peça de uma família: antes de olhar para a peça anterior,
+pergunte **quem lê esta**, e vá buscar o molde na irmã que tem o mesmo leitor —
+mesmo que ela seja três peças mais velha.
+
+Na refação, a #16 ficou com **seis formas de seis iguais às da #13**, e isso não
+é preguiça: as duas vendem a mesma coisa para a mesma pessoa, e quem viu a #13
+reconhece esta antes de ler o título. O `conferir-texto.py` passou de poucos
+avisos para **81 trechos repetidos de outro carrossel**, quase todos da #13 —
+rótulos como *O que a IA respondeu* e *O que foi pedido na conversa*. Esse aviso
+é para ser lido, não obedecido: aqui cada repetição é gramática reusada de
+propósito, que é exatamente o caso que o aviso manda conferir.
+
+### "Forma antes do conteúdo" é remédio, e não objetivo
+
+O terceiro pedaço do mesmo erro. Esta memória registra, desde a #13, que peça de
+integração tende a virar quatro blocos escuros iguais, e que o que separa um
+slide do outro é a forma. A #16 leu isso como **meta**: variou a forma cinco
+vezes em seis páginas — conversa, cena, código, lista, captura, captura — e
+contou como acerto o fato de nenhuma página repetir a anterior.
+
+**Variedade não é o objetivo; monotonia é o defeito.** A #13 tem duas páginas de
+miolo com a MESMA forma (slides 3 e 4: conversa em cima, print do painel
+embaixo) e não é monótona, porque o que muda dentro da forma é o que ela prova —
+uma lê, a outra altera. Forma repetida com conteúdo diferente lê como argumento;
+forma variada só para variar lê como catálogo de componentes.
+
+O teste, antes de trocar de forma: **o que a página seguinte prova é diferente
+do que esta provou?** Se for, a forma pode repetir. Se não for, trocar a forma
+não salva — o que falta é fato.
+
 ## Render
 
 - O slide é **fragmento de body**; o `renderizar.py` embrulha. Contrato copiado
@@ -4091,6 +4215,32 @@ fica como o manual deixou.
 Vale como pergunta de revisão: *a imagem deste slide prova o título, ou só
 ilustra o assunto dele?*
 
+### E duas metades da mesma prova não podem se desmentir uma à outra
+
+A gramática de prova pareada — o que a IA respondeu em cima, o que o painel
+mostra embaixo — tem um risco que a prova solta não tem: **os dois números
+precisam ser contados pela mesma régua**. A #16 quase publicou uma resposta
+desenhada dizendo *"os outros 18 itens com controle estão regulares"* em cima de
+um print cuja pílula dizia **Regular 10**. Os dois números eram verdade: 18
+soma insumo, produto e complemento, e a pílula daquela aba conta só insumo.
+Verdade que contradiz a imagem logo abaixo dela é pior do que número redondo,
+porque é o leitor que vira o mentiroso da história.
+
+O conserto é de medição, não de redação: o script passou a medir também a versão
+`type=supply` da consulta, e é esse número que a arte usa. **Quando o slide pareia
+conversa e print, meça o recorte exato que o print mostra** — e grave os dois no
+arquivo de medição, para a próxima rodada não escolher o errado de novo.
+
+Duas regras irmãs, da mesma peça:
+
+- **o rótulo nomeia a aba.** *"O que o painel mostra, em Estoque → Insumos"* e
+  *"…, em Estoque → Produtos"*. Sem isso, duas contagens diferentes em páginas
+  seguidas leem como erro, e não como duas telas;
+- **pílula que não prova nada sai do recorte.** No slide seguinte a tela está
+  filtrada por busca, e aí todas as pílulas passam a contar só a linha achada e
+  dizem 1. Um *Regular 1* na página depois de um *Regular 10* lê como
+  contradição, então aquele recorte começa abaixo delas.
+
 ## A pasta é numerada pela ordem de entrega
 
 Sete peças depois, `ls carrosseis/` devolvia ordem alfabética — que num acervo de
@@ -4443,6 +4593,32 @@ O conserto tem duas partes, e a segunda é a lição:
 Vale também o que **não** se usou: `remove` e `set` não existem nessa API, e
 descobrir isso é medição, não leitura de release. As operações são `add`,
 `subtract` e `new`, e é a terceira que serve de desfazer.
+
+#### O item da prova tem de poder ser achado SOZINHO na tela que vai fotografá-lo
+
+A refação da #16 trocou a prova de escrita de um JSON por um **print do painel**,
+e aí apareceu um requisito que não existia enquanto a prova era desenhada: a
+linha fotografada tem de ser **inequívoca**. Print de item duplicado não prova
+nada, porque não dá para saber qual das linhas mudou.
+
+Dois candidatos melhores caíram por isso:
+
+- o **TOMATE**, que seria o melhor roteiro — é o mesmo item que a consulta do
+  slide 3 encontra abaixo do mínimo, e a história ficaria amarrada. A loja tem
+  **três** insumos com esse nome, e a busca devolve cinco linhas;
+- a **Coca Cola 350ml**, que é o exemplo do próprio release, está cadastrada
+  **duas vezes**, as duas com controle de estoque ligado e as duas no mesmo
+  setor.
+
+Dos oito produtos com controle ligado, só dois têm nome único. O item da peça é
+um desses dois, e o `capturar-telas.py` **estoura** se a busca devolver qualquer
+número de linhas diferente de 1 — porque o defeito é silencioso: a tela com duas
+linhas iguais sai bonita.
+
+A ordem certa, quando a prova de escrita vira print: **escolha o item pela tela,
+não pela história.** Liste os candidatos, procure cada um na tela em que vai
+fotografar, e só então decida o roteiro. O nome do release é sugestão, não
+obrigação — e se ele não servir, a copy explica por quê.
 
 ### Desenho que copia tela existente é a versão pior dela
 
