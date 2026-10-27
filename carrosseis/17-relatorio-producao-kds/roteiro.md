@@ -67,6 +67,12 @@ produzidos*, *Retrabalho*, *Cobertura*, *Onde o tempo é investido*,
 *Os mais lentos*, *lançamento → preparo*, *preparo → pronto*, *Lançado*,
 *Preparo*, *Pronto*, *Entregue*.
 
+**O texto de ajuda do mapa de calor saiu palavra por palavra, inclusive o
+tropeço.** A tela escreve *"é aqui que decisão de escala se apoia"*, sem o
+artigo, e o slide 4 escreve igual. Não é erro de digitação nosso: é o texto que
+está no ar, e consertá-lo na arte faria a imagem divergir da tela que o leitor
+vai abrir. Se o produto arrumar a frase, a arte acompanha.
+
 ## Nome de venda × nome do release
 
 O release se chama **Relatório de Produção (KDS)** e o item de menu é
@@ -139,12 +145,30 @@ onde dava — diferenciando os chapéus — e não desmontando o molde.
 | # | Chapéu / pílula | Título | Corpo |
 |---|---|---|---|
 | 1 | `Novidade` | Chegou o relatório de **Produção** do KDS | *(subtítulo)* Você vê quanto tempo cada prato levou entre cair no KDS e ficar pronto. |
-| 2 | `DO LANÇAMENTO AO PRONTO` | A espera na fila e o preparo **vêm separados** | Todo item que passa pelo KDS marca três horários: quando foi lançado, quando a cozinha pegou e quando ficou pronto. Com eles você lê o tempo total e, dentro dele, quanto o prato ficou parado na fila e quanto levou para ser feito. São sete abas cortando esse mesmo tempo de sete jeitos. |
-| 3 | `O PRATO QUE SEGURA A FILA` | **Itens**: quanto cada prato passa da média da sua loja | Os pratos aparecem do mais demorado ao mais rápido, e ao lado de cada um está quanto ele passa da média. O que segura a fila sai dali com nome e com o tamanho da diferença. |
+| 2 | `SETE ABAS, UM TEMPO SÓ` | A espera na fila e o preparo **vêm separados** | Cada item carrega três horários do KDS: lançado, preparo e pronto. O tempo total vale para todos; a divisão entre espera e preparo, para os que a cozinha marcou ao começar. |
+| 3 | `O PRATO QUE SEGURA A FILA` | **Itens**: quanto cada prato passa da média da sua loja | Os pratos saem do mais demorado ao mais rápido. O que segura a fila sai dali com nome e com o tamanho da diferença. |
 | 4 | `QUANDO A FILA CRESCE` | **Tempo**: o dia e a hora em que a cozinha aperta | No mapa de calor o dia da semana cruza com a hora, e cada cruzamento traz o tempo médio dali. O aperto da sua cozinha ganha dia e hora, e é com eles que você monta a escala da semana seguinte. |
 | 5 | `AGENDADO NÃO É ATRASO` | **Canal**: o agendado não pesa na média de quem pediu agora | O agendado fica parado de propósito até perto da hora marcada, e essa espera não entra na média do pedido imediato. Ao lado, você vê quantos agendados ficaram prontos antes da hora combinada. |
-| 6 | `ATRÁS DO NÚMERO` | **Detalhes em janela**: cada pedido que entrou na conta | Clique no cartão, na linha ou na barra e veja os itens que formaram aquele número, os pedidos mais lentos do período e a linha do tempo de cada um, com a espera e o preparo em minutos e segundos. A janela leva junto os filtros do topo: o que ela abre é exatamente o que você clicou. |
-| 7 | `Já está no ar` · `Desempenho → Produção (KDS)` | Abra a **Produção do KDS** hoje | *(subtítulo)* Comece pelo Resumo e escolha o período no topo. A lista inteira sai em Excel. |
+| 6 | `ATRÁS DO NÚMERO` | **Detalhes em janela**: cada pedido que entrou na conta | Clique no cartão, na linha ou na barra e veja os pedidos que formaram aquele número, um a um, com a espera e o preparo de cada um. A janela leva junto os filtros do topo. |
+| 7 | `Já está no ar` · `Desempenho → Produção (KDS)` | Abra a **Produção do KDS** hoje | *(subtítulo)* Comece pelo Resumo e escolha o período no topo. A lista inteira sai em Excel. Tudo que entra de novo está em **beefood.app/novidades**. |
+
+### A quarta correção, que veio da arte e não de subagente
+
+Os corpos dos slides 2, 3 e 6 encolheram depois da primeira renderização: o
+texto encostava na imagem, e quem cede é o texto. É a mesma aritmética que a
+#16 escreveu no slide 5 — a página tem por volta de 600 px para imagem, e o que
+não serve à afirmação só diminui o que serve. O "São sete abas" do fim do corpo
+2 não foi cortado: subiu para o chapéu, onde custa zero.
+
+E uma mudança que não é de altura, é de verdade. O corpo 2 dizia *"todo item
+que passa pelo KDS marca três horários"*, e isso não é verdade em cozinha
+nenhuma: o marco do meio só existe se a equipe tocar em **iniciar** no monitor.
+A loja de produção que serviu de planta marcou pronto sem marcar iniciado em
+4.637 dos 4.670 itens medidos, e o relatório inteiro dela sai com traço nas
+colunas Espera e Preparo. Quem abrisse o relatório depois de ler a promessa
+encontraria traço. A frase que ficou é a da própria tela — *"O tempo total vale
+para todos; a divisão entre espera e preparo vale para 33"* — e ela não
+enfraquece a venda: diz ao dono o único gesto que dobra o relatório dele.
 
 ## A capa
 
@@ -208,9 +232,15 @@ a arte não leva carimbo.
 
 ## Decisões de arte
 
-- **Sem data na arte.** O seletor de período da tela desenhada diz
-  *Últimos 30 dias*, sem as datas que a tela de verdade imprime ao lado. A tela
-  desenhada não é print de verdade, então a exceção da regra não a alcança.
+- **Sem data de carimbo na arte, mas com a data que é dado.** A regra da casa
+  tem uma exceção escrita só para print de verdade, e tela desenhada não é
+  print — então o seletor de período diz *Últimos 30 dias*, sem as datas que a
+  tela de verdade imprime ao lado, e o cabeçalho da janela diz a mesma coisa.
+  Já os relógios da linha do tempo e a coluna *Lançado* de *Os mais lentos*
+  ficam: ali a data **é a medição**, e sem ela o slide 2 não tem o que provar.
+  A separação que ficou valendo é essa — data que carimba quando a peça foi
+  feita sai; data que é o dado medido fica, e sem o ano, que é a parte que
+  envelhece à vista.
 - **A medida do desenho sai do mockup.** `1440x900` é 16/10, a proporção exata
   do `.notebook__tela`; fora dela o `object-fit: cover` come uma faixa do
   relatório. As telas que entram como `.recorte` nascem na largura em que vão
