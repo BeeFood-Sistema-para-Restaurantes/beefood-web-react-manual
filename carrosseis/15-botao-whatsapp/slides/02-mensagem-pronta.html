@@ -1,0 +1,61 @@
+<!-- Slide 2: EXPLICA o recurso que a capa acabou de nomear, e por isso e o unico
+     titulo da peca que nao repete o nome dele.
+
+     O argumento e o melhor que este recurso tem, e e o que o separa de pendurar
+     um link de WhatsApp no cardapio: quem tem duvida nao precisa nem saber como
+     comecar a falar, e a loja recebe a pergunta ja identificada.
+
+     A IMAGEM E A UNICA DESENHADA DA PECA (telas/zap-botao.html), pelo mesmo
+     motivo da #10 e da #11: nao ha numero de WhatsApp conectado na sandbox,
+     entao a conversa nao existe para fotografar.
+
+     E ela e o CONTRARIO dos dois desenhos anteriores, de proposito. La o que se
+     le e mensagem recebida — balao branco, do lado da loja. Aqui nao ha mensagem
+     recebida nenhuma: o `wa.me/...?text=` abre a conversa com o texto no CAMPO DE
+     ENVIO, ainda nao enviado, e o manual diz com todas as letras que o cliente
+     pode apagar e escrever outra. Balao ja enviado afirmaria que a mensagem sai
+     sozinha, que e precisamente o que o produto nao faz.
+
+     O texto do campo nao foi escrito a mao: e o `href` que o botao da captura
+     carrega, lido no medidas.json, com {loja} e {link} ja resolvidos.
+
+     O `.realce` e CSS do slide, nunca pixel assado no arquivo, e ele circula o
+     campo de envio — que e onde a mensagem ja escrita esta. -->
+<div class="slide">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">2 de 6</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 900px">
+    <span class="chapeu">Sem digitar nada</span>
+    <!-- SEGUNDA VERSAO DO TITULO. A primeira era "A conversa abre com a mensagem
+         ja escrita", e o conferidor pegou: e a frase de abertura do manual, com
+         uma palavra trocada. A correcao nao foi so despistar o conferidor — a
+         frase do manual conta o MECANISMO, e o que a peca tem de dizer e de quem
+         e aquele texto. "A sua mensagem" e o que separa este recurso de pendurar
+         um link de WhatsApp no rodape do cardapio. -->
+    <h2 class="titulo titulo--pequeno">
+      O botão de WhatsApp abre a conversa
+      <span class="destaque">com a sua mensagem</span>
+    </h2>
+    <p class="corpo">
+      Você escreve a mensagem, em até 300 caracteres, e nela entram o nome da loja
+      e o endereço da página que seu cliente estava vendo. Quem atende já sabe
+      sobre o quê.
+    </p>
+  </div>
+
+  <div class="figura" style="margin-top: 40px; width: 904px; position: relative">
+    <img src="../imagens-puras/zap-botao.png" style="display: block; width: 100%"
+         alt="A conversa de WhatsApp com a ONE STAND HAMBURGUERIA recém-aberta, ainda sem nenhuma mensagem trocada, e no campo de envio o texto já preenchido: Olá! Vim pelo cardápio digital da ONE STAND HAMBURGUERIA e queria tirar uma dúvida, seguido do endereço do cardápio, com o botão verde de enviar ao lado">
+    <span class="realce" style="left: 1.2%; top: 62.8%; width: 88.4%; height: 30.6%"></span>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="pontos"><span></span><span class="on"></span><span></span><span></span><span></span><span></span></span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>

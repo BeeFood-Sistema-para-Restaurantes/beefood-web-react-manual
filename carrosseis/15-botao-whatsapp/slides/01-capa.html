@@ -1,0 +1,67 @@
+<!-- A capa ANUNCIA: o nome do recurso no titulo, o que ele faz no subtitulo.
+
+     Molde: ORDEM DIRETA, e e o primeiro uso na serie. Placar das catorze capas
+     anteriores: afirmacao do fato 5, anuncio de chegada 3, pergunta 2, nome +
+     dois-pontos 2, nome + canal 1, nome + para quem 1 — ordem direta 0.
+
+     Ela estava zerada por uma razao que a #13 registrou: so se paga quando o
+     recurso tem UM OBJETO SO, porque o verbo obriga a escolher o que se manda
+     fazer. Aqui o recurso E um objeto, e um so: um botao. Nao ha metade
+     nenhuma para jogar fora escolhendo o verbo, e o que se manda fazer e
+     literalmente o nome do recurso.
+
+     Os outros moldes foram escritos e cairam. Afirmacao do fato daria "O seu
+     cardapio digital agora tem botao de WhatsApp", e o sujeito e O CARDAPIO,
+     que e o lugar onde o recurso mora — quem le so a primeira metade e
+     informado de que tem um cardapio digital. Antes x agora pediria um "antes"
+     em que a duvida do cliente se perdia, e quem pode desmentir isso e o dono
+     da loja. Nome + canal foi o molde da #9, e aqui o canal ja e o nome:
+     sobraria "Botao de WhatsApp no WhatsApp".
+
+     O vermelho pega WhatsApp, que e a palavra que o leitor vai procurar no menu
+     depois — a aba se chama Botao WhatsApp.
+
+     A IMAGEM E CAPTURA do cardapio de producao, com a configuracao trocada na
+     resposta do validaDelivery: quem desenha a pilula verde, a folga do rodape
+     e a sombra e o cardapio publicado, nao CSS nosso.
+
+     E A MOLDURA TEM ASPECTO TROCADO, por medida e nao por capricho. A sangria
+     pela base mostra os primeiros ~57% da tela, e o botao flutuante mora a 68 px
+     do PE dela: no aspecto de fabrica (390/844) ele cai fora do slide, e com uma
+     captura mais curta o `object-fit: cover` corta as laterais e come a metade
+     direita da pilula. Com a captura de 390x660 e a moldura no mesmo aspecto, a
+     conta fecha — e a parte do aparelho que o aspecto encurta e justamente a que
+     a sangria joga fora. -->
+<div class="slide slide--capa">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">1 de 6</span>
+  </div>
+
+  <div class="pilha g16" style="margin-top: 20px; max-width: 900px">
+    <span class="pilula pilula--novidade">Novidade</span>
+    <h1 class="titulo titulo--medio">
+      Ponha o botão de<br><span class="destaque">WhatsApp</span> no seu<br>cardápio
+    </h1>
+    <p class="subtitulo">
+      Um toque, e seu cliente já fala com você.
+    </p>
+  </div>
+
+  <div class="luz" style="left: 50%; top: 520px; width: 1200px; height: 880px;
+                          margin-left: -600px; filter: blur(72px);
+                          background: radial-gradient(ellipse 44% 50% at 50% 47%,
+                                      rgba(255, 246, 236, 0.82) 0%,
+                                      rgba(255, 214, 184, 0.32) 62%,
+                                      rgba(0, 0, 0, 0) 82%)"></div>
+
+  <div class="sangria" style="top: 552px; left: 50%; transform: translateX(-50%);
+                              width: 520px">
+    <div class="celular" style="width: 520px; aspect-ratio: 390 / 660">
+      <div class="celular__tela">
+        <img src="../imagens-puras/cel-flutuante.png"
+             alt="O cardápio digital da ONE STAND HAMBURGUERIA no celular, com o botão verde Falar no WhatsApp flutuando por cima dos produtos, logo acima da barra de navegação">
+      </div>
+    </div>
+  </div>
+</div>

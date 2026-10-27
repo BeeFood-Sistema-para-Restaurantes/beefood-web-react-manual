@@ -5,7 +5,29 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-10-14 (40ª rodada: a **API Aberta**, peça irmã do MCP e
+Última atualização: 2026-10-19 (41ª rodada: o **Botão de WhatsApp no cardápio
+digital**, e é a primeira peça do acervo em que **quem fala primeiro é quem está
+comprando** — as outras seis que encostam no WhatsApp vendem a loja falando.
+Depois de duas peças de integração seguidas, esta voltou a ser peça de tela, e
+quase tudo que ela ensinou é **aritmética**. A lição cara é que **a altura do
+recorte é orçamento de slide**: posto em 904 px de largura, cada 100 px de
+altura capturada viram 232 px de arte, e um slide de miolo tem ~614 px para
+imagem. Foi essa conta, e não gosto, que fundiu *"cinco lugares"* em *"até
+dentro da sacola"*. A irmã dela é geométrica: **a sangria pela base não serve
+para botão fixado no pé da tela**, e a saída é encurtar a captura **e** o
+`aspect-ratio` da moldura junto. Duas tomadas caíram **por medição** — o botão
+é pintado e não alcançável com um produto aberto, e a barra de sacola daquele
+cardápio fica atrás da barra de navegação —, e daí sai a regra de corte mais
+útil desta memória: **slide cujo título o leitor não consegue conferir na
+imagem não entra**. Mais uma de desenho: **tela desenhada se dimensiona pela
+largura em que vai aparecer**, não pela largura que parece certa no arquivo. E
+a estreia do molde de capa em **ordem direta**, que estava zerado em quatorze
+peças e só se paga quando o recurso tem um objeto só. Ver *o recorte é
+orçamento de slide*, *botão no pé da tela não sobrevive à sangria*, *slide que a
+imagem não confere não entra* e *tela desenhada se mede pela largura de
+exibição*.)
+
+2026-10-14 (40ª rodada: a **API Aberta**, peça irmã do MCP e
 a primeira em que o pedido veio com a arte dentro — *"aqui precisamos criar as
 imagens, ilustrar"*. É o caso extremo do degrau que a `.tela-ia` abriu: **o
 resultado acontece dentro do sistema do outro**, e dessa vez nem o aparelho
@@ -298,6 +320,8 @@ a posição na fila.
 | 11 | Acompanhamento em tempo real, pelo cliente | [23/09/2026](https://beefood.app/novidades/gestao-entregas-rastreio-pelo-cliente) — release *Rastreio da entrega pelo cliente*, **nome de venda diferente** | `carrosseis/11-rastreio-da-entrega/` | 4:5, 7 slides | `entrega/11-rastreio-da-entrega.zip` (7 PNG + copy) |
 | 12 | Programa de Pontos | [07/10/2026](https://beefood.app/novidades/programa-de-pontos) — manual em `manuais/programa-pontos/`; release e nome de venda **iguais** | `carrosseis/12-programa-de-pontos/` | 4:5, 8 slides (slide 5 refeito na 2ª rodada) | `entrega/12-programa-de-pontos.zip` (8 PNG + copy) |
 | 13 | MCP: a loja dentro da IA | [13/10/2026](https://beefood.app/novidades/mcp-inteligencia-artificial) — **sem manual na pasta**; os passo a passo são os da própria folha do recurso. Release *MCP: converse com o seu restaurante usando IA*, nome de venda **MCP** | `carrosseis/13-mcp-conexao-ia/` | 4:5, 6 slides | `entrega/13-mcp-conexao-ia.zip` (6 PNG + copy) |
+| 14 | API Aberta | [13/10/2026](https://beefood.app/novidades/api-aberta-liberada) — **sem manual na pasta**; o passo a passo é o portal [`docs.beefood.app`](https://docs.beefood.app). Cinco das sete imagens são **desenho**, o maior número do acervo | `carrosseis/14-api-aberta/` | 4:5, 7 slides | `entrega/14-api-aberta.zip` (7 PNG + copy) |
+| 15 | Botão de WhatsApp no cardápio digital | [19/10/2026](https://beefood.app/novidades/cardapio-digital-botao-whatsapp) — manual em `manuais/cardapio-digital-botao-whatsapp/`; release, aba do painel e nome de venda **iguais**. Cinco das seis imagens são **captura**, do cardápio de produção | `carrosseis/15-botao-whatsapp/` | 4:5, 6 slides | `entrega/15-botao-whatsapp.zip` (6 PNG + copy) |
 
 **Pasta com nome mais curto que o slug.** O slug desta novidade tem cinco
 palavras e vira nome de pasta ruim. Nesse caso a pasta leva o nome curto e o
@@ -944,6 +968,41 @@ metade da linha que todo mundo lê; aqui a lição ganhou a segunda metade:
 
 O vermelho pegou **Pontos**, uma palavra só — e aqui a função do destaque volta
 a ser a da #8 a #10, porque o recurso tem tela própria e nome de menu.
+
+#### A #15 estreou a ordem direta, quinze peças depois, e a condição era a que estava escrita
+
+> Ponha o botão de **WhatsApp** no seu cardápio
+> Um toque, e seu cliente já fala com você.
+
+Placar depois dela: afirmação do fato 5, anúncio de chegada 3, pergunta 2, nome
++ dois-pontos 2, nome + canal 1, nome + para quem 1, **ordem direta 1**; antes ×
+agora continua em 0.
+
+O molde esteve zerado por catorze peças por causa da condição registrada na #4 e
+confirmada na #13 — *ordem direta só quando o recurso tem um objeto só*, porque
+o verbo obriga a escolher **o que** se manda fazer e quase todo recurso nosso
+faz mais de uma coisa. Aqui o recurso **é** um objeto, e um só: um botão. Não há
+metade nenhuma para jogar fora, e o que se manda fazer é literalmente o nome do
+recurso.
+
+Os três moldes concorrentes foram escritos e caíram, cada um por um motivo que
+já estava nesta memória:
+
+- **afirmação do fato** daria *"O seu cardápio digital agora tem botão de
+  WhatsApp"*, e o sujeito vira **o cardápio** — o lugar onde o recurso mora, não
+  o recurso. Quem lê a primeira metade só é informado de que tem um cardápio
+  digital. É o erro de sujeito da #11 com outro substantivo;
+- **antes × agora** pediria um "antes" em que a dúvida do cliente se perdia, e
+  quem pode afirmar isso é o dono da loja, não nós;
+- **nome + canal** foi o molde da #9, e aqui o canal **já é** o nome: sobraria
+  "Botão de WhatsApp no WhatsApp".
+
+E a coisa nova que esta capa ensinou é que **ordem direta na capa não colide com
+o imperativo do CTA**, que era o receio. Não colide quando os dois mandam fazer
+coisas diferentes: a capa manda **pôr o botão no cardápio**, que é o resultado,
+e o CTA manda **ligar a chave**, que é o primeiro passo. A peça abre no fim e
+fecha no começo, e isso casa com a convenção de o CTA repetir a arte da capa —
+a mesma imagem, lida como promessa no slide 1 e como instrução no slide 6.
 
 ### O décimo primeiro vício: a copy legenda a prova, em vez de vendê-la
 
@@ -1818,6 +1877,37 @@ quem rola o feed costuma parar no quinto.
 > Antes de somar um slide, pergunte quais dois já existentes dizem a mesma
 > coisa. Peça que cresce sem perder nada vira changelog paginado.
 
+### Slide cujo título o leitor não consegue conferir na imagem não entra
+
+Duas tomadas do botão de WhatsApp foram capturadas para virar slide e caíram
+**por medição**, não por gosto. As duas valem a pena porque falharam de jeitos
+diferentes:
+
+- **o slide do link do produto.** A promessa era *"a dúvida chega dizendo sobre
+  qual produto"*. Entrando direto pelo endereço do produto, a página continua
+  sendo uma janela por cima do cardápio, e `document.elementFromPoint` no centro
+  do botão devolve a janela, nos dois aparelhos. O botão é **pintado** e não é
+  **alcançável** — ou seja, o slide afirmaria um clique que não acontece. Caiu o
+  slide, e o que sobrou foi a redação do próprio release: *o endereço da página
+  acessada*;
+- **o slide dos dois estados da sacola.** A promessa era *"o botão sobe quando a
+  barra da sacola aparece"*, e ela é **verdadeira**: medido no DOM, o botão sobe
+  50 px. Só que naquele cardápio a barra de `Ver sacola` fica atrás da barra de
+  navegação, então a captura mostra **o efeito sem a causa**. O leitor vê duas
+  fotos quase iguais e a frase que as liga não tem como ser conferida.
+
+O segundo caso é o que ensina: fato verdadeiro, medido, e ainda assim slide
+ruim. Peça de venda não pede que acreditem na legenda — a arte prova o título, e
+quando a prova não aparece o slide vira afirmação de changelog com foto ao lado.
+
+> Depois de capturar, leia só o título e olhe só a imagem. Se o título precisar
+> do roteiro para fazer sentido, o slide não existe.
+
+Os dois assuntos não sumiram: viraram uma linha no corpo de outro slide e uma na
+legenda, que é onde cabe o que é verdade e não é fotografável. E o `cena.json`
+guarda as tomadas descartadas, porque o que elas provaram é o registro de que a
+pergunta foi feita — a sondagem que responde "não" é trabalho, não sobra.
+
 ### Na capa, selo desenhado ganha de recorte ilegível
 
 A capa precisava anunciar o que a peça passou a entregar além do pedido, e a
@@ -2287,6 +2377,37 @@ direita do notebook, cortando `Ticket Médio` e `Cardápios ativos` no meio da
 palavra; foi para a esquerda, onde cobre o **menu lateral** — que numa capa não
 informa nada. Sobreposição em cima de coisa decorativa vira profundidade;
 em cima de rótulo, vira defeito.
+
+### Botão fixado no pé da tela não sobrevive à sangria
+
+A sangria mostra **os primeiros ~57% da tela** e joga o resto fora pela base do
+slide. Isso é ótimo para cardápio, painel e lista, e é fatal para o assunto que
+mora no rodapé: o botão flutuante do cardápio fica a 68 px do pé da tela, sempre,
+e portanto a sangria nunca o mostra. Duas tentativas óbvias morrem antes:
+
+- **capturar a tela inteira** (390×844) põe o botão exatamente nos 43%
+  descartados;
+- **capturar mais curto** (390×660, que põe o botão a 83% da altura) parece
+  resolver e não resolve: o `object-fit: cover` da tela do mockup ajusta pela
+  **altura**, a imagem transborda na largura e some com a metade direita da
+  pílula — que é o assunto do slide.
+
+A saída é a terceira, e é uma linha: **encurte a captura e o aspecto da moldura
+junto**.
+
+```html
+<div class="celular" style="width: 520px; aspect-ratio: 390 / 660">
+```
+
+Funciona porque a parte do aparelho que o aspecto encurta é **exatamente** a que
+a sangria cortaria: o leitor não tem como ver a diferença, e nenhuma proporção
+real é distorcida — o celular continua um celular, só que com menos tela abaixo
+da linha do corte. É a mesma lógica da lição anterior vista por dentro: quem
+sangra pela base escolhe o que descartar, e aqui a escolha passou a ser nossa,
+não do `aspect-ratio` que estava no CSS.
+
+> Antes de montar capa em sangria, pergunte onde na tela mora o que o título
+> afirma. Se for no rodapé, a captura é mais curta e a moldura acompanha.
 
 ### Tela de capa tem versão própria, com tipo maior
 
@@ -3392,6 +3513,28 @@ o quadro**: tabela de três linhas, tabela de oito, resposta em prosa com os
 números em negrito. Foi o que separou os slides 1, 4 e 5 de parecerem o mesmo
 slide três vezes.
 
+### Tela desenhada se mede pela largura em que vai aparecer
+
+Numa captura a largura está dada: é a da tela que existe. Num desenho ela é
+escolha nossa, e é fácil escolher errado — o arquivo abre bonito no navegador e
+o slide sai ilegível.
+
+A conversa de WhatsApp da 41ª rodada nasceu com 760 px, que é a largura das duas
+telas desenhadas anteriores do acervo. Posta nos 904 px da faixa, a frase do
+campo de envio — que é o assunto do slide — chegou com **19 px** de arte:
+legível em tamanho real, invisível no feed. A mesma tela redesenhada com 600 px
+põe a mesma frase em **24 px**, porque o fator de ampliação subiu de 1,19 para
+1,51.
+
+A conta é a mesma do mockup e do recorte, de trás para frente: decida a altura
+de letra que o slide precisa, divida pela largura de exibição e descubra a
+largura do desenho. Em outras palavras, **desenho que precisa ser lido tem menos
+coisa dentro**, não letra maior — aumentar a fonte dentro de uma tela de 760
+quebra a proporção da interface e ela deixa de parecer uma tela.
+
+> Antes de escrever o `data-medida` de uma tela desenhada, abra o slide em que
+> ela vai entrar e veja com quantos pixels a faixa a serve.
+
 ### Curva só quando o destino é um ponto
 
 A cena de convergência (`.origem` / `.fio` / `.selo-ok`) nasceu com curva em L,
@@ -4259,6 +4402,36 @@ A regra geral: quando um recorte não cabe, a pergunta não é "quanto dá para
 reduzir", é **"o que dentro dele não precisa estar ali"**. Reduzir distribui o
 prejuízo por tudo; cortar o paga de uma vez, na parte mais barata. E a medida que
 decide isso é a altura da letra **no slide**, nunca a proporção do arquivo.
+
+### O recorte é orçamento de slide, e a conta fecha antes da lista de slides
+
+A lição acima diz que o recorte cabe na aritmética do slide. A 41ª rodada mediu
+**a conta**, e ela é de uma linha: um recorte de tela de celular (390 px de
+largura capturada) posto nos 904 px da faixa cresce 2,32 vezes — ou seja, **cada
+100 px de altura capturada viram 232 px de arte**.
+
+Com isso dá para orçar antes de cortar. Um slide de miolo com chapéu, título de
+duas linhas e corpo de três linhas deixa ~614 px para imagem, então:
+
+| O slide leva | Altura capturada por recorte |
+|---|---|
+| um recorte | ~260 px |
+| dois recortes empilhados (com o `g24` entre eles) | ~110 px cada |
+
+A primeira rodada de cortes do botão de WhatsApp saiu com folga confortável na
+miniatura do navegador e deu 557, 607 e 636 px de arte por recorte: cada um
+sozinho já era o slide inteiro, e os títulos não cabiam. As folgas foram pela
+metade e o corte ficou **colado no que o título afirma** — que é o certo por
+acidente, porque recorte com ar sobrando é recorte com assunto diluído.
+
+O que importa não é a tabela: é **quando** se faz a conta. Ela não é ajuste de
+render, é decisão de pauta. Nesta peça a conta mostrou que *"são cinco lugares"*
+precisava de dois recortes e não tinha altura para os dois, e a lista de slides
+mudou — o título virou *"entra até dentro da sacola"*, com um recorte só, e as
+cinco posições foram para o corpo, que é onde lista cabe de graça.
+
+> Antes de prometer um slide que compara duas telas, multiplique por 2,32 e veja
+> se o título ainda tem onde morar.
 
 ### Ícone animado entrega um quadro qualquer no print
 

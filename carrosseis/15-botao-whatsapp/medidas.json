@@ -1,0 +1,243 @@
+{
+ "cel-flutuante": {
+  "escala": 3,
+  "viewport": {
+   "width": 390,
+   "height": 660
+  },
+  "cfg": {},
+  "botao": {
+   "x": 182,
+   "y": 548,
+   "w": 192,
+   "h": 44
+  },
+  "classe": "be-wa__alvo be-wa__pilula",
+  "rotulo": "Falar no WhatsApp",
+  "href": "https://wa.me/5547999998888?text=Ol%C3%A1!%20Vim%20pelo%20card%C3%A1pio%20digital%20da%20ONE%20STAND%20HAMBURGUERIA%20e%20queria%20tirar%20uma%20d%C3%BAvida%3A%20https%3A%2F%2Fmenu.beefood.com.br%2Foneburger",
+  "endereco": "https://menu.beefood.com.br/oneburger",
+  "pagina": {
+   "w": 390,
+   "h": 660
+  }
+ },
+ "pc-home": {
+  "escala": 2,
+  "viewport": {
+   "width": 1152,
+   "height": 720
+  },
+  "cfg": {},
+  "botao": {
+   "x": 944,
+   "y": 608,
+   "w": 192,
+   "h": 44
+  },
+  "classe": "be-wa__alvo be-wa__pilula",
+  "rotulo": "Falar no WhatsApp",
+  "href": "https://wa.me/5547999998888?text=Ol%C3%A1!%20Vim%20pelo%20card%C3%A1pio%20digital%20da%20ONE%20STAND%20HAMBURGUERIA%20e%20queria%20tirar%20uma%20d%C3%BAvida%3A%20https%3A%2F%2Fmenu.beefood.com.br%2Foneburger",
+  "endereco": "https://menu.beefood.com.br/oneburger",
+  "pagina": {
+   "w": 1152,
+   "h": 720
+  }
+ },
+ "cel-topo": {
+  "escala": 3,
+  "viewport": {
+   "width": 390,
+   "height": 844
+  },
+  "cfg": {
+   "pos": "topo",
+   "lay": "cardLogo"
+  },
+  "botao": {
+   "x": 16,
+   "y": 356.34375,
+   "w": 358,
+   "h": 74.1875
+  },
+  "fechado": null,
+  "nomeLoja": {
+   "x": 46.5,
+   "y": 182,
+   "w": 273,
+   "h": 27
+  },
+  "sacola": null,
+  "classe": "be-wa__alvo be-wa__cardLogo be-wa__alvo--vazado",
+  "rotulo": "Falar no WhatsApp",
+  "href": "https://wa.me/5547999998888?text=Ol%C3%A1!%20Vim%20pelo%20card%C3%A1pio%20digital%20da%20ONE%20STAND%20HAMBURGUERIA%20e%20queria%20tirar%20uma%20d%C3%BAvida%3A%20https%3A%2F%2Fmenu.beefood.com.br%2Foneburger",
+  "endereco": "https://menu.beefood.com.br/oneburger",
+  "pagina": {
+   "w": 390,
+   "h": 844
+  }
+ },
+ "cel-carrinho": {
+  "escala": 3,
+  "viewport": {
+   "width": 390,
+   "height": 844
+  },
+  "cfg": {
+   "pos": "carrinho",
+   "lay": "card"
+  },
+  "botao": {
+   "x": 28,
+   "y": 626.5625,
+   "w": 334,
+   "h": 56
+  },
+  "fechado": null,
+  "nomeLoja": {
+   "x": 46.5,
+   "y": 182,
+   "w": 273,
+   "h": 27
+  },
+  "sacola": {
+   "x": 135.34375,
+   "y": 804,
+   "w": 119.328125,
+   "h": 24
+  },
+  "classe": "be-wa__alvo be-wa__card",
+  "rotulo": "Falar no WhatsApp",
+  "href": "https://wa.me/5547999998888?text=Ol%C3%A1!%20Vim%20pelo%20card%C3%A1pio%20digital%20da%20ONE%20STAND%20HAMBURGUERIA%20e%20queria%20tirar%20uma%20d%C3%BAvida%3A%20https%3A%2F%2Fmenu.beefood.com.br%2Foneburger%2F%3Fmodal%3Dcarrinho",
+  "endereco": "https://menu.beefood.com.br/oneburger/?modal=carrinho",
+  "pagina": {
+   "w": 390,
+   "h": 844
+  }
+ },
+ "cel-sacola-cheia": {
+  "escala": 3,
+  "viewport": {
+   "width": 390,
+   "height": 844
+  },
+  "cfg": {},
+  "botao": {
+   "x": 182,
+   "y": 682,
+   "w": 192,
+   "h": 44
+  },
+  "fechado": null,
+  "nomeLoja": {
+   "x": 46.5,
+   "y": 182,
+   "w": 273,
+   "h": 27
+  },
+  "sacola": {
+   "x": 135.34375,
+   "y": 804,
+   "w": 119.328125,
+   "h": 24
+  },
+  "classe": "be-wa__alvo be-wa__pilula",
+  "rotulo": "Falar no WhatsApp",
+  "href": "https://wa.me/5547999998888?text=Ol%C3%A1!%20Vim%20pelo%20card%C3%A1pio%20digital%20da%20ONE%20STAND%20HAMBURGUERIA%20e%20queria%20tirar%20uma%20d%C3%BAvida%3A%20https%3A%2F%2Fmenu.beefood.com.br%2Foneburger%2F",
+  "endereco": "https://menu.beefood.com.br/oneburger/",
+  "pagina": {
+   "w": 390,
+   "h": 844
+  }
+ },
+ "cel-fechada": {
+  "escala": 3,
+  "viewport": {
+   "width": 390,
+   "height": 844
+  },
+  "cfg": {
+   "quando": "fechada"
+  },
+  "botao": {
+   "x": 182,
+   "y": 732,
+   "w": 192,
+   "h": 44
+  },
+  "fechado": {
+   "x": 94.75,
+   "y": 244.921875,
+   "w": 176.5,
+   "h": 17
+  },
+  "nomeLoja": {
+   "x": 46.5,
+   "y": 182,
+   "w": 273,
+   "h": 27
+  },
+  "sacola": null,
+  "classe": "be-wa__alvo be-wa__pilula",
+  "rotulo": "Falar no WhatsApp",
+  "href": "https://wa.me/5547999998888?text=Ol%C3%A1!%20Vim%20pelo%20card%C3%A1pio%20digital%20da%20ONE%20STAND%20HAMBURGUERIA%20e%20queria%20tirar%20uma%20d%C3%BAvida%3A%20https%3A%2F%2Fmenu.beefood.com.br%2Foneburger",
+  "endereco": "https://menu.beefood.com.br/oneburger",
+  "pagina": {
+   "w": 390,
+   "h": 844
+  }
+ },
+ "cel-tema": {
+  "escala": 3,
+  "viewport": {
+   "width": 390,
+   "height": 844
+  },
+  "cfg": {
+   "cor": "tema"
+  },
+  "botao": {
+   "x": 182,
+   "y": 732,
+   "w": 192,
+   "h": 44
+  },
+  "classe": "be-wa__alvo be-wa__pilula",
+  "rotulo": "Falar no WhatsApp",
+  "href": "https://wa.me/5547999998888?text=Ol%C3%A1!%20Vim%20pelo%20card%C3%A1pio%20digital%20da%20ONE%20STAND%20HAMBURGUERIA%20e%20queria%20tirar%20uma%20d%C3%BAvida%3A%20https%3A%2F%2Fmenu.beefood.com.br%2Foneburger",
+  "endereco": "https://menu.beefood.com.br/oneburger",
+  "pagina": {
+   "w": 390,
+   "h": 844
+  }
+ },
+ "cel-produto": {
+  "escala": 3,
+  "viewport": {
+   "width": 390,
+   "height": 844
+  },
+  "cfg": {},
+  "botao": {
+   "x": 182,
+   "y": 732,
+   "w": 192,
+   "h": 44
+  },
+  "fechado": null,
+  "nomeLoja": {
+   "x": 44.5,
+   "y": 234,
+   "w": 273,
+   "h": 27
+  },
+  "sacola": null,
+  "classe": "be-wa__alvo be-wa__pilula",
+  "rotulo": "Falar no WhatsApp",
+  "href": "https://wa.me/5547999998888?text=Ol%C3%A1!%20Vim%20pelo%20card%C3%A1pio%20digital%20da%20ONE%20STAND%20HAMBURGUERIA%20e%20queria%20tirar%20uma%20d%C3%BAvida%3A%20https%3A%2F%2Fmenu.beefood.com.br%2Foneburger%2Fpudim---brigadeiro%2F",
+  "endereco": "https://menu.beefood.com.br/oneburger/pudim---brigadeiro/",
+  "pagina": {
+   "w": 390,
+   "h": 844
+  }
+ }
+}
