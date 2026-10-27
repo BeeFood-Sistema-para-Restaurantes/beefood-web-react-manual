@@ -2388,6 +2388,284 @@ body {
  * mais cara: a tela desenhada copia o layout, a paleta e as fotos reais do
  * aparelho, e o `roteiro.md` registra o que é captura e o que é desenho. */
 
+/* ------------------------------------------- entradas, API e saídas
+ *
+ * `.fluxo-api` é a assinatura de `docs.beefood.app` remontada no formato do
+ * feed: de um lado os sistemas que chamam a API, no meio o disco da BeeFood,
+ * do outro os avisos que saem dela. Nasceu na #14, da API Aberta, porque o
+ * recurso **não tem tela de resultado nossa** — quem recebe o pedido é o ERP do
+ * parceiro, e esse aparelho não existe aqui para fotografar.
+ *
+ * A composição é a do portal, e o portal é **referência de layout**, como print
+ * de manual: nada foi recortado de lá. O que veio foi a ideia — duas colunas
+ * olhando para um núcleo — e os dois rótulos em versalete (`entradas →`,
+ * `→ saídas`), que são o que faz a cena se explicar sem seta nenhuma.
+ *
+ * Três decisões que a primeira versão pagou:
+ *
+ * - **o rótulo do lado substitui a linha.** A arte do portal liga cada cartão ao
+ *   disco com uma curva tracejada. Em CSS isso são seis caixas posicionadas à
+ *   mão, uma por cartão, e no tamanho do feed as curvas viram risco. Os anéis
+ *   concêntricos em volta do disco dizem a mesma coisa — é ali que as coisas
+ *   chegam — e custam duas regras;
+ * - **a rota vai em monoespaçada, e é rota de verdade.** `GET /v1/orders` é
+ *   endereço que existe; nome de rota inventado seria a única parte falsa de
+ *   uma ilustração que serve para dizer "isto é uma API";
+ * - **o disco é branco mesmo na capa escura.** Ele é o único objeto claro da
+ *   cena, e é o que o olho encontra primeiro. Escuro sobre escuro, o centro
+ *   some e sobram dois blocos de cartão.
+ */
+.fluxo-api {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+
+/* As colunas sobem para cima do núcleo porque os anéis são maiores que a
+ * coluna do meio: o de fora passa 64 px de cada lado, e a goteira tem 24. Sem
+ * isso o tracejado cruza a frente dos cartões, que é o oposto do que a cena
+ * diz — os cartões estão *em volta* do núcleo, não atrás dele. */
+.fluxo-api__lado {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Versalete pequeno, na ponta de fora de cada coluna: é o que nomeia o sentido
+ * do fluxo sem desenhar seta. */
+.fluxo-api__rotulo {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: lowercase;
+  color: var(--texto-suave);
+}
+
+.fluxo-api__lado--saida {
+  text-align: right;
+}
+
+.fluxo-api__lado--saida .fluxo-api__rotulo {
+  align-self: flex-end;
+}
+
+.fluxo-api__caixa {
+  padding: 16px 22px;
+  border-radius: 20px;
+  background: #fff;
+  border: 2px solid var(--borda);
+  box-shadow: 0 14px 28px -18px rgba(0, 0, 0, 0.35);
+}
+
+.slide--capa .fluxo-api__caixa {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.fluxo-api__nome {
+  display: block;
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--escuro);
+  line-height: 1.1;
+}
+
+.slide--capa .fluxo-api__nome {
+  color: #fff;
+}
+
+.fluxo-api__rota {
+  display: block;
+  margin-top: 4px;
+  font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace;
+  font-size: 20px;
+  color: var(--texto-suave);
+}
+
+.slide--capa .fluxo-api__rota {
+  color: #9aa0a8;
+}
+
+/* O núcleo: disco branco com o logotipo, e dois anéis tracejados em volta. Os
+ * anéis são `border-radius` com `border: dashed` em caixas absolutas — é a
+ * mesma economia do `.fio`, que desenha curva com borda e não com SVG. */
+.fluxo-api__nucleo {
+  position: relative;
+  width: 216px;
+  height: 216px;
+  border-radius: 999px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 0 0 10px rgba(239, 66, 57, 0.1),
+              0 24px 50px -20px rgba(0, 0, 0, 0.45);
+}
+
+.fluxo-api__nucleo::before,
+.fluxo-api__nucleo::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  border: 2px dashed rgba(239, 66, 57, 0.4);
+}
+
+.fluxo-api__nucleo::before { inset: -34px; }
+.fluxo-api__nucleo::after { inset: -64px; border-color: rgba(239, 66, 57, 0.22); }
+
+.fluxo-api__nucleo .logo {
+  width: 124px;
+  height: 36px;
+}
+
+/* Dentro do disco a marca volta a ser a de fundo CLARO, e sem esta regra a
+ * capa perde metade dela: `.slide--capa .logo` troca a arte pela versão de
+ * fundo escuro, que tem o "BEE" em branco — branco no branco do disco. O
+ * primeiro render saiu com a abelha e o "food" soltos, sem o "BEE". */
+.slide--capa .fluxo-api__nucleo .logo {
+  background-image: var(--logo);
+}
+
+.fluxo-api__nucleo span:last-child {
+  font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primaria);
+}
+
+/* ------------------------------------------- requisição e resposta
+ *
+ * O cartão de código: a linha da chamada em cima, o que a API devolveu embaixo.
+ * É o jeito de mostrar o produto quando o produto **é** a resposta — numa peça
+ * de API não existe tela de resultado, existe corpo de resposta.
+ *
+ * A paleta é a dos cartões de código do portal de documentação (quase preto,
+ * rótulo em monoespaçada, o método em pílula), e a fonte é a JetBrains Mono que
+ * o portal usa. Ela é fonte do sistema, não vem empacotada na skill: a cadeia
+ * cai em DejaVu Sans Mono e depois em `monospace`, e em qualquer uma delas o
+ * alinhamento das chaves continua de pé, que é o que importa.
+ *
+ * **O conteúdo é medido, nunca inventado.** O JSON do slide sai do
+ * `chamadas.json`, que é o que `api.beefood.app` respondeu de verdade. É a
+ * mesma regra da `.tela-ia`: a copy o leitor avalia, a tela ele acredita.
+ *
+ * Campo que não cabe se **elide com `…`**, e nunca se apaga em silêncio: a
+ * resposta de `/v1/orders` tem oito campos por item e o cartão mostra cinco.
+ */
+.requisicao {
+  border-radius: 24px;
+  overflow: hidden;
+  background: #121214;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.45);
+  font-size: 26px;
+}
+
+.requisicao__linha {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.7em 0.9em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace;
+  font-size: 0.92em;
+  color: #cdd2d9;
+}
+
+/* O cartão também serve sem corpo, só com as linhas de chamada — é como o
+ * slide 3 da #14 mostra que a escrita existe. Aí a última linha não pode
+ * carregar o risco, que ficaria pendurado dentro da borda de baixo. */
+.requisicao__linha:last-child {
+  border-bottom: 0;
+}
+
+.requisicao__metodo {
+  flex: none;
+  padding: 0.15em 0.6em;
+  border-radius: 0.4em;
+  background: var(--primaria);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* O método de escrita ganha a cor da marca invertida, para o par ler como dois
+ * sentidos e não como dois exemplos da mesma coisa. */
+.requisicao__metodo--sai {
+  background: #16964e;
+}
+
+.requisicao__corpo {
+  margin: 0;
+  padding: 0.85em 1em 1em;
+  font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace;
+  font-size: 0.86em;
+  line-height: 1.55;
+  color: #cdd2d9;
+  white-space: pre;
+}
+
+.requisicao__corpo b { color: #8fb8ff; font-weight: 400; }   /* chave */
+.requisicao__corpo i { color: #9ae6a0; font-style: normal; } /* texto */
+.requisicao__corpo u { color: #ffbe6f; text-decoration: none; } /* número */
+.requisicao__corpo s { color: #6f757e; text-decoration: none; } /* elisão */
+
+/* ------------------------------------------- lista de eventos
+ *
+ * `.eventos` é a tabela de avisos de um webhook: o nome técnico do evento à
+ * esquerda, em monoespaçada, e o que ele quer dizer à direita, em português.
+ *
+ * Ela existe porque o cartão de código não servia duas vezes. Uma peça de
+ * integração tem sempre a tentação de virar quatro blocos escuros iguais — foi
+ * o defeito que derrubou a primeira versão da #13 —, e o que separa o slide dos
+ * eventos do slide da chamada é a **forma**: aqui é lista, lá é código.
+ *
+ * O nome do evento é o `eventType` publicado, e é ele que vai na coluna
+ * estreita: quem integra procura por essa palavra, e quem não integra lê a da
+ * direita. As duas colunas servem os dois leitores de uma vez.
+ */
+.eventos {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+/* A linha é alta de propósito. Cinco eventos é uma lista curta, e numa tela de
+ * 1350 px uma lista curta e apertada deixa um terço do slide vazio — foi assim
+ * que ela saiu no primeiro render da #14. Respiro de 28 px por linha põe os
+ * cinco ocupando o miolo inteiro, e de quebra é o que torna a lista legível no
+ * feed, onde ela chega com um terço do tamanho. */
+.eventos li {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 0;
+  border-top: 2px solid var(--borda);
+}
+
+.eventos li:first-child { border-top: 0; }
+
+.eventos code {
+  flex: none;
+  width: 392px;
+  font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--primaria);
+}
+
+.eventos span {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--escuro);
+}
+
 /* --------------------------------------------------------------- rodapé */
 
 .rodape {

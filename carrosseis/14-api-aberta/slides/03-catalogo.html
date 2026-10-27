@@ -1,0 +1,106 @@
+<!-- Slide 3: a correção do mal-entendido mais caro da peça. "Integrar" é quase
+     sempre lido como "exportar relatório", e é a metade de baixo do recurso. A
+     metade que muda a decisão de quem lê é que o outro sistema MEXE no cardápio
+     — e o número diz o tamanho: das 33 rotas de Catálogo, 24 escrevem.
+
+     O NÚMERO É CONTADO, não estimado. Quem conta é o `listar_endpoints` do
+     servidor de documentação, pelo `consultar-api.py`, e é a mesma medição que
+     a #13 usou. Por isso as duas peças não se contradizem.
+
+     A GRADE LISTA OS SEIS OBJETOS DO CATÁLOGO, e não as seis áreas de
+     permissão. Elas são parecidas no olho e diferentes no argumento, e o slide
+     5 captura as áreas de permissão na tela de verdade: repetir aqui a mesma
+     lista seria gastar duas telas com uma prova só. O que esta grade prova é
+     outra coisa — que "cardápio" pela API quer dizer o cardápio inteiro, até a
+     foto do produto.
+
+     Os seis saem das rotas publicadas, agrupadas pelo recurso que elas tocam:
+     `/catalog/sectors` (6 rotas), `/catalog/products` (8), `/catalog/complements`
+     (6), `/catalog/groups` (7), `/catalog/options` (4) e
+     `/catalog/{tipo}/{id}/image` (2). Somam as 33.
+
+     O TIQUE DIZ `liberado`, e por isso só entra aqui o que já existe — é a
+     regra que a `.areas` trouxe da folha do MCP, e o motivo de Entregadores e
+     Estoque não aparecerem em lugar nenhum desta peça.
+
+     AS TRÊS LINHAS VERDES são a prova de escrita em endereço. `.areas` sozinha
+     diria "o Catálogo tem seis partes", que é uma frase sobre o cardápio; com as
+     chamadas embaixo ela passa a dizer "e o seu sistema cria e altera cada uma
+     delas", que é a frase do título. O verde é a cor invertida da marca, usada
+     só no método de escrita: no slide 2 o `GET` é vermelho, e os dois juntos
+     leem como dois sentidos, não como dois exemplos da mesma coisa. Cartão sem
+     corpo é uso previsto — a linha de baixo não carrega risco.
+
+     A TERCEIRA LINHA É A DA FOTO, e ela existe para amarrar a grade ao cartão: o
+     último tique diz "Fotos dos produtos", e sem o `PUT .../image` esse tique
+     seria o único da lista sem endereço embaixo. Os nomes dos parâmetros vão em
+     português (`{tipo}`, `{id}`) porque a rota de verdade é
+     `/v1/catalog/{resourceType}/{resourceId}/image` e, inteira, ela passa da
+     largura do slide. É elisão de nome de variável, não de comportamento. -->
+<div class="slide slide--suave">
+  <div class="topo">
+    <span class="logo"></span>
+    <span class="contador">3 de 7</span>
+  </div>
+
+  <div class="pilha g24" style="margin-top: 26px; max-width: 904px">
+    <span class="chapeu">O cardápio todo</span>
+    <h2 class="titulo titulo--pequeno">
+      <span class="destaque">Catálogo</span>: 24 das 33 rotas escrevem no
+      cardápio
+    </h2>
+    <p class="corpo">
+      Produto, preço, complemento, foto. O que você edita no painel, o seu
+      sistema edita pela API — e na mesma hora.
+    </p>
+  </div>
+
+  <ul class="areas" style="width: 904px; margin: 72px auto 0; gap: 40px 20px">
+    <li class="areas__item">
+      <span class="areas__tique">&check;</span>
+      <span class="areas__nome">Setores</span>
+    </li>
+    <li class="areas__item">
+      <span class="areas__tique">&check;</span>
+      <span class="areas__nome">Produtos</span>
+    </li>
+    <li class="areas__item">
+      <span class="areas__tique">&check;</span>
+      <span class="areas__nome">Complementos</span>
+    </li>
+    <li class="areas__item">
+      <span class="areas__tique">&check;</span>
+      <span class="areas__nome">Grupos de opções</span>
+    </li>
+    <li class="areas__item">
+      <span class="areas__tique">&check;</span>
+      <span class="areas__nome">Opções</span>
+    </li>
+    <li class="areas__item">
+      <span class="areas__tique">&check;</span>
+      <span class="areas__nome">Fotos dos produtos</span>
+    </li>
+  </ul>
+
+  <div class="requisicao" style="width: 904px; margin: 76px auto 0">
+    <div class="requisicao__linha">
+      <span class="requisicao__metodo requisicao__metodo--sai">POST</span>
+      <span>/v1/catalog/products</span>
+    </div>
+    <div class="requisicao__linha">
+      <span class="requisicao__metodo requisicao__metodo--sai">PATCH</span>
+      <span>/v1/catalog/products/{productId}</span>
+    </div>
+    <div class="requisicao__linha">
+      <span class="requisicao__metodo requisicao__metodo--sai">PUT</span>
+      <span>/v1/catalog/{tipo}/{id}/image</span>
+    </div>
+  </div>
+
+  <div class="empurra"></div>
+
+  <div class="rodape">
+    <span class="pontos"><span></span><span></span><span class="on"></span><span></span><span></span><span></span><span></span></span>
+    <span class="arraste">arraste</span>
+  </div>
+</div>

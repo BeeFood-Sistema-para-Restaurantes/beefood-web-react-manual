@@ -5,7 +5,32 @@ continua na
 [`MEMORIA-GERAL.md`](../../manual-sistema/references/MEMORIA-GERAL.md), da skill
 `manual-sistema` — aqui só entra o que é de carrossel.
 
-Última atualização: 2026-10-14 (39ª rodada: *"de forma geral nenhum slide ficou
+Última atualização: 2026-10-14 (40ª rodada: a **API Aberta**, peça irmã do MCP e
+a primeira em que o pedido veio com a arte dentro — *"aqui precisamos criar as
+imagens, ilustrar"*. É o caso extremo do degrau que a `.tela-ia` abriu: **o
+resultado acontece dentro do sistema do outro**, e dessa vez nem o aparelho
+existe para fotografar, porque é o ERP de um terceiro. Cinco de sete imagens são
+desenho, o maior número do acervo, e saíram três peças novas — `.fluxo-api`,
+`.requisicao` e `.eventos`. A regra que as três carregam é a mesma, e vale
+anotar porque é o que separa ilustração de mentira: **o conteúdo da ilustração é
+medido, nunca inventado** — rota que existe e responde, `eventType` publicado,
+número contado e corpo de resposta real, gravado em `chamadas.json`. E são
+**três** peças, e não uma repetida, por uma razão de forma: peça de integração
+tem a tentação de virar quatro blocos escuros iguais, que foi o defeito que
+derrubou a primeira versão da #13, e o que separa um slide do outro é a **forma
+antes do conteúdo** — cena, código, lista. Duas lições de produção vieram junto:
+**a mesma lista não se prova duas vezes na mesma peça** (a grade do slide 3
+trazia as seis áreas de permissão, que o slide 5 **captura** na tela de verdade,
+e virou os seis objetos do catálogo) e **`clip` sem `full_page` corta calado** —
+o recorte sai do tamanho da janela e o script segue dizendo a medida certa, que
+agora uma asserção de PIL confere. Mais a armadilha de privacidade que esta peça
+estreou: **credencial de loja em produção não é credencial de sandbox
+descartável**, e o recorte começa abaixo dela, na imagem **pura**. Ver *a
+ilustração de API: cena, código e lista*, *a mesma prova não entra duas vezes*,
+*recorte que passa da janela sai menor sem avisar* e *o que não pode encostar na
+imagem pura*.)
+
+39ª rodada: *"de forma geral nenhum slide ficou
 bom"*. A peça do MCP voltou **inteira**, e o diagnóstico cabe numa frase do
 dono: *"estude a documentação, veja o que ele faz → edita cardápio, traz
 relatórios, e muito mais"*. O release descreve um recurso que **responde
@@ -3385,6 +3410,104 @@ Duas medidas que a cena nova fixou:
   quadrados de fundos diferentes lerem como conjunto — soltos, o azul-escuro do
   Lovable e o quase branco do ChatGPT lado a lado leem como dois tratamentos.
 
+### A ilustração de API: cena, código e lista
+
+Peça de API é o degrau abaixo da `.tela-ia`. Lá o aparelho existe e é de outro
+(o ChatGPT, o Claude); aqui o aparelho **não existe em lugar nenhum para
+fotografar**, porque é o ERP de um terceiro que nem é cliente da BeeFood. Não
+adianta pedir cenário para a `cenario-sandbox`: o que falta não é dado, é
+sistema. A peça 14 saiu com cinco de sete imagens desenhadas por isso.
+
+A saída foram três peças, e **três e não uma**:
+
+| Peça | Forma | O que ela mostra |
+|---|---|---|
+| `.fluxo-api` | cena | de um lado quem chama, no meio o disco da BeeFood, do outro os avisos que saem |
+| `.requisicao` | código | a chamada e a resposta — o único resultado concreto que uma API tem |
+| `.eventos` | lista | o nome técnico do evento à esquerda, o que ele quer dizer à direita |
+
+A razão de serem três está na coluna do meio. **Peça de integração tem a tentação
+de virar quatro blocos escuros iguais** — foi o defeito que derrubou a primeira
+versão da 13 —, e o que separa um slide do outro é a *forma* antes do conteúdo.
+Dois cartões de código seguidos leem como dois exemplos da mesma coisa, mesmo
+quando dizem coisas diferentes.
+
+**O conteúdo é medido, nunca inventado**, e isso é mais rígido aqui do que na
+`.tela-ia`. Rota que entra na arte é rota que existe e responde; nome de evento é
+`eventType` publicado; número é contado pelo `listar_endpoints`; corpo de
+resposta é o que a API devolveu, gravado em `chamadas.json`. Endereço inventado
+seria a única parte falsa de uma ilustração que existe justamente para dizer
+"isto é uma API" — e é a primeira coisa que quem integra repara.
+
+Quando o par de chamadas precisa ler como **dois sentidos**, e não como dois
+exemplos, o método de escrita vai de verde (`.requisicao__metodo--sai`) contra o
+vermelho do `GET`. E o cartão serve sem corpo: só a lista de chamadas já é prova
+de escrita em endereço.
+
+Duas armadilhas de composição que a 14 pagou:
+
+- **a coluna de 904 px não cabe rótulo longo.** Cada lado do `.fluxo-api` fica
+  com 276 px úteis, e `Entrega atualizada` a 30 px pede 297. A capa sangrou para
+  1012 px (`margin: 0 -54px`), e de brinde o quadro encostando na borda diz o que
+  a cena queria dizer: os sistemas da ponta vêm de fora do BeeFood;
+- **objeto branco dentro de capa escura perde metade da marca.** O disco do
+  núcleo é branco, e `.slide--capa .logo` troca a arte pela de fundo escuro, que
+  tem o "BEE" em branco. O primeiro render saiu com a abelha e o "food" soltos.
+  Já há regra para este caso, mas a armadilha volta sempre que algo branco entrar
+  numa capa escura.
+
+### A mesma prova não entra duas vezes na mesma peça
+
+Duas listas de seis itens parecem a mesma coisa no olho e dizem coisas
+diferentes, e é por aí que a duplicata entra. O slide 3 da 14 nasceu com as seis
+**áreas de permissão** desenhadas; o slide 5 **captura** exatamente essa lista, na
+tela de verdade, com a descrição de cada área e as doze chaves ligadas.
+
+Duas páginas, uma prova — e a desenhada seria a versão pior da fotografada, que é
+a regra que a 13 já tinha escrito. O que entrou no lugar foi outra lista de seis:
+os **objetos do catálogo** (setores, produtos, complementos, grupos de opções,
+opções, fotos), que prova o que o título daquele slide afirma — que "cardápio"
+pela API quer dizer o cardápio inteiro, até a foto.
+
+A conferência é a mesma de sempre, e é de leitura: **duas imagens da peça podem
+mostrar o mesmo objeto, desde que provem coisas diferentes.** Quando as duas
+provam a mesma, a desenhada sai.
+
+### Recorte que passa da janela sai menor sem avisar
+
+`page.screenshot(clip=...)` **sem `full_page=True`** recorta dentro da janela: o
+que fica abaixo da borda de baixo some, o arquivo sai mais baixo, e nenhum erro é
+levantado. O `rec-exemplo.png` da 14 saiu com 164 px de altura para uma caixa
+medida de 414 — só o cabeçalho do cartão — enquanto o script seguia imprimindo
+`RECORTE ... 414`, que é a medida do DOM e não a do arquivo.
+
+Duas coisas resolvem, e as duas valem para qualquer `capturar-telas.py`:
+
+- **passe `full_page=True`** quando a caixa medida começar abaixo da dobra;
+- **confira o arquivo contra a caixa.** Abrir o PNG com PIL e comparar
+  `tamanho / device_scale_factor` com a caixa medida custa quatro linhas, e é a
+  única checagem que pega este defeito — o olho na miniatura não pega, porque um
+  cabeçalho sozinho parece um recorte legítimo.
+
+### A largura da janela decide o que o print prova
+
+Portal de documentação reflui, e o que reflui muda o **argumento** da imagem, não
+só o enquadramento. O `docs.beefood.app` vira duas colunas a partir de 1280 px, e
+aí o cartão de exemplo cai numa coluna de 230 px com **cinco** das treze
+linguagens visíveis — em 1920 px continuam cinco, porque o limite é a coluna e
+não a janela. Abaixo de 1280 o layout empilha, o cartão ocupa 900 px e aparecem
+**doze**.
+
+A captura da 14 é em **1260 px**: o último degrau antes de o portal se partir. O
+ganho é duplo — prova "treze linguagens" em vez de cinco, e entrega uma caixa de
+900 px que entra nos 904 do slide com ampliação de 1,004×, a imagem mais honesta
+do acervo.
+
+Daí a regra: **em página de terceiro ou de produto que reflui, meça as larguras
+antes de escolher a janela, e deixe a asserção no script** (o da 14 para se achar
+menos de 12 abas). Aumentar a janela é o instinto errado: janela maior ativa o
+layout de duas colunas e entrega *menos* conteúdo.
+
 ## A imagem do slide é o resultado, nunca o painel de controle
 
 Este é o defeito que mais durou nesta memória: nove peças, e ele só apareceu
@@ -4359,6 +4482,35 @@ para o celular. A folha de contato fica fora de propósito — é ferramenta de
 revisão, e no meio das oito imagens alguém posta a nona por engano. E cada membro
 entra com data fixa, senão o zip muda de bytes a cada rodada só pela hora e o
 diff do commit fica ilegível.
+
+## O que não pode encostar na imagem pura
+
+A regra da casa cobre nome, telefone e e-mail de cliente, e cobre **na imagem
+pura**, porque ela também é versionada. A 14 acrescentou um segundo item, e ele
+não estava escrito em lugar nenhum: **credencial de loja em produção**.
+
+O `AGENTS.md` libera versionar credencial de teste — "o ambiente é sandbox
+descartável" —, e é verdade do login do painel. Não é verdade do `clientId` e do
+`clientSecret` da API: a loja de exemplo *BeeFood3 - Manual* é uma loja de
+demonstração **em produção**, e a credencial dela abre a API de produção. Ela
+mora em `/tmp`, nunca é impressa inteira, e nunca entra em arquivo do
+repositório.
+
+Como isso se traduz em captura: **o recorte começa abaixo da credencial.** A
+folha *Aplicativos → API Aberta* abre com *Credencial principal*, com o Client ID
+à vista e o campo do Client Secret ao lado; o quadro do slide 5 começa na linha
+*Permissões*. Não existe versão daquela captura com credencial dentro — nem no
+arquivo original, porque o original é o que vai para o git.
+
+A mesma lógica vale para qualquer segredo que a tela mostre: chave de webhook,
+token de integração, link assinado. Cortar depois é tarde; o corte é na origem.
+
+E uma regra de script, que é o outro lado disso: **a consulta que alimenta a peça
+tem de recusar dado pessoal.** O `consultar-api.py` da 14 levanta erro se a
+listagem de pedidos trouxer qualquer campo com `name`, `phone`, `mail`, `doc`,
+`cpf`, `address` ou `customer`, e a rota de detalhe de pedido — que traz nome e
+telefone — simplesmente não é chamada. É mais barato o script parar do que
+descobrir na revisão da arte.
 
 ## Cuidados
 

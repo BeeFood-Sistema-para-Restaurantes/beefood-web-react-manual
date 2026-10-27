@@ -35,6 +35,7 @@ um acervo assim, e "entregue" escrito por extenso em toda linha também não.
 | 11 | [`11-rastreio-da-entrega/`](11-rastreio-da-entrega/roteiro.md) | Novidade | Acompanhamento em tempo real, pelo cliente — release [Rastreio da entrega pelo cliente](https://beefood.app/novidades/gestao-entregas-rastreio-pelo-cliente), 23/09/2026 · [manual](https://ajuda.beefood.com.br/manuais/gestao-entregas-rastreio-cliente) | 4:5 | 7 | [`.zip`](11-rastreio-da-entrega/entrega/11-rastreio-da-entrega.zip) · [copy](11-rastreio-da-entrega/copy-instagram.txt) |
 | 12 | [`12-programa-de-pontos/`](12-programa-de-pontos/roteiro.md) | Novidade | [Programa de Pontos ⭐](https://beefood.app/novidades/programa-de-pontos) — 07/10/2026 · [manual](https://ajuda.beefood.com.br/programa-pontos) | 4:5 | 8 | [`.zip`](12-programa-de-pontos/entrega/12-programa-de-pontos.zip) · [copy](12-programa-de-pontos/copy-instagram.txt) |
 | 13 | [`13-mcp-conexao-ia/`](13-mcp-conexao-ia/roteiro.md) | Novidade | [MCP: converse com o seu restaurante usando IA](https://beefood.app/novidades/mcp-inteligencia-artificial) — 13/10/2026 · sem manual na pasta; os passo a passo são os da própria folha *Aplicativos → MCP* | 4:5 | 6 | [`.zip`](13-mcp-conexao-ia/entrega/13-mcp-conexao-ia.zip) · [copy](13-mcp-conexao-ia/copy-instagram.txt) |
+| 14 | [`14-api-aberta/`](14-api-aberta/roteiro.md) | Novidade | [API Aberta liberada 🔌](https://beefood.app/novidades/api-aberta-liberada) — 13/10/2026 · sem manual na pasta; o passo a passo é o portal [`docs.beefood.app`](https://docs.beefood.app) | 4:5 | 7 | [`.zip`](14-api-aberta/entrega/14-api-aberta.zip) · [copy](14-api-aberta/copy-instagram.txt) |
 
 O número de slides é o que o assunto pede, entre 6 e 9 — não é uma medida fixa.
 Peça de função não leva data nem pílula de novidade: ela é perene, e pode ser
@@ -76,6 +77,25 @@ vale para as duas skills: **espere a fonte, não só a tela**. Uma rodada inteir
 saiu sem os selos da vitrine porque eles são glifos de webfont que chegaram
 depois do print, e a espera de cinco segundos da casa não pega isso — ela conta
 do fim do spinner, e o spinner já tinha sumido.
+
+A décima terceira e a décima quarta saíram do **mesmo dia** e são a mesma porta
+vista de dois lados: no MCP uma pessoa pergunta em português e a IA executa a
+chamada; na API Aberta o sistema do parceiro executa a chamada sozinho, sem
+ninguém na frente. As duas dividem a medição — as 61 rotas de negócio e as 29 de
+escrita saem do `listar_endpoints` do servidor de documentação —, e é por isso
+que não se contradizem.
+
+A décima quarta é a peça com **mais desenho do acervo**, cinco de sete imagens, e
+o motivo não é preguiça de capturar: o resultado da API acontece dentro do
+sistema do outro, e não existe tela nossa de ERP recebendo pedido. É o degrau em
+que o aparelho a fotografar simplesmente não está aqui — o mesmo caso da
+`.tela-ia` —, e a saída foi desenhar a cena (`.fluxo-api`), o cartão de código
+(`.requisicao`) e a tabela de eventos (`.eventos`), sempre com conteúdo medido:
+rota que existe, evento publicado e uma resposta real gravada em `chamadas.json`.
+Ela também foi a primeira peça a cortar por **privacidade dentro da imagem
+pura**: a folha do recurso abre com o Client ID e o campo do Client Secret, e o
+recorte começa abaixo deles, porque o repositório é público e a loja de exemplo
+roda em produção.
 
 ## Estrutura de cada pasta
 
