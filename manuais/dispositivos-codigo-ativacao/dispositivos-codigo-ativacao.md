@@ -22,7 +22,8 @@ própria tela mostra quantas vagas você tem livres.
    maquininha, celular do entregador, totem ou tablet).
 3. **Uma vaga livre** do tipo de aparelho que você quer ativar. A tela mostra isso em
    *X de Y livres*.
-4. O aparelho e você **por perto um do outro**: o código vale por **quinze minutos**.
+4. O aparelho **em mãos** — ou alguém com ele do outro lado da linha. O código vale por
+   **quinze minutos**.
 
 ---
 
@@ -119,7 +120,7 @@ casos a vaga fica livre na hora.
 |---------|-----------------|
 | **Não encontro Dispositivos no menu** | O item fica no grupo **Configuração**, entre *Histórico Alteração* e *Caixa*. Se o grupo inteiro não aparece, o seu usuário não tem acesso a ele — peça ao administrador da loja ou ao **suporte BeeFood**. |
 | **O botão Ativar aparelho não aparece na faixa** | Dois casos: o tipo está marcado **Gestão em breve** (é o caso do *PDV Mobile Offline*, que ainda não ativa por código), ou a faixa é a do **TEF**, que tem cadastro próprio e não usa código. |
-| **A janela abriu escrito "Não foi possível gerar o código"** | Foi falha de comunicação com o servidor. Clique em **Tentar novamente** na própria janela. |
+| **A janela diz "Não foi possível gerar o código"** | Foi falha de comunicação com o servidor. Clique em **Tentar novamente**, na própria janela. |
 | **O código expirou antes de eu usar** | Clique em **Gerar outro código**, na mesma janela. O código vale quinze minutos, contados da hora em que a janela abriu. |
 | **Digitei o código e o aparelho recusou** | Confira o tipo de aparelho: o código do *App Garçom* não ativa um *App Entregador*. Confira também se o código ainda está dentro dos quinze minutos e se nenhum caractere foi trocado — o traço do meio é só leitura. |
 | **O aparelho ativou, mas não apareceu na lista** | Clique no ícone de **atualizar**, no canto superior direito da tela. |
