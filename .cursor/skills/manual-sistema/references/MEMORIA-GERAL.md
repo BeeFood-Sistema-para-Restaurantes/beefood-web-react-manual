@@ -1282,6 +1282,7 @@ escrito de propósito bateria.
 | Botão de WhatsApp no cardápio digital | `manuais/cardapio-digital-botao-whatsapp/` | ✅ Concluído (#128) |
 | Route Delivery (integração pela API Aberta) | `manuais/integracao-route-delivery/` | ✅ Concluído (#129) |
 | Importar cardápio (iFood, imagem, Excel e clonagem) | `manuais/cardapio-importar/` | ✅ Concluído (#130) |
+| Código de ativação de aparelho (Dispositivos) | `manuais/dispositivos-codigo-ativacao/` | ✅ Concluído (#131) |
 
 > **Número de manual se escolhe lendo esta tabela, não contando o último que você escreveu.**
 > O rastreio do cliente e o bloco do totem foram produzidos em paralelo, em branches que não
@@ -1290,6 +1291,48 @@ escrito de propósito bateria.
 > cabeçalhos de arquivo e nenhuma citação cruzada, contra 15 menções ao #121 espalhadas pelos
 > quatro manuais do totem, que se citam entre si. Histórico em
 > [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md).
+
+### Manual curto por pedido, e tela cujo botão de gerar não existe — #131
+
+O #131 (código de ativação de aparelho) foi pedido **curto e com destino declarado**: *"o
+manual deve contemplar só como criar o codigo de ativação… a ideia é mostrar só como gerar o
+codigo pro nosso mcp conseguir encontrar essa informação. então é um manual simples"*. Cinco
+imagens, 14 setas. Detalhe em
+[`MEMORIA.md`](../../../../manuais/dispositivos-codigo-ativacao/MEMORIA.md) e
+[`fluxo-codigo.md`](../../../../manuais/dispositivos-codigo-ativacao/fluxo-codigo.md).
+
+- **Quando o dono recorta o escopo, o que sobrou não vira apêndice: vira FAQ.** A tela de
+  Dispositivos tem vitrine, detalhe do aparelho, renomear, remover, busca e cadastro de TEF.
+  Nada disso ganhou passo nem imagem, mas *remover* e *renomear* entraram como **resposta de
+  FAQ**, porque quem bate no limite do plano precisa saber que remover libera a vaga. Resposta
+  de uma linha não expande o manual e ainda alimenta a busca do MCP.
+- **Quantidade por plano é informação que envelhece em lugar errado.** O dono foi explícito:
+  isso mora na página de planos e preços. O manual mostra a linha *X de Y livres* da tela e o
+  botão **CONTRATAR MAIS**, e não repete tabela de plano — que mudaria sem ninguém lembrar de
+  atualizar o manual.
+- **Antes de escrever "clique em gerar", confira se o botão existe.** Em
+  `ModalAtivarDispositivo.tsx` o código de ativação sai pronto no `useEffect` de abertura da
+  janela; o único botão do caminho feliz é o **Copiar**. Escrito de cabeça, o Passo 2 estaria
+  errado, porque toda tela parecida tem botão de gerar. Vale como hábito: **o verbo do passo
+  se lê no código**, não na memória de telas parecidas.
+- **Variação de tela controlada por sinalizador do catálogo precisa aparecer no manual.**
+  `META_TIPO` marca `comCamera` em dois tipos (App Entregador e cardápio em tablet), e só
+  neles a janela mostra o QR ao lado do código. Prometer QR para o totem seria erro de fato.
+  O mesmo vale para `emBreve` no PDV Mobile Offline, que simplesmente não tem botão — e isso
+  virou linha da tabela de problemas, porque o leitor procura o botão e não acha.
+- **Print que custa recurso do plano se devolve no mesmo script.** Cada abertura da janela
+  gera um código, e código aberto **ocupa vaga** (`reservados` na cota). O `capturar.py`
+  cancela no fim, pelo `POST /api/dispositivos2/pareamento/cancelar`, os códigos que ele mesmo
+  criou — sem isso a rodada seguinte cai em 409 por limite. O código exibido pode ficar
+  versionado: ele vale quinze minutos, já foi cancelado e é de sandbox descartável.
+- **Botão clicado fica pintado, e isso estraga o print seguinte.** O ícone *Atualizar*, depois
+  do clique, ficava com fundo de foco/hover e roubava a atenção da imagem. `document
+  .activeElement.blur()` mais um `mouse.move` para um ponto neutro antes do print resolvem, e
+  isso vale para qualquer captura tirada **depois** de um clique em botão de ícone.
+- **Etiqueta de seta cabe na área escurecida de um modal.** Em três das cinco imagens a caixa
+  branca não tem pixel vazio onde a etiqueta não cubra texto. O círculo verde com número
+  branco é legível sobre o escurecido, então a etiqueta vai para a faixa à esquerda da janela
+  e a seta aponta para dentro — mais limpo que montar faixa clara em volta.
 
 ### Manual que ensina uma escolha, e captura que cria dado para valer — #130
 

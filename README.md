@@ -102,6 +102,7 @@ O **status** e a fila ficam no
 | Como deixar a taxa de serviço opcional no cupom | [`cupom-taxa-servico-opcional/`](manuais/cupom-taxa-servico-opcional/cupom-taxa-servico-opcional.md) |
 | Manual — Pagamento automático no Delivery | [`delivery-pagamento-auto/`](manuais/delivery-pagamento-auto/delivery-pagamento-auto.md) |
 | Destaque na impressão: como destacar bebidas e produtos no cupom | [`destaque-impressao/`](manuais/destaque-impressao/destaque-impressao.md) |
+| Código de ativação de aparelho (Configuração → Dispositivos) | [`dispositivos-codigo-ativacao/`](manuais/dispositivos-codigo-ativacao/dispositivos-codigo-ativacao.md) |
 | Domínio próprio no Cardápio Digital (e verificação na Meta) | [`dominio-proprio/`](manuais/dominio-proprio/dominio-proprio.md) |
 | Domínio próprio no cardápio digital: como configurar o seu endereço, alterar a zona DNS e excluir | [`dominio-proprio-configurar/`](manuais/dominio-proprio-configurar/dominio-proprio-configurar.md) |
 | Manual do Endereço do Restaurante | [`endereco-restaurante/`](manuais/endereco-restaurante/endereco-restaurante.md) |
