@@ -103,7 +103,7 @@ como Pronto** (1) e o cartão muda de coluna na hora: ele passa para **PRONTO** 
 
 ## As duas caixinhas de código de barras
 
-As duas moram lado a lado, na mesma aba, e fazem coisas diferentes. Pode deixar as duas
+As duas moram uma embaixo da outra, na mesma aba, e fazem coisas diferentes. Pode deixar as duas
 ligadas: o cupom imprime **um** código de barras, e ele serve para os dois usos.
 
 | | **Código de barras envia pedido para PRONTO** | **Código de Barras App Entrega** |
