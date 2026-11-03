@@ -27,7 +27,7 @@ Comandos:
 
     python3 capturar.py estado     # flags do layout e fila de hoje
     python3 capturar.py semear     # cria os dois pedidos já em PREPARO
-    python3 capturar.py capturar   # liga a flag pela tela, fotografa e bipa
+    python3 capturar.py capturar   # cupom antes, liga a flag, fotografa, bipa e erra
     python3 capturar.py capturar cupom leitura   # repete só parte das imagens
     python3 capturar.py rebobinar  # devolve os pedidos para PREPARO e repete a leitura
     python3 capturar.py limpar     # cancela os pedidos e devolve as flags como estavam
@@ -299,13 +299,35 @@ def gancho_cupom(page):
     )
 
 
-def render_cupom(ctx, html: str, nome: str):
+def render_cupom(ctx, html: str, nome: str, pe: str | None = None):
+    """Fotografa o cupom inteiro e, se `pe` vier, também o pé dele de perto.
+
+    A viewport fica perto do conteúdo porque `full_page` herda a altura dela, e um cupom
+    numa janela alta sai com um palmo de branco embaixo. O recorte do pé é uma captura
+    com `clip`, não um corte da pura: nada se edita depois de gravado.
+    """
     cupom = ctx.new_page()
     cupom.set_viewport_size({"width": 420, "height": 480})
     cupom.set_content(html, wait_until="domcontentloaded")
     cupom.wait_for_timeout(1500)
     cupom.screenshot(path=str(PURAS / nome), full_page=True)
     print("pura:", nome, "| tem código de barras:", "<svg" in html)
+    if pe:
+        barras = cupom.locator("svg").first
+        if barras.count():
+            caixa = barras.bounding_box()
+            altura = cupom.evaluate("() => document.documentElement.scrollHeight")
+            # 85 px acima do código entra a linha inteira do "Cobrar do Cliente"; menos
+            # que isso corta a linha no meio da letra.
+            y = max(0, caixa["y"] - 85)
+            cupom.screenshot(
+                path=str(PURAS / pe), full_page=True,
+                clip={"x": 0, "y": y, "width": 420,
+                      "height": min(altura - y, caixa["height"] + 185)},
+            )
+            print("pura:", pe)
+        else:
+            print("AVISO: cupom sem <svg>, recorte do pé não foi feito")
     cupom.close()
 
 
@@ -314,6 +336,43 @@ def abrir_fila(page):
     after_click(page, 9000)
     limpar_tela(page)
     descansar_foco(page)
+
+
+def imprimir_cupom(page, ctx, alvo: dict) -> str:
+    """Abre o pedido na fila, aperta a impressora do painel e devolve o HTML do cupom.
+
+    São dois botões de impressora na tela: o `h-5` do painel do pedido, que é este, e o
+    `h-4 text-red-500` do alto, que é o status do BeeImpressão e abre outra janela.
+    """
+    abrir_fila(page)
+    gancho_cupom(page)
+    page.get_by_text(rotulo_cartao(alvo), exact=True).first.click()
+    after_click(page, 9000)
+    page.evaluate("() => { window.__cupomHTML = null; }")
+    page.locator("button:has(svg.lucide-printer.h-5)").first.click()
+    for _ in range(80):
+        html = page.evaluate("() => window.__cupomHTML")
+        if html:
+            return html
+        page.wait_for_timeout(250)
+    raise SystemExit("o cupom do navegador não apareceu")
+
+
+def cap_cupom_sem(page, ctx, alvo: dict):
+    """04: o mesmo cupom antes de ligar a caixinha — o lado 'antes' do par."""
+    html = imprimir_cupom(page, ctx, alvo)
+    if "<svg" in html:
+        raise SystemExit("ABORTADO: a flag já estava ligada, o par antes/depois não vale")
+    render_cupom(ctx, html, "04-cupom-sem-codigo-barras.png")
+
+
+def cap_botao_imprimir(page, alvo: dict):
+    """03: de onde o cupom sai quando se imprime um pedido pela tela."""
+    abrir_fila(page)
+    page.get_by_text(rotulo_cartao(alvo), exact=True).first.click()
+    after_click(page, 9000)
+    descansar_foco(page)
+    tirar(page, "03-botao-imprimir-cupom.png")
 
 
 def cap_configuracao(page, s: dict):
@@ -344,30 +403,20 @@ def cap_configuracao(page, s: dict):
           layout_delivery(page, s).get("beeCodigoBarrasPronto"))
 
 
-def cap_cupom(page, ctx, alvo: dict):
-    """03: o cupom do pedido de retirada, com o código de barras no pé."""
-    abrir_fila(page)
-    gancho_cupom(page)
-    page.get_by_text(rotulo_cartao(alvo), exact=True).first.click()
-    after_click(page, 9000)
-    page.evaluate("() => { window.__cupomHTML = null; }")
-    page.locator("button:has(svg.lucide-printer.h-5)").first.click()
-    html = None
-    for _ in range(80):
-        html = page.evaluate("() => window.__cupomHTML")
-        if html:
-            break
-        page.wait_for_timeout(250)
-    if not html:
-        raise SystemExit("o cupom do navegador não apareceu")
-    render_cupom(ctx, html, "03-cupom-com-codigo-barras.png")
+def cap_cupom_com(page, ctx, alvo: dict):
+    """05 e 06: o cupom depois de ligar a caixinha, inteiro e com o pé de perto."""
+    html = imprimir_cupom(page, ctx, alvo)
+    if "<svg" not in html:
+        raise SystemExit("ABORTADO: cupom saiu sem código de barras, confira a flag")
+    render_cupom(ctx, html, "05-cupom-com-codigo-barras.png",
+                 pe="06-codigo-no-pe-do-cupom.png")
     (Path("/tmp") / "cupom-retirada-flag-on.html").write_text(html, encoding="utf-8")
 
 
 def cap_leitura(page, s: dict, alvo: dict):
-    """04 e 05: a fila antes e depois de bipar o código."""
+    """07 e 08: a fila antes e depois de bipar o código."""
     abrir_fila(page)
-    tirar(page, "04-fila-antes-da-leitura.png")
+    tirar(page, "07-fila-antes-da-leitura.png")
 
     codigo = ean13(alvo["preVendaID"])
     print("bipando", codigo, "(preVendaID", alvo["preVendaID"], ")")
@@ -376,9 +425,24 @@ def cap_leitura(page, s: dict, alvo: dict):
     # O aviso entra deslizando da direita: espera ele aparecer e só então assenta.
     page.get_by_text("marcado como Pronto").first.wait_for(timeout=20000)
     page.wait_for_timeout(2000)
-    tirar(page, "05-pedido-em-pronto.png")
+    tirar(page, "08-pedido-em-pronto.png")
     print("fila depois:",
           [(p["preVendaID"], p.get("situacaoDelivery")) for p in meus_pedidos(page, s)])
+
+
+def cap_aviso(page, codigo: str, trecho: str, nome: str):
+    """09 e 10: os dois avisos que a tela dá quando o bipe não move nada.
+
+    Recarrega a fila antes de cada bipe porque o aviso anterior pode ainda estar na
+    tela, e duas tarjas empilhadas não explicam nada.
+    """
+    abrir_fila(page)
+    print("bipando", codigo, "esperando:", trecho)
+    page.keyboard.type(codigo, delay=10)
+    page.keyboard.press("Enter")
+    page.get_by_text(trecho).first.wait_for(timeout=20000)
+    page.wait_for_timeout(1800)
+    tirar(page, nome)
 
 
 def cmd_rebobinar(page, s: dict):
@@ -402,20 +466,36 @@ def cmd_rebobinar(page, s: dict):
 
 
 def cmd_capturar(page, ctx, s: dict, passos: set[str]):
-    pedidos = meus_pedidos(page, s)
+    # Rodada anterior deixa os pedidos cancelados anotados no estado; eles não servem
+    # de alvo, e o cartão deles nem aparece na fila.
+    pedidos = [p for p in meus_pedidos(page, s)
+               if str(p.get("situacaoDelivery")) != "CANCELADO"]
     if not pedidos:
-        raise SystemExit("nenhum pedido do cenário na janela — rode `semear` primeiro")
+        raise SystemExit("nenhum pedido vivo do cenário na janela — rode `semear` primeiro")
     por_tipo = {str(p.get("tipoPedido")).upper(): p for p in pedidos}
     # BALCAO é como a API grava o pedido de retirada.
     alvo = por_tipo.get("BALCAO") or por_tipo.get("RETIRADA") or pedidos[0]
     print("pedido alvo:", alvo["preVendaID"], alvo.get("tipoPedido"), rotulo_cartao(alvo))
 
+    # A ordem aqui não é a ordem do manual: o cupom "antes" só existe enquanto a
+    # caixinha está desligada, então ele tem que ser fotografado antes do passo config.
+    if "antes" in passos:
+        if layout_delivery(page, s).get("beeCodigoBarrasPronto"):
+            raise SystemExit("ABORTADO: caixinha já ligada — o cupom 'antes' não sai")
+        cap_cupom_sem(page, ctx, alvo)
     if "config" in passos:
         cap_configuracao(page, s)
+    if "botao" in passos:
+        cap_botao_imprimir(page, alvo)
     if "cupom" in passos:
-        cap_cupom(page, ctx, alvo)
+        cap_cupom_com(page, ctx, alvo)
     if "leitura" in passos:
         cap_leitura(page, s, alvo)
+    if "avisos" in passos:
+        cap_aviso(page, ean13(alvo["preVendaID"]), "já está em",
+                  "09-pedido-ja-esta-em-pronto.png")
+        cap_aviso(page, "999999999", "não encontrado",
+                  "10-pedido-nao-encontrado.png")
 
 
 if __name__ == "__main__":
@@ -431,7 +511,8 @@ if __name__ == "__main__":
         elif comando == "semear":
             cmd_semear(page, s)
         elif comando == "capturar":
-            pedidos = set(sys.argv[2:]) or {"config", "cupom", "leitura"}
+            pedidos = set(sys.argv[2:]) or {"antes", "config", "botao", "cupom",
+                                            "leitura", "avisos"}
             cmd_capturar(page, ctx, s, pedidos)
         elif comando == "rebobinar":
             cmd_rebobinar(page, s)
