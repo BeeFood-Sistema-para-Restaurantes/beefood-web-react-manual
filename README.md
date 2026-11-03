@@ -100,6 +100,7 @@ O **status** e a fila ficam no
 | Comissão do garçom: cadastrar e lançar | [`comissao-garcom-cadastrar/`](manuais/comissao-garcom-cadastrar/comissao-garcom-cadastrar.md) |
 | Cupom de Desconto — todos os campos e o que o cliente vê | [`cupom-desconto/`](manuais/cupom-desconto/cupom-desconto.md) |
 | Como deixar a taxa de serviço opcional no cupom | [`cupom-taxa-servico-opcional/`](manuais/cupom-taxa-servico-opcional/cupom-taxa-servico-opcional.md) |
+| Código de barras no cupom para marcar o pedido como Pronto (Delivery) | [`delivery-codigo-barras-pronto/`](manuais/delivery-codigo-barras-pronto/delivery-codigo-barras-pronto.md) |
 | Manual — Pagamento automático no Delivery | [`delivery-pagamento-auto/`](manuais/delivery-pagamento-auto/delivery-pagamento-auto.md) |
 | Destaque na impressão: como destacar bebidas e produtos no cupom | [`destaque-impressao/`](manuais/destaque-impressao/destaque-impressao.md) |
 | Código de ativação de aparelho (Configuração → Dispositivos) | [`dispositivos-codigo-ativacao/`](manuais/dispositivos-codigo-ativacao/dispositivos-codigo-ativacao.md) |

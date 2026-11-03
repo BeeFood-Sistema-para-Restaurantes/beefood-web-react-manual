@@ -119,6 +119,33 @@ identificador.** Não existe, e não precisa existir, rota que aceite `origem`.
 | `POST app/datasnap/rest/tmesa/pedido` | o cardápio público | sempre **Cardápio Digital** | itens, cliente, pagamento, frete — e **exige** o `Authorization: Basic` do cardápio |
 | `POST app3/api/venda2/atualizaSituacaoDelivery` | o kanban | — | move entre AGUARDANDO / PREPARO / PRONTO / ENTREGA |
 
+Três detalhes dessa última, medidos em 03/11/2026 montando o cenário do manual #132:
+
+- o caminho é `app3/datasnap/rest/venda2/atualizaSituacaoDelivery` (há `/datasnap/rest/`
+  no meio; `/api/venda2/cancelarVenda` **não existe** e devolve 404);
+- **cancelar pedido é a mesma rota**, com `situacaoDelivery: "CANCELADO"` e
+  `motivoCancelamento`. Não há rota de cancelamento separada;
+- e por isso ela também **rebobina** o cenário: devolver o pedido para `PREPARO` depois de
+  ele ir para `PRONTO` permite repetir uma captura sem semear pedido novo. O corpo precisa de
+  `situacaoDeliveryAnterior`, `numeroPreVenda`, `numeroPedido`, `tipoPedido`, `origem` e
+  `tipo: "DELIVERY"`.
+
+### A listagem do Delivery não devolve as observações
+
+`GET app3/api/venda2/delivery/{empresaID}/{filialID}/{usuarioID}/{horas}` devolve situação,
+tipo, nome, endereço, valores e `origem` — mas **não** o campo de observação do pedido. Então
+a sentinela de texto na observação, que é a trava do degrau 4, **não serve de filtro** quando
+o cenário é criado por rota e lido por essa listagem.
+
+O substituto é mais estreito, não mais largo: o comando que semeia **anota em `/tmp` os
+`preVendaID` que acabou de criar**, e a limpeza exige os três ao mesmo tempo — id anotado,
+nome fictício que está na lista do cenário no próprio script, e `origem = Manual`. Pedido de
+verdade não passa pelos três.
+
+E uma armadilha de imagem: a observação **sai impressa no cupom**. Se o cenário vai ser
+fotografado por um cupom, o marcador não pode ser texto que o cupom imprime — veja a lição do
+#132 na `MEMORIA-GERAL.md`.
+
 ### A API pública recusa requisição idêntica em menos de 4 segundos
 
 Medido em 26/10/2026, montando o cenário de estoque do carrossel #16. A API

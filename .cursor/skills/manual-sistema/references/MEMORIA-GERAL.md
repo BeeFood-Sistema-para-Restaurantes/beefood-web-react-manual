@@ -1283,6 +1283,7 @@ escrito de propósito bateria.
 | Route Delivery (integração pela API Aberta) | `manuais/integracao-route-delivery/` | ✅ Concluído (#129) |
 | Importar cardápio (iFood, imagem, Excel e clonagem) | `manuais/cardapio-importar/` | ✅ Concluído (#130) |
 | Código de ativação de aparelho (Dispositivos) | `manuais/dispositivos-codigo-ativacao/` | ✅ Concluído (#131) |
+| Código de barras no cupom marca o pedido como Pronto | `manuais/delivery-codigo-barras-pronto/` | ✅ Concluído (#132) |
 
 > **Número de manual se escolhe lendo esta tabela, não contando o último que você escreveu.**
 > O rastreio do cliente e o bloco do totem foram produzidos em paralelo, em branches que não
@@ -1291,6 +1292,57 @@ escrito de propósito bateria.
 > cabeçalhos de arquivo e nenhuma citação cruzada, contra 15 menções ao #121 espalhadas pelos
 > quatro manuais do totem, que se citam entre si. Histórico em
 > [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md).
+
+### Duas configurações de rótulo parecido, e a prova que separa uma da outra — #132
+
+O #132 (código de barras no cupom marca o pedido como Pronto) nasceu de um pedido curto —
+*"novo manual, faça git pull nos fontes e crie o novo manual simples de como configurar e
+usar"* — acompanhado do guia interno de teste do recurso. Cinco imagens, 10 setas. Detalhe em
+[`MEMORIA.md`](../../../../manuais/delivery-codigo-barras-pronto/MEMORIA.md) e
+[`fluxo-codigo.md`](../../../../manuais/delivery-codigo-barras-pronto/fluxo-codigo.md).
+
+- **Guia de teste do dono é insumo, não roteiro da página.** O pedido veio com o passo a passo
+  de QA (cenários A–F, critérios de aceite, o que está fora de escopo). Aquilo serve para
+  **verificar** e para saber o que não prometer; a página se organiza pelo que o lojista faz,
+  não pela ordem dos cenários de teste. Os cenários viraram a tabela de problemas e o FAQ.
+- **Quando a configuração nova fica encostada numa antiga de rótulo parecido, a tabela de
+  diferença é seção, não nota de pé.** *Código de barras envia pedido para PRONTO* e *Código de
+  Barras App Entrega* ficam uma embaixo da outra na mesma aba. Sem a tabela, o lojista liga a
+  errada — ou desliga uma por medo de imprimir dois códigos (e não imprime: o bloco está sob
+  um `||`). A diferença se lê na condição do código, não no rótulo.
+- **A imagem que prova tem de ser o caso que só a configuração nova cobre.** A flag antiga só
+  imprime em pedido de **entrega com endereço**; a nova imprime em qualquer pedido do módulo
+  Delivery. Então o cupom fotografado é de um pedido de **retirada**: ali o código de barras só
+  pode ter vindo da flag nova. Fotografar a entrega provaria as duas ao mesmo tempo, e portanto
+  nenhuma. Antes disso, o mesmo cupom foi capturado com a flag nova **desligada**, para o par
+  controle/teste existir.
+- **Se o cupom é uma das imagens, o marcador do cenário não pode ser texto que o cupom
+  imprime.** A primeira rodada semeou os pedidos com `[SMOKE-BARRAS] retirada 03/11 20:59` nas
+  observações, e o cupom saiu com aquilo impresso no meio. Pedidos cancelados e refeitos com
+  observação vazia. Vale a pergunta antes de semear: **o que eu vou fotografar mostra este
+  campo?**
+- **Aviso que entra deslizando não se pega com espera fixa.** `wait_for_timeout(2500)` depois do
+  Enter pegou o aviso *Pedido #33 marcado como Pronto* cortado pela borda da tela, no meio da
+  animação. O certo é esperar o **texto aparecer** (`get_by_text(...).wait_for()`) e só então
+  deixar assentar. Vale para todo aviso de confirmação do painel.
+- **`full_page` herda a altura da viewport.** A captura do cupom, numa viewport de 1100 px de
+  altura, saiu com um palmo de branco embaixo do rodapé. `full_page` usa a altura do documento,
+  e o documento tem no mínimo a altura da janela: para fotografar peça curta e estreita, encolha
+  a viewport até perto do conteúdo (aqui, 420x480).
+- **Nem toda aba é `[role="tab"]`, e nem todo painel é `[role="dialog"]`.** Na tela de
+  **Impressão** as abas são `<button>` com classe de aba, e `get_by_role("tab")` devolve zero —
+  o caminho é `get_by_role("button", name="Layout", exact=True)`. Na tela **Delivery**, o painel
+  de detalhe do pedido **não** é diálogo, então locator preso a `[role="dialog"]` não acha nada.
+  Enumerar o DOM antes custa um minuto e economiza três tentativas de 30 s de timeout.
+- **Botão de ícone repetido se escolhe pela classe do `svg`, não pelo índice.** A tela tem dois
+  botões de impressora: o do painel de detalhe (`svg.lucide-printer.h-5`), que imprime o cupom,
+  e o de status do BeeImpressão no alto (`h-4 w-4 text-red-500`), que abre outra janela. Clicar
+  no `.first` abriu a janela errada e o cupom nunca apareceu.
+- **Imagem estreita precisa de etiqueta maior em fração.** O `annotate.py` dimensiona o círculo
+  por fração da largura, o que mantém a proporção entre imagens do mesmo tamanho. Num PNG de
+  630 px (a foto do cupom) isso dá um círculo menor que o texto ao lado, então entrou um
+  `escala_etiqueta`, usado **só** nessa imagem. A regra continua a mesma; o multiplicador é a
+  exceção declarada no comentário.
 
 ### Manual curto por pedido, e tela cujo botão de gerar não existe — #131
 
