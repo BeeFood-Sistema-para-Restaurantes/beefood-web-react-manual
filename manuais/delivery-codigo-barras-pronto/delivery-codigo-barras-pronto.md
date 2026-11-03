@@ -27,8 +27,8 @@ Pedido* e nada mais: o leitor da tela Delivery já vem ligado e não precisa de 
 
 ## Passo 1. Abrir o layout do Cupom Pedido
 
-No menu, abra **Configuração → Impressão** e clique na aba **Layout** (1). Ela lista os três
-layouts da filial. Clique na linha **Cupom Pedido** — ou no lápis à direita dela (2).
+No menu, abra **Configuração → Impressão** e clique na aba **Layout** (1). Ela lista os
+layouts de cupom da filial. Clique na linha **Cupom Pedido** — ou no lápis à direita dela (2).
 
 ![A aba Layout da tela de Impressão, com a linha Cupom Pedido](imagens-tratadas/01-aba-layout-cupom-pedido.png)
 
@@ -51,8 +51,8 @@ marque **Código de barras envia pedido para PRONTO** (2) e clique em **SALVAR E
 | 3 | **SALVAR E FECHAR**. Enquanto você não clica aqui, nada muda nos cupons. |
 
 > **Esta caixinha não é a de cima.** Logo acima dela existe a **Código de Barras App
-> Entrega**, que é de outro recurso. A diferença entre as duas está no fim do manual, em
-> [As duas caixinhas de código de barras](#as-duas-caixinhas-de-código-de-barras).
+> Entrega**, que é de outro recurso. A diferença entre as duas está na seção *As duas
+> caixinhas de código de barras*, no fim do manual.
 
 ## Passo 3. O cupom passa a sair com o código de barras
 
