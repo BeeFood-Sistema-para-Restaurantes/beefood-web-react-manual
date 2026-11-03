@@ -1,13 +1,11 @@
 # Código de barras no cupom para marcar o pedido como Pronto (Delivery)
 
-Quem monta o pedido na cozinha costuma ter as duas mãos ocupadas e o cupom do pedido na
-frente. Com esta configuração ligada, o **cupom do pedido sai com um código de barras**, e
-**bipar esse código na tela Delivery** passa o pedido de *Aguardando* ou *Em preparo* direto
-para **Pronto** — sem procurar o cartão na fila e sem arrastar nada com o mouse.
+Com esta configuração ligada, o **cupom do pedido sai com um código de barras**. Bipar esse
+código na tela **Delivery** passa o pedido de *Aguardando* ou *Em preparo* direto para
+**Pronto**, sem procurar o cartão na fila.
 
-Serve para **qualquer pedido do módulo Delivery**: entrega, retirada no balcão, pedido do
-cardápio digital ou vindo de um marketplace. É uma caixinha para marcar no layout do *Cupom
-Pedido* e nada mais: o leitor da tela Delivery já vem ligado e não precisa de configuração.
+Vale para **qualquer pedido do Delivery** — entrega, retirada, cardápio digital, marketplace.
+É uma caixinha para marcar, e nada mais: o leitor da tela Delivery já vem ligado.
 
 > As imagens têm **marcações em verde** (setas e números) indicando onde clicar ou o que
 > observar em cada tela.
@@ -16,106 +14,102 @@ Pedido* e nada mais: o leitor da tela Delivery já vem ligado e não precisa de 
 
 ## Antes de começar
 
-1. Conta **BeeFood** com acesso ao grupo **Configuração** no menu.
-2. Um **leitor de código de barras** comum, de teclado (USB ou Bluetooth) — o mesmo tipo que
-   se usa no caixa. Ele não precisa de instalação nem de configuração no BeeFood.
-3. A **tela Delivery aberta** no computador em que o leitor está ligado.
-4. O **cupom do pedido impresso**. Se você ainda não imprime o cupom na cozinha, veja a aba
-   *Impressoras* da mesma tela de **Impressão**.
+- Acesso ao grupo **Configuração** no menu.
+- Um **leitor de código de barras** comum, de teclado (USB ou Bluetooth) — o mesmo do caixa.
+  Ele não precisa de instalação.
+- A **tela Delivery aberta** no computador em que o leitor está ligado.
 
 ---
 
 ## Passo 1. Abrir o layout do Cupom Pedido
 
-No menu, abra **Configuração → Impressão** e clique na aba **Layout** (1). Ela lista os
-layouts de cupom da filial. Clique na linha **Cupom Pedido** — ou no lápis à direita dela (2).
+No menu, **Configuração → Impressão**, aba **Layout** (1). Clique na linha **Cupom Pedido** —
+ou no lápis à direita dela (2).
 
 ![A aba Layout da tela de Impressão, com a linha Cupom Pedido](imagens-tratadas/01-aba-layout-cupom-pedido.png)
 
-| Nº | O que é |
-|----|---------|
-| 1 | A aba **Layout**, dentro de *Configuração → Impressão*. |
-| 2 | A linha do **Cupom Pedido** — o cupom que a cozinha recebe. A linha inteira abre a janela de edição. |
-
 ## Passo 2. Marcar a caixinha e salvar
 
-Na janela que abre, vá para a aba **Texto Padrão** (1). No quadro **Texto padrão Delivery**,
-marque **Código de barras envia pedido para PRONTO** (2) e clique em **SALVAR E FECHAR** (3).
+Na janela, vá para a aba **Texto Padrão** (1). No quadro **Texto padrão Delivery**, marque
+**Código de barras envia pedido para PRONTO** (2) e clique em **SALVAR E FECHAR** (3).
 
 ![A caixinha Código de barras envia pedido para PRONTO, marcada](imagens-tratadas/02-caixinha-codigo-barras-pronto.png)
 
-| Nº | O que é |
-|----|---------|
-| 1 | A aba **Texto Padrão** da janela *Editar Layout - Cupom Pedido*. |
-| 2 | **Código de barras envia pedido para PRONTO** — a caixinha deste manual. Vale para todos os pedidos do Delivery. |
-| 3 | **SALVAR E FECHAR**. Enquanto você não clica aqui, nada muda nos cupons. |
+> **Esta caixinha não é a de cima.** Logo acima existe a **Código de Barras App Entrega**, de
+> outro recurso. As duas são comparadas no fim do manual.
 
-> **Esta caixinha não é a de cima.** Logo acima dela existe a **Código de Barras App
-> Entrega**, que é de outro recurso. A diferença entre as duas está na seção *As duas
-> caixinhas de código de barras*, no fim do manual.
+## Passo 3. Imprimir o cupom do pedido
 
-## Passo 3. O cupom passa a sair com o código de barras
+Do próximo cupom em diante o código já sai. Na cozinha, com o **BeeImpressão** ligado, o cupom
+sai sozinho quando o pedido entra. Para imprimir na hora, clique no cartão do pedido na tela
+**Delivery** (1) e depois no ícone de impressora do painel (2).
 
-Pronto: do próximo cupom em diante, o código de barras aparece **no pé do cupom**, logo
-antes do rodapé. Na imagem, um pedido de **retirada** (1) — ou seja, sem entrega nenhuma —
-com o código já impresso (2).
+![O painel do pedido na tela Delivery, com o botão de impressora](imagens-tratadas/03-botao-imprimir-cupom.png)
 
-![O cupom do pedido com o código de barras no pé](imagens-tratadas/03-cupom-com-codigo-barras.png)
+## Passo 4. O que muda no impresso
 
-| Nº | O que é |
-|----|---------|
-| 1 | O cupom é de **retirada**. A caixinha vale para entrega, retirada e consumo no local — qualquer pedido do Delivery. |
-| 2 | O **código de barras**, no pé do cupom. Ele guarda o número interno do pedido; não há nada para ler ou digitar à mão ali. |
+Antes, o cupom ia do pagamento direto para o rodapé (1):
 
-> **O código não tem número embaixo das barras**, e isso é de propósito: ele não é para ser
-> lido por gente, é para ser bipado. O pedido continua identificado pelo **Pedido #N** no alto
-> do cupom.
+![O cupom do pedido antes de ligar a caixinha, sem código de barras](imagens-tratadas/04-cupom-sem-codigo-barras.png)
 
-## Passo 4. Deixar a tela Delivery aberta
+Agora o mesmo pedido — que é de **retirada** (1) — sai com o código de barras no pé (2):
 
-No computador em que o leitor está ligado, abra o menu **Delivery**. O pedido que você vai
-marcar aparece na coluna **AGUARDANDO** ou **PREPARO** (1) — são as duas situações em que o
-código funciona.
+![O mesmo cupom depois de ligar a caixinha, com o código de barras no pé](imagens-tratadas/05-cupom-com-codigo-barras.png)
 
-![A fila do Delivery com o pedido em Preparo, antes da leitura](imagens-tratadas/04-fila-antes-da-leitura.png)
+De perto, é isto que o leitor mira: o código fica **depois do total e antes do rodapé** (1).
 
-| Nº | O que é |
-|----|---------|
-| 1 | O cartão do pedido na coluna **PREPARO**. Também funciona com um pedido em **AGUARDANDO**. |
+![O pé do cupom de perto, com o código de barras](imagens-tratadas/06-codigo-no-pe-do-cupom.png)
 
-> **Clique numa área vazia da tela antes de bipar.** Se o cursor estiver dentro de um campo de
-> texto — a busca de pedidos, por exemplo — ou se houver uma janela aberta na frente, a leitura
-> vai para o campo e não para a fila.
+> **O código não tem número embaixo das barras**, de propósito: ele é para ser bipado, não
+> lido. O pedido continua identificado pelo **Pedido #N** no alto do cupom.
 
-## Passo 5. Bipar o código
+## Passo 5. Bipar na tela Delivery
 
-Aponte o leitor para o código de barras do cupom e bipe. O painel avisa **Pedido #N marcado
-como Pronto** (1) e o cartão muda de coluna na hora: ele passa para **PRONTO** (2).
+Na tela **Delivery**, o pedido precisa estar em **AGUARDANDO** ou **PREPARO** (1) — a coluna
+**PRONTO** ainda está em zero (2). Antes de bipar, clique numa **área vazia** da tela: se o
+cursor estiver num campo de texto, ou houver uma janela aberta na frente, a leitura não chega
+na fila.
 
-![O aviso de confirmação e o pedido já na coluna Pronto](imagens-tratadas/05-pedido-em-pronto.png)
+![A fila do Delivery com o pedido em Preparo, antes da leitura](imagens-tratadas/07-fila-antes-da-leitura.png)
 
-| Nº | O que é |
-|----|---------|
-| 1 | O aviso **Pedido #N marcado como Pronto**. É o mesmo efeito de arrastar o cartão para a coluna *Pronto*. |
-| 2 | O cartão do pedido, agora na coluna **PRONTO**. Daqui ele segue o caminho normal: sair para entrega ou ser retirado no balcão. |
+Aponte o leitor para o código e bipe. O painel avisa **Pedido #N marcado como Pronto** (1) e o
+cartão muda de coluna na hora (2).
+
+![O aviso de confirmação e o pedido já na coluna Pronto](imagens-tratadas/08-pedido-em-pronto.png)
+
+---
+
+## Quando o bipe não move o pedido
+
+Bipou o mesmo cupom duas vezes? O painel avisa **Pedido #N já está em Pronto** (1) e não mexe
+em nada. O código só adianta pedido em *Aguardando* ou *Em preparo* — depois disso, de
+propósito, ele não faz nada.
+
+![O aviso de que o pedido já está em Pronto](imagens-tratadas/09-pedido-ja-esta-em-pronto.png)
+
+Se o código não for de nenhum pedido da lista, vem a tarja vermelha **Pedido não encontrado no
+Delivery**, com o código que foi lido (1). Em geral é cupom de outro dia, de outra filial, ou
+um código de barras de produto bipado por engano.
+
+![A tarja vermelha de pedido não encontrado no Delivery](imagens-tratadas/10-pedido-nao-encontrado.png)
 
 ---
 
 ## As duas caixinhas de código de barras
 
-As duas moram uma embaixo da outra, na mesma aba, e fazem coisas diferentes. Pode deixar as duas
-ligadas: o cupom imprime **um** código de barras, e ele serve para os dois usos.
+Elas ficam uma embaixo da outra e fazem coisas diferentes. Pode deixar as duas ligadas: o
+cupom imprime **um** código, e ele serve para os dois usos.
 
 | | **Código de barras envia pedido para PRONTO** | **Código de Barras App Entrega** |
 |---|---|---|
 | Para que serve | A cozinha bipa na **tela Delivery** e o pedido vai para *Pronto*. | O entregador bipa no **app do entregador** e o pedido sai para *Em entrega*. |
 | Em quais pedidos imprime | **Todos** os do Delivery: entrega, retirada, consumo no local. | Só pedidos **de entrega**, com endereço. |
 | Depende do plano | Não. | Sim — precisa do módulo de entregas contratado. |
-| Onde se bipa | No computador com a tela **Delivery** aberta. | No celular do entregador, pelo aplicativo. |
+| Onde se bipa | No computador com a tela **Delivery** aberta. | No celular do entregador. |
 
-Em resumo: a de cima é para a **saída** do pedido, esta é para a **cozinha**. Uma loja que só
-trabalha com retirada no balcão nunca viu o código de barras no cupom até agora — é
-exatamente o caso que esta caixinha resolve.
+A de cima é para a **saída** do pedido; esta é para a **cozinha**. Quem só trabalha com
+retirada no balcão nunca viu código de barras no cupom até agora — é o caso que esta caixinha
+resolve.
 
 ---
 
@@ -123,107 +117,78 @@ exatamente o caso que esta caixinha resolve.
 
 | Sintoma | O que verificar |
 |---------|-----------------|
-| **O cupom sai sem o código de barras** | Confira se a caixinha está marcada no layout **Cupom Pedido** e se você clicou em *SALVAR E FECHAR*. Cupons impressos **antes** de salvar não têm o código: imprima o pedido de novo. |
-| **O cupom do navegador tem o código, mas o da impressora não** | O código de barras na impressora depende do **BeeImpressão** atualizado — ele entrou na versão **1.0.5.7** do servidor de impressão. Atualize pelo botão *Download Servidor Impressão*, na aba **Impressoras**. |
-| **Bipei e nada aconteceu** | Quase sempre é foco: clique numa **área vazia** da tela Delivery, sem nenhuma janela aberta na frente, e bipe de novo. Confira também se a tela aberta é a **Delivery**, e não outra. |
-| **Bipei e o código foi para a caixa de busca** | O cursor estava dentro do campo. Limpe o campo, clique fora dele e bipe de novo. |
-| **Diz "Pedido não encontrado no Delivery"** | O código lido não corresponde a nenhum pedido **da lista atual** da tela Delivery. Normalmente é cupom de outro dia, cupom de outra filial ou um código de barras de produto que foi bipado por engano. |
-| **Diz "Pedido #N já está em Pronto"** | O pedido já passou dessa etapa. O código só adianta pedido que está em *Aguardando* ou *Em preparo*; depois disso ele não mexe em mais nada, de propósito. |
-| **Digitei os números à mão e não funcionou** | O leitor manda os dígitos muito rápido, e é isso que o painel reconhece. Digitação à mão é lenta demais. Para mover o pedido sem leitor, arraste o cartão ou use o botão *PEDIDO PRONTO* dentro do pedido. |
-| **O pedido foi para Pronto sem eu querer** | Alguém bipou um cupom com a tela Delivery aberta e o cursor fora dos campos. Arraste o cartão de volta para a coluna anterior. |
-| **Quero o código no cupom da cozinha, não no do pedido** | A caixinha existe só no layout **Cupom Pedido**. O *Cupom Cozinha* não imprime código de barras. |
+| **O cupom sai sem o código** | Confira se a caixinha está marcada no layout **Cupom Pedido** e se você clicou em *SALVAR E FECHAR*. Cupom impresso **antes** de salvar não tem o código: imprima o pedido de novo. |
+| **O cupom do navegador tem o código, o da impressora não** | O código na impressora depende do **BeeImpressão** na versão **1.0.5.7** ou mais nova. Atualize pelo botão *Download Servidor Impressão*, na aba **Impressoras**. |
+| **Bipei e nada aconteceu** | Quase sempre é foco: clique numa **área vazia** da tela Delivery, sem janela aberta na frente, e bipe de novo. Confira também se a tela aberta é a **Delivery**. |
+| **O código foi para a caixa de busca** | O cursor estava dentro do campo. Limpe o campo, clique fora dele e bipe de novo. |
+| **Digitei os números à mão e não funcionou** | O painel reconhece a rajada rápida de dígitos do leitor; digitação à mão é lenta demais. Sem leitor, arraste o cartão ou use o botão *PEDIDO PRONTO*. |
+| **O pedido foi para Pronto sem eu querer** | Alguém bipou um cupom com a tela Delivery aberta e o cursor fora dos campos. Arraste o cartão de volta. |
+| **Quero o código no Cupom Cozinha** | A caixinha existe só no layout **Cupom Pedido**. |
 
 ---
 
 ## Perguntas frequentes
 
 **Como marcar o pedido como pronto bipando o código de barras do cupom?**
-Ligue **Configuração → Impressão → aba Layout → Cupom Pedido → aba Texto Padrão → Código de
-barras envia pedido para PRONTO**. Depois, com a tela **Delivery** aberta, bipe o código do
-cupom: o pedido vai para *Pronto*.
+Ligue **Configuração → Impressão → Layout → Cupom Pedido → Texto Padrão → Código de barras
+envia pedido para PRONTO**. Depois, com a tela **Delivery** aberta, bipe o código do cupom.
 
 **Onde fica a opção de código de barras no cupom do pedido?**
 Em **Configuração → Impressão**, aba **Layout**, linha **Cupom Pedido**, aba **Texto Padrão**,
-no quadro *Texto padrão Delivery*.
+no quadro *Texto padrão Delivery*. É a mesma caixinha que faz o código ser impresso.
 
-**Como imprimir código de barras no cupom do Delivery?**
-É a mesma caixinha: **Código de barras envia pedido para PRONTO**. Marque, salve e o próximo
-cupom já sai com o código.
-
-**Preciso configurar o leitor de código de barras no BeeFood?**
-Não. O leitor comum, de teclado, já funciona. O BeeFood escuta a leitura sozinho na tela
-Delivery, sem nenhuma configuração.
-
-**Preciso ligar alguma coisa na tela Delivery?**
-Não. O leitor da tela Delivery **fica sempre ligado**. A única configuração é a caixinha do
-cupom, que faz o código de barras ser impresso.
+**Preciso configurar o leitor, ou ligar algo na tela Delivery?**
+Não. Leitor comum de teclado já funciona, e o leitor da tela Delivery fica sempre ligado.
 
 **Funciona em pedido de retirada no balcão?**
-Sim — é a principal diferença em relação ao código de barras do app do entregador. Esta
-caixinha imprime o código em **todos** os pedidos do Delivery, inclusive retirada e consumo
-no local.
+Sim — é a principal diferença em relação ao código do app do entregador. Imprime em **todos**
+os pedidos do Delivery, inclusive retirada e consumo no local.
 
 **Funciona com pedido de iFood e dos outros marketplaces?**
 Sim. O que vale é o pedido estar no módulo **Delivery**, não a origem dele.
 
 **De que situação para qual situação o pedido vai?**
-De **Aguardando** ou **Em preparo** para **Pronto**. Pedido que já está em *Pronto*, *Em
-entrega*, *Entregue* ou *Cancelado* não é movido.
+De **Aguardando** ou **Em preparo** para **Pronto**. Pedido em *Pronto*, *Em entrega*,
+*Entregue* ou *Cancelado* não é movido.
 
 **Bipei duas vezes o mesmo cupom. Dá problema?**
 Não. Na segunda vez o painel avisa *Pedido #N já está em Pronto* e não mexe em nada.
 
-**O código de barras serve para o entregador também?**
-A leitura no **app do entregador** é outro recurso, com a caixinha de cima (*Código de Barras
-App Entrega*). Pode deixar as duas ligadas: o cupom imprime um código de barras só, e ele
-serve para os dois usos.
+**O mesmo código serve para o entregador?**
+Serve. A leitura no app do entregador é o outro recurso (*Código de Barras App Entrega*), e o
+cupom imprime um código só para os dois usos.
 
-**Qual a diferença entre as duas caixinhas de código de barras?**
-A de cima manda o pedido para **Em entrega** quando o entregador bipa no aplicativo, e só
-imprime em pedido de entrega. Esta manda para **Pronto** quando alguém bipa no computador, e
-imprime em qualquer pedido do Delivery.
+**O que o código guarda?**
+O **número interno do pedido** no BeeFood, num EAN-13. Não é o *Pedido #N* do cupom nem o
+telefone do cliente — e é por isso que não tem dígitos impressos embaixo das barras.
 
-**O que o código de barras guarda?**
-O **número interno do pedido** no BeeFood, num código EAN-13. Não é o *Pedido #N* que aparece
-no cupom nem o telefone do cliente.
-
-**Por que o código não tem números impressos embaixo das barras?**
-Porque ele não é para ser lido nem digitado por ninguém — só bipado. A identificação visível
-do pedido continua sendo o **Pedido #N** no alto do cupom.
-
-**Posso digitar o código no teclado em vez de bipar?**
-Na prática não: o painel reconhece a rajada de dígitos do leitor, que é muito mais rápida que
-a digitação à mão. Sem leitor, arraste o cartão na fila ou use o botão *PEDIDO PRONTO*.
+**Posso digitar o código em vez de bipar?**
+Na prática não: o painel reconhece a rajada de dígitos do leitor. Sem leitor, arraste o cartão
+ou use o botão *PEDIDO PRONTO*.
 
 **Dá para usar o leitor do celular?**
-Qualquer leitor que se comporte como teclado serve, inclusive um aplicativo de leitura que
-digite o código e dê *Enter* no computador. Leitura pela câmera dentro do painel não existe.
+Qualquer leitor que se comporte como teclado serve, inclusive um aplicativo que digite o
+código e dê *Enter* no computador. Leitura pela câmera dentro do painel não existe.
 
-**O código vale para qualquer filial?**
-Cada cupom vale no Delivery **da filial que o emitiu**. Bipar um cupom de outra filial dá
+**Bipei um cupom de ontem, ou de outra filial, e não funcionou. Por quê?**
+A tela trabalha com os pedidos recentes **da filial que emitiu o cupom**. Fora disso, vem
 *Pedido não encontrado no Delivery*.
 
-**Bipei um cupom de ontem e não funcionou. Por quê?**
-A tela Delivery trabalha com os pedidos recentes. Se o pedido não está na lista da tela, o
-código não acha nada.
-
 **A configuração vale para todos os computadores da loja?**
-Sim. Ela é da **filial**, salva no layout do cupom. Qualquer computador com a tela Delivery
-aberta e um leitor ligado passa a funcionar.
+Sim. Ela é da **filial**, salva no layout do cupom.
 
 **Como desligar?**
-No mesmo lugar: desmarque **Código de barras envia pedido para PRONTO** e clique em *SALVAR E
-FECHAR*. Os cupons voltam a sair sem o código. Cupons já impressos continuam funcionando ao
-ser bipados, porque o leitor da tela Delivery não depende da caixinha.
+Desmarque a caixinha e clique em *SALVAR E FECHAR*. Os cupons voltam a sair sem o código; os
+já impressos continuam funcionando ao ser bipados.
 
 ---
 
 ## Precisa de ajuda?
 
-Fale com o **suporte BeeFood** informando: nome da loja e **filial**, se a caixinha
-*Código de barras envia pedido para PRONTO* está marcada no layout **Cupom Pedido**, se o
-código aparece no cupom impresso, o **número do pedido** que você tentou marcar e o aviso que
-o painel mostrou ao bipar.
+Fale com o **suporte BeeFood** informando: nome da loja e **filial**, se a caixinha *Código de
+barras envia pedido para PRONTO* está marcada no layout **Cupom Pedido**, se o código aparece
+no cupom impresso, o **número do pedido** que você tentou marcar e o aviso que o painel
+mostrou ao bipar.
 
 ---
 

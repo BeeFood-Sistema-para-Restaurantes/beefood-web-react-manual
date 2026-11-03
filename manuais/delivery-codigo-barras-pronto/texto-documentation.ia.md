@@ -15,20 +15,27 @@ Crie um novo manual no app: em **Delivery**, adicione um manual por último cham
 1. **Conteúdo do manual (use na íntegra):**
    `beefood-web-react-manual/manuais/delivery-codigo-barras-pronto/delivery-codigo-barras-pronto.md`
 
-2. **Imagens (use estas 5, nesta ordem):**
+2. **Imagens (use estas 10, nesta ordem):**
    - `beefood-web-react-manual/manuais/delivery-codigo-barras-pronto/imagens-tratadas/01-aba-layout-cupom-pedido.png`
    - `beefood-web-react-manual/manuais/delivery-codigo-barras-pronto/imagens-tratadas/02-caixinha-codigo-barras-pronto.png`
-   - `beefood-web-react-manual/manuais/delivery-codigo-barras-pronto/imagens-tratadas/03-cupom-com-codigo-barras.png`
-   - `beefood-web-react-manual/manuais/delivery-codigo-barras-pronto/imagens-tratadas/04-fila-antes-da-leitura.png`
-   - `beefood-web-react-manual/manuais/delivery-codigo-barras-pronto/imagens-tratadas/05-pedido-em-pronto.png`
+   - `beefood-web-react-manual/manuais/delivery-codigo-barras-pronto/imagens-tratadas/03-botao-imprimir-cupom.png`
+   - `beefood-web-react-manual/manuais/delivery-codigo-barras-pronto/imagens-tratadas/04-cupom-sem-codigo-barras.png`
+   - `beefood-web-react-manual/manuais/delivery-codigo-barras-pronto/imagens-tratadas/05-cupom-com-codigo-barras.png`
+   - `beefood-web-react-manual/manuais/delivery-codigo-barras-pronto/imagens-tratadas/06-codigo-no-pe-do-cupom.png`
+   - `beefood-web-react-manual/manuais/delivery-codigo-barras-pronto/imagens-tratadas/07-fila-antes-da-leitura.png`
+   - `beefood-web-react-manual/manuais/delivery-codigo-barras-pronto/imagens-tratadas/08-pedido-em-pronto.png`
+   - `beefood-web-react-manual/manuais/delivery-codigo-barras-pronto/imagens-tratadas/09-pedido-ja-esta-em-pronto.png`
+   - `beefood-web-react-manual/manuais/delivery-codigo-barras-pronto/imagens-tratadas/10-pedido-nao-encontrado.png`
 
 **NÃO leia outros arquivos** (`fluxo-codigo.md`, `MEMORIA*.md`, `annotate.py`, `capturar.py`,
 `conferir-setas.py`, `imagens-puras/`).
 
 - Faça a apresentação das imagens **igual** ao menu **"Abrir Caixa"**.
-- A ordem das imagens é a mesma do nome do arquivo, de `01` a `05`.
-- A imagem `03` é a foto de um **cupom**: estreita e alta. Ela precisa aparecer inteira, sem
-  corte no pé, porque o código de barras fica justamente lá.
+- A ordem das imagens é a mesma do nome do arquivo, de `01` a `10`.
+- As imagens `04`, `05` e `06` são fotos de **cupom**: estreitas e altas. A `04` e a `05`
+  precisam aparecer inteiras, sem corte no pé, porque o código de barras fica justamente lá —
+  e elas são um **par antes/depois** do mesmo pedido, então ficam uma depois da outra, na
+  mesma seção. A `06` é o pé do cupom de perto.
 - pt-BR, didático; o leitor é o **lojista** ou quem está na cozinha, com o cupom na mão e um
   leitor de código de barras ligado no computador.
 - **Manual curto, de propósito:** uma caixinha para marcar e uma leitura para fazer.
@@ -45,20 +52,23 @@ Crie um novo manual no app: em **Delivery**, adicione um manual por último cham
 
 1. Título e abertura — o que a caixinha faz, para quem serve (cozinha com as mãos ocupadas) e
    a frase que diz que vale para **qualquer pedido do Delivery**, inclusive retirada.
-2. Antes de começar — acesso ao grupo *Configuração*, um leitor comum de teclado, a tela
-   Delivery aberta e o cupom impresso.
+2. Antes de começar — acesso ao grupo *Configuração*, um leitor comum de teclado e a tela
+   Delivery aberta.
 3. **Passo 1** — abrir *Configuração → Impressão*, aba **Layout**, linha **Cupom Pedido**.
 4. **Passo 2** — aba **Texto Padrão**, marcar a caixinha e **SALVAR E FECHAR**. Mais o aviso de
    que ela **não** é a *Código de Barras App Entrega* logo acima.
-5. **Passo 3** — o cupom sai com o código no pé, mostrado num pedido de **retirada**, e o aviso
-   de que o código **não tem número embaixo das barras**.
-6. **Passo 4** — a tela Delivery aberta, o pedido em *Aguardando* ou *Preparo*, e o aviso de
-   clicar numa área vazia antes de bipar.
-7. **Passo 5** — bipar: o aviso *Pedido #N marcado como Pronto* e o cartão na coluna *Pronto*.
-8. **As duas caixinhas de código de barras** — a tabela que separa esta da *App Entrega*.
-9. Quando algo não funciona — tabela sintoma/verificação.
-10. Perguntas frequentes.
-11. Precisa de ajuda? e Onde continuar.
+5. **Passo 3** — de onde o impresso sai: o cupom automático do BeeImpressão e o botão de
+   impressora no painel do pedido.
+6. **Passo 4** — o que muda no impresso: o cupom **sem** o código, o mesmo cupom **com** o
+   código, o pé de perto, e o aviso de que o código **não tem número embaixo das barras**.
+7. **Passo 5** — a fila do Delivery, o aviso de clicar numa área vazia, e o bipe que move o
+   cartão para *Pronto*.
+8. **Quando o bipe não move o pedido** — os dois avisos: *já está em Pronto* e *Pedido não
+   encontrado no Delivery*.
+9. **As duas caixinhas de código de barras** — a tabela que separa esta da *App Entrega*.
+10. Quando algo não funciona — tabela sintoma/verificação.
+11. Perguntas frequentes.
+12. Precisa de ajuda? e Onde continuar.
 
 ## Anexo — legendas das imagens (na ordem)
 
@@ -66,9 +76,14 @@ Crie um novo manual no app: em **Delivery**, adicione um manual por último cham
 |---|---|---|---|---|
 | 1 | `01-aba-layout-cupom-pedido.png` | Passo 1 | com setas (2) | A aba **Layout** de *Configuração → Impressão*, com a linha **Cupom Pedido** e o lápis que abre a edição |
 | 2 | `02-caixinha-codigo-barras-pronto.png` | Passo 2 | com setas (3) | A aba **Texto Padrão** com **Código de barras envia pedido para PRONTO** marcada e o botão **SALVAR E FECHAR** |
-| 3 | `03-cupom-com-codigo-barras.png` | Passo 3 | com setas (2) | O cupom de um pedido de **retirada**, com o código de barras impresso no pé |
-| 4 | `04-fila-antes-da-leitura.png` | Passo 4 | com setas (1) | A fila do **Delivery** com o pedido na coluna **PREPARO**, antes da leitura |
-| 5 | `05-pedido-em-pronto.png` | Passo 5 | com setas (2) | O aviso **Pedido #33 marcado como Pronto** e o cartão já na coluna **PRONTO** |
+| 3 | `03-botao-imprimir-cupom.png` | Passo 3 | com setas (2) | O painel do pedido na tela **Delivery**, com o cartão aberto e o ícone de impressora que imprime o cupom |
+| 4 | `04-cupom-sem-codigo-barras.png` | Passo 4 | com setas (1) | O cupom do mesmo pedido **antes** da caixinha: do pagamento ele cai direto no rodapé |
+| 5 | `05-cupom-com-codigo-barras.png` | Passo 4 | com setas (2) | O cupom **depois** da caixinha — pedido de **retirada**, com o código de barras no pé |
+| 6 | `06-codigo-no-pe-do-cupom.png` | Passo 4 | com setas (1) | O pé do cupom de perto: o código entre o total e o rodapé |
+| 7 | `07-fila-antes-da-leitura.png` | Passo 5 | com setas (2) | A fila do **Delivery** com o pedido em **PREPARO** e a coluna **PRONTO** ainda em zero |
+| 8 | `08-pedido-em-pronto.png` | Passo 5 | com setas (2) | O aviso **Pedido #38 marcado como Pronto** e o cartão já na coluna **PRONTO** |
+| 9 | `09-pedido-ja-esta-em-pronto.png` | Quando o bipe não move o pedido | com setas (1) | O aviso **Pedido #38 já está em Pronto**, do segundo bipe no mesmo cupom |
+| 10 | `10-pedido-nao-encontrado.png` | Quando o bipe não move o pedido | com setas (1) | A tarja vermelha **Pedido não encontrado no Delivery**, com o código que foi lido |
 
 ## Observações de conteúdo
 
