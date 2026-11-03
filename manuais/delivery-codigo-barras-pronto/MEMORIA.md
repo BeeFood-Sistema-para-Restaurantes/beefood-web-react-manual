@@ -14,8 +14,9 @@ roteiro de verificação, e os cenários A–F dele viraram a tabela de problema
 
 ## O que entrou e o que ficou fora
 
-**Entrou:** onde a caixinha mora, marcar e salvar, o cupom com o código, a fila antes e o
-pedido depois da leitura, e a tabela que separa as duas caixinhas de código de barras.
+**Entrou:** onde a caixinha mora, marcar e salvar, de onde o cupom sai, o cupom sem e com o
+código (e o pé dele de perto), a fila antes e o pedido depois da leitura, os dois avisos de
+bipe que não move nada, e a tabela que separa as duas caixinhas de código de barras.
 
 **Ficou fora, de propósito:** o módulo de impressão do Windows (`BeeFood3_Impressao.exe`,
 que o dono tirou do escopo e aparece só como uma linha na tabela de problemas), o fluxo do app
@@ -71,10 +72,30 @@ O cancelamento de pedido do Delivery **não é** uma rota própria: é
 mesmo caminho serve para devolver o pedido a `PREPARO`, o que virou o comando `rebobinar` —
 útil porque a imagem 05 teve de ser refeita.
 
+## A revisão pedida pelo dono
+
+> *"volte para manuais/delivery-codigo-barras-pronto e melhore, falta: mostrar o impresso,
+> mais imagens. resumir mais."* — 03/11/2026, depois de ler a primeira entrega.
+
+As duas primeiras linhas eram a mesma coisa: **o impresso estava subdocumentado**. A primeira
+entrega tinha uma única foto de cupom, e o controle com a flag desligada existia só como prova
+interna, no `/tmp`. Quem lê não sabe como era o pé do cupom antes, nem de onde o cupom sai, nem
+o que o leitor tem de mirar. A revisão respondeu com cinco imagens novas:
+
+- o **par antes/depois** do mesmo pedido (`04` e `05`) — a captura de controle virou imagem;
+- o **pé do cupom de perto** (`06`), por `clip` medido no `bounding_box()` do `<svg>`;
+- o **botão de impressora** do painel do pedido (`03`), que é de onde o impresso sai na hora;
+- os **dois avisos** de bipe que não move nada (`09` e `10`).
+
+E *"resumir mais"* não briga com *"mais imagens"*: as duas telas de aviso **saíram da tabela de
+problemas**, as legendas em tabela embaixo de cada imagem deram lugar ao `(N)` na frase que
+antecede a imagem, e o FAQ perdeu as perguntas que eram a mesma pergunta duas vezes. Resultado:
+o dobro das imagens, de 2264 para 1678 palavras.
+
 ## As capturas
 
-Cinco imagens, dez setas. Quatro em 2160x1350; a do cupom sai do próprio HTML de impressão,
-em 630x1139.
+Dez imagens, dezessete setas. Sete em 2160x1350; as três do impresso saem do próprio HTML de
+impressão, em 630 de largura.
 
 - O cupom é escrito num iframe oculto (`beefood-print-frame`) e seguido de `print()`, que
   travaria o Playwright. O gancho do #99 guarda o HTML e neutraliza o `print()`. O botão de
@@ -85,12 +106,28 @@ em 630x1139.
 - O aviso de confirmação entra deslizando da direita. Esperar 2,5 s depois do Enter pegou o
   aviso cortado pela metade; o certo é esperar o texto aparecer (`get_by_text`) e **só então**
   deixar assentar.
-- `annotate.py` ganhou `escala_etiqueta`, usado só na imagem do cupom: num PNG de 630 px de
+- `annotate.py` ganhou `escala_etiqueta`, usado só nas imagens do cupom: num PNG de 630 px de
   largura, o círculo proporcional sairia menor que o texto ao lado.
+- **A ordem de execução não é a ordem do manual.** O cupom "antes" (imagem `04`) só existe
+  enquanto a caixinha está desligada, então o passo `antes` roda antes do passo `config`, que
+  liga a flag. O `cmd_capturar` aborta se encontrar a flag já ligada no passo `antes` — refazer
+  o par com a flag ligada daria duas imagens iguais e uma afirmação falsa no manual.
+- **Aproximação é captura, não corte.** A imagem `06` é um segundo `screenshot` da mesma página,
+  com `clip` calculado a partir do `bounding_box()` do `<svg>` do código. Recortar a pura depois
+  quebraria a regra de não gravar nada nela. A margem de cima é de 85 px porque menos que isso
+  corta a linha *Cobrar do Cliente* no meio da letra.
+- **Ponta de seta em cima do alvo tapa o alvo.** A seta 2 da imagem `07` cobria o `0` do
+  contador da coluna PRONTO, e a seta 1 da `08` cobria uma palavra do aviso. As duas passaram a
+  parar logo abaixo do alvo.
+- **Aviso de duas linhas não deixa lugar para a etiqueta.** Entre a tarja de *Pedido não
+  encontrado* e o topo das colunas sobram 27 px, e o círculo tem 28. A etiqueta da imagem `10`
+  foi para a esquerda, na faixa branca ao lado da tarja, em vez de ficar debaixo dela.
+- **Cada aviso quer a fila recarregada.** Dois bipes seguidos empilham duas tarjas na tela, e
+  duas tarjas não explicam nada. O `cap_aviso` recarrega `/delivery` antes de cada leitura.
 
 ## O estado do sandbox depois
 
 O layout DELIVERY voltou para `beeEntregaCodigoBarras=True` e `beeCodigoBarrasPronto=False`,
 que é como estava — os dois valores ficaram guardados em `/tmp/barras-pronto-estado.json`
-antes da primeira escrita. Os quatro pedidos criados nas duas rodadas (`62986342`, `62986343`,
-`62987841`, `62987842`) foram cancelados.
+antes da primeira escrita. Os seis pedidos criados nas três rodadas (`62986342`, `62986343`,
+`62987841`, `62987842` e, na rodada da revisão, `63002108` e `63002110`) foram cancelados.

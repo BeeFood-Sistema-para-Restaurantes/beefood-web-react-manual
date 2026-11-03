@@ -1,8 +1,10 @@
-"""Anota as cinco capturas do #132 — código de barras que envia o pedido para PRONTO.
+"""Anota as dez capturas do #132 — código de barras que envia o pedido para PRONTO.
 
 Coordenadas em **fração de 0 a 1** da captura, medidas com a grade de frações (seção 3 da
-memória geral). Quatro puras saem em 2160x1350; a do cupom sai estreita e alta (630x1139),
-porque é a captura do papel, e lá as etiquetas vão para a margem branca ao lado do texto.
+memória geral). Seis puras saem em 2160x1350; as três do impresso saem estreitas (630 de
+largura), porque são a captura do papel, e lá as etiquetas vão para a margem branca ao lado
+do texto. O cupom aparece três vezes de propósito: sem o código, com o código e com o pé de
+perto — é o par antes/depois que explica o que a caixinha faz.
 
 Na imagem do modal, a etiqueta que não cabe dentro da caixa branca sem cobrir texto vai
 para a faixa escurecida ao lado: o círculo verde com número branco continua legível ali, e
@@ -100,9 +102,27 @@ annotate(
     ],
 )
 
-# Passo 3 — o cupom: pedido de retirada e o código de barras no pé.
+# Passo 3 — de onde o impresso sai: o pedido na fila e a impressora do painel.
 annotate(
-    "03-cupom-com-codigo-barras.png",
+    "03-botao-imprimir-cupom.png",
+    [
+        (1, 0.385, 0.255, 0.345, 0.310),   # cartão do pedido, para abrir o painel
+        (2, 0.916, 0.184, 0.952, 0.125),   # ícone de impressora do painel do pedido
+    ],
+)
+
+# Passo 4 — o mesmo cupom antes da caixinha: do PIX ele cai direto no rodapé.
+annotate(
+    "04-cupom-sem-codigo-barras.png",
+    [
+        (1, 0.300, 0.848, 0.085, 0.800),   # fim do cupom, onde o código vai entrar
+    ],
+    escala_etiqueta=2.4,
+)
+
+# Passo 4 — o cupom depois da caixinha: retirada, e o código no pé.
+annotate(
+    "05-cupom-com-codigo-barras.png",
     [
         (1, 0.352, 0.056, 0.160, 0.085),   # cabeçalho RETIRADA
         (2, 0.248, 0.752, 0.120, 0.700),   # o código de barras
@@ -110,19 +130,47 @@ annotate(
     escala_etiqueta=2.4,
 )
 
-# Passo 4 — o pedido esperando na fila, antes de bipar.
+# Passo 4 — o pé do cupom de perto, para o leitor saber o que mirar.
 annotate(
-    "04-fila-antes-da-leitura.png",
+    "06-codigo-no-pe-do-cupom.png",
+    [
+        (1, 0.300, 0.500, 0.085, 0.500),   # o código de barras
+    ],
+    escala_etiqueta=2.4,
+)
+
+# Passo 5 — o pedido esperando na fila, antes de bipar.
+annotate(
+    "07-fila-antes-da-leitura.png",
     [
         (1, 0.377, 0.250, 0.325, 0.300),   # cartão do pedido na coluna PREPARO
+        # A ponta para logo abaixo do contador: em cima dele, a cabeça da seta tapa o zero.
+        (2, 0.766, 0.206, 0.800, 0.270),   # contador da coluna PRONTO, ainda em zero
     ],
 )
 
 # Passo 5 — depois de bipar: o aviso e o pedido já em PRONTO.
 annotate(
-    "05-pedido-em-pronto.png",
+    "08-pedido-em-pronto.png",
     [
-        (1, 0.780, 0.097, 0.780, 0.151),   # aviso "Pedido #33 marcado como Pronto"
-        (2, 0.812, 0.250, 0.862, 0.250),   # o cartão agora na coluna PRONTO
+        # A ponta mira a faixa do aviso **abaixo** da frase: em cima dela, tapa letra.
+        (1, 0.855, 0.080, 0.855, 0.125),   # aviso "Pedido #38 marcado como Pronto"
+        (2, 0.795, 0.288, 0.866, 0.288),   # o cartão agora na coluna PRONTO
+    ],
+)
+
+# Quando o bipe não move nada — o pedido já estava em PRONTO.
+annotate(
+    "09-pedido-ja-esta-em-pronto.png",
+    [
+        (1, 0.855, 0.080, 0.855, 0.125),   # aviso "Pedido #38 já está em Pronto"
+    ],
+)
+
+# Quando o bipe não move nada — o código não é de pedido nenhum da fila de hoje.
+annotate(
+    "10-pedido-nao-encontrado.png",
+    [
+        (1, 0.855, 0.105, 0.780, 0.142),   # tarja vermelha com o código que foi lido
     ],
 )
