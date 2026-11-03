@@ -1297,7 +1297,8 @@ escrito de propósito bateria.
 
 O #132 (código de barras no cupom marca o pedido como Pronto) nasceu de um pedido curto —
 *"novo manual, faça git pull nos fontes e crie o novo manual simples de como configurar e
-usar"* — acompanhado do guia interno de teste do recurso. Cinco imagens, 10 setas. Detalhe em
+usar"* — acompanhado do guia interno de teste do recurso. Dez imagens, 17 setas, depois de uma
+revisão pedida pelo dono (*"falta mostrar o impresso, mais imagens, resumir mais"*). Detalhe em
 [`MEMORIA.md`](../../../../manuais/delivery-codigo-barras-pronto/MEMORIA.md) e
 [`fluxo-codigo.md`](../../../../manuais/delivery-codigo-barras-pronto/fluxo-codigo.md).
 
@@ -1343,6 +1344,26 @@ usar"* — acompanhado do guia interno de teste do recurso. Cinco imagens, 10 se
   630 px (a foto do cupom) isso dá um círculo menor que o texto ao lado, então entrou um
   `escala_etiqueta`, usado **só** nessa imagem. A regra continua a mesma; o multiplicador é a
   exceção declarada no comentário.
+- **O par de controle que serviu de prova interna também quer ser publicado.** A primeira
+  entrega capturou o cupom com a flag desligada só para provar que o código vinha da flag nova,
+  e publicou apenas o "depois". O dono voltou pedindo *"mostrar o impresso"*: o que o lojista
+  precisa é dos **dois lados lado a lado**, porque ninguém sabe como era o pé do cupom antes.
+  Captura de controle já feita é imagem barata — a pergunta no fim do manual é se ela ensina
+  algo, não se ela foi tirada para outro fim.
+- **Mais imagem pode ser menos texto.** O mesmo pedido pediu *"mais imagens"* e *"resumir
+  mais"*, que parecem opostos e não são: as duas telas de aviso (*já está em Pronto* e *Pedido
+  não encontrado*) viraram seção com imagem e **saíram da tabela de problemas**, as legendas em
+  tabela embaixo de cada imagem foram trocadas por `(N)` na frase que antecede a imagem, e o
+  manual terminou com o dobro de imagens e **26% menos palavras**.
+- **Aproximação de detalhe é captura, não corte.** Para mostrar o código de barras de perto, o
+  jeito certo é um segundo `screenshot` com `clip` na mesma página, medindo a região pelo
+  `bounding_box()` do elemento — e não recortar a pura depois, o que violaria "nada se grava na
+  pura". Detalhe de enquadramento: a margem acima do alvo tem de cair **entre** duas linhas de
+  texto, senão a imagem abre com uma linha cortada no meio da letra.
+- **Ponta de seta em cima do alvo tapa o alvo.** A cabeça da seta cobriu o `0` do contador da
+  coluna PRONTO e uma palavra do aviso de confirmação. Em número pequeno e em frase curta, a
+  ponta tem de parar **ao lado** ou **logo abaixo** do alvo: perto o bastante para não haver
+  dúvida, longe o bastante para o alvo continuar legível — que é a razão de a imagem existir.
 
 ### Manual curto por pedido, e tela cujo botão de gerar não existe — #131
 
