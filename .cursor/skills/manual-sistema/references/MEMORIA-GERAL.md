@@ -1284,6 +1284,7 @@ escrito de propósito bateria.
 | Importar cardápio (iFood, imagem, Excel e clonagem) | `manuais/cardapio-importar/` | ✅ Concluído (#130) |
 | Código de ativação de aparelho (Dispositivos) | `manuais/dispositivos-codigo-ativacao/` | ✅ Concluído (#131) |
 | Código de barras no cupom marca o pedido como Pronto | `manuais/delivery-codigo-barras-pronto/` | ✅ Concluído (#132) |
+| Valor fiscal por produto (o brinde do combo na nota) | `manuais/cardapio-valor-fiscal/` | ✅ Concluído (#133) |
 
 > **Número de manual se escolhe lendo esta tabela, não contando o último que você escreveu.**
 > O rastreio do cliente e o bloco do totem foram produzidos em paralelo, em branches que não
@@ -1292,6 +1293,54 @@ escrito de propósito bateria.
 > cabeçalhos de arquivo e nenhuma citação cruzada, contra 15 menções ao #121 espalhadas pelos
 > quatro manuais do totem, que se citam entre si. Histórico em
 > [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md).
+
+### Manual de campo que a tela não explica, e exemplo em vez de emissão — #133
+
+O #133 (valor fiscal por produto) nasceu de *"estude o novo campo venda fiscal e crie um
+manual explicativo com exemplos… para nosso MCP consiga ajudar os clientes nessa duvida"*.
+Sete imagens, 16 setas. Detalhe em
+[`MEMORIA.md`](../../../../manuais/cardapio-valor-fiscal/MEMORIA.md) e
+[`fluxo-codigo.md`](../../../../manuais/cardapio-valor-fiscal/fluxo-codigo.md).
+
+O que serve para os próximos:
+
+- **Pedido que diz "para o MCP" é pedido de FAQ longo**, não de texto mais bonito. A página vai
+  ser lida por máquina para responder cliente: pergunta direta, resposta direta embaixo, e cada
+  termo que o cliente digita repetido — inclusive o nome técnico do campo, quando o dono pede
+  pelo nome técnico e a tela mostra outro. Aqui o pedido falava *venda fiscal* (`vendaFiscal`,
+  da API) e a tela diz **Valor fiscal**: o corpo usa o da tela, o FAQ e o rodapé carregam os
+  dois.
+- **Campo cujo efeito mora no servidor se documenta com exemplo declarado fictício.** Esta
+  máquina não tem o `beetech-server-node-2.0`, a sandbox está em homologação e emitir nota é
+  irreversível. Em vez de emitir, o manual mostra a conta e o par antes/depois com o aviso em
+  negrito do #5 (reforma tributária). **Não inventar fórmula**: o que o dono publicou foi
+  *"ajusta os itens configurados proporcionalmente"*, e os centavos entram como aproximação
+  declarada.
+- **Antes de desenhar a página, perguntar ao código quais valores são iguais.** Em
+  `normalizarVendaFiscal`, vazio, `R$ 0,00` e negativo são os três a mesma coisa (`null`). Isso
+  rendeu um aviso de caixa, uma linha da tabela de problemas e duas perguntas do FAQ — e evitou
+  prometer que zero esconde item da nota.
+- **Campo dentro de `<details>` pede duas imagens**, não uma: o bloco nasce fechado, então sem
+  a foto do bloco fechado o leitor não acha o campo. Vale para qualquer *Opções avançadas*.
+- **Janela cujo corpo rola mais que a altura útil não cabe em uma foto, e subir a viewport não
+  resolve** — a janela cresce menos que o formulário. Em vez de insistir, trocar a prova: no
+  complemento de brinde, quem mostra que o item não tem preço são os campos de *Delivery* e
+  *Presencial* vazios, que ficam na mesma dobra do campo novo.
+- **`Label` do shadcn sem `htmlFor` não marca a caixinha.** Clicar no texto não faz nada;
+  `label:has-text(...)` + `xpath=preceding::button[@role='checkbox'][1]` resolve. No *Editar em
+  Lote* o campo só é desenhado **depois** de marcada, e a etapa 1 abre com **todos** os
+  produtos selecionados — *Marcar Todos* é alterna-tudo e serve para zerar.
+- **Tela de resultado quase vazia não precisa ser descartada:** `annotate.py` ganhou `recorte`
+  (frações aplicadas antes das setas; os marcadores passam a ser frações do recorte). Serve
+  para qualquer confirmação com muito branco.
+- **Listagem de cardápio não devolve campo novo.** `produtos` e `produtosComp` não trazem
+  `vendaFiscal`; só o detalhe (`produto/{e}/{u}/{id}`). Conferir isso antes de prometer coluna,
+  filtro ou relatório no manual.
+- **Pegadinha da API de grupo de opções:** em
+  `produto2/cardapio/grupoOpcao/{e}/{u}/{grupoID}`, a chave `produtos` é a lista dos produtos
+  **que usam** o grupo, não as opções dele. Quem é opção se descobre pela lista de
+  complementos, em `grupos[].descricao`. Grupo de brinde vem com `agregaValor: false` e
+  `statusTraduzido: "Brinde"`.
 
 ### Duas configurações de rótulo parecido, e a prova que separa uma da outra — #132
 

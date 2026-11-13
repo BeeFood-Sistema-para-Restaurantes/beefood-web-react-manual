@@ -94,6 +94,7 @@ O **status** e a fila ficam no
 | Manual do Cardápio — Comida Japonesa | [`cardapio-japonesa/`](manuais/cardapio-japonesa/cardapio-japonesa.md) |
 | Cardápio em PDF: como gerar o cardápio impresso do restaurante (A4 ou A5, com foto, QR Code e capa) | [`cardapio-pdf/`](manuais/cardapio-pdf/cardapio-pdf.md) |
 | Manual do Cardápio — Pizza | [`cardapio-pizza/`](manuais/cardapio-pizza/cardapio-pizza.md) |
+| Valor fiscal por produto: o que vai para a nota quando não é o preço de venda | [`cardapio-valor-fiscal/`](manuais/cardapio-valor-fiscal/cardapio-valor-fiscal.md) |
 | Cashback — configurar o programa | [`cashback-configurar/`](manuais/cashback-configurar/cashback-configurar.md) |
 | Cashback — operar no dia a dia | [`cashback-operar/`](manuais/cashback-operar/cashback-operar.md) |
 | Manual — Classificação RFV | [`classificacao-rfv/`](manuais/classificacao-rfv/classificacao-rfv.md) |
