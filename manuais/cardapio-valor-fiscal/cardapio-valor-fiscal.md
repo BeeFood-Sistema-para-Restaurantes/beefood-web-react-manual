@@ -300,8 +300,9 @@ A tela aceita, mas não serve para aumentar a nota: o total continua sendo o que
 pagou, e os valores configurados são ajustados para caber nele.
 
 **O valor fiscal vale para todas as filiais?**
-Ele é do **produto**, como o preço de custo. Se a sua operação tem valores diferentes por
-filial, fale com o suporte antes de configurar.
+O campo é **um só por produto**, diferente do preço de venda, que pode variar por cardápio.
+Se a sua operação precisa de valores fiscais diferentes por filial, fale com o suporte antes
+de configurar.
 
 **Preciso preencher em todos os produtos do cardápio?**
 Não. Só onde o valor da nota é diferente do preço de venda — tipicamente combos, promoções e
