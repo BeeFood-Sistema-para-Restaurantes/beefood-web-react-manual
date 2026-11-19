@@ -186,8 +186,10 @@ dialogo(
     y0=430, y1=1540,
     marcadores=(
         (1, 790, 637, ESQ_DIALOGO, 637),     # os dois interruptores de Pedidos
-        (2, 795, 664, ESQ_DIALOGO, 724),     # o nome do acesso, embaixo do interruptor
-        (3, 785, 768, ESQ_DIALOGO, 830),     # Consultar de Clientes (um dos que saem)
+        (2, 785, 664, ESQ_DIALOGO, 724),     # o nome do acesso, embaixo do interruptor
+        # O nome do recurso fica na mesma altura do interruptor: mirar o interruptor faria a
+        # seta passar por cima dele. Mira a borda do cartão, na linha do *Consultar*.
+        (3, 620, 768, ESQ_DIALOGO, 830),     # Consultar de Clientes (um dos que saem)
     ),
 )
 
@@ -197,9 +199,11 @@ dialogo(
     y0=430, y1=1540,
     marcadores=(
         (1, 790, 637, ESQ_DIALOGO, 637),     # Pedidos: Consultar e Alterar
-        (2, 1300, 637, DIR_DIALOGO, 637),    # Catálogo: Consultar
-        (3, 1300, 768, DIR_DIALOGO, 768),    # Loja: Consultar
-        (4, 1445, 1158, DIR_DIALOGO, 1158),  # Webhooks: Consultar e Alterar
+        # Na coluna da direita os rótulos *Consultar* e *Alterar* ficam na mesma linha dos
+        # interruptores: seta que mira o interruptor atravessa os dois. Mira a borda do cartão.
+        (2, 1535, 637, DIR_DIALOGO, 637),    # Catálogo: Consultar
+        (3, 1535, 768, DIR_DIALOGO, 768),    # Loja: Consultar
+        (4, 1535, 1158, DIR_DIALOGO, 1158),  # Webhooks: Consultar e Alterar
         (5, 1550, 1432, DIR_DIALOGO, 1432),  # CRIAR (F2)
     ),
 )
