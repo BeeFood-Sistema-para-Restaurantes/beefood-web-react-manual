@@ -1285,6 +1285,7 @@ escrito de propósito bateria.
 | Código de ativação de aparelho (Dispositivos) | `manuais/dispositivos-codigo-ativacao/` | ✅ Concluído (#131) |
 | Código de barras no cupom marca o pedido como Pronto | `manuais/delivery-codigo-barras-pronto/` | ✅ Concluído (#132) |
 | Valor fiscal por produto (o brinde do combo na nota) | `manuais/cardapio-valor-fiscal/` | ✅ Concluído (#133) |
+| Natural Bot (ativação pela API Aberta) | `manuais/integracao-natural-bot/` | ✅ Concluído (#134) |
 
 > **Número de manual se escolhe lendo esta tabela, não contando o último que você escreveu.**
 > O rastreio do cliente e o bloco do totem foram produzidos em paralelo, em branches que não
@@ -1293,6 +1294,55 @@ escrito de propósito bateria.
 > cabeçalhos de arquivo e nenhuma citação cruzada, contra 15 menções ao #121 espalhadas pelos
 > quatro manuais do totem, que se citam entre si. Histórico em
 > [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md).
+
+### Painel de parceiro em homologação fala com a sandbox, e escopo que o dono fecha — #134
+
+O #134 (Natural Bot) nasceu de um roteiro completo do dono — acesso ao painel de homologação do
+parceiro, a lista fechada dos seis acessos da credencial, o caminho das duas pontas e o limite:
+*"o manual mostra só como ativar as integrações entre uma e outra, dúvidas de uso deve ser
+tirada direto com a natural bot."* Dezesseis imagens, 49 setas. Detalhe em
+[`MEMORIA.md`](../../../../manuais/integracao-natural-bot/MEMORIA.md) e
+[`fluxo-codigo.md`](../../../../manuais/integracao-natural-bot/fluxo-codigo.md).
+
+O que serve para os próximos:
+
+- **Ambiente de homologação de parceiro costuma apontar para a sandbox da BeeFood, e o sintoma
+  mente.** A credencial de produção, com os seis acessos certos, foi recusada com *"A BeeFood
+  recusou o client ID ou o client secret"*. A credencial estava boa:
+  `POST api.beefood.app/v1/oauth/token` devolveu 200. Quem recusa é o outro banco —
+  `api-sandbox.beefood.app` responde `401 Invalid client credentials` para credencial de
+  produção. **Antes de culpar os escopos, mandar a credencial nas duas APIs** e comparar.
+- **Credencial de sandbox não se cria pelo painel, e não aparece nele.** `criar()` manda sempre
+  `sandbox: false`, e `carregarLista` filtra `!c.sandbox` — então a credencial que a homologação
+  do parceiro já usava não constava em lugar nenhum da tela. Para criar sandbox é o portal
+  `docs.beefood.app` (*Entrar → Cliente BeeFood*, mesmo login), onde existe o select
+  **Ambiente**. O portal mostra as duas empresas do mesmo login: sandbox 56179
+  (`developer-contato@beefood.com.br`) e produção 38311.
+- **Quando o dono entrega a lista de escopos, a Parte 1 inverte de verbo.** No #127 e no #129 o
+  leitor **confere** permissões que já vêm ligadas; aqui ele **desliga** dez interruptores até
+  sobrarem seis, porque `SCOPES_PADRAO_NOVA` liga tudo. Isso pede **duas fotos do mesmo
+  diálogo** — como ele abre e como deve ficar —, senão o leitor não sabe o que mexeu.
+- **Parceiro com `webhook:write` cadastra o próprio webhook, e aí não existe Parte 3.** Conferido
+  em `GET /v1/webhooks` logo após o **Salvar** do parceiro: webhook ativo, `order_updated` +
+  `order_delivery_updated`, URL dele, `ownerEmail` dele. Quem já leu o #127 ou o #129 espera
+  voltar ao BeeFood para cadastrar à mão — **dizer em voz alta que a etapa não existe**.
+- **Senha de painel de outra empresa não entra no repositório, nem sendo homologação.** A regra
+  da casa libera credencial de sandbox **nossa**; acesso de parceiro fica em variável de
+  ambiente (`NB_SENHA`) com sessão em `/tmp`. O usuário pode ficar no script, senão ele não se
+  explica.
+- **Lista que abre filtrada por categoria sabota a foto do resultado.** A primeira captura da
+  importação concluída saiu com *"Nenhum produto cadastrado"*: a tela de Produtos do parceiro
+  abre na primeira categoria, que estava vazia. A aba **Todos** é a prova. Vale para qualquer
+  listagem com abas — conferir em qual o print caiu antes de concluir que a ação falhou.
+- **No menu lateral do parceiro, item de segundo nível também é `<button>`**, e o grupo
+  (*Configurações*) é texto puro; as abas internas são `[role="tab"]`. E o botão do card de
+  integração troca de rótulo pelo estado: **Configurar** quando nunca conectou, **Editar**
+  depois. O mesmo diálogo troca **Continuar** por **Conectar** quando os dois campos têm valor —
+  localizar por qualquer um dos dois rótulos, não por um.
+- **`corte=` escrito à mão na chamada confunde o `conferir-setas.py` do #129**, que lia a tupla
+  de quatro números como marcador de seta. Tirar `corte=\([^)]*\)` do bloco antes de procurar
+  marcador; e não exigir número nas coordenadas do rótulo, que viram constante (`ESQ_PAINEL`)
+  quando a geometria é compartilhada.
 
 ### Manual de campo que a tela não explica, e exemplo em vez de emissão — #133
 
