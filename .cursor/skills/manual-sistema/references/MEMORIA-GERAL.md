@@ -1285,6 +1285,7 @@ escrito de propósito bateria.
 | Código de ativação de aparelho (Dispositivos) | `manuais/dispositivos-codigo-ativacao/` | ✅ Concluído (#131) |
 | Código de barras no cupom marca o pedido como Pronto | `manuais/delivery-codigo-barras-pronto/` | ✅ Concluído (#132) |
 | Valor fiscal por produto (o brinde do combo na nota) | `manuais/cardapio-valor-fiscal/` | ✅ Concluído (#133) |
+| Natural Bot (ativação pela API Aberta) | `manuais/integracao-natural-bot/` | ✅ Concluído (#134) |
 
 > **Número de manual se escolhe lendo esta tabela, não contando o último que você escreveu.**
 > O rastreio do cliente e o bloco do totem foram produzidos em paralelo, em branches que não
@@ -1293,6 +1294,77 @@ escrito de propósito bateria.
 > cabeçalhos de arquivo e nenhuma citação cruzada, contra 15 menções ao #121 espalhadas pelos
 > quatro manuais do totem, que se citam entre si. Histórico em
 > [`CHECKLIST-MANUAIS.md`](CHECKLIST-MANUAIS.md).
+
+### Painel de parceiro em homologação fala com a sandbox, e escopo que o dono fecha — #134
+
+O #134 (Natural Bot) nasceu de um roteiro completo do dono — acesso ao painel de homologação do
+parceiro, a lista fechada dos seis acessos da credencial, o caminho das duas pontas e o limite:
+*"o manual mostra só como ativar as integrações entre uma e outra, dúvidas de uso deve ser
+tirada direto com a natural bot."* Doze imagens, 42 setas, depois de uma rodada de corte pedida
+pelo dono. Detalhe em
+[`MEMORIA.md`](../../../../manuais/integracao-natural-bot/MEMORIA.md) e
+[`fluxo-codigo.md`](../../../../manuais/integracao-natural-bot/fluxo-codigo.md).
+
+O que serve para os próximos:
+
+- **Ambiente de homologação de parceiro costuma apontar para a sandbox da BeeFood, e o sintoma
+  mente.** A credencial de produção, com os seis acessos certos, foi recusada com *"A BeeFood
+  recusou o client ID ou o client secret"*. A credencial estava boa:
+  `POST api.beefood.app/v1/oauth/token` devolveu 200. Quem recusa é o outro banco —
+  `api-sandbox.beefood.app` responde `401 Invalid client credentials` para credencial de
+  produção. **Antes de culpar os escopos, mandar a credencial nas duas APIs** e comparar.
+- **Credencial de sandbox não se cria pelo painel, e não aparece nele.** `criar()` manda sempre
+  `sandbox: false`, e `carregarLista` filtra `!c.sandbox` — então a credencial que a homologação
+  do parceiro já usava não constava em lugar nenhum da tela. Para criar sandbox é o portal
+  `docs.beefood.app` (*Entrar → Cliente BeeFood*, mesmo login), onde existe o select
+  **Ambiente**. O portal mostra as duas empresas do mesmo login: sandbox 56179
+  (`developer-contato@beefood.com.br`) e produção 38311.
+- **Quando o dono entrega a lista de escopos, a Parte 1 inverte de verbo.** No #127 e no #129 o
+  leitor **confere** permissões que já vêm ligadas; aqui ele **desliga** dez interruptores até
+  sobrarem seis, porque `SCOPES_PADRAO_NOVA` liga tudo. Isso pede **duas fotos do mesmo
+  diálogo** — como ele abre e como deve ficar —, senão o leitor não sabe o que mexeu.
+- **Parceiro com `webhook:write` cadastra o próprio webhook, e aí não existe Parte 3.** Conferido
+  em `GET /v1/webhooks` logo após o **Salvar** do parceiro: webhook ativo, `order_updated` +
+  `order_delivery_updated`, URL dele, `ownerEmail` dele. Quem já leu o #127 ou o #129 espera
+  voltar ao BeeFood para cadastrar à mão — **dizer em voz alta que a etapa não existe**.
+- **Senha de painel de outra empresa não entra no repositório, nem sendo homologação.** A regra
+  da casa libera credencial de sandbox **nossa**; acesso de parceiro fica em variável de
+  ambiente (`NB_SENHA`) com sessão em `/tmp`. O usuário pode ficar no script, senão ele não se
+  explica.
+- **Lista que abre filtrada por categoria sabota a foto do resultado.** A primeira captura da
+  importação concluída saiu com *"Nenhum produto cadastrado"*: a tela de Produtos do parceiro
+  abre na primeira categoria, que estava vazia. A aba **Todos** é a prova. Vale para qualquer
+  listagem com abas — conferir em qual o print caiu antes de concluir que a ação falhou.
+- **No menu lateral do parceiro, item de segundo nível também é `<button>`**, e o grupo
+  (*Configurações*) é texto puro; as abas internas são `[role="tab"]`. E o botão do card de
+  integração troca de rótulo pelo estado: **Configurar** quando nunca conectou, **Editar**
+  depois. O mesmo diálogo troca **Continuar** por **Conectar** quando os dois campos têm valor —
+  localizar por qualquer um dos dois rótulos, não por um.
+- **"Mais objetivo" quase sempre quer dizer: tire a foto que mostra estado.** O dono cortou
+  quatro imagens da primeira entrega, e as quatro eram a mesma falha — fotografar o antes de um
+  passo (o diálogo *como abre*), o que já existia (a credencial principal) ou a prova de que
+  deu certo (a lista importada). Fica a foto de **onde clicar**; o resto é frase. Dois passos que
+  acabam na mesma tela são **um** passo com uma foto costurada.
+- **Foto costurada resolve passo que mora em duas alturas da mesma tela**, e o `annotate.py` do
+  #134 tem o `montagem()` pronto: recebe as fatias com a caixa de recorte, deixa cada fatia
+  escolher **onde encosta** na moldura, mantém os marcadores em pixel da pura de cada fatia e
+  desenha a emenda **tracejada**. O tracejado não é enfeite: ele diz que entre as metades existe
+  tela que não está na foto, e é o que separa montagem honesta de print fabricado.
+- **Painel de parceiro é cheio de concorrente, e manual nosso não os divulga.** No #134 a BeeFood
+  era o décimo segundo card de *Gestores de PDV*. A saída não é apagar os vizinhos: é recortar só
+  o card da BeeFood e encostá-lo na coluna onde ficava o primeiro. A grade do parceiro tem
+  colunas de largura igual, então o resultado fica indistinguível de uma lista de um item.
+- **A API pública da BeeFood recusa `User-Agent` de script.** `api.beefood.app` e
+  `api-sandbox.beefood.app` estão atrás de Cloudflare, que devolve **403 `error code: 1010`**
+  para o `urllib` padrão — parece bloqueio de credencial e não é. Mandar `User-Agent` de
+  navegador resolve. Credencial errada, de verdade, responde JSON:
+  `{"message":"Invalid client credentials","status":401}`. E `GET /v1/webhooks` devolve a lista
+  dentro de **`items`**, com produção e sandbox juntos, cada um com a sua etiqueta `sandbox` —
+  procurar `data` ou `webhooks` dá zero e faz parecer que o webhook não existe.
+- **`corte=` escrito à mão na chamada confunde o `conferir-setas.py` do #129**, que lia a tupla
+  de quatro números como marcador de seta. Tirar `corte=\([^)]*\)` do bloco antes de procurar
+  marcador; e não exigir número nas coordenadas do rótulo, que viram constante (`ESQ_PAINEL`)
+  quando a geometria é compartilhada.
 
 ### Manual de campo que a tela não explica, e exemplo em vez de emissão — #133
 

@@ -135,6 +135,7 @@ O **status** e a fila ficam no
 | Foody Delivery — gestão de entregas e rastreamento de motoboys | [`integracao-foody-delivery/`](manuais/integracao-foody-delivery/integracao-foody-delivery.md) |
 | Let's Express — solicitar entregador para Delivery | [`integracao-lets-express/`](manuais/integracao-lets-express/integracao-lets-express.md) |
 | Integração Machine — despache entregas pelo BeeFood | [`integracao-machine/`](manuais/integracao-machine/integracao-machine.md) |
+| Natural Bot — ligar o seu robô de atendimento à loja no BeeFood | [`integracao-natural-bot/`](manuais/integracao-natural-bot/integracao-natural-bot.md) |
 | Pick N Go! — cotar e solicitar entregador no Delivery | [`integracao-pick-n-go/`](manuais/integracao-pick-n-go/integracao-pick-n-go.md) |
 | Integração Repediu — sincronize vendas e rastreie o cardápio digital | [`integracao-repediu/`](manuais/integracao-repediu/integracao-repediu.md) |
 | Route Delivery — o pedido de entrega vira corrida sozinho | [`integracao-route-delivery/`](manuais/integracao-route-delivery/integracao-route-delivery.md) |
