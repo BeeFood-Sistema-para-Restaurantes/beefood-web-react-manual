@@ -1339,6 +1339,13 @@ O que serve para os próximos:
   integração troca de rótulo pelo estado: **Configurar** quando nunca conectou, **Editar**
   depois. O mesmo diálogo troca **Continuar** por **Conectar** quando os dois campos têm valor —
   localizar por qualquer um dos dois rótulos, não por um.
+- **A API pública da BeeFood recusa `User-Agent` de script.** `api.beefood.app` e
+  `api-sandbox.beefood.app` estão atrás de Cloudflare, que devolve **403 `error code: 1010`**
+  para o `urllib` padrão — parece bloqueio de credencial e não é. Mandar `User-Agent` de
+  navegador resolve. Credencial errada, de verdade, responde JSON:
+  `{"message":"Invalid client credentials","status":401}`. E `GET /v1/webhooks` devolve a lista
+  dentro de **`items`**, com produção e sandbox juntos, cada um com a sua etiqueta `sandbox` —
+  procurar `data` ou `webhooks` dá zero e faz parecer que o webhook não existe.
 - **`corte=` escrito à mão na chamada confunde o `conferir-setas.py` do #129**, que lia a tupla
   de quatro números como marcador de seta. Tirar `corte=\([^)]*\)` do bloco antes de procurar
   marcador; e não exigir número nas coordenadas do rótulo, que viram constante (`ESQ_PAINEL`)

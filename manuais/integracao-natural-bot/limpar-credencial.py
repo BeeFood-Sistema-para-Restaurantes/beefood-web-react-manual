@@ -9,7 +9,8 @@ não aparece em imagem nenhuma — ela continua de pé.
 
 Uso, de dentro da pasta do manual:
 
-    python3 limpar-credencial.py
+    python3 limpar-credencial.py                 # a credencial da foto
+    python3 limpar-credencial.py <clientId>      # qualquer outra que o estudo tenha deixado
 """
 
 from __future__ import annotations
@@ -25,7 +26,7 @@ from playwright.sync_api import sync_playwright  # noqa: E402
 from beefood import abrir, after_click, limpar_tela  # noqa: E402
 
 CRED = Path("/tmp/manual-134-cred.json")
-client_id = json.loads(CRED.read_text())["clientId"]
+client_id = sys.argv[1] if len(sys.argv) > 1 else json.loads(CRED.read_text())["clientId"]
 
 with sync_playwright() as p:
     browser, ctx, page = abrir(p, "/aplicativos")
@@ -40,7 +41,7 @@ with sync_playwright() as p:
     after_click(page, 2500)
     page.get_by_role("button", name="EXCLUIR (ENTER)").click()
     after_click(page, 7000)
-    print("credencial da foto ainda existe?", page.get_by_text(client_id).count(),
+    print(f"credencial {client_id} ainda existe?", page.get_by_text(client_id).count(),
           "(0 = apagada, estado original)")
 
     ctx.close()

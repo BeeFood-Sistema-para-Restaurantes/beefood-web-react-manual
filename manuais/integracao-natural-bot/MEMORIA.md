@@ -30,11 +30,18 @@ O #127 e o #129 terminam de volta no BeeFood, cadastrando o webhook à mão e de
 cadastra o próprio aviso ao salvar a integração. Conferido na API, logo depois do **Salvar**:
 
 ```
-GET /v1/webhooks → id 98, active true,
-  eventTypes [order_updated, order_delivery_updated],
+GET /v1/webhooks → {"items":[ … ]}
+  id 98, active true, sandbox true,
+  eventTypes [order_delivery_updated, order_updated],
   url https://dash-api-hml.naturalbot.com/api/v1/webhooks/beefood/<uuid da filial>,
   ownerEmail developer@naturalbot.com
 ```
+
+Dois detalhes para quem for repetir a conferência: a resposta vem embrulhada em **`items`** (ler
+`data` ou `webhooks` dá zero e parece que o webhook não existe), e a lista traz os webhooks de
+produção e de sandbox juntos, cada um com a sua etiqueta `sandbox` — o da Natural Bot é
+`sandbox: true`. Foi por isso que ele apareceu na aba **Webhooks** do painel de produção durante
+o estudo.
 
 Por isso o Passo 12 virou o fim da Parte 2 (é lá que está a linha **Webhook de status: ativo**)
 e o manual tem uma nota avisando quem veio dos outros dois manuais que a etapa não existe mais.
@@ -82,9 +89,20 @@ credentials` — a cara exata do erro do painel do parceiro. Com isso:
   em imagem nenhuma: o campo de secret é de senha e o `clientId` só reaparece mascarado
   (`2fa1***4d55`) na imagem 12.
 
+O estudo também deixou uma credencial de produção **exploratória**, criada antes das capturas
+para medir os escopos. Ela foi apagada no fim, pelo mesmo script
+(`python3 limpar-credencial.py <clientId>`), para a empresa de testes ficar como estava.
+
 A imagem 09 (formulário preenchido) mostra a de **produção**, pela técnica do ensaio — preenche,
 fotografa, **não** clica em *Conectar*. É o que mantém o `clientId` da imagem 06 e o da 09
 iguais, que é o que o leitor vai comparar.
+
+## Chamar a API da BeeFood de script
+
+`api.beefood.app` e `api-sandbox.beefood.app` estão atrás de Cloudflare, e ele responde
+**403 `error code: 1010`** para o `User-Agent` padrão do `urllib`. Não é credencial nem escopo:
+basta mandar um `User-Agent` de navegador. O 401 de credencial, quando é credencial mesmo, vem
+em JSON: `{"message":"Invalid client credentials","status":401}`.
 
 ## O acesso do parceiro, e o que ficou versionado
 
