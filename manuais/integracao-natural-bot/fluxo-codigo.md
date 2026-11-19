@@ -35,8 +35,8 @@ manual:
 | `webhook:write` | **cadastrar** o aviso que traz o status de volta | nada — acontece sozinho ao salvar |
 
 No editor de permissões, `store:read` é o cartão **Loja** e `catalog:read` é o **Catálogo** (os
-rótulos em português não batem com o nome do escopo, e é por isso que as imagens 04 e 05 põem
-seta no nome em mono, embaixo do interruptor):
+rótulos em português não batem com o nome do escopo, e é por isso que o passo dos seis acessos
+confere pelo nome em mono, embaixo do interruptor):
 
 ```ts
 { id: 'orders',  label: 'Pedidos',  desc: 'Consultar e criar pedidos' },
@@ -99,7 +99,7 @@ Isso define o manual (ensina o caminho do painel, que é sempre produção) e ex
 caminho: o painel de **homologação** da Natural Bot conversa com a sandbox da BeeFood, e recusou
 a credencial de produção com *"Autenticação na BeeFood: A BeeFood recusou o client ID ou o
 client secret"* — o mesmo 401 `Invalid client credentials` que a API devolve. Por isso as
-capturas da Parte 2 usam credencial de sandbox, e só o formulário da imagem 09 mostra a de
+capturas da Parte 2 usam credencial de sandbox, e só o formulário da imagem 06 mostra a de
 produção, pela técnica do ensaio. Está registrado na `MEMORIA.md`.
 
 ## O que a tela do parceiro pede, e em que ordem
@@ -142,11 +142,11 @@ Medido: a importação é **assíncrona** (*"processada em fila"*), mas na loja 
 menos de 12 s, com `1 Categoria / 4 Produtos / 0 Variações / 0 Opções`. Rodar de novo é
 idempotente nos produtos — **mas não nas categorias**: a filial já tinha uma categoria
 *Bebidas* criada à mão, e a importação criou a sua, deixando duas abas com o mesmo nome na
-página de Produtos (imagem 16). Virou linha da tabela de problemas.
+página de Produtos. Virou linha da tabela de problemas.
 
 A lista de produtos abre na **primeira** categoria, que pode ser uma vazia; quem mostra o que
-chegou é a aba **Todos**. Foi isso que obrigou o `capturar-naturalbot.py` a clicar nela antes da
-imagem 16.
+chegou é a aba **Todos**. O manual não fotografa essa lista — o dono cortou, porque o que o
+leitor precisa é do caminho da importação —, mas a pegadinha ficou como aviso no último passo.
 
 ## O que é informação do parceiro, e não foi verificado aqui
 

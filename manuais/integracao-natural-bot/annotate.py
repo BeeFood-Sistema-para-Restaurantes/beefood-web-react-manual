@@ -1,23 +1,32 @@
-"""Anota as dezesseis capturas do #134 — ativação da integração com a Natural Bot.
+"""Anota as doze capturas do #134 — ativação da integração com a Natural Bot.
 
-As coordenadas estão sempre em **pixel da captura pura**, inclusive nas recortadas:
-`preparar()` converte. Medir na pura inteira é o que deixa mexer no recorte depois sem remedir
-nada — a lição do painel lateral (#101), herdada pelo #127 e pelo #129.
+As coordenadas estão sempre em **pixel da captura pura**, inclusive nas recortadas e nas
+costuradas: `preparar()` e `montagem()` convertem. Medir na pura inteira é o que deixa mexer no
+recorte depois sem remedir nada — a lição do painel lateral (#101), herdada pelo #127 e pelo
+#129.
 
 São dois sistemas, com geometrias diferentes:
 
-* **BeeFood** (imagens 01 a 06). O painel lateral da API Aberta começa em x=1154 dos 2160 px e o
+* **BeeFood** (imagens 01 a 04). O painel lateral da API Aberta começa em x=1154 dos 2160 px e o
   resto da tela fica escurecido: `painel()` recorta no painel e põe faixa clara dos dois lados.
   Os diálogos (nova credencial, credencial criada) não moram dentro do painel, então têm recorte
   próprio em `dialogo()`, com o painel escurecido atrás como contexto.
-* **Natural Bot** (imagens 07 a 16). Tela de 1440x900 em DPR 1.5, menu escuro à esquerda e
+* **Natural Bot** (imagens 05 a 12). Tela de 1440x900 em DPR 1.5, menu escuro à esquerda e
   diálogos no centro. Os diálogos de lá são mais largos que os da BeeFood, e começam em x=580:
-  `dialogo_nb()` recorta neles. Nas telas cheias (aba Integrações, Produtos) a etiqueta vai numa
-  faixa em cima ou na área vazia à direita dos cards, porque o menu da esquerda é escuro e
-  etiqueta verde sobre ele fica ilegível.
+  `dialogo_nb()` recorta neles. Nas telas cheias a etiqueta vai numa faixa em cima ou na área
+  vazia à direita dos cards, porque o menu da esquerda é escuro e etiqueta verde sobre ele fica
+  ilegível.
 
-Nenhuma faixa é gravada na pura: tudo é montado em memória aqui dentro, senão rodar duas vezes
-desloca todas as setas. Pura é o print, e só.
+Duas imagens são **costuradas** por `montagem()`, para o passo caber em uma foto só:
+
+* **02**, da linha de abas do painel direto para o `CRIAR CREDENCIAL`, que fica muito abaixo;
+* **05**, do cabeçalho da aba *Integrações* direto para o card da BeeFood, que no painel do
+  parceiro é o décimo segundo gestor de PDV — os outros onze são concorrentes e não entram.
+
+A emenda sai **tracejada**: ali o print foi cortado, e o leitor tem de saber que entre as duas
+metades existe tela que não está na foto. Nenhuma faixa e nenhuma costura é gravada na pura:
+tudo é montado em memória aqui dentro, senão rodar duas vezes desloca todas as setas. Pura é o
+print, e só.
 """
 
 import math
@@ -31,6 +40,7 @@ os.makedirs(OUT, exist_ok=True)
 
 VERDE = (22, 150, 78)
 BRANCO = (255, 255, 255)
+CINZA = (170, 180, 196)
 A_LINHA = 235
 A_ETIQ = 245
 FAIXA = (255, 255, 255)
@@ -85,6 +95,19 @@ def etiqueta(d, cx, cy, r, num, fnt):
            t, fill=BRANCO, font=fnt)
 
 
+def desenhar(img, marcadores, r, w, saida):
+    """Põe seta e etiqueta em cima da imagem já montada, com as coordenadas absolutas."""
+    camada = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(camada)
+    fnt = font(int(r * 1.25))
+    for (num, ax, ay, bx, by) in marcadores:
+        ang = math.atan2(ay - by, ax - bx)
+        seta(d, bx + (r + 6) * math.cos(ang), by + (r + 6) * math.sin(ang), ax, ay, w)
+        etiqueta(d, bx, by, r, num, fnt)
+    Image.alpha_composite(img, camada).convert("RGB").save(os.path.join(OUT, saida))
+    print("OK", saida, img.width, img.height, f"({len(marcadores)} seta(s))")
+
+
 def preparar(nome, corte, esquerda, direita, topo, base):
     """Recorta e põe faixa clara em cada lado pedido. Devolve a imagem e o deslocamento."""
     img = Image.open(os.path.join(SRC, nome)).convert("RGBA")
@@ -108,20 +131,50 @@ def preparar(nome, corte, esquerda, direita, topo, base):
 def annotate(nome, marcadores=(), corte=None, esquerda=0, direita=0, topo=0, base=0,
              saida=None, r=None, w=None):
     img, dx, dy = preparar(nome, corte, esquerda, direita, topo, base)
-    W, H = img.size
-    camada = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    d = ImageDraw.Draw(camada)
-    r = r or int(W * 0.0125)
-    w = w or max(2, int(W * 0.0022))
-    fnt = font(int(r * 1.25))
-    for (num, ax, ay, bx, by) in marcadores:
-        ax, bx = ax + dx, bx + dx
-        ay, by = ay + dy, by + dy
-        ang = math.atan2(ay - by, ax - bx)
-        seta(d, bx + (r + 6) * math.cos(ang), by + (r + 6) * math.sin(ang), ax, ay, w)
-        etiqueta(d, bx, by, r, num, fnt)
-    Image.alpha_composite(img, camada).convert("RGB").save(os.path.join(OUT, saida or nome))
-    print("OK", saida or nome, W, H, f"({len(marcadores)} seta(s))")
+    r = r or int(img.width * 0.0125)
+    w = w or max(2, int(img.width * 0.0022))
+    desenhar(img, [(n, ax + dx, ay + dy, bx + dx, by + dy)
+                   for (n, ax, ay, bx, by) in marcadores], r, w, saida or nome)
+
+
+def montagem(fatias, marcadores=(), saida=None, esquerda=MARGEM, direita=MARGEM,
+             costura=46, base=0, r=28, w=4):
+    """Costura recortes de print numa imagem só, deixando a emenda à vista.
+
+    Cada fatia é `(nome, (x0, y0, x1, y1), x_destino)`: o recorte da pura e onde a borda
+    esquerda dele encosta na **moldura**, que é o sistema de coordenadas da primeira fatia.
+    `x_destino=None` mantém o recorte no x em que ele foi fotografado.
+
+    Marcador é `(num, ax, ay, bx, by, fatia)`, em pixel da pura daquela fatia.
+    """
+    quadro_x0, _, quadro_x1, _ = fatias[0][1]
+    largura = esquerda + (quadro_x1 - quadro_x0) + direita
+
+    recortes, deslocamentos, altura = [], [], 0
+    for nome, caixa, destino in fatias:
+        img = Image.open(os.path.join(SRC, nome)).convert("RGBA").crop(caixa)
+        x0, y0 = caixa[0], caixa[1]
+        px = esquerda + ((x0 if destino is None else destino) - quadro_x0)
+        recortes.append((img, px, altura))
+        deslocamentos.append((px - x0, altura - y0))
+        altura += img.height + costura
+    altura = altura - costura + base
+
+    tela = Image.new("RGBA", (largura, altura), FAIXA + (255,))
+    for img, px, py in recortes:
+        tela.paste(img, (px, py))
+
+    d = ImageDraw.Draw(tela)
+    for _, _, py in recortes[1:]:
+        y = py - costura // 2
+        for x in range(esquerda + 20, largura - direita - 20, 64):
+            d.line([(x, y), (min(x + 36, largura - direita - 20), y)], fill=CINZA, width=3)
+
+    absolutos = []
+    for (num, ax, ay, bx, by, fatia) in marcadores:
+        dx, dy = deslocamentos[fatia]
+        absolutos.append((num, ax + dx, ay + dy, bx + dx, by + dy))
+    desenhar(tela, absolutos, r, w, saida)
 
 
 def painel(nome, marcadores=(), y0=0, y1=1950, **kw):
@@ -157,45 +210,26 @@ annotate(
     r=30, w=5,
 )
 
-# 02 — o painel abriu na aba Credencial. O recado é que a credencial principal já existe e é a
-# mesma do portal: não é ela que vai para a Natural Bot.
-painel(
-    "02-painel-credencial.png",
-    y0=0, y1=640,
+# 02 — da aba Credencial direto para o CRIAR CREDENCIAL. As duas pontas do painel numa foto:
+# no meio fica a credencial principal, que neste manual não se toca.
+montagem(
+    (
+        ("02-painel-credencial.png", (PAINEL_X0, 312, 2160, 380), None),
+        ("02-painel-credencial.png", (PAINEL_X0, 1545, 2160, 1778), None),
+    ),
+    saida="02-criar-credencial.png",
     marcadores=(
-        (1, 1185, 333, ESQ_PAINEL, 333),     # aba Credencial
-        (2, 1205, 588, ESQ_PAINEL, 588),     # "Esta é a credencial exibida no portal docs..."
+        (1, 1184, 333, ESQ_PAINEL, 333, 0),    # aba Credencial
+        (2, 1225, 1584, ESQ_PAINEL, 1584, 1),  # RECICLAR (o que não se clica)
+        (3, 1180, 1688, ESQ_PAINEL, 1688, 1),  # CRIAR CREDENCIAL
     ),
 )
 
-# 03 — o fim do mesmo cartão, no segundo recorte da mesma pura: o RECICLAR que não se clica e o
-# CRIAR CREDENCIAL, que é o caminho deste manual.
-painel(
-    "02-painel-credencial.png",
-    saida="03-criar-credencial.png",
-    y0=1430, y1=1790,
-    marcadores=(
-        (1, 1225, 1582, ESQ_PAINEL, 1582),   # RECICLAR (o que não se clica)
-        (2, 1180, 1687, ESQ_PAINEL, 1687),   # CRIAR CREDENCIAL
-    ),
-)
-
-# 04 — o diálogo da nova credencial, como ele abre: todos os recursos ligados.
+# 03 — o diálogo da nova credencial como ele tem de ficar: só os seis acessos da Natural Bot.
+# Ele abre com tudo ligado, e isso o texto diz — fotografar os dois estados era repetir a
+# mesma tela duas vezes.
 dialogo(
-    "04-nova-credencial-tudo.png",
-    y0=430, y1=1540,
-    marcadores=(
-        (1, 790, 637, ESQ_DIALOGO, 637),     # os dois interruptores de Pedidos
-        (2, 785, 664, ESQ_DIALOGO, 724),     # o nome do acesso, embaixo do interruptor
-        # O nome do recurso fica na mesma altura do interruptor: mirar o interruptor faria a
-        # seta passar por cima dele. Mira a borda do cartão, na linha do *Consultar*.
-        (3, 620, 768, ESQ_DIALOGO, 830),     # Consultar de Clientes (um dos que saem)
-    ),
-)
-
-# 05 — o mesmo diálogo depois de desligar o resto: só os seis acessos da Natural Bot.
-dialogo(
-    "05-nova-credencial-seis.png",
+    "03-nova-credencial-seis.png",
     y0=430, y1=1540,
     marcadores=(
         (1, 790, 637, ESQ_DIALOGO, 637),     # Pedidos: Consultar e Alterar
@@ -208,13 +242,13 @@ dialogo(
     ),
 )
 
-# 06 — a tela que só existe depois de criar: os dois valores que vão para a Natural Bot.
+# 04 — a tela que só existe depois de criar: os dois valores que vão para a Natural Bot.
 dialogo(
-    "06-credencial-criada.png",
+    "04-credencial-criada.png",
     y0=660, y1=1290,
     marcadores=(
         (1, 752, 913, ESQ_DIALOGO, 913),     # clientId
-        (2, 758, 1027, ESQ_DIALOGO, 1027),  # clientSecret
+        (2, 758, 1027, ESQ_DIALOGO, 1027),   # clientSecret
         (3, 1430, 1183, DIR_DIALOGO, 1183),  # FECHAR (ESC)
     ),
 )
@@ -224,33 +258,30 @@ dialogo(
 # Parte 2 — ligar a BeeFood, no painel da Natural Bot
 # =====================================================================================
 
-# 07 — Configurações, aba Integrações: o aviso de que só um gestor de PDV fica ativo.
-annotate(
-    "07-nb-configuracoes-integracoes.png",
-    direita=MARGEM,
+# 05 — a aba Integrações e o card da BeeFood, costurados. No painel do parceiro a BeeFood é o
+# décimo segundo gestor de PDV, atrás de onze concorrentes que não cabem num manual nosso: o
+# card dele entra no lugar do primeiro, e a emenda tracejada diz que a lista foi cortada.
+montagem(
+    (
+        # O menu escuro fica fora: ele reapareceria cortado na emenda, e o caminho até aqui já
+        # está no título do passo e na trilha *Ferramentas › Configurações* da própria foto.
+        ("05a-nb-integracoes.png", (425, 8, 2160, 630), None),
+        ("05b-nb-card-beefood.png", (1307, 547, 1686, 780), 518),
+    ),
+    saida="05-nb-integracoes-beefood.png",
+    esquerda=0, direita=MARGEM, base=40,
     marcadores=(
-        (1, 390, 776, 500, 776),             # menu Configurações (borda da faixa de seleção)
-        (2, 1280, 262, 1280, 150),           # aba Integrações
-        (3, 2040, 572, 2160 + MARGEM // 2, 572),   # aviso do gestor de PDV
+        (1, 1280, 262, 1280, 150, 0),              # aba Integrações
+        (2, 2040, 572, 2160 + MARGEM // 2, 572, 0),  # aviso do gestor de PDV
+        (3, 1665, 612, 1686 + 90, 612, 1),         # chave liga/desliga do card
+        (4, 1455, 723, 1686 + 90, 723, 1),         # CONFIGURAR (ou EDITAR, se já tem credencial)
     ),
     r=28, w=5,
 )
 
-# 08 — o card da BeeFood, entre os gestores de PDV. Recorte no card: a lista é longa e o que
-# importa é o que o card tem (a chave e o botão).
-annotate(
-    "08-nb-card-beefood.png",
-    corte=(1240, 480, 2160, 840),
-    marcadores=(
-        (1, 1665, 612, 1810, 612),           # chave liga/desliga
-        (2, 1455, 723, 1810, 723),           # CONFIGURAR (ou EDITAR, se já tem credencial)
-    ),
-    r=20, w=3,
-)
-
-# 09 — o formulário da credencial: a própria tela lista os seis acessos.
+# 06 — o formulário da credencial: a própria tela lista os seis acessos.
 dialogo_nb(
-    "09-nb-form-credencial.png",
+    "06-nb-form-credencial.png",
     y0=40, y1=1310,
     marcadores=(
         (1, 655, 589, ESQ_NB, 589),          # a lista dos seis acessos
@@ -261,9 +292,9 @@ dialogo_nb(
     ),
 )
 
-# 10 — cardápio e de-para de pagamentos, a segunda etapa do mesmo diálogo.
+# 07 — cardápio e de-para de pagamentos, a segunda etapa do mesmo diálogo.
 dialogo_nb(
-    "10-nb-cardapio-pagamentos.png",
+    "07-nb-cardapio-pagamentos.png",
     y0=160, y1=1200,
     marcadores=(
         (1, 635, 468, ESQ_NB, 468),          # Cardápio
@@ -273,9 +304,9 @@ dialogo_nb(
     ),
 )
 
-# 11 — o resultado da verificação que a Natural Bot faz na BeeFood depois de salvar.
+# 08 — o resultado da verificação que a Natural Bot faz na BeeFood depois de salvar.
 dialogo_nb(
-    "11-nb-verificacao.png",
+    "08-nb-verificacao.png",
     y0=420, y1=940,
     marcadores=(
         (1, 611, 648, ESQ_NB, 648),          # configurada com sucesso
@@ -284,9 +315,9 @@ dialogo_nb(
     ),
 )
 
-# 12 — a integração já configurada: é esta tela que diz que o webhook de status está ativo.
+# 09 — a integração já configurada: é esta tela que diz que o webhook de status está ativo.
 dialogo_nb(
-    "12-nb-integracao-configurada.png",
+    "09-nb-integracao-configurada.png",
     y0=40, y1=1310,
     marcadores=(
         (1, 648, 286, ESQ_NB, 286),          # Client ID mascarado, cardápio e pagamentos
@@ -302,10 +333,10 @@ dialogo_nb(
 # Parte 3 — sincronizar o cardápio
 # =====================================================================================
 
-# 13 — Cardápio → Produtos e o botão Sinc. BeeFood. Faixa em cima, porque o botão fica na
+# 10 — Cardápio → Produtos e o botão Sinc. BeeFood. Faixa em cima, porque o botão fica na
 # primeira linha da tela e não há espaço acima dele.
 annotate(
-    "13-nb-produtos-sinc.png",
+    "10-nb-produtos-sinc.png",
     corte=(0, 0, 2160, 560), topo=MARGEM,
     marcadores=(
         (1, 390, 479, 500, 479),             # Produtos, no menu Cardápio
@@ -314,10 +345,10 @@ annotate(
     r=26, w=4,
 )
 
-# 14 — o diálogo da importação: as três opções vêm desmarcadas, e é assim que se roda a
+# 11 — o diálogo da importação: as três opções vêm desmarcadas, e é assim que se roda a
 # primeira vez.
 dialogo_nb(
-    "14-nb-importacao-opcoes.png",
+    "11-nb-importacao-opcoes.png",
     y0=140, y1=1270,
     marcadores=(
         (1, 653, 371, ESQ_NB, 371),          # a importação é processada em fila
@@ -326,24 +357,13 @@ dialogo_nb(
     ),
 )
 
-# 15 — o fim da importação, com a conta do que entrou.
+# 12 — o fim da importação, com a conta do que entrou.
 dialogo_nb(
-    "15-nb-importacao-concluida.png",
+    "12-nb-importacao-concluida.png",
     y0=680, y1=1270,
     marcadores=(
         (1, 653, 1006, ESQ_NB, 1006),        # Importação concluída
         (2, 1505, 1088, DIR_NB, 1088),       # categorias, produtos, variações e opções
         (3, 1535, 1232, DIR_NB, 1232),       # Fechar
     ),
-)
-
-# 16 — a lista de produtos com o cardápio que chegou da BeeFood.
-annotate(
-    "16-nb-produtos-importados.png",
-    corte=(440, 300, 2160, 1150), esquerda=MARGEM,
-    marcadores=(
-        (1, 483, 375, 365, 375),             # aba Todos
-        (2, 690, 723, 365, 723),             # um produto que veio da BeeFood
-    ),
-    r=24, w=4,
 )

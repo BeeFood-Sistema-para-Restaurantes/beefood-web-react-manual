@@ -1300,7 +1300,8 @@ escrito de propósito bateria.
 O #134 (Natural Bot) nasceu de um roteiro completo do dono — acesso ao painel de homologação do
 parceiro, a lista fechada dos seis acessos da credencial, o caminho das duas pontas e o limite:
 *"o manual mostra só como ativar as integrações entre uma e outra, dúvidas de uso deve ser
-tirada direto com a natural bot."* Dezesseis imagens, 49 setas. Detalhe em
+tirada direto com a natural bot."* Doze imagens, 42 setas, depois de uma rodada de corte pedida
+pelo dono. Detalhe em
 [`MEMORIA.md`](../../../../manuais/integracao-natural-bot/MEMORIA.md) e
 [`fluxo-codigo.md`](../../../../manuais/integracao-natural-bot/fluxo-codigo.md).
 
@@ -1339,6 +1340,20 @@ O que serve para os próximos:
   integração troca de rótulo pelo estado: **Configurar** quando nunca conectou, **Editar**
   depois. O mesmo diálogo troca **Continuar** por **Conectar** quando os dois campos têm valor —
   localizar por qualquer um dos dois rótulos, não por um.
+- **"Mais objetivo" quase sempre quer dizer: tire a foto que mostra estado.** O dono cortou
+  quatro imagens da primeira entrega, e as quatro eram a mesma falha — fotografar o antes de um
+  passo (o diálogo *como abre*), o que já existia (a credencial principal) ou a prova de que
+  deu certo (a lista importada). Fica a foto de **onde clicar**; o resto é frase. Dois passos que
+  acabam na mesma tela são **um** passo com uma foto costurada.
+- **Foto costurada resolve passo que mora em duas alturas da mesma tela**, e o `annotate.py` do
+  #134 tem o `montagem()` pronto: recebe as fatias com a caixa de recorte, deixa cada fatia
+  escolher **onde encosta** na moldura, mantém os marcadores em pixel da pura de cada fatia e
+  desenha a emenda **tracejada**. O tracejado não é enfeite: ele diz que entre as metades existe
+  tela que não está na foto, e é o que separa montagem honesta de print fabricado.
+- **Painel de parceiro é cheio de concorrente, e manual nosso não os divulga.** No #134 a BeeFood
+  era o décimo segundo card de *Gestores de PDV*. A saída não é apagar os vizinhos: é recortar só
+  o card da BeeFood e encostá-lo na coluna onde ficava o primeiro. A grade do parceiro tem
+  colunas de largura igual, então o resultado fica indistinguível de uma lista de um item.
 - **A API pública da BeeFood recusa `User-Agent` de script.** `api.beefood.app` e
   `api-sandbox.beefood.app` estão atrás de Cloudflare, que devolve **403 `error code: 1010`**
   para o `urllib` padrão — parece bloqueio de credencial e não é. Mandar `User-Agent` de

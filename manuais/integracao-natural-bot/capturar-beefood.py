@@ -1,10 +1,10 @@
-"""Captura as cinco telas do BeeFood para o #134 — ativação da Natural Bot.
+"""Captura as quatro telas do BeeFood para o #134 — ativação da Natural Bot.
 
 A credencial é criada de verdade, como no #129: o diálogo **Credencial criada** só existe
 depois de criar, e é nele que o `clientId` e o `clientSecret` aparecem lado a lado. A
 diferença aqui é a lista de permissões — a Natural Bot pede **seis** acessos, e o diálogo
-nasce com **todos** ligados, então o roteiro tem duas fotos do mesmo diálogo: como ele abre e
-como ele fica depois de desligar o resto.
+nasce com **todos** ligados, então o script desliga dez interruptores antes do print. O estado
+inicial não é fotografado: o dono cortou a foto do "como ele abre", porque é a mesma tela.
 
 O `clientId` e o `clientSecret` vão para `/tmp/manual-134-cred.json` (nunca para a pasta do
 manual), de onde o `capturar-naturalbot.py` os lê para fotografar o formulário do parceiro
@@ -93,16 +93,15 @@ with sync_playwright() as p:
     page.get_by_role("button", name="CRIAR CREDENCIAL").click()
     after_click(page, 2500)
     nova = page.locator('[role="dialog"]').filter(has_text="Nova credencial adicional").last
-    salvar(page, "04-nova-credencial-tudo.png")
 
     deixar_so_os_seis(page, nova)
     after_click(page, 1500)
-    salvar(page, "05-nova-credencial-seis.png")
+    salvar(page, "03-nova-credencial-seis.png")
 
     nova.get_by_role("button", name="CRIAR").click()
     after_click(page, 9000)
     criada = page.locator('[role="dialog"]').filter(has_text="Credencial criada").last
-    salvar(page, "06-credencial-criada.png")
+    salvar(page, "04-credencial-criada.png")
 
     codes = [c.inner_text().strip() for c in criada.locator("code").all()]
     CRED.write_text(json.dumps({"clientId": codes[0], "clientSecret": codes[1]}))

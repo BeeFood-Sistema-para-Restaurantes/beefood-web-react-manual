@@ -1,51 +1,43 @@
 # Natural Bot — ligar o seu robô de atendimento à loja no BeeFood
 
-Ligue a **Natural Bot** ao **BeeFood** e o pedido que o cliente faz no robô de atendimento cai
-direto na sua loja: você cria uma credencial no BeeFood, cola no painel da Natural Bot, escolhe
-o cardápio e importa os produtos. Feito isso, o pedido entra no BeeFood sem redigitar, e o
-**status volta sozinho** da BeeFood para a Natural Bot.
+Ligue a **Natural Bot** ao **BeeFood** e o pedido que o cliente faz no robô cai direto na sua
+loja: você cria uma credencial no BeeFood, cola no painel da Natural Bot, escolhe o cardápio e
+importa os produtos. Feito isso, o pedido entra sem redigitar e o **status volta sozinho**.
 
-**Este manual é só da ativação.** Ele mostra como as duas partes se ligam uma à outra —
-credencial, conexão e cardápio — e para aí. **Dúvida de uso da Natural Bot** (como o robô
-atende, como o pedido aparece no quadro, campanha, cupom, mensagem) **é com a Natural Bot**: é o
-painel dela, e só o suporte dela responde.
+**Este manual é só da ativação** — credencial, conexão e cardápio. **Dúvida de uso da Natural
+Bot** (como o robô atende, como o pedido aparece no quadro, campanha, cupom) **é com a Natural
+Bot**: é o painel dela, e só o suporte dela responde.
 
 > As imagens têm **marcações em verde** (setas e números) indicando onde clicar ou o que
-> observar em cada tela. As imagens 1 a 6 são do **BeeFood**; as imagens 7 a 16 são do **painel
-> da Natural Bot**.
+> observar. As imagens 1 a 4 são do **BeeFood**; as imagens 5 a 12 são do **painel da Natural
+> Bot**.
 
 ---
 
 ## O que a integração faz
 
 - **O pedido da Natural Bot entra na sua loja do BeeFood**, sem redigitar.
-- **O status volta sozinho.** Quando o pedido anda no BeeFood, a Natural Bot acompanha. Isso
-  vale enquanto o aviso de status estiver ativo — a Natural Bot cadastra esse aviso sozinha, e
-  você confere no Passo 12.
-- **O cardápio é importado da BeeFood.** Produtos, categorias, variações e opções vêm de cá;
-  você manda rodar a importação quando o cardápio do BeeFood mudar.
-- **As formas de pagamento são casadas uma a uma.** Pix, cartão de crédito e cartão de débito da
-  Natural Bot apontam para as formas que existem na sua loja do BeeFood.
+- **O status volta sozinho**, enquanto o aviso de status estiver ativo. Quem cadastra esse aviso
+  é a Natural Bot, e você confere no Passo 9.
+- **O cardápio é importado da BeeFood** — produtos, categorias, variações e opções. A importação
+  é manual: rode de novo quando o cardápio mudar.
+- **As formas de pagamento são casadas uma a uma** com as que existem na sua loja.
 
 ---
 
 ## Antes de começar
 
-1. Conta **BeeFood** ativa, e permissão para abrir o menu **Aplicativos**.
+1. Conta **BeeFood** ativa, com permissão para abrir o menu **Aplicativos**.
 2. O card **API Aberta** visível em Aplicativos. Ele está em liberação por etapas: se não
-   aparecer na sua conta, fale com o **suporte BeeFood** antes de seguir.
+   aparecer, fale com o **suporte BeeFood**.
 3. Acesso ao **painel da Natural Bot**, na filial que vai receber os pedidos.
-4. Saber **qual cardápio** da sua loja a Natural Bot vai usar, e **quais formas de pagamento**
-   ela recebe online.
-5. Um lugar seguro para guardar a credencial. O **Client Secret** é a senha da sua loja na API
-   do BeeFood: nunca mande em grupo de mensagem.
+4. Saber **qual cardápio** a Natural Bot vai usar e **quais formas de pagamento** ela recebe.
 
-> **A credencial se cria no painel do BeeFood.** A tela da Natural Bot manda criar a credencial
-> no portal de desenvolvedor (`developer.beefood.com.br`). Você **não precisa**: ela se cria em
-> **Aplicativos → API Aberta**, dentro do BeeFood, e é esse o caminho deste manual. Além de ser
-> mais curto, ele evita o erro mais comum do portal — criar a credencial no ambiente de testes
-> (*Sandbox*) e ficar esperando pedido que nunca chega. Pelo painel essa escolha não existe: o
-> que ele cria é sempre de produção.
+> **A credencial se cria no painel do BeeFood.** A tela da Natural Bot manda criar no portal de
+> desenvolvedor (`developer.beefood.com.br`); você não precisa. Em **Aplicativos → API Aberta**
+> são três cliques, e não existe a escolha de ambiente que faz o lojista criar a credencial em
+> *Sandbox* e ficar esperando pedido que nunca chega. O que o painel cria é sempre de produção.
+> O **Client Secret** é a senha da sua loja na API: nunca mande em grupo de mensagem.
 
 ---
 
@@ -63,96 +55,60 @@ No menu lateral, clique em **Aplicativos** (1). Na seção **API e MCP**, clique
 | 1 | **Aplicativos**, no menu lateral. |
 | 2 | Card **API Aberta** — *Integre seu sistema ao BeeFood via API REST*. |
 
-### Passo 2. Reconhecer a credencial principal (e deixá-la quieta)
+### Passo 2. Criar uma credencial nova
 
-O painel abre na aba **Credencial** (1), e a sua loja **já tem uma credencial**: a **Credencial
-principal**. O texto abaixo dela avisa que é justamente essa que o portal `docs.beefood.app`
-exibe (2).
+O painel abre na aba **Credencial** (1). Role até o fim do cartão: passe longe do **RECICLAR**
+(2) e clique em **CRIAR CREDENCIAL** (3).
 
-Ela funciona, e dá para usá-la. Mas no Passo 3 vamos **criar uma credencial só para a Natural
-Bot**, e deixar a principal como está.
-
-![Painel da API Aberta — a credencial principal](imagens-tratadas/02-painel-credencial.png)
-
-| Nº | Campo | O que observar |
-|----|-------|----------------|
-| 1 | Aba **Credencial** | É onde ficam o Client ID e o Client Secret, as permissões e o botão de criar credencial. |
-| 2 | *Esta é a credencial exibida no portal docs.beefood.app* | Confirma que a credencial do portal e a do painel são a mesma coisa. Não há nada para sincronizar. |
-
-> **Por que uma credencial só para a Natural Bot?** Porque ela é descartável. Se um dia você
-> quiser cortar o acesso, desligar ou excluir **essa** credencial não derruba nenhuma outra
-> integração — e a credencial principal continua intacta.
-
-### Passo 3. Clicar em CRIAR CREDENCIAL
-
-Role o painel até o fim do cartão da credencial principal. Passe longe do **RECICLAR** (1) e
-clique em **CRIAR CREDENCIAL** (2).
-
-![O fim do cartão: RECICLAR e CRIAR CREDENCIAL](imagens-tratadas/03-criar-credencial.png)
+![A aba Credencial e o botão CRIAR CREDENCIAL](imagens-tratadas/02-criar-credencial.png)
 
 | Nº | Campo | O que fazer |
 |----|-------|-------------|
-| 1 | **RECICLAR** | ⚠️ **Não clique.** Ele troca o Client ID e o Client Secret **da credencial principal**, e toda integração que a use para na hora. |
-| 2 | **CRIAR CREDENCIAL** | É por aqui que você cria a credencial da Natural Bot. Ela vai aparecer em **Todas as credenciais**, logo abaixo do botão. |
+| 1 | Aba **Credencial** | Onde ficam as credenciais da loja. A **Credencial principal**, no meio da tela, é a mesma que o portal `docs.beefood.app` exibe: não se mexe nela. |
+| 2 | **RECICLAR** | ⚠️ **Não clique.** Ele troca o Client ID e o Client Secret da credencial principal, e toda integração que a use para na hora. |
+| 3 | **CRIAR CREDENCIAL** | Cria uma credencial só para a Natural Bot. Ela aparece em **Todas as credenciais**, logo abaixo, e pode ser desligada ou excluída depois sem derrubar nenhuma outra integração. |
 
-### Passo 4. Desligar o que a Natural Bot não precisa
+### Passo 3. Deixar ligados só os seis acessos
 
-Abre o diálogo **Nova credencial adicional**, e ele **nasce com tudo ligado**. Cada recurso tem
-dois interruptores, *Consultar* e *Alterar* (1), e embaixo de cada um está o **nome do acesso**
-(2) — é por esse nome que a Natural Bot pede. O seu trabalho aqui é **desligar**: clique no
-*Consultar* (3) de **Clientes**, **Cupons**, **Avaliações**, **Estoque**, **Entregadores**,
-**Garçons**, **Caixa** e **Usuários**, e no *Alterar* de **Catálogo** e de **Loja**.
+Abre o diálogo **Nova credencial adicional**, e ele **nasce com tudo ligado**. Desligue o
+*Consultar* de **Clientes**, **Cupons**, **Avaliações**, **Estoque**, **Entregadores**,
+**Garçons**, **Caixa** e **Usuários**, e o *Alterar* de **Catálogo** e de **Loja**. Tem de sobrar
+exatamente o que está na foto: **Pedidos** inteiro (1), **Catálogo** só *Consultar* (2), **Loja**
+só *Consultar* (3) e **Webhooks** inteiro (4). Confira pelos nomes em cinza, que são os acessos
+que a Natural Bot pede, e clique em **CRIAR (F2)** (5).
 
-![Nova credencial adicional — tudo ligado, como ela abre](imagens-tratadas/04-nova-credencial-tudo.png)
-
-| Nº | Campo | O que fazer |
-|----|-------|-------------|
-| 1 | *Consultar* e *Alterar* | Os dois interruptores de cada recurso. *Consultar* é ler; *Alterar* é criar e mudar. |
-| 2 | O nome embaixo do interruptor | É o acesso de verdade: `orders:read`, `orders:write`, e assim por diante. Use-o para conferir a lista da Natural Bot. |
-| 3 | *Consultar* de um recurso que sai | Desligar o *Consultar* desliga o *Alterar* junto. Oito recursos saem inteiros assim. |
-
-> **Quem altera também consulta.** O caminho de volta não existe: ligar *Alterar* liga o
-> *Consultar* do mesmo recurso e o trava. Por isso, para tirar um recurso inteiro, desligue o
-> *Consultar* — o outro cai sozinho.
-
-### Passo 5. Conferir os seis acessos e criar
-
-Tem de sobrar exatamente isto: **Pedidos** com *Consultar* e *Alterar* (1), **Catálogo** só com
-*Consultar* (2), **Loja** só com *Consultar* (3) e **Webhooks** com *Consultar* e *Alterar* (4).
-Todo o resto desligado. Confira pelos nomes em mono e clique em **CRIAR (F2)** (5).
-
-![Nova credencial adicional — só os seis acessos](imagens-tratadas/05-nova-credencial-seis.png)
+![Nova credencial adicional — só os seis acessos](imagens-tratadas/03-nova-credencial-seis.png)
 
 | Nº | Campo | Acesso | Para que a Natural Bot usa |
 |----|-------|--------|----------------------------|
 | 1 | **Pedidos** | `orders:write` e `orders:read` | enviar o pedido para a sua loja, e conferir um pedido que a BeeFood não confirmou. |
 | 2 | **Catálogo** | `catalog:read` | importar o cardápio (Parte 3). |
-| 3 | **Loja** | `store:read` | listar os cardápios e as formas de pagamento da loja (Passo 10). |
+| 3 | **Loja** | `store:read` | listar os cardápios e as formas de pagamento da loja (Passo 7). |
 | 4 | **Webhooks** | `webhook:read` e `webhook:write` | cadastrar e conferir o aviso que traz o status do pedido de volta. |
 | 5 | **CRIAR (F2)** | — | grava a credencial. **CANCELAR (ESC)** desiste sem criar. |
 
-> **Os dois de Webhooks são os que mais faltam.** Sem `webhook:read` e `webhook:write` a conexão
-> funciona, e é fácil não notar: o que se perde é o status voltando da BeeFood — o pedido
-> continua sendo movido à mão no painel da Natural Bot. A própria tela dela avisa isso, e a saída
-> é criar outra credencial com os seis e usar a nova.
+> **Dois detalhes que poupam uma segunda credencial.** Desligar o *Consultar* desliga o *Alterar*
+> junto, e não existe o contrário: ligar *Alterar* liga o *Consultar* e o trava. E os dois de
+> **Webhooks** são os que mais faltam — sem eles a conexão funciona, mas o status não volta, e o
+> pedido continua sendo movido à mão no painel da Natural Bot.
 
-### Passo 6. Copiar o Client ID e o Client Secret
+### Passo 4. Copiar o Client ID e o Client Secret
 
-Abre o diálogo **Credencial criada**, com os dois valores que vão para a Natural Bot: o
-**clientId** (1) e o **clientSecret** (2). Copie os dois — cada um tem o seu botão de copiar, à
-direita — e só então clique em **FECHAR (ESC)** (3).
+Abre o diálogo **Credencial criada**, com os dois valores que vão para a Natural Bot. Copie o
+**clientId** (1) e o **clientSecret** (2) — cada um tem o seu botão de copiar — e só então
+clique em **FECHAR (ESC)** (3).
 
-![Credencial criada — clientId e clientSecret](imagens-tratadas/06-credencial-criada.png)
+![Credencial criada — clientId e clientSecret](imagens-tratadas/04-credencial-criada.png)
 
 | Nº | Campo | O que fazer |
 |----|-------|-------------|
 | 1 | **CLIENTID** | Copie. É o *Client ID* que a Natural Bot pede. |
 | 2 | **CLIENTSECRET** | Copie e guarde em lugar seguro. É a senha da sua loja na API. |
-| 3 | **FECHAR (ESC)** | Fecha o diálogo. A credencial nova fica na lista **Todas as credenciais**, como **Ativa**. |
+| 3 | **FECHAR (ESC)** | A credencial nova fica na lista **Todas as credenciais**, como **Ativa**. |
 
-> **Perdeu o secret?** Não precisa criar outra credencial: o próprio diálogo explica que ele
-> pode ser revelado depois, pelo **ícone de olho** no campo *Client Secret* do cartão da
-> credencial, em **Todas as credenciais**.
+> **Perdeu o secret?** Não precisa criar outra credencial: ele pode ser revelado depois pelo
+> **ícone de olho** no campo *Client Secret* do cartão da credencial, em **Todas as
+> credenciais**.
 
 ---
 
@@ -161,129 +117,115 @@ direita — e só então clique em **FECHAR (ESC)** (3).
 > Daqui para frente as telas são **da Natural Bot**. Confira, no alto à direita, que a **filial
 > selecionada** é a que vai receber os pedidos: a integração é por filial.
 
-### Passo 7. Abrir Configurações → Integrações
+### Passo 5. Abrir Configurações → Integrações e o card da BeeFood
 
-No menu lateral, clique em **Configurações** (1). Na página que abre, escolha a aba
-**Integrações** (2). Leia o aviso de **Gestores de PDV** (3) antes de ligar qualquer coisa.
+No menu lateral, clique em **Configurações** e escolha a aba **Integrações** (1). Leia o aviso de
+**Gestores de PDV** (2). Role até o card **BeeFood** — ele fica no meio da lista de gestores, e a
+foto mostra só ele. O card tem uma chave liga/desliga (3) e um botão (4): **CONFIGURAR**, se a
+filial nunca foi conectada, ou **EDITAR**, se já existe credencial salva. Clique nele.
 
-![Configurações — a aba Integrações](imagens-tratadas/07-nb-configuracoes-integracoes.png)
-
-| Nº | Campo | O que observar |
-|----|-------|----------------|
-| 1 | **Configurações** | No menu lateral da Natural Bot. |
-| 2 | Aba **Integrações** | É onde ficam os gestores de PDV, as integrações de entrega e as de pagamento. |
-| 3 | *Apenas um gestor de PDV pode estar ativo por vez* | ⚠️ A BeeFood entra como gestor de PDV. Se a sua filial já usa outro, **ativar a BeeFood desativa o anterior automaticamente**. |
-
-### Passo 8. Abrir o card da BeeFood
-
-Role até achar o card **BeeFood**, entre os gestores de PDV. Ele tem uma chave liga/desliga (1)
-e um botão (2): **CONFIGURAR**, se a filial nunca foi conectada, ou **EDITAR**, se já existe uma
-credencial salva. Clique nele.
-
-![O card da BeeFood, entre os gestores de PDV](imagens-tratadas/08-nb-card-beefood.png)
+![Configurações → Integrações e o card da BeeFood](imagens-tratadas/05-nb-integracoes-beefood.png)
 
 | Nº | Campo | O que observar |
 |----|-------|----------------|
-| 1 | A chave do card | Liga e desliga a integração. Na imagem ela já está ligada, com o selo **Ativa**; na primeira vez ela aparece desligada. |
-| 2 | **CONFIGURAR** / **EDITAR** | Abre o diálogo da integração. É o mesmo diálogo nos dois casos. |
+| 1 | Aba **Integrações** | Dentro de **Configurações**. É onde ficam os gestores de PDV, as integrações de entrega e as de pagamento. |
+| 2 | *Apenas um gestor de PDV pode estar ativo por vez* | ⚠️ A BeeFood entra como gestor de PDV. Se a sua filial já usa outro, **ativar a BeeFood desativa o anterior automaticamente**. |
+| 3 | A chave do card | Liga e desliga a integração. Na foto ela já está ligada, com o selo **Ativa**; na primeira vez aparece desligada. |
+| 4 | **CONFIGURAR** / **EDITAR** | Abre o diálogo da integração. É o mesmo nos dois casos. |
 
-### Passo 9. Colar a credencial e conectar
+### Passo 6. Colar a credencial e conectar
 
-O diálogo **Configurar integração - BeeFood** começa listando os **seis acessos** (1) — é a
-mesma lista do Passo 5 — e avisando o que acontece se faltarem os dois de webhook (2). Cole o
-**Client ID** (3) e o **Client secret** (4) do Passo 6 e clique em **Conectar** (5).
+O diálogo começa listando os **seis acessos** (1) — a mesma lista do Passo 3 — e avisando o que
+acontece se faltarem os dois de webhook (2). Cole o **Client ID** (3) e o **Client secret** (4)
+do Passo 4 e clique em **Conectar** (5).
 
-![O formulário da credencial, na Natural Bot](imagens-tratadas/09-nb-form-credencial.png)
+![O formulário da credencial, na Natural Bot](imagens-tratadas/06-nb-form-credencial.png)
 
 | Nº | Campo | O que fazer |
 |----|-------|-------------|
-| 1 | A lista dos seis acessos | Confira contra o que você criou no Passo 5. São os mesmos nomes. |
-| 2 | O aviso de `webhook:read` e `webhook:write` | Se a sua credencial não tem os dois, volte ao Passo 3 e crie outra com os seis. |
+| 1 | A lista dos seis acessos | Confira contra o que você criou no Passo 3. São os mesmos nomes. |
+| 2 | O aviso de `webhook:read` e `webhook:write` | Se a sua credencial não tem os dois, volte ao Passo 2 e crie outra com os seis. |
 | 3 | **Client ID** | Cole o `clientId`. Campo obrigatório. |
 | 4 | **Client secret** | Cole o `clientSecret`. Se já existe um salvo nesta filial, deixar em branco mantém o antigo — e para **trocar de cardápio** é preciso digitá-lo de novo. |
 | 5 | **Conectar** | A Natural Bot valida a credencial na BeeFood e passa para a etapa seguinte. |
 
 > **Se der *A BeeFood recusou o client ID ou o client secret*,** quase sempre é ambiente: a
-> credencial foi criada no portal, em *Sandbox*. Credencial criada pelo painel (Passo 5) é
-> sempre de produção.
+> credencial foi criada no portal, em *Sandbox*. A do painel (Passo 3) é sempre de produção.
 
-### Passo 10. Escolher o cardápio e casar as formas de pagamento
+### Passo 7. Escolher o cardápio e casar as formas de pagamento
 
-Escolha o **Cardápio** (1) da sua loja do BeeFood que a Natural Bot vai usar. Depois, para cada
-forma de pagamento que ela recebe online, escolha a forma correspondente no BeeFood (2) — ela
-sugere o par, e a sugestão só vale depois de salvar. Deixe **Ligar a integração ao salvar** (3)
-ligado e clique em **Salvar** (4).
+Escolha o **Cardápio** (1) da sua loja do BeeFood. Para cada forma de pagamento que a Natural Bot
+recebe online, escolha a correspondente no BeeFood (2) — ela sugere o par, e a sugestão só vale
+depois de salvar. Deixe **Ligar a integração ao salvar** (3) ligado e clique em **Salvar** (4).
 
-![Cardápio e formas de pagamento](imagens-tratadas/10-nb-cardapio-pagamentos.png)
+![Cardápio e formas de pagamento](imagens-tratadas/07-nb-cardapio-pagamentos.png)
 
 | Nº | Campo | O que fazer |
 |----|-------|-------------|
-| 1 | **Cardápio** | A lista vem da sua loja do BeeFood. Trocar de cardápio depois **apaga o de-para de pagamentos** do cardápio anterior. |
+| 1 | **Cardápio** | A lista vem da sua loja do BeeFood. Trocar de cardápio depois **apaga o de-para de pagamentos** do anterior. |
 | 2 | **Formas de pagamento** | Pix, cartão de crédito e cartão de débito, cada um apontando para uma forma do BeeFood. |
 | 3 | **Ligar a integração ao salvar** | Já vem ligado. É o que faz os pedidos começarem a ir para a BeeFood. |
-| 4 | **Salvar** | Grava a integração e roda a verificação do Passo 11. |
+| 4 | **Salvar** | Grava a integração e roda a verificação do Passo 8. |
 
-### Passo 11. Ler o resultado da verificação
+### Passo 8. Ler o resultado da verificação
 
 A Natural Bot consulta a BeeFood e mostra o que achou. A linha verde (1) é a que importa:
-*Integração com a BeeFood configurada com sucesso*. Podem aparecer avisos amarelos (2) — eles
-não impedem a integração, mas valem leitura. Clique em **Concluir** (3).
+*Integração com a BeeFood configurada com sucesso*. Avisos amarelos (2) não impedem a integração,
+mas valem leitura. Clique em **Concluir** (3).
 
-![O resultado da verificação](imagens-tratadas/11-nb-verificacao.png)
+![O resultado da verificação](imagens-tratadas/08-nb-verificacao.png)
 
 | Nº | Campo | O que observar |
 |----|-------|----------------|
-| 1 | *Integração com a BeeFood configurada com sucesso* | A credencial foi aceita e a integração está salva. |
-| 2 | Aviso amarelo | Na imagem, *o canal delivery deste cardápio da BeeFood não aceita pedidos de entrega nem de retirada*. É configuração do cardápio no BeeFood, não da credencial. |
+| 1 | *configurada com sucesso* | A credencial foi aceita e a integração está salva. |
+| 2 | Aviso amarelo | Na foto, *o canal delivery deste cardápio da BeeFood não aceita pedidos de entrega nem de retirada*. É configuração do cardápio no BeeFood, não da credencial. |
 | 3 | **Concluir** | Fecha o diálogo. |
 
-### Passo 12. Conferir a integração ligada e o aviso de status
+### Passo 9. Conferir a integração ligada e o aviso de status
 
-Abra o card da BeeFood de novo (Passo 8): agora o diálogo abre em resumo, **Integração já
-configurada**. Confira o **Client ID** mascarado, o cardápio e o de-para (1). O **Editar
-Integração** (2) é o caminho para trocar qualquer um deles. A chave **Integração ligada** (3)
-tem de estar ligada, e logo abaixo dela está a linha que fecha a Parte 2: **Webhook de status:
-ativo** (4). O botão **Ir para Produtos** (5) leva direto à Parte 3.
+Abra o card da BeeFood de novo: agora o diálogo abre em resumo, **Integração já configurada**.
+Confira o Client ID mascarado, o cardápio e o de-para (1). O **Editar Integração** (2) é o
+caminho para trocar qualquer um deles. A chave **Integração ligada** (3) tem de estar ligada, e
+logo abaixo está a linha que fecha a Parte 2: **Webhook de status: ativo** (4). O botão **Ir para
+Produtos** (5) leva direto à Parte 3.
 
-![Integração já configurada](imagens-tratadas/12-nb-integracao-configurada.png)
+![Integração já configurada](imagens-tratadas/09-nb-integracao-configurada.png)
 
 | Nº | Campo | O que observar |
 |----|-------|----------------|
 | 1 | **Client ID**, **Cardápio**, **Formas de pagamento** | O resumo do que foi salvo. O Client ID aparece mascarado, e o secret não aparece. |
-| 2 | **Editar Integração** | Volta ao formulário do Passo 9. Para trocar de cardápio, digite o secret de novo. |
-| 3 | **Integração ligada** | Desligar aqui faz os pedidos deixarem de ser enviados para a BeeFood. ⚠️ Para mexer nesta chave e na de baixo é preciso **fechar a loja** antes — o aviso amarelo acima delas diz isso. |
-| 4 | **Webhook de status: ativo** | É o aviso que traz o status do pedido de volta da BeeFood. **Quem cadastra é a Natural Bot**, com o acesso `webhook:write`; você não precisa criar webhook nenhum no BeeFood. |
+| 2 | **Editar Integração** | Volta ao formulário do Passo 6. Para trocar de cardápio, digite o secret de novo. |
+| 3 | **Integração ligada** | Desligar aqui faz os pedidos deixarem de ser enviados. ⚠️ Para mexer nesta chave e na de baixo é preciso **fechar a loja** antes — é o que diz o aviso amarelo acima delas. |
+| 4 | **Webhook de status: ativo** | É o aviso que traz o status do pedido de volta. **Quem cadastra é a Natural Bot**, com o acesso `webhook:write`; você não precisa criar webhook nenhum no BeeFood. |
 | 5 | **Ir para Produtos** | Atalho para a importação do cardápio. |
 
 > **Já integrou Entregas Expressas ou Route Delivery?** Nessas duas havia uma terceira parte, de
-> volta no BeeFood, para cadastrar o webhook à mão e devolver o *Secret do webhook* ao parceiro.
-> **Aqui não tem.** A Natural Bot cadastra o aviso sozinha quando você salva, e é por isso que a
-> credencial precisa de `webhook:write`.
+> volta no BeeFood, para cadastrar o webhook à mão. **Aqui não tem.**
 
 ---
 
 ## Parte 3 — Sincronizar o cardápio
 
-### Passo 13. Cardápio → Produtos → Sinc. BeeFood
+### Passo 10. Cardápio → Produtos → Sinc. BeeFood
 
-No menu lateral da Natural Bot, abra **Cardápio** e clique em **Produtos** (1). Na barra de cima
-da página, clique em **Sinc. BeeFood** (2).
+No menu lateral da Natural Bot, abra **Cardápio** e clique em **Produtos** (1). Na barra de cima,
+clique em **Sinc. BeeFood** (2).
 
-![Produtos — o botão Sinc. BeeFood](imagens-tratadas/13-nb-produtos-sinc.png)
+![Produtos — o botão Sinc. BeeFood](imagens-tratadas/10-nb-produtos-sinc.png)
 
 | Nº | Campo | O que fazer |
 |----|-------|-------------|
 | 1 | **Produtos** | Dentro do menu **Cardápio**. |
-| 2 | **Sinc. BeeFood** | Abre o diálogo da importação. Ele só aparece com a integração configurada. |
+| 2 | **Sinc. BeeFood** | Abre o diálogo da importação. Só aparece com a integração configurada. |
 
-### Passo 14. Rodar a importação
+### Passo 11. Rodar a importação
 
-O diálogo **Importação de produtos — BeeFood** avisa que a importação é **processada em fila**
-(1) e oferece três opções, todas **desmarcadas** (2). Na primeira vez, deixe as três como estão:
-assim a importação só **traz** o cardápio, sem apagar nem desfazer nada do que existe no painel
-da Natural Bot. Clique em **Importar** (3).
+O diálogo avisa que a importação é **processada em fila** (1) e oferece três opções, todas
+**desmarcadas** (2). Na primeira vez, deixe as três como estão: assim a importação só **traz** o
+cardápio, sem apagar nem desfazer nada do que existe no painel da Natural Bot. Clique em
+**Importar** (3).
 
-![As opções da importação](imagens-tratadas/14-nb-importacao-opcoes.png)
+![As opções da importação](imagens-tratadas/11-nb-importacao-opcoes.png)
 
 | Nº | Campo | O que fazer |
 |----|-------|-------------|
@@ -293,54 +235,39 @@ da Natural Bot. Clique em **Importar** (3).
 
 | Opção | O que ela faz | Quando marcar |
 |-------|---------------|---------------|
-| **Deixar a BeeFood controlar a disponibilidade** | Copia o ligado/desligado da BeeFood para a Natural Bot, **só nesta rodada**. | Quando você quer que a disponibilidade de lá valha aqui agora. |
-| **Remover o que saiu da BeeFood** | Apaga da Natural Bot o que veio da BeeFood e não está mais no cardápio de lá. O que você criou à mão no painel não é afetado. | Depois de tirar itens do cardápio no BeeFood. |
+| **Deixar a BeeFood controlar a disponibilidade** | Copia o ligado/desligado da BeeFood para a Natural Bot, **só nesta rodada**. | Quando a disponibilidade de lá tem de valer aqui agora. |
+| **Remover o que saiu da BeeFood** | Apaga da Natural Bot o que veio da BeeFood e não está mais no cardápio de lá. O que você criou à mão não é afetado. | Depois de tirar itens do cardápio no BeeFood. |
 | **Sobrescrever as alterações feitas aqui** | A BeeFood passa a mandar em tudo que veio dela: o que você editou no painel é desfeito, e o que você apagou volta. | Quando o cardápio do BeeFood tem de ser a verdade, sem exceção. |
 
-### Passo 15. Ver o que entrou
+### Passo 12. Ver o que entrou
 
-No fim aparece **Importação concluída** (1), com a conta do que entrou: categorias, produtos,
-variações e opções (2). Clique em **Fechar** (3).
+No fim aparece **Importação concluída** (1), com a conta de categorias, produtos, variações e
+opções (2). Clique em **Fechar** (3) e confira a lista de **Produtos** na aba **Todos** — ela
+abre na primeira categoria, que pode estar vazia.
 
-![Importação concluída](imagens-tratadas/15-nb-importacao-concluida.png)
+![Importação concluída](imagens-tratadas/12-nb-importacao-concluida.png)
 
 | Nº | Campo | O que observar |
 |----|-------|----------------|
-| 1 | **Importação concluída** | A importação terminou. Se der erro, o diálogo mostra a mensagem aqui. |
+| 1 | **Importação concluída** | A importação terminou. Se der erro, a mensagem aparece aqui. |
 | 2 | Categorias, Produtos, Variações, Opções | Quantos itens de cada tipo a importação criou ou atualizou. |
-| 3 | **Fechar** | Fecha o diálogo. Você pode rodar de novo quando o cardápio do BeeFood mudar. |
-
-### Passo 16. Conferir o cardápio na lista
-
-A página de Produtos abre na **primeira** categoria, que pode estar vazia. Clique na aba
-**Todos** (1) para ver o cardápio inteiro: os itens que vieram da BeeFood (2) aparecem com nome,
-descrição, categoria e preço de lá.
-
-![A lista de produtos depois da importação](imagens-tratadas/16-nb-produtos-importados.png)
-
-| Nº | Campo | O que observar |
-|----|-------|----------------|
-| 1 | Aba **Todos** | Mostra todas as categorias juntas. As outras abas filtram por categoria. |
-| 2 | Um item importado | Veio da BeeFood com nome, descrição, categoria e preço. O que você já tinha criado à mão continua na lista. |
+| 3 | **Fechar** | Você pode rodar de novo quando o cardápio do BeeFood mudar. |
 
 ---
 
 ## Como fica o dia a dia
 
-- **A Natural Bot manda o pedido para a sua loja do BeeFood**, e o BeeFood devolve o status pelo
-  aviso do Passo 12. A tela da Natural Bot diz isso com todas as letras: *o status do pedido
-  segue a BeeFood sozinho quando a conexão com o webhook está ativa, e não há opção para mudar
-  isso*.
-- **Mudou o cardápio no BeeFood?** Rode a importação de novo (Passo 13). Nada é automático aqui.
-- **Mudou de cardápio ou de credencial?** **Editar Integração**, no Passo 12 — e, para trocar de
+- **A Natural Bot manda o pedido para a sua loja**, e o BeeFood devolve o status pelo aviso do
+  Passo 9. A tela dela diz que isso não tem opção para mudar.
+- **Mudou o cardápio no BeeFood?** Rode a importação de novo (Passo 10). Nada é automático.
+- **Mudou de cardápio ou de credencial?** **Editar Integração**, no Passo 9 — e, para trocar de
   cardápio, digite o secret outra vez.
-- **Quer parar de enviar pedidos?** Desligue a chave **Integração ligada** (Passo 12) com a loja
-  fechada, ou a chave do próprio card (Passo 8). Para cortar o acesso de vez, exclua no BeeFood a
-  credencial que você criou no Passo 5.
+- **Quer parar de enviar pedidos?** Desligue a chave **Integração ligada** com a loja fechada, ou
+  a chave do próprio card. Para cortar o acesso de vez, exclua no BeeFood a credencial do Passo
+  3.
 
-> **Dúvida de uso é com a Natural Bot.** Como o robô atende, como o pedido aparece no quadro de
-> pedidos, impressão, campanha, cupom, fidelidade — tudo isso é painel dela. Este manual cobre a
-> ativação, e só.
+> **Dúvida de uso é com a Natural Bot.** Como o robô atende, como o pedido aparece no quadro,
+> impressão, campanha, cupom, fidelidade — tudo isso é painel dela.
 
 ---
 
@@ -348,16 +275,15 @@ descrição, categoria e preço de lá.
 
 | Sintoma | O que conferir |
 |---------|----------------|
-| *A BeeFood recusou o client ID ou o client secret* | A credencial é de **produção**? Credencial criada no portal com *Sandbox* marcado não serve. A do painel (Passo 5) é sempre de produção. Confira também se não ficou espaço sobrando ao colar. |
-| Conectou, mas o **status não volta** da BeeFood | A credencial tem `webhook:read` **e** `webhook:write`? No Passo 12, a linha **Webhook de status** tem de dizer **ativo**. Se faltar um dos dois acessos, crie outra credencial com os seis (Passo 3) e troque em **Editar Integração**. |
-| A lista de **cardápios vem vazia** no Passo 10 | Falta `store:read` na credencial, ou o secret não foi digitado nesta rodada — a Natural Bot só lista cardápios de uma credencial validada. |
-| **Nenhum produto** entrou na importação | Falta `catalog:read` na credencial, ou o cardápio escolhido no Passo 10 não é o que tem os produtos. |
-| O aviso *o canal delivery deste cardápio não aceita pedidos de entrega nem de retirada* | É o cardápio no BeeFood: o canal **Delivery** dele não está aceitando entrega nem retirada. Ajuste no BeeFood e salve a integração de novo. |
-| **Ficaram duas categorias com o mesmo nome** na Natural Bot | A importação cria as categorias com o nome que elas têm no BeeFood; a que você criou à mão continua lá, vazia. Apague a sua no painel da Natural Bot, ou renomeie uma das duas. |
-| A chave **Integração ligada** não deixa mexer | *Feche a loja para alterar estas configurações* — feche a loja na Natural Bot (botão **Loja Fechada**, no pé do menu), mexa na chave e abra de novo. |
-| **Outro gestor de PDV** parou de funcionar | Só um gestor de PDV fica ativo por vez na Natural Bot. Ativar a BeeFood desativa o anterior. |
+| *A BeeFood recusou o client ID ou o client secret* | A credencial é de **produção**? A criada no portal com *Sandbox* marcado não serve. A do painel (Passo 3) é sempre de produção. Confira também se não ficou espaço sobrando ao colar. |
+| Conectou, mas o **status não volta** | A credencial tem `webhook:read` **e** `webhook:write`? No Passo 9, a linha **Webhook de status** tem de dizer **ativo**. Se faltar um dos dois, crie outra credencial com os seis e troque em **Editar Integração**. |
+| A lista de **cardápios vem vazia** no Passo 7 | Falta `store:read`, ou o secret não foi digitado nesta rodada — a Natural Bot só lista cardápios de uma credencial validada. |
+| **Nenhum produto** entrou na importação | Falta `catalog:read`, ou o cardápio escolhido no Passo 7 não é o que tem os produtos. |
+| *O canal delivery deste cardápio não aceita pedidos de entrega nem de retirada* | É o cardápio no BeeFood: o canal **Delivery** dele não está aceitando entrega nem retirada. Ajuste no BeeFood e salve a integração de novo. |
+| **Duas categorias com o mesmo nome** na Natural Bot | A importação cria as categorias com o nome que elas têm no BeeFood; a que você criou à mão continua lá, vazia. Apague ou renomeie uma das duas. |
+| A chave **Integração ligada** não deixa mexer | *Feche a loja para alterar estas configurações* — feche a loja na Natural Bot, mexa na chave e abra de novo. |
+| **Outro gestor de PDV** parou de funcionar | Só um fica ativo por vez na Natural Bot. Ativar a BeeFood desativa o anterior. |
 | O card **API Aberta** não aparece em Aplicativos | O recurso está em liberação por etapas. Fale com o suporte BeeFood. |
-| O painel mostra **Ambiente de testes** em vez da credencial | A sua empresa está em ambiente de testes. Nesse caso as credenciais ficam em `docs.beefood.app`. |
 
 ---
 
@@ -375,9 +301,9 @@ acesso, basta excluir essa credencial, e nenhuma outra integração sente.
 
 **Perdi o Client Secret. Preciso criar outra credencial?**
 
-Não. Ele pode ser revelado depois pelo **ícone de olho** no campo *Client Secret* do cartão da
-credencial, em **Todas as credenciais**. Só não use **RECICLAR** para isso — ele troca os
-valores e derruba quem já estiver usando.
+Não. Ele pode ser revelado pelo **ícone de olho** no cartão da credencial, em **Todas as
+credenciais**. Só não use **RECICLAR** para isso — ele troca os valores e derruba quem já estiver
+usando.
 
 **Por que a Natural Bot pede acesso a Webhooks?**
 
@@ -394,11 +320,6 @@ painel da Natural Bot não vença o do BeeFood, marque *Sobrescrever as alteraç
 
 Não. Ela é **por filial** na Natural Bot: cada uma aponta para um cardápio e tem a sua conexão.
 Troque a filial no alto à direita e repita a Parte 2.
-
-**O robô vai responder diferente depois da integração?**
-
-Essa pergunta é da Natural Bot. O que este manual garante é o encanamento: credencial, conexão,
-cardápio e status de volta.
 
 ---
 

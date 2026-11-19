@@ -81,20 +81,20 @@ credentials` — a cara exata do erro do painel do parceiro. Com isso:
 
 ## As duas credenciais das capturas, e por que são duas
 
-- **Produção**, criada e fotografada pelo `capturar-beefood.py` (imagens 04, 05 e 06). O
-  `clientSecret` aparece inteiro na imagem 06, então o `limpar-credencial.py` **apaga** essa
+- **Produção**, criada e fotografada pelo `capturar-beefood.py` (imagens 03 e 04). O
+  `clientSecret` aparece inteiro na imagem 04, então o `limpar-credencial.py` **apaga** essa
   credencial no fim — mesmo cuidado do #129: o segredo versionado é de uma credencial que não
   existe mais.
-- **Sandbox**, criada no portal, é a que conecta de verdade nas imagens 10 a 16. Ela não aparece
+- **Sandbox**, criada no portal, é a que conecta de verdade nas imagens 07 a 12. Ela não aparece
   em imagem nenhuma: o campo de secret é de senha e o `clientId` só reaparece mascarado
-  (`2fa1***4d55`) na imagem 12.
+  (`2fa1***4d55`) na imagem 09.
 
 O estudo também deixou uma credencial de produção **exploratória**, criada antes das capturas
 para medir os escopos. Ela foi apagada no fim, pelo mesmo script
 (`python3 limpar-credencial.py <clientId>`), para a empresa de testes ficar como estava.
 
-A imagem 09 (formulário preenchido) mostra a de **produção**, pela técnica do ensaio — preenche,
-fotografa, **não** clica em *Conectar*. É o que mantém o `clientId` da imagem 06 e o da 09
+A imagem 06 (formulário preenchido) mostra a de **produção**, pela técnica do ensaio — preenche,
+fotografa, **não** clica em *Conectar*. É o que mantém o `clientId` da imagem 04 e o da 06
 iguais, que é o que o leitor vai comparar.
 
 ## Chamar a API da BeeFood de script
@@ -115,7 +115,7 @@ usuário (`beefood@beefood.com.br`) está no código, porque sem ele o script n�
 
 - **Um gestor de PDV por vez.** *"Ao ativar um novo gestor, o anterior será desativado
   automaticamente."* A BeeFood entra como gestor de PDV, ao lado de Colibri, Saipos, CCM e
-  outros. Virou seta na imagem 07 e linha na tabela de problemas.
+  outros. Virou seta na imagem 05 e linha na tabela de problemas.
 - **Para mexer nos interruptores de sincronização, feche a loja.** O aviso
   *"Feche a loja para alterar estas configurações"* vale para as duas chaves do bloco
   **Sincronização de pedidos** — mas **não** para conectar nem para salvar, que funcionaram com
@@ -126,31 +126,57 @@ usuário (`beefood@beefood.com.br`) está no código, porque sem ele o script n�
 - **A verificação pós-salvar fala duas línguas.** A linha verde diz se a credencial foi aceita;
   o amarelo é configuração do cardápio no BeeFood. Na loja de sandbox veio
   *"o canal delivery deste cardápio da BeeFood não aceita pedidos de entrega nem de retirada"*,
-  e isso ficou na imagem 11 de propósito, com tabela explicando.
+  e isso ficou na imagem 08 de propósito, com tabela explicando.
 - **A importação duplica categoria de mesmo nome.** A filial já tinha uma *Bebidas* criada à mão;
-  a importação criou a sua, e a página de Produtos ficou com duas abas *Bebidas* (visível na
-  imagem 16). Entrou na tabela de problemas.
+  a importação criou a sua, e a página de Produtos ficou com duas abas *Bebidas*. Entrou na
+  tabela de problemas.
 - **A lista de Produtos abre na primeira categoria**, que pode estar vazia — foi o que fez a
-  primeira captura da imagem 16 sair com *"Nenhum produto cadastrado"* depois de uma importação
-  bem-sucedida. O script passou a clicar na aba **Todos** antes do print.
+  primeira captura da lista de produtos sair com *"Nenhum produto cadastrado"* depois de uma
+  importação bem-sucedida. Essa foto saiu do manual na segunda rodada (o dono cortou: o que o
+  leitor precisa é do caminho da importação), mas a pegadinha ficou, como aviso de texto no
+  último passo.
+
+## A segunda rodada: o dono cortou quatro imagens
+
+A primeira entrega tinha dezesseis imagens e dezesseis passos. O dono leu e pediu objetividade,
+nomeando o que cortar — e cada corte tem a mesma lógica: **foto que mostra estado em vez de
+ação não vale o espaço.**
+
+| O que tinha | O que ficou | Por quê |
+|---|---|---|
+| a credencial principal e o `CRIAR CREDENCIAL` em duas fotos | uma foto costurada, da aba direto para o botão | *"precisa ser mais objetivo, mostre direto como criar a credencial nova"* |
+| o diálogo de permissões *como abre* e *como fica* | só *como fica* | *"resuma, só mostrando o que deve ficar ativo"* |
+| a aba *Integrações* e o card da BeeFood em duas fotos | uma foto costurada, com a BeeFood **em primeiro** e **sem os concorrentes** | o painel do parceiro é cheio de PDV concorrente, e manual nosso não os divulga |
+| a lista de produtos já importada | nada — só o caminho da importação | *"não precisa mostrar produtos importados, somente o caminho de como importar"* |
+
+Daí saíram duas coisas reaproveitáveis:
+
+- **`montagem()`, no `annotate.py`.** Costura recortes de print numa imagem só, com os
+  marcadores ainda em pixel da pura de cada fatia, e desenha a emenda **tracejada**. É o que
+  deixa um passo que mora em duas alturas da mesma tela — ou em duas telas — caber numa foto sem
+  mentir: o tracejado diz que ali existe tela que não está na foto.
+- **Card de concorrente se tira mudando o card de lugar, não apagando o vizinho.** A BeeFood é o
+  décimo segundo gestor de PDV no painel do parceiro. O recorte pega só o card dela e o encosta
+  na coluna onde ficava o primeiro — as coordenadas da grade são as mesmas, então o resultado é
+  indistinguível de um print de uma lista com um item.
 
 ## Capturas
 
 | Script | O que faz |
 |---|---|
-| `capturar-beefood.py` | imagens 01, 02, 04, 05, 06 — cria a credencial de produção com os seis acessos e fotografa os dois diálogos |
-| `capturar-naturalbot.py` | imagens 07 a 16 — conecta, escolhe cardápio, salva e importa o cardápio |
+| `capturar-beefood.py` | puras 01 a 04 — cria a credencial de produção com os seis acessos e fotografa os dois diálogos |
+| `capturar-naturalbot.py` | puras 05a a 12 — conecta, escolhe cardápio, salva e importa o cardápio |
 | `limpar-credencial.py` | apaga a credencial de produção que foi fotografada |
-| `annotate.py` | as 16 tratadas, 49 setas; a imagem 03 é um segundo recorte da pura 02 |
+| `annotate.py` | as 12 tratadas, 42 setas; duas delas são **costuradas** de dois recortes |
 | `conferir-setas.py` | cruza as setas desenhadas com os números citados no `.md` |
 
 Dois detalhes do `annotate.py` que valem para o próximo manual com painel de parceiro:
 
 - os diálogos da Natural Bot são **mais largos** que os da BeeFood e começam em x=580 na captura
   de 2160 px — daí a geometria `dialogo_nb()`, separada da `dialogo()`;
-- o `conferir-setas.py` do #129 confundia a tupla do `corte=` com marcador de seta, porque lá
-  nenhum recorte era escrito à mão na chamada. A correção (tirar `corte=(...)` do bloco antes de
-  procurar marcador) está na versão daqui.
+- o `conferir-setas.py` do #129 confundia tupla de quatro números — o `corte=`, a caixa de uma
+  fatia — com marcador de seta. A correção (tirar toda tupla de quatro campos numéricos do bloco
+  antes de procurar marcador) está na versão daqui.
 
 ## Pendências
 

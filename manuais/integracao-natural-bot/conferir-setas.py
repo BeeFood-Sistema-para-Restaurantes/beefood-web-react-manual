@@ -1,6 +1,6 @@
 """Confere, neste manual, se o texto e as setas falam a mesma coisa.
 
-Duas perguntas, que a revisão no olho erra com dezesseis imagens e 49 setas:
+Duas perguntas, que a revisão no olho erra com doze imagens e 42 setas:
 
 * toda seta **desenhada** pelo `annotate.py` é **citada** no `.md`?
 * todo número **citado** no `.md` existe como seta **naquela** imagem?
@@ -18,8 +18,8 @@ Rodar dentro da pasta do manual:
     python3 conferir-setas.py
 
 Sai com código 1 quando acha divergência. Ele é **deste manual**: lê os marcadores no formato
-`(numero, alvo_x, alvo_y, etiqueta_x, etiqueta_y)` e as quatro funções de geometria do
-`annotate.py` daqui (`annotate`, `painel`, `dialogo`, `dialogo_nb`).
+`(numero, alvo_x, alvo_y, etiqueta_x, etiqueta_y)` — mais a fatia, nas imagens costuradas — e
+as cinco funções de geometria do `annotate.py` daqui.
 """
 
 from __future__ import annotations
@@ -30,7 +30,7 @@ from pathlib import Path
 
 PASTA = Path(sys.argv[1] if len(sys.argv) > 1 else ".")
 APOIO = ("fluxo-codigo.md", "MEMORIA.md", "texto-documentation.ia.md")
-GEOMETRIAS = ("annotate", "painel", "dialogo", "dialogo_nb")
+GEOMETRIAS = ("annotate", "montagem", "painel", "dialogo", "dialogo_nb")
 
 manual = next(p for p in sorted(PASTA.glob("*.md")) if p.name not in APOIO)
 texto = manual.read_text(encoding="utf-8")
@@ -40,14 +40,20 @@ script = (PASTA / "annotate.py").read_text(encoding="utf-8")
 abre = "|".join(f"{g}\\(" for g in GEOMETRIAS)
 desenhadas: dict[str, set[int]] = {}
 for bloco in re.split(rf"\n(?={abre})", script):
-    m = re.search(rf'^(?:{"|".join(GEOMETRIAS)})\(\s*\n?\s*"([^"]+)"', bloco)
-    if not m:
+    if not re.match(rf'(?:{"|".join(GEOMETRIAS)})\(', bloco):
         continue
     saida = re.search(r'saida="([^"]+)"', bloco)
-    nome = saida.group(1) if saida else m.group(1)
-    # O `corte=` também é tupla de números: sai antes, senão entra como marcador.
-    sem_corte = re.sub(r"corte=\([^)]*\)", "", bloco)
-    numeros = {int(n) for n in re.findall(r"\(\s*(\d+),\s*-?\d+,\s*-?\d+,", sem_corte)}
+    if saida:
+        nome = saida.group(1)
+    else:
+        m = re.search(r'^\w+\(\s*\n?\s*"([^"]+)"', bloco)
+        if not m:
+            continue
+        nome = m.group(1)
+    # Recorte e caixa de fatia também são tupla de números, e de quatro campos: saem antes,
+    # senão entram como marcador. Marcador tem cinco campos, ou seis quando é costura.
+    sem_caixas = re.sub(r"\(\s*-?\d+,\s*-?\d+,\s*-?\d+,\s*-?\d+\s*\)", "", bloco)
+    numeros = {int(n) for n in re.findall(r"\(\s*(\d+),\s*-?\d+,\s*-?\d+,", sem_caixas)}
     if numeros:
         desenhadas[nome] = numeros
 
